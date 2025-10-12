@@ -1,0 +1,58 @@
+﻿using System;
+
+namespace ctre_wp7.iframework.visual
+{
+	// Token: 0x0200001B RID: 27
+	internal class VBox : BaseElement
+	{
+		// Token: 0x06000143 RID: 323 RVA: 0x0000A398 File Offset: 0x00008598
+		public override int addChildwithID(BaseElement c, int i)
+		{
+			int num = base.addChildwithID(c, i);
+			if (this.align == 1)
+			{
+				c.anchor = (c.parentAnchor = 9);
+			}
+			else if (this.align == 4)
+			{
+				c.anchor = (c.parentAnchor = 12);
+			}
+			else if (this.align == 2)
+			{
+				c.anchor = (c.parentAnchor = 10);
+			}
+			c.y = this.nextElementY;
+			this.nextElementY += (float)c.height + this.offset;
+			this.height = (int)(this.nextElementY - this.offset);
+			return num;
+		}
+
+		// Token: 0x06000144 RID: 324 RVA: 0x0000A43C File Offset: 0x0000863C
+		public virtual VBox initWithOffsetAlignWidth(double of, int a, double w)
+		{
+			return this.initWithOffsetAlignWidth((float)of, a, (float)w);
+		}
+
+		// Token: 0x06000145 RID: 325 RVA: 0x0000A449 File Offset: 0x00008649
+		public virtual VBox initWithOffsetAlignWidth(float of, int a, float w)
+		{
+			if (base.init() != null)
+			{
+				this.offset = of;
+				this.align = a;
+				this.nextElementY = 0f;
+				this.width = (int)w;
+			}
+			return this;
+		}
+
+		// Token: 0x0400076B RID: 1899
+		public float offset;
+
+		// Token: 0x0400076C RID: 1900
+		public int align;
+
+		// Token: 0x0400076D RID: 1901
+		public float nextElementY;
+	}
+}

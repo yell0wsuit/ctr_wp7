@@ -1,0 +1,17 @@
+﻿using System;
+
+namespace ctre_wp7.game
+{
+	// Token: 0x02000056 RID: 86
+	internal enum GHOST_ELEMENT
+	{
+		// Token: 0x04000895 RID: 2197
+		GHOST_ELEMENT_APPEAR_TL = 10,
+		// Token: 0x04000896 RID: 2198
+		GHOST_ELEMENT_DISAPPEAR_TL,
+		// Token: 0x04000897 RID: 2199
+		GHOST_ELEMENT_FLOATING_TL,
+		// Token: 0x04000898 RID: 2200
+		GHOST_ELEMENT_DELAY_TL
+	}
+}
