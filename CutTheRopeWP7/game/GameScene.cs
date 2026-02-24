@@ -374,7 +374,7 @@ namespace ctr_wp7.game
                     {
                         Pump pump = Pump.Pump_createWithResID(143);
                         pump.doRestoreCutTransparency();
-                        Animation animation2 = pump;
+                        Pump animation2 = pump;
                         float num9 = 0.05f;
                         Timeline.LoopType loopType2 = Timeline.LoopType.TIMELINE_NO_LOOP;
                         int num10 = 4;
@@ -413,7 +413,7 @@ namespace ctr_wp7.game
                         sock.state = Sock.SOCK_IDLE;
                         sock.parseMover(xmlnode4);
                         sock.rotation += 90f;
-                        sock.mover?.angle += 90.0;
+                        _ = (sock.mover?.angle += 90.0);
                         sock.updateRotation();
                         socks.Add(sock);
                     }
@@ -1853,7 +1853,7 @@ namespace ctr_wp7.game
                             {
                                 foreach (Ghost ghost10 in ghosts)
                                 {
-                                    ghost10?.candyBreak = true;
+                                    _ = (ghost10?.candyBreak = true);
                                 }
                             }
                             return;
@@ -2199,7 +2199,7 @@ namespace ctr_wp7.game
             {
                 for (int n = 0; n < bubbles.Count; n++)
                 {
-                    GameObject gameObject2 = bubbles[n];
+                    Bubble gameObject2 = bubbles[n];
                     gameObject2?.draw();
                 }
             }
@@ -2207,7 +2207,7 @@ namespace ctr_wp7.game
             {
                 for (int num7 = 0; num7 < pumps.Count; num7++)
                 {
-                    GameObject gameObject3 = pumps[num7];
+                    Pump gameObject3 = pumps[num7];
                     gameObject3?.draw();
                 }
             }
@@ -2232,7 +2232,7 @@ namespace ctr_wp7.game
                 for (int num10 = 0; num10 < socks.Count; num10++)
                 {
                     Sock sock = socks[num10];
-                    sock?.y -= 25f;
+                    _ = (sock?.y -= 25f);
                     sock.draw();
                     sock.y += 25f;
                 }
@@ -2279,7 +2279,7 @@ namespace ctr_wp7.game
             {
                 for (int num13 = 0; num13 < stars.Count; num13++)
                 {
-                    GameObject gameObject4 = stars[num13];
+                    Star gameObject4 = stars[num13];
                     gameObject4?.draw();
                 }
             }
@@ -4042,10 +4042,10 @@ namespace ctr_wp7.game
         private GameObject candy;
 
         // Token: 0x04000D83 RID: 3459
-        private Image candyMain;
+        private GameObject candyMain;
 
         // Token: 0x04000D84 RID: 3460
-        private Image candyTop;
+        private GameObject candyTop;
 
         // Token: 0x04000D85 RID: 3461
         private Animation candyBlink;
