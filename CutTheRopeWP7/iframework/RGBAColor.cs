@@ -82,7 +82,7 @@ namespace ctr_wp7.iframework
             {
                 list.AddRange(colors[i].toFloatArray());
             }
-            return list.ToArray();
+            return [.. list];
         }
 
         // Token: 0x040007B4 RID: 1972
