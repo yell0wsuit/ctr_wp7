@@ -264,7 +264,7 @@ namespace ctr_wp7.game
                 hookButton.x = hook.pos.x;
                 hookButton.y = hook.pos.y - 5f;
                 ConstraintedPoint bungeeAnchor = bungee.bungeeAnchor;
-                ConstraintedPoint constraintedPoint = bungee.parts[bungee.parts.Count - 1];
+                ConstraintedPoint constraintedPoint = bungee.parts[^1];
                 Vector vector = vectSub(bungeeAnchor.pos, constraintedPoint.pos);
                 float num = RADIANS_TO_DEGREES(vectAngleNormalized(vector)) + 90f;
                 hookButton.rotation = num;

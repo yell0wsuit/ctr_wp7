@@ -263,7 +263,7 @@ namespace ctr_wp7.game
         public float rollBack(float amount)
         {
             float num = amount;
-            ConstraintedPoint constraintedPoint = parts[parts.Count - 2];
+            ConstraintedPoint constraintedPoint = parts[^2];
             int num2 = (int)tail.restLengthFor(constraintedPoint);
             int num3 = parts.Count;
             while (num > 0f)
@@ -314,13 +314,13 @@ namespace ctr_wp7.game
         // Token: 0x06000688 RID: 1672 RVA: 0x00032898 File Offset: 0x00030A98
         public void rollplacingWithOffset(float rollLen, Vector off)
         {
-            ConstraintedPoint constraintedPoint = parts[parts.Count - 2];
+            ConstraintedPoint constraintedPoint = parts[^2];
             int num = (int)tail.restLengthFor(constraintedPoint);
             while (rollLen > 0f)
             {
                 if (rollLen >= 30f)
                 {
-                    ConstraintedPoint constraintedPoint2 = parts[parts.Count - 2];
+                    ConstraintedPoint constraintedPoint2 = parts[^2];
                     ConstraintedPoint constraintedPoint3 = (ConstraintedPoint)new ConstraintedPoint().init();
                     constraintedPoint3.setWeight(0.02f);
                     constraintedPoint3.pos = vectAdd(constraintedPoint2.pos, off);
@@ -339,7 +339,7 @@ namespace ctr_wp7.game
                     }
                     else
                     {
-                        ConstraintedPoint constraintedPoint4 = parts[parts.Count - 2];
+                        ConstraintedPoint constraintedPoint4 = parts[^2];
                         tail.changeRestLengthToFor(num2, constraintedPoint4);
                         rollLen = 0f;
                     }
