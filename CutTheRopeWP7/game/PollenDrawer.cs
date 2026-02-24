@@ -56,7 +56,7 @@ namespace ctr_wp7.game
             float num = 1f;
             float num2 = 1f;
             float[] array = new float[] { 0.3f, 0.3f, 0.5f, 0.5f, 0.6f };
-            int num3 = Enumerable.Count<float>(array);
+            int num3 = Enumerable.Count(array);
             float num4 = array[RND_RANGE(0, num3 - 1)];
             float num5 = num4;
             if (RND(1) == 1)

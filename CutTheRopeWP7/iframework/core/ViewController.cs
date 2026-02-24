@@ -342,7 +342,7 @@ namespace ctr_wp7.iframework.core
         public const int FAKE_TOUCH_UP_TO_DEACTIVATE_BUTTONS = -10000;
 
         // Token: 0x040008C9 RID: 2249
-        public ViewController.ControllerState controllerState;
+        public ControllerState controllerState;
 
         // Token: 0x040008CA RID: 2250
         public int activeViewID;

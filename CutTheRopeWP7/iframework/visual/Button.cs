@@ -77,7 +77,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x060002A1 RID: 673 RVA: 0x00010BC8 File Offset: 0x0000EDC8
-        public virtual void setState(Button.BUTTON_STATE s)
+        public virtual void setState(BUTTON_STATE s)
         {
             state = s;
             BaseElement child = getChild(0);
@@ -159,7 +159,7 @@ namespace ctr_wp7.iframework.visual
         public int buttonID;
 
         // Token: 0x0400089B RID: 2203
-        public Button.BUTTON_STATE state;
+        public BUTTON_STATE state;
 
         // Token: 0x0400089C RID: 2204
         public ButtonDelegate delegateButtonDelegate;

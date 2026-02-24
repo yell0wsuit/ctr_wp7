@@ -23,13 +23,13 @@ namespace ctr_wp7.iframework.helpers
         }
 
         // Token: 0x060003B4 RID: 948 RVA: 0x00017FCB File Offset: 0x000161CB
-        public virtual void callObjectSelectorParamafterDelay(DelayedDispatcher.DispatchFunc s, NSObject p, double d)
+        public virtual void callObjectSelectorParamafterDelay(DispatchFunc s, NSObject p, double d)
         {
             callObjectSelectorParamafterDelay(s, p, (float)d);
         }
 
         // Token: 0x060003B5 RID: 949 RVA: 0x00017FD8 File Offset: 0x000161D8
-        public virtual void callObjectSelectorParamafterDelay(DelayedDispatcher.DispatchFunc s, NSObject p, float d)
+        public virtual void callObjectSelectorParamafterDelay(DispatchFunc s, NSObject p, float d)
         {
             Dispatch dispatch = new Dispatch().initWithObjectSelectorParamafterDelay(s, p, d);
             dispatchers.Add(dispatch);
@@ -60,7 +60,7 @@ namespace ctr_wp7.iframework.helpers
         }
 
         // Token: 0x060003B8 RID: 952 RVA: 0x0001807A File Offset: 0x0001627A
-        public virtual void cancelDispatchWithObjectSelectorParam(DelayedDispatcher.DispatchFunc s, NSObject p)
+        public virtual void cancelDispatchWithObjectSelectorParam(DispatchFunc s, NSObject p)
         {
             throw new NotImplementedException();
         }

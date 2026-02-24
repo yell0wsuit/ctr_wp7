@@ -1070,7 +1070,7 @@ namespace ctr_wp7.ctr_original
                 num = ((CTRPreferences.getUnlockedForPackLevel(p, l) == UNLOCKED_STATE.UNLOCKED_STATE_LOCKED) ? 1 : 0);
             }
             int starsForPackLevel = CTRPreferences.getStarsForPackLevel(p, l);
-            MenuController.TouchBaseElement touchBaseElement = (MenuController.TouchBaseElement)new MenuController.TouchBaseElement().init();
+            TouchBaseElement touchBaseElement = (TouchBaseElement)new TouchBaseElement().init();
             touchBaseElement.bbc = MakeRectangle(5.0, 0.0, -10.0, 0.0);
             touchBaseElement.delegateButtonDelegate = this;
             Image image;
@@ -2375,7 +2375,7 @@ namespace ctr_wp7.ctr_original
         }
 
         // Token: 0x060006DC RID: 1756 RVA: 0x000380B4 File Offset: 0x000362B4
-        private void showView(MenuController.ViewID n)
+        private void showView(ViewID n)
         {
             if (n == ViewID.VIEW_OPTIONS || n == ViewID.VIEW_RESET || n == ViewID.VIEW_PACK_SELECT)
             {
@@ -2438,25 +2438,25 @@ namespace ctr_wp7.ctr_original
         }
 
         // Token: 0x060006DD RID: 1757 RVA: 0x00038273 File Offset: 0x00036473
-        private View getView(MenuController.ViewID n)
+        private View getView(ViewID n)
         {
             return base.getView((int)n);
         }
 
         // Token: 0x060006DE RID: 1758 RVA: 0x0003827C File Offset: 0x0003647C
-        private void deleteView(MenuController.ViewID n)
+        private void deleteView(ViewID n)
         {
             base.deleteView((int)n);
         }
 
         // Token: 0x060006DF RID: 1759 RVA: 0x00038285 File Offset: 0x00036485
-        private void addViewwithID(View view, MenuController.ViewID n)
+        private void addViewwithID(View view, ViewID n)
         {
             base.addViewwithID(view, (int)n);
         }
 
         // Token: 0x060006E0 RID: 1760 RVA: 0x0003828F File Offset: 0x0003648F
-        private void activateChild(MenuController.CHILD_TYPE c)
+        private void activateChild(CHILD_TYPE c)
         {
             base.activateChild((int)c);
         }
@@ -2557,7 +2557,7 @@ namespace ctr_wp7.ctr_original
         public int level;
 
         // Token: 0x04000C22 RID: 3106
-        public MenuController.ViewID viewToShow;
+        public ViewID viewToShow;
 
         // Token: 0x04000C23 RID: 3107
         public int animationStartPackIndex;

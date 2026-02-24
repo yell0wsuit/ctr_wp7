@@ -11,7 +11,7 @@ namespace ctr_wp7.remotedata.cartoons
     public class ImageDownloader
     {
         // Token: 0x060001A3 RID: 419 RVA: 0x0000BD00 File Offset: 0x00009F00
-        public static void setListener(ImageDownloader.ImageDownloadedListener LImageDownloaded)
+        public static void setListener(ImageDownloadedListener LImageDownloaded)
         {
             lImageDownloaded = LImageDownloaded;
         }
@@ -27,7 +27,7 @@ namespace ctr_wp7.remotedata.cartoons
                     busy = true;
                     HttpWebRequest httpWebRequest2 = (HttpWebRequest)r.AsyncState;
                     HttpWebResponse httpWebResponse = (HttpWebResponse)httpWebRequest2.EndGetResponse(r);
-                    ImageDownloader.ImageDataSaxHandler imageDataSaxHandler = new ImageDownloader.ImageDataSaxHandler(block);
+                    ImageDataSaxHandler imageDataSaxHandler = new ImageDataSaxHandler(block);
                     using (imageDataSaxHandler.xmlReader = XmlReader.Create(httpWebResponse.GetResponseStream()))
                     {
                         imageDataSaxHandler.Parse();
@@ -54,7 +54,7 @@ namespace ctr_wp7.remotedata.cartoons
         protected static volatile bool busy = false;
 
         // Token: 0x040007CF RID: 1999
-        protected static ImageDownloader.ImageDownloadedListener lImageDownloaded;
+        protected static ImageDownloadedListener lImageDownloaded;
 
         // Token: 0x0200002B RID: 43
         protected class ImageDataSaxHandler(Block pBlock) : DefaultHandler

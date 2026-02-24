@@ -155,7 +155,7 @@ namespace ctr_wp7.iframework
         }
 
         // Token: 0x060004FF RID: 1279 RVA: 0x00025299 File Offset: 0x00023499
-        public static void glBindTexture(ctr_wp7.iframework.visual.Texture2D t)
+        public static void glBindTexture(visual.Texture2D t)
         {
             s_Texture = t;
         }
@@ -276,7 +276,7 @@ namespace ctr_wp7.iframework
                 array = new float[length];
                 FloatArray.Add(length, array);
             }
-            s_GLVertexPointer = new OpenGL.GLVertexPointer(size, type, stride, array);
+            s_GLVertexPointer = new GLVertexPointer(size, type, stride, array);
             s_GLVertexPointer_additive_position = 0;
         }
 
@@ -290,13 +290,13 @@ namespace ctr_wp7.iframework
         // Token: 0x06000514 RID: 1300 RVA: 0x000253E8 File Offset: 0x000235E8
         public static void glVertexPointer(int size, int type, int stride, object pointer)
         {
-            s_GLVertexPointer = new OpenGL.GLVertexPointer(size, type, stride, pointer);
+            s_GLVertexPointer = new GLVertexPointer(size, type, stride, pointer);
         }
 
         // Token: 0x06000515 RID: 1301 RVA: 0x000253F8 File Offset: 0x000235F8
         public static void glTexCoordPointer(int size, int type, int stride, object pointer)
         {
-            s_GLTexCoordPointer = new OpenGL.GLTexCoordPointer(size, type, stride, pointer);
+            s_GLTexCoordPointer = new GLTexCoordPointer(size, type, stride, pointer);
         }
 
         // Token: 0x06000516 RID: 1302 RVA: 0x00025408 File Offset: 0x00023608
@@ -560,7 +560,7 @@ namespace ctr_wp7.iframework
             foreach (EffectPass effectPass in effect.CurrentTechnique.Passes)
             {
                 effectPass.Apply();
-                WP7Singletons.GraphicsDevice.DrawUserPrimitives<VertexPositionColor>(PrimitiveType.TriangleStrip, array, 0, array.Length - 2);
+                WP7Singletons.GraphicsDevice.DrawUserPrimitives(PrimitiveType.TriangleStrip, array, 0, array.Length - 2);
             }
         }
 
@@ -576,7 +576,7 @@ namespace ctr_wp7.iframework
             foreach (EffectPass effectPass in effect.CurrentTechnique.Passes)
             {
                 effectPass.Apply();
-                WP7Singletons.GraphicsDevice.DrawUserPrimitives<VertexPositionNormalTexture>(PrimitiveType.TriangleStrip, array, 0, array.Length - 2);
+                WP7Singletons.GraphicsDevice.DrawUserPrimitives(PrimitiveType.TriangleStrip, array, 0, array.Length - 2);
             }
         }
 
@@ -597,7 +597,7 @@ namespace ctr_wp7.iframework
             foreach (EffectPass effectPass in effect.CurrentTechnique.Passes)
             {
                 effectPass.Apply();
-                WP7Singletons.GraphicsDevice.DrawUserIndexedPrimitives<VertexPositionNormalTexture>(PrimitiveType.TriangleList, vertices, 0, vertices.Length, indices, 0, indices.Length / 3);
+                WP7Singletons.GraphicsDevice.DrawUserIndexedPrimitives(PrimitiveType.TriangleList, vertices, 0, vertices.Length, indices, 0, indices.Length / 3);
             }
         }
 
@@ -622,7 +622,7 @@ namespace ctr_wp7.iframework
             foreach (EffectPass effectPass in effect.CurrentTechnique.Passes)
             {
                 effectPass.Apply();
-                WP7Singletons.GraphicsDevice.DrawUserIndexedPrimitives<VertexPositionNormalTexture>(PrimitiveType.TriangleList, array, 0, array.Length, indices, 0, indices.Length / 3);
+                WP7Singletons.GraphicsDevice.DrawUserIndexedPrimitives(PrimitiveType.TriangleList, array, 0, array.Length, indices, 0, indices.Length / 3);
             }
         }
 
@@ -642,7 +642,7 @@ namespace ctr_wp7.iframework
             foreach (EffectPass effectPass in effect.CurrentTechnique.Passes)
             {
                 effectPass.Apply();
-                WP7Singletons.GraphicsDevice.DrawUserIndexedPrimitives<VertexPositionColorTexture>(PrimitiveType.TriangleList, array, 0, count / 3 * 2, indices, 0, count / 3);
+                WP7Singletons.GraphicsDevice.DrawUserIndexedPrimitives(PrimitiveType.TriangleList, array, 0, count / 3 * 2, indices, 0, count / 3);
             }
         }
 
@@ -766,7 +766,7 @@ namespace ctr_wp7.iframework
         private static Matrix s_matrixProjection = Matrix.Identity;
 
         // Token: 0x04000A59 RID: 2649
-        private static ctr_wp7.iframework.visual.Texture2D s_Texture;
+        private static visual.Texture2D s_Texture;
 
         // Token: 0x04000A5A RID: 2650
         private static Color s_glClearColor = Color.White;
@@ -796,10 +796,10 @@ namespace ctr_wp7.iframework
         private static Dictionary<int, float[]> FloatArray = new Dictionary<int, float[]>();
 
         // Token: 0x04000A63 RID: 2659
-        private static OpenGL.GLVertexPointer s_GLVertexPointer;
+        private static GLVertexPointer s_GLVertexPointer;
 
         // Token: 0x04000A64 RID: 2660
-        private static OpenGL.GLTexCoordPointer s_GLTexCoordPointer;
+        private static GLTexCoordPointer s_GLTexCoordPointer;
 
         // Token: 0x04000A65 RID: 2661
         private static Dictionary<int, VertexPositionColor[]> VertexPositionColorArray = new Dictionary<int, VertexPositionColor[]>();

@@ -58,7 +58,7 @@ namespace ctr_wp7.remotedata.cartoons
                         HttpWebRequest httpWebRequest2 = (HttpWebRequest)r.AsyncState;
                         HttpWebResponse httpWebResponse = (HttpWebResponse)httpWebRequest2.EndGetResponse(r);
                         int totalBlocks = blockConfig.getTotalBlocks();
-                        VideoDataManager.VideoDataSaxHandler videoDataSaxHandler = new VideoDataManager.VideoDataSaxHandler(this);
+                        VideoDataSaxHandler videoDataSaxHandler = new VideoDataSaxHandler(this);
                         using (videoDataSaxHandler.xmlReader = XmlReader.Create(httpWebResponse.GetResponseStream()))
                         {
                             videoDataSaxHandler.Parse();

@@ -14,7 +14,7 @@ namespace ctr_wp7.wp7utilities
         // Token: 0x06000376 RID: 886 RVA: 0x00016016 File Offset: 0x00014216
         private void cameraTestMove()
         {
-            objects.Add(new TestXNA.TestCameraMove());
+            objects.Add(new TestCameraMove());
         }
 
         // Token: 0x06000377 RID: 887 RVA: 0x00016028 File Offset: 0x00014228
@@ -32,7 +32,7 @@ namespace ctr_wp7.wp7utilities
             button.y = num3;
             button.scaleX = 0.5f;
             button.scaleY = 0.5f;
-            objects.Add(new TestXNA.TestRotate(button));
+            objects.Add(new TestRotate(button));
             button = MenuController.createButtonWithTextIDDelegate(Application.getString(num), 0, null);
             button.x = num2;
             button.y = num3;
@@ -55,7 +55,7 @@ namespace ctr_wp7.wp7utilities
             button = MenuController.createButtonWithTextIDDelegate(Application.getString(num), 0, null);
             button.x = num2;
             button.y = num3;
-            objects.Add(new TestXNA.TestRotate(button));
+            objects.Add(new TestRotate(button));
             button = MenuController.createButtonWithTextIDDelegate(Application.getString(num), 0, null);
             button.x = num2;
             button.y = num3;
@@ -79,7 +79,7 @@ namespace ctr_wp7.wp7utilities
             button.y = num3;
             button.scaleX = 1.5f;
             button.scaleY = 1.5f;
-            objects.Add(new TestXNA.TestRotate(button));
+            objects.Add(new TestRotate(button));
             button = MenuController.createButtonWithTextIDDelegate(Application.getString(num), 0, null);
             button.x = num2;
             button.y = num3;

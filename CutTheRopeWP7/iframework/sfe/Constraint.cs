@@ -12,7 +12,7 @@ namespace ctr_wp7.iframework.sfe
         public float restLength;
 
         // Token: 0x04000770 RID: 1904
-        public Constraint.CONSTRAINT type;
+        public CONSTRAINT type;
 
         // Token: 0x0200001D RID: 29
         public enum CONSTRAINT

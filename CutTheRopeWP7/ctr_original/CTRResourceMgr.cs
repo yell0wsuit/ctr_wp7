@@ -1712,7 +1712,7 @@ namespace ctr_wp7.ctr_original
         }
 
         // Token: 0x06000546 RID: 1350 RVA: 0x00029027 File Offset: 0x00027227
-        public override NSObject loadResource(int resID, ResourceMgr.ResourceType resType)
+        public override NSObject loadResource(int resID, ResourceType resType)
         {
             return base.loadResource(handleLocalizedResource(handleWvgaResource(resID)), resType);
         }

@@ -89,7 +89,7 @@ namespace ctr_wp7.Banner
             if (list.Count > 0)
             {
                 text3 += "&existing=";
-                text3 += string.Join<int>(",", list);
+                text3 += string.Join(",", list);
             }
             text3 += getAdditionalParameters();
             RequestDataTask_execute(text3);

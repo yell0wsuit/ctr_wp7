@@ -18,7 +18,7 @@ namespace ctr_wp7.iframework.visual
                 height = charmapfile.quadRects[0].h;
                 chars = strParam.copy();
                 sortedChars = chars.getCharacters();
-                Array.Sort<char>(sortedChars);
+                Array.Sort(sortedChars);
                 kerning = null;
                 charOffset = 0f;
                 lineOffset = 0f;
@@ -59,7 +59,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x06000777 RID: 1911 RVA: 0x0003B829 File Offset: 0x00039A29
         public override bool canDraw(char c)
         {
-            return c == ' ' || Array.BinarySearch<char>(sortedChars, c) >= 0;
+            return c == ' ' || Array.BinarySearch(sortedChars, c) >= 0;
         }
 
         // Token: 0x06000778 RID: 1912 RVA: 0x0003B844 File Offset: 0x00039A44

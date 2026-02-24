@@ -16,7 +16,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x060004B8 RID: 1208 RVA: 0x000220E8 File Offset: 0x000202E8
-        public virtual Track initWithTimelineTypeandMaxKeyFrames(Timeline timeline, Track.TrackType trackType, int m)
+        public virtual Track initWithTimelineTypeandMaxKeyFrames(Timeline timeline, TrackType trackType, int m)
         {
             t = timeline;
             type = trackType;
@@ -508,10 +508,10 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x040009F8 RID: 2552
-        public Track.TrackType type;
+        public TrackType type;
 
         // Token: 0x040009F9 RID: 2553
-        public Track.TrackState state;
+        public TrackState state;
 
         // Token: 0x040009FA RID: 2554
         public bool relative;

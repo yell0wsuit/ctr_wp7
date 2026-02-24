@@ -88,7 +88,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x060003F0 RID: 1008 RVA: 0x0001C4E0 File Offset: 0x0001A6E0
-        public virtual void setState(TimedButton.TIMED_BUTTON s)
+        public virtual void setState(TIMED_BUTTON s)
         {
             state = s;
             BaseElement child = getChild(0);
@@ -201,7 +201,7 @@ namespace ctr_wp7.iframework.visual
         private float time;
 
         // Token: 0x04000957 RID: 2391
-        private TimedButton.TIMED_BUTTON state;
+        private TIMED_BUTTON state;
 
         // Token: 0x04000958 RID: 2392
         public ButtonDelegate delegateButtonDelegate;

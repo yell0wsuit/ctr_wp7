@@ -250,7 +250,7 @@ namespace ctr_wp7.ios
                 throw new InvalidOperationException("Unable to load XML resource '" + fileName + "'.");
             }
             IEnumerable<XElement> enumerable = xdocument.Elements();
-            return ReadNodeLINQ(Enumerable.First<XElement>(enumerable), null);
+            return ReadNodeLINQ(Enumerable.First(enumerable), null);
         }
 
         private static XDocument TryLoadXmlFromContent(string fileName)
@@ -336,7 +336,7 @@ namespace ctr_wp7.ios
                 xdocument = XDocument.Load(responseStream);
                 responseStream.Dispose();
                 IEnumerable<XElement> enumerable = xdocument.Elements();
-                _ = MGR_STORED.XMLDownloadFinished(ReadNodeLINQ(Enumerable.First<XElement>(enumerable), null));
+                _ = MGR_STORED.XMLDownloadFinished(ReadNodeLINQ(Enumerable.First(enumerable), null));
             }
             catch (WebException)
             {

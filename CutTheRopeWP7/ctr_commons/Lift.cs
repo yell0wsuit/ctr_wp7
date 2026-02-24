@@ -77,7 +77,7 @@ namespace ctr_wp7.ctr_commons
         public float startY;
 
         // Token: 0x04000E03 RID: 3587
-        public Lift.PercentXY liftDelegate;
+        public PercentXY liftDelegate;
 
         // Token: 0x04000E04 RID: 3588
         public float minX;

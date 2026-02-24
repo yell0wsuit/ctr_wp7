@@ -11,9 +11,9 @@ namespace ctr_wp7.Banner
     internal class RemoteDataManager : NSObject, ButtonDelegate
     {
         // Token: 0x060001AE RID: 430 RVA: 0x0000BE68 File Offset: 0x0000A068
-        private RemoteDataManager.BannerSize getBannerSize()
+        private BannerSize getBannerSize()
         {
-            RemoteDataManager.BannerSize bannerSize;
+            BannerSize bannerSize;
             bannerSize.width = 480;
             bannerSize.height = 300;
             return bannerSize;
@@ -24,7 +24,7 @@ namespace ctr_wp7.Banner
         {
             if (base.init() != null && remoteDataMgr != null)
             {
-                RemoteDataManager.BannerSize bannerSize = getBannerSize();
+                BannerSize bannerSize = getBannerSize();
                 string text = "ctr";
                 string text2 = "winphone";
                 remoteDataMgr.initWith(text, text2, setID, bannerSize.width, bannerSize.height);
@@ -45,7 +45,7 @@ namespace ctr_wp7.Banner
             {
                 return null;
             }
-            RemoteDataManager.BannerSize bannerSize = getBannerSize();
+            BannerSize bannerSize = getBannerSize();
             currentBanner = remoteDataMgr.getBanner();
             if (currentBanner != null)
             {

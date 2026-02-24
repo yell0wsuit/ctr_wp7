@@ -68,7 +68,7 @@ namespace ctr_wp7.game
                 }
                 for (int j = 0; j < 5; j++)
                 {
-                    fingerCuts[j] = new List<GameScene.FingerCut>();
+                    fingerCuts[j] = new List<FingerCut>();
                     _ = NSRET(fingerCuts[j]);
                 }
             }
@@ -115,8 +115,8 @@ namespace ctr_wp7.game
             pumps = new List<Pump>();
             socks = new List<Sock>();
             bouncers = new List<Bouncer>();
-            tutorialImages = new List<GameScene.GameObjectSpecial>();
-            tutorials = new List<GameScene.TutorialText>();
+            tutorialImages = new List<GameObjectSpecial>();
+            tutorials = new List<TutorialText>();
             rotatedCircles = new List<RotatedCircle>();
             ghosts = new List<Ghost>();
             tubes = new List<SteamTube>();
@@ -286,7 +286,7 @@ namespace ctr_wp7.game
                             NSString nsstring = xmlnode4["text"];
                             if (nsstring != null)
                             {
-                                GameScene.TutorialText tutorialText = (GameScene.TutorialText)new GameScene.TutorialText().initWithFont(Application.getFont(6));
+                                TutorialText tutorialText = (TutorialText)new TutorialText().initWithFont(Application.getFont(6));
                                 tutorialText.color = RGBAColor.MakeRGBA(1.0, 1.0, 1.0, 0.9);
                                 tutorialText.x = (float)xmlnode4["x"].intValue() * 1f + 0f;
                                 tutorialText.y = (float)xmlnode4["y"].intValue() * 1f + 0f;
@@ -314,7 +314,7 @@ namespace ctr_wp7.game
                         {
                             NSString nsstring2 = new NSString(xmlnode4.Name.Substring(8));
                             int num7 = nsstring2.intValue() - 1;
-                            GameScene.GameObjectSpecial gameObjectSpecial = GameObjectSpecial.GameObjectSpecial_createWithResIDQuad(144, num7);
+                            GameObjectSpecial gameObjectSpecial = GameObjectSpecial.GameObjectSpecial_createWithResIDQuad(144, num7);
                             gameObjectSpecial.color = RGBAColor.transparentRGBA;
                             gameObjectSpecial.x = (float)xmlnode4["x"].intValue() * 1f + 0f;
                             gameObjectSpecial.y = (float)xmlnode4["y"].intValue() * 1f + 0f;
@@ -917,7 +917,7 @@ namespace ctr_wp7.game
             {
                 for (int k = 0; k < fingerCuts[j].Count; k++)
                 {
-                    GameScene.FingerCut fingerCut = fingerCuts[j][k];
+                    FingerCut fingerCut = fingerCuts[j][k];
                     if (Mover.moveVariableToTarget(ref fingerCut.c.a, 0f, 10f, delta))
                     {
                         _ = fingerCuts[j].Remove(fingerCut);
@@ -1637,7 +1637,7 @@ namespace ctr_wp7.game
                     if (special == 3)
                     {
                         special = 0;
-                        foreach (GameScene.TutorialText tutorialText in tutorials)
+                        foreach (TutorialText tutorialText in tutorials)
                         {
                             if (tutorialText.special == 3)
                             {
@@ -1648,7 +1648,7 @@ namespace ctr_wp7.game
                                 tutorialText.getCurrentTimeline().jumpToTrackKeyFrame(3, 2);
                             }
                         }
-                        foreach (GameScene.GameObjectSpecial gameObjectSpecial in tutorialImages)
+                        foreach (GameObjectSpecial gameObjectSpecial in tutorialImages)
                         {
                             if (gameObjectSpecial.special == 3)
                             {
@@ -2087,7 +2087,7 @@ namespace ctr_wp7.game
                 int num36 = tutorials.Count;
                 for (int num37 = 0; num37 < num36; num37++)
                 {
-                    GameScene.TutorialText tutorialText2 = tutorials[num37];
+                    TutorialText tutorialText2 = tutorials[num37];
                     if (tutorialText2 != null && tutorialText2.special == 1)
                     {
                         tutorialText2.playTimeline(0);
@@ -2096,7 +2096,7 @@ namespace ctr_wp7.game
                 num36 = tutorialImages.Count;
                 for (int num38 = 0; num38 < num36; num38++)
                 {
-                    GameScene.GameObjectSpecial gameObjectSpecial2 = tutorialImages[num38];
+                    GameObjectSpecial gameObjectSpecial2 = tutorialImages[num38];
                     if (gameObjectSpecial2.special == 1)
                     {
                         gameObjectSpecial2.playTimeline(0);
@@ -3001,7 +3001,7 @@ namespace ctr_wp7.game
                 Vector vector10 = vectAdd(startPos[ti], camera.pos);
                 Vector vector11 = vectAdd(vect(tx, ty), camera.pos);
                 float num9 = vectDistance(vector10, vector11);
-                GameScene.FingerCut fingerCut = new GameScene.FingerCut();
+                FingerCut fingerCut = new FingerCut();
                 fingerCut.start = vector10;
                 fingerCut.end = vector11;
                 fingerCut.startSize = 5f;
@@ -3009,12 +3009,12 @@ namespace ctr_wp7.game
                 fingerCut.c = RGBAColor.whiteRGBA;
                 fingerCuts[ti].Add(fingerCut);
                 int num10 = 0;
-                List<GameScene.FingerCut> list = fingerCuts[ti];
+                List<FingerCut> list = fingerCuts[ti];
                 if (num9 > 0f && list != null)
                 {
                     for (int num11 = 0; num11 < list.Count; num11++)
                     {
-                        GameScene.FingerCut fingerCut2 = list[num11];
+                        FingerCut fingerCut2 = list[num11];
                         if (fingerCut2 != null)
                         {
                             num10 += cutWithRazorOrLine1Line2Immediate(null, fingerCut2.start, fingerCut2.end, false);
@@ -3418,7 +3418,7 @@ namespace ctr_wp7.game
                     int num5 = 0;
                     while (j < num)
                     {
-                        GameScene.FingerCut fingerCut = fingerCuts[i][j];
+                        FingerCut fingerCut = fingerCuts[i][j];
                         if (j == 0)
                         {
                             array[num5++] = fingerCut.start;
@@ -3429,7 +3429,7 @@ namespace ctr_wp7.game
                     List<Vector> list = new List<Vector>();
                     Vector vector = default(Vector);
                     bool flag = true;
-                    for (int k = 0; k < Enumerable.Count<Vector>(array); k++)
+                    for (int k = 0; k < Enumerable.Count(array); k++)
                     {
                         if (k == 0)
                         {
@@ -3445,7 +3445,7 @@ namespace ctr_wp7.game
                     if (!flag)
                     {
                         array = list.ToArray();
-                        num = Enumerable.Count<Vector>(array) - 1;
+                        num = Enumerable.Count(array) - 1;
                         int num6 = num * 2;
                         float[] array2 = new float[num6 * 2];
                         float num7 = 1f / (float)num6;
@@ -3458,7 +3458,7 @@ namespace ctr_wp7.game
                                 num8 = 1f;
                             }
                             Vector vector2 = GLDrawer.calcPathBezier(array, num + 1, num8);
-                            if (num9 > Enumerable.Count<float>(array2) - 2)
+                            if (num9 > Enumerable.Count(array2) - 2)
                             {
                                 break;
                             }
@@ -4158,10 +4158,10 @@ namespace ctr_wp7.game
         private DelayedDispatcher dd;
 
         // Token: 0x04000D79 RID: 3449
-        public GameScene.gameWonDelegate gameSceneDelegate_gameWon;
+        public gameWonDelegate gameSceneDelegate_gameWon;
 
         // Token: 0x04000D7A RID: 3450
-        public GameScene.gameLostDelegate gameSceneDelegate_gameLost;
+        public gameLostDelegate gameSceneDelegate_gameLost;
 
         // Token: 0x04000D7B RID: 3451
         private AnimationsPool aniPool;
@@ -4176,10 +4176,10 @@ namespace ctr_wp7.game
         private TileMap back;
 
         // Token: 0x04000D7F RID: 3455
-        private GameScene.CharAnim target;
+        private CharAnim target;
 
         // Token: 0x04000D80 RID: 3456
-        private GameScene.CharAnim targetIdle;
+        private CharAnim targetIdle;
 
         // Token: 0x04000D81 RID: 3457
         private Image support;
@@ -4257,10 +4257,10 @@ namespace ctr_wp7.game
         private List<RotatedCircle> rotatedCircles;
 
         // Token: 0x04000D9A RID: 3482
-        private List<GameScene.GameObjectSpecial> tutorialImages;
+        private List<GameObjectSpecial> tutorialImages;
 
         // Token: 0x04000D9B RID: 3483
-        private List<GameScene.TutorialText> tutorials;
+        private List<TutorialText> tutorials;
 
         // Token: 0x04000D9C RID: 3484
         private List<Ghost> ghosts;
@@ -4440,7 +4440,7 @@ namespace ctr_wp7.game
         private Vector slastTouch;
 
         // Token: 0x04000DD7 RID: 3543
-        private List<GameScene.FingerCut>[] fingerCuts = new List<GameScene.FingerCut>[5];
+        private List<FingerCut>[] fingerCuts = new List<FingerCut>[5];
 
         // Token: 0x04000DD8 RID: 3544
         private float JugglingTime;
@@ -4468,21 +4468,21 @@ namespace ctr_wp7.game
         private class CharAnim : GameObject
         {
             // Token: 0x06000838 RID: 2104 RVA: 0x0004A03B File Offset: 0x0004823B
-            public static GameScene.CharAnim CharAnim_create(Texture2D t)
+            public static CharAnim CharAnim_create(Texture2D t)
             {
-                return (GameScene.CharAnim)new GameScene.CharAnim().initWithTexture(t);
+                return (CharAnim)new CharAnim().initWithTexture(t);
             }
 
             // Token: 0x06000839 RID: 2105 RVA: 0x0004A04D File Offset: 0x0004824D
-            public static GameScene.CharAnim CharAnim_createWithResID(int r)
+            public static CharAnim CharAnim_createWithResID(int r)
             {
                 return CharAnim_create(Application.getTexture(r));
             }
 
             // Token: 0x0600083A RID: 2106 RVA: 0x0004A05C File Offset: 0x0004825C
-            public static GameScene.CharAnim CharAnim_createWithResIDQuad(int r, int q)
+            public static CharAnim CharAnim_createWithResIDQuad(int r, int q)
             {
-                GameScene.CharAnim charAnim = CharAnim_create(Application.getTexture(r));
+                CharAnim charAnim = CharAnim_create(Application.getTexture(r));
                 charAnim.setDrawQuad(q);
                 return charAnim;
             }
@@ -4512,13 +4512,13 @@ namespace ctr_wp7.game
             public override void switchToAnimationatEndOfAnimationDelay(int a2, int a1, float d)
             {
                 Timeline timeline = getTimeline(a1);
-                List<ctr_wp7.iframework.visual.Action> list = new List<ctr_wp7.iframework.visual.Action>();
+                List<iframework.visual.Action> list = new List<iframework.visual.Action>();
                 list.Add(iframework.visual.Action.createAction(this, "ACTION_PLAY_TIMELINE", 0, a2));
                 timeline.addKeyFrame(KeyFrame.makeAction(list, d));
             }
 
             // Token: 0x04000DDE RID: 3550
-            public GameScene.CharAnim o;
+            public CharAnim o;
 
             // Token: 0x04000DDF RID: 3551
             public bool disableAnimations;
@@ -4528,21 +4528,21 @@ namespace ctr_wp7.game
         private class GameObjectSpecial : CTRGameObject
         {
             // Token: 0x0600083E RID: 2110 RVA: 0x0004A12B File Offset: 0x0004832B
-            public static GameScene.GameObjectSpecial GameObjectSpecial_create(Texture2D t)
+            public static GameObjectSpecial GameObjectSpecial_create(Texture2D t)
             {
-                return (GameScene.GameObjectSpecial)new GameScene.GameObjectSpecial().initWithTexture(t);
+                return (GameObjectSpecial)new GameObjectSpecial().initWithTexture(t);
             }
 
             // Token: 0x0600083F RID: 2111 RVA: 0x0004A13D File Offset: 0x0004833D
-            public static GameScene.GameObjectSpecial GameObjectSpecial_createWithResID(int r)
+            public static GameObjectSpecial GameObjectSpecial_createWithResID(int r)
             {
                 return GameObjectSpecial_create(Application.getTexture(r));
             }
 
             // Token: 0x06000840 RID: 2112 RVA: 0x0004A14C File Offset: 0x0004834C
-            public static GameScene.GameObjectSpecial GameObjectSpecial_createWithResIDQuad(int r, int q)
+            public static GameObjectSpecial GameObjectSpecial_createWithResIDQuad(int r, int q)
             {
-                GameScene.GameObjectSpecial gameObjectSpecial = GameObjectSpecial_create(Application.getTexture(r));
+                GameObjectSpecial gameObjectSpecial = GameObjectSpecial_create(Application.getTexture(r));
                 gameObjectSpecial.setDrawQuad(q);
                 return gameObjectSpecial;
             }

@@ -128,7 +128,7 @@ namespace ctr_wp7.remotedata.cartoons
 
         // Token: 0x04000BBD RID: 3005
         [DataMember]
-        public Block.LoadState loadState;
+        public LoadState loadState;
 
         // Token: 0x04000BBE RID: 3006
         [DataMember]

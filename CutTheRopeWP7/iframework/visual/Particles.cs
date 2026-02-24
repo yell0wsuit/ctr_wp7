@@ -333,7 +333,7 @@ namespace ctr_wp7.iframework.visual
         public int particleIdx;
 
         // Token: 0x04000936 RID: 2358
-        public Particles.ParticlesFinished particlesDelegate;
+        public ParticlesFinished particlesDelegate;
 
         // Token: 0x02000079 RID: 121
         // (Invoke) Token: 0x0600039B RID: 923

@@ -37,7 +37,7 @@ namespace ctr_wp7.game
             if (unlockedForPackLevel >= 1)
             {
                 tpack.bid = 2000 + n;
-                BoxFabricOriginal.MonsterSlot monsterSlot = MonsterSlot.createMonsterSlot();
+                MonsterSlot monsterSlot = MonsterSlot.createMonsterSlot();
                 Image image = Image.Image_createWithResIDQuad(71, 0);
                 monsterSlot.c = c;
                 monsterSlot.anchor = (monsterSlot.parentAnchor = 9);
@@ -122,9 +122,9 @@ namespace ctr_wp7.game
         public class MonsterSlot : RectangleElement
         {
             // Token: 0x0600073D RID: 1853 RVA: 0x0003A8DC File Offset: 0x00038ADC
-            public static BoxFabricOriginal.MonsterSlot createMonsterSlot()
+            public static MonsterSlot createMonsterSlot()
             {
-                BoxFabricOriginal.MonsterSlot monsterSlot = new BoxFabricOriginal.MonsterSlot();
+                MonsterSlot monsterSlot = new MonsterSlot();
                 _ = monsterSlot.init();
                 monsterSlot.color = RGBAColor.MakeRGBA(0.17647058823529413, 0.17647058823529413, 0.20784313725490197, 1.0);
                 monsterSlot.height = 90;

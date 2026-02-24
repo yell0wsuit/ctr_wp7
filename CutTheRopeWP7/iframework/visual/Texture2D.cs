@@ -267,7 +267,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x06000264 RID: 612 RVA: 0x0000FA15 File Offset: 0x0000DC15
-        public static void setDefaultAlphaPixelFormat(Texture2D.Texture2DPixelFormat format)
+        public static void setDefaultAlphaPixelFormat(Texture2DPixelFormat format)
         {
             _defaultAlphaPixelFormat = format;
         }
@@ -440,7 +440,7 @@ namespace ctr_wp7.iframework.visual
         private float _scaleY;
 
         // Token: 0x04000846 RID: 2118
-        private Texture2D.Texture2DPixelFormat _format;
+        private Texture2DPixelFormat _format;
 
         // Token: 0x04000847 RID: 2119
         private Vector _size;
@@ -476,16 +476,16 @@ namespace ctr_wp7.iframework.visual
         private bool _isWvga;
 
         // Token: 0x04000852 RID: 2130
-        private Texture2D.TexParams _localTexParams;
+        private TexParams _localTexParams;
 
         // Token: 0x04000853 RID: 2131
-        private static Texture2D.TexParams _defaultTexParams;
+        private static TexParams _defaultTexParams;
 
         // Token: 0x04000854 RID: 2132
-        private static Texture2D.TexParams _texParams;
+        private static TexParams _texParams;
 
         // Token: 0x04000855 RID: 2133
-        private static Texture2D.TexParams _texParamsCopy;
+        private static TexParams _texParamsCopy;
 
         // Token: 0x04000856 RID: 2134
         private static Texture2D root;
@@ -500,10 +500,10 @@ namespace ctr_wp7.iframework.visual
         private Texture2D prev;
 
         // Token: 0x0400085A RID: 2138
-        public static Texture2D.Texture2DPixelFormat kTexture2DPixelFormat_Default = Texture2DPixelFormat.kTexture2DPixelFormat_RGBA8888;
+        public static Texture2DPixelFormat kTexture2DPixelFormat_Default = Texture2DPixelFormat.kTexture2DPixelFormat_RGBA8888;
 
         // Token: 0x0400085B RID: 2139
-        private static Texture2D.Texture2DPixelFormat _defaultAlphaPixelFormat = kTexture2DPixelFormat_Default;
+        private static Texture2DPixelFormat _defaultAlphaPixelFormat = kTexture2DPixelFormat_Default;
 
         // Token: 0x0200004B RID: 75
         public enum Texture2DPixelFormat

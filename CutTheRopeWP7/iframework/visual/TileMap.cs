@@ -127,14 +127,14 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x06000203 RID: 515 RVA: 0x0000D406 File Offset: 0x0000B606
-        public virtual void setRepeatHorizontally(TileMap.Repeat r)
+        public virtual void setRepeatHorizontally(Repeat r)
         {
             repeatedHorizontally = r;
             updateVars();
         }
 
         // Token: 0x06000204 RID: 516 RVA: 0x0000D415 File Offset: 0x0000B615
-        public virtual void setRepeatVertically(TileMap.Repeat r)
+        public virtual void setRepeatVertically(Repeat r)
         {
             repeatedVertically = r;
             updateVars();
@@ -331,10 +331,10 @@ namespace ctr_wp7.iframework.visual
         private int randomSeed;
 
         // Token: 0x04000800 RID: 2048
-        private TileMap.Repeat repeatedVertically;
+        private Repeat repeatedVertically;
 
         // Token: 0x04000801 RID: 2049
-        private TileMap.Repeat repeatedHorizontally;
+        private Repeat repeatedHorizontally;
 
         // Token: 0x04000802 RID: 2050
         private float parallaxRatio;

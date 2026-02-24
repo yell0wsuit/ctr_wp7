@@ -617,7 +617,7 @@ namespace ctr_wp7.iframework.visual
         public virtual bool onTouchDownXY(float tx, float ty)
         {
             bool flag = false;
-            foreach (KeyValuePair<int, BaseElement> keyValuePair in Enumerable.Reverse<KeyValuePair<int, BaseElement>>(childs))
+            foreach (KeyValuePair<int, BaseElement> keyValuePair in Enumerable.Reverse(childs))
             {
                 BaseElement value = keyValuePair.Value;
                 if (value != null && value.touchable && value.onTouchDownXY(tx, ty) && !flag)
@@ -636,7 +636,7 @@ namespace ctr_wp7.iframework.visual
         public virtual bool onTouchUpXY(float tx, float ty)
         {
             bool flag = false;
-            foreach (KeyValuePair<int, BaseElement> keyValuePair in Enumerable.Reverse<KeyValuePair<int, BaseElement>>(childs))
+            foreach (KeyValuePair<int, BaseElement> keyValuePair in Enumerable.Reverse(childs))
             {
                 BaseElement value = keyValuePair.Value;
                 if (value != null && value.touchable && value.onTouchUpXY(tx, ty) && !flag)
@@ -655,7 +655,7 @@ namespace ctr_wp7.iframework.visual
         public virtual bool onTouchMoveXY(float tx, float ty)
         {
             bool flag = false;
-            foreach (KeyValuePair<int, BaseElement> keyValuePair in Enumerable.Reverse<KeyValuePair<int, BaseElement>>(childs))
+            foreach (KeyValuePair<int, BaseElement> keyValuePair in Enumerable.Reverse(childs))
             {
                 BaseElement value = keyValuePair.Value;
                 if (value != null && value.touchable && value.onTouchMoveXY(tx, ty) && !flag)

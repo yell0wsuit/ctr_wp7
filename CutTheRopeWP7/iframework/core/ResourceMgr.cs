@@ -27,7 +27,7 @@ namespace ctr_wp7.iframework.core
         }
 
         // Token: 0x06000338 RID: 824 RVA: 0x00014914 File Offset: 0x00012B14
-        public virtual NSObject loadResource(int resID, ResourceMgr.ResourceType resType)
+        public virtual NSObject loadResource(int resID, ResourceType resType)
         {
             NSObject nsobject = null;
             if (s_Resources.TryGetValue(resID, out nsobject))

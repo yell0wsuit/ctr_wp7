@@ -22,7 +22,7 @@ namespace ctr_wp7
             }
             if (Regions[R1].End >= Regions[R1 + 1].Start)
             {
-                SpecialFont.Region region = new SpecialFont.Region();
+                Region region = new Region();
                 region.Start = Regions[R1].Start;
                 region.End = Regions[R1 + 1].End;
                 Regions[R1] = region;
@@ -44,14 +44,14 @@ namespace ctr_wp7
         {
             for (int i = 0; i < Regions.Count; i++)
             {
-                SpecialFont.Region region = Regions[i];
+                Region region = Regions[i];
                 if (c >= region.Start && c <= region.End)
                 {
                     return;
                 }
                 if (c < region.Start - '\u0001')
                 {
-                    SpecialFont.Region region2 = new SpecialFont.Region();
+                    Region region2 = new Region();
                     region2.Start = c;
                     region2.End = c;
                     Regions.Insert(i, region2);
@@ -59,19 +59,19 @@ namespace ctr_wp7
                 }
                 if (c == region.Start - '\u0001')
                 {
-                    SpecialFont.Region region3 = region;
+                    Region region3 = region;
                     region3.Start -= '\u0001';
                     return;
                 }
                 if (c == region.End + '\u0001')
                 {
-                    SpecialFont.Region region4 = region;
+                    Region region4 = region;
                     region4.End += '\u0001';
                     CheckCollison(i);
                     return;
                 }
             }
-            SpecialFont.Region region5 = new SpecialFont.Region();
+            Region region5 = new Region();
             region5.Start = c;
             region5.End = c;
             Regions.Add(region5);
@@ -196,7 +196,7 @@ namespace ctr_wp7
         }
 
         // Token: 0x040008BA RID: 2234
-        private static List<SpecialFont.Region> Regions = new List<SpecialFont.Region>();
+        private static List<Region> Regions = new List<Region>();
 
         // Token: 0x0200005F RID: 95
         private class Region

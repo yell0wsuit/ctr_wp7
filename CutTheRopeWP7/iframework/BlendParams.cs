@@ -124,7 +124,7 @@ namespace ctr_wp7.iframework
         private static BlendState[] states = new BlendState[4];
 
         // Token: 0x04000A35 RID: 2613
-        private BlendParams.BlendType lastBlend = BlendType.Unknown;
+        private BlendType lastBlend = BlendType.Unknown;
 
         // Token: 0x04000A36 RID: 2614
         private bool enabled;

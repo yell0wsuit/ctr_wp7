@@ -727,7 +727,7 @@ namespace ctr_wp7.game
         public float raDelay;
 
         // Token: 0x040009CC RID: 2508
-        public BoxOpenClose.boxClosed delegateboxClosed;
+        public boxClosed delegateboxClosed;
 
         // Token: 0x02000096 RID: 150
         // (Invoke) Token: 0x06000482 RID: 1154

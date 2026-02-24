@@ -721,7 +721,7 @@ namespace ctr_wp7.iframework.visual
         private Vector targetPoint;
 
         // Token: 0x04000B6A RID: 2922
-        private ScrollableContainer.TOUCH_STATE touchState;
+        private TOUCH_STATE touchState;
 
         // Token: 0x04000B6B RID: 2923
         private float touchTimer;

@@ -92,7 +92,7 @@ namespace ctr_wp7.iframework.visual
         public Vector sc;
 
         // Token: 0x04000964 RID: 2404
-        public Scrollbar.ProvideScrollPosMaxScrollPosScrollCoeff delegateProvider;
+        public ProvideScrollPosMaxScrollPosScrollCoeff delegateProvider;
 
         // Token: 0x04000965 RID: 2405
         public bool vertical;

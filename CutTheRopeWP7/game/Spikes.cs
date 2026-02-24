@@ -277,7 +277,7 @@ namespace ctr_wp7.game
         public int touchIndex;
 
         // Token: 0x0400087C RID: 2172
-        public Spikes.rotateAllSpikesWithID delegateRotateAllSpikesWithID;
+        public rotateAllSpikesWithID delegateRotateAllSpikesWithID;
 
         // Token: 0x0400087D RID: 2173
         private SoundEffectInstance sndElectric;

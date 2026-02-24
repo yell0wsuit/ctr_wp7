@@ -11,7 +11,7 @@ namespace ctr_wp7.ios
         // Token: 0x06000244 RID: 580 RVA: 0x0000F02F File Offset: 0x0000D22F
         private static void Init()
         {
-            Timers = new List<NSTimer.Entry>();
+            Timers = new List<Entry>();
             dd = new DelayedDispatcher();
             is_init = true;
         }
@@ -33,13 +33,13 @@ namespace ctr_wp7.ios
             {
                 Init();
             }
-            NSTimer.Entry entry = new NSTimer.Entry();
+            Entry entry = new Entry();
             entry.f = f;
             entry.p = p;
             entry.fireTime = 0f;
             entry.delay = interval;
             Timers.Add(entry);
-            return Enumerable.Count<NSTimer.Entry>(Timers) - 1;
+            return Enumerable.Count(Timers) - 1;
         }
 
         // Token: 0x06000247 RID: 583 RVA: 0x0000F0C0 File Offset: 0x0000D2C0
@@ -52,7 +52,7 @@ namespace ctr_wp7.ios
             dd.update(delta);
             for (int i = 0; i < Timers.Count; i++)
             {
-                NSTimer.Entry entry = Timers[i];
+                Entry entry = Timers[i];
                 entry.fireTime += delta;
                 if (entry.fireTime >= entry.delay)
                 {
@@ -69,7 +69,7 @@ namespace ctr_wp7.ios
         }
 
         // Token: 0x0400082C RID: 2092
-        private static List<NSTimer.Entry> Timers;
+        private static List<Entry> Timers;
 
         // Token: 0x0400082D RID: 2093
         private static DelayedDispatcher dd;

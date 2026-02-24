@@ -194,7 +194,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x060004CB RID: 1227 RVA: 0x00023F70 File Offset: 0x00022170
-        public virtual void setTimelineLoopType(Timeline.LoopType l)
+        public virtual void setTimelineLoopType(LoopType l)
         {
             timelineLoopType = l;
         }
@@ -215,7 +215,7 @@ namespace ctr_wp7.iframework.visual
         public BaseElement element;
 
         // Token: 0x04000A15 RID: 2581
-        public Timeline.TimelineState state;
+        public TimelineState state;
 
         // Token: 0x04000A16 RID: 2582
         public float time;
@@ -233,7 +233,7 @@ namespace ctr_wp7.iframework.visual
         private int maxKeyFrames;
 
         // Token: 0x04000A1B RID: 2587
-        public Timeline.LoopType timelineLoopType;
+        public LoopType timelineLoopType;
 
         // Token: 0x04000A1C RID: 2588
         private Track[] tracks = new Track[5];
