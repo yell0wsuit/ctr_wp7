@@ -95,12 +95,12 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x040008D5 RID: 2261
-        protected ButtonDelegate buttonDelegate;
+        private ButtonDelegate buttonDelegate;
 
         // Token: 0x040008D6 RID: 2262
-        protected BaseElement box;
+        private BaseElement box;
 
         // Token: 0x040008D7 RID: 2263
-        protected BaseElement cartoonsButton;
+        private BaseElement cartoonsButton;
     }
 }

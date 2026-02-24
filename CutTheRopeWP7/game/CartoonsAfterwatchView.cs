@@ -93,27 +93,27 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x04000990 RID: 2448
-        protected int texID;
+        private int texID;
 
         // Token: 0x04000991 RID: 2449
-        protected int shineID;
+        private int shineID;
 
         // Token: 0x04000992 RID: 2450
-        protected bool isLast;
+        private bool isLast;
 
         // Token: 0x04000993 RID: 2451
-        protected Text titletext;
+        private Text titletext;
 
         // Token: 0x04000994 RID: 2452
-        protected Text replaytext;
+        private Text replaytext;
 
         // Token: 0x04000995 RID: 2453
-        protected Button replay;
+        private Button replay;
 
         // Token: 0x04000996 RID: 2454
-        protected Text nexttext;
+        private Text nexttext;
 
         // Token: 0x04000997 RID: 2455
-        protected Button next;
+        private Button next;
     }
 }

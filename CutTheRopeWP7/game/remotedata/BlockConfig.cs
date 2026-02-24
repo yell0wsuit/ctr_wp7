@@ -73,9 +73,9 @@ namespace ctr_wp7.game.remotedata
         }
 
         // Token: 0x04000817 RID: 2071
-        protected ctr_wp7.remotedata.cartoons.BlockConfig jblockConfig;
+        private ctr_wp7.remotedata.cartoons.BlockConfig jblockConfig;
 
         // Token: 0x04000818 RID: 2072
-        protected BlockInterface hardcode;
+        private BlockInterface hardcode;
     }
 }

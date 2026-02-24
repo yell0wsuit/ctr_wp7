@@ -148,16 +148,16 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0400075F RID: 1887
-        protected ButtonDelegate buttonDelegate;
+        private ButtonDelegate buttonDelegate;
 
         // Token: 0x04000760 RID: 1888
-        protected BaseElement box;
+        private BaseElement box;
 
         // Token: 0x04000761 RID: 1889
-        protected float sheight;
+        private float sheight;
 
         // Token: 0x04000762 RID: 1890
-        protected RectangleElement curtain;
+        private RectangleElement curtain;
 
         // Token: 0x04000763 RID: 1891
         public static bool needrebuild;

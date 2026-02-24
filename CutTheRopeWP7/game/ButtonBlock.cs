@@ -58,7 +58,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x060002AA RID: 682 RVA: 0x00010E5C File Offset: 0x0000F05C
-        protected static BaseElement buildAdBlock(Texture2D texture, NSString title)
+        private static BaseElement buildAdBlock(Texture2D texture, NSString title)
         {
             int num = 403;
             int num2 = 10;
@@ -99,7 +99,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x060002AB RID: 683 RVA: 0x00010FCC File Offset: 0x0000F1CC
-        protected BaseElement buildEpisodeBlock(Texture2D texture, NSString title, NSString number, bool processing, bool isNew)
+        private BaseElement buildEpisodeBlock(Texture2D texture, NSString title, NSString number, bool processing, bool isNew)
         {
             int num = 403;
             int num2 = 2;
@@ -261,15 +261,15 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x040008A5 RID: 2213
-        protected BlockInterface block;
+        private BlockInterface block;
 
         // Token: 0x040008A6 RID: 2214
-        protected bool recheckneeded;
+        private bool recheckneeded;
 
         // Token: 0x040008A7 RID: 2215
-        protected float check;
+        private float check;
 
         // Token: 0x040008A8 RID: 2216
-        protected float transition;
+        private float transition;
     }
 }

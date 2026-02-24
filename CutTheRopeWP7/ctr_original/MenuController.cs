@@ -2549,10 +2549,10 @@ namespace ctr_wp7.ctr_original
         public HLiftScrollbar liftScrollbar;
 
         // Token: 0x04000C2C RID: 3116
-        protected PackSelectInfo packSelect;
+        private PackSelectInfo packSelect;
 
         // Token: 0x04000C2D RID: 3117
-        protected BoxFabric boxFabric;
+        private BoxFabric boxFabric;
 
         // Token: 0x04000C2E RID: 3118
         private bool FLAG_RESTORING;

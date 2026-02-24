@@ -578,7 +578,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x060007D2 RID: 2002 RVA: 0x0003D590 File Offset: 0x0003B790
-        protected void postLevelEventwithMask(string s, int mask = 0, bool mixpanel = false)
+        private void postLevelEventwithMask(string s, int mask = 0, bool mixpanel = false)
         {
             View view = getView(0);
             GameScene gameScene = (GameScene)view.getChild(0);

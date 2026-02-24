@@ -81,6 +81,6 @@ namespace ctr_wp7.game.remotedata
         }
 
         // Token: 0x04000D06 RID: 3334
-        protected Block jblock;
+        private Block jblock;
     }
 }
