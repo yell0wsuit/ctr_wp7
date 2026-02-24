@@ -43,9 +43,7 @@ namespace ctr_wp7.Desktop
 
             OpenGL.Init();
             CtrRenderer.onSurfaceCreated();
-            CtrRenderer.onSurfaceChanged(
-                Window.ClientBounds.Width > 0 ? Window.ClientBounds.Width : 480,
-                Window.ClientBounds.Height > 0 ? Window.ClientBounds.Height : 800);
+            ResizeSurfaceFromViewport();
             CtrRenderer.Java_com_zeptolab_ctr_CtrRenderer_nativeInit(GetSystemLanguage());
             _mouseBridge = new MouseTouchBridge();
 
@@ -85,22 +83,68 @@ namespace ctr_wp7.Desktop
         private void OnClientSizeChanged(object sender, EventArgs e)
         {
             if (_resizing) return;
-            int w = Window.ClientBounds.Width;
-            int h = Window.ClientBounds.Height;
-            if (w <= 0 || h <= 0) return;
 
-            int portraitWidth = Math.Max(1, h * PortraitWidth / PortraitHeight);
-            if (w != portraitWidth)
+            int width = Window.ClientBounds.Width;
+            int height = Window.ClientBounds.Height;
+            if (width <= 0 || height <= 0) return;
+
+            int targetWidth = width;
+            int targetHeight = height;
+
+            bool widthChanged = width != _lastClientWidth;
+            bool heightChanged = height != _lastClientHeight;
+
+            if (widthChanged)
+            {
+                targetHeight = ScaleHeightFromWidth(width);
+            }
+            else if (heightChanged)
+            {
+                targetWidth = ScaleWidthFromHeight(height);
+            }
+            else
+            {
+                targetHeight = ScaleHeightFromWidth(width);
+            }
+
+            if (targetWidth != width || targetHeight != height)
             {
                 _resizing = true;
-                _graphics.PreferredBackBufferWidth = portraitWidth;
-                _graphics.PreferredBackBufferHeight = h;
+                _graphics.PreferredBackBufferWidth = targetWidth;
+                _graphics.PreferredBackBufferHeight = targetHeight;
                 _graphics.ApplyChanges();
                 _resizing = false;
+                _lastClientWidth = targetWidth;
+                _lastClientHeight = targetHeight;
                 return;
             }
 
-            CtrRenderer.onSurfaceChanged(w, h);
+            _lastClientWidth = width;
+            _lastClientHeight = height;
+            ResizeSurfaceFromViewport();
+        }
+
+        private static int ScaleHeightFromWidth(int width)
+        {
+            return Math.Max(1, (int)Math.Round(width * PortraitHeight / (double)PortraitWidth));
+        }
+
+        private static int ScaleWidthFromHeight(int height)
+        {
+            return Math.Max(1, (int)Math.Round(height * PortraitWidth / (double)PortraitHeight));
+        }
+
+        private void ResizeSurfaceFromViewport()
+        {
+            int viewportWidth = GraphicsDevice?.Viewport.Width ?? 0;
+            int viewportHeight = GraphicsDevice?.Viewport.Height ?? 0;
+            if (viewportWidth <= 0 || viewportHeight <= 0)
+            {
+                viewportWidth = Window.ClientBounds.Width > 0 ? Window.ClientBounds.Width : PortraitWidth;
+                viewportHeight = Window.ClientBounds.Height > 0 ? Window.ClientBounds.Height : PortraitHeight;
+            }
+
+            CtrRenderer.onSurfaceChanged(viewportWidth, viewportHeight);
         }
 
         private static Language GetSystemLanguage()
@@ -127,5 +171,7 @@ namespace ctr_wp7.Desktop
         private readonly GraphicsDeviceManager _graphics;
         private MouseTouchBridge _mouseBridge;
         private bool _resizing;
+        private int _lastClientWidth = PortraitWidth;
+        private int _lastClientHeight = PortraitHeight;
     }
 }
