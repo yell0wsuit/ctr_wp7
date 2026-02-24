@@ -264,8 +264,8 @@ namespace ctr_wp7.iframework.core
                         t.preCutSize = vect(xmlnode3.data.intValue(), xmlnode4.data.intValue());
                         if (isWvga)
                         {
-                            t.preCutSize.x = t.preCutSize.x / 1.5f;
-                            t.preCutSize.y = t.preCutSize.y / 1.5f;
+                            t.preCutSize.x /= 1.5f;
+                            t.preCutSize.y /= 1.5f;
                         }
                     }
                 }

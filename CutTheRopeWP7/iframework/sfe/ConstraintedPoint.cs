@@ -238,14 +238,14 @@ namespace ctr_wp7.iframework.sfe
                 num4 = invWeight * num3;
                 vector.x *= num4;
                 vector.y *= num4;
-                p.pos.x = p.pos.x + vectZero.x;
-                p.pos.y = p.pos.y + vectZero.y;
+                p.pos.x += vectZero.x;
+                p.pos.y += vectZero.y;
                 if (constraint.cp.pin.x == -1f)
                 {
                     ConstraintedPoint cp = constraint.cp;
-                    cp.pos.x = cp.pos.x - vector.x;
+                    cp.pos.x -= vector.x;
                     ConstraintedPoint cp2 = constraint.cp;
-                    cp2.pos.y = cp2.pos.y - vector.y;
+                    cp2.pos.y -= vector.y;
                     goto IL_021B;
                 }
                 goto IL_021B;
