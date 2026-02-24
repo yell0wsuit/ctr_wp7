@@ -467,7 +467,7 @@ namespace ctr_wp7.ctr_original
             baseElement4.color = RGBAColor.MakeRGBA(0.8f, 0.8f, 0.8f, 1f);
             baseElement4.scaleX = baseElement4.scaleY = 0.95f;
             string text = Application.getString(1310834).ToString().Replace("%d", (framenum + 1).ToString());
-            NSString nsstring = new NSString(text);
+            NSString nsstring = new(text);
             Text text2 = Text.createWithFontandString(5, nsstring);
             text2.setName("del_text_up");
             text2.anchor = text2.parentAnchor = 18;

@@ -24,7 +24,7 @@ namespace ctr_wp7.ctr_original
         {
             if (xmls_ == null)
             {
-                Dictionary<string, string> dictionary = new Dictionary<string, string>
+                Dictionary<string, string> dictionary = new()
                 {
                     { "zeptolab", "<info format='0' fileFormat='0' filter='1'/>" },
                     { "loaderbar_full", "<info format='0' fileFormat='0' filter='1'/>" },

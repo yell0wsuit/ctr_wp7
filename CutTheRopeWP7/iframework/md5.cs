@@ -92,7 +92,7 @@ namespace ctr_wp7.iframework
             uint num2 = ctx.state[1];
             uint num3 = ctx.state[2];
             uint num4 = ctx.state[3];
-            FuncF funcF = new FuncF(F_1);
+            FuncF funcF = new(F_1);
             P(ref num, num2, num3, num4, 0U, 7U, 3614090360U, array, funcF);
             P(ref num4, num, num2, num3, 1U, 12U, 3905402710U, array, funcF);
             P(ref num3, num4, num, num2, 2U, 17U, 606105819U, array, funcF);

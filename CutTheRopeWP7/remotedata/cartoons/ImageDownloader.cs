@@ -27,7 +27,7 @@ namespace ctr_wp7.remotedata.cartoons
                     busy = true;
                     HttpWebRequest httpWebRequest2 = (HttpWebRequest)r.AsyncState;
                     HttpWebResponse httpWebResponse = (HttpWebResponse)httpWebRequest2.EndGetResponse(r);
-                    ImageDataSaxHandler imageDataSaxHandler = new ImageDataSaxHandler(block);
+                    ImageDataSaxHandler imageDataSaxHandler = new(block);
                     using (imageDataSaxHandler.xmlReader = XmlReader.Create(httpWebResponse.GetResponseStream()))
                     {
                         imageDataSaxHandler.Parse();

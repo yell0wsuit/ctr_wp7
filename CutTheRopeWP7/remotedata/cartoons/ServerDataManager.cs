@@ -24,7 +24,7 @@ namespace ctr_wp7.remotedata.cartoons
                     {
                         using (IsolatedStorageFileStream isolatedStorageFileStream = userStoreForApplication.OpenFile(file, FileMode.Open))
                         {
-                            DataContractSerializer dataContractSerializer = new DataContractSerializer(serializedObjectType);
+                            DataContractSerializer dataContractSerializer = new(serializedObjectType);
                             obj = dataContractSerializer.ReadObject(isolatedStorageFileStream);
                         }
                         goto IL_0053;
@@ -62,7 +62,7 @@ namespace ctr_wp7.remotedata.cartoons
                     }
                     using (IsolatedStorageFileStream isolatedStorageFileStream = userStoreForApplication.CreateFile(file))
                     {
-                        DataContractSerializer dataContractSerializer = new DataContractSerializer(obj.GetType());
+                        DataContractSerializer dataContractSerializer = new(obj.GetType());
                         dataContractSerializer.WriteObject(isolatedStorageFileStream, obj);
                         flag2 = true;
                     }
@@ -110,7 +110,7 @@ namespace ctr_wp7.remotedata.cartoons
                     }
                     using (IsolatedStorageFileStream isolatedStorageFileStream = userStoreForApplication.CreateFile(file))
                     {
-                        BinaryWriter binaryWriter = new BinaryWriter(isolatedStorageFileStream);
+                        BinaryWriter binaryWriter = new(isolatedStorageFileStream);
                         binaryWriter.Write(bytes);
                         binaryWriter.Close();
                         flag2 = true;

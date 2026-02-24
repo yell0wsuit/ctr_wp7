@@ -12,6 +12,6 @@ namespace ctr_wp7.wp7utilities
         }
 
         // Token: 0x0400082A RID: 2090
-        private static readonly DateTime Jan1st1970 = new DateTime(1970, 1, 1, 0, 0, 0, 1);
+        private static readonly DateTime Jan1st1970 = new(1970, 1, 1, 0, 0, 0, 1);
     }
 }

@@ -22,7 +22,7 @@ namespace ctr_wp7
             }
             if (Regions[R1].End >= Regions[R1 + 1].Start)
             {
-                Region region = new Region();
+                Region region = new();
                 region.Start = Regions[R1].Start;
                 region.End = Regions[R1 + 1].End;
                 Regions[R1] = region;
@@ -51,7 +51,7 @@ namespace ctr_wp7
                 }
                 if (c < region.Start - '\u0001')
                 {
-                    Region region2 = new Region();
+                    Region region2 = new();
                     region2.Start = c;
                     region2.End = c;
                     Regions.Insert(i, region2);
@@ -71,7 +71,7 @@ namespace ctr_wp7
                     return;
                 }
             }
-            Region region5 = new Region();
+            Region region5 = new();
             region5.Start = c;
             region5.End = c;
             Regions.Add(region5);
@@ -92,7 +92,7 @@ namespace ctr_wp7
                 }
                 using (IsolatedStorageFileStream isolatedStorageFileStream = userStoreForApplication.CreateFile(text))
                 {
-                    StreamWriter streamWriter = new StreamWriter(isolatedStorageFileStream);
+                    StreamWriter streamWriter = new(isolatedStorageFileStream);
                     streamWriter.WriteLine("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
                     streamWriter.WriteLine("<XnaContent xmlns:Graphics=\"Microsoft.Xna.Framework.Content.Pipeline.Graphics\">");
                     streamWriter.WriteLine("<Asset Type=\"Graphics:FontDescription\">");

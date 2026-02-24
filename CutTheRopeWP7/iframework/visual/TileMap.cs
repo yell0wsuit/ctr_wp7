@@ -101,7 +101,7 @@ namespace ctr_wp7.iframework.visual
                 num = drawers.Count;
                 drawers.Add(imageMultiDrawer2);
             }
-            TileEntry tileEntry = new TileEntry();
+            TileEntry tileEntry = new();
             tileEntry.drawerIndex = num;
             tileEntry.quad = q;
             tiles[ti] = tileEntry;
@@ -207,7 +207,7 @@ namespace ctr_wp7.iframework.visual
                 while (num12 <= num11 && vector3.y < num2 + (float)cameraViewHeight)
                 {
                     Rectangle rectangle2 = rectInRectIntersection(new Rectangle(num, num2, (float)cameraViewWidth, (float)cameraViewHeight), new Rectangle(vector3.x, vector3.y, (float)tileWidth, (float)tileHeight));
-                    Rectangle rectangle3 = new Rectangle(num - vector3.x + rectangle2.x, num2 - vector3.y + rectangle2.y, rectangle2.w, rectangle2.h);
+                    Rectangle rectangle3 = new(num - vector3.x + rectangle2.x, num2 - vector3.y + rectangle2.y, rectangle2.w, rectangle2.h);
                     int num13 = j;
                     int num14 = num12;
                     if (repeatedVertically == Repeat.REPEAT_EDGES)

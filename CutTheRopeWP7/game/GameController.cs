@@ -611,7 +611,7 @@ namespace ctr_wp7.game
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
             int pack = ctrrootController.getPack();
             int level = ctrrootController.getLevel();
-            Dictionary<string, string> dictionary = new Dictionary<string, string>
+            Dictionary<string, string> dictionary = new()
             {
                 ["Level"] = pack.ToString() + "-" + level.ToString()
             };

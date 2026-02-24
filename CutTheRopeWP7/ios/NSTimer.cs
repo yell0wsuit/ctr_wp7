@@ -33,7 +33,7 @@ namespace ctr_wp7.ios
             {
                 Init();
             }
-            Entry entry = new Entry();
+            Entry entry = new();
             entry.f = f;
             entry.p = p;
             entry.fireTime = 0f;

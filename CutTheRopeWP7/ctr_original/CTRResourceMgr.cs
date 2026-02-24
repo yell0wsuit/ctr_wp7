@@ -1293,7 +1293,7 @@ namespace ctr_wp7.ctr_original
         {
             if (resNames_ == null)
             {
-                Dictionary<int, string> dictionary = new Dictionary<int, string>
+                Dictionary<int, string> dictionary = new()
                 {
                     { 0, "zeptolab" },
                     { 1, "loaderbar_full" },

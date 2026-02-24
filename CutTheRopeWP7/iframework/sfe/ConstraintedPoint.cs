@@ -31,7 +31,7 @@ namespace ctr_wp7.iframework.sfe
         // Token: 0x06000158 RID: 344 RVA: 0x0000A7A0 File Offset: 0x000089A0
         public virtual void addConstraintwithRestLengthofType(ConstraintedPoint c, float r, Constraint.CONSTRAINT t)
         {
-            Constraint constraint = new Constraint();
+            Constraint constraint = new();
             _ = constraint.init();
             constraint.cp = c;
             constraint.restLength = r;

@@ -387,7 +387,7 @@ namespace ctr_wp7.iframework
         // Token: 0x0600051A RID: 1306 RVA: 0x00025624 File Offset: 0x00023824
         private static VertexPositionNormalTexture[] ConstructTexturedVertices()
         {
-            Vector3 vector = new Vector3(0f, 0f, 1f);
+            Vector3 vector = new(0f, 0f, 1f);
             if (!VertexPositionNormalTextureArray.TryGetValue(s_GLVertexPointer.Count, out VertexPositionNormalTexture[] array))
             {
                 array = new VertexPositionNormalTexture[s_GLVertexPointer.Count];
@@ -658,7 +658,7 @@ namespace ctr_wp7.iframework
         {
             try
             {
-                Microsoft.Xna.Framework.Rectangle rectangle = new Microsoft.Xna.Framework.Rectangle(x, y, width, height);
+                Microsoft.Xna.Framework.Rectangle rectangle = new(x, y, width, height);
                 WP7Singletons.GraphicsDevice.ScissorRectangle = Microsoft.Xna.Framework.Rectangle.Intersect(rectangle, ScreenRect);
             }
             catch (Exception)
@@ -767,10 +767,10 @@ namespace ctr_wp7.iframework
         private static Color s_Color = Color.White;
 
         // Token: 0x04000A5C RID: 2652
-        private static Color RopeColor = new Color(0f, 0f, 0.4f, 1f);
+        private static Color RopeColor = new(0f, 0f, 0.4f, 1f);
 
         // Token: 0x04000A5D RID: 2653
-        private static BlendParams s_Blend = new BlendParams();
+        private static BlendParams s_Blend = new();
 
         // Token: 0x04000A5E RID: 2654
         private static RGBAColor[] s_GLColorPointer;
@@ -821,7 +821,7 @@ namespace ctr_wp7.iframework
         private static VertexPositionNormalTexture[] s_LastVertices_PositionNormalTexture;
 
         // Token: 0x04000A6E RID: 2670
-        private static Microsoft.Xna.Framework.Rectangle ScreenRect = new Microsoft.Xna.Framework.Rectangle(0, 0, WP7Singletons.GraphicsDevice.Viewport.Width, WP7Singletons.GraphicsDevice.Viewport.Height);
+        private static Microsoft.Xna.Framework.Rectangle ScreenRect = new(0, 0, WP7Singletons.GraphicsDevice.Viewport.Width, WP7Singletons.GraphicsDevice.Viewport.Height);
 
         // Token: 0x020000B4 RID: 180
         private class GLVertexPointer

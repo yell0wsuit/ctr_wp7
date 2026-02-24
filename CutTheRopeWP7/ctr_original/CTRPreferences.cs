@@ -98,7 +98,7 @@ namespace ctr_wp7.ctr_original
             }
             else
             {
-                DeviceParams deviceParams = new DeviceParams();
+                DeviceParams deviceParams = new();
                 flag = deviceParams.isEnglishDevice();
             }
             bool flag2 = getCoppaShowed();
@@ -570,7 +570,7 @@ namespace ctr_wp7.ctr_original
             {
                 delivery = getLastDelivery();
             }
-            PackSelectInfo packSelectInfo = new PackSelectInfo();
+            PackSelectInfo packSelectInfo = new();
             switch (delivery)
             {
                 case 0:
@@ -871,7 +871,7 @@ namespace ctr_wp7.ctr_original
         public const string lastVersionLaunched = "lastVersionLaunched";
 
         // Token: 0x04000AD5 RID: 2773
-        public RemoteDataManager remoteDataManager = new RemoteDataManager();
+        public RemoteDataManager remoteDataManager = new();
 
         // Token: 0x04000AD6 RID: 2774
         private bool firstLaunch;

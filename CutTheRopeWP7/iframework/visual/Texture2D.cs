@@ -313,7 +313,7 @@ namespace ctr_wp7.iframework.visual
             reg();
             int num = calcRealSize(w);
             int num2 = calcRealSize(h);
-            RenderTarget2D renderTarget2D = new RenderTarget2D(WP7Singletons.GraphicsDevice, WP7Singletons.GraphicsDevice.PresentationParameters.BackBufferWidth, WP7Singletons.GraphicsDevice.PresentationParameters.BackBufferHeight, false, SurfaceFormat.Color, DepthFormat.None);
+            RenderTarget2D renderTarget2D = new(WP7Singletons.GraphicsDevice, WP7Singletons.GraphicsDevice.PresentationParameters.BackBufferWidth, WP7Singletons.GraphicsDevice.PresentationParameters.BackBufferHeight, false, SurfaceFormat.Color, DepthFormat.None);
             float transitionTime = Application.sharedRootController().transitionTime;
             Application.sharedRootController().transitionTime = -1f;
             WP7Singletons.GraphicsDevice.SetRenderTarget(renderTarget2D);
@@ -382,7 +382,7 @@ namespace ctr_wp7.iframework.visual
             {
                 using (IsolatedStorageFile userStoreForApplication = IsolatedStorageFile.GetUserStoreForApplication())
                 {
-                    using (IsolatedStorageFileStream isolatedStorageFileStream = new IsolatedStorageFileStream(path, (System.IO.FileMode)3, userStoreForApplication))
+                    using (IsolatedStorageFileStream isolatedStorageFileStream = new(path, (System.IO.FileMode)3, userStoreForApplication))
                     {
                         xnaTexture_ = Microsoft.Xna.Framework.Graphics.Texture2D.FromStream(WP7Singletons.GraphicsDevice, isolatedStorageFileStream);
                     }

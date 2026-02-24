@@ -150,7 +150,7 @@ namespace ctr_wp7.ios
             {
                 return null;
             }
-            XMLNode xmlnode = new XMLNode();
+            XMLNode xmlnode = new();
             if (parent != null)
             {
                 xmlnode.parent = parent;
@@ -202,7 +202,7 @@ namespace ctr_wp7.ios
         // Token: 0x0600076F RID: 1903 RVA: 0x0003B49C File Offset: 0x0003969C
         private static XMLNode ReadNodeLINQ(XElement nodeLinq, XMLNode parent)
         {
-            XMLNode xmlnode = new XMLNode();
+            XMLNode xmlnode = new();
             if (parent != null)
             {
                 xmlnode.parent = parent;

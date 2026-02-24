@@ -13,7 +13,7 @@
         // Token: 0x0600016D RID: 365 RVA: 0x0000B0A8 File Offset: 0x000092A8
         public static Quad2D MakeQuad2D(float x, float y, float w, float h)
         {
-            Quad2D quad2D = new Quad2D(x, y, w, h);
+            Quad2D quad2D = new(x, y, w, h);
             return quad2D;
         }
 

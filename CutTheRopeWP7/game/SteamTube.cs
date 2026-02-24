@@ -262,7 +262,7 @@ namespace ctr_wp7.game
                     timeline.addKeyFrame(KeyFrame.makeScale(1.5, 1.5, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, (double)num4));
                     timeline.setTimelineLoopType(Timeline.LoopType.TIMELINE_REPLAY);
                     timeline.delegateTimelineDelegate = this;
-                    BaseElement baseElement = new BaseElement();
+                    BaseElement baseElement = new();
                     _ = baseElement.init();
                     baseElement.addTimelinewithID(timeline, 0);
                     dd.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(startPuffFloatingAndAnimation), baseElement, num4 * (float)i / (float)num);

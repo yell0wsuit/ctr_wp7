@@ -673,7 +673,7 @@ namespace ctr_wp7.iframework.visual
         public ScrollableContainerProtocol delegateScrollableContainerProtocol;
 
         // Token: 0x04000B5A RID: 2906
-        private static readonly Vector impossibleTouch = new Vector(-1000f, -1000f);
+        private static readonly Vector impossibleTouch = new(-1000f, -1000f);
 
         // Token: 0x04000B5B RID: 2907
         private BaseElement container;

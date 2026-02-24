@@ -94,7 +94,7 @@ namespace ctr_wp7.wp7utilities
         }
 
         // Token: 0x04000D07 RID: 3335
-        private Vector2 zoom_ = new Vector2(1f, 1f);
+        private Vector2 zoom_ = new(1f, 1f);
 
         // Token: 0x04000D08 RID: 3336
         private Matrix transform_;

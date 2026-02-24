@@ -14,7 +14,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060004AC RID: 1196 RVA: 0x00021EE8 File Offset: 0x000200E8
         public static KeyFrame makeAction(List<Action> actions, float time)
         {
-            KeyFrameValue keyFrameValue = new KeyFrameValue();
+            KeyFrameValue keyFrameValue = new();
             keyFrameValue.action.actionSet = actions;
             return new KeyFrame
             {
@@ -47,7 +47,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060004B0 RID: 1200 RVA: 0x00021F70 File Offset: 0x00020170
         public static KeyFrame makePos(int x, int y, TransitionType transition, float time)
         {
-            KeyFrameValue keyFrameValue = new KeyFrameValue();
+            KeyFrameValue keyFrameValue = new();
             keyFrameValue.pos.x = (float)x;
             keyFrameValue.pos.y = (float)y;
             return new KeyFrame
@@ -68,7 +68,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060004B2 RID: 1202 RVA: 0x00021FD0 File Offset: 0x000201D0
         public static KeyFrame makeScale(float x, float y, TransitionType transition, float time)
         {
-            KeyFrameValue keyFrameValue = new KeyFrameValue();
+            KeyFrameValue keyFrameValue = new();
             keyFrameValue.scale.scaleX = x;
             keyFrameValue.scale.scaleY = y;
             return new KeyFrame
@@ -89,7 +89,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060004B4 RID: 1204 RVA: 0x0002202C File Offset: 0x0002022C
         public static KeyFrame makeRotation(int r, TransitionType transition, float time)
         {
-            KeyFrameValue keyFrameValue = new KeyFrameValue();
+            KeyFrameValue keyFrameValue = new();
             keyFrameValue.rotation.angle = (float)r;
             return new KeyFrame
             {
@@ -109,7 +109,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060004B6 RID: 1206 RVA: 0x0002207C File Offset: 0x0002027C
         public static KeyFrame makeColor(RGBAColor c, TransitionType transition, float time)
         {
-            KeyFrameValue keyFrameValue = new KeyFrameValue();
+            KeyFrameValue keyFrameValue = new();
             keyFrameValue.color.rgba = c;
             return new KeyFrame
             {

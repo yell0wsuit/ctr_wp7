@@ -496,8 +496,8 @@ namespace ctr_wp7.iframework.helpers
         // Token: 0x06000049 RID: 73 RVA: 0x000050F4 File Offset: 0x000032F4
         public static bool lineInRect(float x1, float y1, float x2, float y2, float rx, float ry, float w, float h)
         {
-            VectorClass vectorClass = new VectorClass(vect(x1, y1));
-            VectorClass vectorClass2 = new VectorClass(vect(x2, y2));
+            VectorClass vectorClass = new(vect(x1, y1));
+            VectorClass vectorClass2 = new(vect(x2, y2));
             float num = rx + w;
             float num2 = ry + h;
             int num3 = vcode(rx, ry, num, num2, vectorClass.v);
@@ -595,7 +595,7 @@ namespace ctr_wp7.iframework.helpers
                 array[i * 2] = (byte)((data[i] & '\uff00') >> 8);
                 array[i * 2 + 1] = (byte)(data[i] & 'ÿ');
             }
-            md5.md5_context md5_context = new md5.md5_context();
+            md5.md5_context md5_context = new();
             md5.md5_starts(ref md5_context);
             md5.md5_update(ref md5_context, array, (uint)array.Length);
             byte[] array2 = new byte[16];
@@ -610,7 +610,7 @@ namespace ctr_wp7.iframework.helpers
                 num3 = num2 & 15;
                 array3[num++] = (char)((num3 < 10) ? (48 + num3) : (97 + num3 - 10));
             }
-            string text = new string(array3);
+            string text = new(array3);
             return new NSString(text);
         }
 
@@ -633,7 +633,7 @@ namespace ctr_wp7.iframework.helpers
         private const int COHEN_TOP = 8;
 
         // Token: 0x040006C9 RID: 1737
-        private static Random random_ = new Random();
+        private static Random random_ = new();
 
         // Token: 0x040006CA RID: 1738
         private static long ARC4RANDOM_MAX = 4294967296L;
@@ -645,9 +645,9 @@ namespace ctr_wp7.iframework.helpers
         private static float[] fmCoss;
 
         // Token: 0x040006CD RID: 1741
-        public static readonly Vector vectZero = new Vector(0f, 0f);
+        public static readonly Vector vectZero = new(0f, 0f);
 
         // Token: 0x040006CE RID: 1742
-        public static readonly Vector vectUndefined = new Vector(2.1474836E+09f, 2.1474836E+09f);
+        public static readonly Vector vectUndefined = new(2.1474836E+09f, 2.1474836E+09f);
     }
 }

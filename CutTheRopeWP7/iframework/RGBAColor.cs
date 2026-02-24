@@ -31,7 +31,7 @@ namespace ctr_wp7.iframework
         // Token: 0x06000174 RID: 372 RVA: 0x0000B35C File Offset: 0x0000955C
         public static RGBAColor MakeRGBA(float r, float g, float b, float a)
         {
-            RGBAColor rgbacolor = new RGBAColor(r, g, b, a);
+            RGBAColor rgbacolor = new(r, g, b, a);
             return rgbacolor;
         }
 
@@ -86,25 +86,25 @@ namespace ctr_wp7.iframework
         }
 
         // Token: 0x040007B4 RID: 1972
-        public static readonly RGBAColor transparentRGBA = new RGBAColor(0f, 0f, 0f, 0f);
+        public static readonly RGBAColor transparentRGBA = new(0f, 0f, 0f, 0f);
 
         // Token: 0x040007B5 RID: 1973
-        public static readonly RGBAColor solidOpaqueRGBA = new RGBAColor(1f, 1f, 1f, 1f);
+        public static readonly RGBAColor solidOpaqueRGBA = new(1f, 1f, 1f, 1f);
 
         // Token: 0x040007B6 RID: 1974
-        public static readonly RGBAColor redRGBA = new RGBAColor(1.0, 0.0, 0.0, 1.0);
+        public static readonly RGBAColor redRGBA = new(1.0, 0.0, 0.0, 1.0);
 
         // Token: 0x040007B7 RID: 1975
-        public static readonly RGBAColor blueRGBA = new RGBAColor(0.0, 0.0, 1.0, 1.0);
+        public static readonly RGBAColor blueRGBA = new(0.0, 0.0, 1.0, 1.0);
 
         // Token: 0x040007B8 RID: 1976
-        public static readonly RGBAColor greenRGBA = new RGBAColor(0.0, 1.0, 0.0, 1.0);
+        public static readonly RGBAColor greenRGBA = new(0.0, 1.0, 0.0, 1.0);
 
         // Token: 0x040007B9 RID: 1977
-        public static readonly RGBAColor blackRGBA = new RGBAColor(0.0, 0.0, 0.0, 1.0);
+        public static readonly RGBAColor blackRGBA = new(0.0, 0.0, 0.0, 1.0);
 
         // Token: 0x040007BA RID: 1978
-        public static readonly RGBAColor whiteRGBA = new RGBAColor(1.0, 1.0, 1.0, 1.0);
+        public static readonly RGBAColor whiteRGBA = new(1.0, 1.0, 1.0, 1.0);
 
         // Token: 0x040007BB RID: 1979
         public float r;

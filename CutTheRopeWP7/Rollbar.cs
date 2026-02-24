@@ -50,7 +50,7 @@ internal class Rollbar : BaseElement
         image3.anchor = image3.parentAnchor = 18;
         elements.Add(image3);
         _ = addChild(image3);
-        Timeline timeline = new Timeline();
+        Timeline timeline = new();
         _ = timeline.initWithMaxKeyFramesOnTrack(2);
         timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.MakeRGBA(0.8, 0.8, 0.8, 0.8), KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
         timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.MakeRGBA(0.3, 0.3, 0.3, 0.3), KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.3));

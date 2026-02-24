@@ -65,7 +65,7 @@ namespace ctr_wp7.iframework
                     lastBlend = BlendType.SourceAlpha_InverseSourceAlpha;
                     if (states[(int)lastBlend] == null)
                     {
-                        BlendState blendState = new BlendState();
+                        BlendState blendState = new();
                         blendState.AlphaSourceBlend = Blend.SourceAlpha;
                         blendState.AlphaDestinationBlend = Blend.InverseSourceAlpha;
                         blendState.ColorDestinationBlend = blendState.AlphaDestinationBlend;
@@ -83,7 +83,7 @@ namespace ctr_wp7.iframework
                     lastBlend = BlendType.One_InverseSourceAlpha;
                     if (states[(int)lastBlend] == null)
                     {
-                        BlendState blendState2 = new BlendState();
+                        BlendState blendState2 = new();
                         blendState2.AlphaSourceBlend = Blend.One;
                         blendState2.AlphaDestinationBlend = Blend.InverseSourceAlpha;
                         blendState2.ColorDestinationBlend = blendState2.AlphaDestinationBlend;
@@ -99,7 +99,7 @@ namespace ctr_wp7.iframework
                 lastBlend = BlendType.SourceAlpha_One;
                 if (states[(int)lastBlend] == null)
                 {
-                    BlendState blendState3 = new BlendState();
+                    BlendState blendState3 = new();
                     blendState3.AlphaSourceBlend = Blend.SourceAlpha;
                     blendState3.AlphaDestinationBlend = Blend.One;
                     blendState3.ColorDestinationBlend = blendState3.AlphaDestinationBlend;

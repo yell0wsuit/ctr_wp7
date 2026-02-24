@@ -57,7 +57,7 @@ internal class CoppaLoader
             { 480, 300 },
             { 800, 400 }
         };
-        NSString nsstring = new NSString(string.Format("curtain:%dx%d", array[num, 0], array[num, 1]));
+        NSString nsstring = new(string.Format("curtain:%dx%d", array[num, 0], array[num, 1]));
         int num2 = ((double)FrameworkTypes.SCREEN_RATIO >= 1.5555555555555556) ? 1 : 0;
         int[,] array2 = new int[,]
         {
@@ -78,7 +78,7 @@ internal class CoppaLoader
     // Token: 0x06000373 RID: 883 RVA: 0x00015F74 File Offset: 0x00014174
     public static NSString GetCollectedParameters()
     {
-        LinkBuilder linkBuilder = new LinkBuilder("http://bms.zeptolab.com/feeder/csp?");
+        LinkBuilder linkBuilder = new("http://bms.zeptolab.com/feeder/csp?");
         ServerDataManager.public_InjectParameters(linkBuilder);
         return new NSString(linkBuilder.ToString());
     }

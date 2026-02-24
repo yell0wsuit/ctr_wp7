@@ -19,7 +19,7 @@ namespace ctr_wp7.iframework.helpers
         // Token: 0x060000E9 RID: 233 RVA: 0x00007638 File Offset: 0x00005838
         private static GameObject GameObject_create(Texture2D t)
         {
-            GameObject gameObject = new GameObject();
+            GameObject gameObject = new();
             _ = gameObject.initWithTexture(t);
             return gameObject;
         }

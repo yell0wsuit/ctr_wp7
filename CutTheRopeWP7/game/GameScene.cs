@@ -311,7 +311,7 @@ namespace ctr_wp7.game
                     {
                         if (!shouldSkipTutorialElement(xmlnode4))
                         {
-                            NSString nsstring2 = new NSString(xmlnode4.Name.Substring(8));
+                            NSString nsstring2 = new(xmlnode4.Name.Substring(8));
                             int num7 = nsstring2.intValue() - 1;
                             GameObjectSpecial gameObjectSpecial = GameObjectSpecial.GameObjectSpecial_createWithResIDQuad(144, num7);
                             gameObjectSpecial.color = RGBAColor.transparentRGBA;
@@ -855,7 +855,7 @@ namespace ctr_wp7.game
             }
             if (ropesCutFromLevelStart > 0)
             {
-                Dictionary<string, string> dictionary = new Dictionary<string, string>
+                Dictionary<string, string> dictionary = new()
                 {
                     ["ropes_cut"] = ropesCutFromLevelStart.ToString()
                 };
@@ -863,7 +863,7 @@ namespace ctr_wp7.game
             }
             if (starsCollected > 0)
             {
-                Dictionary<string, string> dictionary2 = new Dictionary<string, string>
+                Dictionary<string, string> dictionary2 = new()
                 {
                     ["stars_collected_on_level"] = starsCollected.ToString()
                 };
@@ -2999,7 +2999,7 @@ namespace ctr_wp7.game
                 Vector vector10 = vectAdd(startPos[ti], camera.pos);
                 Vector vector11 = vectAdd(vect(tx, ty), camera.pos);
                 float num9 = vectDistance(vector10, vector11);
-                FingerCut fingerCut = new FingerCut();
+                FingerCut fingerCut = new();
                 fingerCut.start = vector10;
                 fingerCut.end = vector11;
                 fingerCut.startSize = 5f;

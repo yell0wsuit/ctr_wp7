@@ -124,7 +124,7 @@ namespace ctr_wp7.game
             // Token: 0x0600073D RID: 1853 RVA: 0x0003A8DC File Offset: 0x00038ADC
             public static MonsterSlot createMonsterSlot()
             {
-                MonsterSlot monsterSlot = new MonsterSlot();
+                MonsterSlot monsterSlot = new();
                 _ = monsterSlot.init();
                 monsterSlot.color = RGBAColor.MakeRGBA(0.17647058823529413, 0.17647058823529413, 0.20784313725490197, 1.0);
                 monsterSlot.height = 90;

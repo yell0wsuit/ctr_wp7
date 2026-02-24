@@ -40,7 +40,7 @@ namespace ctr_wp7.remotedata.cartoons
             if (!success && !execution && !ImageDownloader.isBusy())
             {
                 execution = true;
-                LinkBuilder linkBuilder = new LinkBuilder(serverUrl);
+                LinkBuilder linkBuilder = new(serverUrl);
                 linkBuilder.put("app", app);
                 linkBuilder.put("platform", "winphone");
                 if (blockConfig.hash != null)
@@ -58,7 +58,7 @@ namespace ctr_wp7.remotedata.cartoons
                         HttpWebRequest httpWebRequest2 = (HttpWebRequest)r.AsyncState;
                         HttpWebResponse httpWebResponse = (HttpWebResponse)httpWebRequest2.EndGetResponse(r);
                         int totalBlocks = blockConfig.getTotalBlocks();
-                        VideoDataSaxHandler videoDataSaxHandler = new VideoDataSaxHandler(this);
+                        VideoDataSaxHandler videoDataSaxHandler = new(this);
                         using (videoDataSaxHandler.xmlReader = XmlReader.Create(httpWebResponse.GetResponseStream()))
                         {
                             videoDataSaxHandler.Parse();

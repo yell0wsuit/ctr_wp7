@@ -61,7 +61,7 @@ namespace ctr_wp7.Banner
                     list.Add(keyValuePair.Key);
                 }
             }
-            DeviceParams deviceParams = new DeviceParams();
+            DeviceParams deviceParams = new();
             int minor = Environment.OSVersion.Version.Minor;
             string osversion = SystemInfo.getOSVersion();
             string appVersion = SystemInfo.getAppVersion();
@@ -171,7 +171,7 @@ namespace ctr_wp7.Banner
                         int count = list.Count;
                         while (i < count)
                         {
-                            Banner banner = new Banner(list[i], width, height);
+                            Banner banner = new(list[i], width, height);
                             banners.Add(banner.id, banner);
                             i++;
                         }
@@ -223,9 +223,9 @@ namespace ctr_wp7.Banner
         {
             using (IsolatedStorageFile userStoreForApplication = IsolatedStorageFile.GetUserStoreForApplication())
             {
-                using (IsolatedStorageFileStream isolatedStorageFileStream = new IsolatedStorageFileStream(getStoredBannersPath(), FileMode.Create, userStoreForApplication))
+                using (IsolatedStorageFileStream isolatedStorageFileStream = new(getStoredBannersPath(), FileMode.Create, userStoreForApplication))
                 {
-                    BinaryWriter binaryWriter = new BinaryWriter(isolatedStorageFileStream);
+                    BinaryWriter binaryWriter = new(isolatedStorageFileStream);
                     binaryWriter.Write(banners.Count);
                     foreach (KeyValuePair<int, Banner> keyValuePair in banners)
                     {
@@ -242,9 +242,9 @@ namespace ctr_wp7.Banner
         {
             using (IsolatedStorageFile userStoreForApplication = IsolatedStorageFile.GetUserStoreForApplication())
             {
-                using (IsolatedStorageFileStream isolatedStorageFileStream = new IsolatedStorageFileStream(getStoredConfigPath(), FileMode.Create, userStoreForApplication))
+                using (IsolatedStorageFileStream isolatedStorageFileStream = new(getStoredConfigPath(), FileMode.Create, userStoreForApplication))
                 {
-                    BinaryWriter binaryWriter = new BinaryWriter(isolatedStorageFileStream);
+                    BinaryWriter binaryWriter = new(isolatedStorageFileStream);
                     config.SaveConfig(binaryWriter);
                     binaryWriter.Close();
                 }
@@ -260,15 +260,15 @@ namespace ctr_wp7.Banner
                 {
                     if (userStoreForApplication.FileExists(getStoredBannersPath()))
                     {
-                        using (IsolatedStorageFileStream isolatedStorageFileStream = new IsolatedStorageFileStream(getStoredBannersPath(), FileMode.Open, userStoreForApplication))
+                        using (IsolatedStorageFileStream isolatedStorageFileStream = new(getStoredBannersPath(), FileMode.Open, userStoreForApplication))
                         {
-                            BinaryReader binaryReader = new BinaryReader(isolatedStorageFileStream);
+                            BinaryReader binaryReader = new(isolatedStorageFileStream);
                             int num = binaryReader.ReadInt32();
                             Dictionary<int, Banner> dictionary = [];
                             for (int i = 0; i < num; i++)
                             {
                                 int num2 = binaryReader.ReadInt32();
-                                Banner banner = new Banner(binaryReader);
+                                Banner banner = new(binaryReader);
                                 dictionary.Add(num2, banner);
                             }
                             binaryReader.Close();
@@ -292,9 +292,9 @@ namespace ctr_wp7.Banner
                 {
                     if (userStoreForApplication.FileExists(getStoredBannersPath()))
                     {
-                        using (IsolatedStorageFileStream isolatedStorageFileStream = new IsolatedStorageFileStream(getStoredConfigPath(), FileMode.Open, userStoreForApplication))
+                        using (IsolatedStorageFileStream isolatedStorageFileStream = new(getStoredConfigPath(), FileMode.Open, userStoreForApplication))
                         {
-                            BinaryReader binaryReader = new BinaryReader(isolatedStorageFileStream);
+                            BinaryReader binaryReader = new(isolatedStorageFileStream);
                             return new RemoteConfig(binaryReader);
                         }
                     }

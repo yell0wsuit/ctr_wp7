@@ -231,7 +231,7 @@ namespace ctr_wp7.iframework.core
                     }
                     using (IsolatedStorageFileStream isolatedStorageFileStream = userStoreForApplication.CreateFile(saveFileName_))
                     {
-                        BinaryWriter binaryWriter = new BinaryWriter(isolatedStorageFileStream);
+                        BinaryWriter binaryWriter = new(isolatedStorageFileStream);
                         binaryWriter.Write(data_.Count);
                         foreach (KeyValuePair<string, int> keyValuePair in data_)
                         {
@@ -284,7 +284,7 @@ namespace ctr_wp7.iframework.core
         {
             using (IsolatedStorageFileStream isolatedStorageFileStream = isf.OpenFile(fname, FileMode.Open))
             {
-                BinaryReader binaryReader = new BinaryReader(isolatedStorageFileStream);
+                BinaryReader binaryReader = new(isolatedStorageFileStream);
                 try
                 {
                     save_check = 'N';
