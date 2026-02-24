@@ -515,12 +515,8 @@ namespace ctr_wp7.ctr_commons
         public static bool gUseFingerDelta = true;
 
         // Token: 0x04000C9E RID: 3230
-        private static List<CTRTouchState> prevTouches = [with(5)];
-
-        // Token: 0x04000C9F RID: 3231
-        private static List<CTRTouchState> prevTouchesTemp = [with(5)];
-
-        // Token: 0x04000CA0 RID: 3232
-        private static List<CTRTouchState> currentTouches = [with(5)];
+        private static List<CTRTouchState> prevTouches = new(5);
+        private static List<CTRTouchState> prevTouchesTemp = new(5);
+        private static List<CTRTouchState> currentTouches = new(5);
     }
 }

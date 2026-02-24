@@ -274,7 +274,7 @@ namespace ctr_wp7.ios
             string text = fileName.Replace('\\', '/').TrimStart('/');
             string text2 = (WP7Singletons.Content != null && !string.IsNullOrWhiteSpace(WP7Singletons.Content.RootDirectory)) ? WP7Singletons.Content.RootDirectory : "content";
             string text3 = (ResDataPhoneFull.ContentFolder ?? "").Replace('\\', '/').Trim('/');
-            HashSet<string> hashSet = [with(StringComparer.OrdinalIgnoreCase)];
+            HashSet<string> hashSet = [];
             foreach (string text4 in new string[] { text2, "content", "Content" })
             {
                 string[] array;
@@ -299,7 +299,7 @@ namespace ctr_wp7.ios
 
         private static string TryGetFallbackXml(string fileName)
         {
-            HashSet<string> hashSet = [with(StringComparer.OrdinalIgnoreCase)];
+            HashSet<string> hashSet = [];
             foreach (string text in new string[] { fileName, Path.GetFileName(fileName), Path.GetFileNameWithoutExtension(fileName) })
             {
                 if (!string.IsNullOrWhiteSpace(text) && hashSet.Add(text))
