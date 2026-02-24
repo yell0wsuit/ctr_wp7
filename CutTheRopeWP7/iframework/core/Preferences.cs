@@ -76,7 +76,7 @@ namespace ctr_wp7.iframework.core
         // Token: 0x060003CD RID: 973 RVA: 0x000181B4 File Offset: 0x000163B4
         public static void _setIntforKey(int v, string key, bool comit)
         {
-            if (data_.TryGetValue(key, out int num))
+            if (data_.TryGetValue(key, out _))
             {
                 data_[key] = v;
             }
@@ -93,7 +93,7 @@ namespace ctr_wp7.iframework.core
         // Token: 0x060003CE RID: 974 RVA: 0x000181F4 File Offset: 0x000163F4
         public static void _setStringforKey(string v, string k, bool comit)
         {
-            if (dataStrings_.TryGetValue(k, out string text))
+            if (dataStrings_.TryGetValue(k, out _))
             {
                 dataStrings_[k] = v;
             }
@@ -149,11 +149,12 @@ namespace ctr_wp7.iframework.core
         // Token: 0x060003D4 RID: 980 RVA: 0x000182AC File Offset: 0x000164AC
         public void _deleteKey(string k, bool comit)
         {
-            if (dataStrings_.TryGetValue(k, out string text))
+            if (dataStrings_.TryGetValue(k, out _))
             {
                 _ = dataStrings_.Remove(k);
             }
-            if (data_.TryGetValue(k, out int num))
+
+            if (data_.TryGetValue(k, out _))
             {
                 _ = data_.Remove(k);
             }

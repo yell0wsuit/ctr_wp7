@@ -2396,7 +2396,8 @@ namespace ctr_wp7.ctr_original
                 {
                     FirstTime = false;
                 }
-                string text3 = Assembly.GetExecutingAssembly().FullName.Split(['='])[1].Split([','])[0];
+
+                _ = Assembly.GetExecutingAssembly().FullName.Split(['='])[1].Split([','])[0];
                 string text4 = "MMENU_SCREEN_SHOWN";
                 List<string> list3 = ["first_time", FirstTime.ToString()];
                 FlurryAPI.logEventwithParams(text4, list3, true, true, false);

@@ -84,7 +84,7 @@ namespace ctr_wp7.iframework.visual
             setKeyFrameFromElement(elementPrevState);
             if (!src.debugBreak)
             {
-                bool debugBreak = dst.debugBreak;
+                _ = dst.debugBreak;
             }
             setElementFromKeyFrame(src);
             switch (type)
@@ -201,7 +201,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060004BE RID: 1214 RVA: 0x00022AF0 File Offset: 0x00020CF0
         public virtual void setElementFromKeyFrame(KeyFrame kf)
         {
-            bool debugBreak = kf.debugBreak;
+            _ = kf.debugBreak;
             switch (type)
             {
                 case TrackType.TRACK_POSITION:
@@ -260,7 +260,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060004BF RID: 1215 RVA: 0x00022E7C File Offset: 0x0002107C
         private void setKeyFrameFromElement(KeyFrame kf)
         {
-            bool debugBreak = kf.debugBreak;
+            _ = kf.debugBreak;
             switch (type)
             {
                 case TrackType.TRACK_POSITION:
@@ -384,7 +384,7 @@ namespace ctr_wp7.iframework.visual
             if (thiss.keyFrames[thiss.nextKeyFrame].transitionType == KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN || thiss.keyFrames[thiss.nextKeyFrame].transitionType == KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT)
             {
                 KeyFrame keyFrame = thiss.currentStepPerSecond;
-                bool debugBreak = keyFrame.debugBreak;
+                _ = keyFrame.debugBreak;
                 switch (thiss.type)
                 {
                     case TrackType.TRACK_POSITION:

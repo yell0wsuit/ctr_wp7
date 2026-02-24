@@ -144,7 +144,7 @@ namespace ctr_wp7.iframework.core
             NSString data = xmlnode2.data;
             if (xmlnode3 != null)
             {
-                NSString data2 = xmlnode3.data;
+                _ = xmlnode3.data;
             }
             FontGeneric fontGeneric = new Font().initWithVariableSizeCharscharMapFileKerning(data, (Texture2D)loadResource(resID, ResourceType.IMAGE), null);
             fontGeneric.setCharOffsetLineOffsetSpaceWidth(num, num2, num3);

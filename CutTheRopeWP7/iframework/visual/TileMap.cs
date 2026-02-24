@@ -84,7 +84,7 @@ namespace ctr_wp7.iframework.visual
                 }
                 if (imageMultiDrawer.image.texture._realWidth == tileWidth)
                 {
-                    int realHeight = imageMultiDrawer.image.texture._realHeight;
+                    _ = imageMultiDrawer.image.texture._realHeight;
                 }
             }
             if (num == -1)

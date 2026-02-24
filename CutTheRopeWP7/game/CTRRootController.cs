@@ -321,7 +321,7 @@ namespace ctr_wp7.game
                         SaveMgr.backup();
                         GameController gameController2 = (GameController)getChild(3);
                         int exitCode = gameController2.exitCode;
-                        GameScene gameScene = (GameScene)gameController2.getView(0).getChild(0);
+                        _ = (GameScene)gameController2.getView(0).getChild(0);
                         switch (exitCode)
                         {
                             case 0:

@@ -100,7 +100,7 @@ namespace ctr_wp7.iframework.core
         // Token: 0x06000307 RID: 775 RVA: 0x000139F8 File Offset: 0x00011BF8
         public virtual void addViewwithID(View v, int n)
         {
-            _ = views.TryGetValue(n, out View view);
+            _ = views.TryGetValue(n, out _);
             views[n] = v;
         }
 
@@ -302,7 +302,7 @@ namespace ctr_wp7.iframework.core
         {
             foreach (CTRTouchState ctrtouchState in touches)
             {
-                TouchLocationState state = ctrtouchState.State;
+                _ = ctrtouchState.State;
             }
             return false;
         }

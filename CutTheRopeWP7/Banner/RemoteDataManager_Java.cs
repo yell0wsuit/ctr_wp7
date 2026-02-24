@@ -62,7 +62,7 @@ namespace ctr_wp7.Banner
                 }
             }
             DeviceParams deviceParams = new();
-            int minor = Environment.OSVersion.Version.Minor;
+            _ = Environment.OSVersion.Version.Minor;
             string osversion = SystemInfo.getOSVersion();
             string appVersion = SystemInfo.getAppVersion();
             string text = deviceParams.getTimeZoneOffset().ToString();

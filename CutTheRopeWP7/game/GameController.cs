@@ -42,7 +42,7 @@ namespace ctr_wp7.game
             Application.sharedRootController().setViewTransition(-1);
             base.activate();
             CTRSoundMgr._stopMusic();
-            CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
+            _ = (CTRRootController)Application.sharedRootController();
             CTRSoundMgr._playMusic(59);
             initGameView();
             showView(0);
@@ -75,8 +75,8 @@ namespace ctr_wp7.game
             _ = Application.sharedPreferences();
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
             int pack = ctrrootController.getPack();
-            int level = ctrrootController.getLevel();
-            int num = CTRPreferences.getLevelsInPackCount() - 1;
+            _ = ctrrootController.getLevel();
+            _ = CTRPreferences.getLevelsInPackCount() - 1;
             checkForBoxPerfect(pack);
             int totalStars = CTRPreferences.getTotalStars();
             if (totalStars >= 50)
