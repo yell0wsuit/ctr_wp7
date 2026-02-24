@@ -185,8 +185,8 @@ namespace ctr_wp7.ctr_commons
             gApp = new CTRApp();
             _ = gApp.init();
             gApp.applicationDidFinishLaunching(null);
-            _ = new Texture2D().initWithPath("ctr/ctr_live_tile_0", true);
-            _ = new Texture2D().initWithPath("ctr/ctr_live_tile_star", true);
+            _ = new Texture2D().initWithPath("ctr_live_tile_0", true);
+            _ = new Texture2D().initWithPath("ctr_live_tile_star", true);
         }
 
         // Token: 0x060006FC RID: 1788 RVA: 0x00038822 File Offset: 0x00036A22

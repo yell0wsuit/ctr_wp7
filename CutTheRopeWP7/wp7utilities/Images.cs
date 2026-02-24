@@ -55,26 +55,15 @@ namespace ctr_wp7.wp7utilities
         {
             yield return path;
 
-            const string CtrPrefix = "ctr/";
             const string ImagesPrefix = "images/";
-
-            if (path.StartsWith(CtrPrefix, StringComparison.OrdinalIgnoreCase))
-            {
-                string suffix = path[CtrPrefix.Length..];
-                yield return suffix;
-                yield return ImagesPrefix + suffix;
-                yield break;
-            }
 
             if (path.StartsWith(ImagesPrefix, StringComparison.OrdinalIgnoreCase))
             {
                 string suffix = path[ImagesPrefix.Length..];
                 yield return suffix;
-                yield return CtrPrefix + suffix;
                 yield break;
             }
 
-            yield return CtrPrefix + path;
             yield return ImagesPrefix + path;
         }
     }
