@@ -11,13 +11,13 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x06000079 RID: 121 RVA: 0x00005A52 File Offset: 0x00003C52
         public bool AnchorHas(int f)
         {
-            return ((int)this.anchor & f) != 0;
+            return ((int)anchor & f) != 0;
         }
 
         // Token: 0x0600007A RID: 122 RVA: 0x00005A62 File Offset: 0x00003C62
         public bool ParentAnchorHas(int f)
         {
-            return ((int)this.parentAnchor & f) != 0;
+            return ((int)parentAnchor & f) != 0;
         }
 
         // Token: 0x17000003 RID: 3
@@ -26,7 +26,7 @@ namespace ctr_wp7.iframework.visual
         {
             get
             {
-                return this.parent != null;
+                return parent != null;
             }
         }
 
@@ -116,35 +116,35 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x0600007F RID: 127 RVA: 0x00005CEC File Offset: 0x00003EEC
         public override NSObject init()
         {
-            this.visible = true;
-            this.touchable = true;
-            this.updateable = true;
-            this.name = null;
-            this.x = 0f;
-            this.y = 0f;
-            this.drawX = 0f;
-            this.drawY = 0f;
-            this.width = 0;
-            this.height = 0;
-            this.rotation = 0f;
-            this.rotationCenterX = 0f;
-            this.rotationCenterY = 0f;
-            this.scaleX = 1f;
-            this.scaleY = 1f;
-            this.color = RGBAColor.solidOpaqueRGBA;
-            this.translateX = 0f;
-            this.translateY = 0f;
-            this.parentAnchor = -1;
-            this.parent = null;
-            this.anchor = 9;
-            this.childs = new Dictionary<int, BaseElement>();
-            this.timelines = new Dictionary<int, Timeline>();
-            this.currentTimeline = null;
-            this.currentTimelineIndex = -1;
-            this.passTransformationsToChilds = true;
-            this.passColorToChilds = true;
-            this.passTouchEventsToAllChilds = false;
-            this.blendingMode = -1;
+            visible = true;
+            touchable = true;
+            updateable = true;
+            name = null;
+            x = 0f;
+            y = 0f;
+            drawX = 0f;
+            drawY = 0f;
+            width = 0;
+            height = 0;
+            rotation = 0f;
+            rotationCenterX = 0f;
+            rotationCenterY = 0f;
+            scaleX = 1f;
+            scaleY = 1f;
+            color = RGBAColor.solidOpaqueRGBA;
+            translateX = 0f;
+            translateY = 0f;
+            parentAnchor = -1;
+            parent = null;
+            anchor = 9;
+            childs = new Dictionary<int, BaseElement>();
+            timelines = new Dictionary<int, Timeline>();
+            currentTimeline = null;
+            currentTimelineIndex = -1;
+            passTransformationsToChilds = true;
+            passColorToChilds = true;
+            passTouchEventsToAllChilds = false;
+            blendingMode = -1;
             return this;
         }
 
@@ -152,40 +152,40 @@ namespace ctr_wp7.iframework.visual
         public virtual void preDraw()
         {
             BaseElement.calculateTopLeft(this);
-            bool flag = (double)this.scaleX != 1.0 || (double)this.scaleY != 1.0;
-            bool flag2 = (double)this.rotation != 0.0;
-            bool flag3 = (double)this.translateX != 0.0 || (double)this.translateY != 0.0;
+            bool flag = (double)scaleX != 1.0 || (double)scaleY != 1.0;
+            bool flag2 = (double)rotation != 0.0;
+            bool flag3 = (double)translateX != 0.0 || (double)translateY != 0.0;
             if (flag || flag2 || flag3)
             {
                 OpenGL.glPushMatrix();
-                this.pushM = true;
+                pushM = true;
                 if (flag || flag2)
                 {
-                    float num = this.drawX + (float)(this.width >> 1) + this.rotationCenterX;
-                    float num2 = this.drawY + (float)(this.height >> 1) + this.rotationCenterY;
+                    float num = drawX + (float)(width >> 1) + rotationCenterX;
+                    float num2 = drawY + (float)(height >> 1) + rotationCenterY;
                     OpenGL.glTranslatef(num, num2, 0f);
                     if (flag2)
                     {
-                        OpenGL.glRotatef(this.rotation, 0f, 0f, 1f);
+                        OpenGL.glRotatef(rotation, 0f, 0f, 1f);
                     }
                     if (flag)
                     {
-                        OpenGL.glScalef(this.scaleX, this.scaleY, 1f);
+                        OpenGL.glScalef(scaleX, scaleY, 1f);
                     }
                     OpenGL.glTranslatef(-num, -num2, 0f);
                 }
                 if (flag3)
                 {
-                    OpenGL.glTranslatef(this.translateX, this.translateY, 0f);
+                    OpenGL.glTranslatef(translateX, translateY, 0f);
                 }
             }
-            if (!RGBAColor.RGBAEqual(this.color, RGBAColor.solidOpaqueRGBA))
+            if (!RGBAColor.RGBAEqual(color, RGBAColor.solidOpaqueRGBA))
             {
-                OpenGL.glColor4f(1f, 1f, 1f, this.color.a);
+                OpenGL.glColor4f(1f, 1f, 1f, color.a);
             }
-            if (this.blendingMode != -1)
+            if (blendingMode != -1)
             {
-                switch (this.blendingMode)
+                switch (blendingMode)
                 {
                     case 0:
                         OpenGL.glBlendFunc(BlendingFactor.GL_SRC_ALPHA, BlendingFactor.GL_ONE_MINUS_SRC_ALPHA);
@@ -205,27 +205,27 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x06000081 RID: 129 RVA: 0x00005FB9 File Offset: 0x000041B9
         public virtual void draw()
         {
-            this.preDraw();
-            this.postDraw();
+            preDraw();
+            postDraw();
         }
 
         // Token: 0x06000082 RID: 130 RVA: 0x00005FC8 File Offset: 0x000041C8
         public virtual void postDraw()
         {
-            if (!this.passTransformationsToChilds)
+            if (!passTransformationsToChilds)
             {
                 BaseElement.restoreTransformations(this);
             }
-            if (!this.passColorToChilds)
+            if (!passColorToChilds)
             {
                 BaseElement.restoreColor(this);
             }
             int i = 0;
             int num = 0;
-            while (i < this.childs.Count)
+            while (i < childs.Count)
             {
                 BaseElement baseElement;
-                bool flag = this.childs.TryGetValue(num, out baseElement);
+                bool flag = childs.TryGetValue(num, out baseElement);
                 if (flag)
                 {
                     if (baseElement != null && baseElement.visible)
@@ -236,11 +236,11 @@ namespace ctr_wp7.iframework.visual
                 }
                 num++;
             }
-            if (this.passTransformationsToChilds)
+            if (passTransformationsToChilds)
             {
                 BaseElement.restoreTransformations(this);
             }
-            if (this.passColorToChilds)
+            if (passColorToChilds)
             {
                 BaseElement.restoreColor(this);
             }
@@ -251,10 +251,10 @@ namespace ctr_wp7.iframework.visual
         {
             int i = 0;
             int num = 0;
-            while (i < this.childs.Count)
+            while (i < childs.Count)
             {
                 BaseElement baseElement;
-                bool flag = this.childs.TryGetValue(num, out baseElement);
+                bool flag = childs.TryGetValue(num, out baseElement);
                 if (flag)
                 {
                     if (baseElement != null && baseElement.updateable)
@@ -265,22 +265,22 @@ namespace ctr_wp7.iframework.visual
                 }
                 num++;
             }
-            if (this.currentTimeline != null)
+            if (currentTimeline != null)
             {
-                Timeline.updateTimeline(this.currentTimeline, delta);
+                Timeline.updateTimeline(currentTimeline, delta);
             }
         }
 
         // Token: 0x06000084 RID: 132 RVA: 0x000060AD File Offset: 0x000042AD
         public BaseElement getChildWithName(NSString n)
         {
-            return this.getChildWithName(n.ToString());
+            return getChildWithName(n.ToString());
         }
 
         // Token: 0x06000085 RID: 133 RVA: 0x000060BC File Offset: 0x000042BC
         public BaseElement getChildWithName(string n)
         {
-            foreach (KeyValuePair<int, BaseElement> keyValuePair in this.childs)
+            foreach (KeyValuePair<int, BaseElement> keyValuePair in childs)
             {
                 BaseElement value = keyValuePair.Value;
                 if (value != null)
@@ -303,11 +303,11 @@ namespace ctr_wp7.iframework.visual
         public void setSizeToChildsBounds()
         {
             BaseElement.calculateTopLeft(this);
-            float num = this.drawX;
-            float num2 = this.drawY;
-            float num3 = this.drawX + (float)this.width;
-            float num4 = this.drawY + (float)this.height;
-            foreach (KeyValuePair<int, BaseElement> keyValuePair in this.childs)
+            float num = drawX;
+            float num2 = drawY;
+            float num3 = drawX + (float)width;
+            float num4 = drawY + (float)height;
+            foreach (KeyValuePair<int, BaseElement> keyValuePair in childs)
             {
                 BaseElement value = keyValuePair.Value;
                 if (value != null)
@@ -331,8 +331,8 @@ namespace ctr_wp7.iframework.visual
                     }
                 }
             }
-            this.width = (int)(num3 - num);
-            this.height = (int)(num4 - num2);
+            width = (int)(num3 - num);
+            height = (int)(num4 - num2);
         }
 
         // Token: 0x06000087 RID: 135 RVA: 0x0000625C File Offset: 0x0000445C
@@ -340,27 +340,27 @@ namespace ctr_wp7.iframework.visual
         {
             if (a.actionName == "ACTION_SET_VISIBLE")
             {
-                this.visible = a.actionSubParam != 0;
+                visible = a.actionSubParam != 0;
             }
             else if (a.actionName == "ACTION_SET_UPDATEABLE")
             {
-                this.updateable = a.actionSubParam != 0;
+                updateable = a.actionSubParam != 0;
             }
             else if (a.actionName == "ACTION_SET_TOUCHABLE")
             {
-                this.touchable = a.actionSubParam != 0;
+                touchable = a.actionSubParam != 0;
             }
             else if (a.actionName == "ACTION_PLAY_TIMELINE")
             {
-                this.playTimeline(a.actionSubParam);
+                playTimeline(a.actionSubParam);
             }
             else if (a.actionName == "ACTION_PAUSE_TIMELINE")
             {
-                this.pauseCurrentTimeline();
+                pauseCurrentTimeline();
             }
             else if (a.actionName == "ACTION_STOP_TIMELINE")
             {
-                this.stopCurrentTimeline();
+                stopCurrentTimeline();
             }
             else
             {
@@ -368,7 +368,7 @@ namespace ctr_wp7.iframework.visual
                 {
                     return false;
                 }
-                this.getCurrentTimeline().jumpToTrackKeyFrame(a.actionParam, a.actionSubParam);
+                getCurrentTimeline().jumpToTrackKeyFrame(a.actionParam, a.actionSubParam);
             }
             return true;
         }
@@ -413,7 +413,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x0600008A RID: 138 RVA: 0x00006434 File Offset: 0x00004634
         public virtual int addChild(BaseElement c)
         {
-            return this.addChildwithID(c, -1);
+            return addChildwithID(c, -1);
         }
 
         // Token: 0x0600008B RID: 139 RVA: 0x00006440 File Offset: 0x00004640
@@ -426,11 +426,11 @@ namespace ctr_wp7.iframework.visual
                 i = 0;
                 bool flag = false;
                 BaseElement baseElement;
-                while (this.childs.TryGetValue(i, out baseElement))
+                while (childs.TryGetValue(i, out baseElement))
                 {
                     if (baseElement == null)
                     {
-                        this.childs[i] = c;
+                        childs[i] = c;
                         flag = true;
                         break;
                     }
@@ -438,20 +438,20 @@ namespace ctr_wp7.iframework.visual
                 }
                 if (!flag)
                 {
-                    this.childs.Add(i, c);
+                    childs.Add(i, c);
                 }
             }
-            else if (this.childs.TryGetValue(i, out baseElement2))
+            else if (childs.TryGetValue(i, out baseElement2))
             {
                 if (baseElement2 != c)
                 {
                     baseElement2.dealloc();
                 }
-                this.childs[i] = c;
+                childs[i] = c;
             }
             else
             {
-                this.childs.Add(i, c);
+                childs.Add(i, c);
             }
             return i;
         }
@@ -460,30 +460,30 @@ namespace ctr_wp7.iframework.visual
         public virtual void removeChildWithID(int i)
         {
             BaseElement baseElement = null;
-            if (this.childs.TryGetValue(i, out baseElement))
+            if (childs.TryGetValue(i, out baseElement))
             {
                 if (baseElement != null)
                 {
                     baseElement.parent = null;
                 }
-                this.childs.Remove(i);
+                childs.Remove(i);
             }
         }
 
         // Token: 0x0600008D RID: 141 RVA: 0x0000650A File Offset: 0x0000470A
         public void removeAllChilds()
         {
-            this.childs.Clear();
+            childs.Clear();
         }
 
         // Token: 0x0600008E RID: 142 RVA: 0x00006518 File Offset: 0x00004718
         public virtual void removeChild(BaseElement c)
         {
-            foreach (KeyValuePair<int, BaseElement> keyValuePair in this.childs)
+            foreach (KeyValuePair<int, BaseElement> keyValuePair in childs)
             {
                 if (c.Equals(keyValuePair.Value))
                 {
-                    this.childs.Remove(keyValuePair.Key);
+                    childs.Remove(keyValuePair.Key);
                     break;
                 }
             }
@@ -493,7 +493,7 @@ namespace ctr_wp7.iframework.visual
         public virtual BaseElement getChild(int i)
         {
             BaseElement baseElement = null;
-            this.childs.TryGetValue(i, out baseElement);
+            childs.TryGetValue(i, out baseElement);
             return baseElement;
         }
 
@@ -501,7 +501,7 @@ namespace ctr_wp7.iframework.visual
         public virtual int getChildId(BaseElement c)
         {
             int num = -1;
-            foreach (KeyValuePair<int, BaseElement> keyValuePair in this.childs)
+            foreach (KeyValuePair<int, BaseElement> keyValuePair in childs)
             {
                 if (c.Equals(keyValuePair.Value))
                 {
@@ -515,20 +515,20 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x06000091 RID: 145 RVA: 0x00006610 File Offset: 0x00004810
         public virtual int childsCount()
         {
-            return this.childs.Count;
+            return childs.Count;
         }
 
         // Token: 0x06000092 RID: 146 RVA: 0x0000661D File Offset: 0x0000481D
         public virtual Dictionary<int, BaseElement> getChilds()
         {
-            return this.childs;
+            return childs;
         }
 
         // Token: 0x06000093 RID: 147 RVA: 0x00006628 File Offset: 0x00004828
         public virtual int addTimeline(Timeline t)
         {
-            int count = this.timelines.Count;
-            this.addTimelinewithID(t, count);
+            int count = timelines.Count;
+            addTimelinewithID(t, count);
             return count;
         }
 
@@ -536,94 +536,94 @@ namespace ctr_wp7.iframework.visual
         public virtual void addTimelinewithID(Timeline t, int i)
         {
             t.element = this;
-            this.timelines[i] = t;
+            timelines[i] = t;
         }
 
         // Token: 0x06000095 RID: 149 RVA: 0x00006660 File Offset: 0x00004860
         public virtual void removeTimeline(int i)
         {
-            if (this.currentTimelineIndex == i)
+            if (currentTimelineIndex == i)
             {
-                this.stopCurrentTimeline();
+                stopCurrentTimeline();
             }
-            this.timelines.Remove(i);
+            timelines.Remove(i);
         }
 
         // Token: 0x06000096 RID: 150 RVA: 0x00006680 File Offset: 0x00004880
         public virtual void playTimeline(int t)
         {
             Timeline timeline = null;
-            this.timelines.TryGetValue(t, out timeline);
+            timelines.TryGetValue(t, out timeline);
             if (timeline == null)
             {
                 return;
             }
-            if (this.currentTimeline != null && this.currentTimeline.state != Timeline.TimelineState.TIMELINE_STOPPED)
+            if (currentTimeline != null && currentTimeline.state != Timeline.TimelineState.TIMELINE_STOPPED)
             {
-                this.currentTimeline.stopTimeline();
+                currentTimeline.stopTimeline();
             }
-            this.currentTimelineIndex = t;
-            this.currentTimeline = timeline;
-            this.currentTimeline.playTimeline();
+            currentTimelineIndex = t;
+            currentTimeline = timeline;
+            currentTimeline.playTimeline();
         }
 
         // Token: 0x06000097 RID: 151 RVA: 0x000066DB File Offset: 0x000048DB
         public virtual void _playTimeline(NSObject obj)
         {
-            this.playTimeline(((NSInt)obj).intValue());
+            playTimeline(((NSInt)obj).intValue());
         }
 
         // Token: 0x06000098 RID: 152 RVA: 0x000066EE File Offset: 0x000048EE
         public virtual void pauseCurrentTimeline()
         {
-            this.currentTimeline.pauseTimeline();
+            currentTimeline.pauseTimeline();
         }
 
         // Token: 0x06000099 RID: 153 RVA: 0x000066FB File Offset: 0x000048FB
         public virtual void stopCurrentTimeline()
         {
-            this.currentTimeline.stopTimeline();
-            this.currentTimeline = null;
-            this.currentTimelineIndex = -1;
+            currentTimeline.stopTimeline();
+            currentTimeline = null;
+            currentTimelineIndex = -1;
         }
 
         // Token: 0x0600009A RID: 154 RVA: 0x00006716 File Offset: 0x00004916
         public virtual Timeline getCurrentTimeline()
         {
-            return this.currentTimeline;
+            return currentTimeline;
         }
 
         // Token: 0x0600009B RID: 155 RVA: 0x0000671E File Offset: 0x0000491E
         public int getCurrentTimelineIndex()
         {
-            return this.currentTimelineIndex;
+            return currentTimelineIndex;
         }
 
         // Token: 0x0600009C RID: 156 RVA: 0x00006728 File Offset: 0x00004928
         public virtual Timeline getTimeline(int n)
         {
             Timeline timeline = null;
-            this.timelines.TryGetValue(n, out timeline);
+            timelines.TryGetValue(n, out timeline);
             return timeline;
         }
 
         // Token: 0x0600009D RID: 157 RVA: 0x00006747 File Offset: 0x00004947
         public virtual bool hasTimeline(int n)
         {
-            return n >= 0 && n < this.timelines.Count && this.timelines[n] != null;
+            return n >= 0 && n < timelines.Count && timelines[n] != null;
         }
 
         // Token: 0x0600009E RID: 158 RVA: 0x00006770 File Offset: 0x00004970
         public virtual bool onTouchDownXY(float tx, float ty)
         {
             bool flag = false;
-            foreach (KeyValuePair<int, BaseElement> keyValuePair in Enumerable.Reverse<KeyValuePair<int, BaseElement>>(this.childs))
+            foreach (KeyValuePair<int, BaseElement> keyValuePair in Enumerable.Reverse<KeyValuePair<int, BaseElement>>(childs))
             {
                 BaseElement value = keyValuePair.Value;
                 if (value != null && value.touchable && value.onTouchDownXY(tx, ty) && !flag)
                 {
                     flag = true;
-                    if (!this.passTouchEventsToAllChilds)
+                    if (!passTouchEventsToAllChilds)
                     {
                         return flag;
                     }
@@ -636,13 +636,13 @@ namespace ctr_wp7.iframework.visual
         public virtual bool onTouchUpXY(float tx, float ty)
         {
             bool flag = false;
-            foreach (KeyValuePair<int, BaseElement> keyValuePair in Enumerable.Reverse<KeyValuePair<int, BaseElement>>(this.childs))
+            foreach (KeyValuePair<int, BaseElement> keyValuePair in Enumerable.Reverse<KeyValuePair<int, BaseElement>>(childs))
             {
                 BaseElement value = keyValuePair.Value;
                 if (value != null && value.touchable && value.onTouchUpXY(tx, ty) && !flag)
                 {
                     flag = true;
-                    if (!this.passTouchEventsToAllChilds)
+                    if (!passTouchEventsToAllChilds)
                     {
                         return flag;
                     }
@@ -655,13 +655,13 @@ namespace ctr_wp7.iframework.visual
         public virtual bool onTouchMoveXY(float tx, float ty)
         {
             bool flag = false;
-            foreach (KeyValuePair<int, BaseElement> keyValuePair in Enumerable.Reverse<KeyValuePair<int, BaseElement>>(this.childs))
+            foreach (KeyValuePair<int, BaseElement> keyValuePair in Enumerable.Reverse<KeyValuePair<int, BaseElement>>(childs))
             {
                 BaseElement value = keyValuePair.Value;
                 if (value != null && value.touchable && value.onTouchMoveXY(tx, ty) && !flag)
                 {
                     flag = true;
-                    if (!this.passTouchEventsToAllChilds)
+                    if (!passTouchEventsToAllChilds)
                     {
                         return flag;
                     }
@@ -673,35 +673,35 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060000A1 RID: 161 RVA: 0x000068FC File Offset: 0x00004AFC
         public void setEnabled(bool e)
         {
-            this.visible = e;
-            this.touchable = e;
-            this.updateable = e;
+            visible = e;
+            touchable = e;
+            updateable = e;
         }
 
         // Token: 0x060000A2 RID: 162 RVA: 0x00006913 File Offset: 0x00004B13
         public bool isEnabled()
         {
-            return this.visible && this.touchable && this.updateable;
+            return visible && touchable && updateable;
         }
 
         // Token: 0x060000A3 RID: 163 RVA: 0x0000692D File Offset: 0x00004B2D
         public void setName(string n)
         {
-            NSObject.NSREL(this.name);
-            this.name = new NSString(n);
+            NSObject.NSREL(name);
+            name = new NSString(n);
         }
 
         // Token: 0x060000A4 RID: 164 RVA: 0x00006946 File Offset: 0x00004B46
         public void setName(NSString n)
         {
-            NSObject.NSREL(this.name);
-            this.name = n;
+            NSObject.NSREL(name);
+            name = n;
         }
 
         // Token: 0x060000A5 RID: 165 RVA: 0x0000695C File Offset: 0x00004B5C
         public virtual void show()
         {
-            foreach (KeyValuePair<int, BaseElement> keyValuePair in this.childs)
+            foreach (KeyValuePair<int, BaseElement> keyValuePair in childs)
             {
                 BaseElement value = keyValuePair.Value;
                 if (value != null && value.visible)
@@ -714,7 +714,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060000A6 RID: 166 RVA: 0x000069C4 File Offset: 0x00004BC4
         public virtual void hide()
         {
-            foreach (KeyValuePair<int, BaseElement> keyValuePair in this.childs)
+            foreach (KeyValuePair<int, BaseElement> keyValuePair in childs)
             {
                 BaseElement value = keyValuePair.Value;
                 if (value != null && value.visible)
@@ -727,11 +727,11 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060000A7 RID: 167 RVA: 0x00006A2C File Offset: 0x00004C2C
         public override void dealloc()
         {
-            this.childs.Clear();
-            this.childs = null;
-            this.timelines.Clear();
-            this.timelines = null;
-            NSObject.NSREL(this.name);
+            childs.Clear();
+            childs = null;
+            timelines.Clear();
+            timelines = null;
+            NSObject.NSREL(name);
             base.dealloc();
         }
 

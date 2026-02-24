@@ -35,14 +35,14 @@ internal class DeviceParams
     // Token: 0x06000745 RID: 1861 RVA: 0x0003AAC4 File Offset: 0x00038CC4
     public bool isEnglishDevice()
     {
-        int timeZoneOffset = this.getTimeZoneOffset();
-        return this.isEnglishISO(this.getDeviceLanguageName()) && timeZoneOffset >= -11 && timeZoneOffset <= -4 && timeZoneOffset != -9;
+        int timeZoneOffset = getTimeZoneOffset();
+        return isEnglishISO(getDeviceLanguageName()) && timeZoneOffset >= -11 && timeZoneOffset <= -4 && timeZoneOffset != -9;
     }
 
     // Token: 0x06000746 RID: 1862 RVA: 0x0003AAF8 File Offset: 0x00038CF8
     private string string_isEnglishDevice()
     {
-        if (this.isEnglishDevice())
+        if (isEnglishDevice())
         {
             return "Yes";
         }
@@ -53,7 +53,7 @@ internal class DeviceParams
     public void ShowMessageBox()
     {
         string text = "Is english device";
-        string text2 = this.string_isEnglishDevice();
+        string text2 = string_isEnglishDevice();
         List<string> list = new List<string>();
         list.Add("Ok");
         list.Add("Cancel");

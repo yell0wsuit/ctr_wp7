@@ -16,38 +16,38 @@ namespace ctr_wp7.remotedata.cartoons
         public VideoDataManager()
         {
             ImageDownloader.setListener(this);
-            this.protocolVersion = 2;
-            this.serverUrl = "http://vps.zeptolab.com/feeder/episodes?";
+            protocolVersion = 2;
+            serverUrl = "http://vps.zeptolab.com/feeder/episodes?";
             object obj = base.readObject("BlockConfig", typeof(BlockConfig));
             if (obj == null)
             {
-                this.blockConfig = new BlockConfig();
+                blockConfig = new BlockConfig();
                 return;
             }
-            this.blockConfig = (BlockConfig)obj;
+            blockConfig = (BlockConfig)obj;
         }
 
         // Token: 0x0600035F RID: 863 RVA: 0x000156F4 File Offset: 0x000138F4
         public void initWith(string app, int resolution)
         {
             this.resolution = resolution;
-            this.request(app);
+            request(app);
         }
 
         // Token: 0x06000360 RID: 864 RVA: 0x000157C0 File Offset: 0x000139C0
         public void request(string app)
         {
-            if (!this.success && !this.execution && !ImageDownloader.isBusy())
+            if (!success && !execution && !ImageDownloader.isBusy())
             {
-                this.execution = true;
-                LinkBuilder linkBuilder = new LinkBuilder(this.serverUrl);
+                execution = true;
+                LinkBuilder linkBuilder = new LinkBuilder(serverUrl);
                 linkBuilder.put("app", app);
                 linkBuilder.put("platform", "winphone");
-                if (this.blockConfig.hash != null)
+                if (blockConfig.hash != null)
                 {
-                    linkBuilder.put("hash", this.blockConfig.hash);
+                    linkBuilder.put("hash", blockConfig.hash);
                 }
-                this.injectSizes(linkBuilder, this.resolution);
+                injectSizes(linkBuilder, resolution);
                 ServerDataManager.injectAdditionalParameters(linkBuilder);
                 string text = linkBuilder.ToString();
                 HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(new Uri(text));
@@ -57,24 +57,24 @@ namespace ctr_wp7.remotedata.cartoons
                     {
                         HttpWebRequest httpWebRequest2 = (HttpWebRequest)r.AsyncState;
                         HttpWebResponse httpWebResponse = (HttpWebResponse)httpWebRequest2.EndGetResponse(r);
-                        int totalBlocks = this.blockConfig.getTotalBlocks();
+                        int totalBlocks = blockConfig.getTotalBlocks();
                         VideoDataManager.VideoDataSaxHandler videoDataSaxHandler = new VideoDataManager.VideoDataSaxHandler(this);
                         using (videoDataSaxHandler.xmlReader = XmlReader.Create(httpWebResponse.GetResponseStream()))
                         {
                             videoDataSaxHandler.Parse();
                         }
-                        this.success = true;
-                        int totalBlocks2 = this.blockConfig.getTotalBlocks();
+                        success = true;
+                        int totalBlocks2 = blockConfig.getTotalBlocks();
                         if (totalBlocks != totalBlocks2)
                         {
-                            this.rebuildCartoonsSelect();
+                            rebuildCartoonsSelect();
                         }
-                        this.execution = false;
+                        execution = false;
                     }
                     catch (Exception)
                     {
-                        this.success = false;
-                        this.execution = false;
+                        success = false;
+                        execution = false;
                     }
                 }, httpWebRequest);
             }
@@ -83,11 +83,11 @@ namespace ctr_wp7.remotedata.cartoons
         // Token: 0x06000361 RID: 865 RVA: 0x00015885 File Offset: 0x00013A85
         public void clear()
         {
-            if (!this.execution && !ImageDownloader.isBusy())
+            if (!execution && !ImageDownloader.isBusy())
             {
                 base.removeObject("BlockConfig");
-                this.blockConfig = new BlockConfig();
-                this.success = false;
+                blockConfig = new BlockConfig();
+                success = false;
             }
         }
 
@@ -140,19 +140,19 @@ namespace ctr_wp7.remotedata.cartoons
             {
                 block.loadState = Block.LoadState.DONE;
             }
-            this.saveBlockConfig();
+            saveBlockConfig();
         }
 
         // Token: 0x06000364 RID: 868 RVA: 0x000159B0 File Offset: 0x00013BB0
         protected void saveBlockConfig()
         {
-            base.saveObject(this.blockConfig, "BlockConfig");
+            base.saveObject(blockConfig, "BlockConfig");
         }
 
         // Token: 0x06000365 RID: 869 RVA: 0x000159C4 File Offset: 0x00013BC4
         public BlockConfig getBlockConfig()
         {
-            return this.blockConfig;
+            return blockConfig;
         }
 
         // Token: 0x06000366 RID: 870 RVA: 0x000159CC File Offset: 0x00013BCC
@@ -190,7 +190,7 @@ namespace ctr_wp7.remotedata.cartoons
                     string text;
                     if (atts.TryGetValue("update", out text) && text == "true")
                     {
-                        this.updatehash = new Random().Next();
+                        updatehash = new Random().Next();
                     }
                 }
                 else if (localName == "hash")
@@ -198,7 +198,7 @@ namespace ctr_wp7.remotedata.cartoons
                     string text2;
                     if (atts.TryGetValue("value", out text2))
                     {
-                        this.parrent.blockConfig.hash = text2;
+                        parrent.blockConfig.hash = text2;
                     }
                 }
                 else if (localName == "episode" || localName == "adblock")
@@ -207,34 +207,34 @@ namespace ctr_wp7.remotedata.cartoons
                     atts.TryGetValue("id", out text3);
                     string text4 = null;
                     atts.TryGetValue("hash", out text4);
-                    this.writeblock = this.parrent.blockConfig.getBlockWithIDandHash(text3, text4);
-                    if (this.writeblock.hash == null)
+                    writeblock = parrent.blockConfig.getBlockWithIDandHash(text3, text4);
+                    if (writeblock.hash == null)
                     {
-                        this.writeblock.id = text3;
-                        this.writeblock.hash = text4;
-                        atts.TryGetValue("number", out this.writeblock.number);
-                        atts.TryGetValue("url", out this.writeblock.url);
-                        atts.TryGetValue("image_id", out this.writeblock.image_id);
-                        if (this.writeblock.image_id == null || this.writeblock.image_id.Length == 0)
+                        writeblock.id = text3;
+                        writeblock.hash = text4;
+                        atts.TryGetValue("number", out writeblock.number);
+                        atts.TryGetValue("url", out writeblock.url);
+                        atts.TryGetValue("image_id", out writeblock.image_id);
+                        if (writeblock.image_id == null || writeblock.image_id.Length == 0)
                         {
-                            this.writeblock.loadState = Block.LoadState.NO_IMAGE;
+                            writeblock.loadState = Block.LoadState.NO_IMAGE;
                         }
                         else
                         {
-                            this.writeblock.loadState = Block.LoadState.NOT_LOADED;
+                            writeblock.loadState = Block.LoadState.NOT_LOADED;
                         }
                     }
-                    this.writeblock.langs.Clear();
-                    this.writeblock.order = this.order++;
-                    this.writeblock.updatehash = this.updatehash;
+                    writeblock.langs.Clear();
+                    writeblock.order = order++;
+                    writeblock.updatehash = updatehash;
                 }
                 else if (localName == "text")
                 {
-                    this.textsaving = true;
+                    textsaving = true;
                 }
-                if (this.textsaving)
+                if (textsaving)
                 {
-                    this.currentlang = localName;
+                    currentlang = localName;
                 }
             }
 
@@ -243,37 +243,37 @@ namespace ctr_wp7.remotedata.cartoons
             {
                 if (localName == "episode" || localName == "adblock")
                 {
-                    this.writeblock.type = localName;
-                    this.writeblock = null;
+                    writeblock.type = localName;
+                    writeblock = null;
                     return;
                 }
                 if (localName == "text")
                 {
-                    this.textsaving = false;
-                    this.currentlang = null;
+                    textsaving = false;
+                    currentlang = null;
                     return;
                 }
                 if (localName == "response")
                 {
                     try
                     {
-                        if (this.updatehash != 0)
+                        if (updatehash != 0)
                         {
-                            List<Block> list = this.parrent.blockConfig.removeOldFiles(this.updatehash);
+                            List<Block> list = parrent.blockConfig.removeOldFiles(updatehash);
                             foreach (Block block in list)
                             {
                                 if (block.loadState == Block.LoadState.DONE)
                                 {
-                                    this.parrent.removeObject(block.getName());
+                                    parrent.removeObject(block.getName());
                                 }
                             }
-                            if (this.order != this.parrent.blockConfig.getTotalBlocks())
+                            if (order != parrent.blockConfig.getTotalBlocks())
                             {
-                                this.parrent.blockConfig.setBroken();
+                                parrent.blockConfig.setBroken();
                             }
-                            this.parrent.saveBlockConfig();
+                            parrent.saveBlockConfig();
                         }
-                        List<Block> blocksWaitingForDownload = this.parrent.blockConfig.getBlocksWaitingForDownload();
+                        List<Block> blocksWaitingForDownload = parrent.blockConfig.getBlocksWaitingForDownload();
                         foreach (Block block2 in blocksWaitingForDownload)
                         {
                             ImageDownloader.download(block2);
@@ -288,19 +288,19 @@ namespace ctr_wp7.remotedata.cartoons
             // Token: 0x0600036B RID: 875 RVA: 0x00015D40 File Offset: 0x00013F40
             public override void Characters(string ch)
             {
-                if (this.textsaving && this.currentlang != null)
+                if (textsaving && currentlang != null)
                 {
                     StringBuilder stringBuilder;
-                    if (this.writeblock.langs.ContainsKey(this.currentlang))
+                    if (writeblock.langs.ContainsKey(currentlang))
                     {
-                        stringBuilder = new StringBuilder(this.writeblock.langs[this.currentlang]);
+                        stringBuilder = new StringBuilder(writeblock.langs[currentlang]);
                     }
                     else
                     {
                         stringBuilder = new StringBuilder();
                     }
                     stringBuilder.Append(ch);
-                    this.writeblock.langs[this.currentlang] = stringBuilder.ToString();
+                    writeblock.langs[currentlang] = stringBuilder.ToString();
                 }
             }
 

@@ -21,13 +21,13 @@ namespace ctr_wp7.iframework.visual
         {
             if (base.init() != null)
             {
-                this.buttonID = n;
-                this.state = TimedButton.TIMED_BUTTON.TIMED_BUTTON_UP;
-                this.touchLeftInc = 0f;
-                this.touchRightInc = 0f;
-                this.touchTopInc = 0f;
-                this.touchBottomInc = 0f;
-                this.forcedTouchZone = new Rectangle(-1f, -1f, -1f, -1f);
+                buttonID = n;
+                state = TimedButton.TIMED_BUTTON.TIMED_BUTTON_UP;
+                touchLeftInc = 0f;
+                touchRightInc = 0f;
+                touchTopInc = 0f;
+                touchBottomInc = 0f;
+                forcedTouchZone = new Rectangle(-1f, -1f, -1f, -1f);
             }
             return this;
         }
@@ -35,23 +35,23 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060003EB RID: 1003 RVA: 0x0001C274 File Offset: 0x0001A474
         public virtual TimedButton initWithUpElementDownElementandID(BaseElement up, BaseElement down, int n)
         {
-            if (this.initWithID(n) != null)
+            if (initWithID(n) != null)
             {
                 up.parentAnchor = (down.parentAnchor = 9);
-                this.addChildwithID(up, 0);
-                this.addChildwithID(down, 1);
-                this.setState(TimedButton.TIMED_BUTTON.TIMED_BUTTON_UP);
+                addChildwithID(up, 0);
+                addChildwithID(down, 1);
+                setState(TimedButton.TIMED_BUTTON.TIMED_BUTTON_UP);
                 Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(8);
-                timeline.addKeyFrame(KeyFrame.makeSingleAction(this.getChild(0), "ACTION_SET_VISIBLE", 1, 1, 0f));
-                timeline.addKeyFrame(KeyFrame.makeSingleAction(this.getChild(1), "ACTION_SET_VISIBLE", 0, 0, 0f));
-                timeline.addKeyFrame(KeyFrame.makeSingleAction(this.getChild(1), "ACTION_SET_VISIBLE", 1, 1, 0.1f));
-                timeline.addKeyFrame(KeyFrame.makeSingleAction(this.getChild(0), "ACTION_SET_VISIBLE", 0, 0, 0f));
-                timeline.addKeyFrame(KeyFrame.makeSingleAction(this.getChild(1), "ACTION_SET_VISIBLE", 0, 0, 0.2f));
-                timeline.addKeyFrame(KeyFrame.makeSingleAction(this.getChild(0), "ACTION_SET_VISIBLE", 1, 1, 0f));
-                timeline.addKeyFrame(KeyFrame.makeSingleAction(this.getChild(1), "ACTION_SET_VISIBLE", 1, 1, 0.1f));
-                timeline.addKeyFrame(KeyFrame.makeSingleAction(this.getChild(0), "ACTION_SET_VISIBLE", 0, 0, 0f));
-                this.addTimelinewithID(timeline, 0);
-                this.timelinePlayed = false;
+                timeline.addKeyFrame(KeyFrame.makeSingleAction(getChild(0), "ACTION_SET_VISIBLE", 1, 1, 0f));
+                timeline.addKeyFrame(KeyFrame.makeSingleAction(getChild(1), "ACTION_SET_VISIBLE", 0, 0, 0f));
+                timeline.addKeyFrame(KeyFrame.makeSingleAction(getChild(1), "ACTION_SET_VISIBLE", 1, 1, 0.1f));
+                timeline.addKeyFrame(KeyFrame.makeSingleAction(getChild(0), "ACTION_SET_VISIBLE", 0, 0, 0f));
+                timeline.addKeyFrame(KeyFrame.makeSingleAction(getChild(1), "ACTION_SET_VISIBLE", 0, 0, 0.2f));
+                timeline.addKeyFrame(KeyFrame.makeSingleAction(getChild(0), "ACTION_SET_VISIBLE", 1, 1, 0f));
+                timeline.addKeyFrame(KeyFrame.makeSingleAction(getChild(1), "ACTION_SET_VISIBLE", 1, 1, 0.1f));
+                timeline.addKeyFrame(KeyFrame.makeSingleAction(getChild(0), "ACTION_SET_VISIBLE", 0, 0, 0f));
+                addTimelinewithID(timeline, 0);
+                timelinePlayed = false;
             }
             return this;
         }
@@ -59,41 +59,41 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060003EC RID: 1004 RVA: 0x0001C3C3 File Offset: 0x0001A5C3
         public void setTouchIncreaseLeftRightTopBottom(double l, double r, double t, double b)
         {
-            this.setTouchIncreaseLeftRightTopBottom((float)l, (float)r, (float)t, (float)b);
+            setTouchIncreaseLeftRightTopBottom((float)l, (float)r, (float)t, (float)b);
         }
 
         // Token: 0x060003ED RID: 1005 RVA: 0x0001C3D4 File Offset: 0x0001A5D4
         public virtual void setTouchIncreaseLeftRightTopBottom(float l, float r, float t, float b)
         {
-            this.touchLeftInc = l;
-            this.touchRightInc = r;
-            this.touchTopInc = t;
-            this.touchBottomInc = b;
+            touchLeftInc = l;
+            touchRightInc = r;
+            touchTopInc = t;
+            touchBottomInc = b;
         }
 
         // Token: 0x060003EE RID: 1006 RVA: 0x0001C3F3 File Offset: 0x0001A5F3
         public virtual void forceTouchRect(Rectangle r)
         {
-            this.forcedTouchZone = r;
+            forcedTouchZone = r;
         }
 
         // Token: 0x060003EF RID: 1007 RVA: 0x0001C3FC File Offset: 0x0001A5FC
         public virtual bool isInTouchZoneXYforTouchDown(float tx, float ty, bool td)
         {
             float num = (td ? 0f : 15f);
-            if (this.forcedTouchZone.w != -1f)
+            if (forcedTouchZone.w != -1f)
             {
-                return MathHelper.pointInRect(tx, ty, this.drawX + this.forcedTouchZone.x - num, this.drawY + this.forcedTouchZone.y - num, this.forcedTouchZone.w + num * 2f, this.forcedTouchZone.h + num * 2f);
+                return MathHelper.pointInRect(tx, ty, drawX + forcedTouchZone.x - num, drawY + forcedTouchZone.y - num, forcedTouchZone.w + num * 2f, forcedTouchZone.h + num * 2f);
             }
-            return MathHelper.pointInRect(tx, ty, this.drawX - this.touchLeftInc - num, this.drawY - this.touchTopInc - num, (float)this.width + (this.touchLeftInc + this.touchRightInc) + num * 2f, (float)this.height + (this.touchTopInc + this.touchBottomInc) + num * 2f);
+            return MathHelper.pointInRect(tx, ty, drawX - touchLeftInc - num, drawY - touchTopInc - num, (float)width + (touchLeftInc + touchRightInc) + num * 2f, (float)height + (touchTopInc + touchBottomInc) + num * 2f);
         }
 
         // Token: 0x060003F0 RID: 1008 RVA: 0x0001C4E0 File Offset: 0x0001A6E0
         public virtual void setState(TimedButton.TIMED_BUTTON s)
         {
-            this.state = s;
-            BaseElement child = this.getChild(0);
-            BaseElement child2 = this.getChild(1);
+            state = s;
+            BaseElement child = getChild(0);
+            BaseElement child2 = getChild(1);
             child.setEnabled(s == TimedButton.TIMED_BUTTON.TIMED_BUTTON_UP);
             child2.setEnabled(s == TimedButton.TIMED_BUTTON.TIMED_BUTTON_DOWN);
         }
@@ -102,11 +102,11 @@ namespace ctr_wp7.iframework.visual
         public override bool onTouchDownXY(float tx, float ty)
         {
             base.onTouchDownXY(tx, ty);
-            if (this.state == TimedButton.TIMED_BUTTON.TIMED_BUTTON_UP && this.isInTouchZoneXYforTouchDown(tx, ty, true))
+            if (state == TimedButton.TIMED_BUTTON.TIMED_BUTTON_UP && isInTouchZoneXYforTouchDown(tx, ty, true))
             {
-                this.setState(TimedButton.TIMED_BUTTON.TIMED_BUTTON_DOWN);
-                this.time = this.timer;
-                this.timelinePlayed = false;
+                setState(TimedButton.TIMED_BUTTON.TIMED_BUTTON_DOWN);
+                time = timer;
+                timelinePlayed = false;
                 return true;
             }
             return false;
@@ -116,25 +116,25 @@ namespace ctr_wp7.iframework.visual
         public override bool onTouchUpXY(float tx, float ty)
         {
             base.onTouchUpXY(tx, ty);
-            if (this.state == TimedButton.TIMED_BUTTON.TIMED_BUTTON_DOWN)
+            if (state == TimedButton.TIMED_BUTTON.TIMED_BUTTON_DOWN)
             {
-                this.setState(TimedButton.TIMED_BUTTON.TIMED_BUTTON_UP);
-                this.timelinePlayed = false;
-                if (this.isInTouchZoneXYforTouchDown(tx, ty, false) && this.time <= 0f)
+                setState(TimedButton.TIMED_BUTTON.TIMED_BUTTON_UP);
+                timelinePlayed = false;
+                if (isInTouchZoneXYforTouchDown(tx, ty, false) && time <= 0f)
                 {
-                    if (this.delegateButtonDelegate != null)
+                    if (delegateButtonDelegate != null)
                     {
-                        this.delegateButtonDelegate.onButtonPressed(this.buttonID);
+                        delegateButtonDelegate.onButtonPressed(buttonID);
                     }
-                    Timeline currentTimeline = this.getCurrentTimeline();
+                    Timeline currentTimeline = getCurrentTimeline();
                     if (currentTimeline != null)
                     {
-                        this.stopCurrentTimeline();
+                        stopCurrentTimeline();
                     }
-                    this.time = -1f;
+                    time = -1f;
                     return true;
                 }
-                this.time = -1f;
+                time = -1f;
             }
             return false;
         }
@@ -143,13 +143,13 @@ namespace ctr_wp7.iframework.visual
         public override bool onTouchMoveXY(float tx, float ty)
         {
             base.onTouchMoveXY(tx, ty);
-            if (this.state == TimedButton.TIMED_BUTTON.TIMED_BUTTON_DOWN)
+            if (state == TimedButton.TIMED_BUTTON.TIMED_BUTTON_DOWN)
             {
-                if (this.isInTouchZoneXYforTouchDown(tx, ty, false))
+                if (isInTouchZoneXYforTouchDown(tx, ty, false))
                 {
                     return true;
                 }
-                this.setState(TimedButton.TIMED_BUTTON.TIMED_BUTTON_UP);
+                setState(TimedButton.TIMED_BUTTON.TIMED_BUTTON_UP);
             }
             return false;
         }
@@ -161,9 +161,9 @@ namespace ctr_wp7.iframework.visual
             c.parentAnchor = 9;
             if (i == 1)
             {
-                this.width = c.width;
-                this.height = c.height;
-                this.setState(TimedButton.TIMED_BUTTON.TIMED_BUTTON_UP);
+                width = c.width;
+                height = c.height;
+                setState(TimedButton.TIMED_BUTTON.TIMED_BUTTON_UP);
             }
             return num;
         }
@@ -178,13 +178,13 @@ namespace ctr_wp7.iframework.visual
         public override void update(float delta)
         {
             base.update(delta);
-            if (this.time > 0f && this.state == TimedButton.TIMED_BUTTON.TIMED_BUTTON_DOWN)
+            if (time > 0f && state == TimedButton.TIMED_BUTTON.TIMED_BUTTON_DOWN)
             {
-                this.time -= delta;
-                if (this.time <= 0f && !this.timelinePlayed)
+                time -= delta;
+                if (time <= 0f && !timelinePlayed)
                 {
-                    this.playTimeline(0);
-                    this.timelinePlayed = true;
+                    playTimeline(0);
+                    timelinePlayed = true;
                 }
             }
         }

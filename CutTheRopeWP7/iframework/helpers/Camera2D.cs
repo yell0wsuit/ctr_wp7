@@ -11,8 +11,8 @@ namespace ctr_wp7.iframework.helpers
         {
             if (base.init() != null)
             {
-                this.speed = s;
-                this.type = t;
+                speed = s;
+                type = t;
             }
             return this;
         }
@@ -20,34 +20,34 @@ namespace ctr_wp7.iframework.helpers
         // Token: 0x0600020F RID: 527 RVA: 0x0000DB58 File Offset: 0x0000BD58
         public virtual void moveToXYImmediate(float x, float y, bool immediate)
         {
-            this.target.x = x;
-            this.target.y = y;
+            target.x = x;
+            target.y = y;
             if (immediate)
             {
-                this.pos = this.target;
+                pos = target;
                 return;
             }
-            if (this.type == CAMERA_TYPE.CAMERA_SPEED_DELAY)
+            if (type == CAMERA_TYPE.CAMERA_SPEED_DELAY)
             {
-                this.offset = MathHelper.vectMult(MathHelper.vectSub(this.target, this.pos), this.speed);
+                offset = MathHelper.vectMult(MathHelper.vectSub(target, pos), speed);
                 return;
             }
-            if (this.type == CAMERA_TYPE.CAMERA_SPEED_PIXELS)
+            if (type == CAMERA_TYPE.CAMERA_SPEED_PIXELS)
             {
-                this.offset = MathHelper.vectMult(MathHelper.vectNormalize(MathHelper.vectSub(this.target, this.pos)), this.speed);
+                offset = MathHelper.vectMult(MathHelper.vectNormalize(MathHelper.vectSub(target, pos)), speed);
             }
         }
 
         // Token: 0x06000210 RID: 528 RVA: 0x0000DBE8 File Offset: 0x0000BDE8
         public virtual void update(float delta)
         {
-            if (!MathHelper.vectEqual(this.pos, this.target))
+            if (!MathHelper.vectEqual(pos, target))
             {
-                this.pos = MathHelper.vectAdd(this.pos, MathHelper.vectMult(this.offset, delta));
-                this.pos = MathHelper.vect(MathHelper.round((double)this.pos.x), MathHelper.round((double)this.pos.y));
-                if (!MathHelper.sameSign(this.offset.x, this.target.x - this.pos.x) || !MathHelper.sameSign(this.offset.y, this.target.y - this.pos.y))
+                pos = MathHelper.vectAdd(pos, MathHelper.vectMult(offset, delta));
+                pos = MathHelper.vect(MathHelper.round((double)pos.x), MathHelper.round((double)pos.y));
+                if (!MathHelper.sameSign(offset.x, target.x - pos.x) || !MathHelper.sameSign(offset.y, target.y - pos.y))
                 {
-                    this.pos = this.target;
+                    pos = target;
                 }
             }
         }
@@ -55,13 +55,13 @@ namespace ctr_wp7.iframework.helpers
         // Token: 0x06000211 RID: 529 RVA: 0x0000DCB3 File Offset: 0x0000BEB3
         public virtual void applyCameraTransformation()
         {
-            OpenGL.glTranslatef((double)(-(double)this.pos.x), (double)(-(double)this.pos.y), 0.0);
+            OpenGL.glTranslatef((double)(-(double)pos.x), (double)(-(double)pos.y), 0.0);
         }
 
         // Token: 0x06000212 RID: 530 RVA: 0x0000DCDD File Offset: 0x0000BEDD
         public virtual void cancelCameraTransformation()
         {
-            OpenGL.glTranslatef((double)this.pos.x, (double)this.pos.y, 0.0);
+            OpenGL.glTranslatef((double)pos.x, (double)pos.y, 0.0);
         }
 
         // Token: 0x04000812 RID: 2066

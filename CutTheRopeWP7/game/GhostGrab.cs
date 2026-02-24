@@ -13,14 +13,14 @@ namespace ctr_wp7.game
         {
             if (base.init() != null)
             {
-                this.x = px;
-                this.y = py;
+                x = px;
+                y = py;
                 Image image = Image.Image_createWithResIDQuad(180, 3);
-                image.x = this.x - 20f;
-                image.y = this.y + 2f;
+                image.x = x - 20f;
+                image.y = y + 2f;
                 image.anchor = 18;
                 image.doRestoreCutTransparency();
-                this.addChild(image);
+                addChild(image);
                 Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(5);
                 timeline.setTimelineLoopType(Timeline.LoopType.TIMELINE_REPLAY);
                 timeline.addKeyFrame(KeyFrame.makeScale(0.4300000071525574, 0.4300000071525574, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
@@ -36,11 +36,11 @@ namespace ctr_wp7.game
                 image.addTimelinewithID(timeline, 0);
                 image.playTimeline(0);
                 Image image2 = Image.Image_createWithResIDQuad(180, 2);
-                image2.x = this.x + 18f;
-                image2.y = this.y + 8f;
+                image2.x = x + 18f;
+                image2.y = y + 8f;
                 image2.anchor = 18;
                 image2.doRestoreCutTransparency();
-                this.addChild(image2);
+                addChild(image2);
                 Timeline timeline2 = new Timeline().initWithMaxKeyFramesOnTrack(5);
                 timeline2.setTimelineLoopType(Timeline.LoopType.TIMELINE_REPLAY);
                 timeline2.addKeyFrame(KeyFrame.makeScale(0.8999999761581421, 0.8999999761581421, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
@@ -56,11 +56,11 @@ namespace ctr_wp7.game
                 image2.addTimelinewithID(timeline2, 0);
                 image2.playTimeline(0);
                 Image image3 = Image.Image_createWithResIDQuad(180, 0);
-                image3.x = this.x - 5f;
-                image3.y = this.y + 15f;
+                image3.x = x - 5f;
+                image3.y = y + 15f;
                 image3.anchor = 18;
                 image3.doRestoreCutTransparency();
-                this.addChild(image3);
+                addChild(image3);
                 Timeline timeline3 = new Timeline().initWithMaxKeyFramesOnTrack(5);
                 timeline3.setTimelineLoopType(Timeline.LoopType.TIMELINE_REPLAY);
                 timeline3.addKeyFrame(KeyFrame.makeScale(1.100000023841858, 1.100000023841858, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
@@ -87,43 +87,43 @@ namespace ctr_wp7.game
         // Token: 0x060005B4 RID: 1460 RVA: 0x0002BDC0 File Offset: 0x00029FC0
         public override void draw()
         {
-            if (!this.visible)
+            if (!visible)
             {
                 return;
             }
-            this.preDraw();
-            this.back.color = this.color;
+            preDraw();
+            back.color = color;
             OpenGL.glBlendFunc(BlendingFactor.GL_ONE, BlendingFactor.GL_ONE_MINUS_SRC_ALPHA);
-            this.back.draw();
+            back.draw();
             OpenGL.glBlendFunc(BlendingFactor.GL_SRC_ALPHA, BlendingFactor.GL_ONE_MINUS_SRC_ALPHA);
             OpenGL.glDisable(0);
-            if (this.radius != -1f || this.hideRadius)
+            if (radius != -1f || hideRadius)
             {
                 int pack = ((CTRRootController)Application.sharedRootController()).getPack();
                 RGBAColor rgbacolor;
                 if (pack == 6)
                 {
-                    rgbacolor = RGBAColor.MakeRGBA(0.4, 0.7, 1.0, (double)(this.radiusAlpha * this.color.a));
+                    rgbacolor = RGBAColor.MakeRGBA(0.4, 0.7, 1.0, (double)(radiusAlpha * color.a));
                 }
                 else
                 {
-                    rgbacolor = RGBAColor.MakeRGBA(0.2, 0.5, 0.9, (double)(this.radiusAlpha * this.color.a));
+                    rgbacolor = RGBAColor.MakeRGBA(0.2, 0.5, 0.9, (double)(radiusAlpha * color.a));
                 }
-                base.drawGrabCircle(this, this.x, this.y, this.radius, this.vertexCount, rgbacolor);
+                base.drawGrabCircle(this, x, y, radius, vertexCount, rgbacolor);
             }
             OpenGL.glColor4f(1.0, 1.0, 1.0, 1.0);
             OpenGL.glEnable(0);
             OpenGL.glDisable(0);
-            if (this.rope != null)
+            if (rope != null)
             {
-                this.rope.draw();
+                rope.draw();
             }
             OpenGL.glColor4f(1.0, 1.0, 1.0, 1.0);
             OpenGL.glEnable(0);
             OpenGL.glBlendFunc(BlendingFactor.GL_ONE, BlendingFactor.GL_ONE_MINUS_SRC_ALPHA);
-            this.front.color = this.color;
-            this.front.draw();
-            this.postDraw();
+            front.color = color;
+            front.draw();
+            postDraw();
         }
     }
 }

@@ -16,60 +16,60 @@ namespace ctr_wp7.game
         {
             if (base.init() != null)
             {
-                this.possibleStatesMask = possibleStateMask | 1;
-                this.ghostState = 1;
+                possibleStatesMask = possibleStateMask | 1;
+                ghostState = 1;
                 this.bouncerAngle = bouncerAngle;
                 this.grabRadius = grabRadius;
-                this.gsBubbles = bubbles;
-                this.gsBungees = bungees;
-                this.gsBouncers = bouncers;
-                this.x = position.x;
-                this.y = position.y;
-                this.ghostImage = (BaseElement)new BaseElement().init();
-                this.addChild(this.ghostImage);
-                this.morphingBubbles = (GhostMorphingParticles)new GhostMorphingParticles().initWithTotalParticles(7);
-                this.morphingBubbles.x = position.x;
-                this.morphingBubbles.y = position.y;
-                this.addChild(this.morphingBubbles);
+                gsBubbles = bubbles;
+                gsBungees = bungees;
+                gsBouncers = bouncers;
+                x = position.x;
+                y = position.y;
+                ghostImage = (BaseElement)new BaseElement().init();
+                addChild(ghostImage);
+                morphingBubbles = (GhostMorphingParticles)new GhostMorphingParticles().initWithTotalParticles(7);
+                morphingBubbles.x = position.x;
+                morphingBubbles.y = position.y;
+                addChild(morphingBubbles);
                 Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(2);
                 timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
                 timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.solidOpaqueRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.36f));
-                this.ghostImage.addTimelinewithID(timeline, 10);
-                this.ghostImage.playTimeline(10);
+                ghostImage.addTimelinewithID(timeline, 10);
+                ghostImage.playTimeline(10);
                 Timeline timeline2 = new Timeline().initWithMaxKeyFramesOnTrack(2);
                 timeline2.addKeyFrame(KeyFrame.makeColor(RGBAColor.solidOpaqueRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
                 timeline2.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.16));
-                this.ghostImage.addTimelinewithID(timeline2, 11);
-                this.ghostImageBody = Image.Image_createWithResIDQuad(182, 0);
-                this.ghostImageBody.x = position.x;
-                this.ghostImageBody.y = position.y;
-                this.ghostImageBody.anchor = 18;
-                this.ghostImageBody.doRestoreCutTransparency();
-                this.ghostImage.addChild(this.ghostImageBody);
+                ghostImage.addTimelinewithID(timeline2, 11);
+                ghostImageBody = Image.Image_createWithResIDQuad(182, 0);
+                ghostImageBody.x = position.x;
+                ghostImageBody.y = position.y;
+                ghostImageBody.anchor = 18;
+                ghostImageBody.doRestoreCutTransparency();
+                ghostImage.addChild(ghostImageBody);
                 float rnd_0_ = MathHelper.RND_0_1;
                 Timeline timeline3 = new Timeline().initWithMaxKeyFramesOnTrack(2);
-                timeline3.addKeyFrame(KeyFrame.makePos((double)this.x, (double)this.y, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
-                timeline3.addKeyFrame(KeyFrame.makePos((double)this.x, (double)this.y - 3.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, (double)rnd_0_));
+                timeline3.addKeyFrame(KeyFrame.makePos((double)x, (double)y, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
+                timeline3.addKeyFrame(KeyFrame.makePos((double)x, (double)y - 3.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, (double)rnd_0_));
                 timeline3.delegateTimelineDelegate = this;
-                this.ghostImageBody.addTimelinewithID(timeline3, 13);
-                this.ghostImageBody.playTimeline(13);
-                this.ghostImageFace = Image.Image_createWithResIDQuad(182, 1);
-                this.ghostImageFace.x = position.x;
-                this.ghostImageFace.y = position.y;
-                this.ghostImageFace.anchor = 18;
-                this.ghostImageFace.doRestoreCutTransparency();
-                this.ghostImage.addChild(this.ghostImageFace);
+                ghostImageBody.addTimelinewithID(timeline3, 13);
+                ghostImageBody.playTimeline(13);
+                ghostImageFace = Image.Image_createWithResIDQuad(182, 1);
+                ghostImageFace.x = position.x;
+                ghostImageFace.y = position.y;
+                ghostImageFace.anchor = 18;
+                ghostImageFace.doRestoreCutTransparency();
+                ghostImage.addChild(ghostImageFace);
                 Timeline timeline4 = new Timeline().initWithMaxKeyFramesOnTrack(2);
-                timeline4.addKeyFrame(KeyFrame.makePos((double)this.x, (double)this.y, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
-                timeline4.addKeyFrame(KeyFrame.makePos((double)this.x, (double)this.y - 2.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, (double)rnd_0_ + 0.005));
+                timeline4.addKeyFrame(KeyFrame.makePos((double)x, (double)y, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
+                timeline4.addKeyFrame(KeyFrame.makePos((double)x, (double)y - 2.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, (double)rnd_0_ + 0.005));
                 timeline4.delegateTimelineDelegate = this;
-                this.ghostImageFace.addTimelinewithID(timeline4, 13);
-                this.ghostImageFace.playTimeline(13);
-                this.bubble = null;
-                this.grab = null;
-                this.bouncer = null;
-                this.cyclingEnabled = true;
-                this.candyBreak = false;
+                ghostImageFace.addTimelinewithID(timeline4, 13);
+                ghostImageFace.playTimeline(13);
+                bubble = null;
+                grab = null;
+                bouncer = null;
+                cyclingEnabled = true;
+                candyBreak = false;
             }
             return this;
         }
@@ -77,135 +77,135 @@ namespace ctr_wp7.game
         // Token: 0x06000111 RID: 273 RVA: 0x00009454 File Offset: 0x00007654
         public override void dealloc()
         {
-            this.bubble = null;
-            this.grab = null;
-            this.bouncer = null;
-            this.ghostImageBody = null;
-            this.ghostImageFace = null;
-            this.ghostImage = null;
-            this.morphingBubbles = null;
-            this.morphingCloud = null;
+            bubble = null;
+            grab = null;
+            bouncer = null;
+            ghostImageBody = null;
+            ghostImageFace = null;
+            ghostImage = null;
+            morphingBubbles = null;
+            morphingCloud = null;
             base.dealloc();
         }
 
         // Token: 0x06000112 RID: 274 RVA: 0x00009494 File Offset: 0x00007694
         public override void update(float delta)
         {
-            if (this.bubble != null && this.bubble.getCurrentTimelineIndex() == 11 && this.bubble.getCurrentTimeline().state == Timeline.TimelineState.TIMELINE_STOPPED)
+            if (bubble != null && bubble.getCurrentTimelineIndex() == 11 && bubble.getCurrentTimeline().state == Timeline.TimelineState.TIMELINE_STOPPED)
             {
-                this.gsBubbles.Remove(this.bubble);
-                this.bubble = null;
+                gsBubbles.Remove(bubble);
+                bubble = null;
             }
-            if (this.bouncer != null && this.bouncer.getCurrentTimelineIndex() == 11 && this.bouncer.getCurrentTimeline().state == Timeline.TimelineState.TIMELINE_STOPPED)
+            if (bouncer != null && bouncer.getCurrentTimelineIndex() == 11 && bouncer.getCurrentTimeline().state == Timeline.TimelineState.TIMELINE_STOPPED)
             {
-                this.gsBouncers.Remove(this.bouncer);
-                this.bouncer = null;
+                gsBouncers.Remove(bouncer);
+                bouncer = null;
             }
-            if (this.grab != null && this.grab.getCurrentTimelineIndex() == 11 && this.grab.getCurrentTimeline().state == Timeline.TimelineState.TIMELINE_STOPPED)
+            if (grab != null && grab.getCurrentTimelineIndex() == 11 && grab.getCurrentTimeline().state == Timeline.TimelineState.TIMELINE_STOPPED)
             {
-                this.grab.destroyRope();
-                this.gsBungees.Remove(this.grab);
-                this.grab = null;
+                grab.destroyRope();
+                gsBungees.Remove(grab);
+                grab = null;
             }
             base.update(delta);
-            if (this.grab != null && this.grab.rope != null && this.grab.rope.cut != -1 && this.grab.getCurrentTimelineIndex() == 10)
+            if (grab != null && grab.rope != null && grab.rope.cut != -1 && grab.getCurrentTimelineIndex() == 10)
             {
-                this.cyclingEnabled = true;
-                this.resetToState(1);
+                cyclingEnabled = true;
+                resetToState(1);
             }
         }
 
         // Token: 0x06000113 RID: 275 RVA: 0x000095C0 File Offset: 0x000077C0
         public virtual void resetToState(int newState)
         {
-            if ((newState & this.possibleStatesMask) == 0)
+            if ((newState & possibleStatesMask) == 0)
             {
                 return;
             }
-            this.ghostState = newState;
+            ghostState = newState;
             Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(2);
             timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.solidOpaqueRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
             timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.16));
             timeline.delegateTimelineDelegate = this;
-            if (this.bubble != null)
+            if (bubble != null)
             {
-                if (this.bubble.getCurrentTimelineIndex() == 11)
+                if (bubble.getCurrentTimelineIndex() == 11)
                 {
-                    this.gsBubbles.Remove(this.bubble);
-                    this.bubble = null;
+                    gsBubbles.Remove(bubble);
+                    bubble = null;
                 }
                 else
                 {
-                    this.bubble.addTimelinewithID(timeline, 11);
-                    this.bubble.playTimeline(11);
-                    this.bubble.popped = true;
+                    bubble.addTimelinewithID(timeline, 11);
+                    bubble.playTimeline(11);
+                    bubble.popped = true;
                 }
             }
-            if (this.grab != null)
+            if (grab != null)
             {
-                Bungee rope = this.grab.rope;
+                Bungee rope = grab.rope;
                 if (rope != null)
                 {
-                    this.grab.rope.forceWhite = true;
+                    grab.rope.forceWhite = true;
                     rope.cutTime = 0.36f;
                     if (rope.cut == -1)
                     {
                         rope.cut = 0;
                     }
                 }
-                if (this.grab.getCurrentTimelineIndex() == 11)
+                if (grab.getCurrentTimelineIndex() == 11)
                 {
-                    this.grab.destroyRope();
-                    this.gsBungees.Remove(this.grab);
-                    this.grab = null;
+                    grab.destroyRope();
+                    gsBungees.Remove(grab);
+                    grab = null;
                 }
                 else
                 {
-                    this.grab.addTimelinewithID(timeline, 11);
-                    this.grab.playTimeline(11);
+                    grab.addTimelinewithID(timeline, 11);
+                    grab.playTimeline(11);
                 }
             }
-            if (this.bouncer != null)
+            if (bouncer != null)
             {
-                if (this.bouncer.getCurrentTimelineIndex() == 11)
+                if (bouncer.getCurrentTimelineIndex() == 11)
                 {
-                    this.gsBouncers.Remove(this.bouncer);
-                    this.bouncer = null;
+                    gsBouncers.Remove(bouncer);
+                    bouncer = null;
                 }
                 else
                 {
-                    this.bouncer.addTimelinewithID(timeline, 11);
-                    this.bouncer.playTimeline(11);
+                    bouncer.addTimelinewithID(timeline, 11);
+                    bouncer.playTimeline(11);
                 }
             }
-            if (this.ghostImage.getCurrentTimelineIndex() == 10)
+            if (ghostImage.getCurrentTimelineIndex() == 10)
             {
-                this.ghostImage.playTimeline(11);
+                ghostImage.playTimeline(11);
             }
             Timeline timeline2 = new Timeline().initWithMaxKeyFramesOnTrack(2);
             timeline2.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
             timeline2.addKeyFrame(KeyFrame.makeColor(RGBAColor.solidOpaqueRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.36f));
-            int num = this.ghostState;
+            int num = ghostState;
             switch (num)
             {
                 case 1:
-                    this.ghostImage.playTimeline(10);
+                    ghostImage.playTimeline(10);
                     break;
                 case 2:
                     {
                         GhostBubble ghostBubble = GhostBubble.createWithResIDQuad(124, MathHelper.RND_RANGE(1, 3));
                         ghostBubble.doRestoreCutTransparency();
                         ghostBubble.bb = FrameworkTypes.MakeRectangle(0.0, 0.0, 57.0, 57.0);
-                        ghostBubble.x = this.x;
-                        ghostBubble.y = this.y;
+                        ghostBubble.x = x;
+                        ghostBubble.y = y;
                         ghostBubble.anchor = 18;
                         ghostBubble.popped = false;
                         Image image = Image.Image_createWithResIDQuad(124, 0);
                         image.doRestoreCutTransparency();
                         image.parentAnchor = (image.anchor = 18);
                         ghostBubble.addChild(image);
-                        this.bubble = ghostBubble;
-                        this.gsBubbles.Add(ghostBubble);
+                        bubble = ghostBubble;
+                        gsBubbles.Add(ghostBubble);
                         ghostBubble.passColorToChilds = true;
                         ghostBubble.addTimelinewithID(timeline2, 10);
                         ghostBubble.playTimeline(10);
@@ -215,32 +215,32 @@ namespace ctr_wp7.game
                 case 3:
                     break;
                 case 4:
-                    this.grab = (Grab)new GhostGrab().initWithPositionXPositionY(this.x, this.y);
-                    this.grab.wheel = false;
-                    this.grab.spider = null;
-                    this.grab.setRadius(this.grabRadius);
-                    this.gsBungees.Add(this.grab);
-                    this.grab.addTimelinewithID(timeline2, 10);
-                    this.grab.playTimeline(10);
+                    grab = (Grab)new GhostGrab().initWithPositionXPositionY(x, y);
+                    grab.wheel = false;
+                    grab.spider = null;
+                    grab.setRadius(grabRadius);
+                    gsBungees.Add(grab);
+                    grab.addTimelinewithID(timeline2, 10);
+                    grab.playTimeline(10);
                     break;
                 default:
                     if (num == 8)
                     {
-                        this.bouncer = (Bouncer)new GhostBouncer().initWithPosXYWidthAndAngle(this.x, this.y, 1, (double)this.bouncerAngle);
-                        this.gsBouncers.Add(this.bouncer);
-                        this.bouncer.addTimelinewithID(timeline2, 10);
-                        this.bouncer.playTimeline(10);
+                        bouncer = (Bouncer)new GhostBouncer().initWithPosXYWidthAndAngle(x, y, 1, (double)bouncerAngle);
+                        gsBouncers.Add(bouncer);
+                        bouncer.addTimelinewithID(timeline2, 10);
+                        bouncer.playTimeline(10);
                     }
                     break;
             }
-            this.morphingBubbles.startSystem(7);
+            morphingBubbles.startSystem(7);
             CTRSoundMgr._playSound(60);
         }
 
         // Token: 0x06000114 RID: 276 RVA: 0x000099AC File Offset: 0x00007BAC
         public virtual void resetToNextState()
         {
-            int num = this.ghostState;
+            int num = ghostState;
             do
             {
                 num <<= 1;
@@ -249,17 +249,17 @@ namespace ctr_wp7.game
                     num = 2;
                 }
             }
-            while ((num & this.possibleStatesMask) == 0);
-            this.resetToState(num);
+            while ((num & possibleStatesMask) == 0);
+            resetToState(num);
         }
 
         // Token: 0x06000115 RID: 277 RVA: 0x000099DC File Offset: 0x00007BDC
         public override bool onTouchDownXY(float tx, float ty)
         {
-            float num = MathHelper.vectLength(MathHelper.vectSub(MathHelper.vect(tx, ty), MathHelper.vect(this.x, this.y)));
-            if (this.cyclingEnabled && !this.candyBreak && num < 40f)
+            float num = MathHelper.vectLength(MathHelper.vectSub(MathHelper.vect(tx, ty), MathHelper.vect(x, y)));
+            if (cyclingEnabled && !candyBreak && num < 40f)
             {
-                this.resetToNextState();
+                resetToNextState();
                 return true;
             }
             return false;
@@ -273,29 +273,29 @@ namespace ctr_wp7.game
         // Token: 0x06000117 RID: 279 RVA: 0x00009A30 File Offset: 0x00007C30
         public virtual void timelineFinished(Timeline t)
         {
-            if (t.element == this.ghostImageFace)
+            if (t.element == ghostImageFace)
             {
                 Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(5);
                 timeline.setTimelineLoopType(Timeline.LoopType.TIMELINE_REPLAY);
-                timeline.addKeyFrame(KeyFrame.makePos((double)this.x, (double)this.y - 2.0, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
-                timeline.addKeyFrame(KeyFrame.makePos((double)this.x, (double)this.y, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.38));
-                timeline.addKeyFrame(KeyFrame.makePos((double)this.x, (double)this.y + 2.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.38));
-                timeline.addKeyFrame(KeyFrame.makePos((double)this.x, (double)this.y, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.38));
-                timeline.addKeyFrame(KeyFrame.makePos((double)this.x, (double)this.y - 2.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.38));
-                this.ghostImageFace.addTimelinewithID(timeline, 12);
-                this.ghostImageFace.playTimeline(12);
+                timeline.addKeyFrame(KeyFrame.makePos((double)x, (double)y - 2.0, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
+                timeline.addKeyFrame(KeyFrame.makePos((double)x, (double)y, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.38));
+                timeline.addKeyFrame(KeyFrame.makePos((double)x, (double)y + 2.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.38));
+                timeline.addKeyFrame(KeyFrame.makePos((double)x, (double)y, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.38));
+                timeline.addKeyFrame(KeyFrame.makePos((double)x, (double)y - 2.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.38));
+                ghostImageFace.addTimelinewithID(timeline, 12);
+                ghostImageFace.playTimeline(12);
             }
-            if (t.element == this.ghostImageBody)
+            if (t.element == ghostImageBody)
             {
                 Timeline timeline2 = new Timeline().initWithMaxKeyFramesOnTrack(5);
-                timeline2.addKeyFrame(KeyFrame.makePos((double)this.x, (double)this.y - 3.0, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
-                timeline2.addKeyFrame(KeyFrame.makePos((double)this.x, (double)this.y, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.38));
-                timeline2.addKeyFrame(KeyFrame.makePos((double)this.x, (double)this.y + 3.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.38));
-                timeline2.addKeyFrame(KeyFrame.makePos((double)this.x, (double)this.y, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.38));
-                timeline2.addKeyFrame(KeyFrame.makePos((double)this.x, (double)this.y - 3.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.38));
+                timeline2.addKeyFrame(KeyFrame.makePos((double)x, (double)y - 3.0, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
+                timeline2.addKeyFrame(KeyFrame.makePos((double)x, (double)y, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.38));
+                timeline2.addKeyFrame(KeyFrame.makePos((double)x, (double)y + 3.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.38));
+                timeline2.addKeyFrame(KeyFrame.makePos((double)x, (double)y, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.38));
+                timeline2.addKeyFrame(KeyFrame.makePos((double)x, (double)y - 3.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.38));
                 timeline2.setTimelineLoopType(Timeline.LoopType.TIMELINE_REPLAY);
-                this.ghostImageBody.addTimelinewithID(timeline2, 12);
-                this.ghostImageBody.playTimeline(12);
+                ghostImageBody.addTimelinewithID(timeline2, 12);
+                ghostImageBody.playTimeline(12);
             }
         }
 

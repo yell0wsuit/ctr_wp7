@@ -13,14 +13,14 @@ internal class Rollbar : BaseElement
     // Token: 0x06000660 RID: 1632 RVA: 0x00030A87 File Offset: 0x0002EC87
     public int getIndex()
     {
-        return (int)(-Math.Round(this.offsetY / (double)this.centralCellHeight) - 2.0);
+        return (int)(-Math.Round(offsetY / (double)centralCellHeight) - 2.0);
     }
 
     // Token: 0x06000661 RID: 1633 RVA: 0x00030AA8 File Offset: 0x0002ECA8
     public Rollbar Create()
     {
         base.init();
-        this.elements = new List<BaseElement>();
+        elements = new List<BaseElement>();
         BaseElement baseElement = (BaseElement)new BaseElement().init();
         baseElement.anchor = 9;
         baseElement.parentAnchor = 9;
@@ -29,28 +29,28 @@ internal class Rollbar : BaseElement
         Image image2 = Image.Image_createWithResIDQuad(409, 0);
         image2.anchor = (image2.parentAnchor = 12);
         image2.scaleX = -1f;
-        this.width = (baseElement.width = image.width * 2);
-        this.height = (baseElement.height = image.height);
+        width = (baseElement.width = image.width * 2);
+        height = (baseElement.height = image.height);
         baseElement.addChild(image);
         baseElement.addChild(image2);
-        this.addChild(baseElement);
-        this.scrollTop = Image.Image_createWithResIDQuad(409, 4);
-        this.scrollTop.anchor = (this.scrollTop.parentAnchor = 9);
-        Image.setElementPositionWithRelativeQuadOffset(this.scrollTop, 409, 0, 4);
-        this.addChild(this.scrollTop);
-        this.scrollTop.visible = false;
-        this.centralCellTL = Image.getRelativeQuadOffset(409, 0, 3);
+        addChild(baseElement);
+        scrollTop = Image.Image_createWithResIDQuad(409, 4);
+        scrollTop.anchor = (scrollTop.parentAnchor = 9);
+        Image.setElementPositionWithRelativeQuadOffset(scrollTop, 409, 0, 4);
+        addChild(scrollTop);
+        scrollTop.visible = false;
+        centralCellTL = Image.getRelativeQuadOffset(409, 0, 3);
         Text text = Text.createWithFontandString(5, NSObject.NSS(" "));
         text.visible = false;
         text.anchor = (text.parentAnchor = 18);
-        this.elements.Add(text);
-        this.addChild(text);
+        elements.Add(text);
+        addChild(text);
         Image image3 = Image.Image_createWithResIDQuad(409, 2);
         image3.scaleY = -1f;
         image3.visible = false;
         image3.anchor = (image3.parentAnchor = 18);
-        this.elements.Add(image3);
-        this.addChild(image3);
+        elements.Add(image3);
+        addChild(image3);
         Timeline timeline = new Timeline();
         timeline.initWithMaxKeyFramesOnTrack(2);
         timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.MakeRGBA(0.8, 0.8, 0.8, 0.8), KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
@@ -63,14 +63,14 @@ internal class Rollbar : BaseElement
             text = Text.createWithFontandString(5, new NSString(i.ToString()));
             text.visible = false;
             text.anchor = (text.parentAnchor = 18);
-            this.elements.Add(text);
-            this.addChild(text);
+            elements.Add(text);
+            addChild(text);
         }
         image3 = Image.Image_createWithResIDQuad(409, 2);
         image3.visible = false;
         image3.anchor = (image3.parentAnchor = 18);
-        this.elements.Add(image3);
-        this.addChild(image3);
+        elements.Add(image3);
+        addChild(image3);
         timeline = new Timeline();
         timeline.initWithMaxKeyFramesOnTrack(2);
         timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.MakeRGBA(0.8, 0.8, 0.8, 0.8), KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
@@ -78,44 +78,44 @@ internal class Rollbar : BaseElement
         timeline.timelineLoopType = Timeline.LoopType.TIMELINE_PING_PONG;
         image3.addTimeline(timeline);
         image3.playTimeline(0);
-        this.centralCellHeight = Image.getQuadSize(409, 3).y;
-        double num = (double)this.scrollTop.height / 2.0 / (double)this.centralCellHeight;
-        this.halfVisibleCount = (int)Math.Ceiling(num);
-        this.offsetY = (double)(-24f * this.centralCellHeight);
-        this.lastTouchY = (double)(-(double)FrameworkTypes.SCREEN_HEIGHT_EXPANDED);
+        centralCellHeight = Image.getQuadSize(409, 3).y;
+        double num = (double)scrollTop.height / 2.0 / (double)centralCellHeight;
+        halfVisibleCount = (int)Math.Ceiling(num);
+        offsetY = (double)(-24f * centralCellHeight);
+        lastTouchY = (double)(-(double)FrameworkTypes.SCREEN_HEIGHT_EXPANDED);
         BaseElement baseElement2 = (BaseElement)new BaseElement().init();
         Image.setElementPositionWithQuadCenter(baseElement2, 409, 1);
-        this.scissorTL = MathHelper.vect(baseElement2.x - 20f, baseElement2.y - 80f);
-        this.scissorWH = Image.getQuadSize(409, 1);
+        scissorTL = MathHelper.vect(baseElement2.x - 20f, baseElement2.y - 80f);
+        scissorWH = Image.getQuadSize(409, 1);
         return this;
     }
 
     // Token: 0x06000662 RID: 1634 RVA: 0x00030F0C File Offset: 0x0002F10C
     public override bool onTouchDownXY(float x, float y)
     {
-        if (x < this.x || x > this.x + (float)this.width || y < this.y || y > this.y + (float)this.height)
+        if (x < this.x || x > this.x + (float)width || y < this.y || y > this.y + (float)height)
         {
             return false;
         }
-        this.lastTouchY = (double)y;
-        this.lastMoveSpeed = 0.0;
-        this.speedY = 0.0;
-        this.manualMode = true;
+        lastTouchY = (double)y;
+        lastMoveSpeed = 0.0;
+        speedY = 0.0;
+        manualMode = true;
         return true;
     }
 
     // Token: 0x06000663 RID: 1635 RVA: 0x00030F80 File Offset: 0x0002F180
     public override bool onTouchMoveXY(float x, float y)
     {
-        if (this.lastTouchY > (double)(-(double)FrameworkTypes.SCREEN_HEIGHT_EXPANDED))
+        if (lastTouchY > (double)(-(double)FrameworkTypes.SCREEN_HEIGHT_EXPANDED))
         {
-            this.preLastTouchY = this.lastTouchY;
-            float num = (float)((double)y - this.lastTouchY);
-            this.lastTouchY = (double)y;
-            this.oldOffsetY = this.offsetY;
-            this.offsetY += (double)num;
-            this.lastMoveSpeed = (double)num / this.lastTimeDelta;
-            this.speedY = 0.0;
+            preLastTouchY = lastTouchY;
+            float num = (float)((double)y - lastTouchY);
+            lastTouchY = (double)y;
+            oldOffsetY = offsetY;
+            offsetY += (double)num;
+            lastMoveSpeed = (double)num / lastTimeDelta;
+            speedY = 0.0;
             return true;
         }
         return false;
@@ -124,39 +124,39 @@ internal class Rollbar : BaseElement
     // Token: 0x06000664 RID: 1636 RVA: 0x00030FF8 File Offset: 0x0002F1F8
     public override bool onTouchUpXY(float x, float y)
     {
-        this.manualMode = false;
-        if (this.lastTouchY <= (double)(-(double)FrameworkTypes.SCREEN_HEIGHT_EXPANDED))
+        manualMode = false;
+        if (lastTouchY <= (double)(-(double)FrameworkTypes.SCREEN_HEIGHT_EXPANDED))
         {
             return false;
         }
-        if (this.preLastTouchY == this.lastTouchY)
+        if (preLastTouchY == lastTouchY)
         {
-            this.lastMoveSpeed = 0.0;
+            lastMoveSpeed = 0.0;
         }
-        this.speedY = this.lastMoveSpeed * 2.0;
-        this.lastTouchY = (double)(-(double)FrameworkTypes.SCREEN_HEIGHT_EXPANDED);
+        speedY = lastMoveSpeed * 2.0;
+        lastTouchY = (double)(-(double)FrameworkTypes.SCREEN_HEIGHT_EXPANDED);
         return true;
     }
 
     // Token: 0x06000665 RID: 1637 RVA: 0x0003105E File Offset: 0x0002F25E
     public void scrollWithSpeed(float speed)
     {
-        this.speedY = (double)speed;
+        speedY = (double)speed;
     }
 
     // Token: 0x06000666 RID: 1638 RVA: 0x00031068 File Offset: 0x0002F268
     private float getCurrentScrollSpeed()
     {
-        return (float)this.speedY;
+        return (float)speedY;
     }
 
     // Token: 0x06000667 RID: 1639 RVA: 0x00031074 File Offset: 0x0002F274
     public float getOffsetY()
     {
-        float num = (float)(this.offsetY - Math.Floor(this.offsetY / (double)this.centralCellHeight) * (double)this.centralCellHeight);
-        if (num > this.centralCellHeight / 2f)
+        float num = (float)(offsetY - Math.Floor(offsetY / (double)centralCellHeight) * (double)centralCellHeight);
+        if (num > centralCellHeight / 2f)
         {
-            num -= this.centralCellHeight;
+            num -= centralCellHeight;
         }
         return num;
     }
@@ -166,48 +166,48 @@ internal class Rollbar : BaseElement
     {
         base.draw();
         OpenGL.glEnable(4);
-        OpenGL.setScissorRectangle(this.scissorTL.x, this.scissorTL.y, this.scissorWH.x, this.scissorWH.y);
-        for (int i = -this.halfVisibleCount - 1; i < this.halfVisibleCount + 1; i++)
+        OpenGL.setScissorRectangle(scissorTL.x, scissorTL.y, scissorWH.x, scissorWH.y);
+        for (int i = -halfVisibleCount - 1; i < halfVisibleCount + 1; i++)
         {
-            int num = (int)(this.offsetY / (double)this.centralCellHeight);
+            int num = (int)(offsetY / (double)centralCellHeight);
             int num2 = -num + i;
-            if (num2 >= 0 && num2 < this.elements.Count)
+            if (num2 >= 0 && num2 < elements.Count)
             {
-                BaseElement baseElement = this.elements[num2];
-                baseElement.y = (float)((double)((float)i * this.centralCellHeight) + (this.offsetY - (double)((float)num * this.centralCellHeight)));
+                BaseElement baseElement = elements[num2];
+                baseElement.y = (float)((double)((float)i * centralCellHeight) + (offsetY - (double)((float)num * centralCellHeight)));
                 baseElement.draw();
             }
         }
         OpenGL.glDisable(4);
-        this.scrollTop.draw();
+        scrollTop.draw();
     }
 
     // Token: 0x06000669 RID: 1641 RVA: 0x00031194 File Offset: 0x0002F394
     public override void update(float delta)
     {
         base.update(delta);
-        this.lastTimeDelta = (double)delta;
-        this.oldOffsetY = this.offsetY;
-        this.offsetY += this.speedY * (double)delta;
-        float num = (float)(this.offsetY - Math.Floor(this.offsetY / (double)this.centralCellHeight) * (double)this.centralCellHeight);
-        if (num > this.centralCellHeight / 2f)
+        lastTimeDelta = (double)delta;
+        oldOffsetY = offsetY;
+        offsetY += speedY * (double)delta;
+        float num = (float)(offsetY - Math.Floor(offsetY / (double)centralCellHeight) * (double)centralCellHeight);
+        if (num > centralCellHeight / 2f)
         {
-            num -= this.centralCellHeight;
+            num -= centralCellHeight;
         }
-        if (!this.manualMode)
+        if (!manualMode)
         {
-            this.speedY -= (double)(num / 3f);
+            speedY -= (double)(num / 3f);
         }
-        this.speedY *= (double)MathHelper.MAX(0.7f, 1f - delta * 5f);
-        float num2 = (float)(this.offsetY + (double)((float)this.halfVisibleCount * this.centralCellHeight));
-        if (num2 > 0f && !this.manualMode)
+        speedY *= (double)MathHelper.MAX(0.7f, 1f - delta * 5f);
+        float num2 = (float)(offsetY + (double)((float)halfVisibleCount * centralCellHeight));
+        if (num2 > 0f && !manualMode)
         {
-            this.offsetY -= (double)(num2 * 20f * delta);
+            offsetY -= (double)(num2 * 20f * delta);
         }
-        num2 = (float)((double)((float)(-(float)(this.elements.Count - this.halfVisibleCount + 1)) * this.centralCellHeight) - this.offsetY);
-        if (num2 > 0f && !this.manualMode)
+        num2 = (float)((double)((float)(-(float)(elements.Count - halfVisibleCount + 1)) * centralCellHeight) - offsetY);
+        if (num2 > 0f && !manualMode)
         {
-            this.offsetY += (double)(num2 * 20f * delta);
+            offsetY += (double)(num2 * 20f * delta);
         }
     }
 

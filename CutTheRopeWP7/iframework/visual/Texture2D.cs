@@ -48,38 +48,38 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x06000254 RID: 596 RVA: 0x0000F420 File Offset: 0x0000D620
         public bool isWvga()
         {
-            return this._isWvga;
+            return _isWvga;
         }
 
         // Token: 0x06000255 RID: 597 RVA: 0x0000F428 File Offset: 0x0000D628
         public virtual void setQuadsCapacity(int n)
         {
-            this.quadsCount = n;
-            this.quads = new Quad2D[this.quadsCount];
-            this.quadRects = new Rectangle[this.quadsCount];
-            this.quadOffsets = new Vector[this.quadsCount];
+            quadsCount = n;
+            quads = new Quad2D[quadsCount];
+            quadRects = new Rectangle[quadsCount];
+            quadOffsets = new Vector[quadsCount];
         }
 
         // Token: 0x06000256 RID: 598 RVA: 0x0000F464 File Offset: 0x0000D664
         public virtual void setQuadAt(Rectangle rect, int n)
         {
-            this.quads[n] = GLDrawer.getTextureCoordinates(this, rect);
-            this.quadRects[n] = rect;
-            this.quadOffsets[n] = MathHelper.vectZero;
+            quads[n] = GLDrawer.getTextureCoordinates(this, rect);
+            quadRects[n] = rect;
+            quadOffsets[n] = MathHelper.vectZero;
         }
 
         // Token: 0x06000257 RID: 599 RVA: 0x0000F4B1 File Offset: 0x0000D6B1
         public virtual void setWvga()
         {
-            this._isWvga = true;
+            _isWvga = true;
         }
 
         // Token: 0x06000258 RID: 600 RVA: 0x0000F4BA File Offset: 0x0000D6BA
         public virtual void setScale(float scaleX, float scaleY)
         {
-            this._scaleX = scaleX;
-            this._scaleY = scaleY;
-            this.calculateForQuickDrawing();
+            _scaleX = scaleX;
+            _scaleY = scaleY;
+            calculateForQuickDrawing();
         }
 
         // Token: 0x06000259 RID: 601 RVA: 0x0000F4D0 File Offset: 0x0000D6D0
@@ -137,18 +137,18 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x0600025B RID: 603 RVA: 0x0000F6A8 File Offset: 0x0000D8A8
         public virtual void calculateForQuickDrawing()
         {
-            if (this._isWvga)
+            if (_isWvga)
             {
-                this._realWidth = (int)(this._width * this._maxS / this._scaleX);
-                this._realHeight = (int)(this._height * this._maxT / this._scaleY);
-                this._invWidth = 1f / (this._width / this._scaleX);
-                this._invHeight = 1f / (this._height / this._scaleY);
+                _realWidth = (int)(_width * _maxS / _scaleX);
+                _realHeight = (int)(_height * _maxT / _scaleY);
+                _invWidth = 1f / (_width / _scaleX);
+                _invHeight = 1f / (_height / _scaleY);
                 return;
             }
-            this._realWidth = (int)(this._width * this._maxS);
-            this._realHeight = (int)(this._height * this._maxT);
-            this._invWidth = 1f / this._width;
-            this._invHeight = 1f / this._height;
+            _realWidth = (int)(_width * _maxS);
+            _realHeight = (int)(_height * _maxT);
+            _invWidth = 1f / _width;
+            _invHeight = 1f / _height;
         }
 
         // Token: 0x0600025C RID: 604 RVA: 0x0000F782 File Offset: 0x0000D982
@@ -164,10 +164,10 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x0600025E RID: 606 RVA: 0x0000F786 File Offset: 0x0000D986
         public virtual void reg()
         {
-            this.prev = Texture2D.tail;
-            if (this.prev != null)
+            prev = Texture2D.tail;
+            if (prev != null)
             {
-                this.prev.next = this;
+                prev.next = this;
             }
             else
             {
@@ -179,23 +179,23 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x0600025F RID: 607 RVA: 0x0000F7B8 File Offset: 0x0000D9B8
         public virtual void unreg()
         {
-            if (this.prev != null)
+            if (prev != null)
             {
-                this.prev.next = this.next;
+                prev.next = next;
             }
             else
             {
-                Texture2D.root = this.next;
+                Texture2D.root = next;
             }
-            if (this.next != null)
+            if (next != null)
             {
-                this.next.prev = this.prev;
+                next.prev = prev;
             }
             else
             {
-                Texture2D.tail = this.prev;
+                Texture2D.tail = prev;
             }
-            this.next = (this.prev = null);
+            next = (prev = null);
         }
 
         // Token: 0x06000260 RID: 608 RVA: 0x0000F824 File Offset: 0x0000DA24
@@ -205,14 +205,14 @@ namespace ctr_wp7.iframework.visual
             {
                 return null;
             }
-            this._resName = path;
-            this._name = 65536U;
-            this._localTexParams = Texture2D._texParams;
-            this.reg();
+            _resName = path;
+            _name = 65536U;
+            _localTexParams = Texture2D._texParams;
+            reg();
             if (assets)
             {
-                this.xnaTexture_ = Images.get(path);
-                if (this.xnaTexture_ == null)
+                xnaTexture_ = Images.get(path);
+                if (xnaTexture_ == null)
                 {
                     return null;
                 }
@@ -225,7 +225,7 @@ namespace ctr_wp7.iframework.visual
                     {
                         using (IsolatedStorageFileStream isolatedStorageFileStream = userStoreForApplication.OpenFile(path, System.IO.FileMode.Open, System.IO.FileAccess.Read))
                         {
-                            this.xnaTexture_ = Microsoft.Xna.Framework.Graphics.Texture2D.FromStream(WP7Singletons.GraphicsDevice, isolatedStorageFileStream);
+                            xnaTexture_ = Microsoft.Xna.Framework.Graphics.Texture2D.FromStream(WP7Singletons.GraphicsDevice, isolatedStorageFileStream);
                         }
                     }
                 }
@@ -234,10 +234,10 @@ namespace ctr_wp7.iframework.visual
                     return null;
                 }
             }
-            this.imageLoaded(this.xnaTexture_.Width, this.xnaTexture_.Height);
-            this.quadsCount = 0;
-            this.calculateForQuickDrawing();
-            this.resume();
+            imageLoaded(xnaTexture_.Width, xnaTexture_.Height);
+            quadsCount = 0;
+            calculateForQuickDrawing();
+            resume();
             return this;
         }
 
@@ -250,16 +250,16 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x06000262 RID: 610 RVA: 0x0000F9AC File Offset: 0x0000DBAC
         private void imageLoaded(int w, int h)
         {
-            this._lowypoint = h;
+            _lowypoint = h;
             int num = Texture2D.calcRealSize(w);
             int num2 = Texture2D.calcRealSize(h);
-            this._size = new Vector((float)num, (float)num2);
-            this._width = (uint)num;
-            this._height = (uint)num2;
-            this._format = Texture2D._defaultAlphaPixelFormat;
-            this._maxS = (float)w / (float)num;
-            this._maxT = (float)h / (float)num2;
-            this._hasPremultipliedAlpha = true;
+            _size = new Vector((float)num, (float)num2);
+            _width = (uint)num;
+            _height = (uint)num2;
+            _format = Texture2D._defaultAlphaPixelFormat;
+            _maxS = (float)w / (float)num;
+            _maxT = (float)h / (float)num2;
+            _hasPremultipliedAlpha = true;
         }
 
         // Token: 0x06000263 RID: 611 RVA: 0x0000FA13 File Offset: 0x0000DC13
@@ -276,7 +276,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x06000265 RID: 613 RVA: 0x0000FA1D File Offset: 0x0000DC1D
         public void optimizeMemory()
         {
-            int lowypoint = this._lowypoint;
+            int lowypoint = _lowypoint;
         }
 
         // Token: 0x06000266 RID: 614 RVA: 0x0000FA28 File Offset: 0x0000DC28
@@ -309,10 +309,10 @@ namespace ctr_wp7.iframework.visual
             {
                 return null;
             }
-            this._name = 65536U;
-            this._lowypoint = -1;
-            this._localTexParams = Texture2D._defaultTexParams;
-            this.reg();
+            _name = 65536U;
+            _lowypoint = -1;
+            _localTexParams = Texture2D._defaultTexParams;
+            reg();
             int num = Texture2D.calcRealSize(w);
             int num2 = Texture2D.calcRealSize(h);
             RenderTarget2D renderTarget2D = new RenderTarget2D(WP7Singletons.GraphicsDevice, WP7Singletons.GraphicsDevice.PresentationParameters.BackBufferWidth, WP7Singletons.GraphicsDevice.PresentationParameters.BackBufferHeight, false, SurfaceFormat.Color, DepthFormat.None);
@@ -322,27 +322,27 @@ namespace ctr_wp7.iframework.visual
             CtrRenderer.onDrawFrame();
             WP7Singletons.GraphicsDevice.SetRenderTarget(null);
             Application.sharedRootController().transitionTime = transitionTime;
-            this.xnaTexture_ = renderTarget2D;
-            this._format = Texture2D.Texture2DPixelFormat.kTexture2DPixelFormat_RGBA8888;
-            this._size = new Vector((float)num, (float)num2);
-            this._width = (uint)num;
-            this._height = (uint)num2;
-            this._maxS = (float)w / (float)num;
-            this._maxT = (float)h / (float)num2;
-            this._hasPremultipliedAlpha = true;
-            this.quadsCount = 0;
-            this.calculateForQuickDrawing();
-            this.resume();
+            xnaTexture_ = renderTarget2D;
+            _format = Texture2D.Texture2DPixelFormat.kTexture2DPixelFormat_RGBA8888;
+            _size = new Vector((float)num, (float)num2);
+            _width = (uint)num;
+            _height = (uint)num2;
+            _maxS = (float)w / (float)num;
+            _maxT = (float)h / (float)num2;
+            _hasPremultipliedAlpha = true;
+            quadsCount = 0;
+            calculateForQuickDrawing();
+            resume();
             return this;
         }
 
         // Token: 0x0600026A RID: 618 RVA: 0x0000FB8E File Offset: 0x0000DD8E
         public override void dealloc()
         {
-            if (this.xnaTexture_ != null)
+            if (xnaTexture_ != null)
             {
-                Images.free(this._resName);
-                this.xnaTexture_ = null;
+                Images.free(_resName);
+                xnaTexture_ = null;
             }
         }
 
@@ -353,18 +353,18 @@ namespace ctr_wp7.iframework.visual
             {
                 return null;
             }
-            this._name = 65536U;
-            this._localTexParams = Texture2D._texParams;
-            this.reg();
-            this.xnaTexture_ = texture;
-            if (this.xnaTexture_ == null)
+            _name = 65536U;
+            _localTexParams = Texture2D._texParams;
+            reg();
+            xnaTexture_ = texture;
+            if (xnaTexture_ == null)
             {
                 return null;
             }
-            this.imageLoaded(this.xnaTexture_.Width, this.xnaTexture_.Height);
-            this.quadsCount = 0;
-            this.calculateForQuickDrawing();
-            this.resume();
+            imageLoaded(xnaTexture_.Width, xnaTexture_.Height);
+            quadsCount = 0;
+            calculateForQuickDrawing();
+            resume();
             return this;
         }
 
@@ -375,32 +375,32 @@ namespace ctr_wp7.iframework.visual
             {
                 return null;
             }
-            this._resName = path;
-            this._name = 65536U;
-            this._localTexParams = Texture2D._texParams;
-            this.reg();
-            this.xnaTexture_ = null;
+            _resName = path;
+            _name = 65536U;
+            _localTexParams = Texture2D._texParams;
+            reg();
+            xnaTexture_ = null;
             try
             {
                 using (IsolatedStorageFile userStoreForApplication = IsolatedStorageFile.GetUserStoreForApplication())
                 {
                     using (IsolatedStorageFileStream isolatedStorageFileStream = new IsolatedStorageFileStream(path, (System.IO.FileMode)3, userStoreForApplication))
                     {
-                        this.xnaTexture_ = Microsoft.Xna.Framework.Graphics.Texture2D.FromStream(WP7Singletons.GraphicsDevice, isolatedStorageFileStream);
+                        xnaTexture_ = Microsoft.Xna.Framework.Graphics.Texture2D.FromStream(WP7Singletons.GraphicsDevice, isolatedStorageFileStream);
                     }
                 }
             }
             catch (Exception)
             {
             }
-            if (this.xnaTexture_ == null)
+            if (xnaTexture_ == null)
             {
                 return null;
             }
-            this.imageLoaded(this.xnaTexture_.Width, this.xnaTexture_.Height);
-            this.quadsCount = 0;
-            this.calculateForQuickDrawing();
-            this.resume();
+            imageLoaded(xnaTexture_.Width, xnaTexture_.Height);
+            quadsCount = 0;
+            calculateForQuickDrawing();
+            resume();
             return this;
         }
 

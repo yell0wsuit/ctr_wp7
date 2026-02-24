@@ -15,41 +15,41 @@ namespace ctr_wp7.ctr_original
             {
                 return null;
             }
-            this.duration = 0.6f;
-            this.gravity.x = 0f;
-            this.gravity.y = 0f;
-            this.angle = a;
-            this.angleVar = 10f;
-            this.speed = 500f;
-            this.speedVar = 100f;
-            this.radialAccel = 0f;
-            this.radialAccelVar = 0f;
-            this.tangentialAccel = 0f;
-            this.tangentialAccelVar = 0f;
-            this.posVar.x = 0f;
-            this.posVar.y = 0f;
-            this.life = 0.6f;
-            this.lifeVar = 0f;
-            this.size = 0.002f;
-            this.sizeVar = 0f;
-            this.emissionRate = 100f;
-            this.startColor.r = 1f;
-            this.startColor.g = 1f;
-            this.startColor.b = 1f;
-            this.startColor.a = 0.6f;
-            this.startColorVar.r = 0f;
-            this.startColorVar.g = 0f;
-            this.startColorVar.b = 0f;
-            this.startColorVar.a = 0f;
-            this.endColor.r = 1f;
-            this.endColor.g = 1f;
-            this.endColor.b = 1f;
-            this.endColor.a = 0f;
-            this.endColorVar.r = 0f;
-            this.endColorVar.g = 0f;
-            this.endColorVar.b = 0f;
-            this.endColorVar.a = 0f;
-            this.blendAdditive = true;
+            duration = 0.6f;
+            gravity.x = 0f;
+            gravity.y = 0f;
+            angle = a;
+            angleVar = 10f;
+            speed = 500f;
+            speedVar = 100f;
+            radialAccel = 0f;
+            radialAccelVar = 0f;
+            tangentialAccel = 0f;
+            tangentialAccelVar = 0f;
+            posVar.x = 0f;
+            posVar.y = 0f;
+            life = 0.6f;
+            lifeVar = 0f;
+            size = 0.002f;
+            sizeVar = 0f;
+            emissionRate = 100f;
+            startColor.r = 1f;
+            startColor.g = 1f;
+            startColor.b = 1f;
+            startColor.a = 0.6f;
+            startColorVar.r = 0f;
+            startColorVar.g = 0f;
+            startColorVar.b = 0f;
+            startColorVar.a = 0f;
+            endColor.r = 1f;
+            endColor.g = 1f;
+            endColor.b = 1f;
+            endColor.a = 0f;
+            endColorVar.r = 0f;
+            endColorVar.g = 0f;
+            endColorVar.b = 0f;
+            endColorVar.a = 0f;
+            blendAdditive = true;
             return this;
         }
 
@@ -58,9 +58,9 @@ namespace ctr_wp7.ctr_original
         {
             base.initParticle(ref particle);
             int num = MathHelper.RND_RANGE(6, 8);
-            Quad2D quad2D = this.imageGrid.texture.quads[num];
+            Quad2D quad2D = imageGrid.texture.quads[num];
             Quad3D quad3D = Quad3D.MakeQuad3D(0f, 0f, 0f, 0f, 0f);
-            this.drawer.setTextureQuadatVertexQuadatIndex(quad2D, quad3D, this.particleCount);
+            drawer.setTextureQuadatVertexQuadatIndex(quad2D, quad3D, particleCount);
             particle.width = 10f;
             particle.height = 10f;
         }
@@ -72,56 +72,56 @@ namespace ctr_wp7.ctr_original
             {
                 p.dir = MathHelper.vectMult(p.dir, 0.9);
                 Vector vector = MathHelper.vectMult(p.dir, delta);
-                vector = MathHelper.vectAdd(vector, this.gravity);
+                vector = MathHelper.vectAdd(vector, gravity);
                 p.pos = MathHelper.vectAdd(p.pos, vector);
                 p.color.r = p.color.r + p.deltaColor.r * delta;
                 p.color.g = p.color.g + p.deltaColor.g * delta;
                 p.color.b = p.color.b + p.deltaColor.b * delta;
                 p.color.a = p.color.a + p.deltaColor.a * delta;
                 p.life -= delta;
-                this.drawer.vertices[this.particleIdx] = Quad3D.MakeQuad3D((double)(p.pos.x - p.width / 2f), (double)(p.pos.y - p.height / 2f), 0.0, (double)p.width, (double)p.height);
+                drawer.vertices[particleIdx] = Quad3D.MakeQuad3D((double)(p.pos.x - p.width / 2f), (double)(p.pos.y - p.height / 2f), 0.0, (double)p.width, (double)p.height);
                 for (int i = 0; i < 4; i++)
                 {
-                    this.colors[this.particleIdx * 4 + i] = p.color;
+                    colors[particleIdx * 4 + i] = p.color;
                 }
-                this.particleIdx++;
+                particleIdx++;
                 return;
             }
-            if (this.particleIdx != this.particleCount - 1)
+            if (particleIdx != particleCount - 1)
             {
-                this.particles[this.particleIdx] = this.particles[this.particleCount - 1];
-                this.drawer.vertices[this.particleIdx] = this.drawer.vertices[this.particleCount - 1];
-                this.drawer.texCoordinates[this.particleIdx] = this.drawer.texCoordinates[this.particleCount - 1];
+                particles[particleIdx] = particles[particleCount - 1];
+                drawer.vertices[particleIdx] = drawer.vertices[particleCount - 1];
+                drawer.texCoordinates[particleIdx] = drawer.texCoordinates[particleCount - 1];
             }
-            this.particleCount--;
+            particleCount--;
         }
 
         // Token: 0x060007E8 RID: 2024 RVA: 0x0003E13C File Offset: 0x0003C33C
         public override void update(float delta)
         {
             base.update(delta);
-            if (this.active && this.emissionRate != 0f)
+            if (active && emissionRate != 0f)
             {
-                float num = 1f / this.emissionRate;
-                this.emitCounter += delta;
-                while (this.particleCount < this.totalParticles && this.emitCounter > num)
+                float num = 1f / emissionRate;
+                emitCounter += delta;
+                while (particleCount < totalParticles && emitCounter > num)
                 {
-                    this.addParticle();
-                    this.emitCounter -= num;
+                    addParticle();
+                    emitCounter -= num;
                 }
-                this.elapsed += delta;
-                if (this.duration != -1f && this.duration < this.elapsed)
+                elapsed += delta;
+                if (duration != -1f && duration < elapsed)
                 {
-                    this.stopSystem();
+                    stopSystem();
                 }
             }
-            this.particleIdx = 0;
-            while (this.particleIdx < this.particleCount)
+            particleIdx = 0;
+            while (particleIdx < particleCount)
             {
-                this.updateParticle(ref this.particles[this.particleIdx], delta);
+                updateParticle(ref particles[particleIdx], delta);
             }
-            OpenGL.glBindBuffer(2, this.colorsID);
-            OpenGL.glBufferData(2, this.colors, 3);
+            OpenGL.glBindBuffer(2, colorsID);
+            OpenGL.glBufferData(2, colors, 3);
             OpenGL.glBindBuffer(2, 0U);
         }
     }

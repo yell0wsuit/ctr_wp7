@@ -6,8 +6,8 @@
         // Token: 0x06000166 RID: 358 RVA: 0x0000AF54 File Offset: 0x00009154
         public Point(float xx, float yy)
         {
-            this.x = xx;
-            this.y = yy;
+            x = xx;
+            y = yy;
         }
 
         // Token: 0x04000796 RID: 1942

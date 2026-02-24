@@ -62,7 +62,7 @@ namespace ctr_wp7.remotedata.cartoons
             // Token: 0x060001A8 RID: 424 RVA: 0x0000BE16 File Offset: 0x0000A016
             public ImageDataSaxHandler(Block pBlock)
             {
-                this.block = pBlock;
+                block = pBlock;
             }
 
             // Token: 0x060001A9 RID: 425 RVA: 0x0000BE28 File Offset: 0x0000A028
@@ -72,7 +72,7 @@ namespace ctr_wp7.remotedata.cartoons
                 {
                     string text = null;
                     atts.TryGetValue("data", out text);
-                    ImageDownloader.lImageDownloaded.imageDownloaded(text, this.block);
+                    ImageDownloader.lImageDownloaded.imageDownloaded(text, block);
                 }
             }
 

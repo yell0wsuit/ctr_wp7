@@ -20,15 +20,15 @@ namespace ctr_wp7.Specials
         {
             if (base.initWithTexture(Application.getTexture(resID)) != null)
             {
-                this.setDrawQuad(bq);
+                setDrawQuad(bq);
                 Image image = Image.Image_createWithResIDQuad(resID, lq);
                 Image image2 = Image.Image_createWithResIDQuad(resID, lqp);
-                this.lift = (Lift)new Lift().initWithUpElementDownElementandID(image, image2, 0);
-                this.lift.parentAnchor = 10;
-                this.lift.anchor = 18;
-                this.lift.maxY = (float)this.height;
-                this.lift.liftDelegate = new Lift.PercentXY(this.percentXY);
-                this.addChild(this.lift);
+                lift = (Lift)new Lift().initWithUpElementDownElementandID(image, image2, 0);
+                lift.parentAnchor = 10;
+                lift.anchor = 18;
+                lift.maxY = (float)height;
+                lift.liftDelegate = new Lift.PercentXY(percentXY);
+                addChild(lift);
             }
             return this;
         }
@@ -36,16 +36,16 @@ namespace ctr_wp7.Specials
         // Token: 0x060002CC RID: 716 RVA: 0x0001208C File Offset: 0x0001028C
         public void percentXY(float px, float py)
         {
-            Vector maxScroll = this.container.getMaxScroll();
-            this.container.setScroll(MathHelper.vect(maxScroll.x * px, maxScroll.y * py));
+            Vector maxScroll = container.getMaxScroll();
+            container.setScroll(MathHelper.vect(maxScroll.x * px, maxScroll.y * py));
         }
 
         // Token: 0x060002CD RID: 717 RVA: 0x000120C8 File Offset: 0x000102C8
         public override void update(float delta)
         {
             base.update(delta);
-            Vector scroll = this.container.getScroll();
-            Vector maxScroll = this.container.getMaxScroll();
+            Vector scroll = container.getScroll();
+            Vector maxScroll = container.getMaxScroll();
             float num = 0f;
             float num2 = 0f;
             if (maxScroll.x != 0f)
@@ -56,14 +56,14 @@ namespace ctr_wp7.Specials
             {
                 num2 = scroll.y / maxScroll.y;
             }
-            this.lift.x = (this.lift.maxX - this.lift.minX) * num + this.lift.minX;
-            this.lift.y = (this.lift.maxY - this.lift.minY) * num2 + this.lift.minY;
+            lift.x = (lift.maxX - lift.minX) * num + lift.minX;
+            lift.y = (lift.maxY - lift.minY) * num2 + lift.minY;
         }
 
         // Token: 0x060002CE RID: 718 RVA: 0x0001219C File Offset: 0x0001039C
         public override void dealloc()
         {
-            this.container = null;
+            container = null;
             base.dealloc();
         }
 
@@ -71,7 +71,7 @@ namespace ctr_wp7.Specials
         public override bool onTouchUpXY(float tx, float ty)
         {
             bool flag = base.onTouchUpXY(tx, ty);
-            this.container.startMovingToSpointInDirection(MathHelper.vectZero);
+            container.startMovingToSpointInDirection(MathHelper.vectZero);
             return flag;
         }
 

@@ -37,11 +37,11 @@ namespace ctr_wp7.iframework.helpers
         {
             if (base.initWithTexture(t) != null)
             {
-                this.bb = new Rectangle(0f, 0f, (float)this.width, (float)this.height);
-                this.rbb = new Quad2D(this.bb.x, this.bb.y, this.bb.w, this.bb.h);
-                this.anchor = 18;
-                this.rotatedBB = false;
-                this.topLeftCalculated = false;
+                bb = new Rectangle(0f, 0f, (float)width, (float)height);
+                rbb = new Quad2D(bb.x, bb.y, bb.w, bb.h);
+                anchor = 18;
+                rotatedBB = false;
+                topLeftCalculated = false;
             }
             return this;
         }
@@ -50,22 +50,22 @@ namespace ctr_wp7.iframework.helpers
         public override void update(float delta)
         {
             base.update(delta);
-            if (!this.topLeftCalculated)
+            if (!topLeftCalculated)
             {
                 BaseElement.calculateTopLeft(this);
-                this.topLeftCalculated = true;
+                topLeftCalculated = true;
             }
-            if (this.mover != null)
+            if (mover != null)
             {
-                this.mover.update(delta);
-                this.x = this.mover.pos.x;
-                this.y = this.mover.pos.y;
-                if (this.rotatedBB)
+                mover.update(delta);
+                x = mover.pos.x;
+                y = mover.pos.y;
+                if (rotatedBB)
                 {
-                    this.rotateWithBB((float)this.mover.angle);
+                    rotateWithBB((float)mover.angle);
                     return;
                 }
-                this.rotation = (float)this.mover.angle;
+                rotation = (float)mover.angle;
             }
         }
 
@@ -73,16 +73,16 @@ namespace ctr_wp7.iframework.helpers
         public override void draw()
         {
             base.draw();
-            if (this.isDrawBB)
+            if (isDrawBB)
             {
-                this.drawBB();
+                drawBB();
             }
         }
 
         // Token: 0x060000EE RID: 238 RVA: 0x000077AC File Offset: 0x000059AC
         public override void dealloc()
         {
-            NSObject.NSREL(this.mover);
+            NSObject.NSREL(mover);
             base.dealloc();
         }
 
@@ -93,21 +93,21 @@ namespace ctr_wp7.iframework.helpers
             {
                 float num = (float)xml["x"].intValue();
                 float num2 = (float)xml["y"].intValue();
-                this.x = (float)tx + num;
-                this.y = (float)ty + num2;
-                this.type = t;
+                x = (float)tx + num;
+                y = (float)ty + num2;
+                type = t;
                 NSString nsstring = xml["bb"];
                 if (nsstring != null)
                 {
                     List<NSString> list = nsstring.componentsSeparatedByString(',');
-                    this.bb = new Rectangle((float)list[0].intValue(), (float)list[1].intValue(), (float)list[2].intValue(), (float)list[3].intValue());
+                    bb = new Rectangle((float)list[0].intValue(), (float)list[1].intValue(), (float)list[2].intValue(), (float)list[3].intValue());
                 }
                 else
                 {
-                    this.bb = new Rectangle(0f, 0f, (float)this.width, (float)this.height);
+                    bb = new Rectangle(0f, 0f, (float)width, (float)height);
                 }
-                this.rbb = new Quad2D(this.bb.x, this.bb.y, this.bb.w, this.bb.h);
-                this.parseMover(xml);
+                rbb = new Quad2D(bb.x, bb.y, bb.w, bb.h);
+                parseMover(xml);
             }
             return this;
         }
@@ -115,7 +115,7 @@ namespace ctr_wp7.iframework.helpers
         // Token: 0x060000F0 RID: 240 RVA: 0x000078DC File Offset: 0x00005ADC
         public virtual void parseMover(XMLNode xml)
         {
-            this.rotation = xml["angle"].floatValue();
+            rotation = xml["angle"].floatValue();
             NSString nsstring = xml["path"];
             if (nsstring != null && nsstring.length() != 0)
             {
@@ -129,9 +129,9 @@ namespace ctr_wp7.iframework.helpers
                 float num3 = xml["moveSpeed"].floatValue();
                 float num4 = xml["rotateSpeed"].floatValue();
                 Mover mover = new Mover().initWithPathCapacityMoveSpeedRotateSpeed(num, num3, num4);
-                mover.angle = (double)this.rotation;
-                mover.setPathFromStringandStart(nsstring, MathHelper.vect(this.x, this.y));
-                this.setMover(mover);
+                mover.angle = (double)rotation;
+                mover.setPathFromStringandStart(nsstring, MathHelper.vect(x, y));
+                setMover(mover);
                 mover.start();
             }
         }
@@ -139,56 +139,56 @@ namespace ctr_wp7.iframework.helpers
         // Token: 0x060000F1 RID: 241 RVA: 0x000079AA File Offset: 0x00005BAA
         public virtual void setMover(Mover m)
         {
-            this.mover = m;
+            mover = m;
         }
 
         // Token: 0x060000F2 RID: 242 RVA: 0x000079B4 File Offset: 0x00005BB4
         public virtual void setBBFromFirstQuad()
         {
-            this.bb = new Rectangle((float)Math.Round((double)this.texture.quadOffsets[0].x), (float)Math.Round((double)this.texture.quadOffsets[0].y), this.texture.quadRects[0].w, this.texture.quadRects[0].h);
-            this.rbb = new Quad2D(this.bb.x, this.bb.y, this.bb.w, this.bb.h);
+            bb = new Rectangle((float)Math.Round((double)texture.quadOffsets[0].x), (float)Math.Round((double)texture.quadOffsets[0].y), texture.quadRects[0].w, texture.quadRects[0].h);
+            rbb = new Quad2D(bb.x, bb.y, bb.w, bb.h);
         }
 
         // Token: 0x060000F3 RID: 243 RVA: 0x00007A6C File Offset: 0x00005C6C
         public virtual void rotateWithBB(float a)
         {
-            if (!this.rotatedBB)
+            if (!rotatedBB)
             {
-                this.rotatedBB = true;
+                rotatedBB = true;
             }
-            this.rotation = a;
-            Vector vector = MathHelper.vect(this.bb.x, this.bb.y);
-            Vector vector2 = MathHelper.vect(this.bb.x + this.bb.w, this.bb.y);
-            Vector vector3 = MathHelper.vect(this.bb.x + this.bb.w, this.bb.y + this.bb.h);
-            Vector vector4 = MathHelper.vect(this.bb.x, this.bb.y + this.bb.h);
-            vector = MathHelper.vectRotateAround(vector, (double)MathHelper.DEGREES_TO_RADIANS(a), (float)((double)this.width / 2.0 + (double)this.rotationCenterX), (float)((double)this.height / 2.0 + (double)this.rotationCenterY));
-            vector2 = MathHelper.vectRotateAround(vector2, (double)MathHelper.DEGREES_TO_RADIANS(a), (float)((double)this.width / 2.0 + (double)this.rotationCenterX), (float)((double)this.height / 2.0 + (double)this.rotationCenterY));
-            vector3 = MathHelper.vectRotateAround(vector3, (double)MathHelper.DEGREES_TO_RADIANS(a), (float)((double)this.width / 2.0 + (double)this.rotationCenterX), (float)((double)this.height / 2.0 + (double)this.rotationCenterY));
-            vector4 = MathHelper.vectRotateAround(vector4, (double)MathHelper.DEGREES_TO_RADIANS(a), (float)((double)this.width / 2.0 + (double)this.rotationCenterX), (float)((double)this.height / 2.0 + (double)this.rotationCenterY));
-            this.rbb.tlX = vector.x;
-            this.rbb.tlY = vector.y;
-            this.rbb.trX = vector2.x;
-            this.rbb.trY = vector2.y;
-            this.rbb.brX = vector3.x;
-            this.rbb.brY = vector3.y;
-            this.rbb.blX = vector4.x;
-            this.rbb.blY = vector4.y;
+            rotation = a;
+            Vector vector = MathHelper.vect(bb.x, bb.y);
+            Vector vector2 = MathHelper.vect(bb.x + bb.w, bb.y);
+            Vector vector3 = MathHelper.vect(bb.x + bb.w, bb.y + bb.h);
+            Vector vector4 = MathHelper.vect(bb.x, bb.y + bb.h);
+            vector = MathHelper.vectRotateAround(vector, (double)MathHelper.DEGREES_TO_RADIANS(a), (float)((double)width / 2.0 + (double)rotationCenterX), (float)((double)height / 2.0 + (double)rotationCenterY));
+            vector2 = MathHelper.vectRotateAround(vector2, (double)MathHelper.DEGREES_TO_RADIANS(a), (float)((double)width / 2.0 + (double)rotationCenterX), (float)((double)height / 2.0 + (double)rotationCenterY));
+            vector3 = MathHelper.vectRotateAround(vector3, (double)MathHelper.DEGREES_TO_RADIANS(a), (float)((double)width / 2.0 + (double)rotationCenterX), (float)((double)height / 2.0 + (double)rotationCenterY));
+            vector4 = MathHelper.vectRotateAround(vector4, (double)MathHelper.DEGREES_TO_RADIANS(a), (float)((double)width / 2.0 + (double)rotationCenterX), (float)((double)height / 2.0 + (double)rotationCenterY));
+            rbb.tlX = vector.x;
+            rbb.tlY = vector.y;
+            rbb.trX = vector2.x;
+            rbb.trY = vector2.y;
+            rbb.brX = vector3.x;
+            rbb.brY = vector3.y;
+            rbb.blX = vector4.x;
+            rbb.blY = vector4.y;
         }
 
         // Token: 0x060000F4 RID: 244 RVA: 0x00007CC8 File Offset: 0x00005EC8
         public virtual void drawBB()
         {
             OpenGL.glDisable(0);
-            if (this.rotatedBB)
+            if (rotatedBB)
             {
-                OpenGL.drawSegment(this.drawX + this.rbb.tlX, this.drawY + this.rbb.tlY, this.drawX + this.rbb.trX, this.drawY + this.rbb.trY, RGBAColor.redRGBA);
-                OpenGL.drawSegment(this.drawX + this.rbb.trX, this.drawY + this.rbb.trY, this.drawX + this.rbb.brX, this.drawY + this.rbb.brY, RGBAColor.redRGBA);
-                OpenGL.drawSegment(this.drawX + this.rbb.brX, this.drawY + this.rbb.brY, this.drawX + this.rbb.blX, this.drawY + this.rbb.blY, RGBAColor.redRGBA);
-                OpenGL.drawSegment(this.drawX + this.rbb.blX, this.drawY + this.rbb.blY, this.drawX + this.rbb.tlX, this.drawY + this.rbb.tlY, RGBAColor.redRGBA);
+                OpenGL.drawSegment(drawX + rbb.tlX, drawY + rbb.tlY, drawX + rbb.trX, drawY + rbb.trY, RGBAColor.redRGBA);
+                OpenGL.drawSegment(drawX + rbb.trX, drawY + rbb.trY, drawX + rbb.brX, drawY + rbb.brY, RGBAColor.redRGBA);
+                OpenGL.drawSegment(drawX + rbb.brX, drawY + rbb.brY, drawX + rbb.blX, drawY + rbb.blY, RGBAColor.redRGBA);
+                OpenGL.drawSegment(drawX + rbb.blX, drawY + rbb.blY, drawX + rbb.tlX, drawY + rbb.tlY, RGBAColor.redRGBA);
             }
             else
             {
-                GLDrawer.drawRect(this.drawX + this.bb.x, this.drawY + this.bb.y, this.bb.w, this.bb.h, RGBAColor.redRGBA);
+                GLDrawer.drawRect(drawX + bb.x, drawY + bb.y, bb.w, bb.h, RGBAColor.redRGBA);
             }
             OpenGL.glEnable(0);
             OpenGL.SetWhiteColor();

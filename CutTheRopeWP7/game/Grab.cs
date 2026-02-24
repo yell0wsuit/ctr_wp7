@@ -17,10 +17,10 @@ namespace ctr_wp7.game
         {
             if (base.init() != null)
             {
-                this.rope = null;
-                this.wheelOperating = -1;
+                rope = null;
+                wheelOperating = -1;
                 CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
-                this.baloon = ctrrootController.isSurvival();
+                baloon = ctrrootController.isSurvival();
             }
             return this;
         }
@@ -29,38 +29,38 @@ namespace ctr_wp7.game
         public override void update(float delta)
         {
             base.update(delta);
-            if (this.launcher && this.rope != null)
+            if (launcher && rope != null)
             {
-                this.rope.bungeeAnchor.pos = MathHelper.vect(this.x, this.y);
-                this.rope.bungeeAnchor.pin = this.rope.bungeeAnchor.pos;
-                if (this.launcherIncreaseSpeed)
+                rope.bungeeAnchor.pos = MathHelper.vect(x, y);
+                rope.bungeeAnchor.pin = rope.bungeeAnchor.pos;
+                if (launcherIncreaseSpeed)
                 {
-                    if (Mover.moveVariableToTarget(ref this.launcherSpeed, 200f, 30f, delta))
+                    if (Mover.moveVariableToTarget(ref launcherSpeed, 200f, 30f, delta))
                     {
-                        this.launcherIncreaseSpeed = false;
+                        launcherIncreaseSpeed = false;
                     }
                 }
-                else if (Mover.moveVariableToTarget(ref this.launcherSpeed, 130f, 30f, delta))
+                else if (Mover.moveVariableToTarget(ref launcherSpeed, 130f, 30f, delta))
                 {
-                    this.launcherIncreaseSpeed = true;
+                    launcherIncreaseSpeed = true;
                 }
-                this.mover.setMoveSpeed(this.launcherSpeed);
+                mover.setMoveSpeed(launcherSpeed);
             }
-            if (this.hideRadius)
+            if (hideRadius)
             {
-                this.radiusAlpha -= 1.5f * delta;
-                if ((double)this.radiusAlpha <= 0.0)
+                radiusAlpha -= 1.5f * delta;
+                if ((double)radiusAlpha <= 0.0)
                 {
-                    this.radius = -1f;
-                    this.hideRadius = false;
+                    radius = -1f;
+                    hideRadius = false;
                 }
             }
-            if (this.wheel && this.wheelDirty)
+            if (wheel && wheelDirty)
             {
                 float num;
-                if (this.rope != null)
+                if (rope != null)
                 {
-                    num = (float)this.rope.getLength() * 0.7f;
+                    num = (float)rope.getLength() * 0.7f;
                 }
                 else
                 {
@@ -68,24 +68,24 @@ namespace ctr_wp7.game
                 }
                 if (num == 0f)
                 {
-                    this.wheelImage2.scaleX = (this.wheelImage2.scaleY = 0f);
+                    wheelImage2.scaleX = (wheelImage2.scaleY = 0f);
                 }
                 else
                 {
-                    this.wheelImage2.scaleX = (this.wheelImage2.scaleY = (float)Math.Max(0.0, Math.Min(1.2, 1.0 - (double)num / 700.0)));
+                    wheelImage2.scaleX = (wheelImage2.scaleY = (float)Math.Max(0.0, Math.Min(1.2, 1.0 - (double)num / 700.0)));
                 }
             }
-            if (this.bee != null)
+            if (bee != null)
             {
-                Vector vector = this.mover.path[this.mover.targetPoint];
-                Vector pos = this.mover.pos;
+                Vector vector = mover.path[mover.targetPoint];
+                Vector pos = mover.pos;
                 Vector vector2 = MathHelper.vectSub(vector, pos);
                 float num2 = 0f;
                 if (Math.Abs(vector2.x) > 15f)
                 {
                     num2 = ((vector2.x > 0f) ? 10f : (-10f));
                 }
-                Mover.moveVariableToTarget(ref this.bee.rotation, num2, 60f, delta);
+                Mover.moveVariableToTarget(ref bee.rotation, num2, 60f, delta);
             }
         }
 
@@ -94,13 +94,13 @@ namespace ctr_wp7.game
         {
             base.preDraw();
             OpenGL.glEnable(0);
-            Bungee bungee = this.rope;
-            if (this.wheel)
+            Bungee bungee = rope;
+            if (wheel)
             {
-                this.wheelHighlight.visible = this.wheelOperating != -1;
-                this.wheelImage3.visible = this.wheelOperating == -1;
+                wheelHighlight.visible = wheelOperating != -1;
+                wheelImage3.visible = wheelOperating == -1;
                 OpenGL.glBlendFunc(BlendingFactor.GL_ONE, BlendingFactor.GL_ONE_MINUS_SRC_ALPHA);
-                this.wheelImage.draw();
+                wheelImage.draw();
             }
             OpenGL.glBlendFunc(BlendingFactor.GL_SRC_ALPHA, BlendingFactor.GL_ONE_MINUS_SRC_ALPHA);
             OpenGL.glDisable(0);
@@ -110,21 +110,21 @@ namespace ctr_wp7.game
             }
             OpenGL.SetWhiteColor();
             OpenGL.glEnable(0);
-            if ((double)this.moveLength <= 0.0)
+            if ((double)moveLength <= 0.0)
             {
-                this.front.draw();
+                front.draw();
             }
-            else if (this.moverDragging != -1)
+            else if (moverDragging != -1)
             {
-                this.grabMoverHighlight.draw();
+                grabMoverHighlight.draw();
             }
             else
             {
-                this.grabMover.draw();
+                grabMover.draw();
             }
-            if (this.wheel)
+            if (wheel)
             {
-                this.wheelImage2.draw();
+                wheelImage2.draw();
             }
             base.postDraw();
         }
@@ -132,212 +132,212 @@ namespace ctr_wp7.game
         // Token: 0x060005A1 RID: 1441 RVA: 0x0002AA93 File Offset: 0x00028C93
         public override void dealloc()
         {
-            if (this.vertices != null)
+            if (vertices != null)
             {
-                this.vertices = null;
+                vertices = null;
             }
-            this.destroyRope();
+            destroyRope();
             base.dealloc();
         }
 
         // Token: 0x060005A2 RID: 1442 RVA: 0x0002AAB0 File Offset: 0x00028CB0
         public virtual void setRope(Bungee r)
         {
-            NSObject.NSREL(this.rope);
-            this.rope = r;
-            this.radius = -1f;
-            if (this.hasSpider)
+            NSObject.NSREL(rope);
+            rope = r;
+            radius = -1f;
+            if (hasSpider)
             {
-                this.shouldActivate = true;
+                shouldActivate = true;
             }
         }
 
         // Token: 0x060005A3 RID: 1443 RVA: 0x0002AAE0 File Offset: 0x00028CE0
         public virtual void setRadius(float r)
         {
-            this.radius = r;
-            if (this.radius == -1f)
+            radius = r;
+            if (radius == -1f)
             {
                 int num = MathHelper.RND_RANGE(125, 126);
-                this.back = Image.Image_createWithResIDQuad(num, 0);
-                this.back.doRestoreCutTransparency();
-                this.back.anchor = (this.back.parentAnchor = 18);
-                this.front = Image.Image_createWithResIDQuad(num, 1);
-                this.front.anchor = (this.front.parentAnchor = 18);
-                this.addChild(this.back);
-                this.addChild(this.front);
-                this.back.visible = false;
-                this.front.visible = false;
+                back = Image.Image_createWithResIDQuad(num, 0);
+                back.doRestoreCutTransparency();
+                back.anchor = (back.parentAnchor = 18);
+                front = Image.Image_createWithResIDQuad(num, 1);
+                front.anchor = (front.parentAnchor = 18);
+                addChild(back);
+                addChild(front);
+                back.visible = false;
+                front.visible = false;
             }
             else
             {
-                this.back = Image.Image_createWithResIDQuad(122, 0);
-                this.back.doRestoreCutTransparency();
-                this.back.anchor = (this.back.parentAnchor = 18);
-                this.front = Image.Image_createWithResIDQuad(122, 1);
-                this.front.anchor = (this.front.parentAnchor = 18);
-                this.addChild(this.back);
-                this.addChild(this.front);
-                this.back.visible = false;
-                this.front.visible = false;
-                this.radiusAlpha = 1f;
-                this.hideRadius = false;
-                this.vertexCount = (int)Math.Max(16f, this.radius);
-                if (this.vertexCount % 2 != 0)
+                back = Image.Image_createWithResIDQuad(122, 0);
+                back.doRestoreCutTransparency();
+                back.anchor = (back.parentAnchor = 18);
+                front = Image.Image_createWithResIDQuad(122, 1);
+                front.anchor = (front.parentAnchor = 18);
+                addChild(back);
+                addChild(front);
+                back.visible = false;
+                front.visible = false;
+                radiusAlpha = 1f;
+                hideRadius = false;
+                vertexCount = (int)Math.Max(16f, radius);
+                if (vertexCount % 2 != 0)
                 {
-                    this.vertexCount++;
+                    vertexCount++;
                 }
-                this.vertices = new float[this.vertexCount * 2];
-                GLDrawer.calcCircle(this.x, this.y, this.radius, this.vertexCount, this.vertices);
+                vertices = new float[vertexCount * 2];
+                GLDrawer.calcCircle(x, y, radius, vertexCount, vertices);
             }
-            if (this.wheel)
+            if (wheel)
             {
-                this.wheelImage = Image.Image_createWithResIDQuad(134, 0);
-                this.wheelImage.anchor = (this.wheelImage.parentAnchor = 18);
-                this.addChild(this.wheelImage);
-                this.wheelImage.visible = false;
-                this.wheelImage2 = Image.Image_createWithResIDQuad(134, 1);
-                this.wheelImage2.passTransformationsToChilds = false;
-                this.wheelHighlight = Image.Image_createWithResIDQuad(134, 2);
-                this.wheelHighlight.anchor = (this.wheelHighlight.parentAnchor = 18);
-                this.wheelImage2.addChild(this.wheelHighlight);
-                this.wheelImage3 = Image.Image_createWithResIDQuad(134, 3);
-                this.wheelImage3.anchor = (this.wheelImage3.parentAnchor = (this.wheelImage2.anchor = (this.wheelImage2.parentAnchor = 18)));
-                this.wheelImage2.addChild(this.wheelImage3);
-                this.addChild(this.wheelImage2);
-                this.wheelImage2.visible = false;
-                this.wheelDirty = true;
+                wheelImage = Image.Image_createWithResIDQuad(134, 0);
+                wheelImage.anchor = (wheelImage.parentAnchor = 18);
+                addChild(wheelImage);
+                wheelImage.visible = false;
+                wheelImage2 = Image.Image_createWithResIDQuad(134, 1);
+                wheelImage2.passTransformationsToChilds = false;
+                wheelHighlight = Image.Image_createWithResIDQuad(134, 2);
+                wheelHighlight.anchor = (wheelHighlight.parentAnchor = 18);
+                wheelImage2.addChild(wheelHighlight);
+                wheelImage3 = Image.Image_createWithResIDQuad(134, 3);
+                wheelImage3.anchor = (wheelImage3.parentAnchor = (wheelImage2.anchor = (wheelImage2.parentAnchor = 18)));
+                wheelImage2.addChild(wheelImage3);
+                addChild(wheelImage2);
+                wheelImage2.visible = false;
+                wheelDirty = true;
             }
         }
 
         // Token: 0x060005A4 RID: 1444 RVA: 0x0002ADD8 File Offset: 0x00028FD8
         public virtual void setMoveLengthVerticalOffset(float l, bool v, float o)
         {
-            this.moveLength = l;
-            this.moveVertical = v;
-            this.moveOffset = o;
-            if ((double)this.moveLength > 0.0)
+            moveLength = l;
+            moveVertical = v;
+            moveOffset = o;
+            if ((double)moveLength > 0.0)
             {
-                this.moveBackground = HorizontallyTiledImage.HorizontallyTiledImage_createWithResID(142);
-                this.moveBackground.setTileHorizontallyLeftCenterRight(0, 2, 1);
-                this.moveBackground.width = (int)((double)l + 37.0);
-                this.moveBackground.rotationCenterX = (float)(-(float)Math.Round((double)this.moveBackground.width / 2.0) + 17.0);
-                this.moveBackground.x = -17f;
-                this.grabMoverHighlight = Image.Image_createWithResIDQuad(142, 3);
-                this.grabMoverHighlight.visible = false;
-                this.grabMoverHighlight.anchor = (this.grabMoverHighlight.parentAnchor = 18);
-                this.addChild(this.grabMoverHighlight);
-                this.grabMover = Image.Image_createWithResIDQuad(142, 4);
-                this.grabMover.visible = false;
-                this.grabMover.anchor = (this.grabMover.parentAnchor = 18);
-                this.addChild(this.grabMover);
-                this.grabMover.addChild(this.moveBackground);
-                if (this.moveVertical)
+                moveBackground = HorizontallyTiledImage.HorizontallyTiledImage_createWithResID(142);
+                moveBackground.setTileHorizontallyLeftCenterRight(0, 2, 1);
+                moveBackground.width = (int)((double)l + 37.0);
+                moveBackground.rotationCenterX = (float)(-(float)Math.Round((double)moveBackground.width / 2.0) + 17.0);
+                moveBackground.x = -17f;
+                grabMoverHighlight = Image.Image_createWithResIDQuad(142, 3);
+                grabMoverHighlight.visible = false;
+                grabMoverHighlight.anchor = (grabMoverHighlight.parentAnchor = 18);
+                addChild(grabMoverHighlight);
+                grabMover = Image.Image_createWithResIDQuad(142, 4);
+                grabMover.visible = false;
+                grabMover.anchor = (grabMover.parentAnchor = 18);
+                addChild(grabMover);
+                grabMover.addChild(moveBackground);
+                if (moveVertical)
                 {
-                    this.moveBackground.rotation = 90f;
-                    this.moveBackground.y = -this.moveOffset;
-                    this.minMoveValue = this.y - this.moveOffset;
-                    this.maxMoveValue = this.y + (this.moveLength - this.moveOffset);
-                    this.grabMover.rotation = 90f;
-                    this.grabMoverHighlight.rotation = 90f;
+                    moveBackground.rotation = 90f;
+                    moveBackground.y = -moveOffset;
+                    minMoveValue = y - moveOffset;
+                    maxMoveValue = y + (moveLength - moveOffset);
+                    grabMover.rotation = 90f;
+                    grabMoverHighlight.rotation = 90f;
                 }
                 else
                 {
-                    this.minMoveValue = this.x - this.moveOffset;
-                    this.maxMoveValue = this.x + (this.moveLength - this.moveOffset);
-                    this.moveBackground.x += -this.moveOffset;
+                    minMoveValue = x - moveOffset;
+                    maxMoveValue = x + (moveLength - moveOffset);
+                    moveBackground.x += -moveOffset;
                 }
-                this.moveBackground.anchor = 19;
-                this.moveBackground.x += this.x;
-                this.moveBackground.y += this.y;
-                this.moveBackground.visible = false;
+                moveBackground.anchor = 19;
+                moveBackground.x += x;
+                moveBackground.y += y;
+                moveBackground.visible = false;
             }
-            this.moverDragging = -1;
+            moverDragging = -1;
         }
 
         // Token: 0x060005A5 RID: 1445 RVA: 0x0002B034 File Offset: 0x00029234
         public virtual void setBee()
         {
-            this.bee = Image.Image_createWithResIDQuad(148, 1);
-            this.bee.blendingMode = 1;
-            this.bee.doRestoreCutTransparency();
-            this.bee.parentAnchor = 18;
+            bee = Image.Image_createWithResIDQuad(148, 1);
+            bee.blendingMode = 1;
+            bee.doRestoreCutTransparency();
+            bee.parentAnchor = 18;
             Animation animation = Animation.Animation_createWithResID(148);
             animation.parentAnchor = (animation.anchor = 9);
             animation.doRestoreCutTransparency();
             animation.addAnimationDelayLoopFirstLast(0.03f, Timeline.LoopType.TIMELINE_PING_PONG, 2, 4);
             animation.playTimeline(0);
             animation.jumpTo(MathHelper.RND_RANGE(0, 2));
-            this.bee.addChild(animation);
+            bee.addChild(animation);
             Vector quadOffset = Image.getQuadOffset(148, 0);
-            this.bee.x = -quadOffset.x;
-            this.bee.y = -quadOffset.y;
-            this.bee.rotationCenterX = quadOffset.x - (float)(this.bee.width / 2);
-            this.bee.rotationCenterY = quadOffset.y - (float)(this.bee.height / 2);
-            this.bee.scaleX = (this.bee.scaleY = 0.7692308f);
-            this.addChild(this.bee);
+            bee.x = -quadOffset.x;
+            bee.y = -quadOffset.y;
+            bee.rotationCenterX = quadOffset.x - (float)(bee.width / 2);
+            bee.rotationCenterY = quadOffset.y - (float)(bee.height / 2);
+            bee.scaleX = (bee.scaleY = 0.7692308f);
+            addChild(bee);
         }
 
         // Token: 0x060005A6 RID: 1446 RVA: 0x0002B168 File Offset: 0x00029368
         public virtual void setSpider(bool s)
         {
-            this.hasSpider = s;
-            this.shouldActivate = false;
-            this.spiderActive = false;
-            this.spider = Animation.Animation_createWithResID(94);
-            this.spider.doRestoreCutTransparency();
-            this.spider.anchor = 18;
-            this.spider.x = this.x;
-            this.spider.y = this.y;
-            this.spider.visible = false;
-            this.spider.addAnimationWithIDDelayLoopFirstLast(0, 0.05f, Timeline.LoopType.TIMELINE_NO_LOOP, 0, 6);
-            this.spider.setDelayatIndexforAnimation(0.4f, 5, 0);
-            this.spider.addAnimationWithIDDelayLoopFirstLast(1, 0.1f, Timeline.LoopType.TIMELINE_REPLAY, 7, 10);
-            this.spider.switchToAnimationatEndOfAnimationDelay(1, 0, 0.05f);
-            this.addChild(this.spider);
+            hasSpider = s;
+            shouldActivate = false;
+            spiderActive = false;
+            spider = Animation.Animation_createWithResID(94);
+            spider.doRestoreCutTransparency();
+            spider.anchor = 18;
+            spider.x = x;
+            spider.y = y;
+            spider.visible = false;
+            spider.addAnimationWithIDDelayLoopFirstLast(0, 0.05f, Timeline.LoopType.TIMELINE_NO_LOOP, 0, 6);
+            spider.setDelayatIndexforAnimation(0.4f, 5, 0);
+            spider.addAnimationWithIDDelayLoopFirstLast(1, 0.1f, Timeline.LoopType.TIMELINE_REPLAY, 7, 10);
+            spider.switchToAnimationatEndOfAnimationDelay(1, 0, 0.05f);
+            addChild(spider);
         }
 
         // Token: 0x060005A7 RID: 1447 RVA: 0x0002B238 File Offset: 0x00029438
         public virtual void setLauncher()
         {
-            this.launcher = true;
-            this.launcherIncreaseSpeed = true;
-            this.launcherSpeed = 130f;
-            Mover mover = new Mover().initWithPathCapacityMoveSpeedRotateSpeed(100, this.launcherSpeed, 0f);
-            mover.setPathFromStringandStart(new NSString("RC30"), MathHelper.vect(this.x, this.y));
-            this.setMover(mover);
+            launcher = true;
+            launcherIncreaseSpeed = true;
+            launcherSpeed = 130f;
+            Mover mover = new Mover().initWithPathCapacityMoveSpeedRotateSpeed(100, launcherSpeed, 0f);
+            mover.setPathFromStringandStart(new NSString("RC30"), MathHelper.vect(x, y));
+            setMover(mover);
             mover.start();
         }
 
         // Token: 0x060005A8 RID: 1448 RVA: 0x0002B2A4 File Offset: 0x000294A4
         public virtual void destroyRope()
         {
-            NSObject.NSREL(this.rope);
-            this.rope = null;
+            NSObject.NSREL(rope);
+            rope = null;
         }
 
         // Token: 0x060005A9 RID: 1449 RVA: 0x0002B2B8 File Offset: 0x000294B8
         public virtual void reCalcCircle()
         {
-            GLDrawer.calcCircle(this.x, this.y, this.radius, this.vertexCount, this.vertices);
+            GLDrawer.calcCircle(x, y, radius, vertexCount, vertices);
         }
 
         // Token: 0x060005AA RID: 1450 RVA: 0x0002B2E0 File Offset: 0x000294E0
         public virtual void drawBack()
         {
-            if ((double)this.moveLength > 0.0)
+            if ((double)moveLength > 0.0)
             {
-                this.moveBackground.draw();
+                moveBackground.draw();
             }
             else
             {
-                this.back.draw();
+                back.draw();
             }
             OpenGL.glDisable(0);
-            if (this.radius != -1f || this.hideRadius)
+            if (radius != -1f || hideRadius)
             {
-                RGBAColor rgbacolor = RGBAColor.MakeRGBA(0.2, 0.5, 0.9, (double)this.radiusAlpha);
-                this.drawGrabCircle(this, this.x, this.y, this.radius, this.vertexCount, rgbacolor);
+                RGBAColor rgbacolor = RGBAColor.MakeRGBA(0.2, 0.5, 0.9, (double)radiusAlpha);
+                drawGrabCircle(this, x, y, radius, vertexCount, rgbacolor);
             }
             OpenGL.SetWhiteColor();
             OpenGL.glEnable(0);
@@ -346,49 +346,49 @@ namespace ctr_wp7.game
         // Token: 0x060005AB RID: 1451 RVA: 0x0002B385 File Offset: 0x00029585
         public virtual void drawSpider()
         {
-            this.spider.draw();
+            spider.draw();
         }
 
         // Token: 0x060005AC RID: 1452 RVA: 0x0002B394 File Offset: 0x00029594
         public virtual void updateSpider(float delta)
         {
-            if (this.hasSpider && this.shouldActivate)
+            if (hasSpider && shouldActivate)
             {
-                this.shouldActivate = false;
-                this.spiderActive = true;
+                shouldActivate = false;
+                spiderActive = true;
                 CTRSoundMgr._playSound(43);
-                this.spider.playTimeline(0);
+                spider.playTimeline(0);
             }
-            if (this.hasSpider && this.spiderActive)
+            if (hasSpider && spiderActive)
             {
-                if (this.spider.getCurrentTimelineIndex() != 0)
+                if (spider.getCurrentTimelineIndex() != 0)
                 {
-                    this.spiderPos += delta * 45f;
+                    spiderPos += delta * 45f;
                 }
                 float num = 0f;
                 bool flag = false;
-                if (this.rope != null)
+                if (rope != null)
                 {
                     int i = 0;
-                    while (i < this.rope.drawPtsCount)
+                    while (i < rope.drawPtsCount)
                     {
-                        Vector vector = MathHelper.vect(this.rope.drawPts[i], this.rope.drawPts[i + 1]);
-                        Vector vector2 = MathHelper.vect(this.rope.drawPts[i + 2], this.rope.drawPts[i + 3]);
+                        Vector vector = MathHelper.vect(rope.drawPts[i], rope.drawPts[i + 1]);
+                        Vector vector2 = MathHelper.vect(rope.drawPts[i + 2], rope.drawPts[i + 3]);
                         float num2 = Math.Max(20f, MathHelper.vectDistance(vector, vector2));
-                        if (this.spiderPos >= num && (this.spiderPos < num + num2 || i > this.rope.drawPtsCount - 3))
+                        if (spiderPos >= num && (spiderPos < num + num2 || i > rope.drawPtsCount - 3))
                         {
-                            float num3 = this.spiderPos - num;
+                            float num3 = spiderPos - num;
                             Vector vector3 = MathHelper.vectSub(vector2, vector);
                             vector3 = MathHelper.vectMult(vector3, num3 / num2);
-                            this.spider.x = vector.x + vector3.x;
-                            this.spider.y = vector.y + vector3.y;
-                            if (i > this.rope.drawPtsCount - 3)
+                            spider.x = vector.x + vector3.x;
+                            spider.y = vector.y + vector3.y;
+                            if (i > rope.drawPtsCount - 3)
                             {
                                 flag = true;
                             }
-                            if (this.spider.getCurrentTimelineIndex() != 0)
+                            if (spider.getCurrentTimelineIndex() != 0)
                             {
-                                this.spider.rotation = MathHelper.RADIANS_TO_DEGREES(MathHelper.vectAngleNormalized(vector3)) + 270f;
+                                spider.rotation = MathHelper.RADIANS_TO_DEGREES(MathHelper.vectAngleNormalized(vector3)) + 270f;
                                 break;
                             }
                             break;
@@ -402,7 +402,7 @@ namespace ctr_wp7.game
                 }
                 if (flag)
                 {
-                    this.spiderPos = -1f;
+                    spiderPos = -1f;
                 }
             }
         }
@@ -410,39 +410,39 @@ namespace ctr_wp7.game
         // Token: 0x060005AD RID: 1453 RVA: 0x0002B565 File Offset: 0x00029765
         public virtual void handleWheelTouch(Vector v)
         {
-            this.lastWheelTouch = v;
+            lastWheelTouch = v;
         }
 
         // Token: 0x060005AE RID: 1454 RVA: 0x0002B570 File Offset: 0x00029770
         public virtual void handleWheelRotate(Vector v)
         {
-            if (this.lastWheelTouch.x - v.x == 0f && this.lastWheelTouch.y - v.y == 0f)
+            if (lastWheelTouch.x - v.x == 0f && lastWheelTouch.y - v.y == 0f)
             {
                 return;
             }
             CTRSoundMgr._playSound(46);
-            float num = this.getRotateAngleForStartEndCenter(this.lastWheelTouch, v, MathHelper.vect(this.x, this.y));
-            this.wheelImage2.rotation += num;
-            this.wheelImage3.rotation += num;
-            this.wheelHighlight.rotation += num;
+            float num = getRotateAngleForStartEndCenter(lastWheelTouch, v, MathHelper.vect(x, y));
+            wheelImage2.rotation += num;
+            wheelImage3.rotation += num;
+            wheelHighlight.rotation += num;
             num = ((num > 0f) ? MathHelper.MIN((double)MathHelper.MAX(1.0, (double)num), 2.0) : MathHelper.MAX((double)MathHelper.MIN(-1.0, (double)num), -2.0));
-            if (this.rope != null)
+            if (rope != null)
             {
-                float num2 = (float)this.rope.getLength();
+                float num2 = (float)rope.getLength();
                 if (num > 0f)
                 {
                     if ((double)num2 < 500.0)
                     {
-                        this.rope.roll(num);
+                        rope.roll(num);
                     }
                 }
-                else if (num != 0f && this.rope.parts.Count > 3)
+                else if (num != 0f && rope.parts.Count > 3)
                 {
-                    this.rope.rollBack(-num);
+                    rope.rollBack(-num);
                 }
-                this.wheelDirty = true;
+                wheelDirty = true;
             }
-            this.lastWheelTouch = v;
+            lastWheelTouch = v;
         }
 
         // Token: 0x060005AF RID: 1455 RVA: 0x0002B6CC File Offset: 0x000298CC

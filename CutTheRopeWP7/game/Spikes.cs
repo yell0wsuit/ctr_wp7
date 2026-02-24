@@ -42,43 +42,43 @@ namespace ctr_wp7.game
                         break;
                 }
             }
-            if (this.initWithTexture(Application.getTexture(num)) == null)
+            if (initWithTexture(Application.getTexture(num)) == null)
             {
                 return null;
             }
             if (t > 0)
             {
-                this.doRestoreCutTransparency();
+                doRestoreCutTransparency();
                 int num2 = (t - 1) * 2;
                 int num3 = 1 + (t - 1) * 2;
                 Image image = Image.Image_createWithResIDQuad(140, num2);
                 Image image2 = Image.Image_createWithResIDQuad(140, num3);
                 image.doRestoreCutTransparency();
                 image2.doRestoreCutTransparency();
-                this.rotateButton = new Button().initWithUpElementDownElementandID(image, image2, 0);
-                this.rotateButton.delegateButtonDelegate = this;
-                this.rotateButton.anchor = (this.rotateButton.parentAnchor = 18);
-                this.addChild(this.rotateButton);
+                rotateButton = new Button().initWithUpElementDownElementandID(image, image2, 0);
+                rotateButton.delegateButtonDelegate = this;
+                rotateButton.anchor = (rotateButton.parentAnchor = 18);
+                addChild(rotateButton);
                 Vector quadOffset = Image.getQuadOffset(140, num2);
                 Vector quadSize = Image.getQuadSize(140, num2);
                 Vector vector = MathHelper.vect(image.texture.preCutSize.x, image.texture.preCutSize.y);
                 Vector vector2 = MathHelper.vectSub(vector, MathHelper.vectAdd(quadSize, quadOffset));
-                this.rotateButton.setTouchIncreaseLeftRightTopBottom(-quadOffset.x + quadSize.x / 2f, -vector2.x + quadSize.x / 2f, -quadOffset.y + quadSize.y / 2f, -vector2.y + quadSize.y / 2f);
+                rotateButton.setTouchIncreaseLeftRightTopBottom(-quadOffset.x + quadSize.x / 2f, -vector2.x + quadSize.x / 2f, -quadOffset.y + quadSize.y / 2f, -vector2.y + quadSize.y / 2f);
             }
-            this.passColorToChilds = false;
-            this.spikesNormal = false;
-            this.origRotation = (this.rotation = (float)an);
-            this.x = px;
-            this.y = py;
-            this.setToggled(t);
-            this.updateRotation();
+            passColorToChilds = false;
+            spikesNormal = false;
+            origRotation = (rotation = (float)an);
+            x = px;
+            y = py;
+            setToggled(t);
+            updateRotation();
             if (w == 5)
             {
-                this.addAnimationWithIDDelayLoopFirstLast(0, 0.05f, Timeline.LoopType.TIMELINE_REPLAY, 0, 0);
-                this.addAnimationWithIDDelayLoopFirstLast(1, 0.05f, Timeline.LoopType.TIMELINE_REPLAY, 1, 4);
-                this.doRestoreCutTransparency();
+                addAnimationWithIDDelayLoopFirstLast(0, 0.05f, Timeline.LoopType.TIMELINE_REPLAY, 0, 0);
+                addAnimationWithIDDelayLoopFirstLast(1, 0.05f, Timeline.LoopType.TIMELINE_REPLAY, 1, 4);
+                doRestoreCutTransparency();
             }
-            this.touchIndex = -1;
+            touchIndex = -1;
             return this;
         }
 
@@ -86,105 +86,105 @@ namespace ctr_wp7.game
         public virtual void updateRotation()
         {
             float num;
-            if (this.electro)
+            if (electro)
             {
-                num = (float)(this.width - 130);
+                num = (float)(width - 130);
             }
             else
             {
-                num = this.texture.quadRects[this.quadToDraw].w;
+                num = texture.quadRects[quadToDraw].w;
             }
             num /= 2f;
-            this.t1.x = this.x - num;
-            this.t2.x = this.x + num;
-            this.t1.y = (this.t2.y = this.y - 5f);
-            this.b1.x = this.t1.x;
-            this.b2.x = this.t2.x;
-            this.b1.y = (this.b2.y = this.y + 5f);
-            this.angle = (double)MathHelper.DEGREES_TO_RADIANS(this.rotation);
-            this.t1 = MathHelper.vectRotateAround(this.t1, this.angle, this.x, this.y);
-            this.t2 = MathHelper.vectRotateAround(this.t2, this.angle, this.x, this.y);
-            this.b1 = MathHelper.vectRotateAround(this.b1, this.angle, this.x, this.y);
-            this.b2 = MathHelper.vectRotateAround(this.b2, this.angle, this.x, this.y);
+            t1.x = x - num;
+            t2.x = x + num;
+            t1.y = (t2.y = y - 5f);
+            b1.x = t1.x;
+            b2.x = t2.x;
+            b1.y = (b2.y = y + 5f);
+            angle = (double)MathHelper.DEGREES_TO_RADIANS(rotation);
+            t1 = MathHelper.vectRotateAround(t1, angle, x, y);
+            t2 = MathHelper.vectRotateAround(t2, angle, x, y);
+            b1 = MathHelper.vectRotateAround(b1, angle, x, y);
+            b2 = MathHelper.vectRotateAround(b2, angle, x, y);
         }
 
         // Token: 0x06000279 RID: 633 RVA: 0x00010204 File Offset: 0x0000E404
         public virtual void turnElectroOff()
         {
-            this.electroOn = false;
-            this.playTimeline(0);
-            this.electroTimer = this.offTime;
-            if (this.sndElectric != null)
+            electroOn = false;
+            playTimeline(0);
+            electroTimer = offTime;
+            if (sndElectric != null)
             {
-                this.sndElectric.Stop();
-                Application.sharedSoundMgr().ClearLooped(this.sndElectric);
-                this.sndElectric = null;
+                sndElectric.Stop();
+                Application.sharedSoundMgr().ClearLooped(sndElectric);
+                sndElectric = null;
             }
         }
 
         // Token: 0x0600027A RID: 634 RVA: 0x00010255 File Offset: 0x0000E455
         public virtual void turnElectroOn()
         {
-            this.electroOn = true;
-            this.playTimeline(1);
-            this.electroTimer = this.onTime;
-            this.sndElectric = CTRSoundMgr._playSoundLooped(38);
+            electroOn = true;
+            playTimeline(1);
+            electroTimer = onTime;
+            sndElectric = CTRSoundMgr._playSoundLooped(38);
         }
 
         // Token: 0x0600027B RID: 635 RVA: 0x00010280 File Offset: 0x0000E480
         public virtual void rotateSpikes()
         {
-            this.spikesNormal = !this.spikesNormal;
-            this.removeTimeline(2);
-            float num = (float)(this.spikesNormal ? 90 : 0);
-            float num2 = this.origRotation + num;
+            spikesNormal = !spikesNormal;
+            removeTimeline(2);
+            float num = (float)(spikesNormal ? 90 : 0);
+            float num2 = origRotation + num;
             Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(2);
-            timeline.addKeyFrame(KeyFrame.makeRotation((int)this.rotation, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0f));
-            timeline.addKeyFrame(KeyFrame.makeRotation((int)num2, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, Math.Abs(num2 - this.rotation) / 90f * 0.3f));
+            timeline.addKeyFrame(KeyFrame.makeRotation((int)rotation, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0f));
+            timeline.addKeyFrame(KeyFrame.makeRotation((int)num2, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, Math.Abs(num2 - rotation) / 90f * 0.3f));
             timeline.delegateTimelineDelegate = this;
-            this.addTimelinewithID(timeline, 2);
-            this.playTimeline(2);
-            this.updateRotationFlag = true;
-            this.rotateButton.scaleX = -this.rotateButton.scaleX;
+            addTimelinewithID(timeline, 2);
+            playTimeline(2);
+            updateRotationFlag = true;
+            rotateButton.scaleX = -rotateButton.scaleX;
         }
 
         // Token: 0x0600027C RID: 636 RVA: 0x0001033A File Offset: 0x0000E53A
         public virtual void setToggled(int t)
         {
-            this.toggled = t;
+            toggled = t;
         }
 
         // Token: 0x0600027D RID: 637 RVA: 0x00010343 File Offset: 0x0000E543
         public virtual int getToggled()
         {
-            return this.toggled;
+            return toggled;
         }
 
         // Token: 0x0600027E RID: 638 RVA: 0x0001034C File Offset: 0x0000E54C
         public override void update(float delta)
         {
             base.update(delta);
-            if (this.mover != null || this.updateRotationFlag)
+            if (mover != null || updateRotationFlag)
             {
-                this.updateRotation();
+                updateRotation();
             }
-            if (this.electro)
+            if (electro)
             {
-                if (this.electroOn)
+                if (electroOn)
                 {
-                    Mover.moveVariableToTarget(ref this.electroTimer, 0f, 1f, delta);
-                    if ((double)this.electroTimer == 0.0)
+                    Mover.moveVariableToTarget(ref electroTimer, 0f, 1f, delta);
+                    if ((double)electroTimer == 0.0)
                     {
-                        this.turnElectroOff();
+                        turnElectroOff();
                         return;
                     }
                 }
                 else
                 {
-                    Mover.moveVariableToTarget(ref this.electroTimer, 0f, 1f, delta);
-                    if ((double)this.electroTimer == 0.0)
+                    Mover.moveVariableToTarget(ref electroTimer, 0f, 1f, delta);
+                    if ((double)electroTimer == 0.0)
                     {
-                        this.turnElectroOn();
+                        turnElectroOn();
                     }
                 }
             }
@@ -198,7 +198,7 @@ namespace ctr_wp7.game
         // Token: 0x06000280 RID: 640 RVA: 0x000103E7 File Offset: 0x0000E5E7
         public virtual void timelineFinished(Timeline t)
         {
-            this.updateRotationFlag = false;
+            updateRotationFlag = false;
         }
 
         // Token: 0x06000281 RID: 641 RVA: 0x000103F0 File Offset: 0x0000E5F0
@@ -208,8 +208,8 @@ namespace ctr_wp7.game
             {
                 return;
             }
-            this.delegateRotateAllSpikesWithID(this.toggled);
-            if (this.spikesNormal)
+            delegateRotateAllSpikesWithID(toggled);
+            if (spikesNormal)
             {
                 CTRSoundMgr._playSound(53);
                 return;

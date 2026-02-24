@@ -14,51 +14,51 @@ namespace ctr_wp7.game
         {
             if (base.initFullscreen() != null)
             {
-                this.texID = 402;
-                this.shineID = 0;
-                BaseElement baseElement = Image.createElementWithLeftPart(this.texID, this.shineID);
+                texID = 402;
+                shineID = 0;
+                BaseElement baseElement = Image.createElementWithLeftPart(texID, shineID);
                 baseElement.anchor = (baseElement.parentAnchor = 10);
-                baseElement.y = Image.getQuadOffset(this.texID, this.shineID).y;
+                baseElement.y = Image.getQuadOffset(texID, shineID).y;
                 baseElement.getChild(1).x += 1.33f;
-                BaseElement baseElement2 = Image.createElementWithLeftPart(this.texID, 1);
+                BaseElement baseElement2 = Image.createElementWithLeftPart(texID, 1);
                 baseElement2.anchor = (baseElement2.parentAnchor = 10);
-                baseElement2.y = Image.getRelativeQuadOffset(this.texID, this.shineID, 1).y;
+                baseElement2.y = Image.getRelativeQuadOffset(texID, shineID, 1).y;
                 baseElement.addChild(baseElement2);
-                Button button = MenuController.buttonWithTextImageQuadHalfRescaledRecoloredIDDelegate(Application.getString(1310773), this.texID, 2, true, 0.95f, RGBAColor.MakeRGBA(0.85f, 0.85f, 0.85f, 1f), 50, d);
+                Button button = MenuController.buttonWithTextImageQuadHalfRescaledRecoloredIDDelegate(Application.getString(1310773), texID, 2, true, 0.95f, RGBAColor.MakeRGBA(0.85f, 0.85f, 0.85f, 1f), 50, d);
                 button.anchor = (button.parentAnchor = 10);
-                button.y = Image.getRelativeQuadOffset(this.texID, this.shineID, 2).y;
+                button.y = Image.getRelativeQuadOffset(texID, shineID, 2).y;
                 baseElement.addChild(button);
-                this.next = MenuController.createButton2WithImageQuad1Quad2IDDelegate(this.texID, 3, 4, 51, d);
-                this.next.anchor = (this.next.parentAnchor = 9);
-                Image.setElementPositionWithRelativeQuadOffset(this.next, this.texID, this.shineID, 3);
-                baseElement.addChild(this.next);
-                this.replay = MenuController.createButton2WithImageQuad1Quad2IDDelegate(this.texID, 5, 6, 49, d);
-                this.replay.anchor = (this.replay.parentAnchor = 9);
-                baseElement.addChild(this.replay);
-                Image image = Image.Image_createWithResIDQuad(this.texID, 7);
+                next = MenuController.createButton2WithImageQuad1Quad2IDDelegate(texID, 3, 4, 51, d);
+                next.anchor = (next.parentAnchor = 9);
+                Image.setElementPositionWithRelativeQuadOffset(next, texID, shineID, 3);
+                baseElement.addChild(next);
+                replay = MenuController.createButton2WithImageQuad1Quad2IDDelegate(texID, 5, 6, 49, d);
+                replay.anchor = (replay.parentAnchor = 9);
+                baseElement.addChild(replay);
+                Image image = Image.Image_createWithResIDQuad(texID, 7);
                 image.anchor = (image.parentAnchor = 9);
-                Image.setElementPositionWithRelativeQuadOffset(image, this.texID, this.shineID, 7);
+                Image.setElementPositionWithRelativeQuadOffset(image, texID, shineID, 7);
                 baseElement.addChild(image);
-                this.titletext = new Text().initWithFont(Application.getFont(5));
-                this.titletext.anchor = 18;
-                this.titletext.parentAnchor = 9;
-                Image.setElementPositionWithRelativeQuadOffset(this.titletext, this.texID, this.shineID, 9);
-                baseElement.addChild(this.titletext);
-                this.replaytext = Text.createWithFontandString(6, Application.getString(1310749));
-                this.replaytext.anchor = 18;
-                this.replaytext.parentAnchor = 9;
-                baseElement.addChild(this.replaytext);
-                this.nexttext = Text.createWithFontandString(6, Application.getString(1310750));
-                this.nexttext.anchor = 18;
-                this.nexttext.parentAnchor = 9;
-                Image.setElementPositionWithRelativeQuadOffset(this.nexttext, this.texID, this.shineID, 11);
-                baseElement.addChild(this.nexttext);
+                titletext = new Text().initWithFont(Application.getFont(5));
+                titletext.anchor = 18;
+                titletext.parentAnchor = 9;
+                Image.setElementPositionWithRelativeQuadOffset(titletext, texID, shineID, 9);
+                baseElement.addChild(titletext);
+                replaytext = Text.createWithFontandString(6, Application.getString(1310749));
+                replaytext.anchor = 18;
+                replaytext.parentAnchor = 9;
+                baseElement.addChild(replaytext);
+                nexttext = Text.createWithFontandString(6, Application.getString(1310750));
+                nexttext.anchor = 18;
+                nexttext.parentAnchor = 9;
+                Image.setElementPositionWithRelativeQuadOffset(nexttext, texID, shineID, 11);
+                baseElement.addChild(nexttext);
                 background.addChild(baseElement);
                 Button button2 = MenuController.createBackButtonWithDelegateID(d, 52);
                 background.addChild(button2);
-                this.addChild(background);
-                this.renumberEpisode(NSObject.NSS(""));
-                this.setLast(false);
+                addChild(background);
+                renumberEpisode(NSObject.NSS(""));
+                setLast(false);
             }
             return this;
         }
@@ -66,29 +66,29 @@ namespace ctr_wp7.game
         // Token: 0x0600044C RID: 1100 RVA: 0x0001E3C0 File Offset: 0x0001C5C0
         public virtual void renumberEpisode(NSString newnumber)
         {
-            this.titletext.setString(Application.getString(1310836).ToString().Replace("%@", newnumber.ToString()));
+            titletext.setString(Application.getString(1310836).ToString().Replace("%@", newnumber.ToString()));
         }
 
         // Token: 0x0600044D RID: 1101 RVA: 0x0001E3EC File Offset: 0x0001C5EC
         public virtual void setLast(bool last)
         {
-            this.isLast = last;
+            isLast = last;
             if (last)
             {
-                this.next.setEnabled(false);
-                this.nexttext.setEnabled(false);
-                Image.setElementPositionWithRelativeQuadOffset(this.replaytext, this.texID, this.shineID, 12);
-                Image.setElementPositionWithRelativeQuadOffset(this.replay, this.texID, this.shineID, 13);
-                this.replay.x -= (float)this.replay.width / 2f;
-                this.replay.y -= (float)this.replay.height / 2f;
+                next.setEnabled(false);
+                nexttext.setEnabled(false);
+                Image.setElementPositionWithRelativeQuadOffset(replaytext, texID, shineID, 12);
+                Image.setElementPositionWithRelativeQuadOffset(replay, texID, shineID, 13);
+                replay.x -= (float)replay.width / 2f;
+                replay.y -= (float)replay.height / 2f;
                 return;
             }
             if (!last)
             {
-                this.nexttext.setEnabled(true);
-                this.next.setEnabled(true);
-                Image.setElementPositionWithRelativeQuadOffset(this.replaytext, this.texID, this.shineID, 10);
-                Image.setElementPositionWithRelativeQuadOffset(this.replay, this.texID, this.shineID, 5);
+                nexttext.setEnabled(true);
+                next.setEnabled(true);
+                Image.setElementPositionWithRelativeQuadOffset(replaytext, texID, shineID, 10);
+                Image.setElementPositionWithRelativeQuadOffset(replay, texID, shineID, 5);
             }
         }
 

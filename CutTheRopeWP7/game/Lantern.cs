@@ -22,61 +22,61 @@ namespace ctr_wp7.game
                 Lantern.sharedCandyPoint = null;
                 Lantern.getAllLanterns().Add(this);
                 NSObject.NSREL(this);
-                this.x = position.x;
-                this.y = position.y;
-                this.lanternState = 0;
-                if (this.delayedDispatcher == null)
+                x = position.x;
+                y = position.y;
+                lanternState = 0;
+                if (delayedDispatcher == null)
                 {
-                    this.delayedDispatcher = (DelayedDispatcher)new DelayedDispatcher().init();
+                    delayedDispatcher = (DelayedDispatcher)new DelayedDispatcher().init();
                 }
-                this.fire = Image.Image_createWithResIDQuad(186, 1);
-                this.fire.anchor = (this.fire.parentAnchor = 18);
-                this.fire.color = RGBAColor.transparentRGBA;
-                this.fire.doRestoreCutTransparency();
-                this.addChild(this.fire);
+                fire = Image.Image_createWithResIDQuad(186, 1);
+                fire.anchor = (fire.parentAnchor = 18);
+                fire.color = RGBAColor.transparentRGBA;
+                fire.doRestoreCutTransparency();
+                addChild(fire);
                 Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(3);
                 timeline.addKeyFrame(KeyFrame.makeScale(1.4, 1.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
                 timeline.addKeyFrame(KeyFrame.makeScale(1.05, 1.3, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.5));
                 timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.MakeRGBA(0.7, 0.7, 0.7, 0.7), KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
                 timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.solidOpaqueRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.5));
                 timeline.setTimelineLoopType(Timeline.LoopType.TIMELINE_PING_PONG);
-                this.fire.addTimelinewithID(timeline, 2);
-                this.idleForm = Image.Image_createWithResIDQuad(186, 0);
-                this.idleForm.anchor = (this.idleForm.parentAnchor = 18);
-                this.idleForm.doRestoreCutTransparency();
-                this.addChild(this.idleForm);
+                fire.addTimelinewithID(timeline, 2);
+                idleForm = Image.Image_createWithResIDQuad(186, 0);
+                idleForm.anchor = (idleForm.parentAnchor = 18);
+                idleForm.doRestoreCutTransparency();
+                addChild(idleForm);
                 timeline = new Timeline().initWithMaxKeyFramesOnTrack(2);
                 timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.solidOpaqueRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
                 timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.3));
-                this.idleForm.addTimelinewithID(timeline, 0);
+                idleForm.addTimelinewithID(timeline, 0);
                 timeline = new Timeline().initWithMaxKeyFramesOnTrack(2);
                 timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
                 timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.solidOpaqueRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.3));
-                this.idleForm.addTimelinewithID(timeline, 1);
-                this.activeForm = Image.Image_createWithResIDQuad(186, 2);
-                this.activeForm.anchor = (this.activeForm.parentAnchor = 18);
-                this.activeForm.color = RGBAColor.transparentRGBA;
-                this.activeForm.y = 1f;
-                this.activeForm.doRestoreCutTransparency();
-                this.addChild(this.activeForm);
+                idleForm.addTimelinewithID(timeline, 1);
+                activeForm = Image.Image_createWithResIDQuad(186, 2);
+                activeForm.anchor = (activeForm.parentAnchor = 18);
+                activeForm.color = RGBAColor.transparentRGBA;
+                activeForm.y = 1f;
+                activeForm.doRestoreCutTransparency();
+                addChild(activeForm);
                 timeline = new Timeline().initWithMaxKeyFramesOnTrack(2);
                 timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
                 timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.solidOpaqueRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.3));
-                this.activeForm.addTimelinewithID(timeline, 0);
+                activeForm.addTimelinewithID(timeline, 0);
                 timeline = new Timeline().initWithMaxKeyFramesOnTrack(2);
                 timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.solidOpaqueRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
                 timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.3));
-                this.activeForm.addTimelinewithID(timeline, 1);
+                activeForm.addTimelinewithID(timeline, 1);
                 int num = 3;
                 CTRPreferences ctrpreferences = Application.sharedPreferences();
                 int intForKey = ctrpreferences.getIntForKey("PREFS_SELECTED_CANDY");
                 num += intForKey;
-                this.innerCandy = Image.Image_createWithResIDQuad(186, num);
-                this.innerCandy.anchor = (this.innerCandy.parentAnchor = 18);
-                this.innerCandy.color = RGBAColor.transparentRGBA;
-                this.innerCandy.y = -4f;
-                this.innerCandy.doRestoreCutTransparency();
-                this.addChild(this.innerCandy);
+                innerCandy = Image.Image_createWithResIDQuad(186, num);
+                innerCandy.anchor = (innerCandy.parentAnchor = 18);
+                innerCandy.color = RGBAColor.transparentRGBA;
+                innerCandy.y = -4f;
+                innerCandy.doRestoreCutTransparency();
+                addChild(innerCandy);
                 timeline = new Timeline().initWithMaxKeyFramesOnTrack(4);
                 timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
                 timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.solidOpaqueRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.2));
@@ -87,7 +87,7 @@ namespace ctr_wp7.game
                 timeline.addKeyFrame(KeyFrame.makePos(0.0, -4.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
                 timeline.addKeyFrame(KeyFrame.makePos(0.0, 0.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.1));
                 timeline.addKeyFrame(KeyFrame.makePos(0.0, -1.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.05));
-                this.innerCandy.addTimelinewithID(timeline, 0);
+                innerCandy.addTimelinewithID(timeline, 0);
                 timeline = new Timeline().initWithMaxKeyFramesOnTrack(3);
                 timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.solidOpaqueRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
                 timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.MakeRGBA(0.6, 0.6, 0.6, 0.6), KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.06));
@@ -98,7 +98,7 @@ namespace ctr_wp7.game
                 timeline.addKeyFrame(KeyFrame.makePos(0.0, 0.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
                 timeline.addKeyFrame(KeyFrame.makePos(0.0, -4.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.06));
                 timeline.addKeyFrame(KeyFrame.makePos(0.0, 4.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.04));
-                this.innerCandy.addTimelinewithID(timeline, 1);
+                innerCandy.addTimelinewithID(timeline, 1);
                 timeline = new Timeline().initWithMaxKeyFramesOnTrack(5);
                 timeline.addKeyFrame(KeyFrame.makeScale(1.0, 1.0, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
                 timeline.addKeyFrame(KeyFrame.makeScale(0.93, 0.93, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.35));
@@ -106,7 +106,7 @@ namespace ctr_wp7.game
                 timeline.addKeyFrame(KeyFrame.makeScale(0.93, 0.93, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.35));
                 timeline.addKeyFrame(KeyFrame.makeScale(1.0, 1.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.35));
                 timeline.setTimelineLoopType(Timeline.LoopType.TIMELINE_REPLAY);
-                this.innerCandy.addTimelinewithID(timeline, 2);
+                innerCandy.addTimelinewithID(timeline, 2);
             }
             return this;
         }
@@ -114,7 +114,7 @@ namespace ctr_wp7.game
         // Token: 0x06000854 RID: 2132 RVA: 0x0004AA4A File Offset: 0x00048C4A
         public void _captureCandy(NSObject obj)
         {
-            this.captureCandy((ConstraintedPoint)obj);
+            captureCandy((ConstraintedPoint)obj);
         }
 
         // Token: 0x06000855 RID: 2133 RVA: 0x0004AA58 File Offset: 0x00048C58
@@ -123,7 +123,7 @@ namespace ctr_wp7.game
             CTRSoundMgr._playSound(64);
             Lantern.sharedCandyPoint = candyPoint;
             candyPoint.disableGravity = true;
-            candyPoint.pos = (candyPoint.prevPos = MathHelper.vect(this.x, this.y));
+            candyPoint.pos = (candyPoint.prevPos = MathHelper.vect(x, y));
             List<Lantern> list = Lantern.getAllLanterns();
             foreach (Lantern lantern in list)
             {
@@ -159,15 +159,15 @@ namespace ctr_wp7.game
         // Token: 0x06000858 RID: 2136 RVA: 0x0004AC0C File Offset: 0x00048E0C
         public override void update(float delta)
         {
-            this.prevPos = MathHelper.vect(this.x, this.y);
+            prevPos = MathHelper.vect(x, y);
             base.update(delta);
-            this.delayedDispatcher.update(delta);
+            delayedDispatcher.update(delta);
             if (Lantern.sharedCandyPoint != null)
             {
-                Lantern.sharedCandyPoint.pos = (Lantern.sharedCandyPoint.prevPos = MathHelper.vect(this.x, this.y));
-                if (this.lanternState != 1)
+                Lantern.sharedCandyPoint.pos = (Lantern.sharedCandyPoint.prevPos = MathHelper.vect(x, y));
+                if (lanternState != 1)
                 {
-                    this.lanternState = 1;
+                    lanternState = 1;
                 }
             }
         }
@@ -175,10 +175,10 @@ namespace ctr_wp7.game
         // Token: 0x06000859 RID: 2137 RVA: 0x0004AC84 File Offset: 0x00048E84
         public override bool onTouchDownXY(float tx, float ty)
         {
-            float num = MathHelper.vectDistance(MathHelper.vect(tx, ty), MathHelper.vect(this.x, this.y));
-            if (this.lanternState == 1 && num < Lantern.LANTERN_TOUCH_RADIUS && Lantern.sharedCandyPoint != null)
+            float num = MathHelper.vectDistance(MathHelper.vect(tx, ty), MathHelper.vect(x, y));
+            if (lanternState == 1 && num < Lantern.LANTERN_TOUCH_RADIUS && Lantern.sharedCandyPoint != null)
             {
-                this.initiateReleasingCandy();
+                initiateReleasingCandy();
                 return true;
             }
             return false;
@@ -194,11 +194,11 @@ namespace ctr_wp7.game
         // Token: 0x0600085B RID: 2139 RVA: 0x0004ACDE File Offset: 0x00048EDE
         public override void dealloc()
         {
-            this.idleForm = null;
-            this.activeForm = null;
-            this.innerCandy = null;
-            this.fire = null;
-            this.delayedDispatcher = null;
+            idleForm = null;
+            activeForm = null;
+            innerCandy = null;
+            fire = null;
+            delayedDispatcher = null;
             base.dealloc();
         }
 
@@ -206,8 +206,8 @@ namespace ctr_wp7.game
         private void releaseCandy(NSObject obj)
         {
             Lantern.sharedCandyPoint.disableGravity = false;
-            Lantern.sharedCandyPoint.pos = MathHelper.vect(this.x, this.y);
-            Lantern.sharedCandyPoint.prevPos = this.prevPos;
+            Lantern.sharedCandyPoint.pos = MathHelper.vect(x, y);
+            Lantern.sharedCandyPoint.prevPos = prevPos;
             Lantern.sharedCandyPoint = null;
         }
 
@@ -233,9 +233,9 @@ namespace ctr_wp7.game
                 }
                 lantern.fire.color = RGBAColor.transparentRGBA;
                 lantern.delayedDispatcher.cancelAllDispatches();
-                lantern.delayedDispatcher.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(this.becomeCandyAware), lantern, Lantern.LANTERN_INACTIVE_DELAY + 0.1f);
+                lantern.delayedDispatcher.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(becomeCandyAware), lantern, Lantern.LANTERN_INACTIVE_DELAY + 0.1f);
             }
-            this.delayedDispatcher.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(this.releaseCandy), null, 0.01f);
+            delayedDispatcher.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(releaseCandy), null, 0.01f);
         }
 
         // Token: 0x04000DEE RID: 3566

@@ -26,7 +26,7 @@ namespace ctr_wp7.Banner
                     string[] fileNames = userStoreForApplication.GetFileNames();
                     foreach (string text3 in fileNames)
                     {
-                        if (text3.StartsWith(this.storedBannersPrefix) || text3.StartsWith(this.storedConfigPrefix) || text3.StartsWith(this.bannerPrefix))
+                        if (text3.StartsWith(storedBannersPrefix) || text3.StartsWith(storedConfigPrefix) || text3.StartsWith(bannerPrefix))
                         {
                             userStoreForApplication.DeleteFile(text3);
                         }
@@ -39,24 +39,24 @@ namespace ctr_wp7.Banner
         // Token: 0x06000222 RID: 546 RVA: 0x0000E444 File Offset: 0x0000C644
         public void initWith(string app, string platform, int pSet, int pWidth, int pHeight)
         {
-            if (this.execution)
+            if (execution)
             {
                 return;
             }
-            this.CheckCleanup();
-            this.set = pSet;
-            this.width = pWidth;
-            this.height = pHeight;
-            this.banners = this.getStoredBanners();
-            this.config = this.getStoredConfig();
-            if (this.config == null)
+            CheckCleanup();
+            set = pSet;
+            width = pWidth;
+            height = pHeight;
+            banners = getStoredBanners();
+            config = getStoredConfig();
+            if (config == null)
             {
-                this.config = new RemoteConfig("", "");
+                config = new RemoteConfig("", "");
             }
             List<int> list = new List<int>();
-            foreach (KeyValuePair<int, Banner> keyValuePair in this.banners)
+            foreach (KeyValuePair<int, Banner> keyValuePair in banners)
             {
-                if (this.isValid(keyValuePair.Value))
+                if (isValid(keyValuePair.Value))
                 {
                     list.Add(keyValuePair.Key);
                 }
@@ -75,9 +75,9 @@ namespace ctr_wp7.Banner
                 RemoteDataManager_Java.BANNER_SERVER_URL,
                 app,
                 platform,
-                this.set,
-                this.width,
-                this.height,
+                set,
+                width,
+                height,
                 RemoteDataManager_Java.FORMAT_VERSION,
                 osversion,
                 appVersion,
@@ -91,8 +91,8 @@ namespace ctr_wp7.Banner
                 text3 += "&existing=";
                 text3 += string.Join<int>(",", list);
             }
-            text3 += this.getAdditionalParameters();
-            this.RequestDataTask_execute(text3);
+            text3 += getAdditionalParameters();
+            RequestDataTask_execute(text3);
         }
 
         // Token: 0x06000223 RID: 547 RVA: 0x0000E63C File Offset: 0x0000C83C
@@ -142,7 +142,7 @@ namespace ctr_wp7.Banner
                     }
                     if (text == "change")
                     {
-                        this.bannersprocessing = true;
+                        bannersprocessing = true;
                         string text2 = "";
                         if (doc.findChildWithTagNameRecursively("promolist", false) != null)
                         {
@@ -161,7 +161,7 @@ namespace ctr_wp7.Banner
                         {
                             text3 = doc.findChildWithTagNameRecursively("bannersweight", false).data.ToString();
                         }
-                        this.config = new RemoteConfig(text2, text3);
+                        config = new RemoteConfig(text2, text3);
                         List<XMLNode> list = doc.getElementsByTagName("promobanner");
                         if (list.Count == 0)
                         {
@@ -171,43 +171,43 @@ namespace ctr_wp7.Banner
                         int count = list.Count;
                         while (i < count)
                         {
-                            Banner banner = new Banner(list[i], this.width, this.height);
-                            this.banners.Add(banner.id, banner);
+                            Banner banner = new Banner(list[i], width, height);
+                            banners.Add(banner.id, banner);
                             i++;
                         }
-                        this.bannersprocessing = false;
+                        bannersprocessing = false;
                     }
-                    this.config.setHideMainPromo(text == "hide");
+                    config.setHideMainPromo(text == "hide");
                     if (doc.getElementsByTagName("interstitialbannersperiod").Count > 0)
                     {
-                        this.config.setInterstitialBannersPeriod(doc.getElementsByTagName("interstitialbannersperiod")[0]["value"].intValue());
+                        config.setInterstitialBannersPeriod(doc.getElementsByTagName("interstitialbannersperiod")[0]["value"].intValue());
                     }
                     if (doc.getElementsByTagName("changeinterstitialtovideoperiod").Count > 0)
                     {
-                        this.config.setChangeInterstitialToVideoPeriod(doc.getElementsByTagName("changeinterstitialtovideoperiod")[0]["value"].intValue());
+                        config.setChangeInterstitialToVideoPeriod(doc.getElementsByTagName("changeinterstitialtovideoperiod")[0]["value"].intValue());
                     }
                     if (doc.getElementsByTagName("videobannerscount").Count > 0)
                     {
-                        this.config.setVideoBannersCount(doc.getElementsByTagName("videobannerscount")[0]["value"].intValue());
+                        config.setVideoBannersCount(doc.getElementsByTagName("videobannerscount")[0]["value"].intValue());
                     }
                     if (doc.getElementsByTagName("hidesocialnetworks").Count > 0)
                     {
-                        this.config.setHideSocialNetworks(doc.getElementsByTagName("hidesocialnetworks")[0]["value"].boolValue());
+                        config.setHideSocialNetworks(doc.getElementsByTagName("hidesocialnetworks")[0]["value"].boolValue());
                     }
-                    this.config.setHideSocialNetworks(true);
+                    config.setHideSocialNetworks(true);
                     if (doc.getElementsByTagName("defaultinterstitial").Count > 0)
                     {
-                        this.config.setDefaultInterstitial(doc.getElementsByTagName("defaultinterstitial")[0]["value"].boolValue());
+                        config.setDefaultInterstitial(doc.getElementsByTagName("defaultinterstitial")[0]["value"].boolValue());
                     }
                     if (doc.getElementsByTagName("boxforcrosspromo").Count > 0)
                     {
-                        this.config.setBoxForCrossPromo(doc.getElementsByTagName("boxforcrosspromo")[0]["value"].intValue());
+                        config.setBoxForCrossPromo(doc.getElementsByTagName("boxforcrosspromo")[0]["value"].intValue());
                     }
-                    this.SaveStoredConfig(this.config);
-                    this.SaveStoredBanners(this.banners);
-                    if (this.config != null)
+                    SaveStoredConfig(config);
+                    SaveStoredBanners(banners);
+                    if (config != null)
                     {
-                        this.config.iterateBanner();
+                        config.iterateBanner();
                     }
                     return true;
                 }
@@ -223,7 +223,7 @@ namespace ctr_wp7.Banner
         {
             using (IsolatedStorageFile userStoreForApplication = IsolatedStorageFile.GetUserStoreForApplication())
             {
-                using (IsolatedStorageFileStream isolatedStorageFileStream = new IsolatedStorageFileStream(this.getStoredBannersPath(), System.IO.FileMode.Create, userStoreForApplication))
+                using (IsolatedStorageFileStream isolatedStorageFileStream = new IsolatedStorageFileStream(getStoredBannersPath(), System.IO.FileMode.Create, userStoreForApplication))
                 {
                     BinaryWriter binaryWriter = new BinaryWriter(isolatedStorageFileStream);
                     binaryWriter.Write(banners.Count);
@@ -242,7 +242,7 @@ namespace ctr_wp7.Banner
         {
             using (IsolatedStorageFile userStoreForApplication = IsolatedStorageFile.GetUserStoreForApplication())
             {
-                using (IsolatedStorageFileStream isolatedStorageFileStream = new IsolatedStorageFileStream(this.getStoredConfigPath(), System.IO.FileMode.Create, userStoreForApplication))
+                using (IsolatedStorageFileStream isolatedStorageFileStream = new IsolatedStorageFileStream(getStoredConfigPath(), System.IO.FileMode.Create, userStoreForApplication))
                 {
                     BinaryWriter binaryWriter = new BinaryWriter(isolatedStorageFileStream);
                     config.SaveConfig(binaryWriter);
@@ -258,9 +258,9 @@ namespace ctr_wp7.Banner
             {
                 using (IsolatedStorageFile userStoreForApplication = IsolatedStorageFile.GetUserStoreForApplication())
                 {
-                    if (userStoreForApplication.FileExists(this.getStoredBannersPath()))
+                    if (userStoreForApplication.FileExists(getStoredBannersPath()))
                     {
-                        using (IsolatedStorageFileStream isolatedStorageFileStream = new IsolatedStorageFileStream(this.getStoredBannersPath(), System.IO.FileMode.Open, userStoreForApplication))
+                        using (IsolatedStorageFileStream isolatedStorageFileStream = new IsolatedStorageFileStream(getStoredBannersPath(), System.IO.FileMode.Open, userStoreForApplication))
                         {
                             BinaryReader binaryReader = new BinaryReader(isolatedStorageFileStream);
                             int num = binaryReader.ReadInt32();
@@ -290,9 +290,9 @@ namespace ctr_wp7.Banner
             {
                 using (IsolatedStorageFile userStoreForApplication = IsolatedStorageFile.GetUserStoreForApplication())
                 {
-                    if (userStoreForApplication.FileExists(this.getStoredBannersPath()))
+                    if (userStoreForApplication.FileExists(getStoredBannersPath()))
                     {
-                        using (IsolatedStorageFileStream isolatedStorageFileStream = new IsolatedStorageFileStream(this.getStoredConfigPath(), System.IO.FileMode.Open, userStoreForApplication))
+                        using (IsolatedStorageFileStream isolatedStorageFileStream = new IsolatedStorageFileStream(getStoredConfigPath(), System.IO.FileMode.Open, userStoreForApplication))
                         {
                             BinaryReader binaryReader = new BinaryReader(isolatedStorageFileStream);
                             return new RemoteConfig(binaryReader);
@@ -309,9 +309,9 @@ namespace ctr_wp7.Banner
         // Token: 0x0600022A RID: 554 RVA: 0x0000EC9C File Offset: 0x0000CE9C
         public bool hasSenseToRotateBanners()
         {
-            if (this.config != null)
+            if (config != null)
             {
-                return this.config.hasSenseToRotateBanners();
+                return config.hasSenseToRotateBanners();
             }
             throw new NullReferenceException("config is null");
         }
@@ -319,9 +319,9 @@ namespace ctr_wp7.Banner
         // Token: 0x0600022B RID: 555 RVA: 0x0000ECBC File Offset: 0x0000CEBC
         public bool getHideMainPromo()
         {
-            if (this.config != null)
+            if (config != null)
             {
-                return this.config.getHideMainPromo();
+                return config.getHideMainPromo();
             }
             throw new NullReferenceException("config is null");
         }
@@ -329,9 +329,9 @@ namespace ctr_wp7.Banner
         // Token: 0x0600022C RID: 556 RVA: 0x0000ECDC File Offset: 0x0000CEDC
         public bool getHideSocialNetworks()
         {
-            if (this.config != null)
+            if (config != null)
             {
-                return this.config.getHideSocialNetworks();
+                return config.getHideSocialNetworks();
             }
             throw new NullReferenceException("config is null");
         }
@@ -339,9 +339,9 @@ namespace ctr_wp7.Banner
         // Token: 0x0600022D RID: 557 RVA: 0x0000ECFC File Offset: 0x0000CEFC
         public int getInterstitialBannersPeriod()
         {
-            if (this.config != null)
+            if (config != null)
             {
-                return this.config.getInterstitialBannersPeriod();
+                return config.getInterstitialBannersPeriod();
             }
             throw new NullReferenceException("config is null");
         }
@@ -349,9 +349,9 @@ namespace ctr_wp7.Banner
         // Token: 0x0600022E RID: 558 RVA: 0x0000ED1C File Offset: 0x0000CF1C
         public int getChangeInterstitialToVideoPeriod()
         {
-            if (this.config != null)
+            if (config != null)
             {
-                return this.config.getChangeInterstitialToVideoPeriod();
+                return config.getChangeInterstitialToVideoPeriod();
             }
             throw new NullReferenceException("config is null");
         }
@@ -359,9 +359,9 @@ namespace ctr_wp7.Banner
         // Token: 0x0600022F RID: 559 RVA: 0x0000ED3C File Offset: 0x0000CF3C
         public bool getDefaultInterstitial()
         {
-            if (this.config != null)
+            if (config != null)
             {
-                return this.config.getDefaultInterstitial();
+                return config.getDefaultInterstitial();
             }
             throw new NullReferenceException("config is null");
         }
@@ -369,9 +369,9 @@ namespace ctr_wp7.Banner
         // Token: 0x06000230 RID: 560 RVA: 0x0000ED5C File Offset: 0x0000CF5C
         public int getVideoBannersCount()
         {
-            if (this.config != null)
+            if (config != null)
             {
-                return this.config.getVideoBannersCount();
+                return config.getVideoBannersCount();
             }
             throw new NullReferenceException("config is null");
         }
@@ -379,9 +379,9 @@ namespace ctr_wp7.Banner
         // Token: 0x06000231 RID: 561 RVA: 0x0000ED7C File Offset: 0x0000CF7C
         public int getBoxForCrossPromo()
         {
-            if (this.config != null)
+            if (config != null)
             {
-                return this.config.getBoxForCrossPromo();
+                return config.getBoxForCrossPromo();
             }
             throw new NullReferenceException("config is null");
         }
@@ -395,32 +395,32 @@ namespace ctr_wp7.Banner
         // Token: 0x06000233 RID: 563 RVA: 0x0000EDAC File Offset: 0x0000CFAC
         public string getStoredBannersPath()
         {
-            return string.Format(this.storedBannersPrefix + "_{0}_{1}", this.width, this.height);
+            return string.Format(storedBannersPrefix + "_{0}_{1}", width, height);
         }
 
         // Token: 0x06000234 RID: 564 RVA: 0x0000EDD9 File Offset: 0x0000CFD9
         public string getStoredConfigPath()
         {
-            return string.Format(this.storedConfigPrefix + "_{0}_{1}_{2}", this.set, this.width, this.height);
+            return string.Format(storedConfigPrefix + "_{0}_{1}_{2}", set, width, height);
         }
 
         // Token: 0x06000235 RID: 565 RVA: 0x0000EE14 File Offset: 0x0000D014
         public Banner getBanner()
         {
-            if (this.banners != null && this.config != null && !this.bannersprocessing)
+            if (banners != null && config != null && !bannersprocessing)
             {
-                int currentBannerID = this.config.getCurrentBannerID();
+                int currentBannerID = config.getCurrentBannerID();
                 Banner banner;
-                if (!this.banners.TryGetValue(currentBannerID, out banner))
+                if (!banners.TryGetValue(currentBannerID, out banner))
                 {
                     return null;
                 }
-                if (this.isValid(banner))
+                if (isValid(banner))
                 {
                     return banner;
                 }
-                this.banners.Remove(currentBannerID);
-                this.config.removeBanner(currentBannerID);
+                banners.Remove(currentBannerID);
+                config.removeBanner(currentBannerID);
             }
             return null;
         }
@@ -428,18 +428,18 @@ namespace ctr_wp7.Banner
         // Token: 0x06000236 RID: 566 RVA: 0x0000EE7E File Offset: 0x0000D07E
         public void nextBanner()
         {
-            if (this.banners != null && this.config != null && !this.bannersprocessing)
+            if (banners != null && config != null && !bannersprocessing)
             {
-                this.config.nextBanner();
+                config.nextBanner();
             }
         }
 
         // Token: 0x06000237 RID: 567 RVA: 0x0000EEA3 File Offset: 0x0000D0A3
         public void prevBanner()
         {
-            if (this.banners != null && this.config != null && !this.bannersprocessing)
+            if (banners != null && config != null && !bannersprocessing)
             {
-                this.config.prevBanner();
+                config.prevBanner();
             }
         }
 

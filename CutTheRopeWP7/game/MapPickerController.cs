@@ -16,9 +16,9 @@ namespace ctr_wp7.game
         {
             if (base.initWithParent(p) != null)
             {
-                this.selectedMap = null;
-                this.maplist = null;
-                this.createPickerView();
+                selectedMap = null;
+                maplist = null;
+                createPickerView();
                 View view = (View)new View().initFullscreen();
                 RectangleElement rectangleElement = (RectangleElement)new RectangleElement().init();
                 rectangleElement.color = RGBAColor.whiteRGBA;
@@ -30,8 +30,8 @@ namespace ctr_wp7.game
                 text.setString(NSObject.NSS("Loading..."));
                 text.anchor = (text.parentAnchor = 18);
                 view.addChild(text);
-                this.addViewwithID(view, 1);
-                this.setNormalMode();
+                addViewwithID(view, 1);
+                setNormalMode();
             }
             return this;
         }
@@ -61,22 +61,22 @@ namespace ctr_wp7.game
             button.anchor = (button.parentAnchor = 34);
             button.delegateButtonDelegate = this;
             view.addChild(button);
-            this.addViewwithID(view, 0);
+            addViewwithID(view, 0);
         }
 
         // Token: 0x06000495 RID: 1173 RVA: 0x00021A04 File Offset: 0x0001FC04
         public override void activate()
         {
             base.activate();
-            if (this.autoLoad)
+            if (autoLoad)
             {
-                NSString nsstring = NSObject.NSS("maps/" + this.selectedMap);
+                NSString nsstring = NSObject.NSS("maps/" + selectedMap);
                 XMLNode xmlnode = XMLNode.parseXML(nsstring.ToString());
-                this.xmlLoaderFinishedWithfromwithSuccess(xmlnode, nsstring, xmlnode != null);
+                xmlLoaderFinishedWithfromwithSuccess(xmlnode, nsstring, xmlnode != null);
                 return;
             }
-            this.showView(0);
-            this.loadList();
+            showView(0);
+            loadList();
         }
 
         // Token: 0x06000496 RID: 1174 RVA: 0x00021A5E File Offset: 0x0001FC5E
@@ -96,21 +96,21 @@ namespace ctr_wp7.game
             if (rootNode != null)
             {
                 CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
-                if (this.autoLoad)
+                if (autoLoad)
                 {
                     CTRRootController.checkMapIsValid(ContentHelper.OpenResourceAsString(url.ToString()).ToCharArray());
                 }
                 ctrrootController.setMap(rootNode);
-                ctrrootController.setMapName(this.selectedMap);
-                ctrrootController.setMapsList(this.maplist);
-                this.deactivate();
+                ctrrootController.setMapName(selectedMap);
+                ctrrootController.setMapsList(maplist);
+                deactivate();
             }
         }
 
         // Token: 0x06000499 RID: 1177 RVA: 0x00021AC8 File Offset: 0x0001FCC8
         public virtual void setNormalMode()
         {
-            this.autoLoad = false;
+            autoLoad = false;
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
             ctrrootController.setPicker(true);
         }
@@ -118,11 +118,11 @@ namespace ctr_wp7.game
         // Token: 0x0600049A RID: 1178 RVA: 0x00021AF0 File Offset: 0x0001FCF0
         public virtual void setAutoLoadMap(NSString map)
         {
-            this.autoLoad = true;
+            autoLoad = true;
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
             ctrrootController.setPicker(false);
-            NSObject.NSREL(this.selectedMap);
-            this.selectedMap = (NSString)NSObject.NSRET(map);
+            NSObject.NSREL(selectedMap);
+            selectedMap = (NSString)NSObject.NSRET(map);
         }
 
         // Token: 0x0600049B RID: 1179 RVA: 0x00021B34 File Offset: 0x0001FD34
@@ -132,13 +132,13 @@ namespace ctr_wp7.game
             {
                 return;
             }
-            this.loadList();
+            loadList();
         }
 
         // Token: 0x0600049C RID: 1180 RVA: 0x00021B4E File Offset: 0x0001FD4E
         public override void dealloc()
         {
-            NSObject.NSREL(this.selectedMap);
+            NSObject.NSREL(selectedMap);
             base.dealloc();
         }
 

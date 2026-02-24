@@ -6,20 +6,20 @@
         // Token: 0x0600016B RID: 363 RVA: 0x0000AFF8 File Offset: 0x000091F8
         public Quad2D(float x, float y, float w, float h)
         {
-            this.tlX = x;
-            this.tlY = y;
-            this.trX = x + w;
-            this.trY = y;
-            this.blX = x;
-            this.blY = y + h;
-            this.brX = x + w;
-            this.brY = y + h;
+            tlX = x;
+            tlY = y;
+            trX = x + w;
+            trY = y;
+            blX = x;
+            blY = y + h;
+            brX = x + w;
+            brY = y + h;
         }
 
         // Token: 0x0600016C RID: 364 RVA: 0x0000B048 File Offset: 0x00009248
         public float[] toFloatArray()
         {
-            return new float[] { this.tlX, this.tlY, this.trX, this.trY, this.blX, this.blY, this.brX, this.brY };
+            return new float[] { tlX, tlY, trX, trY, blX, blY, brX, brY };
         }
 
         // Token: 0x0600016D RID: 365 RVA: 0x0000B0A8 File Offset: 0x000092A8

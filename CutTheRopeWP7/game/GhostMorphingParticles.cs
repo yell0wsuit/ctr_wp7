@@ -12,13 +12,13 @@ namespace ctr_wp7.game
         public override void initParticle(ref Particle particle)
         {
             base.initParticle(ref particle);
-            this.angle += (float)(360 / this.totalParticles);
+            angle += (float)(360 / totalParticles);
             int num = MathHelper.RND_RANGE(2, 4);
-            Quad2D quad2D = this.imageGrid.texture.quads[num];
+            Quad2D quad2D = imageGrid.texture.quads[num];
             Quad3D quad3D = Quad3D.MakeQuad3D(0f, 0f, 0f, 0f, 0f);
-            this.drawer.setTextureQuadatVertexQuadatIndex(quad2D, quad3D, this.particleCount);
-            Rectangle rectangle = this.imageGrid.texture.quadRects[num];
-            float num2 = this.size + MathHelper.FLOAT_RND_RANGE(-1, 1) * this.sizeVar;
+            drawer.setTextureQuadatVertexQuadatIndex(quad2D, quad3D, particleCount);
+            Rectangle rectangle = imageGrid.texture.quadRects[num];
+            float num2 = size + MathHelper.FLOAT_RND_RANGE(-1, 1) * sizeVar;
             particle.width = rectangle.w * num2;
             particle.height = rectangle.h * num2;
             particle.deltaColor = RGBAColor.MakeRGBA(0f, 0f, 0f, 0f);
@@ -29,18 +29,18 @@ namespace ctr_wp7.game
         {
             if (base.initWithTotalParticlesandImageGrid(numberOfParticles, Image.Image_createWithResID(180)) != null)
             {
-                this.size = 0.6f;
-                this.sizeVar = 0.2f;
-                this.angle = (float)MathHelper.RND_RANGE(0, 360);
-                this.angleVar = 15f;
-                this.rotateSpeedVar = 30f;
-                this.life = 0.4f;
-                this.lifeVar = 0.15f;
-                this.duration = 1.5f;
-                this.speed = 60f;
-                this.speedVar = 15f;
-                this.startColor = RGBAColor.solidOpaqueRGBA;
-                this.endColor = RGBAColor.transparentRGBA;
+                size = 0.6f;
+                sizeVar = 0.2f;
+                angle = (float)MathHelper.RND_RANGE(0, 360);
+                angleVar = 15f;
+                rotateSpeedVar = 30f;
+                life = 0.4f;
+                lifeVar = 0.15f;
+                duration = 1.5f;
+                speed = 60f;
+                speedVar = 15f;
+                startColor = RGBAColor.solidOpaqueRGBA;
+                endColor = RGBAColor.transparentRGBA;
             }
             return this;
         }
@@ -49,18 +49,18 @@ namespace ctr_wp7.game
         public override void update(float delta)
         {
             base.update(delta);
-            for (int i = 0; i < this.particleCount; i++)
+            for (int i = 0; i < particleCount; i++)
             {
-                Particle particle = this.particles[i];
+                Particle particle = particles[i];
                 if (particle.life > 0f)
                 {
-                    float num = 0.7f * this.life;
+                    float num = 0.7f * life;
                     if (particle.life < num)
                     {
-                        particle.deltaColor.r = (this.endColor.r - this.startColor.r) / num;
-                        particle.deltaColor.g = (this.endColor.g - this.startColor.g) / num;
-                        particle.deltaColor.b = (this.endColor.b - this.startColor.b) / num;
-                        particle.deltaColor.a = (this.endColor.a - this.startColor.a) / num;
+                        particle.deltaColor.r = (endColor.r - startColor.r) / num;
+                        particle.deltaColor.g = (endColor.g - startColor.g) / num;
+                        particle.deltaColor.b = (endColor.b - startColor.b) / num;
+                        particle.deltaColor.a = (endColor.a - startColor.a) / num;
                     }
                     particle.dir = MathHelper.vectMult(particle.dir, 0.83);
                     particle.width *= 1.015f;

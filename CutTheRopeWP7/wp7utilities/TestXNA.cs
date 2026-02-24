@@ -15,7 +15,7 @@ namespace ctr_wp7.wp7utilities
         // Token: 0x06000376 RID: 886 RVA: 0x00016016 File Offset: 0x00014216
         private void cameraTestMove()
         {
-            this.objects.Add(new TestXNA.TestCameraMove());
+            objects.Add(new TestXNA.TestCameraMove());
         }
 
         // Token: 0x06000377 RID: 887 RVA: 0x00016028 File Offset: 0x00014228
@@ -27,20 +27,20 @@ namespace ctr_wp7.wp7utilities
             float num3 = 0f;
             button.x = num2;
             button.y = num3;
-            this.objects.Add(button);
+            objects.Add(button);
             button = MenuController.createButtonWithTextIDDelegate(Application.getString(num), 0, null);
             button.x = num2;
             button.y = num3;
             button.scaleX = 0.5f;
             button.scaleY = 0.5f;
-            this.objects.Add(new TestXNA.TestRotate(button));
+            objects.Add(new TestXNA.TestRotate(button));
             button = MenuController.createButtonWithTextIDDelegate(Application.getString(num), 0, null);
             button.x = num2;
             button.y = num3;
             button.scaleX = 0.5f;
             button.scaleY = 0.5f;
             button.rotation = 33f;
-            this.objects.Add(button);
+            objects.Add(button);
         }
 
         // Token: 0x06000378 RID: 888 RVA: 0x000160FC File Offset: 0x000142FC
@@ -52,17 +52,17 @@ namespace ctr_wp7.wp7utilities
             float num3 = (FrameworkTypes.SCREEN_HEIGHT - (float)button.height) / 2f;
             button.x = num2;
             button.y = num3;
-            this.objects.Add(button);
+            objects.Add(button);
             button = MenuController.createButtonWithTextIDDelegate(Application.getString(num), 0, null);
             button.x = num2;
             button.y = num3;
-            this.objects.Add(new TestXNA.TestRotate(button));
+            objects.Add(new TestXNA.TestRotate(button));
             button = MenuController.createButtonWithTextIDDelegate(Application.getString(num), 0, null);
             button.x = num2;
             button.y = num3;
             button.scaleX = 0.5f;
             button.scaleY = 0.5f;
-            this.objects.Add(button);
+            objects.Add(button);
         }
 
         // Token: 0x06000379 RID: 889 RVA: 0x000161CC File Offset: 0x000143CC
@@ -74,35 +74,35 @@ namespace ctr_wp7.wp7utilities
             float num3 = FrameworkTypes.SCREEN_HEIGHT - (float)button.height;
             button.x = num2;
             button.y = num3;
-            this.objects.Add(button);
+            objects.Add(button);
             button = MenuController.createButtonWithTextIDDelegate(Application.getString(num), 0, null);
             button.x = num2;
             button.y = num3;
             button.scaleX = 1.5f;
             button.scaleY = 1.5f;
-            this.objects.Add(new TestXNA.TestRotate(button));
+            objects.Add(new TestXNA.TestRotate(button));
             button = MenuController.createButtonWithTextIDDelegate(Application.getString(num), 0, null);
             button.x = num2;
             button.y = num3;
             button.scaleX = 0.5f;
             button.scaleY = 0.5f;
             button.rotation = 45f;
-            this.objects.Add(button);
+            objects.Add(button);
         }
 
         // Token: 0x0600037A RID: 890 RVA: 0x000162AF File Offset: 0x000144AF
         public TestXNA()
         {
             base.init();
-            this.scaleTestTop();
-            this.scaleTestCenter();
-            this.scaleTestBottom();
+            scaleTestTop();
+            scaleTestCenter();
+            scaleTestBottom();
         }
 
         // Token: 0x0600037B RID: 891 RVA: 0x000162DC File Offset: 0x000144DC
         public override void update(float delta)
         {
-            foreach (BaseElement baseElement in this.objects)
+            foreach (BaseElement baseElement in objects)
             {
                 baseElement.update(delta);
             }
@@ -111,7 +111,7 @@ namespace ctr_wp7.wp7utilities
         // Token: 0x0600037C RID: 892 RVA: 0x00016330 File Offset: 0x00014530
         public override void draw()
         {
-            foreach (BaseElement baseElement in this.objects)
+            foreach (BaseElement baseElement in objects)
             {
                 baseElement.draw();
             }
@@ -126,17 +126,17 @@ namespace ctr_wp7.wp7utilities
             // Token: 0x0600037D RID: 893 RVA: 0x00016384 File Offset: 0x00014584
             public TestCameraMove()
             {
-                this.speed_ = new Vector2(10f, 10f);
+                speed_ = new Vector2(10f, 10f);
             }
 
             // Token: 0x0600037E RID: 894 RVA: 0x000163A1 File Offset: 0x000145A1
             public override void update(float delta)
             {
-                int num = this.frame_;
-                this.frame_++;
-                if (this.frame_ > 1000)
+                int num = frame_;
+                frame_++;
+                if (frame_ > 1000)
                 {
-                    this.frame_ = 0;
+                    frame_ = 0;
                 }
             }
 
@@ -158,18 +158,18 @@ namespace ctr_wp7.wp7utilities
             // Token: 0x06000380 RID: 896 RVA: 0x000163D4 File Offset: 0x000145D4
             public TestRotate(BaseElement testObject)
             {
-                this.testObject_ = testObject;
+                testObject_ = testObject;
             }
 
             // Token: 0x06000381 RID: 897 RVA: 0x000163E4 File Offset: 0x000145E4
             public override void update(float delta)
             {
-                if (this.testObject_ != null)
+                if (testObject_ != null)
                 {
-                    this.testObject_.rotation += 0.3f;
-                    if (this.testObject_.rotation > 360f)
+                    testObject_.rotation += 0.3f;
+                    if (testObject_.rotation > 360f)
                     {
-                        this.testObject_.rotation -= 360f;
+                        testObject_.rotation -= 360f;
                     }
                 }
             }
@@ -177,9 +177,9 @@ namespace ctr_wp7.wp7utilities
             // Token: 0x06000382 RID: 898 RVA: 0x00016439 File Offset: 0x00014639
             public override void draw()
             {
-                if (this.testObject_ != null)
+                if (testObject_ != null)
                 {
-                    this.testObject_.draw();
+                    testObject_.draw();
                 }
             }
 

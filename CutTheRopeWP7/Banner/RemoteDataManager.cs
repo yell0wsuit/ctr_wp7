@@ -26,7 +26,7 @@ namespace ctr_wp7.Banner
         {
             if (base.init() != null && RemoteDataManager.remoteDataMgr != null)
             {
-                RemoteDataManager.BannerSize bannerSize = this.getBannerSize();
+                RemoteDataManager.BannerSize bannerSize = getBannerSize();
                 string text = "ctr";
                 string text2 = "winphone";
                 RemoteDataManager.remoteDataMgr.initWith(text, text2, setID, bannerSize.width, bannerSize.height);
@@ -47,7 +47,7 @@ namespace ctr_wp7.Banner
             {
                 return null;
             }
-            RemoteDataManager.BannerSize bannerSize = this.getBannerSize();
+            RemoteDataManager.BannerSize bannerSize = getBannerSize();
             RemoteDataManager.currentBanner = RemoteDataManager.remoteDataMgr.getBanner();
             if (RemoteDataManager.currentBanner != null)
             {

@@ -34,7 +34,7 @@ namespace ctr_wp7.game
         {
             if (base.init() != null)
             {
-                this.timedAnim = null;
+                timedAnim = null;
             }
             return this;
         }
@@ -42,9 +42,9 @@ namespace ctr_wp7.game
         // Token: 0x060003E2 RID: 994 RVA: 0x00018A54 File Offset: 0x00016C54
         public override void update(float delta)
         {
-            if ((double)this.timeout > 0.0 && (double)this.time > 0.0)
+            if ((double)timeout > 0.0 && (double)time > 0.0)
             {
-                Mover.moveVariableToTarget(ref this.time, 0f, 1f, delta);
+                Mover.moveVariableToTarget(ref time, 0f, 1f, delta);
             }
             base.update(delta);
         }
@@ -52,9 +52,9 @@ namespace ctr_wp7.game
         // Token: 0x060003E3 RID: 995 RVA: 0x00018AA3 File Offset: 0x00016CA3
         public override void draw()
         {
-            if (this.timedAnim != null)
+            if (timedAnim != null)
             {
-                this.timedAnim.draw();
+                timedAnim.draw();
             }
             base.draw();
         }
@@ -62,37 +62,37 @@ namespace ctr_wp7.game
         // Token: 0x060003E4 RID: 996 RVA: 0x00018AC0 File Offset: 0x00016CC0
         public virtual void createAnimations()
         {
-            if ((double)this.timeout > 0.0)
+            if ((double)timeout > 0.0)
             {
-                this.timedAnim = Animation.Animation_createWithResID(127);
-                this.timedAnim.anchor = (this.timedAnim.parentAnchor = 18);
-                float num = this.timeout / 37f;
-                this.timedAnim.addAnimationWithIDDelayLoopFirstLast(0, num, Timeline.LoopType.TIMELINE_NO_LOOP, 19, 55);
-                this.timedAnim.playTimeline(0);
-                this.time = this.timeout;
-                this.timedAnim.visible = false;
-                this.addChild(this.timedAnim);
+                timedAnim = Animation.Animation_createWithResID(127);
+                timedAnim.anchor = (timedAnim.parentAnchor = 18);
+                float num = timeout / 37f;
+                timedAnim.addAnimationWithIDDelayLoopFirstLast(0, num, Timeline.LoopType.TIMELINE_NO_LOOP, 19, 55);
+                timedAnim.playTimeline(0);
+                time = timeout;
+                timedAnim.visible = false;
+                addChild(timedAnim);
                 Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(2);
                 timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.solidOpaqueRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
                 timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.5));
-                this.timedAnim.addTimelinewithID(timeline, 1);
+                timedAnim.addTimelinewithID(timeline, 1);
                 Timeline timeline2 = new Timeline().initWithMaxKeyFramesOnTrack(2);
                 timeline2.addKeyFrame(KeyFrame.makeScale(1.0, 1.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
                 timeline2.addKeyFrame(KeyFrame.makeScale(0.0, 0.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.25));
                 timeline2.addKeyFrame(KeyFrame.makeColor(RGBAColor.solidOpaqueRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
                 timeline2.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.25));
-                this.addTimelinewithID(timeline2, 1);
+                addTimelinewithID(timeline2, 1);
             }
-            this.bb = new Rectangle(22f, 20f, 30f, 30f);
+            bb = new Rectangle(22f, 20f, 30f, 30f);
             Timeline timeline3 = new Timeline().initWithMaxKeyFramesOnTrack(5);
-            timeline3.addKeyFrame(KeyFrame.makePos((int)this.x, (int)this.y, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0f));
-            timeline3.addKeyFrame(KeyFrame.makePos((int)this.x, (int)this.y - 3, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.5f));
-            timeline3.addKeyFrame(KeyFrame.makePos((int)this.x, (int)this.y, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.5f));
-            timeline3.addKeyFrame(KeyFrame.makePos((int)this.x, (int)this.y + 3, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.5f));
-            timeline3.addKeyFrame(KeyFrame.makePos((int)this.x, (int)this.y, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.5f));
+            timeline3.addKeyFrame(KeyFrame.makePos((int)x, (int)y, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0f));
+            timeline3.addKeyFrame(KeyFrame.makePos((int)x, (int)y - 3, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.5f));
+            timeline3.addKeyFrame(KeyFrame.makePos((int)x, (int)y, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.5f));
+            timeline3.addKeyFrame(KeyFrame.makePos((int)x, (int)y + 3, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.5f));
+            timeline3.addKeyFrame(KeyFrame.makePos((int)x, (int)y, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.5f));
             timeline3.setTimelineLoopType(Timeline.LoopType.TIMELINE_REPLAY);
-            this.addTimelinewithID(timeline3, 0);
-            this.playTimeline(0);
+            addTimelinewithID(timeline3, 0);
+            playTimeline(0);
             Timeline.updateTimeline(timeline3, (float)((double)MathHelper.RND_RANGE(0, 20) / 10.0));
             Animation animation = Animation.Animation_createWithResID(127);
             animation.doRestoreCutTransparency();
@@ -100,7 +100,7 @@ namespace ctr_wp7.game
             animation.playTimeline(0);
             Timeline.updateTimeline(animation.getTimeline(0), (float)((double)MathHelper.RND_RANGE(0, 20) / 10.0));
             animation.anchor = (animation.parentAnchor = 18);
-            this.addChild(animation);
+            addChild(animation);
         }
 
         // Token: 0x0400094E RID: 2382

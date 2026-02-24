@@ -21,13 +21,13 @@ namespace ctr_wp7.iframework.visual
         {
             if (base.init() != null)
             {
-                this.buttonID = n;
-                this.state = Button.BUTTON_STATE.BUTTON_UP;
-                this.touchLeftInc = 0f;
-                this.touchRightInc = 0f;
-                this.touchTopInc = 0f;
-                this.touchBottomInc = 0f;
-                this.forcedTouchZone = new Rectangle(-1f, -1f, -1f, -1f);
+                buttonID = n;
+                state = Button.BUTTON_STATE.BUTTON_UP;
+                touchLeftInc = 0f;
+                touchRightInc = 0f;
+                touchTopInc = 0f;
+                touchBottomInc = 0f;
+                forcedTouchZone = new Rectangle(-1f, -1f, -1f, -1f);
             }
             return this;
         }
@@ -35,12 +35,12 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x0600029C RID: 668 RVA: 0x00010A38 File Offset: 0x0000EC38
         public virtual Button initWithUpElementDownElementandID(BaseElement up, BaseElement down, int n)
         {
-            if (this.initWithID(n) != null)
+            if (initWithID(n) != null)
             {
                 up.parentAnchor = (down.parentAnchor = 9);
-                this.addChildwithID(up, 0);
-                this.addChildwithID(down, 1);
-                this.setState(Button.BUTTON_STATE.BUTTON_UP);
+                addChildwithID(up, 0);
+                addChildwithID(down, 1);
+                setState(Button.BUTTON_STATE.BUTTON_UP);
             }
             return this;
         }
@@ -48,41 +48,41 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x0600029D RID: 669 RVA: 0x00010A79 File Offset: 0x0000EC79
         public void setTouchIncreaseLeftRightTopBottom(double l, double r, double t, double b)
         {
-            this.setTouchIncreaseLeftRightTopBottom((float)l, (float)r, (float)t, (float)b);
+            setTouchIncreaseLeftRightTopBottom((float)l, (float)r, (float)t, (float)b);
         }
 
         // Token: 0x0600029E RID: 670 RVA: 0x00010A8A File Offset: 0x0000EC8A
         public virtual void setTouchIncreaseLeftRightTopBottom(float l, float r, float t, float b)
         {
-            this.touchLeftInc = l;
-            this.touchRightInc = r;
-            this.touchTopInc = t;
-            this.touchBottomInc = b;
+            touchLeftInc = l;
+            touchRightInc = r;
+            touchTopInc = t;
+            touchBottomInc = b;
         }
 
         // Token: 0x0600029F RID: 671 RVA: 0x00010AA9 File Offset: 0x0000ECA9
         public virtual void forceTouchRect(Rectangle r)
         {
-            this.forcedTouchZone = r;
+            forcedTouchZone = r;
         }
 
         // Token: 0x060002A0 RID: 672 RVA: 0x00010AB4 File Offset: 0x0000ECB4
         public virtual bool isInTouchZoneXYforTouchDown(float tx, float ty, bool td)
         {
             float num = (td ? 0f : 15f);
-            if (this.forcedTouchZone.w != -1f)
+            if (forcedTouchZone.w != -1f)
             {
-                return MathHelper.pointInRect(tx, ty, this.drawX + this.forcedTouchZone.x - num - this.touchLeftInc, this.drawY + this.forcedTouchZone.y - num - this.touchTopInc, this.forcedTouchZone.w + num * 2f + (this.touchLeftInc + this.touchRightInc), this.forcedTouchZone.h + (this.touchTopInc + this.touchBottomInc) + num * 2f);
+                return MathHelper.pointInRect(tx, ty, drawX + forcedTouchZone.x - num - touchLeftInc, drawY + forcedTouchZone.y - num - touchTopInc, forcedTouchZone.w + num * 2f + (touchLeftInc + touchRightInc), forcedTouchZone.h + (touchTopInc + touchBottomInc) + num * 2f);
             }
-            return MathHelper.pointInRect(tx, ty, this.drawX - this.touchLeftInc - num, this.drawY - this.touchTopInc - num, (float)this.width + (this.touchLeftInc + this.touchRightInc) + num * 2f, (float)this.height + (this.touchTopInc + this.touchBottomInc) + num * 2f);
+            return MathHelper.pointInRect(tx, ty, drawX - touchLeftInc - num, drawY - touchTopInc - num, (float)width + (touchLeftInc + touchRightInc) + num * 2f, (float)height + (touchTopInc + touchBottomInc) + num * 2f);
         }
 
         // Token: 0x060002A1 RID: 673 RVA: 0x00010BC8 File Offset: 0x0000EDC8
         public virtual void setState(Button.BUTTON_STATE s)
         {
-            this.state = s;
-            BaseElement child = this.getChild(0);
-            BaseElement child2 = this.getChild(1);
+            state = s;
+            BaseElement child = getChild(0);
+            BaseElement child2 = getChild(1);
             child.setEnabled(s == Button.BUTTON_STATE.BUTTON_UP);
             child2.setEnabled(s == Button.BUTTON_STATE.BUTTON_DOWN);
         }
@@ -91,9 +91,9 @@ namespace ctr_wp7.iframework.visual
         public override bool onTouchDownXY(float tx, float ty)
         {
             base.onTouchDownXY(tx, ty);
-            if (this.state == Button.BUTTON_STATE.BUTTON_UP && this.isInTouchZoneXYforTouchDown(tx, ty, true))
+            if (state == Button.BUTTON_STATE.BUTTON_UP && isInTouchZoneXYforTouchDown(tx, ty, true))
             {
-                this.setState(Button.BUTTON_STATE.BUTTON_DOWN);
+                setState(Button.BUTTON_STATE.BUTTON_DOWN);
                 return true;
             }
             return false;
@@ -103,14 +103,14 @@ namespace ctr_wp7.iframework.visual
         public override bool onTouchUpXY(float tx, float ty)
         {
             base.onTouchUpXY(tx, ty);
-            if (this.state == Button.BUTTON_STATE.BUTTON_DOWN)
+            if (state == Button.BUTTON_STATE.BUTTON_DOWN)
             {
-                this.setState(Button.BUTTON_STATE.BUTTON_UP);
-                if (this.isInTouchZoneXYforTouchDown(tx, ty, false))
+                setState(Button.BUTTON_STATE.BUTTON_UP);
+                if (isInTouchZoneXYforTouchDown(tx, ty, false))
                 {
-                    if (this.delegateButtonDelegate != null)
+                    if (delegateButtonDelegate != null)
                     {
-                        this.delegateButtonDelegate.onButtonPressed(this.buttonID);
+                        delegateButtonDelegate.onButtonPressed(buttonID);
                     }
                     return true;
                 }
@@ -122,13 +122,13 @@ namespace ctr_wp7.iframework.visual
         public override bool onTouchMoveXY(float tx, float ty)
         {
             base.onTouchMoveXY(tx, ty);
-            if (this.state == Button.BUTTON_STATE.BUTTON_DOWN)
+            if (state == Button.BUTTON_STATE.BUTTON_DOWN)
             {
-                if (this.isInTouchZoneXYforTouchDown(tx, ty, false))
+                if (isInTouchZoneXYforTouchDown(tx, ty, false))
                 {
                     return true;
                 }
-                this.setState(Button.BUTTON_STATE.BUTTON_UP);
+                setState(Button.BUTTON_STATE.BUTTON_UP);
             }
             return false;
         }
@@ -140,9 +140,9 @@ namespace ctr_wp7.iframework.visual
             c.parentAnchor = 9;
             if (i == 1)
             {
-                this.width = c.width;
-                this.height = c.height;
-                this.setState(Button.BUTTON_STATE.BUTTON_UP);
+                width = c.width;
+                height = c.height;
+                setState(Button.BUTTON_STATE.BUTTON_UP);
             }
             return num;
         }

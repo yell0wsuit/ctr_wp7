@@ -14,19 +14,19 @@ namespace ctr_wp7.Banner
         // Token: 0x0600044F RID: 1103 RVA: 0x0001E4F0 File Offset: 0x0001C6F0
         internal Banner(XMLNode xmlBanner, int width, int height)
         {
-            this.id = xmlBanner["id"].intValue();
-            this.name = string.Format("banner_{0}_{1}_{2}.jpg", this.id, width, height);
+            id = xmlBanner["id"].intValue();
+            name = string.Format("banner_{0}_{1}_{2}.jpg", id, width, height);
             string text = xmlBanner.findChildWithTagNameRecursively(NSObject.NSS("data"), false).data.ToString();
-            this.saved = this.saveImage(text);
-            this.url = xmlBanner.findChildWithTagNameRecursively(NSObject.NSS("url"), false).data.ToString();
-            this.langs = new Dictionary<string, string>();
+            saved = saveImage(text);
+            url = xmlBanner.findChildWithTagNameRecursively(NSObject.NSS("url"), false).data.ToString();
+            langs = new Dictionary<string, string>();
             List<XMLNode> list = xmlBanner.findChildWithTagNameRecursively(NSObject.NSS("text"), false).childs();
             int i = 0;
             int count = list.Count;
             while (i < count)
             {
                 XMLNode xmlnode = list[i];
-                this.langs.Add(xmlnode.Name, xmlnode.data.ToString());
+                langs.Add(xmlnode.Name, xmlnode.data.ToString());
                 i++;
             }
         }
@@ -34,29 +34,29 @@ namespace ctr_wp7.Banner
         // Token: 0x06000450 RID: 1104 RVA: 0x0001E5E8 File Offset: 0x0001C7E8
         internal Banner(BinaryReader file)
         {
-            this.saved = file.ReadBoolean();
-            this.name = file.ReadString();
-            this.id = file.ReadInt32();
-            this.url = file.ReadString();
+            saved = file.ReadBoolean();
+            name = file.ReadString();
+            id = file.ReadInt32();
+            url = file.ReadString();
             int num = file.ReadInt32();
-            this.langs = new Dictionary<string, string>();
+            langs = new Dictionary<string, string>();
             for (int i = 0; i < num; i++)
             {
                 string text = file.ReadString();
                 string text2 = file.ReadString();
-                this.langs.Add(text, text2);
+                langs.Add(text, text2);
             }
         }
 
         // Token: 0x06000451 RID: 1105 RVA: 0x0001E664 File Offset: 0x0001C864
         public void SaveToFile(BinaryWriter file)
         {
-            file.Write(this.saved);
-            file.Write(this.name);
-            file.Write(this.id);
-            file.Write(this.url);
-            file.Write(this.langs.Count);
-            foreach (KeyValuePair<string, string> keyValuePair in this.langs)
+            file.Write(saved);
+            file.Write(name);
+            file.Write(id);
+            file.Write(url);
+            file.Write(langs.Count);
+            foreach (KeyValuePair<string, string> keyValuePair in langs)
             {
                 file.Write(keyValuePair.Key);
                 file.Write(keyValuePair.Value);
@@ -72,7 +72,7 @@ namespace ctr_wp7.Banner
                 byte[] array = Convert.FromBase64String(base64);
                 using (IsolatedStorageFile userStoreForApplication = IsolatedStorageFile.GetUserStoreForApplication())
                 {
-                    using (IsolatedStorageFileStream isolatedStorageFileStream = new IsolatedStorageFileStream(this.name, System.IO.FileMode.Create, userStoreForApplication))
+                    using (IsolatedStorageFileStream isolatedStorageFileStream = new IsolatedStorageFileStream(name, System.IO.FileMode.Create, userStoreForApplication))
                     {
                         BinaryWriter binaryWriter = new BinaryWriter(isolatedStorageFileStream);
                         binaryWriter.Write(array);
@@ -91,19 +91,19 @@ namespace ctr_wp7.Banner
         // Token: 0x06000453 RID: 1107 RVA: 0x0001E798 File Offset: 0x0001C998
         public string getName()
         {
-            return this.name;
+            return name;
         }
 
         // Token: 0x06000454 RID: 1108 RVA: 0x0001E7A0 File Offset: 0x0001C9A0
         public string getUrl()
         {
-            return this.url;
+            return url;
         }
 
         // Token: 0x06000455 RID: 1109 RVA: 0x0001E7A8 File Offset: 0x0001C9A8
         public string getString()
         {
-            string text = this.langs[Application.sharedAppSettings().getString(8).ToString()];
+            string text = langs[Application.sharedAppSettings().getString(8).ToString()];
             if (text == null)
             {
                 return "";

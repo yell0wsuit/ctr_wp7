@@ -10,11 +10,11 @@ namespace ctr_wp7.game
         // Token: 0x06000100 RID: 256 RVA: 0x00008410 File Offset: 0x00006610
         public override void parseMover(XMLNode xml)
         {
-            this.rotation = 0f;
+            rotation = 0f;
             NSString nsstring = xml["angle"];
             if (nsstring != null)
             {
-                this.rotation = nsstring.floatValue();
+                rotation = nsstring.floatValue();
             }
             NSString nsstring2 = xml["path"];
             if (nsstring2 != null && nsstring2.length() != 0)
@@ -30,9 +30,9 @@ namespace ctr_wp7.game
                 float num4 = num3;
                 float num5 = xml["rotateSpeed"].floatValue();
                 CTRMover ctrmover = (CTRMover)new CTRMover().initWithPathCapacityMoveSpeedRotateSpeed(num, num4, num5);
-                ctrmover.angle = (double)this.rotation;
-                ctrmover.setPathFromStringandStart(nsstring2, new Vector(this.x, this.y));
-                this.setMover(ctrmover);
+                ctrmover.angle = (double)rotation;
+                ctrmover.setPathFromStringandStart(nsstring2, new Vector(x, y));
+                setMover(ctrmover);
                 ctrmover.start();
             }
         }

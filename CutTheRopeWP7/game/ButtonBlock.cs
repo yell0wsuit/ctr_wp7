@@ -14,41 +14,41 @@ namespace ctr_wp7.game
         // Token: 0x060002A8 RID: 680 RVA: 0x00010CF4 File Offset: 0x0000EEF4
         public virtual NSObject initWithIDDelegateBlock(int bid, ButtonDelegate d, BlockInterface pBlock)
         {
-            this.delegateButtonDelegate = d;
-            this.block = pBlock;
-            this.recheckneeded = false;
-            this.check = MathHelper.RND_0_1 * 3f + 1f;
-            this.transition = 0.5f;
-            NSString text = this.block.getText();
-            NSString name = this.block.getName();
+            delegateButtonDelegate = d;
+            block = pBlock;
+            recheckneeded = false;
+            check = MathHelper.RND_0_1 * 3f + 1f;
+            transition = 0.5f;
+            NSString text = block.getText();
+            NSString name = block.getName();
             Texture2D texture2D = null;
-            if (name != null && this.block.isImageExists())
+            if (name != null && block.isImageExists())
             {
-                if (this.block.isImageReady())
+                if (block.isImageReady())
                 {
                     texture2D = Application.sharedResourceMgr().loadTextureImageInfo(name.ToString());
                 }
                 else
                 {
-                    this.recheckneeded = true;
+                    recheckneeded = true;
                 }
             }
             BaseElement baseElement = null;
             BaseElement baseElement2 = null;
-            if (this.block.getType() == 0)
+            if (block.getType() == 0)
             {
-                baseElement = this.buildAdBlock(texture2D, text);
-                baseElement2 = this.buildAdBlock(texture2D, text);
+                baseElement = buildAdBlock(texture2D, text);
+                baseElement2 = buildAdBlock(texture2D, text);
             }
-            else if (this.block.getType() == 1)
+            else if (block.getType() == 1)
             {
-                NSString number = this.block.getNumber();
-                bool cartoonWatched = CTRPreferences.getCartoonWatched(this.block.getUrl());
-                baseElement = this.buildEpisodeBlock(texture2D, text, number, this.recheckneeded, !cartoonWatched);
-                baseElement2 = this.buildEpisodeBlock(texture2D, text, number, this.recheckneeded, !cartoonWatched);
+                NSString number = block.getNumber();
+                bool cartoonWatched = CTRPreferences.getCartoonWatched(block.getUrl());
+                baseElement = buildEpisodeBlock(texture2D, text, number, recheckneeded, !cartoonWatched);
+                baseElement2 = buildEpisodeBlock(texture2D, text, number, recheckneeded, !cartoonWatched);
             }
             baseElement2.color = RGBAColor.MakeRGBA(0.7f, 0.7f, 0.7f, 1f);
-            this.initWithUpElementDownElementandID(baseElement, baseElement2, bid);
+            initWithUpElementDownElementandID(baseElement, baseElement2, bid);
             return this;
         }
 
@@ -127,10 +127,10 @@ namespace ctr_wp7.game
                     image.addTimeline(timeline);
                     Timeline timeline2 = new Timeline().initWithMaxKeyFramesOnTrack(5);
                     timeline2.addKeyFrame(KeyFrame.makeColor(RGBAColor.solidOpaqueRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0f));
-                    timeline2.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, this.transition));
+                    timeline2.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, transition));
                     timeline2.addKeyFrame(KeyFrame.makeScale(1f, 1f, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0f));
-                    timeline2.addKeyFrame(KeyFrame.makeScale(0f, 0f, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, this.transition));
-                    timeline2.addKeyFrame(KeyFrame.makeSingleAction(image, "ACTION_SET_VISIBLE", 0, 0, this.transition));
+                    timeline2.addKeyFrame(KeyFrame.makeScale(0f, 0f, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, transition));
+                    timeline2.addKeyFrame(KeyFrame.makeSingleAction(image, "ACTION_SET_VISIBLE", 0, 0, transition));
                     image.addTimeline(timeline2);
                     image.playTimeline(0);
                     image.anchor = (image.parentAnchor = 18);
@@ -220,45 +220,45 @@ namespace ctr_wp7.game
         public override void update(float delta)
         {
             base.update(delta);
-            if (this.recheckneeded)
+            if (recheckneeded)
             {
-                this.check -= delta;
-                if (this.check <= 0f)
+                check -= delta;
+                if (check <= 0f)
                 {
-                    if (this.block.isImageReady())
+                    if (block.isImageReady())
                     {
-                        this.recheckneeded = false;
-                        Texture2D texture2D = Application.sharedResourceMgr().loadTextureImageInfo(this.block.getName().ToString());
-                        BaseElement childWithName = this.getChild(0).getChildWithName(NSObject.NSS("dummy"));
+                        recheckneeded = false;
+                        Texture2D texture2D = Application.sharedResourceMgr().loadTextureImageInfo(block.getName().ToString());
+                        BaseElement childWithName = getChild(0).getChildWithName(NSObject.NSS("dummy"));
                         Image image = Image.Image_create(texture2D);
                         Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(4);
                         timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0f));
-                        timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.solidOpaqueRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, this.transition));
+                        timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.solidOpaqueRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, transition));
                         timeline.addKeyFrame(KeyFrame.makeScale(0f, 0f, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0f));
-                        timeline.addKeyFrame(KeyFrame.makeScale(1f, 1f, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, this.transition));
+                        timeline.addKeyFrame(KeyFrame.makeScale(1f, 1f, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, transition));
                         image.addTimeline(timeline);
                         image.playTimeline(0);
                         image.anchor = (image.parentAnchor = 18);
                         childWithName.addChild(image);
-                        BaseElement childWithName2 = this.getChild(0).getChildWithName(NSObject.NSS("progressbar"));
+                        BaseElement childWithName2 = getChild(0).getChildWithName(NSObject.NSS("progressbar"));
                         if (childWithName2 != null)
                         {
                             childWithName2.playTimeline(1);
                         }
-                        BaseElement childWithName3 = this.getChild(1).getChildWithName(NSObject.NSS("dummy"));
+                        BaseElement childWithName3 = getChild(1).getChildWithName(NSObject.NSS("dummy"));
                         Image image2 = Image.Image_create(texture2D);
                         image2.anchor = (image2.parentAnchor = 18);
                         childWithName3.addChild(image2);
-                        BaseElement childWithName4 = this.getChild(1).getChildWithName(NSObject.NSS("progressbar"));
+                        BaseElement childWithName4 = getChild(1).getChildWithName(NSObject.NSS("progressbar"));
                         if (childWithName4 != null)
                         {
-                            this.getChild(1).removeChild(childWithName4);
+                            getChild(1).removeChild(childWithName4);
                             return;
                         }
                     }
                     else
                     {
-                        this.check = MathHelper.RND_0_1 * 5f + 1f;
+                        check = MathHelper.RND_0_1 * 5f + 1f;
                     }
                 }
             }

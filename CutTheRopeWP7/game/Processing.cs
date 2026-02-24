@@ -20,11 +20,11 @@ namespace ctr_wp7.game
         {
             if (base.init() != null)
             {
-                this.width = (int)FrameworkTypes.SCREEN_WIDTH_EXPANDED;
-                this.height = (int)FrameworkTypes.SCREEN_HEIGHT_EXPANDED + 1;
-                this.x = -FrameworkTypes.SCREEN_OFFSET_X;
-                this.y = -FrameworkTypes.SCREEN_OFFSET_Y;
-                this.blendingMode = 0;
+                width = (int)FrameworkTypes.SCREEN_WIDTH_EXPANDED;
+                height = (int)FrameworkTypes.SCREEN_HEIGHT_EXPANDED + 1;
+                x = -FrameworkTypes.SCREEN_OFFSET_X;
+                y = -FrameworkTypes.SCREEN_OFFSET_Y;
+                blendingMode = 0;
                 if (loading)
                 {
                     Image image = Image.Image_createWithResIDQuad(76, 0);
@@ -37,20 +37,20 @@ namespace ctr_wp7.game
                     Text text = Text.createWithFontandString(5, Application.getString(1310774));
                     HBox hbox = new HBox().initWithOffsetAlignHeight(10f, 16, (float)image.height);
                     hbox.parentAnchor = (hbox.anchor = 18);
-                    this.addChild(hbox);
+                    addChild(hbox);
                     hbox.addChild(image);
                     hbox.addChild(text);
                 }
                 Timeline timeline2 = new Timeline().initWithMaxKeyFramesOnTrack(2);
                 timeline2.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0f));
                 timeline2.addKeyFrame(KeyFrame.makeColor(RGBAColor.MakeRGBA(0.0, 0.0, 0.0, 0.4), KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.2));
-                this.addTimeline(timeline2);
+                addTimeline(timeline2);
                 timeline2 = new Timeline().initWithMaxKeyFramesOnTrack(2);
                 timeline2.delegateTimelineDelegate = this;
                 timeline2.addKeyFrame(KeyFrame.makeColor(RGBAColor.MakeRGBA(0.0, 0.0, 0.0, 0.4), KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0f));
                 timeline2.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.2));
-                this.addTimeline(timeline2);
-                this.playTimeline(0);
+                addTimeline(timeline2);
+                playTimeline(0);
             }
             return this;
         }
@@ -60,9 +60,9 @@ namespace ctr_wp7.game
         {
             if (base.init() != null)
             {
-                this.width = (int)FrameworkTypes.SCREEN_WIDTH;
-                this.height = (int)FrameworkTypes.SCREEN_HEIGHT;
-                this.blendingMode = 0;
+                width = (int)FrameworkTypes.SCREEN_WIDTH;
+                height = (int)FrameworkTypes.SCREEN_HEIGHT;
+                blendingMode = 0;
                 Image image = Image.Image_createWithResIDQuad(76, 0);
                 Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(2);
                 timeline.addKeyFrame(KeyFrame.makeRotation(0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0f));
@@ -73,7 +73,7 @@ namespace ctr_wp7.game
                 Text text = Text.createWithFontandString(5, Application.getString(1310752));
                 HBox hbox = new HBox().initWithOffsetAlignHeight(10f, 16, (float)image.height);
                 hbox.parentAnchor = (hbox.anchor = 18);
-                this.addChild(hbox);
+                addChild(hbox);
                 hbox.addChild(image);
                 if (ResDataPhoneFull.LANGUAGE == Language.LANG_IT)
                 {
@@ -82,15 +82,15 @@ namespace ctr_wp7.game
                     hbox.x -= 15f;
                 }
                 hbox.addChild(text);
-                this.blockTouches = b;
-                this.color = RGBAColor.transparentRGBA;
-                if (this.blockTouches)
+                blockTouches = b;
+                color = RGBAColor.transparentRGBA;
+                if (blockTouches)
                 {
                     Timeline timeline2 = new Timeline().initWithMaxKeyFramesOnTrack(2);
                     timeline2.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0f));
                     timeline2.addKeyFrame(KeyFrame.makeColor(RGBAColor.MakeRGBA(0.0, 0.0, 0.0, 0.4), KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.2));
-                    this.addTimeline(timeline2);
-                    this.playTimeline(0);
+                    addTimeline(timeline2);
+                    playTimeline(0);
                 }
             }
             return this;
@@ -100,21 +100,21 @@ namespace ctr_wp7.game
         public override bool onTouchDownXY(float tx, float ty)
         {
             bool flag = base.onTouchDownXY(tx, ty);
-            return this.blockTouches || flag;
+            return blockTouches || flag;
         }
 
         // Token: 0x06000321 RID: 801 RVA: 0x00014204 File Offset: 0x00012404
         public override bool onTouchUpXY(float tx, float ty)
         {
             bool flag = base.onTouchUpXY(tx, ty);
-            return this.blockTouches || flag;
+            return blockTouches || flag;
         }
 
         // Token: 0x06000322 RID: 802 RVA: 0x00014228 File Offset: 0x00012428
         public override bool onTouchMoveXY(float tx, float ty)
         {
             bool flag = base.onTouchMoveXY(tx, ty);
-            return this.blockTouches || flag;
+            return blockTouches || flag;
         }
 
         // Token: 0x06000323 RID: 803 RVA: 0x00014249 File Offset: 0x00012449

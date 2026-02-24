@@ -20,9 +20,9 @@ namespace ctr_wp7.ios
         // Token: 0x06000762 RID: 1890 RVA: 0x0003B173 File Offset: 0x00039373
         public XMLNode()
         {
-            this.parent = null;
-            this.childs_ = new List<XMLNode>();
-            this.attributes_ = new Dictionary<string, string>();
+            parent = null;
+            childs_ = new List<XMLNode>();
+            attributes_ = new Dictionary<string, string>();
         }
 
         // Token: 0x1700001F RID: 31
@@ -31,7 +31,7 @@ namespace ctr_wp7.ios
         {
             get
             {
-                return this.name;
+                return name;
             }
         }
 
@@ -41,20 +41,20 @@ namespace ctr_wp7.ios
         {
             get
             {
-                return this.value;
+                return value;
             }
         }
 
         // Token: 0x06000765 RID: 1893 RVA: 0x0003B1A8 File Offset: 0x000393A8
         public bool attributes()
         {
-            return this.attributes_ != null && this.attributes_.Count > 0;
+            return attributes_ != null && attributes_.Count > 0;
         }
 
         // Token: 0x06000766 RID: 1894 RVA: 0x0003B1C2 File Offset: 0x000393C2
         public List<XMLNode> childs()
         {
-            return this.childs_;
+            return childs_;
         }
 
         // Token: 0x17000021 RID: 33
@@ -63,7 +63,7 @@ namespace ctr_wp7.ios
             get
             {
                 string text = null;
-                if (!this.attributes_.TryGetValue(key, out text))
+                if (!attributes_.TryGetValue(key, out text))
                 {
                     return new NSString("");
                 }
@@ -74,11 +74,11 @@ namespace ctr_wp7.ios
         // Token: 0x06000768 RID: 1896 RVA: 0x0003B1FC File Offset: 0x000393FC
         public XMLNode findChildWithTagNameAndAttributeNameValueRecursively(string tag, string attrName, string attrVal, bool recursively)
         {
-            if (this.childs() == null)
+            if (childs() == null)
             {
                 return null;
             }
-            foreach (XMLNode xmlnode in this.childs_)
+            foreach (XMLNode xmlnode in childs_)
             {
                 string text;
                 if (xmlnode.name == tag && xmlnode.attributes() && xmlnode.attributes_.TryGetValue(attrName, out text) && text == attrVal)
@@ -100,17 +100,17 @@ namespace ctr_wp7.ios
         // Token: 0x06000769 RID: 1897 RVA: 0x0003B2A8 File Offset: 0x000394A8
         public XMLNode findChildWithTagNameRecursively(NSString tag, bool recursively)
         {
-            return this.findChildWithTagNameRecursively(tag.ToString(), recursively);
+            return findChildWithTagNameRecursively(tag.ToString(), recursively);
         }
 
         // Token: 0x0600076A RID: 1898 RVA: 0x0003B2B8 File Offset: 0x000394B8
         public XMLNode findChildWithTagNameRecursively(string tag, bool recursively)
         {
-            if (this.childs() == null)
+            if (childs() == null)
             {
                 return null;
             }
-            foreach (XMLNode xmlnode in this.childs_)
+            foreach (XMLNode xmlnode in childs_)
             {
                 if (xmlnode.name == tag)
                 {
@@ -132,7 +132,7 @@ namespace ctr_wp7.ios
         public List<XMLNode> getElementsByTagName(string tag)
         {
             List<XMLNode> list = new List<XMLNode>();
-            foreach (XMLNode xmlnode in this.childs_)
+            foreach (XMLNode xmlnode in childs_)
             {
                 if (xmlnode.name == tag)
                 {

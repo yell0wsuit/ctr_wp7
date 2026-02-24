@@ -15,49 +15,49 @@ namespace ctr_wp7.iframework.core
         public virtual bool hasResource(int resID)
         {
             NSObject nsobject = null;
-            this.s_Resources.TryGetValue(resID, out nsobject);
+            s_Resources.TryGetValue(resID, out nsobject);
             return nsobject != null;
         }
 
         // Token: 0x06000337 RID: 823 RVA: 0x000148F5 File Offset: 0x00012AF5
         public virtual void addResourceToLoadQueue(int resID)
         {
-            this.loadQueue.Add(resID);
-            this.loadCount++;
+            loadQueue.Add(resID);
+            loadCount++;
         }
 
         // Token: 0x06000338 RID: 824 RVA: 0x00014914 File Offset: 0x00012B14
         public virtual NSObject loadResource(int resID, ResourceMgr.ResourceType resType)
         {
             NSObject nsobject = null;
-            if (this.s_Resources.TryGetValue(resID, out nsobject))
+            if (s_Resources.TryGetValue(resID, out nsobject))
             {
                 return nsobject;
             }
             string text = ((resType != ResourceMgr.ResourceType.STRINGS) ? CTRResourceMgr.XNA_ResName(resID) : "");
-            bool flag = this.isWvgaResource(resID);
-            float num = this.getNormalScaleX(resID);
-            float num2 = this.getNormalScaleY(resID);
+            bool flag = isWvgaResource(resID);
+            float num = getNormalScaleX(resID);
+            float num2 = getNormalScaleY(resID);
             if (flag)
             {
-                num = this.getWvgaScaleX(resID);
-                num2 = this.getWvgaScaleY(resID);
+                num = getWvgaScaleX(resID);
+                num2 = getWvgaScaleY(resID);
             }
             switch (resType)
             {
                 case ResourceMgr.ResourceType.IMAGE:
-                    nsobject = this.loadTextureImageInfo(text, null, flag, num, num2);
+                    nsobject = loadTextureImageInfo(text, null, flag, num, num2);
                     break;
                 case ResourceMgr.ResourceType.FONT:
-                    nsobject = this.loadVariableFontInfo(text, resID, flag);
-                    this.s_Resources.Remove(resID);
+                    nsobject = loadVariableFontInfo(text, resID, flag);
+                    s_Resources.Remove(resID);
                     break;
                 case ResourceMgr.ResourceType.SOUND:
-                    nsobject = this.loadSoundInfo(text);
+                    nsobject = loadSoundInfo(text);
                     break;
                 case ResourceMgr.ResourceType.STRINGS:
                     {
-                        nsobject = this.loadStringsInfo(resID);
+                        nsobject = loadStringsInfo(resID);
                         string text2 = nsobject.ToString();
                         nsobject = NSObject.NSS(text2.Replace('\u00a0', ' '));
                         break;
@@ -65,7 +65,7 @@ namespace ctr_wp7.iframework.core
             }
             if (nsobject != null)
             {
-                this.s_Resources.Add(resID, nsobject);
+                s_Resources.Add(resID, nsobject);
             }
             return nsobject;
         }
@@ -80,11 +80,11 @@ namespace ctr_wp7.iframework.core
         public NSString loadStringsInfo(int key)
         {
             key &= 65535;
-            if (this.xmlStrings == null)
+            if (xmlStrings == null)
             {
-                this.xmlStrings = XMLNode.parseXML("menu_strings.xml");
+                xmlStrings = XMLNode.parseXML("menu_strings.xml");
             }
-            XMLNode xmlnode = this.xmlStrings.childs()[key];
+            XMLNode xmlnode = xmlStrings.childs()[key];
             if (xmlnode != null)
             {
                 string text = "en";
@@ -148,7 +148,7 @@ namespace ctr_wp7.iframework.core
             {
                 NSString data2 = xmlnode3.data;
             }
-            FontGeneric fontGeneric = new Font().initWithVariableSizeCharscharMapFileKerning(data, (Texture2D)this.loadResource(resID, ResourceMgr.ResourceType.IMAGE), null);
+            FontGeneric fontGeneric = new Font().initWithVariableSizeCharscharMapFileKerning(data, (Texture2D)loadResource(resID, ResourceMgr.ResourceType.IMAGE), null);
             fontGeneric.setCharOffsetLineOffsetSpaceWidth((float)num, (float)num2, (float)num3);
             return fontGeneric;
         }
@@ -168,7 +168,7 @@ namespace ctr_wp7.iframework.core
             bool flag = (num & 1) == 1;
             int num2 = i["format"].intValue();
             string text = ResourceMgr.fullPathFromRelativePath(path);
-            Texture2D texture2D = this.tryLoadTextureAsset(text, flag, num2);
+            Texture2D texture2D = tryLoadTextureAsset(text, flag, num2);
             if (texture2D == null && isWvga && path.EndsWith("_hd", StringComparison.OrdinalIgnoreCase))
             {
                 string text2 = path.Substring(0, path.Length - 3);
@@ -184,7 +184,7 @@ namespace ctr_wp7.iframework.core
                     isWvga = false;
                     scaleX = 1f;
                     scaleY = 1f;
-                    texture2D = this.tryLoadTextureAsset(text, flag, num2);
+                    texture2D = tryLoadTextureAsset(text, flag, num2);
                 }
             }
             if (texture2D == null)
@@ -196,7 +196,7 @@ namespace ctr_wp7.iframework.core
                 texture2D.setWvga();
             }
             texture2D.setScale(scaleX, scaleY);
-            this.setTextureInfo(texture2D, i, isWvga, scaleX, scaleY);
+            setTextureInfo(texture2D, i, isWvga, scaleX, scaleY);
             return texture2D;
         }
 
@@ -225,7 +225,7 @@ namespace ctr_wp7.iframework.core
             {
                 texture2D.setWvga();
             }
-            texture2D.setScale(this.getScaleX(-1), this.getScaleY(-1));
+            texture2D.setScale(getScaleX(-1), getScaleY(-1));
             return texture2D;
         }
 
@@ -244,7 +244,7 @@ namespace ctr_wp7.iframework.core
                     {
                         array[j] = list[j].floatValue();
                     }
-                    this.setQuadsInfo(t, array, list.Count, scaleX, scaleY);
+                    setQuadsInfo(t, array, list.Count, scaleX, scaleY);
                 }
             }
             XMLNode xmlnode2 = i.findChildWithTagNameRecursively("offsets", false);
@@ -258,7 +258,7 @@ namespace ctr_wp7.iframework.core
                     {
                         array2[k] = list2[k].floatValue();
                     }
-                    this.setOffsetsInfo(t, array2, list2.Count, scaleX, scaleY);
+                    setOffsetsInfo(t, array2, list2.Count, scaleX, scaleY);
                     XMLNode xmlnode3 = i.findChildWithTagNameRecursively(NSObject.NSS("preCutWidth"), false);
                     XMLNode xmlnode4 = i.findChildWithTagNameRecursively(NSObject.NSS("preCutHeight"), false);
                     if (xmlnode3 != null && xmlnode4 != null)
@@ -358,19 +358,19 @@ namespace ctr_wp7.iframework.core
         // Token: 0x06000347 RID: 839 RVA: 0x00014F86 File Offset: 0x00013186
         public virtual void initLoading()
         {
-            this.loadQueue.Clear();
-            this.loaded = 0;
-            this.loadCount = 0;
+            loadQueue.Clear();
+            loaded = 0;
+            loadCount = 0;
         }
 
         // Token: 0x06000348 RID: 840 RVA: 0x00014FA1 File Offset: 0x000131A1
         public virtual int getPercentLoaded()
         {
-            if (this.loadCount == 0)
+            if (loadCount == 0)
             {
                 return 100;
             }
-            return 100 * this.loaded / this.getLoadCount();
+            return 100 * loaded / getLoadCount();
         }
 
         // Token: 0x06000349 RID: 841 RVA: 0x00014FC0 File Offset: 0x000131C0
@@ -379,7 +379,7 @@ namespace ctr_wp7.iframework.core
             int num = 0;
             while (pack[num] != -1)
             {
-                this.addResourceToLoadQueue(pack[num]);
+                addResourceToLoadQueue(pack[num]);
                 num++;
             }
         }
@@ -390,7 +390,7 @@ namespace ctr_wp7.iframework.core
             int num = 0;
             while (pack[num] != -1)
             {
-                this.freeResource(pack[num]);
+                freeResource(pack[num]);
                 num++;
             }
         }
@@ -398,31 +398,31 @@ namespace ctr_wp7.iframework.core
         // Token: 0x0600034B RID: 843 RVA: 0x00015008 File Offset: 0x00013208
         public virtual void loadImmediately()
         {
-            while (this.loadQueue.Count != 0)
+            while (loadQueue.Count != 0)
             {
-                int num = this.loadQueue[0];
-                this.loadQueue.RemoveAt(0);
-                this.loadResource(num);
-                this.loaded++;
+                int num = loadQueue[0];
+                loadQueue.RemoveAt(0);
+                loadResource(num);
+                loaded++;
             }
         }
 
         // Token: 0x0600034C RID: 844 RVA: 0x00015052 File Offset: 0x00013252
         public virtual void startLoading()
         {
-            if (this.resourcesDelegate != null)
+            if (resourcesDelegate != null)
             {
-                this.Timer = NSTimer.schedule(new DelayedDispatcher.DispatchFunc(ResourceMgr.rmgr_internalUpdate), this, 0.022222223f);
+                Timer = NSTimer.schedule(new DelayedDispatcher.DispatchFunc(ResourceMgr.rmgr_internalUpdate), this, 0.022222223f);
             }
-            this.bUseFake = this.loadQueue.Count < 100;
+            bUseFake = loadQueue.Count < 100;
         }
 
         // Token: 0x0600034D RID: 845 RVA: 0x0001508E File Offset: 0x0001328E
         private int getLoadCount()
         {
-            if (!this.bUseFake)
+            if (!bUseFake)
             {
-                return this.loadCount;
+                return loadCount;
             }
             return 100;
         }
@@ -430,21 +430,21 @@ namespace ctr_wp7.iframework.core
         // Token: 0x0600034E RID: 846 RVA: 0x000150A4 File Offset: 0x000132A4
         public void update()
         {
-            if (this.loadQueue.Count > 0)
+            if (loadQueue.Count > 0)
             {
-                int num = this.loadQueue[0];
-                this.loadQueue.RemoveAt(0);
-                this.loadResource(num);
+                int num = loadQueue[0];
+                loadQueue.RemoveAt(0);
+                loadResource(num);
             }
-            this.loaded++;
-            if (this.loaded >= this.getLoadCount())
+            loaded++;
+            if (loaded >= getLoadCount())
             {
-                if (this.Timer >= 0)
+                if (Timer >= 0)
                 {
-                    NSTimer.stopTimer(this.Timer);
+                    NSTimer.stopTimer(Timer);
                 }
-                this.Timer = -1;
-                this.resourcesDelegate.allResourcesLoaded();
+                Timer = -1;
+                resourcesDelegate.allResourcesLoaded();
             }
         }
 
@@ -463,9 +463,9 @@ namespace ctr_wp7.iframework.core
             }
             if (20 == resId)
             {
-                if (this.xmlStrings == null)
+                if (xmlStrings == null)
                 {
-                    this.xmlStrings = XMLNode.parseXML("menu_strings.xml");
+                    xmlStrings = XMLNode.parseXML("menu_strings.xml");
                     return;
                 }
             }
@@ -499,7 +499,7 @@ namespace ctr_wp7.iframework.core
             }
             if (20 == resId)
             {
-                this.xmlStrings = null;
+                xmlStrings = null;
                 return;
             }
             if (ResDataPhoneFull.isSound(resId))
@@ -508,13 +508,13 @@ namespace ctr_wp7.iframework.core
                 return;
             }
             NSObject nsobject = null;
-            if (this.s_Resources.TryGetValue(resId, out nsobject))
+            if (s_Resources.TryGetValue(resId, out nsobject))
             {
                 if (nsobject != null)
                 {
                     nsobject.dealloc();
                 }
-                this.s_Resources.Remove(resId);
+                s_Resources.Remove(resId);
             }
         }
 

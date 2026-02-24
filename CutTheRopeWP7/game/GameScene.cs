@@ -25,8 +25,8 @@ namespace ctr_wp7.game
         // Token: 0x06000800 RID: 2048 RVA: 0x0003F6A3 File Offset: 0x0003D8A3
         public virtual void animateLevelRestart()
         {
-            this.restartState = 0;
-            this.dimTime = 0.15f;
+            restartState = 0;
+            dimTime = 0.15f;
         }
 
         // Token: 0x06000801 RID: 2049 RVA: 0x0003F6B8 File Offset: 0x0003D8B8
@@ -35,41 +35,41 @@ namespace ctr_wp7.game
             if (base.init() != null)
             {
                 CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
-                this.dd = (DelayedDispatcher)new DelayedDispatcher().init();
-                this.initialCameraToStarDistance = -1f;
-                this.restartState = -1;
-                this.aniPool = new AnimationsPool();
-                this.aniPool.visible = false;
-                this.addChild(this.aniPool);
-                this.staticAniPool = new AnimationsPool();
-                this.staticAniPool.visible = false;
-                this.addChild(this.staticAniPool);
-                this.camera = new Camera2D().initWithSpeedandType(7f, CAMERA_TYPE.CAMERA_SPEED_DELAY);
-                this.pack = ctrrootController.getPack();
-                int num = 188 + this.pack * 2;
-                this.back = new TileMap().initWithRowsColumns(1, 1);
-                this.back.setRepeatHorizontally(TileMap.Repeat.REPEAT_ALL);
-                this.back.setRepeatVertically(TileMap.Repeat.REPEAT_ALL);
-                this.back.addTileQuadwithID(Application.getTexture(num), 0, 0);
-                this.back.fillStartAtRowColumnRowsColumnswithTile(0, 0, 1, 1, 0);
+                dd = (DelayedDispatcher)new DelayedDispatcher().init();
+                initialCameraToStarDistance = -1f;
+                restartState = -1;
+                aniPool = new AnimationsPool();
+                aniPool.visible = false;
+                addChild(aniPool);
+                staticAniPool = new AnimationsPool();
+                staticAniPool.visible = false;
+                addChild(staticAniPool);
+                camera = new Camera2D().initWithSpeedandType(7f, CAMERA_TYPE.CAMERA_SPEED_DELAY);
+                pack = ctrrootController.getPack();
+                int num = 188 + pack * 2;
+                back = new TileMap().initWithRowsColumns(1, 1);
+                back.setRepeatHorizontally(TileMap.Repeat.REPEAT_ALL);
+                back.setRepeatVertically(TileMap.Repeat.REPEAT_ALL);
+                back.addTileQuadwithID(Application.getTexture(num), 0, 0);
+                back.fillStartAtRowColumnRowsColumnswithTile(0, 0, 1, 1, 0);
                 for (int i = 0; i < 3; i++)
                 {
-                    this.hudStar[i] = Animation.Animation_createWithResID(128);
-                    this.hudStar[i].doRestoreCutTransparency();
-                    this.hudStar[i].addAnimationDelayLoopFirstLast(0.05f, Timeline.LoopType.TIMELINE_NO_LOOP, 0, 10);
-                    this.hudStar[i].setPauseAtIndexforAnimation(10, 0);
-                    this.hudStar[i].x = (float)(this.hudStar[i].width * i);
-                    this.hudStar[i].y = 0f;
-                    this.hudStar[i].x -= FrameworkTypes.SCREEN_OFFSET_X;
-                    this.hudStar[i].y -= FrameworkTypes.SCREEN_OFFSET_Y;
-                    this.hudStar[i].x += 0.33f;
-                    this.hudStar[i].y += 0.33f;
-                    this.addChild(this.hudStar[i]);
+                    hudStar[i] = Animation.Animation_createWithResID(128);
+                    hudStar[i].doRestoreCutTransparency();
+                    hudStar[i].addAnimationDelayLoopFirstLast(0.05f, Timeline.LoopType.TIMELINE_NO_LOOP, 0, 10);
+                    hudStar[i].setPauseAtIndexforAnimation(10, 0);
+                    hudStar[i].x = (float)(hudStar[i].width * i);
+                    hudStar[i].y = 0f;
+                    hudStar[i].x -= FrameworkTypes.SCREEN_OFFSET_X;
+                    hudStar[i].y -= FrameworkTypes.SCREEN_OFFSET_Y;
+                    hudStar[i].x += 0.33f;
+                    hudStar[i].y += 0.33f;
+                    addChild(hudStar[i]);
                 }
                 for (int j = 0; j < 5; j++)
                 {
-                    this.fingerCuts[j] = new List<GameScene.FingerCut>();
-                    NSObject.NSRET(this.fingerCuts[j]);
+                    fingerCuts[j] = new List<GameScene.FingerCut>();
+                    NSObject.NSRET(fingerCuts[j]);
                 }
             }
             return this;
@@ -81,73 +81,73 @@ namespace ctr_wp7.game
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
             ctrrootController.setMap(rootNode);
             CTRRootController.checkMapIsValid(ContentHelper.OpenResourceAsString(url.ToString()).ToCharArray());
-            if (this.animateRestartDim)
+            if (animateRestartDim)
             {
-                this.animateLevelRestart();
+                animateLevelRestart();
                 return;
             }
-            this.restart();
+            restart();
         }
 
         // Token: 0x06000803 RID: 2051 RVA: 0x0003F938 File Offset: 0x0003DB38
         public override void show()
         {
-            this.isCandyInLantern = false;
-            this.isCandyInGhostBubbleAnimationLoaded = false;
-            this.isCandyInGhostBubbleAnimationLeftLoaded = false;
-            this.isCandyInGhostBubbleAnimationRightLoaded = false;
+            isCandyInLantern = false;
+            isCandyInGhostBubbleAnimationLoaded = false;
+            isCandyInGhostBubbleAnimationLeftLoaded = false;
+            isCandyInGhostBubbleAnimationRightLoaded = false;
             CTRSoundMgr.EnableLoopedSounds(true);
-            this.aniPool.removeAllChilds();
-            this.staticAniPool.removeAllChilds();
-            this.gravityButton = null;
-            this.gravityTouchDown = -1;
-            this.twoParts = 2;
-            this.partsDist = 0f;
-            this.targetSock = null;
+            aniPool.removeAllChilds();
+            staticAniPool.removeAllChilds();
+            gravityButton = null;
+            gravityTouchDown = -1;
+            twoParts = 2;
+            partsDist = 0f;
+            targetSock = null;
             CTRSoundMgr._stopLoopedSounds();
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
             XMLNode map = ctrrootController.getMap();
-            this.bungees = new List<Grab>();
-            this.razors = new List<Razor>();
-            this.spikes = new List<Spikes>();
-            this.stars = new List<Star>();
-            this.bubbles = new List<Bubble>();
-            this.pumps = new List<Pump>();
-            this.socks = new List<Sock>();
-            this.bouncers = new List<Bouncer>();
-            this.tutorialImages = new List<GameScene.GameObjectSpecial>();
-            this.tutorials = new List<GameScene.TutorialText>();
-            this.rotatedCircles = new List<RotatedCircle>();
-            this.ghosts = new List<Ghost>();
-            this.tubes = new List<SteamTube>();
-            this.pollenDrawer = (PollenDrawer)new PollenDrawer().init();
-            this.star = (ConstraintedPoint)new ConstraintedPoint().init();
-            this.star.setWeight(1f);
-            this.starL = (ConstraintedPoint)new ConstraintedPoint().init();
-            this.starL.setWeight(1f);
-            this.starR = (ConstraintedPoint)new ConstraintedPoint().init();
-            this.starR.setWeight(1f);
+            bungees = new List<Grab>();
+            razors = new List<Razor>();
+            spikes = new List<Spikes>();
+            stars = new List<Star>();
+            bubbles = new List<Bubble>();
+            pumps = new List<Pump>();
+            socks = new List<Sock>();
+            bouncers = new List<Bouncer>();
+            tutorialImages = new List<GameScene.GameObjectSpecial>();
+            tutorials = new List<GameScene.TutorialText>();
+            rotatedCircles = new List<RotatedCircle>();
+            ghosts = new List<Ghost>();
+            tubes = new List<SteamTube>();
+            pollenDrawer = (PollenDrawer)new PollenDrawer().init();
+            star = (ConstraintedPoint)new ConstraintedPoint().init();
+            star.setWeight(1f);
+            starL = (ConstraintedPoint)new ConstraintedPoint().init();
+            starL.setWeight(1f);
+            starR = (ConstraintedPoint)new ConstraintedPoint().init();
+            starR.setWeight(1f);
             int num = Preferences._getIntForKey("PREFS_SELECTED_CANDY");
-            this.candy = GameObject.GameObject_createWithResIDQuad(GameScene.CANDIES[num], 0);
-            this.candy.doRestoreCutTransparency();
-            NSObject.NSRET(this.candy);
-            this.candy.anchor = 18;
-            this.candy.bb = new Rectangle(46.0, 49.0, 35.0, 35.0);
-            this.candy.passTransformationsToChilds = false;
-            this.candy.scaleX = (this.candy.scaleY = 0.71f);
-            this.candyMain = GameObject.GameObject_createWithResIDQuad(GameScene.CANDIES[num], 1);
-            this.candyMain.doRestoreCutTransparency();
-            this.candyMain.anchor = (this.candyMain.parentAnchor = 18);
-            this.candy.addChild(this.candyMain);
-            this.candyMain.scaleX = (this.candyMain.scaleY = 0.71f);
-            this.candyTop = GameObject.GameObject_createWithResIDQuad(GameScene.CANDIES[num], 2);
-            this.candyTop.doRestoreCutTransparency();
-            this.candyTop.anchor = (this.candyTop.parentAnchor = 18);
-            this.candy.addChild(this.candyTop);
-            this.candyTop.scaleX = (this.candyTop.scaleY = 0.71f);
-            this.candyBlink = Animation.Animation_createWithResID(103);
-            this.candyBlink.addAnimationWithIDDelayLoopFirstLast(0, 0.07f, Timeline.LoopType.TIMELINE_NO_LOOP, 5, 14);
-            Animation animation = this.candyBlink;
+            candy = GameObject.GameObject_createWithResIDQuad(GameScene.CANDIES[num], 0);
+            candy.doRestoreCutTransparency();
+            NSObject.NSRET(candy);
+            candy.anchor = 18;
+            candy.bb = new Rectangle(46.0, 49.0, 35.0, 35.0);
+            candy.passTransformationsToChilds = false;
+            candy.scaleX = (candy.scaleY = 0.71f);
+            candyMain = GameObject.GameObject_createWithResIDQuad(GameScene.CANDIES[num], 1);
+            candyMain.doRestoreCutTransparency();
+            candyMain.anchor = (candyMain.parentAnchor = 18);
+            candy.addChild(candyMain);
+            candyMain.scaleX = (candyMain.scaleY = 0.71f);
+            candyTop = GameObject.GameObject_createWithResIDQuad(GameScene.CANDIES[num], 2);
+            candyTop.doRestoreCutTransparency();
+            candyTop.anchor = (candyTop.parentAnchor = 18);
+            candy.addChild(candyTop);
+            candyTop.scaleX = (candyTop.scaleY = 0.71f);
+            candyBlink = Animation.Animation_createWithResID(103);
+            candyBlink.addAnimationWithIDDelayLoopFirstLast(0, 0.07f, Timeline.LoopType.TIMELINE_NO_LOOP, 5, 14);
+            Animation animation = candyBlink;
             int num2 = 1;
             float num3 = 0.3f;
             Timeline.LoopType loopType = Timeline.LoopType.TIMELINE_NO_LOOP;
@@ -156,30 +156,30 @@ namespace ctr_wp7.game
             List<int> list = new List<int>();
             list.Add(15);
             animation.addAnimationWithIDDelayLoopCountSequence(num2, num3, loopType, num4, num5, list);
-            Timeline timeline = this.candyBlink.getTimeline(1);
+            Timeline timeline = candyBlink.getTimeline(1);
             timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.solidOpaqueRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
             timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.2));
-            this.candyBlink.visible = false;
-            this.candyBlink.anchor = (this.candyBlink.parentAnchor = 18);
-            this.candyBlink.scaleX = (this.candyBlink.scaleY = 0.71f);
-            this.candy.addChild(this.candyBlink);
-            this.candyBubbleAnimation = Animation.Animation_createWithResID(120);
-            this.candyBubbleAnimation.x = this.candy.x;
-            this.candyBubbleAnimation.y = this.candy.y;
-            this.candyBubbleAnimation.parentAnchor = (this.candyBubbleAnimation.anchor = 18);
-            this.candyBubbleAnimation.addAnimationDelayLoopFirstLast(0.05f, Timeline.LoopType.TIMELINE_REPLAY, 0, 12);
-            this.candyBubbleAnimation.playTimeline(0);
-            this.candy.addChild(this.candyBubbleAnimation);
-            this.candyBubbleAnimation.visible = false;
+            candyBlink.visible = false;
+            candyBlink.anchor = (candyBlink.parentAnchor = 18);
+            candyBlink.scaleX = (candyBlink.scaleY = 0.71f);
+            candy.addChild(candyBlink);
+            candyBubbleAnimation = Animation.Animation_createWithResID(120);
+            candyBubbleAnimation.x = candy.x;
+            candyBubbleAnimation.y = candy.y;
+            candyBubbleAnimation.parentAnchor = (candyBubbleAnimation.anchor = 18);
+            candyBubbleAnimation.addAnimationDelayLoopFirstLast(0.05f, Timeline.LoopType.TIMELINE_REPLAY, 0, 12);
+            candyBubbleAnimation.playTimeline(0);
+            candy.addChild(candyBubbleAnimation);
+            candyBubbleAnimation.visible = false;
             for (int i = 0; i < 3; i++)
             {
-                if (this.hudStar[i] != null)
+                if (hudStar[i] != null)
                 {
-                    if (this.hudStar[i].getCurrentTimeline() != null)
+                    if (hudStar[i].getCurrentTimeline() != null)
                     {
-                        this.hudStar[i].getCurrentTimeline().stopTimeline();
+                        hudStar[i].getCurrentTimeline().stopTimeline();
                     }
-                    this.hudStar[i].setDrawQuad(0);
+                    hudStar[i].setDrawQuad(0);
                 }
             }
             int num6 = map.childs().Count;
@@ -192,61 +192,61 @@ namespace ctr_wp7.game
                     XMLNode xmlnode2 = xmlnode.childs()[k];
                     if (xmlnode2.Name == "map")
                     {
-                        this.mapWidth = xmlnode2["width"].floatValue();
-                        this.mapHeight = xmlnode2["height"].floatValue();
+                        mapWidth = xmlnode2["width"].floatValue();
+                        mapHeight = xmlnode2["height"].floatValue();
                         if (ctrrootController.getPack() == 6)
                         {
-                            this.earthAnims = new List<Image>();
-                            if (this.mapWidth > FrameworkTypes.SCREEN_WIDTH)
+                            earthAnims = new List<Image>();
+                            if (mapWidth > FrameworkTypes.SCREEN_WIDTH)
                             {
-                                this.createEarthImageWithOffsetXY(FrameworkTypes.SCREEN_WIDTH, 0f);
+                                createEarthImageWithOffsetXY(FrameworkTypes.SCREEN_WIDTH, 0f);
                             }
-                            if (this.mapHeight > FrameworkTypes.SCREEN_HEIGHT)
+                            if (mapHeight > FrameworkTypes.SCREEN_HEIGHT)
                             {
-                                this.createEarthImageWithOffsetXY(0f, FrameworkTypes.SCREEN_HEIGHT);
+                                createEarthImageWithOffsetXY(0f, FrameworkTypes.SCREEN_HEIGHT);
                             }
-                            this.createEarthImageWithOffsetXY(0f, 0f);
+                            createEarthImageWithOffsetXY(0f, 0f);
                         }
                     }
                     else if (xmlnode2.Name == "gameDesign")
                     {
-                        this.special = xmlnode2["special"].intValue();
-                        this.ropePhysicsSpeed = xmlnode2["ropePhysicsSpeed"].floatValue();
-                        this.nightLevel = xmlnode2["nightLevel"].isEqualToString(NSObject.NSS("true"));
-                        this.twoParts = (xmlnode2["twoParts"].isEqualToString(NSObject.NSS("true")) ? 0 : 2);
+                        special = xmlnode2["special"].intValue();
+                        ropePhysicsSpeed = xmlnode2["ropePhysicsSpeed"].floatValue();
+                        nightLevel = xmlnode2["nightLevel"].isEqualToString(NSObject.NSS("true"));
+                        twoParts = (xmlnode2["twoParts"].isEqualToString(NSObject.NSS("true")) ? 0 : 2);
                     }
                     else if (xmlnode2.Name == "candyL")
                     {
-                        this.starL.pos.x = (float)xmlnode2["x"].intValue() * 1f + 0f;
-                        this.starL.pos.y = (float)xmlnode2["y"].intValue() * 1f + 0f;
-                        this.candyL = GameObject.GameObject_createWithResIDQuad(GameScene.CANDIES[num], 8);
-                        this.candyL.passTransformationsToChilds = false;
-                        this.candyL.doRestoreCutTransparency();
-                        this.candyL.anchor = 18;
-                        NSObject.NSRET(this.candyL);
-                        this.candyL.scaleX = (this.candyL.scaleY = 0.71f);
-                        this.candyL.x = this.starL.pos.x;
-                        this.candyL.y = this.starL.pos.y;
-                        this.candyL.bb = new Rectangle(52.0, 56.0, 23.0, 24.0);
+                        starL.pos.x = (float)xmlnode2["x"].intValue() * 1f + 0f;
+                        starL.pos.y = (float)xmlnode2["y"].intValue() * 1f + 0f;
+                        candyL = GameObject.GameObject_createWithResIDQuad(GameScene.CANDIES[num], 8);
+                        candyL.passTransformationsToChilds = false;
+                        candyL.doRestoreCutTransparency();
+                        candyL.anchor = 18;
+                        NSObject.NSRET(candyL);
+                        candyL.scaleX = (candyL.scaleY = 0.71f);
+                        candyL.x = starL.pos.x;
+                        candyL.y = starL.pos.y;
+                        candyL.bb = new Rectangle(52.0, 56.0, 23.0, 24.0);
                     }
                     else if (xmlnode2.Name == "candyR")
                     {
-                        this.starR.pos.x = (float)xmlnode2["x"].intValue() * 1f + 0f;
-                        this.starR.pos.y = (float)xmlnode2["y"].intValue() * 1f + 0f;
-                        this.candyR = GameObject.GameObject_createWithResIDQuad(GameScene.CANDIES[num], 9);
-                        this.candyR.passTransformationsToChilds = false;
-                        this.candyR.doRestoreCutTransparency();
-                        this.candyR.anchor = 18;
-                        NSObject.NSRET(this.candyR);
-                        this.candyR.scaleX = (this.candyR.scaleY = 0.71f);
-                        this.candyR.x = this.starR.pos.x;
-                        this.candyR.y = this.starR.pos.y;
-                        this.candyR.bb = new Rectangle(52.0, 56.0, 23.0, 24.0);
+                        starR.pos.x = (float)xmlnode2["x"].intValue() * 1f + 0f;
+                        starR.pos.y = (float)xmlnode2["y"].intValue() * 1f + 0f;
+                        candyR = GameObject.GameObject_createWithResIDQuad(GameScene.CANDIES[num], 9);
+                        candyR.passTransformationsToChilds = false;
+                        candyR.doRestoreCutTransparency();
+                        candyR.anchor = 18;
+                        NSObject.NSRET(candyR);
+                        candyR.scaleX = (candyR.scaleY = 0.71f);
+                        candyR.x = starR.pos.x;
+                        candyR.y = starR.pos.y;
+                        candyR.bb = new Rectangle(52.0, 56.0, 23.0, 24.0);
                     }
                     else if (xmlnode2.Name == "candy")
                     {
-                        this.star.pos.x = (float)xmlnode2["x"].intValue() * 1f + 0f;
-                        this.star.pos.y = (float)xmlnode2["y"].intValue() * 1f + 0f;
+                        star.pos.x = (float)xmlnode2["x"].intValue() * 1f + 0f;
+                        star.pos.y = (float)xmlnode2["y"].intValue() * 1f + 0f;
                     }
                 }
             }
@@ -260,13 +260,13 @@ namespace ctr_wp7.game
                     XMLNode xmlnode4 = xmlnode3.childs()[m];
                     if (xmlnode4.Name == "gravitySwitch")
                     {
-                        this.gravityButton = GameScene.createGravityButtonWithDelegate(this);
-                        this.gravityButton.visible = false;
-                        this.gravityButton.touchable = false;
-                        this.addChild(this.gravityButton);
-                        this.gravityButton.x = (float)xmlnode4["x"].intValue() * 1f + 0f;
-                        this.gravityButton.y = (float)xmlnode4["y"].intValue() * 1f + 0f;
-                        this.gravityButton.anchor = 18;
+                        gravityButton = GameScene.createGravityButtonWithDelegate(this);
+                        gravityButton.visible = false;
+                        gravityButton.touchable = false;
+                        addChild(gravityButton);
+                        gravityButton.x = (float)xmlnode4["x"].intValue() * 1f + 0f;
+                        gravityButton.y = (float)xmlnode4["y"].intValue() * 1f + 0f;
+                        gravityButton.anchor = 18;
                     }
                     else if (xmlnode4.Name == "star")
                     {
@@ -277,7 +277,7 @@ namespace ctr_wp7.game
                         star.createAnimations();
                         star.parseMover(xmlnode4);
                         star.update(0f);
-                        this.stars.Add(star);
+                        stars.Add(star);
                     }
                     else if (xmlnode4.Name == "tutorialText")
                     {
@@ -304,7 +304,7 @@ namespace ctr_wp7.game
                                 {
                                     tutorialText.playTimeline(0);
                                 }
-                                this.tutorials.Add(tutorialText);
+                                tutorials.Add(tutorialText);
                             }
                         }
                     }
@@ -350,7 +350,7 @@ namespace ctr_wp7.game
                                 gameObjectSpecial.playTimeline(1);
                                 gameObjectSpecial.rotation = 10f;
                             }
-                            this.tutorialImages.Add(gameObjectSpecial);
+                            tutorialImages.Add(gameObjectSpecial);
                         }
                     }
                     else if (xmlnode4.Name == "bubble")
@@ -369,7 +369,7 @@ namespace ctr_wp7.game
                         image.doRestoreCutTransparency();
                         image.parentAnchor = (image.anchor = 18);
                         bubble.addChild(image);
-                        this.bubbles.Add(bubble);
+                        bubbles.Add(bubble);
                     }
                     else if (xmlnode4.Name == "pump")
                     {
@@ -393,7 +393,7 @@ namespace ctr_wp7.game
                         pump.rotation = xmlnode4["angle"].floatValue() + 90f;
                         pump.updateRotation();
                         pump.anchor = 18;
-                        this.pumps.Add(pump);
+                        pumps.Add(pump);
                     }
                     else if (xmlnode4.Name == "sock")
                     {
@@ -422,7 +422,7 @@ namespace ctr_wp7.game
                             sock.mover.angle += 90.0;
                         }
                         sock.updateRotation();
-                        this.socks.Add(sock);
+                        socks.Add(sock);
                     }
                     else if (xmlnode4.Name == "spike1" || xmlnode4.Name == "spike2" || xmlnode4.Name == "spike3" || xmlnode4.Name == "spike4" || xmlnode4.Name == "electro")
                     {
@@ -440,7 +440,7 @@ namespace ctr_wp7.game
                         spikes.parseMover(xmlnode4);
                         if (num16 != 0)
                         {
-                            spikes.delegateRotateAllSpikesWithID = new Spikes.rotateAllSpikesWithID(this.rotateAllSpikesWithID);
+                            spikes.delegateRotateAllSpikesWithID = new Spikes.rotateAllSpikesWithID(rotateAllSpikesWithID);
                         }
                         if (xmlnode4.Name == "electro")
                         {
@@ -481,7 +481,7 @@ namespace ctr_wp7.game
                         rotatedCircle.handle2 = MathHelper.vectRotateAround(rotatedCircle.handle2, (double)MathHelper.DEGREES_TO_RADIANS(num20), rotatedCircle.x, rotatedCircle.y);
                         rotatedCircle.setSize(num19);
                         rotatedCircle.setHasOneHandle(flag);
-                        this.rotatedCircles.Add(rotatedCircle);
+                        rotatedCircles.Add(rotatedCircle);
                     }
                     else if (xmlnode4.Name == "ghost")
                     {
@@ -492,42 +492,42 @@ namespace ctr_wp7.game
                         bool flag2 = xmlnode4["grab"].boolValue();
                         bool flag3 = xmlnode4["bubble"].boolValue();
                         int num25 = (xmlnode4["bouncer"].boolValue() ? 8 : 0) | (flag3 ? 2 : 0) | (flag2 ? 4 : 0);
-                        Ghost ghost = new Ghost().initWithPositionPossibleStatesMaskGrabRadiusBouncerAngleBubblesBungeesBouncers(MathHelper.vect(num21, num22), num25, num23, num24, this.bubbles, this.bungees, this.bouncers);
-                        this.ghosts.Add(ghost);
-                        if (!this.isCandyInGhostBubbleAnimationLoaded)
+                        Ghost ghost = new Ghost().initWithPositionPossibleStatesMaskGrabRadiusBouncerAngleBubblesBungeesBouncers(MathHelper.vect(num21, num22), num25, num23, num24, bubbles, bungees, bouncers);
+                        ghosts.Add(ghost);
+                        if (!isCandyInGhostBubbleAnimationLoaded)
                         {
-                            this.candyGhostBubbleAnimation = CandyInGhostBubbleAnimation.CIGBAnimation_createWithResID(120);
-                            this.candyGhostBubbleAnimation.parentAnchor = (this.candyGhostBubbleAnimation.anchor = 18);
-                            this.candyGhostBubbleAnimation.addAnimationDelayLoopFirstLast(0.05f, Timeline.LoopType.TIMELINE_REPLAY, 0, 12);
-                            this.candyGhostBubbleAnimation.playTimeline(0);
-                            this.candy.addChild(this.candyGhostBubbleAnimation);
-                            this.candyGhostBubbleAnimation.visible = false;
-                            this.candyGhostBubbleAnimation.addSupportingCloudsTimelines();
-                            this.isCandyInGhostBubbleAnimationLoaded = true;
+                            candyGhostBubbleAnimation = CandyInGhostBubbleAnimation.CIGBAnimation_createWithResID(120);
+                            candyGhostBubbleAnimation.parentAnchor = (candyGhostBubbleAnimation.anchor = 18);
+                            candyGhostBubbleAnimation.addAnimationDelayLoopFirstLast(0.05f, Timeline.LoopType.TIMELINE_REPLAY, 0, 12);
+                            candyGhostBubbleAnimation.playTimeline(0);
+                            candy.addChild(candyGhostBubbleAnimation);
+                            candyGhostBubbleAnimation.visible = false;
+                            candyGhostBubbleAnimation.addSupportingCloudsTimelines();
+                            isCandyInGhostBubbleAnimationLoaded = true;
                         }
-                        if (this.twoParts != 2)
+                        if (twoParts != 2)
                         {
-                            if (!this.isCandyInGhostBubbleAnimationLeftLoaded)
+                            if (!isCandyInGhostBubbleAnimationLeftLoaded)
                             {
-                                this.candyGhostBubbleAnimationL = CandyInGhostBubbleAnimation.CIGBAnimation_createWithResID(120);
-                                this.candyGhostBubbleAnimationL.parentAnchor = (this.candyGhostBubbleAnimationL.anchor = 18);
-                                this.candyGhostBubbleAnimationL.addAnimationDelayLoopFirstLast(0.05f, Timeline.LoopType.TIMELINE_REPLAY, 0, 12);
-                                this.candyGhostBubbleAnimationL.playTimeline(0);
-                                this.candyL.addChild(this.candyGhostBubbleAnimationL);
-                                this.candyGhostBubbleAnimationL.visible = false;
-                                this.candyGhostBubbleAnimationL.addSupportingCloudsTimelines();
-                                this.isCandyInGhostBubbleAnimationLeftLoaded = true;
+                                candyGhostBubbleAnimationL = CandyInGhostBubbleAnimation.CIGBAnimation_createWithResID(120);
+                                candyGhostBubbleAnimationL.parentAnchor = (candyGhostBubbleAnimationL.anchor = 18);
+                                candyGhostBubbleAnimationL.addAnimationDelayLoopFirstLast(0.05f, Timeline.LoopType.TIMELINE_REPLAY, 0, 12);
+                                candyGhostBubbleAnimationL.playTimeline(0);
+                                candyL.addChild(candyGhostBubbleAnimationL);
+                                candyGhostBubbleAnimationL.visible = false;
+                                candyGhostBubbleAnimationL.addSupportingCloudsTimelines();
+                                isCandyInGhostBubbleAnimationLeftLoaded = true;
                             }
-                            if (!this.isCandyInGhostBubbleAnimationRightLoaded)
+                            if (!isCandyInGhostBubbleAnimationRightLoaded)
                             {
-                                this.candyGhostBubbleAnimationR = CandyInGhostBubbleAnimation.CIGBAnimation_createWithResID(120);
-                                this.candyGhostBubbleAnimationR.parentAnchor = (this.candyGhostBubbleAnimationR.anchor = 18);
-                                this.candyGhostBubbleAnimationR.addAnimationDelayLoopFirstLast(0.05f, Timeline.LoopType.TIMELINE_REPLAY, 0, 12);
-                                this.candyGhostBubbleAnimationR.playTimeline(0);
-                                this.candyR.addChild(this.candyGhostBubbleAnimationR);
-                                this.candyGhostBubbleAnimationR.visible = false;
-                                this.candyGhostBubbleAnimationR.addSupportingCloudsTimelines();
-                                this.isCandyInGhostBubbleAnimationRightLoaded = true;
+                                candyGhostBubbleAnimationR = CandyInGhostBubbleAnimation.CIGBAnimation_createWithResID(120);
+                                candyGhostBubbleAnimationR.parentAnchor = (candyGhostBubbleAnimationR.anchor = 18);
+                                candyGhostBubbleAnimationR.addAnimationDelayLoopFirstLast(0.05f, Timeline.LoopType.TIMELINE_REPLAY, 0, 12);
+                                candyGhostBubbleAnimationR.playTimeline(0);
+                                candyR.addChild(candyGhostBubbleAnimationR);
+                                candyGhostBubbleAnimationR.visible = false;
+                                candyGhostBubbleAnimationR.addSupportingCloudsTimelines();
+                                isCandyInGhostBubbleAnimationRightLoaded = true;
                             }
                         }
                     }
@@ -539,7 +539,7 @@ namespace ctr_wp7.game
                         double num29 = (double)xmlnode4["angle"].intValue();
                         Bouncer bouncer = (Bouncer)new Bouncer().initWithPosXYWidthAndAngle(num26, num27, num28, num29);
                         bouncer.parseMover(xmlnode4);
-                        this.bouncers.Add(bouncer);
+                        bouncers.Add(bouncer);
                     }
                     else if (xmlnode4.Name == "grab")
                     {
@@ -572,12 +572,12 @@ namespace ctr_wp7.game
                                 {
                                     if (!flag9 || n % num36 == 0)
                                     {
-                                        this.pollenDrawer.fillWithPolenFromPathIndexToPathIndexGrab(n, n + 1, grab);
+                                        pollenDrawer.fillWithPolenFromPathIndexToPathIndexGrab(n, n + 1, grab);
                                     }
                                 }
                                 if (grab.mover.pathLen > 2)
                                 {
-                                    this.pollenDrawer.fillWithPolenFromPathIndexToPathIndexGrab(0, grab.mover.pathLen - 1, grab);
+                                    pollenDrawer.fillWithPolenFromPathIndexToPathIndexGrab(0, grab.mover.pathLen - 1, grab);
                                 }
                             }
                         }
@@ -587,10 +587,10 @@ namespace ctr_wp7.game
                         }
                         if (num33 == -1f)
                         {
-                            ConstraintedPoint constraintedPoint = this.star;
-                            if (this.twoParts != 2)
+                            ConstraintedPoint constraintedPoint = star;
+                            if (twoParts != 2)
                             {
-                                constraintedPoint = (flag7 ? this.starL : this.starR);
+                                constraintedPoint = (flag7 ? starL : starR);
                             }
                             Bungee bungee = (Bungee)new Bungee().initWithHeadAtXYTailAtTXTYandLength(null, num30, num31, constraintedPoint, constraintedPoint.pos.x, constraintedPoint.pos.y, num32);
                             bungee.bungeeAnchor.pin = bungee.bungeeAnchor.pos;
@@ -598,22 +598,22 @@ namespace ctr_wp7.game
                         }
                         grab.setRadius(num33);
                         grab.setMoveLengthVerticalOffset(num34, flag5, num35);
-                        this.bungees.Add(grab);
+                        bungees.Add(grab);
                     }
                     else if (xmlnode4.Name == "target")
                     {
-                        this.target = GameScene.CharAnim.CharAnim_createWithResID(132);
-                        this.target.doRestoreCutTransparency();
-                        this.target.bb = new Rectangle(90.0, 110.0, 25.0, 1.0);
-                        this.targetIdle = GameScene.CharAnim.CharAnim_createWithResID(133);
-                        this.targetIdle.doRestoreCutTransparency();
-                        this.target.o = this.targetIdle;
-                        this.targetIdle.o = this.target;
-                        this.targetIdle.bb = new Rectangle(90.0, 110.0, 25.0, 1.0);
-                        this.target.addAnimationWithIDDelayLoopFirstLast(11, 0.05f, Timeline.LoopType.TIMELINE_NO_LOOP, 84, 112);
-                        this.targetIdle.addAnimationWithIDDelayLoopFirstLast(0, 0.05f, Timeline.LoopType.TIMELINE_REPLAY, 0, 18);
-                        this.targetIdle.addAnimationWithIDDelayLoopFirstLast(1, 0.05f, Timeline.LoopType.TIMELINE_NO_LOOP, 19, 43);
-                        Animation animation3 = this.targetIdle;
+                        target = GameScene.CharAnim.CharAnim_createWithResID(132);
+                        target.doRestoreCutTransparency();
+                        target.bb = new Rectangle(90.0, 110.0, 25.0, 1.0);
+                        targetIdle = GameScene.CharAnim.CharAnim_createWithResID(133);
+                        targetIdle.doRestoreCutTransparency();
+                        target.o = targetIdle;
+                        targetIdle.o = target;
+                        targetIdle.bb = new Rectangle(90.0, 110.0, 25.0, 1.0);
+                        target.addAnimationWithIDDelayLoopFirstLast(11, 0.05f, Timeline.LoopType.TIMELINE_NO_LOOP, 84, 112);
+                        targetIdle.addAnimationWithIDDelayLoopFirstLast(0, 0.05f, Timeline.LoopType.TIMELINE_REPLAY, 0, 18);
+                        targetIdle.addAnimationWithIDDelayLoopFirstLast(1, 0.05f, Timeline.LoopType.TIMELINE_NO_LOOP, 19, 43);
+                        Animation animation3 = targetIdle;
                         int num37 = 3;
                         float num38 = 0.05f;
                         Timeline.LoopType loopType3 = Timeline.LoopType.TIMELINE_NO_LOOP;
@@ -652,36 +652,36 @@ namespace ctr_wp7.game
                         list3.Add(58);
                         list3.Add(59);
                         animation3.addAnimationWithIDDelayLoopCountSequence(num37, num38, loopType3, num39, num40, list3);
-                        this.target.addAnimationWithIDDelayLoopFirstLast(4, 0.05f, Timeline.LoopType.TIMELINE_NO_LOOP, 37, 56);
-                        this.target.addAnimationWithIDDelayLoopFirstLast(5, 0.05f, Timeline.LoopType.TIMELINE_NO_LOOP, 57, 83);
-                        this.target.addAnimationWithIDDelayLoopFirstLast(6, 0.05f, Timeline.LoopType.TIMELINE_NO_LOOP, 0, 12);
-                        this.target.addAnimationWithIDDelayLoopFirstLast(7, 0.05f, Timeline.LoopType.TIMELINE_NO_LOOP, 22, 25);
-                        this.target.addAnimationWithIDDelayLoopFirstLast(8, 0.05f, Timeline.LoopType.TIMELINE_NO_LOOP, 13, 21);
-                        this.target.addAnimationWithIDDelayLoopFirstLast(9, 0.05f, Timeline.LoopType.TIMELINE_NO_LOOP, 22, 25);
-                        this.target.addAnimationWithIDDelayLoopFirstLast(10, 0.05f, Timeline.LoopType.TIMELINE_REPLAY, 26, 34);
-                        this.target.switchToAnimationatEndOfAnimationDelay(10, 7, 0.05f);
-                        this.target.switchToAnimationatEndOfAnimationDelay(5, 9, 0.05f);
-                        this.target.switchToAnimationatEndOfAnimationDelay(0, 11, 0.05f);
-                        this.targetIdle.switchToAnimationatEndOfAnimationDelay(0, 1, 0.05f);
-                        this.targetIdle.switchToAnimationatEndOfAnimationDelay(0, 3, 0.05f);
-                        this.target.switchToAnimationatEndOfAnimationDelay(0, 4, 0.05f);
-                        this.target.switchToAnimationatEndOfAnimationDelay(0, 5, 0.05f);
-                        NSObject.NSRET(this.target);
-                        NSObject.NSRET(this.targetIdle);
+                        target.addAnimationWithIDDelayLoopFirstLast(4, 0.05f, Timeline.LoopType.TIMELINE_NO_LOOP, 37, 56);
+                        target.addAnimationWithIDDelayLoopFirstLast(5, 0.05f, Timeline.LoopType.TIMELINE_NO_LOOP, 57, 83);
+                        target.addAnimationWithIDDelayLoopFirstLast(6, 0.05f, Timeline.LoopType.TIMELINE_NO_LOOP, 0, 12);
+                        target.addAnimationWithIDDelayLoopFirstLast(7, 0.05f, Timeline.LoopType.TIMELINE_NO_LOOP, 22, 25);
+                        target.addAnimationWithIDDelayLoopFirstLast(8, 0.05f, Timeline.LoopType.TIMELINE_NO_LOOP, 13, 21);
+                        target.addAnimationWithIDDelayLoopFirstLast(9, 0.05f, Timeline.LoopType.TIMELINE_NO_LOOP, 22, 25);
+                        target.addAnimationWithIDDelayLoopFirstLast(10, 0.05f, Timeline.LoopType.TIMELINE_REPLAY, 26, 34);
+                        target.switchToAnimationatEndOfAnimationDelay(10, 7, 0.05f);
+                        target.switchToAnimationatEndOfAnimationDelay(5, 9, 0.05f);
+                        target.switchToAnimationatEndOfAnimationDelay(0, 11, 0.05f);
+                        targetIdle.switchToAnimationatEndOfAnimationDelay(0, 1, 0.05f);
+                        targetIdle.switchToAnimationatEndOfAnimationDelay(0, 3, 0.05f);
+                        target.switchToAnimationatEndOfAnimationDelay(0, 4, 0.05f);
+                        target.switchToAnimationatEndOfAnimationDelay(0, 5, 0.05f);
+                        NSObject.NSRET(target);
+                        NSObject.NSRET(targetIdle);
                         if (CTRRootController.isShowGreeting())
                         {
-                            this.dd.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(this.selector_showGreeting), null, 1.3f);
+                            dd.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(selector_showGreeting), null, 1.3f);
                             CTRRootController.setShowGreeting(false);
                         }
-                        this.targetIdle.playTimeline(0);
-                        Timeline timeline5 = this.targetIdle.getTimeline(0);
+                        targetIdle.playTimeline(0);
+                        Timeline timeline5 = targetIdle.getTimeline(0);
                         timeline5.delegateTimelineDelegate = this;
-                        this.target.isDrawBB = true;
-                        this.target.setPauseAtIndexforAnimation(8, 8);
-                        this.blink = Animation.Animation_createWithResID(132);
-                        this.blink.parentAnchor = 9;
-                        this.blink.visible = false;
-                        Animation animation4 = this.blink;
+                        target.isDrawBB = true;
+                        target.setPauseAtIndexforAnimation(8, 8);
+                        blink = Animation.Animation_createWithResID(132);
+                        blink.parentAnchor = 9;
+                        blink.visible = false;
+                        Animation animation4 = blink;
                         int num41 = 0;
                         float num42 = 0.05f;
                         Timeline.LoopType loopType4 = Timeline.LoopType.TIMELINE_NO_LOOP;
@@ -692,23 +692,23 @@ namespace ctr_wp7.game
                         list4.Add(36);
                         list4.Add(36);
                         animation4.addAnimationWithIDDelayLoopCountSequence(num41, num42, loopType4, num43, num44, list4);
-                        this.blink.setActionTargetParamSubParamAtIndexforAnimation("ACTION_SET_VISIBLE", this.blink, 0, 0, 2, 0);
-                        this.blinkTimer = 3;
-                        this.blink.doRestoreCutTransparency();
-                        this.targetIdle.addChild(this.blink);
+                        blink.setActionTargetParamSubParamAtIndexforAnimation("ACTION_SET_VISIBLE", blink, 0, 0, 2, 0);
+                        blinkTimer = 3;
+                        blink.doRestoreCutTransparency();
+                        targetIdle.addChild(blink);
                         CTRRootController ctrrootController2 = (CTRRootController)Application.sharedRootController();
                         int num45 = 189 + ctrrootController2.getPack() * 2;
-                        this.support = Image.Image_createWithResID(num45);
-                        NSObject.NSRET(this.support);
-                        this.support.doRestoreCutTransparency();
-                        this.support.anchor = 18;
+                        support = Image.Image_createWithResID(num45);
+                        NSObject.NSRET(support);
+                        support.doRestoreCutTransparency();
+                        support.anchor = 18;
                         NSString nsstring4 = xmlnode4["x"];
                         float num46 = (float)(1 - nsstring4.intValue() % 2) * 0.33f;
-                        this.targetIdle.x = (this.target.x = (this.support.x = (float)nsstring4.intValue() * 1f + 0f + num46));
+                        targetIdle.x = (target.x = (support.x = (float)nsstring4.intValue() * 1f + 0f + num46));
                         NSString nsstring5 = xmlnode4["y"];
                         float num47 = (float)(1 - nsstring5.intValue() % 2) * 0.33f;
-                        this.targetIdle.y = (this.target.y = (this.support.y = (float)nsstring5.intValue() * 1f + 0f + num47));
-                        this.idlesTimer = MathHelper.RND_RANGE(5, 20);
+                        targetIdle.y = (target.y = (support.y = (float)nsstring5.intValue() * 1f + 0f + num47));
+                        idlesTimer = MathHelper.RND_RANGE(5, 20);
                     }
                     else if (xmlnode4.Name == "steamTube")
                     {
@@ -716,7 +716,7 @@ namespace ctr_wp7.game
                         float num49 = (float)xmlnode4["y"].intValue() * 1f + 0f;
                         double num50 = (double)xmlnode4["angle"].intValue();
                         SteamTube steamTube = new SteamTube().initWithPositionAngle(MathHelper.vect(num48, num49), (float)num50);
-                        this.tubes.Add(steamTube);
+                        tubes.Add(steamTube);
                     }
                     else if (xmlnode4.Name == "lantern")
                     {
@@ -727,56 +727,56 @@ namespace ctr_wp7.game
                         lantern.parseMover(xmlnode4);
                         if (flag10)
                         {
-                            this.isCandyInLantern = true;
-                            lantern.captureCandy(this.star);
-                            this.candy.x = this.star.pos.x;
-                            this.candy.y = this.star.pos.y;
-                            this.candy.color = RGBAColor.transparentRGBA;
+                            isCandyInLantern = true;
+                            lantern.captureCandy(star);
+                            candy.x = star.pos.x;
+                            candy.y = star.pos.y;
+                            candy.color = RGBAColor.transparentRGBA;
                         }
                     }
                 }
             }
-            if (this.twoParts != 2)
+            if (twoParts != 2)
             {
-                this.candyBubbleAnimationL = Animation.Animation_createWithResID(120);
-                this.candyBubbleAnimationL.parentAnchor = (this.candyBubbleAnimationL.anchor = 18);
-                this.candyBubbleAnimationL.addAnimationDelayLoopFirstLast(0.05f, Timeline.LoopType.TIMELINE_REPLAY, 0, 12);
-                this.candyBubbleAnimationL.playTimeline(0);
-                this.candyL.addChild(this.candyBubbleAnimationL);
-                this.candyBubbleAnimationL.visible = false;
-                this.candyBubbleAnimationR = Animation.Animation_createWithResID(120);
-                this.candyBubbleAnimationR.parentAnchor = (this.candyBubbleAnimationR.anchor = 18);
-                this.candyBubbleAnimationR.addAnimationDelayLoopFirstLast(0.05f, Timeline.LoopType.TIMELINE_REPLAY, 0, 12);
-                this.candyBubbleAnimationR.playTimeline(0);
-                this.candyR.addChild(this.candyBubbleAnimationR);
-                this.candyBubbleAnimationR.visible = false;
+                candyBubbleAnimationL = Animation.Animation_createWithResID(120);
+                candyBubbleAnimationL.parentAnchor = (candyBubbleAnimationL.anchor = 18);
+                candyBubbleAnimationL.addAnimationDelayLoopFirstLast(0.05f, Timeline.LoopType.TIMELINE_REPLAY, 0, 12);
+                candyBubbleAnimationL.playTimeline(0);
+                candyL.addChild(candyBubbleAnimationL);
+                candyBubbleAnimationL.visible = false;
+                candyBubbleAnimationR = Animation.Animation_createWithResID(120);
+                candyBubbleAnimationR.parentAnchor = (candyBubbleAnimationR.anchor = 18);
+                candyBubbleAnimationR.addAnimationDelayLoopFirstLast(0.05f, Timeline.LoopType.TIMELINE_REPLAY, 0, 12);
+                candyBubbleAnimationR.playTimeline(0);
+                candyR.addChild(candyBubbleAnimationR);
+                candyBubbleAnimationR.visible = false;
             }
-            for (int num53 = 0; num53 < this.rotatedCircles.Count; num53++)
+            for (int num53 = 0; num53 < rotatedCircles.Count; num53++)
             {
-                RotatedCircle rotatedCircle2 = this.rotatedCircles[num53];
+                RotatedCircle rotatedCircle2 = rotatedCircles[num53];
                 rotatedCircle2.operating = -1;
-                rotatedCircle2.circlesArray = this.rotatedCircles;
+                rotatedCircle2.circlesArray = rotatedCircles;
             }
-            this.startCamera();
-            this.tummyTeasers = 0;
-            this.starsCollected = 0;
-            this.candyBubble = null;
-            this.candyBubbleL = null;
-            this.candyBubbleR = null;
-            this.mouthOpen = false;
-            this.noCandy = this.twoParts != 2;
-            this.noCandyL = false;
-            this.noCandyR = false;
-            this.blink.playTimeline(0);
-            this.spiderTookCandy = false;
-            this.time = 0f;
-            this.score = 0;
-            this.gravityNormal = true;
+            startCamera();
+            tummyTeasers = 0;
+            starsCollected = 0;
+            candyBubble = null;
+            candyBubbleL = null;
+            candyBubbleR = null;
+            mouthOpen = false;
+            noCandy = twoParts != 2;
+            noCandyL = false;
+            noCandyR = false;
+            blink.playTimeline(0);
+            spiderTookCandy = false;
+            time = 0f;
+            score = 0;
+            gravityNormal = true;
             MaterialPoint.globalGravity = MathHelper.vect(0f, 784f);
-            this.dimTime = 0f;
-            this.ropesCutAtOnce = 0;
-            this.ropeAtOnceTimer = 0f;
-            this.dd.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(this.selector_doCandyBlink), null, 1f);
+            dimTime = 0f;
+            ropesCutAtOnce = 0;
+            ropeAtOnceTimer = 0f;
+            dd.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(selector_doCandyBlink), null, 1f);
             Text text = Text.createWithFontandString(5, NSObject.NSS((ctrrootController.getPack() + 1).ToString() + " - " + (ctrrootController.getLevel() + 1).ToString()));
             text.anchor = 33;
             Text text2 = Text.createWithFontandString(5, Application.getString(1310741));
@@ -800,43 +800,43 @@ namespace ctr_wp7.game
             timeline6.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.5));
             text.addTimelinewithID(timeline6, 0);
             text.playTimeline(0);
-            timeline6.delegateTimelineDelegate = this.staticAniPool;
-            this.staticAniPool.addChild(text);
+            timeline6.delegateTimelineDelegate = staticAniPool;
+            staticAniPool.addChild(text);
             text.y += FrameworkTypes.SCREEN_OFFSET_Y;
             text.x -= FrameworkTypes.SCREEN_OFFSET_X;
             int attemptsForPackLevel = CTRPreferences.getAttemptsForPackLevel(ctrrootController.getPack(), ctrrootController.getLevel());
             CTRPreferences.setAttemptsForPackLevel(attemptsForPackLevel + 1, ctrrootController.getPack(), ctrrootController.getLevel());
-            this.ropesCutFromLevelStart = 0;
+            ropesCutFromLevelStart = 0;
         }
 
         // Token: 0x06000804 RID: 2052 RVA: 0x000422E4 File Offset: 0x000404E4
         public virtual void timelinereachedKeyFramewithIndex(Timeline t, KeyFrame k, int i)
         {
-            if (t.element is RotatedCircle && this.rotatedCircles.IndexOf((RotatedCircle)t.element) >= 0)
+            if (t.element is RotatedCircle && rotatedCircles.IndexOf((RotatedCircle)t.element) >= 0)
             {
                 return;
             }
-            if (i == 1 && this.targetIdle.visible)
+            if (i == 1 && targetIdle.visible)
             {
-                this.blinkTimer--;
-                if (this.blinkTimer == 0)
+                blinkTimer--;
+                if (blinkTimer == 0)
                 {
-                    this.blink.visible = true;
-                    this.blink.playTimeline(0);
-                    this.blinkTimer = 3;
+                    blink.visible = true;
+                    blink.playTimeline(0);
+                    blinkTimer = 3;
                 }
-                this.idlesTimer--;
-                if (this.idlesTimer == 0)
+                idlesTimer--;
+                if (idlesTimer == 0)
                 {
                     if (MathHelper.RND_RANGE(0, 1) == 1)
                     {
-                        this.targetIdle.playTimeline(1);
+                        targetIdle.playTimeline(1);
                     }
                     else
                     {
-                        this.targetIdle.playTimeline(3);
+                        targetIdle.playTimeline(3);
                     }
-                    this.idlesTimer = MathHelper.RND_RANGE(5, 20);
+                    idlesTimer = MathHelper.RND_RANGE(5, 20);
                 }
             }
         }
@@ -844,7 +844,7 @@ namespace ctr_wp7.game
         // Token: 0x06000805 RID: 2053 RVA: 0x000423AC File Offset: 0x000405AC
         public virtual void timelineFinished(Timeline t)
         {
-            if (t.element is RotatedCircle && this.rotatedCircles.IndexOf((RotatedCircle)t.element) >= 0)
+            if (t.element is RotatedCircle && rotatedCircles.IndexOf((RotatedCircle)t.element) >= 0)
             {
                 RotatedCircle rotatedCircle = (RotatedCircle)t.element;
                 rotatedCircle.removeOnNextUpdate = true;
@@ -854,21 +854,21 @@ namespace ctr_wp7.game
         // Token: 0x06000806 RID: 2054 RVA: 0x000423F4 File Offset: 0x000405F4
         public override void hide()
         {
-            if (this.gravityButton != null)
+            if (gravityButton != null)
             {
-                this.removeChild(this.gravityButton);
+                removeChild(gravityButton);
             }
-            if (this.ropesCutFromLevelStart > 0)
+            if (ropesCutFromLevelStart > 0)
             {
                 Dictionary<string, string> dictionary = new Dictionary<string, string>();
-                dictionary["ropes_cut"] = this.ropesCutFromLevelStart.ToString();
-                this.postGameEvent("LEVSCR_ROPES_CUT", dictionary, false);
+                dictionary["ropes_cut"] = ropesCutFromLevelStart.ToString();
+                postGameEvent("LEVSCR_ROPES_CUT", dictionary, false);
             }
-            if (this.starsCollected > 0)
+            if (starsCollected > 0)
             {
                 Dictionary<string, string> dictionary2 = new Dictionary<string, string>();
-                dictionary2["stars_collected_on_level"] = this.starsCollected.ToString();
-                this.postGameEvent("LEVSCR_STARS_COLLECTED", dictionary2, false);
+                dictionary2["stars_collected_on_level"] = starsCollected.ToString();
+                postGameEvent("LEVSCR_STARS_COLLECTED", dictionary2, false);
             }
             Lantern.removeAllLanterns();
         }
@@ -877,16 +877,16 @@ namespace ctr_wp7.game
         public override void update(float delta)
         {
             base.update(delta);
-            this.dd.update(delta);
-            this.pollenDrawer.update(delta);
+            dd.update(delta);
+            pollenDrawer.update(delta);
             bool flag = true;
-            if (!this.noCandy)
+            if (!noCandy)
             {
-                if (this.candyBubble == null)
+                if (candyBubble == null)
                 {
-                    for (int i = 0; i < this.bungees.Count; i++)
+                    for (int i = 0; i < bungees.Count; i++)
                     {
-                        if (this.bungees[i].rope != null && this.bungees[i].rope.tail == this.star && this.bungees[i].rope.cut == -1)
+                        if (bungees[i].rope != null && bungees[i].rope.tail == star && bungees[i].rope.cut == -1)
                         {
                             flag = false;
                         }
@@ -903,96 +903,96 @@ namespace ctr_wp7.game
             }
             if (!flag)
             {
-                this.JugglingTime = 0f;
+                JugglingTime = 0f;
             }
             else
             {
-                this.JugglingTime += delta;
-                if (this.JugglingTime >= 30f)
+                JugglingTime += delta;
+                if (JugglingTime >= 30f)
                 {
                     CTRRootController.postAchievementName(NSObject.NSS("acCandyJuggler"));
                 }
             }
             for (int j = 0; j < 5; j++)
             {
-                for (int k = 0; k < this.fingerCuts[j].Count; k++)
+                for (int k = 0; k < fingerCuts[j].Count; k++)
                 {
-                    GameScene.FingerCut fingerCut = this.fingerCuts[j][k];
+                    GameScene.FingerCut fingerCut = fingerCuts[j][k];
                     if (Mover.moveVariableToTarget(ref fingerCut.c.a, 0f, 10f, delta))
                     {
-                        this.fingerCuts[j].Remove(fingerCut);
+                        fingerCuts[j].Remove(fingerCut);
                         k--;
                     }
                 }
             }
             int num = 0;
-            if (this.earthAnims != null)
+            if (earthAnims != null)
             {
-                num = this.earthAnims.Count;
+                num = earthAnims.Count;
                 for (int l = 0; l < num; l++)
                 {
-                    Image image = this.earthAnims[l];
+                    Image image = earthAnims[l];
                     if (image != null)
                     {
                         image.update(delta);
                     }
                 }
             }
-            Mover.moveVariableToTarget(ref this.ropeAtOnceTimer, 0f, 1f, delta);
-            ConstraintedPoint constraintedPoint = ((this.twoParts != 2) ? this.starL : this.star);
+            Mover.moveVariableToTarget(ref ropeAtOnceTimer, 0f, 1f, delta);
+            ConstraintedPoint constraintedPoint = ((twoParts != 2) ? starL : star);
             float num2 = constraintedPoint.pos.x - FrameworkTypes.SCREEN_WIDTH / 2f;
             float num3 = constraintedPoint.pos.y - FrameworkTypes.SCREEN_HEIGHT / 2f;
-            float num4 = MathHelper.FIT_TO_BOUNDARIES(num2, 0f, this.mapWidth - FrameworkTypes.SCREEN_WIDTH);
-            float num5 = MathHelper.FIT_TO_BOUNDARIES(num3, 0f, this.mapHeight - FrameworkTypes.SCREEN_HEIGHT);
-            this.camera.moveToXYImmediate(num4, num5, false);
-            if (!this.freezeCamera || this.camera.type != CAMERA_TYPE.CAMERA_SPEED_DELAY)
+            float num4 = MathHelper.FIT_TO_BOUNDARIES(num2, 0f, mapWidth - FrameworkTypes.SCREEN_WIDTH);
+            float num5 = MathHelper.FIT_TO_BOUNDARIES(num3, 0f, mapHeight - FrameworkTypes.SCREEN_HEIGHT);
+            camera.moveToXYImmediate(num4, num5, false);
+            if (!freezeCamera || camera.type != CAMERA_TYPE.CAMERA_SPEED_DELAY)
             {
-                this.camera.update(delta);
+                camera.update(delta);
             }
-            if (this.camera.type == CAMERA_TYPE.CAMERA_SPEED_PIXELS)
+            if (camera.type == CAMERA_TYPE.CAMERA_SPEED_PIXELS)
             {
-                float num6 = MathHelper.vectDistance(this.camera.pos, MathHelper.vect(num4, num5));
+                float num6 = MathHelper.vectDistance(camera.pos, MathHelper.vect(num4, num5));
                 if (num6 < 50f)
                 {
-                    this.ignoreTouches = false;
+                    ignoreTouches = false;
                 }
-                if (this.fastenCamera)
+                if (fastenCamera)
                 {
-                    if (this.camera.speed < 2700f)
+                    if (camera.speed < 2700f)
                     {
-                        this.camera.speed *= 1.5f;
+                        camera.speed *= 1.5f;
                     }
                 }
-                else if ((double)num6 > (double)this.initialCameraToStarDistance / 2.0)
+                else if ((double)num6 > (double)initialCameraToStarDistance / 2.0)
                 {
-                    this.camera.speed += delta * 200f;
-                    this.camera.speed = Math.Min(300f, this.camera.speed);
+                    camera.speed += delta * 200f;
+                    camera.speed = Math.Min(300f, camera.speed);
                 }
                 else
                 {
-                    this.camera.speed -= delta * 200f;
-                    this.camera.speed = Math.Max(50f, this.camera.speed);
+                    camera.speed -= delta * 200f;
+                    camera.speed = Math.Max(50f, camera.speed);
                 }
-                if (((double)Math.Abs(this.camera.pos.x - num4) < 1.0 && (double)Math.Abs(this.camera.pos.y - num5) < 1.0) || (!this.ignoreTouches && num6 > 50f))
+                if (((double)Math.Abs(camera.pos.x - num4) < 1.0 && (double)Math.Abs(camera.pos.y - num5) < 1.0) || (!ignoreTouches && num6 > 50f))
                 {
-                    this.camera.type = CAMERA_TYPE.CAMERA_SPEED_DELAY;
-                    this.camera.speed = 7f;
+                    camera.type = CAMERA_TYPE.CAMERA_SPEED_DELAY;
+                    camera.speed = 7f;
                 }
             }
             else
             {
-                this.time += delta;
+                time += delta;
             }
-            if (this.bungees.Count > 0)
+            if (bungees.Count > 0)
             {
                 bool flag2 = false;
                 bool flag3 = false;
                 bool flag4 = false;
-                int count = this.bungees.Count;
+                int count = bungees.Count;
                 int m = 0;
                 while (m < count)
                 {
-                    Grab grab = this.bungees[m];
+                    Grab grab = bungees[m];
                     grab.update(delta);
                     Bungee rope = grab.rope;
                     if (grab.mover != null)
@@ -1015,19 +1015,19 @@ namespace ctr_wp7.game
                     {
                         if (rope != null)
                         {
-                            rope.update(delta * this.ropePhysicsSpeed, this.ropePhysicsSpeed);
+                            rope.update(delta * ropePhysicsSpeed, ropePhysicsSpeed);
                         }
                         if (!grab.hasSpider)
                         {
                             goto IL_0506;
                         }
-                        if (this.camera.type != CAMERA_TYPE.CAMERA_SPEED_PIXELS || !this.ignoreTouches)
+                        if (camera.type != CAMERA_TYPE.CAMERA_SPEED_PIXELS || !ignoreTouches)
                         {
                             grab.updateSpider(delta);
                         }
                         if (grab.spiderPos == -1f)
                         {
-                            this.spiderWon(grab);
+                            spiderWon(grab);
                             break;
                         }
                         goto IL_0506;
@@ -1038,14 +1038,14 @@ namespace ctr_wp7.game
                 IL_0506:
                     if (grab.radius != -1f && grab.rope == null && !grab.hasTimeline(11))
                     {
-                        if (this.twoParts != 2)
+                        if (twoParts != 2)
                         {
-                            if (!this.noCandyL)
+                            if (!noCandyL)
                             {
-                                float num7 = MathHelper.vectDistance(MathHelper.vect(grab.x, grab.y), this.starL.pos);
+                                float num7 = MathHelper.vectDistance(MathHelper.vect(grab.x, grab.y), starL.pos);
                                 if (num7 <= grab.radius + 15f)
                                 {
-                                    Bungee bungee = (Bungee)new Bungee().initWithHeadAtXYTailAtTXTYandLength(null, grab.x, grab.y, this.starL, this.starL.pos.x, this.starL.pos.y, grab.radius + 15f);
+                                    Bungee bungee = (Bungee)new Bungee().initWithHeadAtXYTailAtTXTYandLength(null, grab.x, grab.y, starL, starL.pos.x, starL.pos.y, grab.radius + 15f);
                                     bungee.bungeeAnchor.pin = bungee.bungeeAnchor.pos;
                                     grab.hideRadius = true;
                                     grab.setRope(bungee);
@@ -1056,12 +1056,12 @@ namespace ctr_wp7.game
                                     }
                                 }
                             }
-                            if (!this.noCandyR && grab.rope == null)
+                            if (!noCandyR && grab.rope == null)
                             {
-                                float num8 = MathHelper.vectDistance(MathHelper.vect(grab.x, grab.y), this.starR.pos);
+                                float num8 = MathHelper.vectDistance(MathHelper.vect(grab.x, grab.y), starR.pos);
                                 if (num8 <= grab.radius + 15f)
                                 {
-                                    Bungee bungee2 = (Bungee)new Bungee().initWithHeadAtXYTailAtTXTYandLength(null, grab.x, grab.y, this.starR, this.starR.pos.x, this.starR.pos.y, grab.radius + 15f);
+                                    Bungee bungee2 = (Bungee)new Bungee().initWithHeadAtXYTailAtTXTYandLength(null, grab.x, grab.y, starR, starR.pos.x, starR.pos.y, grab.radius + 15f);
                                     bungee2.bungeeAnchor.pin = bungee2.bungeeAnchor.pos;
                                     grab.hideRadius = true;
                                     grab.setRope(bungee2);
@@ -1075,10 +1075,10 @@ namespace ctr_wp7.game
                         }
                         else
                         {
-                            float num9 = MathHelper.vectDistance(MathHelper.vect(grab.x, grab.y), this.star.pos);
+                            float num9 = MathHelper.vectDistance(MathHelper.vect(grab.x, grab.y), star.pos);
                             if (num9 <= grab.radius + 15f)
                             {
-                                Bungee bungee3 = (Bungee)new Bungee().initWithHeadAtXYTailAtTXTYandLength(null, grab.x, grab.y, this.star, this.star.pos.x, this.star.pos.y, grab.radius + 15f);
+                                Bungee bungee3 = (Bungee)new Bungee().initWithHeadAtXYTailAtTXTYandLength(null, grab.x, grab.y, star, star.pos.x, star.pos.y, grab.radius + 15f);
                                 bungee3.bungeeAnchor.pin = bungee3.bungeeAnchor.pos;
                                 grab.hideRadius = true;
                                 grab.setRope(bungee3);
@@ -1098,39 +1098,39 @@ namespace ctr_wp7.game
                     ConstraintedPoint constraintedPoint2 = rope.parts[rope.parts.Count - 1];
                     Vector vector = MathHelper.vectSub(bungeeAnchor.pos, constraintedPoint2.pos);
                     bool flag5 = false;
-                    if (this.twoParts != 2)
+                    if (twoParts != 2)
                     {
-                        if (constraintedPoint2 == this.starL && !this.noCandyL && !flag3)
+                        if (constraintedPoint2 == starL && !noCandyL && !flag3)
                         {
                             flag5 = true;
                         }
-                        if (constraintedPoint2 == this.starR && !this.noCandyR && !flag4)
+                        if (constraintedPoint2 == starR && !noCandyR && !flag4)
                         {
                             flag5 = true;
                         }
                     }
-                    else if (!this.noCandy && !flag2)
+                    else if (!noCandy && !flag2)
                     {
                         flag5 = true;
                     }
                     if (rope.relaxed != 0 && rope.cut == -1 && flag5)
                     {
                         float num10 = MathHelper.RADIANS_TO_DEGREES(MathHelper.vectAngleNormalized(vector));
-                        if (this.twoParts != 2)
+                        if (twoParts != 2)
                         {
-                            GameObject gameObject = ((constraintedPoint2 == this.starL) ? this.candyL : this.candyR);
+                            GameObject gameObject = ((constraintedPoint2 == starL) ? candyL : candyR);
                             if (!rope.chosenOne)
                             {
                                 rope.initialCandleAngle = gameObject.rotation - num10;
                             }
-                            if (constraintedPoint2 == this.starL)
+                            if (constraintedPoint2 == starL)
                             {
-                                this.lastCandyRotateDeltaL = num10 + rope.initialCandleAngle - gameObject.rotation;
+                                lastCandyRotateDeltaL = num10 + rope.initialCandleAngle - gameObject.rotation;
                                 flag3 = true;
                             }
                             else
                             {
-                                this.lastCandyRotateDeltaR = num10 + rope.initialCandleAngle - gameObject.rotation;
+                                lastCandyRotateDeltaR = num10 + rope.initialCandleAngle - gameObject.rotation;
                                 flag4 = true;
                             }
                             gameObject.rotation = num10 + rope.initialCandleAngle;
@@ -1139,10 +1139,10 @@ namespace ctr_wp7.game
                         {
                             if (!rope.chosenOne)
                             {
-                                rope.initialCandleAngle = this.candyMain.rotation - num10;
+                                rope.initialCandleAngle = candyMain.rotation - num10;
                             }
-                            this.lastCandyRotateDelta = num10 + rope.initialCandleAngle - this.candyMain.rotation;
-                            this.candyMain.rotation = num10 + rope.initialCandleAngle;
+                            lastCandyRotateDelta = num10 + rope.initialCandleAngle - candyMain.rotation;
+                            candyMain.rotation = num10 + rope.initialCandleAngle;
                             flag2 = true;
                         }
                         rope.chosenOne = true;
@@ -1151,56 +1151,56 @@ namespace ctr_wp7.game
                     rope.chosenOne = false;
                     goto IL_0982;
                 }
-                if (this.twoParts != 2)
+                if (twoParts != 2)
                 {
-                    if (!flag3 && !this.noCandyL)
+                    if (!flag3 && !noCandyL)
                     {
-                        this.candyL.rotation += Math.Min(5f, this.lastCandyRotateDeltaL);
-                        this.lastCandyRotateDeltaL *= 0.98f;
+                        candyL.rotation += Math.Min(5f, lastCandyRotateDeltaL);
+                        lastCandyRotateDeltaL *= 0.98f;
                     }
-                    if (!flag4 && !this.noCandyR)
+                    if (!flag4 && !noCandyR)
                     {
-                        this.candyR.rotation += Math.Min(5f, this.lastCandyRotateDeltaR);
-                        this.lastCandyRotateDeltaR *= 0.98f;
+                        candyR.rotation += Math.Min(5f, lastCandyRotateDeltaR);
+                        lastCandyRotateDeltaR *= 0.98f;
                     }
                 }
-                else if (!flag2 && !this.noCandy)
+                else if (!flag2 && !noCandy)
                 {
-                    this.candyMain.rotation += Math.Min(5f, this.lastCandyRotateDelta);
-                    this.lastCandyRotateDelta *= 0.98f;
+                    candyMain.rotation += Math.Min(5f, lastCandyRotateDelta);
+                    lastCandyRotateDelta *= 0.98f;
                 }
             }
-            if (!this.noCandy)
+            if (!noCandy)
             {
-                this.star.update(delta * this.ropePhysicsSpeed);
-                this.candy.x = this.star.pos.x;
-                this.candy.y = this.star.pos.y;
-                this.candy.update(delta);
-                BaseElement.calculateTopLeft(this.candy);
+                star.update(delta * ropePhysicsSpeed);
+                candy.x = star.pos.x;
+                candy.y = star.pos.y;
+                candy.update(delta);
+                BaseElement.calculateTopLeft(candy);
             }
-            if (this.twoParts != 2)
+            if (twoParts != 2)
             {
-                this.candyL.update(delta);
-                this.starL.update(delta * this.ropePhysicsSpeed);
-                this.candyR.update(delta);
-                this.starR.update(delta * this.ropePhysicsSpeed);
-                if (this.twoParts == 1)
+                candyL.update(delta);
+                starL.update(delta * ropePhysicsSpeed);
+                candyR.update(delta);
+                starR.update(delta * ropePhysicsSpeed);
+                if (twoParts == 1)
                 {
                     for (int n = 0; n < 30; n++)
                     {
-                        ConstraintedPoint.satisfyConstraints(this.starL);
-                        ConstraintedPoint.satisfyConstraints(this.starR);
+                        ConstraintedPoint.satisfyConstraints(starL);
+                        ConstraintedPoint.satisfyConstraints(starR);
                     }
                 }
-                if ((double)this.partsDist > 0.0)
+                if ((double)partsDist > 0.0)
                 {
-                    if (Mover.moveVariableToTarget(ref this.partsDist, 0f, 200f, delta))
+                    if (Mover.moveVariableToTarget(ref partsDist, 0f, 200f, delta))
                     {
                         CTRSoundMgr._playSound(50);
-                        this.twoParts = 2;
-                        this.noCandy = false;
-                        this.noCandyL = true;
-                        this.noCandyR = true;
+                        twoParts = 2;
+                        noCandy = false;
+                        noCandyL = true;
+                        noCandyR = true;
                         int num11 = Preferences._getIntForKey("PREFS_CANDIES_UNITED") + 1;
                         Preferences._setIntforKey(num11, "PREFS_CANDIES_UNITED", false);
                         if (num11 >= 100)
@@ -1209,55 +1209,55 @@ namespace ctr_wp7.game
                         }
                         bool flag6 = false;
                         bool flag7 = false;
-                        if (this.ghosts != null)
+                        if (ghosts != null)
                         {
-                            foreach (Ghost ghost in this.ghosts)
+                            foreach (Ghost ghost in ghosts)
                             {
                                 if (ghost != null)
                                 {
-                                    if (this.candyBubbleL != null && ghost.bubble == this.candyBubbleL)
+                                    if (candyBubbleL != null && ghost.bubble == candyBubbleL)
                                     {
                                         flag6 = true;
                                     }
-                                    if (this.candyBubbleR != null && ghost.bubble == this.candyBubbleR)
+                                    if (candyBubbleR != null && ghost.bubble == candyBubbleR)
                                     {
                                         flag7 = true;
                                     }
                                 }
                             }
                         }
-                        if (this.candyBubbleL != null && this.candyBubbleR != null && flag6 && flag7)
+                        if (candyBubbleL != null && candyBubbleR != null && flag6 && flag7)
                         {
-                            this.candyGhostBubbleAnimation.visible = true;
-                            this.candyBubble = this.candyBubbleL;
-                            this.shouldRestoreSecondGhost = true;
+                            candyGhostBubbleAnimation.visible = true;
+                            candyBubble = candyBubbleL;
+                            shouldRestoreSecondGhost = true;
                         }
-                        else if (this.candyBubbleL != null && flag6)
+                        else if (candyBubbleL != null && flag6)
                         {
-                            this.candyGhostBubbleAnimation.visible = true;
-                            this.candyBubble = this.candyBubbleL;
+                            candyGhostBubbleAnimation.visible = true;
+                            candyBubble = candyBubbleL;
                         }
-                        else if (this.candyBubbleR != null && flag7)
+                        else if (candyBubbleR != null && flag7)
                         {
-                            this.candyGhostBubbleAnimation.visible = true;
-                            this.candyBubble = this.candyBubbleR;
+                            candyGhostBubbleAnimation.visible = true;
+                            candyBubble = candyBubbleR;
                         }
-                        else if (this.candyBubbleL != null || this.candyBubbleR != null)
+                        else if (candyBubbleL != null || candyBubbleR != null)
                         {
-                            this.candyBubble = ((this.candyBubbleL != null) ? this.candyBubbleL : this.candyBubbleR);
-                            this.candyBubbleAnimation.visible = true;
-                            if (this.ghosts != null)
+                            candyBubble = ((candyBubbleL != null) ? candyBubbleL : candyBubbleR);
+                            candyBubbleAnimation.visible = true;
+                            if (ghosts != null)
                             {
-                                foreach (Ghost ghost2 in this.ghosts)
+                                foreach (Ghost ghost2 in ghosts)
                                 {
                                     if (ghost2 != null)
                                     {
-                                        if (this.candyBubbleL != null && ghost2.bubble == this.candyBubbleL)
+                                        if (candyBubbleL != null && ghost2.bubble == candyBubbleL)
                                         {
                                             ghost2.cyclingEnabled = true;
                                             ghost2.resetToState(1);
                                         }
-                                        if (this.candyBubbleR != null && ghost2.bubble == this.candyBubbleR)
+                                        if (candyBubbleR != null && ghost2.bubble == candyBubbleR)
                                         {
                                             ghost2.cyclingEnabled = true;
                                             ghost2.resetToState(1);
@@ -1266,106 +1266,106 @@ namespace ctr_wp7.game
                                 }
                             }
                         }
-                        this.lastCandyRotateDelta = 0f;
-                        this.lastCandyRotateDeltaL = 0f;
-                        this.lastCandyRotateDeltaR = 0f;
-                        this.star.pos.x = this.starL.pos.x;
-                        this.star.pos.y = this.starL.pos.y;
-                        this.candy.x = this.star.pos.x;
-                        this.candy.y = this.star.pos.y;
-                        BaseElement.calculateTopLeft(this.candy);
-                        Vector vector2 = MathHelper.vectSub(this.starL.pos, this.starL.prevPos);
-                        Vector vector3 = MathHelper.vectSub(this.starR.pos, this.starR.prevPos);
+                        lastCandyRotateDelta = 0f;
+                        lastCandyRotateDeltaL = 0f;
+                        lastCandyRotateDeltaR = 0f;
+                        star.pos.x = starL.pos.x;
+                        star.pos.y = starL.pos.y;
+                        candy.x = star.pos.x;
+                        candy.y = star.pos.y;
+                        BaseElement.calculateTopLeft(candy);
+                        Vector vector2 = MathHelper.vectSub(starL.pos, starL.prevPos);
+                        Vector vector3 = MathHelper.vectSub(starR.pos, starR.prevPos);
                         Vector vector4 = MathHelper.vect((vector2.x + vector3.x) / 2f, (vector2.y + vector3.y) / 2f);
-                        this.star.prevPos = MathHelper.vectSub(this.star.pos, vector4);
-                        int count2 = this.bungees.Count;
+                        star.prevPos = MathHelper.vectSub(star.pos, vector4);
+                        int count2 = bungees.Count;
                         for (int num12 = 0; num12 < count2; num12++)
                         {
-                            Grab grab2 = this.bungees[num12];
+                            Grab grab2 = bungees[num12];
                             Bungee rope2 = grab2.rope;
-                            if (rope2 != null && rope2.cut != rope2.parts.Count - 3 && (rope2.tail == this.starL || rope2.tail == this.starR))
+                            if (rope2 != null && rope2.cut != rope2.parts.Count - 3 && (rope2.tail == starL || rope2.tail == starR))
                             {
                                 ConstraintedPoint constraintedPoint3 = rope2.parts[rope2.parts.Count - 2];
                                 int num13 = (int)rope2.tail.restLengthFor(constraintedPoint3);
-                                this.star.addConstraintwithRestLengthofType(constraintedPoint3, (float)num13, Constraint.CONSTRAINT.CONSTRAINT_DISTANCE);
-                                rope2.tail = this.star;
-                                rope2.parts[rope2.parts.Count - 1] = this.star;
+                                star.addConstraintwithRestLengthofType(constraintedPoint3, (float)num13, Constraint.CONSTRAINT.CONSTRAINT_DISTANCE);
+                                rope2.tail = star;
+                                rope2.parts[rope2.parts.Count - 1] = star;
                                 rope2.initialCandleAngle = 0f;
                                 rope2.chosenOne = false;
                             }
                         }
                         Animation animation = Animation.Animation_createWithResID(103);
                         animation.doRestoreCutTransparency();
-                        animation.x = this.candy.x;
-                        animation.y = this.candy.y;
+                        animation.x = candy.x;
+                        animation.y = candy.y;
                         animation.anchor = 18;
                         int num14 = animation.addAnimationDelayLoopFirstLast(0.05f, Timeline.LoopType.TIMELINE_NO_LOOP, 0, 4);
-                        animation.getTimeline(num14).delegateTimelineDelegate = this.aniPool;
+                        animation.getTimeline(num14).delegateTimelineDelegate = aniPool;
                         animation.playTimeline(0);
-                        this.aniPool.addChild(animation);
+                        aniPool.addChild(animation);
                     }
                     else
                     {
-                        this.starL.changeRestLengthToFor(this.partsDist, this.starR);
-                        this.starR.changeRestLengthToFor(this.partsDist, this.starL);
+                        starL.changeRestLengthToFor(partsDist, starR);
+                        starR.changeRestLengthToFor(partsDist, starL);
                     }
                 }
-                if (!this.noCandyL && !this.noCandyR && GameObject.objectsIntersect(this.candyL, this.candyR) && this.twoParts == 0)
+                if (!noCandyL && !noCandyR && GameObject.objectsIntersect(candyL, candyR) && twoParts == 0)
                 {
-                    this.twoParts = 1;
-                    this.partsDist = MathHelper.vectDistance(this.starL.pos, this.starR.pos);
-                    this.starL.addConstraintwithRestLengthofType(this.starR, this.partsDist, Constraint.CONSTRAINT.CONSTRAINT_NOT_MORE_THAN);
-                    this.starR.addConstraintwithRestLengthofType(this.starL, this.partsDist, Constraint.CONSTRAINT.CONSTRAINT_NOT_MORE_THAN);
+                    twoParts = 1;
+                    partsDist = MathHelper.vectDistance(starL.pos, starR.pos);
+                    starL.addConstraintwithRestLengthofType(starR, partsDist, Constraint.CONSTRAINT.CONSTRAINT_NOT_MORE_THAN);
+                    starR.addConstraintwithRestLengthofType(starL, partsDist, Constraint.CONSTRAINT.CONSTRAINT_NOT_MORE_THAN);
                 }
             }
-            this.target.update(delta);
-            this.targetIdle.update(delta);
-            if (this.camera.type != CAMERA_TYPE.CAMERA_SPEED_PIXELS || !this.ignoreTouches)
+            target.update(delta);
+            targetIdle.update(delta);
+            if (camera.type != CAMERA_TYPE.CAMERA_SPEED_PIXELS || !ignoreTouches)
             {
-                int count3 = this.stars.Count;
+                int count3 = stars.Count;
                 for (int num15 = 0; num15 < count3; num15++)
                 {
-                    Star star = this.stars[num15];
+                    Star star = stars[num15];
                     if (star != null)
                     {
                         star.update(delta);
                         if ((double)star.timeout > 0.0 && (double)star.time == 0.0)
                         {
-                            star.getTimeline(1).delegateTimelineDelegate = this.aniPool;
-                            this.aniPool.addChild(star);
-                            this.stars.Remove(star);
+                            star.getTimeline(1).delegateTimelineDelegate = aniPool;
+                            aniPool.addChild(star);
+                            stars.Remove(star);
                             star.timedAnim.playTimeline(1);
                             star.playTimeline(1);
                             break;
                         }
                         bool flag8;
-                        if (this.twoParts != 2)
+                        if (twoParts != 2)
                         {
-                            flag8 = (GameObject.objectsIntersect(this.candyL, star) && !this.noCandyL) || (GameObject.objectsIntersect(this.candyR, star) && !this.noCandyR);
+                            flag8 = (GameObject.objectsIntersect(candyL, star) && !noCandyL) || (GameObject.objectsIntersect(candyR, star) && !noCandyR);
                         }
                         else
                         {
-                            flag8 = GameObject.objectsIntersect(this.candy, star) && !this.noCandy;
+                            flag8 = GameObject.objectsIntersect(candy, star) && !noCandy;
                         }
                         if (flag8)
                         {
-                            this.candyBlink.playTimeline(1);
-                            this.starsCollected++;
-                            this.hudStar[this.starsCollected - 1].playTimeline(0);
+                            candyBlink.playTimeline(1);
+                            starsCollected++;
+                            hudStar[starsCollected - 1].playTimeline(0);
                             Animation animation2 = Animation.Animation_createWithResID(119);
                             animation2.doRestoreCutTransparency();
                             animation2.x = star.x;
                             animation2.y = star.y;
-                            this.stars.Remove(star);
+                            stars.Remove(star);
                             animation2.anchor = 18;
                             int num16 = animation2.addAnimationDelayLoopFirstLast(0.05f, Timeline.LoopType.TIMELINE_NO_LOOP, 0, 12);
-                            animation2.getTimeline(num16).delegateTimelineDelegate = this.aniPool;
+                            animation2.getTimeline(num16).delegateTimelineDelegate = aniPool;
                             animation2.playTimeline(0);
-                            this.aniPool.addChild(animation2);
-                            CTRSoundMgr._playSound(35 + this.starsCollected - 1);
-                            if (this.targetIdle.visible && this.targetIdle.getCurrentTimelineIndex() == 0)
+                            aniPool.addChild(animation2);
+                            CTRSoundMgr._playSound(35 + starsCollected - 1);
+                            if (targetIdle.visible && targetIdle.getCurrentTimelineIndex() == 0)
                             {
-                                this.target.playTimeline(4);
+                                target.playTimeline(4);
                                 break;
                             }
                             break;
@@ -1373,25 +1373,25 @@ namespace ctr_wp7.game
                     }
                 }
             }
-            num = this.bubbles.Count;
+            num = bubbles.Count;
             for (int num17 = 0; num17 < num; num17++)
             {
-                Bubble bubble = this.bubbles[num17];
+                Bubble bubble = bubbles[num17];
                 if (bubble != null)
                 {
                     bubble.update(delta);
-                    if (this.twoParts != 2)
+                    if (twoParts != 2)
                     {
-                        if (!this.noCandyL && !bubble.popped && MathHelper.pointInRect(this.candyL.x, this.candyL.y, bubble.x - 30f, bubble.y - 30f, 60f, 60f))
+                        if (!noCandyL && !bubble.popped && MathHelper.pointInRect(candyL.x, candyL.y, bubble.x - 30f, bubble.y - 30f, 60f, 60f))
                         {
-                            if (this.candyBubbleL != null)
+                            if (candyBubbleL != null)
                             {
-                                this.popBubbleAtXY(bubble.x, bubble.y);
-                                if (this.ghosts != null)
+                                popBubbleAtXY(bubble.x, bubble.y);
+                                if (ghosts != null)
                                 {
-                                    foreach (Ghost ghost3 in this.ghosts)
+                                    foreach (Ghost ghost3 in ghosts)
                                     {
-                                        if (ghost3 != null && ghost3.bubble == this.candyBubbleL)
+                                        if (ghost3 != null && ghost3.bubble == candyBubbleL)
                                         {
                                             ghost3.cyclingEnabled = true;
                                             ghost3.resetToState(1);
@@ -1400,9 +1400,9 @@ namespace ctr_wp7.game
                                 }
                             }
                             bool flag9 = false;
-                            if (this.ghosts != null)
+                            if (ghosts != null)
                             {
-                                foreach (Ghost ghost4 in this.ghosts)
+                                foreach (Ghost ghost4 in ghosts)
                                 {
                                     if (ghost4 != null && ghost4.bubble == bubble)
                                     {
@@ -1411,21 +1411,21 @@ namespace ctr_wp7.game
                                     }
                                 }
                             }
-                            this.candyBubbleL = bubble;
+                            candyBubbleL = bubble;
                             if (flag9)
                             {
-                                if (this.isCandyInGhostBubbleAnimationLeftLoaded)
+                                if (isCandyInGhostBubbleAnimationLeftLoaded)
                                 {
-                                    this.candyGhostBubbleAnimationL.visible = true;
+                                    candyGhostBubbleAnimationL.visible = true;
                                 }
-                                this.candyBubbleAnimationL.visible = false;
+                                candyBubbleAnimationL.visible = false;
                             }
                             else
                             {
-                                this.candyBubbleAnimationL.visible = true;
-                                if (this.isCandyInGhostBubbleAnimationLeftLoaded)
+                                candyBubbleAnimationL.visible = true;
+                                if (isCandyInGhostBubbleAnimationLeftLoaded)
                                 {
-                                    this.candyGhostBubbleAnimationL.visible = false;
+                                    candyGhostBubbleAnimationL.visible = false;
                                 }
                             }
                             CTRSoundMgr._playSound(23);
@@ -1433,16 +1433,16 @@ namespace ctr_wp7.game
                             bubble.removeChildWithID(0);
                             break;
                         }
-                        if (!this.noCandyR && !bubble.popped && MathHelper.pointInRect(this.candyR.x, this.candyR.y, bubble.x - 30f, bubble.y - 30f, 60f, 60f))
+                        if (!noCandyR && !bubble.popped && MathHelper.pointInRect(candyR.x, candyR.y, bubble.x - 30f, bubble.y - 30f, 60f, 60f))
                         {
-                            if (this.candyBubbleR != null)
+                            if (candyBubbleR != null)
                             {
-                                this.popBubbleAtXY(bubble.x, bubble.y);
-                                if (this.ghosts != null)
+                                popBubbleAtXY(bubble.x, bubble.y);
+                                if (ghosts != null)
                                 {
-                                    foreach (Ghost ghost5 in this.ghosts)
+                                    foreach (Ghost ghost5 in ghosts)
                                     {
-                                        if (ghost5 != null && ghost5.bubble == this.candyBubbleR)
+                                        if (ghost5 != null && ghost5.bubble == candyBubbleR)
                                         {
                                             ghost5.cyclingEnabled = true;
                                             ghost5.resetToState(1);
@@ -1451,9 +1451,9 @@ namespace ctr_wp7.game
                                 }
                             }
                             bool flag10 = false;
-                            if (this.ghosts != null)
+                            if (ghosts != null)
                             {
-                                foreach (Ghost ghost6 in this.ghosts)
+                                foreach (Ghost ghost6 in ghosts)
                                 {
                                     if (ghost6 != null && ghost6.bubble == bubble)
                                     {
@@ -1462,21 +1462,21 @@ namespace ctr_wp7.game
                                     }
                                 }
                             }
-                            this.candyBubbleR = bubble;
+                            candyBubbleR = bubble;
                             if (flag10)
                             {
-                                if (this.isCandyInGhostBubbleAnimationRightLoaded)
+                                if (isCandyInGhostBubbleAnimationRightLoaded)
                                 {
-                                    this.candyGhostBubbleAnimationR.visible = true;
+                                    candyGhostBubbleAnimationR.visible = true;
                                 }
-                                this.candyBubbleAnimationR.visible = false;
+                                candyBubbleAnimationR.visible = false;
                             }
                             else
                             {
-                                this.candyBubbleAnimationR.visible = true;
-                                if (this.isCandyInGhostBubbleAnimationRightLoaded)
+                                candyBubbleAnimationR.visible = true;
+                                if (isCandyInGhostBubbleAnimationRightLoaded)
                                 {
-                                    this.candyGhostBubbleAnimationR.visible = false;
+                                    candyGhostBubbleAnimationR.visible = false;
                                 }
                             }
                             CTRSoundMgr._playSound(23);
@@ -1485,16 +1485,16 @@ namespace ctr_wp7.game
                             break;
                         }
                     }
-                    else if (!this.noCandy && !bubble.popped && MathHelper.pointInRect(this.candy.x, this.candy.y, bubble.x - 30f, bubble.y - 30f, 60f, 60f))
+                    else if (!noCandy && !bubble.popped && MathHelper.pointInRect(candy.x, candy.y, bubble.x - 30f, bubble.y - 30f, 60f, 60f))
                     {
-                        if (this.candyBubble != null)
+                        if (candyBubble != null)
                         {
-                            this.popBubbleAtXY(bubble.x, bubble.y);
-                            if (this.ghosts != null)
+                            popBubbleAtXY(bubble.x, bubble.y);
+                            if (ghosts != null)
                             {
-                                foreach (Ghost ghost7 in this.ghosts)
+                                foreach (Ghost ghost7 in ghosts)
                                 {
-                                    if (ghost7 != null && ghost7.bubble == this.candyBubble)
+                                    if (ghost7 != null && ghost7.bubble == candyBubble)
                                     {
                                         ghost7.cyclingEnabled = true;
                                         ghost7.resetToState(1);
@@ -1503,9 +1503,9 @@ namespace ctr_wp7.game
                             }
                         }
                         bool flag11 = false;
-                        if (this.ghosts != null)
+                        if (ghosts != null)
                         {
-                            foreach (Ghost ghost8 in this.ghosts)
+                            foreach (Ghost ghost8 in ghosts)
                             {
                                 if (ghost8 != null && ghost8.bubble == bubble)
                                 {
@@ -1514,21 +1514,21 @@ namespace ctr_wp7.game
                                 }
                             }
                         }
-                        this.candyBubble = bubble;
+                        candyBubble = bubble;
                         if (flag11)
                         {
-                            if (this.isCandyInGhostBubbleAnimationLoaded)
+                            if (isCandyInGhostBubbleAnimationLoaded)
                             {
-                                this.candyGhostBubbleAnimation.visible = true;
+                                candyGhostBubbleAnimation.visible = true;
                             }
-                            this.candyBubbleAnimation.visible = false;
+                            candyBubbleAnimation.visible = false;
                         }
                         else
                         {
-                            this.candyBubbleAnimation.visible = true;
-                            if (this.isCandyInGhostBubbleAnimationLoaded)
+                            candyBubbleAnimation.visible = true;
+                            if (isCandyInGhostBubbleAnimationLoaded)
                             {
-                                this.candyGhostBubbleAnimation.visible = false;
+                                candyGhostBubbleAnimation.visible = false;
                             }
                         }
                         CTRSoundMgr._playSound(23);
@@ -1538,9 +1538,9 @@ namespace ctr_wp7.game
                     }
                     if (!bubble.withoutShadow)
                     {
-                        for (int num18 = 0; num18 < this.rotatedCircles.Count; num18++)
+                        for (int num18 = 0; num18 < rotatedCircles.Count; num18++)
                         {
-                            RotatedCircle rotatedCircle = this.rotatedCircles[num18];
+                            RotatedCircle rotatedCircle = rotatedCircles[num18];
                             float num19 = MathHelper.vectDistance(MathHelper.vect(bubble.x, bubble.y), MathHelper.vect(rotatedCircle.x, rotatedCircle.y));
                             if (num19 < rotatedCircle.sizeInPixels)
                             {
@@ -1550,9 +1550,9 @@ namespace ctr_wp7.game
                     }
                 }
             }
-            if (this.ghosts != null)
+            if (ghosts != null)
             {
-                foreach (Ghost ghost9 in this.ghosts)
+                foreach (Ghost ghost9 in ghosts)
                 {
                     if (ghost9 != null)
                     {
@@ -1560,47 +1560,47 @@ namespace ctr_wp7.game
                     }
                 }
             }
-            num = this.tutorials.Count;
+            num = tutorials.Count;
             for (int num20 = 0; num20 < num; num20++)
             {
-                Text text = this.tutorials[num20];
+                Text text = tutorials[num20];
                 if (text != null)
                 {
                     text.update(delta);
                 }
             }
-            num = this.tutorialImages.Count;
+            num = tutorialImages.Count;
             for (int num21 = 0; num21 < num; num21++)
             {
-                GameObject gameObject2 = this.tutorialImages[num21];
+                GameObject gameObject2 = tutorialImages[num21];
                 if (gameObject2 != null)
                 {
                     gameObject2.update(delta);
                 }
             }
-            num = this.pumps.Count;
+            num = pumps.Count;
             for (int num22 = 0; num22 < num; num22++)
             {
-                Pump pump = this.pumps[num22];
+                Pump pump = pumps[num22];
                 if (pump != null)
                 {
                     pump.update(delta);
                     if (Mover.moveVariableToTarget(ref pump.pumpTouchTimer, 0f, 1f, delta))
                     {
-                        this.operatePump(pump);
+                        operatePump(pump);
                     }
                 }
             }
-            if (this.tubes != null)
+            if (tubes != null)
             {
-                foreach (SteamTube steamTube in this.tubes)
+                foreach (SteamTube steamTube in tubes)
                 {
                     if (steamTube != null)
                     {
                         steamTube.update(delta);
                         if (steamTube.steamState != 3)
                         {
-                            this.operateSteamTube(steamTube);
+                            operateSteamTube(steamTube);
                         }
                     }
                 }
@@ -1609,35 +1609,35 @@ namespace ctr_wp7.game
             foreach (Lantern lantern in allLanterns)
             {
                 lantern.update(delta);
-                if (!this.isCandyInLantern && lantern.lanternState == 0 && MathHelper.vectDistance(this.star.pos, MathHelper.vect(lantern.x, lantern.y)) < 32f)
+                if (!isCandyInLantern && lantern.lanternState == 0 && MathHelper.vectDistance(star.pos, MathHelper.vect(lantern.x, lantern.y)) < 32f)
                 {
-                    this.isCandyInLantern = true;
-                    this.candy.passTransformationsToChilds = true;
-                    this.candyMain.scaleX = (this.candyMain.scaleY = 1f);
-                    this.candyTop.scaleX = (this.candyTop.scaleY = 1f);
+                    isCandyInLantern = true;
+                    candy.passTransformationsToChilds = true;
+                    candyMain.scaleX = (candyMain.scaleY = 1f);
+                    candyTop.scaleX = (candyTop.scaleY = 1f);
                     Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(2);
-                    timeline.addKeyFrame(KeyFrame.makePos((double)this.candy.x, (double)this.candy.y, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
+                    timeline.addKeyFrame(KeyFrame.makePos((double)candy.x, (double)candy.y, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
                     timeline.addKeyFrame(KeyFrame.makePos((double)lantern.x, (double)lantern.y, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.1));
                     timeline.addKeyFrame(KeyFrame.makeScale(0.71, 0.71, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
                     timeline.addKeyFrame(KeyFrame.makeScale(0.3, 0.3, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.1));
                     timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.solidOpaqueRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
                     timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.1));
-                    if (this.candy.hasTimeline(0))
+                    if (candy.hasTimeline(0))
                     {
-                        this.candy.removeTimeline(0);
+                        candy.removeTimeline(0);
                     }
-                    this.candy.addTimelinewithID(timeline, 0);
-                    this.candy.playTimeline(0);
-                    this.releaseAllRopes(false);
-                    if (this.candyBubble != null)
+                    candy.addTimelinewithID(timeline, 0);
+                    candy.playTimeline(0);
+                    releaseAllRopes(false);
+                    if (candyBubble != null)
                     {
-                        this.popCandyBubble(false);
+                        popCandyBubble(false);
                     }
-                    this.dd.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(lantern._captureCandy), this.star, 0.05f);
-                    if (this.special == 3)
+                    dd.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(lantern._captureCandy), star, 0.05f);
+                    if (special == 3)
                     {
-                        this.special = 0;
-                        foreach (GameScene.TutorialText tutorialText in this.tutorials)
+                        special = 0;
+                        foreach (GameScene.TutorialText tutorialText in tutorials)
                         {
                             if (tutorialText.special == 3)
                             {
@@ -1648,7 +1648,7 @@ namespace ctr_wp7.game
                                 tutorialText.getCurrentTimeline().jumpToTrackKeyFrame(3, 2);
                             }
                         }
-                        foreach (GameScene.GameObjectSpecial gameObjectSpecial in this.tutorialImages)
+                        foreach (GameScene.GameObjectSpecial gameObjectSpecial in tutorialImages)
                         {
                             if (gameObjectSpecial.special == 3)
                             {
@@ -1663,12 +1663,12 @@ namespace ctr_wp7.game
                 }
             }
             RotatedCircle rotatedCircle2 = null;
-            for (int num23 = 0; num23 < this.rotatedCircles.Count; num23++)
+            for (int num23 = 0; num23 < rotatedCircles.Count; num23++)
             {
-                RotatedCircle rotatedCircle3 = this.rotatedCircles[num23];
-                for (int num24 = 0; num24 < this.bungees.Count; num24++)
+                RotatedCircle rotatedCircle3 = rotatedCircles[num23];
+                for (int num24 = 0; num24 < bungees.Count; num24++)
                 {
-                    Grab grab3 = this.bungees[num24];
+                    Grab grab3 = bungees[num24];
                     if (MathHelper.vectDistance(MathHelper.vect(grab3.x, grab3.y), MathHelper.vect(rotatedCircle3.x, rotatedCircle3.y)) <= rotatedCircle3.sizeInPixels + 5f)
                     {
                         if (rotatedCircle3.containedObjects.IndexOf(grab3) < 0)
@@ -1681,9 +1681,9 @@ namespace ctr_wp7.game
                         rotatedCircle3.containedObjects.Remove(grab3);
                     }
                 }
-                for (int num25 = 0; num25 < this.bubbles.Count; num25++)
+                for (int num25 = 0; num25 < bubbles.Count; num25++)
                 {
-                    Bubble bubble2 = this.bubbles[num25];
+                    Bubble bubble2 = bubbles[num25];
                     if (MathHelper.vectDistance(MathHelper.vect(bubble2.x, bubble2.y), MathHelper.vect(rotatedCircle3.x, rotatedCircle3.y)) <= rotatedCircle3.sizeInPixels + 10f)
                     {
                         if (rotatedCircle3.containedObjects.IndexOf(bubble2) < 0)
@@ -1696,9 +1696,9 @@ namespace ctr_wp7.game
                         rotatedCircle3.containedObjects.Remove(bubble2);
                     }
                 }
-                for (int num26 = 0; num26 < this.pumps.Count; num26++)
+                for (int num26 = 0; num26 < pumps.Count; num26++)
                 {
-                    Pump pump2 = this.pumps[num26];
+                    Pump pump2 = pumps[num26];
                     if (MathHelper.vectDistance(MathHelper.vect(pump2.x, pump2.y), MathHelper.vect(rotatedCircle3.x, rotatedCircle3.y)) <= rotatedCircle3.sizeInPixels + 10f)
                     {
                         if (rotatedCircle3.containedObjects.IndexOf(pump2) < 0)
@@ -1719,12 +1719,12 @@ namespace ctr_wp7.game
             }
             if (rotatedCircle2 != null)
             {
-                this.rotatedCircles.Remove(rotatedCircle2);
+                rotatedCircles.Remove(rotatedCircle2);
             }
-            num = this.socks.Count;
+            num = socks.Count;
             for (int num27 = 0; num27 < num; num27++)
             {
-                Sock sock = this.socks[num27];
+                Sock sock = socks[num27];
                 sock.update(delta);
                 if (Mover.moveVariableToTarget(ref sock.idleTimeout, 0f, 1f, delta))
                 {
@@ -1733,33 +1733,33 @@ namespace ctr_wp7.game
                 float rotation = sock.rotation;
                 sock.rotation = 0f;
                 sock.updateRotation();
-                Vector vector5 = MathHelper.vectRotate(this.star.posDelta, (double)MathHelper.DEGREES_TO_RADIANS(-rotation));
+                Vector vector5 = MathHelper.vectRotate(star.posDelta, (double)MathHelper.DEGREES_TO_RADIANS(-rotation));
                 sock.rotation = rotation;
                 sock.updateRotation();
-                if ((double)vector5.y >= 0.0 && (MathHelper.lineInRect(sock.t1.x, sock.t1.y, sock.t2.x, sock.t2.y, this.star.pos.x - 10f, this.star.pos.y - 10f, 20f, 20f) || MathHelper.lineInRect(sock.b1.x, sock.b1.y, sock.b2.x, sock.b2.y, this.star.pos.x - 10f, this.star.pos.y - 10f, 20f, 20f)))
+                if ((double)vector5.y >= 0.0 && (MathHelper.lineInRect(sock.t1.x, sock.t1.y, sock.t2.x, sock.t2.y, star.pos.x - 10f, star.pos.y - 10f, 20f, 20f) || MathHelper.lineInRect(sock.b1.x, sock.b1.y, sock.b2.x, sock.b2.y, star.pos.x - 10f, star.pos.y - 10f, 20f, 20f)))
                 {
                     if (sock.state == Sock.SOCK_IDLE)
                     {
                         for (int num28 = 0; num28 < num; num28++)
                         {
-                            Sock sock2 = this.socks[num28];
+                            Sock sock2 = socks[num28];
                             if (sock2 != sock && sock2.group == sock.group)
                             {
                                 sock.state = Sock.SOCK_RECEIVING;
                                 sock2.state = Sock.SOCK_THROWING;
-                                this.releaseAllRopes(false);
+                                releaseAllRopes(false);
                                 int num29 = Preferences._getIntForKey("PREFS_SOCKS_USED") + 1;
                                 Preferences._setIntforKey(num29, "PREFS_SOCKS_USED", false);
                                 if (num29 >= 200)
                                 {
                                     CTRRootController.postAchievementName(NSObject.NSS("acMagician"));
                                 }
-                                this.savedSockSpeed = 0.9f * MathHelper.vectLength(this.star.v);
-                                this.targetSock = sock2;
+                                savedSockSpeed = 0.9f * MathHelper.vectLength(star.v);
+                                targetSock = sock2;
                                 sock.light.playTimeline(0);
                                 sock.light.visible = true;
                                 CTRSoundMgr._playSound(51);
-                                this.dd.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(this.selector_teleport), null, 0.1f);
+                                dd.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(selector_teleport), null, 0.1f);
                                 break;
                             }
                         }
@@ -1771,112 +1771,112 @@ namespace ctr_wp7.game
                     sock.idleTimeout = 0.8f;
                 }
             }
-            num = this.razors.Count;
+            num = razors.Count;
             for (int num30 = 0; num30 < num; num30++)
             {
-                Razor razor = this.razors[num30];
+                Razor razor = razors[num30];
                 if (razor != null)
                 {
                     razor.update(delta);
-                    this.cutWithRazorOrLine1Line2Immediate(razor, MathHelper.vectZero, MathHelper.vectZero, false);
+                    cutWithRazorOrLine1Line2Immediate(razor, MathHelper.vectZero, MathHelper.vectZero, false);
                 }
             }
-            num = this.spikes.Count;
-            foreach (Spikes spikes in this.spikes)
+            num = spikes.Count;
+            foreach (Spikes spikes in spikes)
             {
                 spikes.update(delta);
             }
-            if (!this.isCandyInLantern)
+            if (!isCandyInLantern)
             {
                 for (int num31 = 0; num31 < num; num31++)
                 {
-                    Spikes spikes2 = this.spikes[num31];
+                    Spikes spikes2 = spikes[num31];
                     if (spikes2 != null && (!spikes2.electro || (spikes2.electro && spikes2.electroOn)))
                     {
                         bool flag12 = false;
                         bool flag13;
-                        if (this.twoParts != 2)
+                        if (twoParts != 2)
                         {
-                            flag13 = MathHelper.lineInRect(spikes2.t1.x, spikes2.t1.y, spikes2.t2.x, spikes2.t2.y, this.starL.pos.x - 5f, this.starL.pos.y - 5f, 10f, 10f) || MathHelper.lineInRect(spikes2.b1.x, spikes2.b1.y, spikes2.b2.x, spikes2.b2.y, this.starL.pos.x - 5f, this.starL.pos.y - 5f, 10f, 10f);
-                            flag13 = flag13 && !this.noCandyL;
+                            flag13 = MathHelper.lineInRect(spikes2.t1.x, spikes2.t1.y, spikes2.t2.x, spikes2.t2.y, starL.pos.x - 5f, starL.pos.y - 5f, 10f, 10f) || MathHelper.lineInRect(spikes2.b1.x, spikes2.b1.y, spikes2.b2.x, spikes2.b2.y, starL.pos.x - 5f, starL.pos.y - 5f, 10f, 10f);
+                            flag13 = flag13 && !noCandyL;
                             if (flag13)
                             {
                                 flag12 = true;
                             }
                             else
                             {
-                                flag13 = MathHelper.lineInRect(spikes2.t1.x, spikes2.t1.y, spikes2.t2.x, spikes2.t2.y, this.starR.pos.x - 5f, this.starR.pos.y - 5f, 10f, 10f) || MathHelper.lineInRect(spikes2.b1.x, spikes2.b1.y, spikes2.b2.x, spikes2.b2.y, this.starR.pos.x - 5f, this.starR.pos.y - 5f, 10f, 10f);
-                                flag13 = flag13 && !this.noCandyR;
+                                flag13 = MathHelper.lineInRect(spikes2.t1.x, spikes2.t1.y, spikes2.t2.x, spikes2.t2.y, starR.pos.x - 5f, starR.pos.y - 5f, 10f, 10f) || MathHelper.lineInRect(spikes2.b1.x, spikes2.b1.y, spikes2.b2.x, spikes2.b2.y, starR.pos.x - 5f, starR.pos.y - 5f, 10f, 10f);
+                                flag13 = flag13 && !noCandyR;
                             }
                         }
                         else
                         {
-                            flag13 = MathHelper.lineInRect(spikes2.t1.x, spikes2.t1.y, spikes2.t2.x, spikes2.t2.y, this.star.pos.x - 5f, this.star.pos.y - 5f, 10f, 10f) || MathHelper.lineInRect(spikes2.b1.x, spikes2.b1.y, spikes2.b2.x, spikes2.b2.y, this.star.pos.x - 5f, this.star.pos.y - 5f, 10f, 10f);
-                            flag13 = flag13 && !this.noCandy;
+                            flag13 = MathHelper.lineInRect(spikes2.t1.x, spikes2.t1.y, spikes2.t2.x, spikes2.t2.y, star.pos.x - 5f, star.pos.y - 5f, 10f, 10f) || MathHelper.lineInRect(spikes2.b1.x, spikes2.b1.y, spikes2.b2.x, spikes2.b2.y, star.pos.x - 5f, star.pos.y - 5f, 10f, 10f);
+                            flag13 = flag13 && !noCandy;
                         }
                         if (flag13)
                         {
-                            if (this.twoParts != 2)
+                            if (twoParts != 2)
                             {
                                 if (flag12)
                                 {
-                                    if (this.candyBubbleL != null)
+                                    if (candyBubbleL != null)
                                     {
-                                        this.popCandyBubble(true);
+                                        popCandyBubble(true);
                                     }
                                 }
-                                else if (this.candyBubbleR != null)
+                                else if (candyBubbleR != null)
                                 {
-                                    this.popCandyBubble(false);
+                                    popCandyBubble(false);
                                 }
                             }
-                            else if (this.candyBubble != null)
+                            else if (candyBubble != null)
                             {
-                                this.popCandyBubble(false);
+                                popCandyBubble(false);
                             }
                             CTRPreferences ctrpreferences = Application.sharedPreferences();
                             int intForKey = ctrpreferences.getIntForKey("PREFS_SELECTED_CANDY");
                             Image image2 = Image.Image_createWithResID(GameScene.CANDIES[intForKey]);
                             image2.doRestoreCutTransparency();
                             CandyBreak candyBreak = (CandyBreak)new CandyBreak().initWithTotalParticlesandImageGrid(5, image2);
-                            if (this.gravityButton != null && !this.gravityNormal)
+                            if (gravityButton != null && !gravityNormal)
                             {
                                 candyBreak.gravity.y = -500f;
                                 candyBreak.angle = 90f;
                             }
-                            candyBreak.particlesDelegate = new Particles.ParticlesFinished(this.aniPool.particlesFinished);
-                            if (this.twoParts != 2)
+                            candyBreak.particlesDelegate = new Particles.ParticlesFinished(aniPool.particlesFinished);
+                            if (twoParts != 2)
                             {
                                 if (flag12)
                                 {
-                                    candyBreak.x = this.candyL.x;
-                                    candyBreak.y = this.candyL.y;
-                                    this.noCandyL = true;
+                                    candyBreak.x = candyL.x;
+                                    candyBreak.y = candyL.y;
+                                    noCandyL = true;
                                 }
                                 else
                                 {
-                                    candyBreak.x = this.candyR.x;
-                                    candyBreak.y = this.candyR.y;
-                                    this.noCandyR = true;
+                                    candyBreak.x = candyR.x;
+                                    candyBreak.y = candyR.y;
+                                    noCandyR = true;
                                 }
                             }
                             else
                             {
-                                candyBreak.x = this.candy.x;
-                                candyBreak.y = this.candy.y;
-                                this.noCandy = true;
+                                candyBreak.x = candy.x;
+                                candyBreak.y = candy.y;
+                                noCandy = true;
                             }
                             candyBreak.startSystem(5);
-                            this.aniPool.addChild(candyBreak);
+                            aniPool.addChild(candyBreak);
                             CTRSoundMgr._playSound(24);
-                            this.releaseAllRopes(flag12);
-                            if (this.restartState != 0 && (this.twoParts == 2 || !this.noCandyL || !this.noCandyR))
+                            releaseAllRopes(flag12);
+                            if (restartState != 0 && (twoParts == 2 || !noCandyL || !noCandyR))
                             {
-                                this.dd.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(this.selector_gameLost), null, 0.3f);
+                                dd.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(selector_gameLost), null, 0.3f);
                             }
-                            if (this.ghosts != null)
+                            if (ghosts != null)
                             {
-                                foreach (Ghost ghost10 in this.ghosts)
+                                foreach (Ghost ghost10 in ghosts)
                                 {
                                     if (ghost10 != null)
                                     {
@@ -1889,50 +1889,50 @@ namespace ctr_wp7.game
                     }
                 }
             }
-            num = this.bouncers.Count;
+            num = bouncers.Count;
             for (int num32 = 0; num32 < num; num32++)
             {
-                Bouncer bouncer = this.bouncers[num32];
+                Bouncer bouncer = bouncers[num32];
                 if (bouncer != null)
                 {
                     bouncer.update(delta);
                     bool flag14 = false;
                     bool flag15;
-                    if (this.twoParts != 2)
+                    if (twoParts != 2)
                     {
-                        flag15 = MathHelper.lineInRect(bouncer.t1.x, bouncer.t1.y, bouncer.t2.x, bouncer.t2.y, this.starL.pos.x - 20f, this.starL.pos.y - 20f, 40f, 40f) || MathHelper.lineInRect(bouncer.b1.x, bouncer.b1.y, bouncer.b2.x, bouncer.b2.y, this.starL.pos.x - 20f, this.starL.pos.y - 20f, 40f, 40f);
-                        flag15 = flag15 && !this.noCandyL;
+                        flag15 = MathHelper.lineInRect(bouncer.t1.x, bouncer.t1.y, bouncer.t2.x, bouncer.t2.y, starL.pos.x - 20f, starL.pos.y - 20f, 40f, 40f) || MathHelper.lineInRect(bouncer.b1.x, bouncer.b1.y, bouncer.b2.x, bouncer.b2.y, starL.pos.x - 20f, starL.pos.y - 20f, 40f, 40f);
+                        flag15 = flag15 && !noCandyL;
                         if (flag15)
                         {
                             flag14 = true;
                         }
                         else
                         {
-                            flag15 = MathHelper.lineInRect(bouncer.t1.x, bouncer.t1.y, bouncer.t2.x, bouncer.t2.y, this.starR.pos.x - 20f, this.starR.pos.y - 20f, 40f, 40f) || MathHelper.lineInRect(bouncer.b1.x, bouncer.b1.y, bouncer.b2.x, bouncer.b2.y, this.starR.pos.x - 20f, this.starR.pos.y - 20f, 40f, 40f);
-                            flag15 = flag15 && !this.noCandyR;
+                            flag15 = MathHelper.lineInRect(bouncer.t1.x, bouncer.t1.y, bouncer.t2.x, bouncer.t2.y, starR.pos.x - 20f, starR.pos.y - 20f, 40f, 40f) || MathHelper.lineInRect(bouncer.b1.x, bouncer.b1.y, bouncer.b2.x, bouncer.b2.y, starR.pos.x - 20f, starR.pos.y - 20f, 40f, 40f);
+                            flag15 = flag15 && !noCandyR;
                         }
                     }
                     else
                     {
-                        flag15 = MathHelper.lineInRect(bouncer.t1.x, bouncer.t1.y, bouncer.t2.x, bouncer.t2.y, this.star.pos.x - 20f, this.star.pos.y - 20f, 40f, 40f) || MathHelper.lineInRect(bouncer.b1.x, bouncer.b1.y, bouncer.b2.x, bouncer.b2.y, this.star.pos.x - 20f, this.star.pos.y - 20f, 40f, 40f);
-                        flag15 = flag15 && !this.noCandy;
+                        flag15 = MathHelper.lineInRect(bouncer.t1.x, bouncer.t1.y, bouncer.t2.x, bouncer.t2.y, star.pos.x - 20f, star.pos.y - 20f, 40f, 40f) || MathHelper.lineInRect(bouncer.b1.x, bouncer.b1.y, bouncer.b2.x, bouncer.b2.y, star.pos.x - 20f, star.pos.y - 20f, 40f, 40f);
+                        flag15 = flag15 && !noCandy;
                     }
                     if (flag15)
                     {
-                        if (this.twoParts != 2)
+                        if (twoParts != 2)
                         {
                             if (flag14)
                             {
-                                this.handleBouncePtDelta(bouncer, this.starL, delta);
+                                handleBouncePtDelta(bouncer, starL, delta);
                             }
                             else
                             {
-                                this.handleBouncePtDelta(bouncer, this.starR, delta);
+                                handleBouncePtDelta(bouncer, starR, delta);
                             }
                         }
                         else
                         {
-                            this.handleBouncePtDelta(bouncer, this.star, delta);
+                            handleBouncePtDelta(bouncer, star, delta);
                         }
                     }
                     else
@@ -1943,126 +1943,126 @@ namespace ctr_wp7.game
             }
             float num33 = -18f;
             float num34 = 20f;
-            if (this.twoParts == 0)
+            if (twoParts == 0)
             {
-                if (this.candyBubbleL != null)
+                if (candyBubbleL != null)
                 {
-                    if (this.gravityButton != null && !this.gravityNormal)
+                    if (gravityButton != null && !gravityNormal)
                     {
-                        this.starL.applyImpulseDelta(MathHelper.vect(-this.starL.v.x / num34, -this.starL.v.y / num34 - num33), delta);
+                        starL.applyImpulseDelta(MathHelper.vect(-starL.v.x / num34, -starL.v.y / num34 - num33), delta);
                     }
                     else
                     {
-                        this.starL.applyImpulseDelta(MathHelper.vect(-this.starL.v.x / num34, -this.starL.v.y / num34 + num33), delta);
+                        starL.applyImpulseDelta(MathHelper.vect(-starL.v.x / num34, -starL.v.y / num34 + num33), delta);
                     }
                 }
-                if (this.candyBubbleR != null)
+                if (candyBubbleR != null)
                 {
-                    if (this.gravityButton != null && !this.gravityNormal)
+                    if (gravityButton != null && !gravityNormal)
                     {
-                        this.starR.applyImpulseDelta(MathHelper.vect(-this.starR.v.x / num34, -this.starR.v.y / num34 - num33), delta);
+                        starR.applyImpulseDelta(MathHelper.vect(-starR.v.x / num34, -starR.v.y / num34 - num33), delta);
                     }
                     else
                     {
-                        this.starR.applyImpulseDelta(MathHelper.vect(-this.starR.v.x / num34, -this.starR.v.y / num34 + num33), delta);
-                    }
-                }
-            }
-            if (this.twoParts == 1)
-            {
-                if (this.candyBubbleR != null || this.candyBubbleL != null)
-                {
-                    if (this.gravityButton != null && !this.gravityNormal)
-                    {
-                        this.starL.applyImpulseDelta(MathHelper.vect(-this.starL.v.x / num34, -this.starL.v.y / num34 - num33), delta);
-                        this.starR.applyImpulseDelta(MathHelper.vect(-this.starR.v.x / num34, -this.starR.v.y / num34 - num33), delta);
-                    }
-                    else
-                    {
-                        this.starL.applyImpulseDelta(MathHelper.vect(-this.starL.v.x / num34, -this.starL.v.y / num34 + num33), delta);
-                        this.starR.applyImpulseDelta(MathHelper.vect(-this.starR.v.x / num34, -this.starR.v.y / num34 + num33), delta);
+                        starR.applyImpulseDelta(MathHelper.vect(-starR.v.x / num34, -starR.v.y / num34 + num33), delta);
                     }
                 }
             }
-            else if (this.candyBubble != null)
+            if (twoParts == 1)
             {
-                if (this.gravityButton != null && !this.gravityNormal)
+                if (candyBubbleR != null || candyBubbleL != null)
                 {
-                    this.star.applyImpulseDelta(MathHelper.vect(-this.star.v.x / num34, -this.star.v.y / num34 - num33), delta);
+                    if (gravityButton != null && !gravityNormal)
+                    {
+                        starL.applyImpulseDelta(MathHelper.vect(-starL.v.x / num34, -starL.v.y / num34 - num33), delta);
+                        starR.applyImpulseDelta(MathHelper.vect(-starR.v.x / num34, -starR.v.y / num34 - num33), delta);
+                    }
+                    else
+                    {
+                        starL.applyImpulseDelta(MathHelper.vect(-starL.v.x / num34, -starL.v.y / num34 + num33), delta);
+                        starR.applyImpulseDelta(MathHelper.vect(-starR.v.x / num34, -starR.v.y / num34 + num33), delta);
+                    }
+                }
+            }
+            else if (candyBubble != null)
+            {
+                if (gravityButton != null && !gravityNormal)
+                {
+                    star.applyImpulseDelta(MathHelper.vect(-star.v.x / num34, -star.v.y / num34 - num33), delta);
                 }
                 else
                 {
-                    this.star.applyImpulseDelta(MathHelper.vect(-this.star.v.x / num34, -this.star.v.y / num34 + num33), delta);
+                    star.applyImpulseDelta(MathHelper.vect(-star.v.x / num34, -star.v.y / num34 + num33), delta);
                 }
             }
-            if (!this.noCandy)
+            if (!noCandy)
             {
-                if (!this.mouthOpen)
+                if (!mouthOpen)
                 {
-                    if (!this.isCandyInLantern && MathHelper.vectDistance(this.star.pos, MathHelper.vect(this.target.x, this.target.y)) < 100f)
+                    if (!isCandyInLantern && MathHelper.vectDistance(star.pos, MathHelper.vect(target.x, target.y)) < 100f)
                     {
-                        this.mouthOpen = true;
-                        this.target.playTimeline(8);
+                        mouthOpen = true;
+                        target.playTimeline(8);
                         CTRSoundMgr._playSound(27);
-                        this.mouthCloseTimer = 1f;
+                        mouthCloseTimer = 1f;
                     }
                 }
-                else if ((double)this.mouthCloseTimer > 0.0)
+                else if ((double)mouthCloseTimer > 0.0)
                 {
-                    Mover.moveVariableToTarget(ref this.mouthCloseTimer, 0f, 1f, delta);
-                    if ((double)this.mouthCloseTimer <= 0.0)
+                    Mover.moveVariableToTarget(ref mouthCloseTimer, 0f, 1f, delta);
+                    if ((double)mouthCloseTimer <= 0.0)
                     {
-                        if (this.isCandyInLantern || MathHelper.vectDistance(this.star.pos, MathHelper.vect(this.target.x, this.target.y)) > 100f)
+                        if (isCandyInLantern || MathHelper.vectDistance(star.pos, MathHelper.vect(target.x, target.y)) > 100f)
                         {
-                            this.mouthOpen = false;
-                            this.target.playTimeline(9);
+                            mouthOpen = false;
+                            target.playTimeline(9);
                             CTRSoundMgr._playSound(26);
-                            this.tummyTeasers++;
-                            if (this.tummyTeasers >= 10)
+                            tummyTeasers++;
+                            if (tummyTeasers >= 10)
                             {
                                 CTRRootController.postAchievementName(NSObject.NSS("acTummyTeaser"));
                             }
                         }
                         else
                         {
-                            this.mouthCloseTimer = 1f;
+                            mouthCloseTimer = 1f;
                         }
                     }
                 }
-                if (this.restartState != 0 && GameObject.objectsIntersect(this.candy, this.target))
+                if (restartState != 0 && GameObject.objectsIntersect(candy, target))
                 {
-                    this.postGameEvent("LEVSCR_CANDY_EATEN", null, false);
-                    this.gameWon();
+                    postGameEvent("LEVSCR_CANDY_EATEN", null, false);
+                    gameWon();
                     return;
                 }
             }
-            bool flag16 = this.twoParts == 2 && this.pointOutOfScreen(this.star) && !this.noCandy;
-            bool flag17 = this.twoParts != 2 && this.pointOutOfScreen(this.starL) && !this.noCandyL;
-            bool flag18 = this.twoParts != 2 && this.pointOutOfScreen(this.starR) && !this.noCandyR;
+            bool flag16 = twoParts == 2 && pointOutOfScreen(star) && !noCandy;
+            bool flag17 = twoParts != 2 && pointOutOfScreen(starL) && !noCandyL;
+            bool flag18 = twoParts != 2 && pointOutOfScreen(starR) && !noCandyR;
             if (flag17 || flag18 || flag16)
             {
-                if (this.twoParts == 2)
+                if (twoParts == 2)
                 {
-                    this.releaseAllRopes(false);
+                    releaseAllRopes(false);
                 }
                 bool flag19 = false;
-                if (this.twoParts != 2 && (this.noCandyL || this.noCandyR))
+                if (twoParts != 2 && (noCandyL || noCandyR))
                 {
                     flag19 = true;
                 }
                 if (flag16)
                 {
-                    this.noCandy = true;
+                    noCandy = true;
                 }
                 if (flag17)
                 {
-                    this.noCandyL = true;
+                    noCandyL = true;
                 }
                 if (flag18)
                 {
-                    this.noCandyR = true;
+                    noCandyR = true;
                 }
-                if (this.restartState != 0)
+                if (restartState != 0)
                 {
                     int num35 = Preferences._getIntForKey("PREFS_CANDIES_LOST") + 1;
                     Preferences._setIntforKey(num35, "PREFS_CANDIES_LOST", false);
@@ -2076,44 +2076,44 @@ namespace ctr_wp7.game
                     }
                     if (!flag19)
                     {
-                        this.gameLost();
+                        gameLost();
                     }
                     return;
                 }
             }
-            if (this.special != 0 && this.special == 1 && !this.noCandy && this.candyBubble != null && this.candy.y < 100f && this.candy.x > 200f)
+            if (special != 0 && special == 1 && !noCandy && candyBubble != null && candy.y < 100f && candy.x > 200f)
             {
-                this.special = 0;
-                int num36 = this.tutorials.Count;
+                special = 0;
+                int num36 = tutorials.Count;
                 for (int num37 = 0; num37 < num36; num37++)
                 {
-                    GameScene.TutorialText tutorialText2 = this.tutorials[num37];
+                    GameScene.TutorialText tutorialText2 = tutorials[num37];
                     if (tutorialText2 != null && tutorialText2.special == 1)
                     {
                         tutorialText2.playTimeline(0);
                     }
                 }
-                num36 = this.tutorialImages.Count;
+                num36 = tutorialImages.Count;
                 for (int num38 = 0; num38 < num36; num38++)
                 {
-                    GameScene.GameObjectSpecial gameObjectSpecial2 = this.tutorialImages[num38];
+                    GameScene.GameObjectSpecial gameObjectSpecial2 = tutorialImages[num38];
                     if (gameObjectSpecial2.special == 1)
                     {
                         gameObjectSpecial2.playTimeline(0);
                     }
                 }
             }
-            if (Mover.moveVariableToTarget(ref this.dimTime, 0f, 1f, delta))
+            if (Mover.moveVariableToTarget(ref dimTime, 0f, 1f, delta))
             {
-                if (this.restartState == 0)
+                if (restartState == 0)
                 {
-                    this.restartState = 1;
-                    this.hide();
-                    this.show();
-                    this.dimTime = 0.15f;
+                    restartState = 1;
+                    hide();
+                    show();
+                    dimTime = 0.15f;
                     return;
                 }
-                this.restartState = -1;
+                restartState = -1;
             }
         }
 
@@ -2125,26 +2125,26 @@ namespace ctr_wp7.game
             OpenGL.glTranslatef(-FrameworkTypes.SCREEN_OFFSET_X, -FrameworkTypes.SCREEN_OFFSET_Y, 0f);
             float num = FrameworkTypes.SCREEN_BG_SCALE_X;
             float num2 = FrameworkTypes.SCREEN_BG_SCALE_Y;
-            if (this.mapHeight > FrameworkTypes.SCREEN_HEIGHT)
+            if (mapHeight > FrameworkTypes.SCREEN_HEIGHT)
             {
                 num2 = (FrameworkTypes.SCREEN_HEIGHT_EXPANDED - FrameworkTypes.SCREEN_OFFSET_Y) / FrameworkTypes.SCREEN_HEIGHT;
             }
-            if (this.mapWidth > FrameworkTypes.SCREEN_WIDTH)
+            if (mapWidth > FrameworkTypes.SCREEN_WIDTH)
             {
                 num = (FrameworkTypes.SCREEN_WIDTH_EXPANDED - FrameworkTypes.SCREEN_OFFSET_X) / FrameworkTypes.SCREEN_WIDTH;
             }
             OpenGL.glScalef(num, num2, 1f);
             OpenGL.glEnable(0);
             OpenGL.glDisable(1);
-            Vector pos = this.camera.pos;
+            Vector pos = camera.pos;
             pos.x /= num;
             pos.y /= num2;
             OpenGL.glTranslatef(-pos.x, -pos.y, 0f);
-            this.back.updateWithCameraPos(pos);
-            this.back.draw();
+            back.updateWithCameraPos(pos);
+            back.draw();
             OpenGL.glEnable(1);
             OpenGL.glBlendFunc(BlendingFactor.GL_ONE, BlendingFactor.GL_ONE_MINUS_SRC_ALPHA);
-            if (this.mapHeight > FrameworkTypes.SCREEN_HEIGHT)
+            if (mapHeight > FrameworkTypes.SCREEN_HEIGHT)
             {
                 float num3 = 2f;
                 CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
@@ -2157,7 +2157,7 @@ namespace ctr_wp7.game
                 rectangle.h -= num3 * 2f;
                 GLDrawer.drawImagePart(texture, rectangle, 0f, y + num3);
             }
-            if (this.mapWidth > FrameworkTypes.SCREEN_WIDTH)
+            if (mapWidth > FrameworkTypes.SCREEN_WIDTH)
             {
                 float num6 = 2f;
                 CTRRootController ctrrootController2 = (CTRRootController)Application.sharedRootController();
@@ -2168,11 +2168,11 @@ namespace ctr_wp7.game
                 rectangle2.w -= num6 * 2f;
                 GLDrawer.drawImagePart(texture2, rectangle2, x + num6, 0f);
             }
-            if (this.earthAnims != null)
+            if (earthAnims != null)
             {
-                for (int i = 0; i < this.earthAnims.Count; i++)
+                for (int i = 0; i < earthAnims.Count; i++)
                 {
-                    Image image = this.earthAnims[i];
+                    Image image = earthAnims[i];
                     if (image != null)
                     {
                         image.draw();
@@ -2180,92 +2180,92 @@ namespace ctr_wp7.game
                 }
             }
             OpenGL.glPopMatrix();
-            this.camera.applyCameraTransformation();
-            this.pollenDrawer.draw();
-            if (this.gravityButton != null)
+            camera.applyCameraTransformation();
+            pollenDrawer.draw();
+            if (gravityButton != null)
             {
-                this.gravityButton.draw();
+                gravityButton.draw();
             }
             OpenGL.SetWhiteColor();
             OpenGL.glEnable(0);
             OpenGL.glBlendFunc(BlendingFactor.GL_ONE, BlendingFactor.GL_ONE_MINUS_SRC_ALPHA);
-            this.support.draw();
-            if (this.target.visible)
+            support.draw();
+            if (target.visible)
             {
-                this.target.draw();
+                target.draw();
             }
-            if (this.targetIdle.visible)
+            if (targetIdle.visible)
             {
-                this.targetIdle.draw();
+                targetIdle.draw();
             }
-            if (this.tutorials != null)
+            if (tutorials != null)
             {
-                for (int j = 0; j < this.tutorials.Count; j++)
+                for (int j = 0; j < tutorials.Count; j++)
                 {
-                    Text text = this.tutorials[j];
+                    Text text = tutorials[j];
                     if (text != null)
                     {
                         text.draw();
                     }
                 }
             }
-            if (this.tutorialImages != null)
+            if (tutorialImages != null)
             {
-                for (int k = 0; k < this.tutorialImages.Count; k++)
+                for (int k = 0; k < tutorialImages.Count; k++)
                 {
-                    GameObject gameObject = this.tutorialImages[k];
+                    GameObject gameObject = tutorialImages[k];
                     if (gameObject != null)
                     {
                         gameObject.draw();
                     }
                 }
             }
-            if (this.razors != null)
+            if (razors != null)
             {
-                for (int l = 0; l < this.razors.Count; l++)
+                for (int l = 0; l < razors.Count; l++)
                 {
-                    Razor razor = this.razors[l];
+                    Razor razor = razors[l];
                     if (razor != null)
                     {
                         razor.draw();
                     }
                 }
             }
-            if (this.rotatedCircles != null)
+            if (rotatedCircles != null)
             {
-                for (int m = 0; m < this.rotatedCircles.Count; m++)
+                for (int m = 0; m < rotatedCircles.Count; m++)
                 {
-                    if (this.rotatedCircles[m] != null)
+                    if (rotatedCircles[m] != null)
                     {
-                        this.rotatedCircles[m].draw();
+                        rotatedCircles[m].draw();
                     }
                 }
             }
-            if (this.bubbles != null)
+            if (bubbles != null)
             {
-                for (int n = 0; n < this.bubbles.Count; n++)
+                for (int n = 0; n < bubbles.Count; n++)
                 {
-                    GameObject gameObject2 = this.bubbles[n];
+                    GameObject gameObject2 = bubbles[n];
                     if (gameObject2 != null)
                     {
                         gameObject2.draw();
                     }
                 }
             }
-            if (this.pumps != null)
+            if (pumps != null)
             {
-                for (int num7 = 0; num7 < this.pumps.Count; num7++)
+                for (int num7 = 0; num7 < pumps.Count; num7++)
                 {
-                    GameObject gameObject3 = this.pumps[num7];
+                    GameObject gameObject3 = pumps[num7];
                     if (gameObject3 != null)
                     {
                         gameObject3.draw();
                     }
                 }
             }
-            if (this.spikes != null)
+            if (spikes != null)
             {
-                for (int num8 = 0; num8 < this.spikes.Count; num8++)
+                for (int num8 = 0; num8 < spikes.Count; num8++)
                 {
                     Spikes spikes = this.spikes[num8];
                     if (spikes != null)
@@ -2274,22 +2274,22 @@ namespace ctr_wp7.game
                     }
                 }
             }
-            if (this.bouncers != null)
+            if (bouncers != null)
             {
-                for (int num9 = 0; num9 < this.bouncers.Count; num9++)
+                for (int num9 = 0; num9 < bouncers.Count; num9++)
                 {
-                    Bouncer bouncer = this.bouncers[num9];
+                    Bouncer bouncer = bouncers[num9];
                     if (bouncer != null)
                     {
                         bouncer.draw();
                     }
                 }
             }
-            if (this.socks != null)
+            if (socks != null)
             {
-                for (int num10 = 0; num10 < this.socks.Count; num10++)
+                for (int num10 = 0; num10 < socks.Count; num10++)
                 {
-                    Sock sock = this.socks[num10];
+                    Sock sock = socks[num10];
                     if (sock != null)
                     {
                         sock.y -= 25f;
@@ -2298,9 +2298,9 @@ namespace ctr_wp7.game
                     sock.y += 25f;
                 }
             }
-            if (this.tubes != null)
+            if (tubes != null)
             {
-                foreach (SteamTube steamTube in this.tubes)
+                foreach (SteamTube steamTube in tubes)
                 {
                     if (steamTube != null)
                     {
@@ -2314,9 +2314,9 @@ namespace ctr_wp7.game
                 lantern.draw();
             }
             OpenGL.glBlendFunc(BlendingFactor.GL_ONE, BlendingFactor.GL_ONE_MINUS_SRC_ALPHA);
-            if (this.ghosts != null)
+            if (ghosts != null)
             {
-                foreach (Ghost ghost in this.ghosts)
+                foreach (Ghost ghost in ghosts)
                 {
                     if (ghost != null)
                     {
@@ -2325,22 +2325,22 @@ namespace ctr_wp7.game
                 }
             }
             OpenGL.glBlendFunc(BlendingFactor.GL_SRC_ALPHA, BlendingFactor.GL_ONE_MINUS_SRC_ALPHA);
-            if (this.bungees != null)
+            if (bungees != null)
             {
-                for (int num11 = 0; num11 < this.bungees.Count; num11++)
+                for (int num11 = 0; num11 < bungees.Count; num11++)
                 {
-                    Grab grab = this.bungees[num11];
+                    Grab grab = bungees[num11];
                     if (grab != null)
                     {
                         grab.drawBack();
                     }
                 }
             }
-            if (this.bungees != null)
+            if (bungees != null)
             {
-                for (int num12 = 0; num12 < this.bungees.Count; num12++)
+                for (int num12 = 0; num12 < bungees.Count; num12++)
                 {
-                    Grab grab2 = this.bungees[num12];
+                    Grab grab2 = bungees[num12];
                     if (grab2 != null)
                     {
                         grab2.draw();
@@ -2348,50 +2348,50 @@ namespace ctr_wp7.game
                 }
             }
             OpenGL.glBlendFunc(BlendingFactor.GL_ONE, BlendingFactor.GL_ONE_MINUS_SRC_ALPHA);
-            if (this.stars != null)
+            if (stars != null)
             {
-                for (int num13 = 0; num13 < this.stars.Count; num13++)
+                for (int num13 = 0; num13 < stars.Count; num13++)
                 {
-                    GameObject gameObject4 = this.stars[num13];
+                    GameObject gameObject4 = stars[num13];
                     if (gameObject4 != null)
                     {
                         gameObject4.draw();
                     }
                 }
             }
-            if (!this.noCandy && this.targetSock == null)
+            if (!noCandy && targetSock == null)
             {
-                if (!this.isCandyInLantern)
+                if (!isCandyInLantern)
                 {
-                    this.candy.x = this.star.pos.x;
-                    this.candy.y = this.star.pos.y;
+                    candy.x = star.pos.x;
+                    candy.y = star.pos.y;
                 }
-                this.candy.draw();
-                if (this.candyBlink.getCurrentTimeline() != null && !this.isCandyInLantern)
+                candy.draw();
+                if (candyBlink.getCurrentTimeline() != null && !isCandyInLantern)
                 {
                     OpenGL.glBlendFunc(BlendingFactor.GL_SRC_ALPHA, BlendingFactor.GL_ONE);
-                    this.candyBlink.draw();
+                    candyBlink.draw();
                     OpenGL.glBlendFunc(BlendingFactor.GL_ONE, BlendingFactor.GL_ONE_MINUS_SRC_ALPHA);
                 }
             }
-            if (this.twoParts != 2)
+            if (twoParts != 2)
             {
-                if (!this.noCandyL)
+                if (!noCandyL)
                 {
-                    this.candyL.x = this.starL.pos.x;
-                    this.candyL.y = this.starL.pos.y;
-                    this.candyL.draw();
+                    candyL.x = starL.pos.x;
+                    candyL.y = starL.pos.y;
+                    candyL.draw();
                 }
-                if (!this.noCandyR)
+                if (!noCandyR)
                 {
-                    this.candyR.x = this.starR.pos.x;
-                    this.candyR.y = this.starR.pos.y;
-                    this.candyR.draw();
+                    candyR.x = starR.pos.x;
+                    candyR.y = starR.pos.y;
+                    candyR.draw();
                 }
             }
-            if (this.tubes != null)
+            if (tubes != null)
             {
-                foreach (SteamTube steamTube2 in this.tubes)
+                foreach (SteamTube steamTube2 in tubes)
                 {
                     if (steamTube2 != null)
                     {
@@ -2399,28 +2399,28 @@ namespace ctr_wp7.game
                     }
                 }
             }
-            if (this.bungees != null)
+            if (bungees != null)
             {
-                for (int num14 = 0; num14 < this.bungees.Count; num14++)
+                for (int num14 = 0; num14 < bungees.Count; num14++)
                 {
-                    Grab grab3 = this.bungees[num14];
+                    Grab grab3 = bungees[num14];
                     if (grab3 != null && grab3.hasSpider)
                     {
                         grab3.drawSpider();
                     }
                 }
             }
-            this.aniPool.draw();
-            bool flag = this.nightLevel;
+            aniPool.draw();
+            bool flag = nightLevel;
             OpenGL.glBlendFunc(BlendingFactor.GL_SRC_ALPHA, BlendingFactor.GL_ONE_MINUS_SRC_ALPHA);
             OpenGL.glDisable(0);
             OpenGL.SetWhiteColor();
-            this.drawCuts();
+            drawCuts();
             OpenGL.glEnable(0);
             OpenGL.glBlendFunc(BlendingFactor.GL_ONE, BlendingFactor.GL_ONE_MINUS_SRC_ALPHA);
-            this.camera.cancelCameraTransformation();
-            this.staticAniPool.draw();
-            if (this.nightLevel)
+            camera.cancelCameraTransformation();
+            staticAniPool.draw();
+            if (nightLevel)
             {
                 OpenGL.glDisable(4);
             }
@@ -2432,11 +2432,11 @@ namespace ctr_wp7.game
         {
             for (int i = 0; i < 5; i++)
             {
-                this.fingerCuts[i].Clear();
+                fingerCuts[i].Clear();
             }
-            NSObject.NSREL(this.dd);
-            NSObject.NSREL(this.camera);
-            NSObject.NSREL(this.back);
+            NSObject.NSREL(dd);
+            NSObject.NSREL(camera);
+            NSObject.NSREL(back);
             base.dealloc();
         }
 
@@ -2450,98 +2450,98 @@ namespace ctr_wp7.game
             animation.y = by;
             animation.anchor = 18;
             int num = animation.addAnimationDelayLoopFirstLast(0.05f, Timeline.LoopType.TIMELINE_NO_LOOP, 0, 11);
-            animation.getTimeline(num).delegateTimelineDelegate = this.aniPool;
+            animation.getTimeline(num).delegateTimelineDelegate = aniPool;
             animation.playTimeline(0);
-            this.aniPool.addChild(animation);
+            aniPool.addChild(animation);
         }
 
         // Token: 0x0600080B RID: 2059 RVA: 0x0004621C File Offset: 0x0004441C
         public virtual void popCandyBubble(bool left)
         {
-            if (this.twoParts == 2)
+            if (twoParts == 2)
             {
-                if (this.ghosts != null)
+                if (ghosts != null)
                 {
-                    foreach (Ghost ghost in this.ghosts)
+                    foreach (Ghost ghost in ghosts)
                     {
                         if (ghost != null)
                         {
-                            if (ghost.bubble == this.candyBubble)
+                            if (ghost.bubble == candyBubble)
                             {
                                 ghost.cyclingEnabled = true;
                                 ghost.resetToState(1);
                             }
-                            if (this.shouldRestoreSecondGhost && ghost.bubble == this.candyBubbleR)
+                            if (shouldRestoreSecondGhost && ghost.bubble == candyBubbleR)
                             {
                                 ghost.cyclingEnabled = true;
                                 ghost.resetToState(1);
-                                this.candyBubbleR = null;
-                                this.shouldRestoreSecondGhost = false;
+                                candyBubbleR = null;
+                                shouldRestoreSecondGhost = false;
                             }
                         }
                     }
                 }
-                this.candyBubble = null;
-                this.candyBubbleAnimation.visible = false;
-                if (this.isCandyInGhostBubbleAnimationLoaded)
+                candyBubble = null;
+                candyBubbleAnimation.visible = false;
+                if (isCandyInGhostBubbleAnimationLoaded)
                 {
-                    this.candyGhostBubbleAnimation.visible = false;
+                    candyGhostBubbleAnimation.visible = false;
                 }
-                this.popBubbleAtXY(this.candy.x, this.candy.y);
+                popBubbleAtXY(candy.x, candy.y);
                 return;
             }
             if (left)
             {
-                if (this.ghosts != null)
+                if (ghosts != null)
                 {
-                    foreach (Ghost ghost2 in this.ghosts)
+                    foreach (Ghost ghost2 in ghosts)
                     {
-                        if (ghost2 != null && ghost2.bubble == this.candyBubbleL)
+                        if (ghost2 != null && ghost2.bubble == candyBubbleL)
                         {
                             ghost2.cyclingEnabled = true;
                             ghost2.resetToState(1);
                         }
                     }
                 }
-                this.candyBubbleL = null;
-                this.candyBubbleAnimationL.visible = false;
-                if (this.isCandyInGhostBubbleAnimationLeftLoaded)
+                candyBubbleL = null;
+                candyBubbleAnimationL.visible = false;
+                if (isCandyInGhostBubbleAnimationLeftLoaded)
                 {
-                    this.candyGhostBubbleAnimationL.visible = false;
+                    candyGhostBubbleAnimationL.visible = false;
                 }
-                this.popBubbleAtXY(this.candyL.x, this.candyL.y);
+                popBubbleAtXY(candyL.x, candyL.y);
                 return;
             }
-            if (this.ghosts != null)
+            if (ghosts != null)
             {
-                foreach (Ghost ghost3 in this.ghosts)
+                foreach (Ghost ghost3 in ghosts)
                 {
-                    if (ghost3 != null && ghost3.bubble == this.candyBubbleR)
+                    if (ghost3 != null && ghost3.bubble == candyBubbleR)
                     {
                         ghost3.cyclingEnabled = true;
                         ghost3.resetToState(1);
                     }
                 }
             }
-            this.candyBubbleR = null;
-            this.candyBubbleAnimationR.visible = false;
-            if (this.isCandyInGhostBubbleAnimationRightLoaded)
+            candyBubbleR = null;
+            candyBubbleAnimationR.visible = false;
+            if (isCandyInGhostBubbleAnimationRightLoaded)
             {
-                this.candyGhostBubbleAnimationR.visible = false;
+                candyGhostBubbleAnimationR.visible = false;
             }
-            this.popBubbleAtXY(this.candyR.x, this.candyR.y);
+            popBubbleAtXY(candyR.x, candyR.y);
         }
 
         // Token: 0x0600080C RID: 2060 RVA: 0x00046468 File Offset: 0x00044668
         public virtual void loadNextMap()
         {
-            this.dd.cancelAllDispatches();
-            this.initialCameraToStarDistance = -1f;
-            this.animateRestartDim = false;
+            dd.cancelAllDispatches();
+            initialCameraToStarDistance = -1f;
+            animateRestartDim = false;
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
             if (ctrrootController.isPicker())
             {
-                this.xmlLoaderFinishedWithfromwithSuccess(XMLNode.parseXML("mappicker://next"), NSObject.NSS("mappicker://next"), true);
+                xmlLoaderFinishedWithfromwithSuccess(XMLNode.parseXML("mappicker://next"), NSObject.NSS("mappicker://next"), true);
                 return;
             }
             int num = ctrrootController.getPack();
@@ -2550,33 +2550,33 @@ namespace ctr_wp7.game
             {
                 ctrrootController.setLevel(++num2);
                 ctrrootController.setMapName(LevelsList.LEVEL_NAMES[num, num2]);
-                this.xmlLoaderFinishedWithfromwithSuccess(XMLNode.parseXML("maps/" + LevelsList.LEVEL_NAMES[num, num2].ToString()), NSObject.NSS("maps/" + LevelsList.LEVEL_NAMES[num, num2].ToString()), true);
+                xmlLoaderFinishedWithfromwithSuccess(XMLNode.parseXML("maps/" + LevelsList.LEVEL_NAMES[num, num2].ToString()), NSObject.NSS("maps/" + LevelsList.LEVEL_NAMES[num, num2].ToString()), true);
             }
         }
 
         // Token: 0x0600080D RID: 2061 RVA: 0x00046540 File Offset: 0x00044740
         public virtual void reload()
         {
-            this.dd.cancelAllDispatches();
+            dd.cancelAllDispatches();
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
             if (ctrrootController.isPicker())
             {
-                this.xmlLoaderFinishedWithfromwithSuccess(XMLNode.parseXML("mappicker://reload"), NSObject.NSS("mappicker://reload"), true);
+                xmlLoaderFinishedWithfromwithSuccess(XMLNode.parseXML("mappicker://reload"), NSObject.NSS("mappicker://reload"), true);
                 return;
             }
             int num = ctrrootController.getPack();
             int level = ctrrootController.getLevel();
-            this.xmlLoaderFinishedWithfromwithSuccess(XMLNode.parseXML("maps/" + LevelsList.LEVEL_NAMES[num, level].ToString()), NSObject.NSS("maps/" + LevelsList.LEVEL_NAMES[num, level].ToString()), true);
+            xmlLoaderFinishedWithfromwithSuccess(XMLNode.parseXML("maps/" + LevelsList.LEVEL_NAMES[num, level].ToString()), NSObject.NSS("maps/" + LevelsList.LEVEL_NAMES[num, level].ToString()), true);
         }
 
         // Token: 0x0600080E RID: 2062 RVA: 0x000465DC File Offset: 0x000447DC
         public virtual bool touchDownXYIndex(float tx, float ty, int ti)
         {
-            if (this.ignoreTouches)
+            if (ignoreTouches)
             {
-                if (this.camera.type == CAMERA_TYPE.CAMERA_SPEED_PIXELS)
+                if (camera.type == CAMERA_TYPE.CAMERA_SPEED_PIXELS)
                 {
-                    this.fastenCamera = true;
+                    fastenCamera = true;
                 }
                 return true;
             }
@@ -2584,37 +2584,37 @@ namespace ctr_wp7.game
             {
                 return true;
             }
-            if (this.gravityButton != null)
+            if (gravityButton != null)
             {
-                Button button = (Button)this.gravityButton.getChild(this.gravityButton.on() ? 1 : 0);
-                if (button.isInTouchZoneXYforTouchDown(tx + this.camera.pos.x, ty + this.camera.pos.y, true))
+                Button button = (Button)gravityButton.getChild(gravityButton.on() ? 1 : 0);
+                if (button.isInTouchZoneXYforTouchDown(tx + camera.pos.x, ty + camera.pos.y, true))
                 {
-                    this.gravityTouchDown = ti;
+                    gravityTouchDown = ti;
                 }
             }
             Vector vector = MathHelper.vect(tx, ty);
-            this.prevStartPos[ti] = (this.startPos[ti] = vector);
-            if (this.candyBubble != null && this.handleBubbleTouchXY(this.star, tx, ty))
+            prevStartPos[ti] = (startPos[ti] = vector);
+            if (candyBubble != null && handleBubbleTouchXY(star, tx, ty))
             {
                 return true;
             }
-            if (this.twoParts != 2)
+            if (twoParts != 2)
             {
-                if (this.candyBubbleL != null && this.handleBubbleTouchXY(this.starL, tx, ty))
+                if (candyBubbleL != null && handleBubbleTouchXY(starL, tx, ty))
                 {
                     return true;
                 }
-                if (this.candyBubbleR != null && this.handleBubbleTouchXY(this.starR, tx, ty))
+                if (candyBubbleR != null && handleBubbleTouchXY(starR, tx, ty))
                 {
                     return true;
                 }
             }
             int i = 0;
-            int count = this.spikes.Count;
+            int count = spikes.Count;
             while (i < count)
             {
                 Spikes spikes = this.spikes[i];
-                if (spikes.rotateButton != null && spikes.touchIndex == -1 && spikes.rotateButton.onTouchDownXY(tx + this.camera.pos.x, ty + this.camera.pos.y))
+                if (spikes.rotateButton != null && spikes.touchIndex == -1 && spikes.rotateButton.onTouchDownXY(tx + camera.pos.x, ty + camera.pos.y))
                 {
                     spikes.touchIndex = ti;
                     return true;
@@ -2622,11 +2622,11 @@ namespace ctr_wp7.game
                 i++;
             }
             bool flag = false;
-            int count2 = this.pumps.Count;
+            int count2 = pumps.Count;
             for (int j = 0; j < count2; j++)
             {
-                Pump pump = this.pumps[j];
-                if (GameObject.pointInObject(MathHelper.vect(tx + this.camera.pos.x, ty + this.camera.pos.y), pump))
+                Pump pump = pumps[j];
+                if (GameObject.pointInObject(MathHelper.vect(tx + camera.pos.x, ty + camera.pos.y), pump))
                 {
                     pump.pumpTouchTimer = 0.05f;
                     pump.pumpTouch = ti;
@@ -2638,24 +2638,24 @@ namespace ctr_wp7.game
             {
                 return true;
             }
-            if (!this.dragging[ti])
+            if (!dragging[ti])
             {
-                this.dragging[ti] = true;
+                dragging[ti] = true;
             }
             RotatedCircle rotatedCircle = null;
             bool flag2 = false;
             bool flag3 = false;
-            for (int k = 0; k < this.rotatedCircles.Count; k++)
+            for (int k = 0; k < rotatedCircles.Count; k++)
             {
-                RotatedCircle rotatedCircle2 = this.rotatedCircles[k];
-                float num = MathHelper.vectDistance(MathHelper.vect(tx + this.camera.pos.x, ty + this.camera.pos.y), rotatedCircle2.handle1);
-                float num2 = MathHelper.vectDistance(MathHelper.vect(tx + this.camera.pos.x, ty + this.camera.pos.y), rotatedCircle2.handle2);
+                RotatedCircle rotatedCircle2 = rotatedCircles[k];
+                float num = MathHelper.vectDistance(MathHelper.vect(tx + camera.pos.x, ty + camera.pos.y), rotatedCircle2.handle1);
+                float num2 = MathHelper.vectDistance(MathHelper.vect(tx + camera.pos.x, ty + camera.pos.y), rotatedCircle2.handle2);
                 if ((num < 30f && !rotatedCircle2.hasOneHandle()) || num2 < 30f)
                 {
-                    for (int l = 0; l < this.rotatedCircles.Count; l++)
+                    for (int l = 0; l < rotatedCircles.Count; l++)
                     {
-                        RotatedCircle rotatedCircle3 = this.rotatedCircles[l];
-                        if (this.rotatedCircles.IndexOf(rotatedCircle3) > this.rotatedCircles.IndexOf(rotatedCircle2))
+                        RotatedCircle rotatedCircle3 = rotatedCircles[l];
+                        if (rotatedCircles.IndexOf(rotatedCircle3) > rotatedCircles.IndexOf(rotatedCircle2))
                         {
                             float num3 = MathHelper.vectDistance(MathHelper.vect(rotatedCircle3.x, rotatedCircle3.y), MathHelper.vect(rotatedCircle2.x, rotatedCircle2.y));
                             if (num3 + rotatedCircle3.sizeInPixels <= rotatedCircle2.sizeInPixels)
@@ -2668,7 +2668,7 @@ namespace ctr_wp7.game
                             }
                         }
                     }
-                    rotatedCircle2.lastTouch = MathHelper.vect(tx + this.camera.pos.x, ty + this.camera.pos.y);
+                    rotatedCircle2.lastTouch = MathHelper.vect(tx + camera.pos.x, ty + camera.pos.y);
                     rotatedCircle2.operating = ti;
                     if (num < 30f)
                     {
@@ -2682,7 +2682,7 @@ namespace ctr_wp7.game
                     break;
                 }
             }
-            if (this.rotatedCircles.IndexOf(rotatedCircle) != this.rotatedCircles.Count - 1 && flag3 && !flag2)
+            if (rotatedCircles.IndexOf(rotatedCircle) != rotatedCircles.Count - 1 && flag3 && !flag2)
             {
                 Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(2);
                 timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
@@ -2695,40 +2695,40 @@ namespace ctr_wp7.game
                 rotatedCircle4.playTimeline(0);
                 rotatedCircle.addTimeline(timeline);
                 rotatedCircle.playTimeline(0);
-                this.rotatedCircles[this.rotatedCircles.IndexOf(rotatedCircle)] = rotatedCircle4;
-                this.rotatedCircles.Add(rotatedCircle);
+                rotatedCircles[rotatedCircles.IndexOf(rotatedCircle)] = rotatedCircle4;
+                rotatedCircles.Add(rotatedCircle);
             }
-            if (this.bungees != null)
+            if (bungees != null)
             {
-                for (int m = 0; m < this.bungees.Count; m++)
+                for (int m = 0; m < bungees.Count; m++)
                 {
-                    Grab grab = this.bungees[m];
-                    if (grab != null && grab.wheel && MathHelper.pointInRect(tx + this.camera.pos.x, ty + this.camera.pos.y, grab.x - 45f, grab.y - 45f, 90f, 90f))
+                    Grab grab = bungees[m];
+                    if (grab != null && grab.wheel && MathHelper.pointInRect(tx + camera.pos.x, ty + camera.pos.y, grab.x - 45f, grab.y - 45f, 90f, 90f))
                     {
-                        grab.handleWheelTouch(MathHelper.vect(tx + this.camera.pos.x, ty + this.camera.pos.y));
+                        grab.handleWheelTouch(MathHelper.vect(tx + camera.pos.x, ty + camera.pos.y));
                         grab.wheelOperating = ti;
                     }
-                    if ((double)grab.moveLength > 0.0 && MathHelper.pointInRect(tx + this.camera.pos.x, ty + this.camera.pos.y, grab.x - 40f, grab.y - 40f, 80f, 80f))
+                    if ((double)grab.moveLength > 0.0 && MathHelper.pointInRect(tx + camera.pos.x, ty + camera.pos.y, grab.x - 40f, grab.y - 40f, 80f, 80f))
                     {
                         grab.moverDragging = ti;
                     }
                 }
             }
-            if (this.ghosts != null)
+            if (ghosts != null)
             {
-                foreach (Ghost ghost in this.ghosts)
+                foreach (Ghost ghost in ghosts)
                 {
-                    if (ghost != null && ghost.onTouchDownXY(tx + this.camera.pos.x, ty + this.camera.pos.y))
+                    if (ghost != null && ghost.onTouchDownXY(tx + camera.pos.x, ty + camera.pos.y))
                     {
                         return true;
                     }
                 }
             }
-            if (this.tubes != null)
+            if (tubes != null)
             {
-                foreach (SteamTube steamTube in this.tubes)
+                foreach (SteamTube steamTube in tubes)
                 {
-                    if (steamTube != null && steamTube.onTouchDownXY(tx + this.camera.pos.x, ty + this.camera.pos.y))
+                    if (steamTube != null && steamTube.onTouchDownXY(tx + camera.pos.x, ty + camera.pos.y))
                     {
                         return true;
                     }
@@ -2737,9 +2737,9 @@ namespace ctr_wp7.game
             List<Lantern> allLanterns = Lantern.getAllLanterns();
             foreach (Lantern lantern in allLanterns)
             {
-                if (this.restartState == -1 && lantern != null && lantern.onTouchDownXY(tx + this.camera.pos.x, ty + this.camera.pos.y))
+                if (restartState == -1 && lantern != null && lantern.onTouchDownXY(tx + camera.pos.x, ty + camera.pos.y))
                 {
-                    this.dd.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(this.selector_revealCandyFromLantern), null, 0.1);
+                    dd.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(selector_revealCandyFromLantern), null, 0.1);
                     return true;
                 }
             }
@@ -2749,45 +2749,45 @@ namespace ctr_wp7.game
         // Token: 0x0600080F RID: 2063 RVA: 0x00046DA4 File Offset: 0x00044FA4
         public virtual bool touchUpXYIndex(float tx, float ty, int ti)
         {
-            if (this.ignoreTouches)
+            if (ignoreTouches)
             {
                 return true;
             }
-            this.dragging[ti] = false;
+            dragging[ti] = false;
             if (ti >= 5)
             {
                 return true;
             }
-            if (this.gravityButton != null && this.gravityTouchDown == ti)
+            if (gravityButton != null && gravityTouchDown == ti)
             {
-                Button button = (Button)this.gravityButton.getChild(this.gravityButton.on() ? 1 : 0);
-                if (button.isInTouchZoneXYforTouchDown(tx + this.camera.pos.x, ty + this.camera.pos.y, true))
+                Button button = (Button)gravityButton.getChild(gravityButton.on() ? 1 : 0);
+                if (button.isInTouchZoneXYforTouchDown(tx + camera.pos.x, ty + camera.pos.y, true))
                 {
-                    this.gravityButton.toggle();
-                    this.onButtonPressed(0);
+                    gravityButton.toggle();
+                    onButtonPressed(0);
                 }
-                this.gravityTouchDown = -1;
+                gravityTouchDown = -1;
             }
             int i = 0;
-            int count = this.spikes.Count;
+            int count = spikes.Count;
             while (i < count)
             {
                 Spikes spikes = this.spikes[i];
                 if (spikes.rotateButton != null && spikes.touchIndex == ti)
                 {
                     spikes.touchIndex = -1;
-                    if (spikes.rotateButton.onTouchUpXY(tx + this.camera.pos.x, ty + this.camera.pos.y))
+                    if (spikes.rotateButton.onTouchUpXY(tx + camera.pos.x, ty + camera.pos.y))
                     {
                         return true;
                     }
                 }
                 i++;
             }
-            if (this.rotatedCircles != null)
+            if (rotatedCircles != null)
             {
-                for (int j = 0; j < this.rotatedCircles.Count; j++)
+                for (int j = 0; j < rotatedCircles.Count; j++)
                 {
-                    RotatedCircle rotatedCircle = this.rotatedCircles[j];
+                    RotatedCircle rotatedCircle = rotatedCircles[j];
                     if (rotatedCircle != null && rotatedCircle.operating == ti)
                     {
                         rotatedCircle.operating = -1;
@@ -2797,11 +2797,11 @@ namespace ctr_wp7.game
                     }
                 }
             }
-            if (this.bungees != null)
+            if (bungees != null)
             {
-                for (int k = 0; k < this.bungees.Count; k++)
+                for (int k = 0; k < bungees.Count; k++)
                 {
-                    Grab grab = this.bungees[k];
+                    Grab grab = bungees[k];
                     if (grab != null && grab.wheel && grab.wheelOperating == ti)
                     {
                         grab.wheelOperating = -1;
@@ -2818,7 +2818,7 @@ namespace ctr_wp7.game
         // Token: 0x06000810 RID: 2064 RVA: 0x00046F88 File Offset: 0x00045188
         public virtual bool touchMoveXYIndex(float tx, float ty, int ti)
         {
-            if (this.ignoreTouches)
+            if (ignoreTouches)
             {
                 return true;
             }
@@ -2827,15 +2827,15 @@ namespace ctr_wp7.game
             {
                 return true;
             }
-            this.slastTouch = vector;
+            slastTouch = vector;
             int i = 0;
-            int count = this.spikes.Count;
+            int count = spikes.Count;
             while (i < count)
             {
                 Spikes spikes = this.spikes[i];
                 if (spikes.rotateButton != null && spikes.touchIndex == ti)
                 {
-                    if (spikes.rotateButton.onTouchMoveXY(tx + this.camera.pos.x, ty + this.camera.pos.y))
+                    if (spikes.rotateButton.onTouchMoveXY(tx + camera.pos.x, ty + camera.pos.y))
                     {
                         return true;
                     }
@@ -2843,26 +2843,26 @@ namespace ctr_wp7.game
                 }
                 i++;
             }
-            if (this.pumps != null)
+            if (pumps != null)
             {
-                for (int j = 0; j < this.pumps.Count; j++)
+                for (int j = 0; j < pumps.Count; j++)
                 {
-                    Pump pump = this.pumps[j];
-                    if (pump != null && pump.pumpTouch == ti && (double)pump.pumpTouchTimer != 0.0 && (double)MathHelper.vectDistance(this.startPos[ti], vector) > 10.0)
+                    Pump pump = pumps[j];
+                    if (pump != null && pump.pumpTouch == ti && (double)pump.pumpTouchTimer != 0.0 && (double)MathHelper.vectDistance(startPos[ti], vector) > 10.0)
                     {
                         pump.pumpTouchTimer = 0f;
                     }
                 }
             }
-            if (this.rotatedCircles != null)
+            if (rotatedCircles != null)
             {
-                for (int k = 0; k < this.rotatedCircles.Count; k++)
+                for (int k = 0; k < rotatedCircles.Count; k++)
                 {
-                    RotatedCircle rotatedCircle = this.rotatedCircles[k];
+                    RotatedCircle rotatedCircle = rotatedCircles[k];
                     if (rotatedCircle != null && rotatedCircle.operating == ti)
                     {
                         Vector vector2 = MathHelper.vect(rotatedCircle.x, rotatedCircle.y);
-                        Vector vector3 = MathHelper.vect(tx + this.camera.pos.x, ty + this.camera.pos.y);
+                        Vector vector3 = MathHelper.vect(tx + camera.pos.x, ty + camera.pos.y);
                         Vector vector4 = MathHelper.vectSub(rotatedCircle.lastTouch, vector2);
                         Vector vector5 = MathHelper.vectSub(vector3, vector2);
                         float num = MathHelper.vectAngleNormalized(vector5) - MathHelper.vectAngleNormalized(vector4);
@@ -2882,9 +2882,9 @@ namespace ctr_wp7.game
                             CTRSoundMgr._playSound(num4);
                             rotatedCircle.soundPlaying = num4;
                         }
-                        for (int l = 0; l < this.bungees.Count; l++)
+                        for (int l = 0; l < bungees.Count; l++)
                         {
-                            Grab grab = this.bungees[l];
+                            Grab grab = bungees[l];
                             if (MathHelper.vectDistance(MathHelper.vect(grab.x, grab.y), MathHelper.vect(rotatedCircle.x, rotatedCircle.y)) <= rotatedCircle.sizeInPixels + 5f)
                             {
                                 if (grab.initial_rotatedCircle != rotatedCircle)
@@ -2910,9 +2910,9 @@ namespace ctr_wp7.game
                                 }
                             }
                         }
-                        for (int m = 0; m < this.pumps.Count; m++)
+                        for (int m = 0; m < pumps.Count; m++)
                         {
-                            Pump pump2 = this.pumps[m];
+                            Pump pump2 = pumps[m];
                             if (MathHelper.vectDistance(MathHelper.vect(pump2.x, pump2.y), MathHelper.vect(rotatedCircle.x, rotatedCircle.y)) <= rotatedCircle.sizeInPixels + 5f)
                             {
                                 if (pump2.initial_rotatedCircle != rotatedCircle)
@@ -2931,10 +2931,10 @@ namespace ctr_wp7.game
                                 pump2.updateRotation();
                             }
                         }
-                        for (int n = 0; n < this.bubbles.Count; n++)
+                        for (int n = 0; n < bubbles.Count; n++)
                         {
-                            Bubble bubble = this.bubbles[n];
-                            if (MathHelper.vectDistance(MathHelper.vect(bubble.x, bubble.y), MathHelper.vect(rotatedCircle.x, rotatedCircle.y)) <= rotatedCircle.sizeInPixels + 10f && bubble != this.candyBubble && bubble != this.candyBubbleR && bubble != this.candyBubbleL)
+                            Bubble bubble = bubbles[n];
+                            if (MathHelper.vectDistance(MathHelper.vect(bubble.x, bubble.y), MathHelper.vect(rotatedCircle.x, rotatedCircle.y)) <= rotatedCircle.sizeInPixels + 10f && bubble != candyBubble && bubble != candyBubbleR && bubble != candyBubbleL)
                             {
                                 if (bubble.initial_rotatedCircle != rotatedCircle)
                                 {
@@ -2950,37 +2950,37 @@ namespace ctr_wp7.game
                                 bubble.y = vector8.y;
                             }
                         }
-                        if (MathHelper.pointInRect(this.target.x, this.target.y, rotatedCircle.x - rotatedCircle.size, rotatedCircle.y - rotatedCircle.size, 2f * rotatedCircle.size, 2f * rotatedCircle.size))
+                        if (MathHelper.pointInRect(target.x, target.y, rotatedCircle.x - rotatedCircle.size, rotatedCircle.y - rotatedCircle.size, 2f * rotatedCircle.size, 2f * rotatedCircle.size))
                         {
-                            Vector vector9 = MathHelper.vectRotateAround(MathHelper.vect(this.target.x, this.target.y), (double)num, rotatedCircle.x, rotatedCircle.y);
-                            this.target.x = vector9.x;
-                            this.target.y = vector9.y;
+                            Vector vector9 = MathHelper.vectRotateAround(MathHelper.vect(target.x, target.y), (double)num, rotatedCircle.x, rotatedCircle.y);
+                            target.x = vector9.x;
+                            target.y = vector9.y;
                         }
                         rotatedCircle.lastTouch = vector3;
                         return true;
                     }
                 }
             }
-            int count2 = this.bungees.Count;
+            int count2 = bungees.Count;
             for (int num8 = 0; num8 < count2; num8++)
             {
-                Grab grab2 = this.bungees[num8];
+                Grab grab2 = bungees[num8];
                 if (grab2 != null)
                 {
                     if (grab2.wheel && grab2.wheelOperating == ti)
                     {
-                        grab2.handleWheelRotate(MathHelper.vect(tx + this.camera.pos.x, ty + this.camera.pos.y));
+                        grab2.handleWheelRotate(MathHelper.vect(tx + camera.pos.x, ty + camera.pos.y));
                         return true;
                     }
                     if ((double)grab2.moveLength > 0.0 && grab2.moverDragging == ti)
                     {
                         if (grab2.moveVertical)
                         {
-                            grab2.y = MathHelper.FIT_TO_BOUNDARIES(ty + this.camera.pos.y, grab2.minMoveValue, grab2.maxMoveValue);
+                            grab2.y = MathHelper.FIT_TO_BOUNDARIES(ty + camera.pos.y, grab2.minMoveValue, grab2.maxMoveValue);
                         }
                         else
                         {
-                            grab2.x = MathHelper.FIT_TO_BOUNDARIES(tx + this.camera.pos.x, grab2.minMoveValue, grab2.maxMoveValue);
+                            grab2.x = MathHelper.FIT_TO_BOUNDARIES(tx + camera.pos.x, grab2.minMoveValue, grab2.maxMoveValue);
                         }
                         if (grab2.rope != null)
                         {
@@ -2995,11 +2995,11 @@ namespace ctr_wp7.game
                     }
                 }
             }
-            if (this.dragging[ti])
+            if (dragging[ti])
             {
-                MathHelper.vectAdd(this.prevStartPos[ti], this.camera.pos);
-                Vector vector10 = MathHelper.vectAdd(this.startPos[ti], this.camera.pos);
-                Vector vector11 = MathHelper.vectAdd(MathHelper.vect(tx, ty), this.camera.pos);
+                MathHelper.vectAdd(prevStartPos[ti], camera.pos);
+                Vector vector10 = MathHelper.vectAdd(startPos[ti], camera.pos);
+                Vector vector11 = MathHelper.vectAdd(MathHelper.vect(tx, ty), camera.pos);
                 float num9 = MathHelper.vectDistance(vector10, vector11);
                 GameScene.FingerCut fingerCut = new GameScene.FingerCut();
                 fingerCut.start = vector10;
@@ -3007,9 +3007,9 @@ namespace ctr_wp7.game
                 fingerCut.startSize = 5f;
                 fingerCut.endSize = 5f;
                 fingerCut.c = RGBAColor.whiteRGBA;
-                this.fingerCuts[ti].Add(fingerCut);
+                fingerCuts[ti].Add(fingerCut);
                 int num10 = 0;
-                List<GameScene.FingerCut> list = this.fingerCuts[ti];
+                List<GameScene.FingerCut> list = fingerCuts[ti];
                 if (num9 > 0f && list != null)
                 {
                     for (int num11 = 0; num11 < list.Count; num11++)
@@ -3017,34 +3017,34 @@ namespace ctr_wp7.game
                         GameScene.FingerCut fingerCut2 = list[num11];
                         if (fingerCut2 != null)
                         {
-                            num10 += this.cutWithRazorOrLine1Line2Immediate(null, fingerCut2.start, fingerCut2.end, false);
+                            num10 += cutWithRazorOrLine1Line2Immediate(null, fingerCut2.start, fingerCut2.end, false);
                         }
                     }
                 }
                 if (num10 > 0)
                 {
-                    this.freezeCamera = false;
-                    if (this.ropesCutAtOnce > 0 && (double)this.ropeAtOnceTimer > 0.0)
+                    freezeCamera = false;
+                    if (ropesCutAtOnce > 0 && (double)ropeAtOnceTimer > 0.0)
                     {
-                        this.ropesCutAtOnce += num10;
+                        ropesCutAtOnce += num10;
                     }
                     else
                     {
-                        this.ropesCutAtOnce = num10;
+                        ropesCutAtOnce = num10;
                     }
-                    this.ropeAtOnceTimer = 0.05f;
-                    this.ropesCutFromLevelStart += num10;
+                    ropeAtOnceTimer = 0.05f;
+                    ropesCutFromLevelStart += num10;
                     int num12 = Preferences._getIntForKey("PREFS_ROPES_CUT") + 1;
                     Preferences._setIntforKey(num12, "PREFS_ROPES_CUT", false);
                     if (num12 >= 100)
                     {
                         CTRRootController.postAchievementName(NSObject.NSS("acRopeCutter"));
                     }
-                    if (this.ropesCutAtOnce >= 3 && this.ropesCutAtOnce < 5)
+                    if (ropesCutAtOnce >= 3 && ropesCutAtOnce < 5)
                     {
                         CTRRootController.postAchievementName(NSObject.NSS("acQuickFinger"));
                     }
-                    else if (this.ropesCutAtOnce >= 5)
+                    else if (ropesCutAtOnce >= 5)
                     {
                         CTRRootController.postAchievementName(NSObject.NSS("acMasterFinger"));
                     }
@@ -3057,8 +3057,8 @@ namespace ctr_wp7.game
                         CTRRootController.postAchievementName(NSObject.NSS("acUltimateRopeCutter"));
                     }
                 }
-                this.prevStartPos[ti] = this.startPos[ti];
-                this.startPos[ti] = vector;
+                prevStartPos[ti] = startPos[ti];
+                startPos[ti] = vector;
             }
             return true;
         }
@@ -3066,8 +3066,8 @@ namespace ctr_wp7.game
         // Token: 0x06000811 RID: 2065 RVA: 0x00047A5B File Offset: 0x00045C5B
         public virtual void restart()
         {
-            this.hide();
-            this.show();
+            hide();
+            show();
         }
 
         // Token: 0x06000812 RID: 2066 RVA: 0x00047A6C File Offset: 0x00045C6C
@@ -3088,7 +3088,7 @@ namespace ctr_wp7.game
             Image image = Image.Image_createWithResIDQuad(94, 11);
             image.doRestoreCutTransparency();
             Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(3);
-            if (this.gravityButton != null && !this.gravityNormal)
+            if (gravityButton != null && !gravityNormal)
             {
                 timeline.addKeyFrame(KeyFrame.makePos((double)g.spider.x, (double)g.spider.y, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.0));
                 timeline.addKeyFrame(KeyFrame.makePos((double)g.spider.x, (double)g.spider.y + 50.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.3));
@@ -3107,20 +3107,20 @@ namespace ctr_wp7.game
             image.x = g.spider.x;
             image.y = g.spider.y;
             image.anchor = 18;
-            timeline.delegateTimelineDelegate = this.aniPool;
-            this.aniPool.addChild(image);
+            timeline.delegateTimelineDelegate = aniPool;
+            aniPool.addChild(image);
         }
 
         // Token: 0x06000813 RID: 2067 RVA: 0x00047CB0 File Offset: 0x00045EB0
         public virtual void spiderWon(Grab sg)
         {
             CTRSoundMgr._playSound(45);
-            int count = this.bungees.Count;
+            int count = bungees.Count;
             for (int i = 0; i < count; i++)
             {
-                Grab grab = this.bungees[i];
+                Grab grab = bungees[i];
                 Bungee rope = grab.rope;
-                if (rope != null && rope.tail == this.star)
+                if (rope != null && rope.tail == star)
                 {
                     if (rope.cut == -1)
                     {
@@ -3129,7 +3129,7 @@ namespace ctr_wp7.game
                     }
                     if (grab.hasSpider && grab.spiderActive && sg != grab)
                     {
-                        this.spiderBusted(grab);
+                        spiderBusted(grab);
                     }
                 }
             }
@@ -3140,16 +3140,16 @@ namespace ctr_wp7.game
                 CTRRootController.postAchievementName(NSObject.NSS("acSpiderLover"));
             }
             sg.hasSpider = false;
-            this.spiderTookCandy = true;
-            this.noCandy = true;
+            spiderTookCandy = true;
+            noCandy = true;
             Image image = Image.Image_createWithResIDQuad(94, 12);
             image.doRestoreCutTransparency();
-            this.candy.anchor = (this.candy.parentAnchor = 18);
-            this.candy.x = 0f;
-            this.candy.y = -5f;
-            image.addChild(this.candy);
+            candy.anchor = (candy.parentAnchor = 18);
+            candy.x = 0f;
+            candy.y = -5f;
+            image.addChild(candy);
             Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(3);
-            if (this.gravityButton != null && !this.gravityNormal)
+            if (gravityButton != null && !gravityNormal)
             {
                 timeline.addKeyFrame(KeyFrame.makePos((double)sg.spider.x, (double)sg.spider.y - 10.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.0));
                 timeline.addKeyFrame(KeyFrame.makePos((double)sg.spider.x, (double)sg.spider.y + 70.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.3));
@@ -3166,11 +3166,11 @@ namespace ctr_wp7.game
             image.x = sg.spider.x;
             image.y = sg.spider.y - 10f;
             image.anchor = 18;
-            timeline.delegateTimelineDelegate = this.aniPool;
-            this.aniPool.addChild(image);
-            if (this.restartState != 0)
+            timeline.delegateTimelineDelegate = aniPool;
+            aniPool.addChild(image);
+            if (restartState != 0)
             {
-                this.dd.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(this.selector_gameLost), null, 2f);
+                dd.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(selector_gameLost), null, 2f);
             }
         }
 
@@ -3181,26 +3181,26 @@ namespace ctr_wp7.game
             CTRSoundMgr._playSound(MathHelper.RND_RANGE(39, 42));
             Image image = Image.Image_createWithResID(143);
             PumpDirt pumpDirt = new PumpDirt().initWithTotalParticlesAngleandImageGrid(5, MathHelper.RADIANS_TO_DEGREES((float)p.angle) - 90f, image);
-            pumpDirt.particlesDelegate = new Particles.ParticlesFinished(this.aniPool.particlesFinished);
+            pumpDirt.particlesDelegate = new Particles.ParticlesFinished(aniPool.particlesFinished);
             Vector vector = MathHelper.vect(p.x + 25f, p.y);
             vector = MathHelper.vectRotateAround(vector, p.angle - 1.5707963267948966, p.x, p.y);
             pumpDirt.x = vector.x;
             pumpDirt.y = vector.y;
             pumpDirt.startSystem(5);
-            this.aniPool.addChild(pumpDirt);
-            if (!this.noCandy)
+            aniPool.addChild(pumpDirt);
+            if (!noCandy)
             {
-                this.handlePumpFlowPtSkin(p, this.star, this.candy);
+                handlePumpFlowPtSkin(p, star, candy);
             }
-            if (this.twoParts != 2)
+            if (twoParts != 2)
             {
-                if (!this.noCandyL)
+                if (!noCandyL)
                 {
-                    this.handlePumpFlowPtSkin(p, this.starL, this.candyL);
+                    handlePumpFlowPtSkin(p, starL, candyL);
                 }
-                if (!this.noCandyR)
+                if (!noCandyR)
                 {
-                    this.handlePumpFlowPtSkin(p, this.starR, this.candyR);
+                    handlePumpFlowPtSkin(p, starR, candyR);
                 }
             }
         }
@@ -3209,9 +3209,9 @@ namespace ctr_wp7.game
         public virtual int cutWithRazorOrLine1Line2Immediate(Razor r, Vector v1, Vector v2, bool im)
         {
             int num = 0;
-            for (int i = 0; i < this.bungees.Count; i++)
+            for (int i = 0; i < bungees.Count; i++)
             {
-                Grab grab = this.bungees[i];
+                Grab grab = bungees[i];
                 Bungee rope = grab.rope;
                 if (rope != null && rope.cut == -1)
                 {
@@ -3225,10 +3225,10 @@ namespace ctr_wp7.game
                         {
                             if (constraintedPoint.prevPos.x != 2.1474836E+09f)
                             {
-                                float num2 = this.minOf4(constraintedPoint.pos.x, constraintedPoint.prevPos.x, constraintedPoint2.pos.x, constraintedPoint2.prevPos.x);
-                                float num3 = this.minOf4(constraintedPoint.pos.y, constraintedPoint.prevPos.y, constraintedPoint2.pos.y, constraintedPoint2.prevPos.y);
-                                float num4 = this.maxOf4(constraintedPoint.pos.x, constraintedPoint.prevPos.x, constraintedPoint2.pos.x, constraintedPoint2.prevPos.x);
-                                float num5 = this.maxOf4(constraintedPoint.pos.y, constraintedPoint.prevPos.y, constraintedPoint2.pos.y, constraintedPoint2.prevPos.y);
+                                float num2 = minOf4(constraintedPoint.pos.x, constraintedPoint.prevPos.x, constraintedPoint2.pos.x, constraintedPoint2.prevPos.x);
+                                float num3 = minOf4(constraintedPoint.pos.y, constraintedPoint.prevPos.y, constraintedPoint2.pos.y, constraintedPoint2.prevPos.y);
+                                float num4 = maxOf4(constraintedPoint.pos.x, constraintedPoint.prevPos.x, constraintedPoint2.pos.x, constraintedPoint2.prevPos.x);
+                                float num5 = maxOf4(constraintedPoint.pos.y, constraintedPoint.prevPos.y, constraintedPoint2.pos.y, constraintedPoint2.prevPos.y);
                                 flag = MathHelper.rectInRect(num2, num3, num4, num5, r.drawX, r.drawY, r.drawX + (float)r.width, r.drawY + (float)r.height);
                             }
                         }
@@ -3241,7 +3241,7 @@ namespace ctr_wp7.game
                             num++;
                             if (grab.hasSpider && grab.spiderActive)
                             {
-                                this.spiderBusted(grab);
+                                spiderBusted(grab);
                             }
                             CTRSoundMgr._playSound(29 + rope.relaxed);
                             rope.setCut(j);
@@ -3266,60 +3266,60 @@ namespace ctr_wp7.game
         // Token: 0x06000816 RID: 2070 RVA: 0x000483C4 File Offset: 0x000465C4
         public virtual void gameWon()
         {
-            this.dd.cancelAllDispatches();
-            this.targetIdle.disableAnimations = true;
-            this.target.playTimeline(7);
+            dd.cancelAllDispatches();
+            targetIdle.disableAnimations = true;
+            target.playTimeline(7);
             CTRSoundMgr._playSound(25);
-            if (this.candyBubble != null)
+            if (candyBubble != null)
             {
-                this.popCandyBubble(false);
+                popCandyBubble(false);
             }
-            this.noCandy = true;
-            this.candy.passTransformationsToChilds = true;
-            this.candyMain.scaleX = (this.candyMain.scaleY = 1f);
-            this.candyTop.scaleX = (this.candyTop.scaleY = 1f);
-            if (this.candy.hasTimeline(0))
+            noCandy = true;
+            candy.passTransformationsToChilds = true;
+            candyMain.scaleX = (candyMain.scaleY = 1f);
+            candyTop.scaleX = (candyTop.scaleY = 1f);
+            if (candy.hasTimeline(0))
             {
-                this.candy.removeTimeline(0);
+                candy.removeTimeline(0);
             }
             Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(2);
-            timeline.addKeyFrame(KeyFrame.makePos((double)this.candy.x, (double)this.candy.y, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
-            timeline.addKeyFrame(KeyFrame.makePos((double)this.target.x, (double)this.target.y + 10.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.1));
+            timeline.addKeyFrame(KeyFrame.makePos((double)candy.x, (double)candy.y, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
+            timeline.addKeyFrame(KeyFrame.makePos((double)target.x, (double)target.y + 10.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.1));
             timeline.addKeyFrame(KeyFrame.makeScale(0.71, 0.71, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
             timeline.addKeyFrame(KeyFrame.makeScale(0.0, 0.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.1));
             timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.solidOpaqueRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
             timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.1));
-            this.candy.addTimelinewithID(timeline, 0);
-            this.candy.playTimeline(0);
-            timeline.delegateTimelineDelegate = this.aniPool;
-            this.aniPool.addChild(this.candy);
-            this.dd.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(this.selector_gameWonDelegate), null, 2f);
-            this.calculateScore();
-            this.releaseAllRopes(false);
+            candy.addTimelinewithID(timeline, 0);
+            candy.playTimeline(0);
+            timeline.delegateTimelineDelegate = aniPool;
+            aniPool.addChild(candy);
+            dd.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(selector_gameWonDelegate), null, 2f);
+            calculateScore();
+            releaseAllRopes(false);
         }
 
         // Token: 0x06000817 RID: 2071 RVA: 0x000485C8 File Offset: 0x000467C8
         public virtual void gameLost()
         {
-            this.dd.cancelAllDispatches();
-            this.targetIdle.disableAnimations = true;
-            this.target.playTimeline(6);
+            dd.cancelAllDispatches();
+            targetIdle.disableAnimations = true;
+            target.playTimeline(6);
             CTRSoundMgr._playSound(28);
-            this.dd.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(this.selector_animateLevelRestart), null, 1f);
-            this.gameSceneDelegate_gameLost();
+            dd.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(selector_animateLevelRestart), null, 1f);
+            gameSceneDelegate_gameLost();
         }
 
         // Token: 0x06000818 RID: 2072 RVA: 0x00048628 File Offset: 0x00046828
         public virtual void releaseAllRopes(bool left)
         {
-            int count = this.bungees.Count;
+            int count = bungees.Count;
             for (int i = 0; i < count; i++)
             {
-                Grab grab = this.bungees[i];
+                Grab grab = bungees[i];
                 if (grab != null)
                 {
                     Bungee rope = grab.rope;
-                    if (rope != null && (rope.tail == this.star || (rope.tail == this.starL && left) || (rope.tail == this.starR && !left)))
+                    if (rope != null && (rope.tail == star || (rope.tail == starL && left) || (rope.tail == starR && !left)))
                     {
                         if (rope.cut == -1)
                         {
@@ -3331,7 +3331,7 @@ namespace ctr_wp7.game
                         }
                         if (grab.hasSpider && grab.spiderActive)
                         {
-                            this.spiderBusted(grab);
+                            spiderBusted(grab);
                         }
                     }
                 }
@@ -3341,46 +3341,46 @@ namespace ctr_wp7.game
         // Token: 0x06000819 RID: 2073 RVA: 0x000486DC File Offset: 0x000468DC
         public virtual void calculateScore()
         {
-            this.timeBonus = (int)Math.Max(0f, 30f - this.time) * 100;
-            this.timeBonus /= 10;
-            this.timeBonus *= 10;
-            this.starBonus = 1000 * this.starsCollected;
-            this.score = this.timeBonus + this.starBonus;
+            timeBonus = (int)Math.Max(0f, 30f - time) * 100;
+            timeBonus /= 10;
+            timeBonus *= 10;
+            starBonus = 1000 * starsCollected;
+            score = timeBonus + starBonus;
         }
 
         // Token: 0x0600081A RID: 2074 RVA: 0x0004874C File Offset: 0x0004694C
         public virtual void doCandyBlink()
         {
-            this.candyBlink.playTimeline(0);
+            candyBlink.playTimeline(0);
         }
 
         // Token: 0x0600081B RID: 2075 RVA: 0x0004875C File Offset: 0x0004695C
         public virtual void startCamera()
         {
-            if (this.mapWidth > FrameworkTypes.SCREEN_WIDTH || this.mapHeight > FrameworkTypes.SCREEN_HEIGHT)
+            if (mapWidth > FrameworkTypes.SCREEN_WIDTH || mapHeight > FrameworkTypes.SCREEN_HEIGHT)
             {
-                this.ignoreTouches = true;
-                this.fastenCamera = false;
-                this.camera.type = CAMERA_TYPE.CAMERA_SPEED_PIXELS;
-                this.camera.speed = 10f;
-                this.cameraMoveMode = 0;
-                ConstraintedPoint constraintedPoint = ((this.twoParts != 2) ? this.starL : this.star);
+                ignoreTouches = true;
+                fastenCamera = false;
+                camera.type = CAMERA_TYPE.CAMERA_SPEED_PIXELS;
+                camera.speed = 10f;
+                cameraMoveMode = 0;
+                ConstraintedPoint constraintedPoint = ((twoParts != 2) ? starL : star);
                 float num;
                 float num2;
-                if (this.mapWidth > FrameworkTypes.SCREEN_WIDTH)
+                if (mapWidth > FrameworkTypes.SCREEN_WIDTH)
                 {
-                    if ((double)this.star.pos.x > (double)this.mapWidth / 2.0)
+                    if ((double)star.pos.x > (double)mapWidth / 2.0)
                     {
                         num = 0f;
                         num2 = 0f;
                     }
                     else
                     {
-                        num = this.mapWidth - FrameworkTypes.SCREEN_WIDTH;
+                        num = mapWidth - FrameworkTypes.SCREEN_WIDTH;
                         num2 = 0f;
                     }
                 }
-                else if ((double)constraintedPoint.pos.y > (double)this.mapHeight / 2.0)
+                else if ((double)constraintedPoint.pos.y > (double)mapHeight / 2.0)
                 {
                     num = 0f;
                     num2 = 0f;
@@ -3388,18 +3388,18 @@ namespace ctr_wp7.game
                 else
                 {
                     num = 0f;
-                    num2 = this.mapHeight - FrameworkTypes.SCREEN_HEIGHT;
+                    num2 = mapHeight - FrameworkTypes.SCREEN_HEIGHT;
                 }
                 float num3 = constraintedPoint.pos.x - FrameworkTypes.SCREEN_WIDTH / 2f;
                 float num4 = constraintedPoint.pos.y - FrameworkTypes.SCREEN_HEIGHT / 2f;
-                float num5 = MathHelper.FIT_TO_BOUNDARIES(num3, 0f, this.mapWidth - FrameworkTypes.SCREEN_WIDTH);
-                float num6 = MathHelper.FIT_TO_BOUNDARIES(num4, 0f, this.mapHeight - FrameworkTypes.SCREEN_HEIGHT);
-                this.camera.moveToXYImmediate(num, num2, true);
-                this.initialCameraToStarDistance = MathHelper.vectDistance(this.camera.pos, MathHelper.vect(num5, num6));
+                float num5 = MathHelper.FIT_TO_BOUNDARIES(num3, 0f, mapWidth - FrameworkTypes.SCREEN_WIDTH);
+                float num6 = MathHelper.FIT_TO_BOUNDARIES(num4, 0f, mapHeight - FrameworkTypes.SCREEN_HEIGHT);
+                camera.moveToXYImmediate(num, num2, true);
+                initialCameraToStarDistance = MathHelper.vectDistance(camera.pos, MathHelper.vect(num5, num6));
                 return;
             }
-            this.ignoreTouches = false;
-            this.camera.moveToXYImmediate(0f, 0f, true);
+            ignoreTouches = false;
+            camera.moveToXYImmediate(0f, 0f, true);
         }
 
         // Token: 0x0600081C RID: 2076 RVA: 0x00048914 File Offset: 0x00046B14
@@ -3407,7 +3407,7 @@ namespace ctr_wp7.game
         {
             for (int i = 0; i < 5; i++)
             {
-                int num = this.fingerCuts[i].Count;
+                int num = fingerCuts[i].Count;
                 if (num > 0)
                 {
                     float num2 = 6f;
@@ -3418,7 +3418,7 @@ namespace ctr_wp7.game
                     int num5 = 0;
                     while (j < num)
                     {
-                        GameScene.FingerCut fingerCut = this.fingerCuts[i][j];
+                        GameScene.FingerCut fingerCut = fingerCuts[i][j];
                         if (j == 0)
                         {
                             array[num5++] = fingerCut.start;
@@ -3536,13 +3536,13 @@ namespace ctr_wp7.game
             Image.setElementPositionWithQuadOffset(image, 200, 3);
             image.x += xs;
             image.y += ys;
-            this.earthAnims.Add(image);
+            earthAnims.Add(image);
         }
 
         // Token: 0x0600081F RID: 2079 RVA: 0x00048DCB File Offset: 0x00046FCB
         public virtual void showGreeting()
         {
-            this.target.playTimeline(11);
+            target.playTimeline(11);
         }
 
         // Token: 0x06000820 RID: 2080 RVA: 0x00048DDC File Offset: 0x00046FDC
@@ -3570,23 +3570,23 @@ namespace ctr_wp7.game
             if ((double)MaterialPoint.globalGravity.y == 784.0)
             {
                 MaterialPoint.globalGravity.y = -784f;
-                this.gravityNormal = false;
+                gravityNormal = false;
                 CTRSoundMgr._playSound(49);
             }
             else
             {
                 MaterialPoint.globalGravity.y = 784f;
-                this.gravityNormal = true;
+                gravityNormal = true;
                 CTRSoundMgr._playSound(48);
             }
-            if (this.earthAnims != null)
+            if (earthAnims != null)
             {
-                for (int i = 0; i < this.earthAnims.Count; i++)
+                for (int i = 0; i < earthAnims.Count; i++)
                 {
-                    Image image = this.earthAnims[i];
+                    Image image = earthAnims[i];
                     if (image != null)
                     {
-                        if (this.gravityNormal)
+                        if (gravityNormal)
                         {
                             image.playTimeline(0);
                         }
@@ -3610,15 +3610,15 @@ namespace ctr_wp7.game
             float num5 = 17.5f;
             Vector vector = MathHelper.vect(tube.x - num3 / 2f, tube.y - currentHeightModulated - num4);
             Vector vector2 = MathHelper.vect(tube.x + num3 / 2f, tube.y - num5);
-            if (this.twoParts == 2)
+            if (twoParts == 2)
             {
-                Vector vector3 = MathHelper.vect(this.star.pos.x, this.star.pos.y);
-                Vector vector4 = MathHelper.vect(this.star.v.x, this.star.v.y);
+                Vector vector3 = MathHelper.vect(star.pos.x, star.pos.y);
+                Vector vector4 = MathHelper.vect(star.v.x, star.v.y);
                 vector3 = MathHelper.vectRotateAround(vector3, (double)(-(double)num2), tube.x, tube.y);
                 vector4 = MathHelper.vectRotate(vector4, (double)(-(double)num2));
                 if (MathHelper.rectInRect(vector3.x - num5, vector3.y - num5 / 2f, vector3.x + num5, vector3.y + num5, vector.x, vector.y, vector2.x, vector2.y))
                 {
-                    foreach (Bouncer bouncer in this.bouncers)
+                    foreach (Bouncer bouncer in bouncers)
                     {
                         bouncer.skip = false;
                     }
@@ -3639,7 +3639,7 @@ namespace ctr_wp7.game
                             num6 = -vector4.x / num;
                         }
                     }
-                    float num8 = -32f / this.star.weight;
+                    float num8 = -32f / star.weight;
                     if (tube.rotation != 0f)
                     {
                         num *= 15f;
@@ -3659,19 +3659,19 @@ namespace ctr_wp7.game
                         vector5 = MathHelper.vectMult(vector5, Math.Exp((double)(-2f * (num9 - (currentHeightModulated + num5)))));
                     }
                     vector5 = MathHelper.vectRotate(vector5, (double)num2);
-                    this.star.applyImpulseDelta(vector5, 0.016f);
+                    star.applyImpulseDelta(vector5, 0.016f);
                     return;
                 }
             }
             else
             {
-                Vector vector6 = MathHelper.vect(this.starL.pos.x, this.starL.pos.y);
-                Vector vector7 = MathHelper.vect(this.starL.v.x, this.starL.v.y);
+                Vector vector6 = MathHelper.vect(starL.pos.x, starL.pos.y);
+                Vector vector7 = MathHelper.vect(starL.v.x, starL.v.y);
                 vector6 = MathHelper.vectRotateAround(vector6, (double)(-(double)num2), tube.x, tube.y);
                 vector7 = MathHelper.vectRotate(vector7, (double)(-(double)num2));
                 if (MathHelper.rectInRect(vector6.x - num5, vector6.y - num5 / 2f, vector6.x + num5, vector6.y + num5, vector.x, vector.y, vector2.x, vector2.y))
                 {
-                    foreach (Bouncer bouncer2 in this.bouncers)
+                    foreach (Bouncer bouncer2 in bouncers)
                     {
                         bouncer2.skip = false;
                     }
@@ -3692,7 +3692,7 @@ namespace ctr_wp7.game
                             num10 = -vector7.x / num;
                         }
                     }
-                    float num12 = -32f / this.starL.weight;
+                    float num12 = -32f / starL.weight;
                     if (tube.rotation != 0f)
                     {
                         num *= 15f;
@@ -3712,15 +3712,15 @@ namespace ctr_wp7.game
                         vector8 = MathHelper.vectMult(vector8, Math.Exp((double)(-2f * (num13 - (currentHeightModulated + num5)))));
                     }
                     vector8 = MathHelper.vectRotate(vector8, (double)num2);
-                    this.starL.applyImpulseDelta(vector8, 0.016f);
+                    starL.applyImpulseDelta(vector8, 0.016f);
                 }
-                vector6 = MathHelper.vect(this.starR.pos.x, this.starR.pos.y);
-                vector7 = MathHelper.vect(this.starR.v.x, this.starR.v.y);
+                vector6 = MathHelper.vect(starR.pos.x, starR.pos.y);
+                vector7 = MathHelper.vect(starR.v.x, starR.v.y);
                 vector6 = MathHelper.vectRotateAround(vector6, (double)(-(double)num2), tube.x, tube.y);
                 vector7 = MathHelper.vectRotate(vector7, (double)(-(double)num2));
                 if (MathHelper.rectInRect(vector6.x - num5, vector6.y - num5 / 2f, vector6.x + num5, vector6.y + num5, vector.x, vector.y, vector2.x, vector2.y))
                 {
-                    foreach (Bouncer bouncer3 in this.bouncers)
+                    foreach (Bouncer bouncer3 in bouncers)
                     {
                         bouncer3.skip = false;
                     }
@@ -3741,7 +3741,7 @@ namespace ctr_wp7.game
                             num14 = -vector7.x / num;
                         }
                     }
-                    float num16 = -32f / this.starR.weight;
+                    float num16 = -32f / starR.weight;
                     if (tube.rotation != 0f)
                     {
                         num *= 15f;
@@ -3761,7 +3761,7 @@ namespace ctr_wp7.game
                         vector9 = MathHelper.vectMult(vector9, Math.Exp((double)(-2f * (num17 - (currentHeightModulated + num5)))));
                     }
                     vector9 = MathHelper.vectRotate(vector9, (double)num2);
-                    this.starR.applyImpulseDelta(vector9, 0.016f);
+                    starR.applyImpulseDelta(vector9, 0.016f);
                 }
             }
         }
@@ -3819,9 +3819,9 @@ namespace ctr_wp7.game
         // Token: 0x06000825 RID: 2085 RVA: 0x000499D8 File Offset: 0x00047BD8
         public virtual bool handleBubbleTouchXY(ConstraintedPoint s, float tx, float ty)
         {
-            if (MathHelper.pointInRect(tx + this.camera.pos.x, ty + this.camera.pos.y, s.pos.x - 30f, s.pos.y - 30f, 60f, 60f))
+            if (MathHelper.pointInRect(tx + camera.pos.x, ty + camera.pos.y, s.pos.x - 30f, s.pos.y - 30f, 60f, 60f))
             {
-                this.popCandyBubble(s == this.starL);
+                popCandyBubble(s == starL);
                 int num = Preferences._getIntForKey("PREFS_BUBBLES_POPPED") + 1;
                 Preferences._setIntforKey(num, "PREFS_BUBBLES_POPPED", false);
                 if (num >= 50)
@@ -3840,40 +3840,40 @@ namespace ctr_wp7.game
         // Token: 0x06000826 RID: 2086 RVA: 0x00049A94 File Offset: 0x00047C94
         public virtual void teleport()
         {
-            if (this.targetSock == null)
+            if (targetSock == null)
             {
                 return;
             }
-            this.targetSock.light.playTimeline(0);
-            this.targetSock.light.visible = true;
+            targetSock.light.playTimeline(0);
+            targetSock.light.visible = true;
             Vector vector = MathHelper.vect(0f, -8f);
-            vector = MathHelper.vectRotate(vector, (double)MathHelper.DEGREES_TO_RADIANS(this.targetSock.rotation));
-            this.star.pos.x = this.targetSock.x;
-            this.star.pos.y = this.targetSock.y;
-            this.star.pos = MathHelper.vectAdd(this.star.pos, vector);
-            this.star.prevPos.x = this.star.pos.x;
-            this.star.prevPos.y = this.star.pos.y;
-            this.star.v = MathHelper.vectMult(MathHelper.vectRotate(MathHelper.vect(0f, -1f), (double)MathHelper.DEGREES_TO_RADIANS(this.targetSock.rotation)), this.savedSockSpeed);
-            this.star.posDelta = MathHelper.vectDiv(this.star.v, 60f);
-            this.star.prevPos = MathHelper.vectSub(this.star.pos, this.star.posDelta);
-            this.targetSock = null;
+            vector = MathHelper.vectRotate(vector, (double)MathHelper.DEGREES_TO_RADIANS(targetSock.rotation));
+            star.pos.x = targetSock.x;
+            star.pos.y = targetSock.y;
+            star.pos = MathHelper.vectAdd(star.pos, vector);
+            star.prevPos.x = star.pos.x;
+            star.prevPos.y = star.pos.y;
+            star.v = MathHelper.vectMult(MathHelper.vectRotate(MathHelper.vect(0f, -1f), (double)MathHelper.DEGREES_TO_RADIANS(targetSock.rotation)), savedSockSpeed);
+            star.posDelta = MathHelper.vectDiv(star.v, 60f);
+            star.prevPos = MathHelper.vectSub(star.pos, star.posDelta);
+            targetSock = null;
         }
 
         // Token: 0x06000827 RID: 2087 RVA: 0x00049C10 File Offset: 0x00047E10
         public virtual bool pointOutOfScreen(ConstraintedPoint p)
         {
-            if (this.pack == 10)
+            if (pack == 10)
             {
-                return (double)p.pos.y > (double)this.mapHeight + 200.0 || (double)p.pos.y < -200.0;
+                return (double)p.pos.y > (double)mapHeight + 200.0 || (double)p.pos.y < -200.0;
             }
-            return (double)p.pos.y > (double)this.mapHeight + 100.0 || (double)p.pos.y < -50.0;
+            return (double)p.pos.y > (double)mapHeight + 100.0 || (double)p.pos.y < -50.0;
         }
 
         // Token: 0x06000828 RID: 2088 RVA: 0x00049C98 File Offset: 0x00047E98
         public virtual void rotateAllSpikesWithID(int sid)
         {
             int i = 0;
-            int count = this.spikes.Count;
+            int count = spikes.Count;
             while (i < count)
             {
                 Spikes spikes = this.spikes[i];
@@ -3893,38 +3893,38 @@ namespace ctr_wp7.game
         // Token: 0x0600082A RID: 2090 RVA: 0x00049CDB File Offset: 0x00047EDB
         private void selector_gameLost(NSObject param)
         {
-            this.gameLost();
+            gameLost();
         }
 
         // Token: 0x0600082B RID: 2091 RVA: 0x00049CE3 File Offset: 0x00047EE3
         private void selector_gameWonDelegate(NSObject param)
         {
             CTRSoundMgr.EnableLoopedSounds(false);
-            this.gameSceneDelegate_gameWon();
+            gameSceneDelegate_gameWon();
         }
 
         // Token: 0x0600082C RID: 2092 RVA: 0x00049CF6 File Offset: 0x00047EF6
         private void selector_animateLevelRestart(NSObject param)
         {
-            this.animateLevelRestart();
+            animateLevelRestart();
         }
 
         // Token: 0x0600082D RID: 2093 RVA: 0x00049CFE File Offset: 0x00047EFE
         private void selector_showGreeting(NSObject param)
         {
-            this.showGreeting();
+            showGreeting();
         }
 
         // Token: 0x0600082E RID: 2094 RVA: 0x00049D06 File Offset: 0x00047F06
         private void selector_doCandyBlink(NSObject param)
         {
-            this.doCandyBlink();
+            doCandyBlink();
         }
 
         // Token: 0x0600082F RID: 2095 RVA: 0x00049D0E File Offset: 0x00047F0E
         private void selector_teleport(NSObject param)
         {
-            this.teleport();
+            teleport();
         }
 
         // Token: 0x06000830 RID: 2096 RVA: 0x00049D18 File Offset: 0x00047F18
@@ -3991,12 +3991,12 @@ namespace ctr_wp7.game
         // Token: 0x06000833 RID: 2099 RVA: 0x00049ED0 File Offset: 0x000480D0
         private void selector_revealCandyFromLantern(NSObject obj)
         {
-            this.isCandyInLantern = false;
-            this.candy.color = RGBAColor.solidOpaqueRGBA;
-            this.candy.passTransformationsToChilds = false;
-            this.candy.scaleX = (this.candy.scaleY = 0.71f);
-            this.candyMain.scaleX = (this.candyMain.scaleY = 0.71f);
-            this.candyTop.scaleX = (this.candyTop.scaleY = 0.71f);
+            isCandyInLantern = false;
+            candy.color = RGBAColor.solidOpaqueRGBA;
+            candy.passTransformationsToChilds = false;
+            candy.scaleX = (candy.scaleY = 0.71f);
+            candyMain.scaleX = (candyMain.scaleY = 0.71f);
+            candyTop.scaleX = (candyTop.scaleY = 0.71f);
         }
 
         // Token: 0x06000834 RID: 2100 RVA: 0x00049F5C File Offset: 0x0004815C
@@ -4490,20 +4490,20 @@ namespace ctr_wp7.game
             // Token: 0x0600083B RID: 2107 RVA: 0x0004A080 File Offset: 0x00048280
             public override void playTimeline(int t)
             {
-                if (this.getTimeline(t) == null)
+                if (getTimeline(t) == null)
                 {
-                    if (!this.o.disableAnimations)
+                    if (!o.disableAnimations)
                     {
-                        this.o.visible = true;
-                        this.visible = false;
-                        this.o.playTimeline(t);
+                        o.visible = true;
+                        visible = false;
+                        o.playTimeline(t);
                         return;
                     }
                 }
-                else if (!this.disableAnimations)
+                else if (!disableAnimations)
                 {
-                    this.o.visible = false;
-                    this.visible = true;
+                    o.visible = false;
+                    visible = true;
                     base.playTimeline(t);
                 }
             }
@@ -4511,7 +4511,7 @@ namespace ctr_wp7.game
             // Token: 0x0600083C RID: 2108 RVA: 0x0004A0E8 File Offset: 0x000482E8
             public override void switchToAnimationatEndOfAnimationDelay(int a2, int a1, float d)
             {
-                Timeline timeline = this.getTimeline(a1);
+                Timeline timeline = getTimeline(a1);
                 List<ctr_wp7.iframework.visual.Action> list = new List<ctr_wp7.iframework.visual.Action>();
                 list.Add(ctr_wp7.iframework.visual.Action.createAction(this, "ACTION_PLAY_TIMELINE", 0, a2));
                 timeline.addKeyFrame(KeyFrame.makeAction(list, d));

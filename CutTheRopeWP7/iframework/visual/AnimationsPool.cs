@@ -19,38 +19,38 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x0600070E RID: 1806 RVA: 0x00038F66 File Offset: 0x00037166
         public virtual void timelineFinished(Timeline t)
         {
-            if (this.getChildId(t.element) != -1)
+            if (getChildId(t.element) != -1)
             {
-                this.removeList.Add(t.element);
+                removeList.Add(t.element);
             }
         }
 
         // Token: 0x0600070F RID: 1807 RVA: 0x00038F88 File Offset: 0x00037188
         public override void update(float delta)
         {
-            int count = this.removeList.Count;
+            int count = removeList.Count;
             for (int i = 0; i < count; i++)
             {
-                this.removeChild(this.removeList[i]);
+                removeChild(removeList[i]);
             }
-            this.removeList.Clear();
+            removeList.Clear();
             base.update(delta);
         }
 
         // Token: 0x06000710 RID: 1808 RVA: 0x00038FD1 File Offset: 0x000371D1
         public virtual void particlesFinished(Particles p)
         {
-            if (this.getChildId(p) != -1)
+            if (getChildId(p) != -1)
             {
-                this.removeList.Add(p);
+                removeList.Add(p);
             }
         }
 
         // Token: 0x06000711 RID: 1809 RVA: 0x00038FE9 File Offset: 0x000371E9
         public override void dealloc()
         {
-            this.removeList.Clear();
-            this.removeList = null;
+            removeList.Clear();
+            removeList = null;
             base.dealloc();
         }
 

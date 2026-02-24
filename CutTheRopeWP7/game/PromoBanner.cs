@@ -20,21 +20,21 @@ namespace ctr_wp7.game
         {
             if (base.init() != null)
             {
-                this.width = (int)FrameworkTypes.SCREEN_WIDTH_EXPANDED;
-                this.height = (int)FrameworkTypes.SCREEN_HEIGHT_EXPANDED;
-                this.scaleX = FrameworkTypes.SCREEN_WIDTH_EXPANDED / FrameworkTypes.SCREEN_WIDTH;
-                this.x = FrameworkTypes.SCREEN_OFFSET_X;
-                this.parentAnchor = 18;
-                this.anchor = 18;
-                this.fadeElement = (Processing)new Processing().initWithLoading(false);
-                this.addChild(this.fadeElement);
-                this.promoBanner = this.createMainBanner();
-                this.checkSwitchButtons();
-                this.addChild(this.promoBanner);
+                width = (int)FrameworkTypes.SCREEN_WIDTH_EXPANDED;
+                height = (int)FrameworkTypes.SCREEN_HEIGHT_EXPANDED;
+                scaleX = FrameworkTypes.SCREEN_WIDTH_EXPANDED / FrameworkTypes.SCREEN_WIDTH;
+                x = FrameworkTypes.SCREEN_OFFSET_X;
+                parentAnchor = 18;
+                anchor = 18;
+                fadeElement = (Processing)new Processing().initWithLoading(false);
+                addChild(fadeElement);
+                promoBanner = createMainBanner();
+                checkSwitchButtons();
+                addChild(promoBanner);
                 if (CTRPreferences.shouldShowPromo())
                 {
                     CTRPreferences.disablePromoBanner();
-                    this.openMainPromo();
+                    openMainPromo();
                 }
             }
             return this;
@@ -72,7 +72,7 @@ namespace ctr_wp7.game
             BaseElement baseElement = (BaseElement)new BaseElement().init();
             baseElement.setName("container");
             baseElement.parentAnchor = (baseElement.anchor = 10);
-            BaseElement baseElement2 = this.createBanner();
+            BaseElement baseElement2 = createBanner();
             baseElement.addChild(baseElement2);
             RectangleElement rectangleElement = (RectangleElement)new RectangleElement().init();
             rectangleElement.width = (int)FrameworkTypes.SCREEN_WIDTH_EXPANDED;
@@ -116,35 +116,35 @@ namespace ctr_wp7.game
             quadCenter2.y += (float)banner_OFFSET;
             quadCenter.y += (float)banner_OFFSET;
             quadCenter2.x += 10f;
-            this.hook = (ConstraintedPoint)new ConstraintedPoint().init();
-            this.hook.pos.x = quadCenter2.x;
-            this.hook.pos.y = quadCenter2.y;
-            this.hookStart = (ConstraintedPoint)new ConstraintedPoint().init();
-            this.hookStart.pos.x = quadCenter.x;
-            this.hookStart.pos.y = quadCenter.y;
-            this.bungee = (Bungee)new Bungee().initWithHeadAtXYTailAtTXTYandLength(this.hookStart, quadCenter.x, quadCenter.y, this.hook, quadCenter2.x, quadCenter2.y, 60f);
-            this.bungee.bungeeAnchor.pin = this.bungee.bungeeAnchor.pos;
-            this.bungee.dontDrawRedStretch = true;
-            this.bungee.width++;
-            this.bungee.alternateColors = true;
-            this.hook.setWeight(1f);
+            hook = (ConstraintedPoint)new ConstraintedPoint().init();
+            hook.pos.x = quadCenter2.x;
+            hook.pos.y = quadCenter2.y;
+            hookStart = (ConstraintedPoint)new ConstraintedPoint().init();
+            hookStart.pos.x = quadCenter.x;
+            hookStart.pos.y = quadCenter.y;
+            bungee = (Bungee)new Bungee().initWithHeadAtXYTailAtTXTYandLength(hookStart, quadCenter.x, quadCenter.y, hook, quadCenter2.x, quadCenter2.y, 60f);
+            bungee.bungeeAnchor.pin = bungee.bungeeAnchor.pos;
+            bungee.dontDrawRedStretch = true;
+            bungee.width++;
+            bungee.alternateColors = true;
+            hook.setWeight(1f);
             BungeeDrawer bungeeDrawer = (BungeeDrawer)new BungeeDrawer().init();
             bungeeDrawer.parentAnchor = (bungeeDrawer.anchor = 9);
-            bungeeDrawer.bungee = this.bungee;
-            bungeeDrawer.tailPos = this.hook.pos;
+            bungeeDrawer.bungee = bungee;
+            bungeeDrawer.tailPos = hook.pos;
             bungeeDrawer.down = false;
             bungeeDrawer.delegateButtonDelegate = this;
             bungeeDrawer.bid = 1;
-            bungeeDrawer.fadeElement = this.fadeElement;
+            bungeeDrawer.fadeElement = fadeElement;
             baseElement.addChild(bungeeDrawer);
-            this.hookButton = Image.Image_createWithResIDQuad(77, 1);
-            this.hookButton.anchor = 10;
-            this.hookButton.passTransformationsToChilds = false;
-            bungeeDrawer.addChild(this.hookButton);
-            this.hookButton.x = this.hook.pos.x;
-            this.hookButton.y = this.hook.pos.y - 5f;
-            this.hookButton.rotationCenterY = (float)(-(float)this.hookButton.height / 2 + 5);
-            this.promoMainHidden = true;
+            hookButton = Image.Image_createWithResIDQuad(77, 1);
+            hookButton.anchor = 10;
+            hookButton.passTransformationsToChilds = false;
+            bungeeDrawer.addChild(hookButton);
+            hookButton.x = hook.pos.x;
+            hookButton.y = hook.pos.y - 5f;
+            hookButton.rotationCenterY = (float)(-(float)hookButton.height / 2 + 5);
+            promoMainHidden = true;
             baseElement.width = (int)FrameworkTypes.SCREEN_WIDTH_EXPANDED;
             baseElement.height = image.height + baseElement2.height + image2.height;
             Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(3);
@@ -157,12 +157,12 @@ namespace ctr_wp7.game
             timeline2.addKeyFrame(KeyFrame.makePos(0.0, (double)banner_OFFSET, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.3));
             baseElement.addTimeline(timeline2);
             baseElement.y = (float)banner_OFFSET;
-            this.arrowContainer = (BaseElement)new BaseElement().init();
-            this.arrowContainer.parentAnchor = 34;
-            this.arrowContainer.anchor = 10;
-            this.hookButton.addChild(this.arrowContainer);
+            arrowContainer = (BaseElement)new BaseElement().init();
+            arrowContainer.parentAnchor = 34;
+            arrowContainer.anchor = 10;
+            hookButton.addChild(arrowContainer);
             Timeline timeline3 = new Timeline().initWithMaxKeyFramesOnTrack(6);
-            this.arrowContainer.addTimeline(timeline3);
+            arrowContainer.addTimeline(timeline3);
             timeline3.setTimelineLoopType(Timeline.LoopType.TIMELINE_REPLAY);
             timeline3.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0f));
             timeline3.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 6.3));
@@ -170,10 +170,10 @@ namespace ctr_wp7.game
             timeline3.addKeyFrame(KeyFrame.makeColor(RGBAColor.solidOpaqueRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 3.5));
             timeline3.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.2));
             timeline3.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 2f));
-            this.arrowContainer.playTimeline(0);
+            arrowContainer.playTimeline(0);
             Image image3 = Image.Image_createWithResIDQuad(77, 0);
             image3.parentAnchor = (image3.anchor = 10);
-            this.arrowContainer.addChild(image3);
+            arrowContainer.addChild(image3);
             Timeline timeline4 = new Timeline().initWithMaxKeyFramesOnTrack(5);
             image3.addTimeline(timeline4);
             timeline4.addKeyFrame(KeyFrame.makePos((double)image3.x, (double)image3.y, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.0));
@@ -187,30 +187,30 @@ namespace ctr_wp7.game
         // Token: 0x0600062B RID: 1579 RVA: 0x0002F5F4 File Offset: 0x0002D7F4
         public virtual void openMainPromo()
         {
-            this.checkSwitchButtons();
-            this.promoMainHidden = false;
-            this.arrowContainer.setEnabled(false);
-            this.promoBanner.removeTimeline(0);
+            checkSwitchButtons();
+            promoMainHidden = false;
+            arrowContainer.setEnabled(false);
+            promoBanner.removeTimeline(0);
             Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(3);
-            timeline.addKeyFrame(KeyFrame.makePos(0.0, (double)this.promoBanner.y, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
-            timeline.addKeyFrame(KeyFrame.makePos(0.0, (double)this.promoBanner.y, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.1));
+            timeline.addKeyFrame(KeyFrame.makePos(0.0, (double)promoBanner.y, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
+            timeline.addKeyFrame(KeyFrame.makePos(0.0, (double)promoBanner.y, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.1));
             timeline.addKeyFrame(KeyFrame.makePos(0.0, 0.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.1));
-            this.promoBanner.addTimelinewithID(timeline, 0);
-            this.promoBanner.playTimeline(0);
+            promoBanner.addTimelinewithID(timeline, 0);
+            promoBanner.playTimeline(0);
         }
 
         // Token: 0x0600062C RID: 1580 RVA: 0x0002F6C8 File Offset: 0x0002D8C8
         public virtual void closeMainPromo()
         {
-            this.promoMainHidden = true;
-            this.arrowContainer.setEnabled(true);
-            this.promoBanner.removeTimeline(1);
+            promoMainHidden = true;
+            arrowContainer.setEnabled(true);
+            promoBanner.removeTimeline(1);
             Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(2);
-            timeline.addKeyFrame(KeyFrame.makePos(0.0, (double)this.promoBanner.y, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
+            timeline.addKeyFrame(KeyFrame.makePos(0.0, (double)promoBanner.y, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
             timeline.addKeyFrame(KeyFrame.makePos(0.0, (double)PromoBanner.BANNER_OFFSET, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.3));
             timeline.delegateTimelineDelegate = this;
-            this.promoBanner.addTimelinewithID(timeline, 1);
-            this.promoBanner.playTimeline(1);
+            promoBanner.addTimelinewithID(timeline, 1);
+            promoBanner.playTimeline(1);
         }
 
         // Token: 0x0600062D RID: 1581 RVA: 0x0002F770 File Offset: 0x0002D970
@@ -233,20 +233,20 @@ namespace ctr_wp7.game
                         return;
                     }
                 case 1:
-                    if (this.promoMainHidden)
+                    if (promoMainHidden)
                     {
-                        this.openMainPromo();
+                        openMainPromo();
                         return;
                     }
-                    this.closeMainPromo();
+                    closeMainPromo();
                     return;
                 case 2:
                     Application.sharedPreferences().remoteDataManager.prevBanner();
-                    this.changeBanner();
+                    changeBanner();
                     return;
                 case 3:
                     Application.sharedPreferences().remoteDataManager.nextBanner();
-                    this.changeBanner();
+                    changeBanner();
                     return;
                 default:
                     return;
@@ -257,15 +257,15 @@ namespace ctr_wp7.game
         public override void update(float delta)
         {
             base.update(delta);
-            if (this.hookButton != null)
+            if (hookButton != null)
             {
-                this.hookButton.x = this.hook.pos.x;
-                this.hookButton.y = this.hook.pos.y - 5f;
-                ConstraintedPoint bungeeAnchor = this.bungee.bungeeAnchor;
-                ConstraintedPoint constraintedPoint = this.bungee.parts[Enumerable.Count<ConstraintedPoint>(this.bungee.parts) - 1];
+                hookButton.x = hook.pos.x;
+                hookButton.y = hook.pos.y - 5f;
+                ConstraintedPoint bungeeAnchor = bungee.bungeeAnchor;
+                ConstraintedPoint constraintedPoint = bungee.parts[Enumerable.Count<ConstraintedPoint>(bungee.parts) - 1];
                 Vector vector = MathHelper.vectSub(bungeeAnchor.pos, constraintedPoint.pos);
                 float num = MathHelper.RADIANS_TO_DEGREES(MathHelper.vectAngleNormalized(vector)) + 90f;
-                this.hookButton.rotation = num;
+                hookButton.rotation = num;
             }
         }
 
@@ -273,7 +273,7 @@ namespace ctr_wp7.game
         public virtual void timelineFinished(Timeline t)
         {
             Application.sharedPreferences().remoteDataManager.nextBanner();
-            this.changeBanner();
+            changeBanner();
         }
 
         // Token: 0x06000630 RID: 1584 RVA: 0x0002F921 File Offset: 0x0002DB21
@@ -284,7 +284,7 @@ namespace ctr_wp7.game
         // Token: 0x06000631 RID: 1585 RVA: 0x0002F924 File Offset: 0x0002DB24
         public virtual void changeBanner()
         {
-            BaseElement baseElement = this.createBanner();
+            BaseElement baseElement = createBanner();
             BaseElement childWithName = base.getChildWithName("container");
             BaseElement childWithName2 = childWithName.getChildWithName("banner");
             childWithName.removeChild(childWithName2);
@@ -295,14 +295,14 @@ namespace ctr_wp7.game
         public virtual void checkSwitchButtons()
         {
             bool flag = Application.sharedPreferences().remoteDataManager != null && Application.sharedPreferences().remoteDataManager.hasSenseToRotateBanners();
-            this.promoBanner.getChildWithName("promoSwitchLeftButton").setEnabled(flag);
-            this.promoBanner.getChildWithName("promoSwitchRightButton").setEnabled(flag);
+            promoBanner.getChildWithName("promoSwitchLeftButton").setEnabled(flag);
+            promoBanner.getChildWithName("promoSwitchRightButton").setEnabled(flag);
         }
 
         // Token: 0x06000633 RID: 1587 RVA: 0x0002F9B8 File Offset: 0x0002DBB8
         public void reset()
         {
-            this.promoBanner.onTouchUpXY(-1000f, -1000f);
+            promoBanner.onTouchUpXY(-1000f, -1000f);
         }
 
         // Token: 0x04000B84 RID: 2948

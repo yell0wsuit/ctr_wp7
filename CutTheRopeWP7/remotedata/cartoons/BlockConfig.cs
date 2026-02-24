@@ -11,8 +11,8 @@ namespace ctr_wp7.remotedata.cartoons
         public override string ToString()
         {
             string text = "";
-            text = text + "hash " + this.hash;
-            foreach (KeyValuePair<string, Block> keyValuePair in this.blocks)
+            text = text + "hash " + hash;
+            foreach (KeyValuePair<string, Block> keyValuePair in blocks)
             {
                 string text2 = text;
                 text = string.Concat(new string[]
@@ -30,18 +30,18 @@ namespace ctr_wp7.remotedata.cartoons
         // Token: 0x06000292 RID: 658 RVA: 0x00010788 File Offset: 0x0000E988
         public BlockConfig()
         {
-            this.blocks = new Dictionary<string, Block>();
+            blocks = new Dictionary<string, Block>();
         }
 
         // Token: 0x06000293 RID: 659 RVA: 0x0001079C File Offset: 0x0000E99C
         public Block getBlockWithIDandHash(string id, string hash)
         {
             Block block = null;
-            this.blocks.TryGetValue(id, out block);
+            blocks.TryGetValue(id, out block);
             if (block == null || !block.hash.Equals(hash))
             {
                 block = new Block();
-                this.blocks[id] = block;
+                blocks[id] = block;
             }
             return block;
         }
@@ -51,7 +51,7 @@ namespace ctr_wp7.remotedata.cartoons
         {
             List<string> list = new List<string>();
             List<Block> list2 = new List<Block>();
-            foreach (KeyValuePair<string, Block> keyValuePair in this.blocks)
+            foreach (KeyValuePair<string, Block> keyValuePair in blocks)
             {
                 Block value = keyValuePair.Value;
                 if (value.updatehash != newhash)
@@ -62,7 +62,7 @@ namespace ctr_wp7.remotedata.cartoons
             }
             foreach (string text in list)
             {
-                this.blocks.Remove(text);
+                blocks.Remove(text);
             }
             return list2;
         }
@@ -70,15 +70,15 @@ namespace ctr_wp7.remotedata.cartoons
         // Token: 0x06000295 RID: 661 RVA: 0x000108A8 File Offset: 0x0000EAA8
         public void setBroken()
         {
-            this.hash = null;
-            this.blocks.Clear();
+            hash = null;
+            blocks.Clear();
         }
 
         // Token: 0x06000296 RID: 662 RVA: 0x000108BC File Offset: 0x0000EABC
         public List<Block> getBlocksWaitingForDownload()
         {
             List<Block> list = new List<Block>();
-            foreach (KeyValuePair<string, Block> keyValuePair in this.blocks)
+            foreach (KeyValuePair<string, Block> keyValuePair in blocks)
             {
                 Block value = keyValuePair.Value;
                 if (value.loadState == Block.LoadState.NOT_LOADED)
@@ -97,7 +97,7 @@ namespace ctr_wp7.remotedata.cartoons
         // Token: 0x06000298 RID: 664 RVA: 0x0001092C File Offset: 0x0000EB2C
         public Block getBlock(int block)
         {
-            foreach (KeyValuePair<string, Block> keyValuePair in this.blocks)
+            foreach (KeyValuePair<string, Block> keyValuePair in blocks)
             {
                 Block value = keyValuePair.Value;
                 if (value.order == block)
@@ -111,7 +111,7 @@ namespace ctr_wp7.remotedata.cartoons
         // Token: 0x06000299 RID: 665 RVA: 0x00010990 File Offset: 0x0000EB90
         public int getTotalBlocks()
         {
-            return this.blocks.Count;
+            return blocks.Count;
         }
 
         // Token: 0x04000890 RID: 2192

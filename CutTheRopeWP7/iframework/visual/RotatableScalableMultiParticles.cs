@@ -10,9 +10,9 @@ namespace ctr_wp7.iframework.visual
         public override void initParticle(ref Particle particle)
         {
             base.initParticle(ref particle);
-            particle.angle = this.initialAngle;
-            particle.deltaAngle = MathHelper.DEGREES_TO_RADIANS(this.rotateSpeed + this.rotateSpeedVar * MathHelper.RND_MINUS1_1);
-            particle.deltaSize = (this.endSize - this.size) / particle.life;
+            particle.angle = initialAngle;
+            particle.deltaAngle = MathHelper.DEGREES_TO_RADIANS(rotateSpeed + rotateSpeedVar * MathHelper.RND_MINUS1_1);
+            particle.deltaSize = (endSize - size) / particle.life;
         }
 
         // Token: 0x060003AC RID: 940 RVA: 0x00017A10 File Offset: 0x00015C10
@@ -31,7 +31,7 @@ namespace ctr_wp7.iframework.visual
                 vector2.x = -vector2.y;
                 vector2.y = x;
                 vector2 = MathHelper.vectMult(vector2, p.tangentialAccel);
-                Vector vector3 = MathHelper.vectAdd(MathHelper.vectAdd(vector, vector2), this.gravity);
+                Vector vector3 = MathHelper.vectAdd(MathHelper.vectAdd(vector, vector2), gravity);
                 vector3 = MathHelper.vectMult(vector3, delta);
                 p.dir = MathHelper.vectAdd(p.dir, vector3);
                 vector3 = MathHelper.vectMult(p.dir, delta);
@@ -65,49 +65,49 @@ namespace ctr_wp7.iframework.visual
                 vector5 = Particles.rotatePreCalc(vector5, num11, num12, x2, y);
                 vector6 = Particles.rotatePreCalc(vector6, num11, num12, x2, y);
                 vector7 = Particles.rotatePreCalc(vector7, num11, num12, x2, y);
-                this.drawer.vertices[this.particleIdx] = Quad3D.MakeQuad3DEx(vector4.x, vector4.y, vector5.x, vector5.y, vector6.x, vector6.y, vector7.x, vector7.y);
+                drawer.vertices[particleIdx] = Quad3D.MakeQuad3DEx(vector4.x, vector4.y, vector5.x, vector5.y, vector6.x, vector6.y, vector7.x, vector7.y);
                 for (int i = 0; i < 4; i++)
                 {
-                    this.colors[this.particleIdx * 4 + i] = p.color;
+                    colors[particleIdx * 4 + i] = p.color;
                 }
-                this.particleIdx++;
+                particleIdx++;
                 return;
             }
-            if (this.particleIdx != this.particleCount - 1)
+            if (particleIdx != particleCount - 1)
             {
-                this.particles[this.particleIdx] = this.particles[this.particleCount - 1];
-                this.drawer.vertices[this.particleIdx] = this.drawer.vertices[this.particleCount - 1];
-                this.drawer.texCoordinates[this.particleIdx] = this.drawer.texCoordinates[this.particleCount - 1];
+                particles[particleIdx] = particles[particleCount - 1];
+                drawer.vertices[particleIdx] = drawer.vertices[particleCount - 1];
+                drawer.texCoordinates[particleIdx] = drawer.texCoordinates[particleCount - 1];
             }
-            this.particleCount--;
+            particleCount--;
         }
 
         // Token: 0x060003AD RID: 941 RVA: 0x00017E68 File Offset: 0x00016068
         public override void update(float delta)
         {
             base.update(delta);
-            if (this.active && this.emissionRate != 0f)
+            if (active && emissionRate != 0f)
             {
-                float num = 1f / this.emissionRate;
-                this.emitCounter += delta;
-                while (this.particleCount < this.totalParticles && this.emitCounter > num)
+                float num = 1f / emissionRate;
+                emitCounter += delta;
+                while (particleCount < totalParticles && emitCounter > num)
                 {
-                    this.addParticle();
-                    this.emitCounter -= num;
+                    addParticle();
+                    emitCounter -= num;
                 }
-                this.elapsed += delta;
-                if (this.duration != -1f && this.duration < this.elapsed)
+                elapsed += delta;
+                if (duration != -1f && duration < elapsed)
                 {
-                    this.stopSystem();
+                    stopSystem();
                 }
             }
-            this.particleIdx = 0;
-            while (this.particleIdx < this.particleCount)
+            particleIdx = 0;
+            while (particleIdx < particleCount)
             {
-                this.updateParticle(ref this.particles[this.particleIdx], delta);
+                updateParticle(ref particles[particleIdx], delta);
             }
-            OpenGL.glBindBuffer(2, this.colorsID);
-            OpenGL.glBufferData(2, this.colors, 3);
+            OpenGL.glBindBuffer(2, colorsID);
+            OpenGL.glBufferData(2, colors, 3);
             OpenGL.glBindBuffer(2, 0U);
         }
 

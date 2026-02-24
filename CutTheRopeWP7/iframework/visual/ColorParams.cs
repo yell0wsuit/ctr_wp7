@@ -6,7 +6,7 @@
         // Token: 0x060004A5 RID: 1189 RVA: 0x00021E01 File Offset: 0x00020001
         public ColorParams()
         {
-            this.rgba = new RGBAColor(0f, 0f, 0f, 0f);
+            rgba = new RGBAColor(0f, 0f, 0f, 0f);
         }
 
         // Token: 0x040009E2 RID: 2530

@@ -22,13 +22,13 @@ namespace ctr_wp7.ctr_original
         // Token: 0x06000693 RID: 1683 RVA: 0x00032E87 File Offset: 0x00031087
         public void selector_gotoNextBox(NSObject param)
         {
-            this.gotoNextBox();
+            gotoNextBox();
         }
 
         // Token: 0x06000694 RID: 1684 RVA: 0x00032E8F File Offset: 0x0003108F
         public void selector_playHandAnimation(NSObject param)
         {
-            this.playHandAnimation();
+            playHandAnimation();
         }
 
         // Token: 0x06000695 RID: 1685 RVA: 0x00032E98 File Offset: 0x00031098
@@ -603,12 +603,12 @@ namespace ctr_wp7.ctr_original
                 timeline.addKeyFrame(KeyFrame.makeScale(1.0, 1.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.25));
                 timeline.setTimelineLoopType(Timeline.LoopType.TIMELINE_NO_LOOP);
                 touchImage.addTimeline(timeline);
-                this.glowAnimation = Image.Image_createWithResIDQuad(75, 0);
-                this.glowAnimation.parentAnchor = 9;
-                this.glowAnimation.anchor = 18;
-                this.glowAnimation.setEnabled(false);
-                this.setElementPositionWithRelativeQuadOffset2(this.glowAnimation, 69, 0, 69, 4);
-                image3.addChild(this.glowAnimation);
+                glowAnimation = Image.Image_createWithResIDQuad(75, 0);
+                glowAnimation.parentAnchor = 9;
+                glowAnimation.anchor = 18;
+                glowAnimation.setEnabled(false);
+                setElementPositionWithRelativeQuadOffset2(glowAnimation, 69, 0, 69, 4);
+                image3.addChild(glowAnimation);
                 Timeline timeline2 = new Timeline().initWithMaxKeyFramesOnTrack(23);
                 float num2 = 0.15f;
                 timeline2.addKeyFrame(KeyFrame.makeScale(0.7, 0.7, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
@@ -623,8 +623,8 @@ namespace ctr_wp7.ctr_original
                 timeline2.addKeyFrame(KeyFrame.makeColor(RGBAColor.whiteRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.3));
                 timeline2.addKeyFrame(KeyFrame.makeColor(RGBAColor.whiteRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 3f));
                 timeline2.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.3));
-                timeline2.addKeyFrame(KeyFrame.makeSingleAction(this.glowAnimation, "ACTION_SET_VISIBLE", 0, 0, 3.6));
-                this.glowAnimation.addTimeline(timeline2);
+                timeline2.addKeyFrame(KeyFrame.makeSingleAction(glowAnimation, "ACTION_SET_VISIBLE", 0, 0, 3.6));
+                glowAnimation.addTimeline(timeline2);
             }
             Image image4 = Image.Image_createWithResID(74);
             image4.anchor = (image4.parentAnchor = 18);
@@ -643,7 +643,7 @@ namespace ctr_wp7.ctr_original
         private void createMainMenu()
         {
             MenuView menuView = (MenuView)new MenuView().initFullscreen();
-            Image image = this.createBackgroundWithLogo(true, false);
+            Image image = createBackgroundWithLogo(true, false);
             VBox vbox = new VBox().initWithOffsetAlignWidth(5f, 2, FrameworkTypes.SCREEN_WIDTH);
             vbox.anchor = (vbox.parentAnchor = 10);
             vbox.y = 265f;
@@ -668,11 +668,11 @@ namespace ctr_wp7.ctr_original
             BaseElement.calculateTopLeft(childWithName);
             Image.getQuadCenter(69, 1);
             Vector vector = MathHelper.vect(childWithName.drawX + (float)(childWithName.width / 2) - 5f, childWithName.drawY + (float)(childWithName.height / 2) - 5f);
-            this.handAnimation = Image.Image_createWithResIDQuad(75, 1);
-            this.handAnimation.rotationCenterX = (float)(-(float)this.handAnimation.width / 2);
-            this.handAnimation.rotationCenterY = (float)(-(float)this.handAnimation.height / 2);
-            this.handAnimation.setEnabled(false);
-            image.addChild(this.handAnimation);
+            handAnimation = Image.Image_createWithResIDQuad(75, 1);
+            handAnimation.rotationCenterX = (float)(-(float)handAnimation.width / 2);
+            handAnimation.rotationCenterY = (float)(-(float)handAnimation.height / 2);
+            handAnimation.setEnabled(false);
+            image.addChild(handAnimation);
             Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(8);
             float num = 0.5f;
             timeline.addKeyFrame(KeyFrame.makePos((double)FrameworkTypes.SCREEN_WIDTH, (double)(FrameworkTypes.SCREEN_HEIGHT * 2f / 3f), KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
@@ -692,11 +692,11 @@ namespace ctr_wp7.ctr_original
             timeline.addKeyFrame(KeyFrame.makeScale(1.0, 1.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.2));
             timeline.addKeyFrame(KeyFrame.makeScale(0.9, 0.9, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.2));
             timeline.addKeyFrame(KeyFrame.makeScale(1.0, 1.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.2));
-            timeline.addKeyFrame(KeyFrame.makeSingleAction(this.handAnimation, "ACTION_SET_VISIBLE", 0, 0, 3.5));
-            this.handAnimation.addTimeline(timeline);
+            timeline.addKeyFrame(KeyFrame.makeSingleAction(handAnimation, "ACTION_SET_VISIBLE", 0, 0, 3.5));
+            handAnimation.addTimeline(timeline);
             timeline.delegateTimelineDelegate = this;
-            this.ddMainMenu.cancelAllDispatches();
-            this.ddMainMenu.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(this.selector_playHandAnimation), null, 3f);
+            ddMainMenu.cancelAllDispatches();
+            ddMainMenu.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(selector_playHandAnimation), null, 3f);
             menuView.addChild(image);
             if (!Application.sharedPreferences().remoteDataManager.getHideMainPromo())
             {
@@ -704,14 +704,14 @@ namespace ctr_wp7.ctr_original
                 promoBanner.setName("promoBanner");
                 menuView.addChild(promoBanner);
             }
-            this.addViewwithID(menuView, MenuController.ViewID.VIEW_MAIN_MENU);
+            addViewwithID(menuView, MenuController.ViewID.VIEW_MAIN_MENU);
         }
 
         // Token: 0x060006B1 RID: 1713 RVA: 0x00034C08 File Offset: 0x00032E08
         private void createOptions()
         {
             MenuView menuView = (MenuView)new MenuView().initFullscreen();
-            Image image = this.createBackgroundWithLogo(false, false);
+            Image image = createBackgroundWithLogo(false, false);
             VBox vbox = new VBox().initWithOffsetAlignWidth(10.0, 2, (double)FrameworkTypes.SCREEN_WIDTH);
             vbox.anchor = (vbox.parentAnchor = 18);
             vbox.y += 0.33f;
@@ -770,14 +770,14 @@ namespace ctr_wp7.ctr_original
             }
             image.addChild(vbox);
             menuView.addChild(image);
-            this.addViewwithID(menuView, MenuController.ViewID.VIEW_OPTIONS);
+            addViewwithID(menuView, MenuController.ViewID.VIEW_OPTIONS);
         }
 
         // Token: 0x060006B2 RID: 1714 RVA: 0x00034E50 File Offset: 0x00033050
         private void createReset()
         {
             MenuView menuView = (MenuView)new MenuView().initFullscreen();
-            Image image = this.createBackgroundWithLogo(false, false);
+            Image image = createBackgroundWithLogo(false, false);
             VBox vbox = new VBox().initWithOffsetAlignWidth(10.0, 2, (double)FrameworkTypes.SCREEN_WIDTH - 40.0);
             vbox.parentAnchor = (vbox.anchor = 18);
             Text text = new Text().initWithFont(Application.getFont(5));
@@ -801,7 +801,7 @@ namespace ctr_wp7.ctr_original
             Button button2 = MenuController.createBackButtonWithDelegateID(this, 10);
             image.addChild(button2);
             menuView.addChild(image);
-            this.addViewwithID(menuView, MenuController.ViewID.VIEW_RESET);
+            addViewwithID(menuView, MenuController.ViewID.VIEW_RESET);
         }
 
         // Token: 0x060006B3 RID: 1715 RVA: 0x00034FD8 File Offset: 0x000331D8
@@ -813,14 +813,14 @@ namespace ctr_wp7.ctr_original
             rectangleElement.height = (int)FrameworkTypes.SCREEN_HEIGHT;
             rectangleElement.color = RGBAColor.blackRGBA;
             menuView.addChild(rectangleElement);
-            this.addViewwithID(menuView, MenuController.ViewID.VIEW_MOVIE);
+            addViewwithID(menuView, MenuController.ViewID.VIEW_MOVIE);
         }
 
         // Token: 0x060006B4 RID: 1716 RVA: 0x00035038 File Offset: 0x00033238
         private void createTerms()
         {
             MenuView menuView = (MenuView)new MenuView().initFullscreen();
-            Image image = this.createBackgroundWithLogo(false, false);
+            Image image = createBackgroundWithLogo(false, false);
             VBox vbox = new VBox().initWithOffsetAlignWidth(5f, 2, FrameworkTypes.SCREEN_WIDTH_EXPANDED - 20f);
             vbox.parentAnchor = (vbox.anchor = 18);
             vbox.y = -20f;
@@ -837,14 +837,14 @@ namespace ctr_wp7.ctr_original
             Button button3 = MenuController.createBackButtonWithDelegateID(this, 32);
             image.addChild(button3);
             menuView.addChild(image);
-            this.addViewwithID(menuView, MenuController.ViewID.VIEW_TERMS);
+            addViewwithID(menuView, MenuController.ViewID.VIEW_TERMS);
         }
 
         // Token: 0x060006B5 RID: 1717 RVA: 0x00035150 File Offset: 0x00033350
         private void createAbout()
         {
             MenuView menuView = (MenuView)new MenuView().initFullscreen();
-            Image image = this.createBackgroundWithLogo(false, false);
+            Image image = createBackgroundWithLogo(false, false);
             NSObject.NSS("undefined version");
             string text;
             if (CTRPreferences.isLiteVersion())
@@ -879,13 +879,13 @@ namespace ctr_wp7.ctr_original
             text3.setAlignment(2);
             text3.setStringandWidth(NSObject.NSS(text2), 310f);
             vbox.addChild(text3);
-            this.aboutContainer = new ScrollableContainer().initWithWidthHeightContainer(310f, 350f, vbox);
-            this.aboutContainer.anchor = (this.aboutContainer.parentAnchor = 18);
-            image.addChild(this.aboutContainer);
+            aboutContainer = new ScrollableContainer().initWithWidthHeightContainer(310f, 350f, vbox);
+            aboutContainer.anchor = (aboutContainer.parentAnchor = 18);
+            image.addChild(aboutContainer);
             Button button = MenuController.createBackButtonWithDelegateID(this, 10);
             image.addChild(button);
             menuView.addChild(image);
-            this.addViewwithID(menuView, MenuController.ViewID.VIEW_ABOUT);
+            addViewwithID(menuView, MenuController.ViewID.VIEW_ABOUT);
         }
 
         // Token: 0x060006B6 RID: 1718 RVA: 0x00035310 File Offset: 0x00033510
@@ -903,82 +903,82 @@ namespace ctr_wp7.ctr_original
         // Token: 0x060006B7 RID: 1719 RVA: 0x00035374 File Offset: 0x00033574
         private void createPackSelect()
         {
-            this.boxFabric.isZeroBoxDefined();
-            NSObject.NSREL(this.packSelect);
-            this.packSelect = CTRPreferences.getPackSelectInfo(this.boxFabric.isZeroBoxDefined(), -1);
-            NSObject.NSRET(this.packSelect);
+            boxFabric.isZeroBoxDefined();
+            NSObject.NSREL(packSelect);
+            packSelect = CTRPreferences.getPackSelectInfo(boxFabric.isZeroBoxDefined(), -1);
+            NSObject.NSRET(packSelect);
             MenuView menuView = (MenuView)new MenuView().initFullscreen();
-            Image image = this.createBackgroundWithLogo(false, false);
+            Image image = createBackgroundWithLogo(false, false);
             HBox hbox = MenuController.createTextWithStar(Application.getString(1310753).ToString().Replace("%d", CTRPreferences.getTotalStarsInDelivery(-1).ToString()));
             hbox.x = -10f;
             hbox.x += FrameworkTypes.SCREEN_OFFSET_X;
             hbox.y -= FrameworkTypes.SCREEN_OFFSET_Y;
             HBox hbox2 = new HBox().initWithOffsetAlignHeight(-50f, 16, FrameworkTypes.SCREEN_HEIGHT);
-            this.packContainer = new ScrollableContainer().initWithWidthHeightContainer(FrameworkTypes.SCREEN_WIDTH_EXPANDED, FrameworkTypes.SCREEN_HEIGHT, hbox2);
-            this.packContainer.minAutoScrollToSpointLength = 5f;
-            this.packContainer.shouldBounceHorizontally = true;
-            this.packContainer.resetScrollOnShow = false;
-            this.packContainer.touchMoveIgnoreLength = 15f;
-            this.packContainer.x = -FrameworkTypes.SCREEN_OFFSET_X;
-            this.packContainer.turnScrollPointsOnWithCapacity(this.packSelect.size);
-            this.packContainer.delegateScrollableContainerProtocol = this;
+            packContainer = new ScrollableContainer().initWithWidthHeightContainer(FrameworkTypes.SCREEN_WIDTH_EXPANDED, FrameworkTypes.SCREEN_HEIGHT, hbox2);
+            packContainer.minAutoScrollToSpointLength = 5f;
+            packContainer.shouldBounceHorizontally = true;
+            packContainer.resetScrollOnShow = false;
+            packContainer.touchMoveIgnoreLength = 15f;
+            packContainer.x = -FrameworkTypes.SCREEN_OFFSET_X;
+            packContainer.turnScrollPointsOnWithCapacity(packSelect.size);
+            packContainer.delegateScrollableContainerProtocol = this;
             hbox.anchor = (hbox.parentAnchor = 12);
             image.addChild(hbox);
             float num = 0f;
-            for (int i = 0; i < this.packSelect.size; i++)
+            for (int i = 0; i < packSelect.size; i++)
             {
-                BaseElement baseElement = this.boxFabric.createPackElementforContainer(i, this.packSelect.content[i], this.packContainer, this);
-                this.packSelect.elements[i] = baseElement;
+                BaseElement baseElement = boxFabric.createPackElementforContainer(i, packSelect.content[i], packContainer, this);
+                packSelect.elements[i] = baseElement;
                 hbox2.addChild(baseElement);
                 baseElement.x -= 25f - FrameworkTypes.SCREEN_OFFSET_X;
                 baseElement.y -= 20f;
-                num += ((i != 0) ? ((float)this.packSelect.elements[i - 1].width + -50f) : 0f);
-                this.packContainer.addScrollPointAtXY((double)num, 0.0);
+                num += ((i != 0) ? ((float)packSelect.elements[i - 1].width + -50f) : 0f);
+                packContainer.addScrollPointAtXY((double)num, 0.0);
             }
-            hbox2.width += Math.Max(50, (int)((float)this.packSelect.size * FrameworkTypes.SCREEN_OFFSET_X));
-            image.addChild(this.packContainer);
+            hbox2.width += Math.Max(50, (int)((float)packSelect.size * FrameworkTypes.SCREEN_OFFSET_X));
+            image.addChild(packContainer);
             int num2 = 48;
             Button button = MenuController.createBackButtonWithDelegateID(this, num2);
             image.addChild(button);
-            this.unlockb = null;
+            unlockb = null;
             AnimationsPool animationsPool = (AnimationsPool)new AnimationsPool().init();
             Image image2 = Image.Image_createWithResID(11);
             image2.doRestoreCutTransparency();
-            this.breakParticles = (StarsBreak)new StarsBreak().initWithTotalParticlesandImageGrid(10, image2);
-            this.breakParticles.particlesDelegate = new Particles.ParticlesFinished(animationsPool.particlesFinished);
-            this.breakParticles.posVar.x = 0f;
-            this.breakParticles.posVar.y = 0f;
-            this.breakParticles.y += 50f;
-            image.addChild(this.breakParticles);
+            breakParticles = (StarsBreak)new StarsBreak().initWithTotalParticlesandImageGrid(10, image2);
+            breakParticles.particlesDelegate = new Particles.ParticlesFinished(animationsPool.particlesFinished);
+            breakParticles.posVar.x = 0f;
+            breakParticles.posVar.y = 0f;
+            breakParticles.y += 50f;
+            image.addChild(breakParticles);
             image.addChild(animationsPool);
             menuView.addChild(image);
-            this.addViewwithID(menuView, 4);
-            this.ddPackSelect.cancelAllDispatches();
+            addViewwithID(menuView, 4);
+            ddPackSelect.cancelAllDispatches();
             if (CTRPreferences.isBannersMustBeShown())
             {
-                this.packContainer.y -= 50f;
+                packContainer.y -= 50f;
                 button.y -= 40f;
             }
-            int num3 = MathHelper.MIN(this.packSelect.size - 1, CTRPreferences.getLastPack());
-            this.packContainer.placeToScrollPoint((num3 != -1) ? num3 : this.packSelect.getFirstGameBox());
-            if (this.packSelect.size >= 4)
+            int num3 = MathHelper.MIN(packSelect.size - 1, CTRPreferences.getLastPack());
+            packContainer.placeToScrollPoint((num3 != -1) ? num3 : packSelect.getFirstGameBox());
+            if (packSelect.size >= 4)
             {
-                this.liftScrollbar = HLiftScrollbar.createWithResIDBackQuadLiftQuadLiftQuadPressed(71, 5, 6, 7);
-                this.liftScrollbar.anchor = (this.liftScrollbar.parentAnchor = 34);
-                this.liftScrollbar.delegateLiftScrollbarDelegate = this;
-                this.liftScrollbar.setContainer(this.packContainer);
-                this.liftScrollbar.y = -75f;
-                this.bulletContainer = (BaseElement)new BaseElement().init();
-                this.bulletContainer.width = this.liftScrollbar.width;
-                this.bulletContainer.height = this.liftScrollbar.height;
-                this.bulletContainer.anchor = (this.bulletContainer.parentAnchor = 34);
-                this.bulletContainer.blendingMode = 1;
-                this.bulletContainer.y = this.liftScrollbar.y - 14f;
-                menuView.addChild(this.bulletContainer);
-                int totalScrollPoints = this.liftScrollbar.getTotalScrollPoints();
+                liftScrollbar = HLiftScrollbar.createWithResIDBackQuadLiftQuadLiftQuadPressed(71, 5, 6, 7);
+                liftScrollbar.anchor = (liftScrollbar.parentAnchor = 34);
+                liftScrollbar.delegateLiftScrollbarDelegate = this;
+                liftScrollbar.setContainer(packContainer);
+                liftScrollbar.y = -75f;
+                bulletContainer = (BaseElement)new BaseElement().init();
+                bulletContainer.width = liftScrollbar.width;
+                bulletContainer.height = liftScrollbar.height;
+                bulletContainer.anchor = (bulletContainer.parentAnchor = 34);
+                bulletContainer.blendingMode = 1;
+                bulletContainer.y = liftScrollbar.y - 14f;
+                menuView.addChild(bulletContainer);
+                int totalScrollPoints = liftScrollbar.getTotalScrollPoints();
                 for (int j = 0; j < totalScrollPoints; j++)
                 {
-                    Vector scrollPoint = this.liftScrollbar.getScrollPoint(j);
+                    Vector scrollPoint = liftScrollbar.getScrollPoint(j);
                     TouchImage touchImage = TouchImage.TouchImage_createWithResIDQuad(71, 8);
                     touchImage.delegateButtonDelegate = this;
                     touchImage.bid = 3000 + j;
@@ -986,14 +986,14 @@ namespace ctr_wp7.ctr_original
                     touchImage.y = scrollPoint.y;
                     touchImage.parentAnchor = 9;
                     touchImage.anchor = 18;
-                    this.bulletContainer.addChild(touchImage);
+                    bulletContainer.addChild(touchImage);
                 }
-                menuView.addChild(this.liftScrollbar);
-                this.liftScrollbar.updateActiveSpoint();
+                menuView.addChild(liftScrollbar);
+                liftScrollbar.updateActiveSpoint();
                 if (CTRPreferences.isBannersMustBeShown())
                 {
-                    this.bulletContainer.y -= 50f;
-                    this.liftScrollbar.y -= 50f;
+                    bulletContainer.y -= 50f;
+                    liftScrollbar.y -= 50f;
                 }
             }
         }
@@ -1001,16 +1001,16 @@ namespace ctr_wp7.ctr_original
         // Token: 0x060006B8 RID: 1720 RVA: 0x00035918 File Offset: 0x00033B18
         public virtual void scrollableContainerreachedScrollPoint(ScrollableContainer e, int i)
         {
-            if (i > this.packSelect.size)
+            if (i > packSelect.size)
             {
                 return;
             }
-            this.currentPackIndex = i;
-            int num = this.packSelect.content[i];
+            currentPackIndex = i;
+            int num = packSelect.content[i];
             if (BoxFabric.isGameBox(num))
             {
                 int saveIndex = BoxFabric.getSaveIndex(num);
-                BaseElement baseElement = this.packSelect.elements[i];
+                BaseElement baseElement = packSelect.elements[i];
                 baseElement.getChildWithName(NSObject.NSS("boxContainer")).playTimeline(0);
                 int unlockedForPackLevel = (int)CTRPreferences.getUnlockedForPackLevel(saveIndex, 0);
                 BaseElement childWithName = baseElement.getChildWithName(NSObject.NSS("lockHideMe"));
@@ -1020,37 +1020,37 @@ namespace ctr_wp7.ctr_original
                     childWithName.playTimeline(0);
                     if (unlockedForPackLevel == 3)
                     {
-                        this.breakParticles.stopSystem();
-                        this.breakParticles.startSystem(10);
+                        breakParticles.stopSystem();
+                        breakParticles.startSystem(10);
                         CTRSoundMgr._playSound(37);
                     }
                 }
-                if (this.packSelect.nextpack == i)
+                if (packSelect.nextpack == i)
                 {
-                    this.packSelect.nextpack = -1;
+                    packSelect.nextpack = -1;
                     if (unlockedForPackLevel == 0)
                     {
                         if (CTRPreferences.isLiteVersion())
                         {
-                            this.showBuyFullPopup();
+                            showBuyFullPopup();
                         }
                         else
                         {
-                            this.showCantUnlockPopupForPack(this.activeView(), saveIndex);
+                            showCantUnlockPopupForPack(activeView(), saveIndex);
                         }
                     }
                 }
-                if (!this.promobHidden && this.promob != null)
+                if (!promobHidden && promob != null)
                 {
-                    this.promob.playTimeline(1);
-                    this.promobHidden = true;
+                    promob.playTimeline(1);
+                    promobHidden = true;
                     return;
                 }
             }
-            else if (this.promobHidden && this.promob != null && !CTRPreferences.isBannersMustBeShown())
+            else if (promobHidden && promob != null && !CTRPreferences.isBannersMustBeShown())
             {
-                this.promob.playTimeline(0);
-                this.promobHidden = false;
+                promob.playTimeline(0);
+                promobHidden = false;
             }
         }
 
@@ -1112,7 +1112,7 @@ namespace ctr_wp7.ctr_original
         private void createLevelSelect()
         {
             MenuView menuView = (MenuView)new MenuView().initFullscreen();
-            int num = 216 + this.pack;
+            int num = 216 + pack;
             Image image = Image.Image_createWithResIDQuad(num, 0);
             Image image2 = Image.Image_createWithResIDQuad(num, 0);
             image.rotationCenterX = (float)(-(float)image.width / 2);
@@ -1159,7 +1159,7 @@ namespace ctr_wp7.ctr_original
             image5.addTimeline(timeline3);
             image5.playTimeline(1);
             menuView.addChild(image5);
-            HBox hbox = MenuController.createTextWithStar(CTRPreferences.getTotalStarsInPack(this.pack).ToString() + "/" + (CTRPreferences.getLevelsInPackCount() * 3).ToString());
+            HBox hbox = MenuController.createTextWithStar(CTRPreferences.getTotalStarsInPack(pack).ToString() + "/" + (CTRPreferences.getLevelsInPackCount() * 3).ToString());
             hbox.x = -10f;
             hbox.y -= FrameworkTypes.SCREEN_OFFSET_Y;
             hbox.x += FrameworkTypes.SCREEN_OFFSET_X;
@@ -1185,7 +1185,7 @@ namespace ctr_wp7.ctr_original
                 HBox hbox2 = new HBox().initWithOffsetAlignHeight(num3, 16, num4);
                 for (int j = 0; j < num5; j++)
                 {
-                    hbox2.addChild(this.createButtonForLevelPack(num6++, this.pack));
+                    hbox2.addChild(createButtonForLevelPack(num6++, pack));
                 }
                 vbox.addChild(hbox2);
             }
@@ -1216,28 +1216,28 @@ namespace ctr_wp7.ctr_original
             timeline10.addKeyFrame(KeyFrame.makeColor(RGBAColor.solidOpaqueRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0f));
             timeline10.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.3));
             button.addTimeline(timeline10);
-            this.addViewwithID(menuView, MenuController.ViewID.VIEW_LEVEL_SELECT);
+            addViewwithID(menuView, MenuController.ViewID.VIEW_LEVEL_SELECT);
         }
 
         // Token: 0x060006BC RID: 1724 RVA: 0x00036314 File Offset: 0x00034514
         private void createDeliverySelect()
         {
-            DeliverySelectView deliverySelectView = (DeliverySelectView)new DeliverySelectView().initFullscreenBackgroundDelegate(this.createBackgroundWithLogo(false, false), this);
-            this.addViewwithID(deliverySelectView, MenuController.ViewID.VIEW_DELIVERY_SELECT);
+            DeliverySelectView deliverySelectView = (DeliverySelectView)new DeliverySelectView().initFullscreenBackgroundDelegate(createBackgroundWithLogo(false, false), this);
+            addViewwithID(deliverySelectView, MenuController.ViewID.VIEW_DELIVERY_SELECT);
         }
 
         // Token: 0x060006BD RID: 1725 RVA: 0x00036344 File Offset: 0x00034544
         private void createCartoonsSelect()
         {
-            CartoonsSelectView cartoonsSelectView = (CartoonsSelectView)new CartoonsSelectView().initFullscreenBackgroundDelegate(this.createBackgroundWithLogo(false, true), this);
-            this.addViewwithID(cartoonsSelectView, MenuController.ViewID.VIEW_CARTOONS_SELECT);
+            CartoonsSelectView cartoonsSelectView = (CartoonsSelectView)new CartoonsSelectView().initFullscreenBackgroundDelegate(createBackgroundWithLogo(false, true), this);
+            addViewwithID(cartoonsSelectView, MenuController.ViewID.VIEW_CARTOONS_SELECT);
         }
 
         // Token: 0x060006BE RID: 1726 RVA: 0x00036374 File Offset: 0x00034574
         private void createCartoonsAfterwatch()
         {
-            CartoonsAfterwatchView cartoonsAfterwatchView = (CartoonsAfterwatchView)new CartoonsAfterwatchView().initFullscreenBackgroundDelegate(this.createBackgroundWithLogo(false, false), this);
-            this.addViewwithID(cartoonsAfterwatchView, MenuController.ViewID.VIEW_CARTOONS_AFTERWATCH);
+            CartoonsAfterwatchView cartoonsAfterwatchView = (CartoonsAfterwatchView)new CartoonsAfterwatchView().initFullscreenBackgroundDelegate(createBackgroundWithLogo(false, false), this);
+            addViewwithID(cartoonsAfterwatchView, MenuController.ViewID.VIEW_CARTOONS_AFTERWATCH);
         }
 
         // Token: 0x060006BF RID: 1727 RVA: 0x000363A4 File Offset: 0x000345A4
@@ -1245,30 +1245,30 @@ namespace ctr_wp7.ctr_original
         {
             if (base.initWithParent(p) != null)
             {
-                this.boxFabric = (BoxFabric)new BoxFabricOriginal().init();
-                this.needRecreate = false;
-                this.needUnlock = false;
-                this.statusBackupRestore = 0;
-                this.animationStartPackIndex = 0;
-                this.currentPackIndex = 0;
-                this.unlockAnimation = false;
-                this.ddMainMenu = (DelayedDispatcher)new DelayedDispatcher().init();
-                this.ddPackSelect = (DelayedDispatcher)new DelayedDispatcher().init();
+                boxFabric = (BoxFabric)new BoxFabricOriginal().init();
+                needRecreate = false;
+                needUnlock = false;
+                statusBackupRestore = 0;
+                animationStartPackIndex = 0;
+                currentPackIndex = 0;
+                unlockAnimation = false;
+                ddMainMenu = (DelayedDispatcher)new DelayedDispatcher().init();
+                ddPackSelect = (DelayedDispatcher)new DelayedDispatcher().init();
                 MenuController.ep = null;
-                this.createMainMenu();
-                this.createOptions();
-                this.createReset();
-                this.createAbout();
-                this.createTerms();
-                this.createMovieView();
-                this.createPackSelect();
-                this.createDeliverySelect();
-                this.createAchievements();
-                this.createLeaderboards();
-                this.createCartoonsSelect();
-                this.createCartoonsAfterwatch();
+                createMainMenu();
+                createOptions();
+                createReset();
+                createAbout();
+                createTerms();
+                createMovieView();
+                createPackSelect();
+                createDeliverySelect();
+                createAchievements();
+                createLeaderboards();
+                createCartoonsSelect();
+                createCartoonsAfterwatch();
                 MapPickerController mapPickerController = (MapPickerController)new MapPickerController().initWithParent(this);
-                this.addChildwithID(mapPickerController, 0);
+                addChildwithID(mapPickerController, 0);
             }
             CtrRenderer.gUseFingerDelta = true;
             return this;
@@ -1277,32 +1277,32 @@ namespace ctr_wp7.ctr_original
         // Token: 0x060006C0 RID: 1728 RVA: 0x00036494 File Offset: 0x00034694
         public override void dealloc()
         {
-            this.ddMainMenu.cancelAllDispatches();
-            this.ddMainMenu.dealloc();
-            this.ddMainMenu = null;
-            this.ddPackSelect.cancelAllDispatches();
-            this.ddPackSelect.dealloc();
-            this.ddPackSelect = null;
+            ddMainMenu.cancelAllDispatches();
+            ddMainMenu.dealloc();
+            ddMainMenu = null;
+            ddPackSelect.cancelAllDispatches();
+            ddPackSelect.dealloc();
+            ddPackSelect = null;
             base.dealloc();
         }
 
         // Token: 0x060006C1 RID: 1729 RVA: 0x000364E4 File Offset: 0x000346E4
         public override void activate()
         {
-            this.packSelect.nextpack = -1;
-            this.showNextPackStatus = false;
+            packSelect.nextpack = -1;
+            showNextPackStatus = false;
             base.activate();
-            if (this.viewToShow == MenuController.ViewID.VIEW_LEVEL_SELECT)
+            if (viewToShow == MenuController.ViewID.VIEW_LEVEL_SELECT)
             {
                 CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
-                this.pack = ctrrootController.getPack();
-                this.preLevelSelect();
+                pack = ctrrootController.getPack();
+                preLevelSelect();
             }
             else
             {
                 FrameworkTypes.AndroidAPI.showBanner();
             }
-            this.showView(this.viewToShow);
+            showView(viewToShow);
             CTRSoundMgr._stopMusic();
             CTRSoundMgr._playMusic(58);
         }
@@ -1311,26 +1311,26 @@ namespace ctr_wp7.ctr_original
         public virtual void showNextPack()
         {
             bool flag = false;
-            for (int i = this.currentPackIndex + 1; i < this.packSelect.size; i++)
+            for (int i = currentPackIndex + 1; i < packSelect.size; i++)
             {
-                if (BoxFabric.isGameBox(this.packSelect.content[i]))
+                if (BoxFabric.isGameBox(packSelect.content[i]))
                 {
                     flag = true;
                 }
             }
             if (!flag && CTRPreferences.isInLastDelivery())
             {
-                this.replayingIntroMovie = false;
+                replayingIntroMovie = false;
                 CTRSoundMgr._stopMusic();
                 NSString nsstring = NSObject.NSS("outro.wmv");
                 Application.sharedMovieMgr().delegateMovieMgrDelegate = this;
                 Application.sharedMovieMgr().playURL(nsstring, !Preferences._getBooleanForKey("SOUND_ON"));
                 return;
             }
-            if (this.currentPackIndex <= this.packSelect.size - 2)
+            if (currentPackIndex <= packSelect.size - 2)
             {
-                this.packSelect.nextpack = this.currentPackIndex + 1;
-                this.packContainer.moveToScrollPointmoveMultiplier(this.packSelect.nextpack, 0.8);
+                packSelect.nextpack = currentPackIndex + 1;
+                packContainer.moveToScrollPointmoveMultiplier(packSelect.nextpack, 0.8);
             }
         }
 
@@ -1346,28 +1346,28 @@ namespace ctr_wp7.ctr_original
         // Token: 0x060006C4 RID: 1732 RVA: 0x0003664C File Offset: 0x0003484C
         public virtual void moviePlaybackFinished(NSString url)
         {
-            if (this.replayingIntroMovie)
+            if (replayingIntroMovie)
             {
-                this.hideActiveView();
-                this.replayingIntroMovie = false;
-                this.activateChild(MenuController.CHILD_TYPE.CHILD_PICKER);
+                hideActiveView();
+                replayingIntroMovie = false;
+                activateChild(MenuController.CHILD_TYPE.CHILD_PICKER);
                 return;
             }
             CTRSoundMgr._playMusic(58);
             FrameworkTypes.AndroidAPI.showBanner();
             if (url != null && url.rangeOfString(NSObject.NSS("outro.wmv")).length > 0U)
             {
-                this.showView(MenuController.ViewID.VIEW_PACK_SELECT);
-                this.packContainer.moveToScrollPointmoveMultiplier(this.packSelect.size - 1, 0.8);
+                showView(MenuController.ViewID.VIEW_PACK_SELECT);
+                packContainer.moveToScrollPointmoveMultiplier(packSelect.size - 1, 0.8);
                 if (!CTRPreferences.isLiteVersion())
                 {
-                    this.showGameFinishedPopup(this.getView(MenuController.ViewID.VIEW_PACK_SELECT));
+                    showGameFinishedPopup(getView(MenuController.ViewID.VIEW_PACK_SELECT));
                 }
                 return;
             }
-            this.deleteView(MenuController.ViewID.VIEW_PACK_SELECT);
-            this.createPackSelect();
-            this.showView(MenuController.ViewID.VIEW_PACK_SELECT);
+            deleteView(MenuController.ViewID.VIEW_PACK_SELECT);
+            createPackSelect();
+            showView(MenuController.ViewID.VIEW_PACK_SELECT);
         }
 
         // Token: 0x060006C5 RID: 1733 RVA: 0x000366F0 File Offset: 0x000348F0
@@ -1375,7 +1375,7 @@ namespace ctr_wp7.ctr_original
         {
             ResourceMgr resourceMgr = Application.sharedResourceMgr();
             int[] array = null;
-            switch (this.pack)
+            switch (pack)
             {
                 case 0:
                     array = ResDataPhoneFull.PACK_GAME_COVER_01;
@@ -1423,11 +1423,11 @@ namespace ctr_wp7.ctr_original
             resourceMgr.initLoading();
             resourceMgr.loadPack(array);
             resourceMgr.loadImmediately();
-            if (this.getView(MenuController.ViewID.VIEW_LEVEL_SELECT) != null)
+            if (getView(MenuController.ViewID.VIEW_LEVEL_SELECT) != null)
             {
-                this.deleteView(MenuController.ViewID.VIEW_LEVEL_SELECT);
+                deleteView(MenuController.ViewID.VIEW_LEVEL_SELECT);
             }
-            this.createLevelSelect();
+            createLevelSelect();
         }
 
         // Token: 0x060006C6 RID: 1734 RVA: 0x000367E4 File Offset: 0x000349E4
@@ -1440,38 +1440,38 @@ namespace ctr_wp7.ctr_original
                 GameController.checkForBoxPerfect(i);
                 i++;
             }
-            this.replayingIntroMovie = false;
+            replayingIntroMovie = false;
             if (CTRPreferences.getUnlockedForPackLevel(0, 1) == UNLOCKED_STATE.UNLOCKED_STATE_LOCKED)
             {
-                this.showView(MenuController.ViewID.VIEW_MOVIE);
+                showView(MenuController.ViewID.VIEW_MOVIE);
                 CTRSoundMgr._stopMusic();
                 NSString nsstring = NSObject.NSS("intro.wmv");
                 Application.sharedMovieMgr().delegateMovieMgrDelegate = this;
                 Application.sharedMovieMgr().playURL(nsstring, !Preferences._getBooleanForKey("SOUND_ON"));
                 return;
             }
-            this.moviePlaybackFinished(null);
+            moviePlaybackFinished(null);
         }
 
         // Token: 0x060006C7 RID: 1735 RVA: 0x0003685C File Offset: 0x00034A5C
         public virtual void timelinereachedKeyFramewithIndex(Timeline t, KeyFrame k, int i)
         {
-            if (t.element == this.handAnimation && k.trackType == Track.TrackType.TRACK_SCALE && (i == 2 || i == 5))
+            if (t.element == handAnimation && k.trackType == Track.TrackType.TRACK_SCALE && (i == 2 || i == 5))
             {
                 CTRPreferences ctrpreferences = Application.sharedPreferences();
                 int intForKey = ctrpreferences.getIntForKey("PREFS_SELECTED_CANDY");
-                Image image = (Image)this.activeView().getChildWithName(NSObject.NSS("logoCandy"));
+                Image image = (Image)activeView().getChildWithName(NSObject.NSS("logoCandy"));
                 int num = 1 + intForKey;
                 int num2 = ((num != 3) ? 3 : 1);
                 if (i == 2)
                 {
                     image.setDrawQuad(num2);
-                    this.setElementPositionWithRelativeQuadOffset2(image, 69, 0, 69, num2);
+                    setElementPositionWithRelativeQuadOffset2(image, 69, 0, 69, num2);
                 }
                 else
                 {
                     image.setDrawQuad(num);
-                    this.setElementPositionWithRelativeQuadOffset2(image, 69, 0, 69, num);
+                    setElementPositionWithRelativeQuadOffset2(image, 69, 0, 69, num);
                 }
                 image.playTimeline(0);
             }
@@ -1480,16 +1480,16 @@ namespace ctr_wp7.ctr_original
         // Token: 0x060006C8 RID: 1736 RVA: 0x00036900 File Offset: 0x00034B00
         public virtual void timelineFinished(Timeline t)
         {
-            if (t.element != this.handAnimation)
+            if (t.element != handAnimation)
             {
                 CTRSoundMgr._stopMusic();
                 CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
-                ctrrootController.setPack(this.pack);
-                ctrrootController.setLevel(this.level);
+                ctrrootController.setPack(pack);
+                ctrrootController.setLevel(level);
                 Application.sharedRootController().setViewTransition(-1);
-                MapPickerController mapPickerController = (MapPickerController)this.getChild(0);
-                mapPickerController.setAutoLoadMap(LevelsList.LEVEL_NAMES[this.pack, this.level]);
-                this.activateChild(MenuController.CHILD_TYPE.CHILD_PICKER);
+                MapPickerController mapPickerController = (MapPickerController)getChild(0);
+                mapPickerController.setAutoLoadMap(LevelsList.LEVEL_NAMES[pack, level]);
+                activateChild(MenuController.CHILD_TYPE.CHILD_PICKER);
                 FrameworkTypes.AndroidAPI.hideBanner();
             }
         }
@@ -1497,33 +1497,33 @@ namespace ctr_wp7.ctr_original
         // Token: 0x060006C9 RID: 1737 RVA: 0x00036984 File Offset: 0x00034B84
         public virtual void onButtonPressed(int n)
         {
-            this.activeView().onTouchMoveXY(-10000f, -10000f);
+            activeView().onTouchMoveXY(-10000f, -10000f);
             if (n != -1 && n != 14 && n != 40)
             {
                 CTRSoundMgr._playSound(21);
             }
             if (n >= 1000 && n < 2000)
             {
-                this.level = n - 1000;
-                int starsForPackLevel = CTRPreferences.getStarsForPackLevel(this.pack, this.level);
+                level = n - 1000;
+                int starsForPackLevel = CTRPreferences.getStarsForPackLevel(pack, level);
                 string text = "LEVSEL_LEVEL_PRESSED";
                 List<string> list = new List<string>();
                 list.Add("already_won");
                 list.Add((starsForPackLevel > 0).ToString());
                 list.Add("box_id");
-                list.Add(this.pack.ToString());
+                list.Add(pack.ToString());
                 list.Add("level_id");
-                list.Add(this.level.ToString());
+                list.Add(level.ToString());
                 FrameworkTypes.FlurryAPI.logEventwithParams(text, list, true, false, false);
-                BaseElement childWithName = this.activeView().getChildWithName("levelsBox");
+                BaseElement childWithName = activeView().getChildWithName("levelsBox");
                 childWithName.playTimeline(2);
-                BaseElement childWithName2 = this.activeView().getChildWithName("shadow");
+                BaseElement childWithName2 = activeView().getChildWithName("shadow");
                 childWithName2.playTimeline(0);
-                BaseElement childWithName3 = this.activeView().getChildWithName("levelsBack");
+                BaseElement childWithName3 = activeView().getChildWithName("levelsBack");
                 childWithName3.playTimeline(0);
-                BaseElement childWithName4 = this.activeView().getChildWithName("starText");
+                BaseElement childWithName4 = activeView().getChildWithName("starText");
                 childWithName4.playTimeline(0);
-                BaseElement childWithName5 = this.activeView().getChildWithName("backButton");
+                BaseElement childWithName5 = activeView().getChildWithName("backButton");
                 childWithName5.touchable = false;
                 childWithName5.playTimeline(2);
                 return;
@@ -1531,37 +1531,37 @@ namespace ctr_wp7.ctr_original
             if (n >= 2000 && n < 3000)
             {
                 FrameworkTypes.AndroidAPI.hideBanner();
-                this.pack = n - 2000;
-                if (this.pack >= CTRPreferences.getPacksCount())
+                pack = n - 2000;
+                if (pack >= CTRPreferences.getPacksCount())
                 {
-                    if (CTRPreferences.isLiteVersion() && this.pack < CTRPreferences.getPacksCount(false))
+                    if (CTRPreferences.isLiteVersion() && pack < CTRPreferences.getPacksCount(false))
                     {
-                        this.showBuyFullPopup();
+                        showBuyFullPopup();
                     }
                     return;
                 }
-                bool flag = CTRPreferences.getUnlockedForPackLevel(this.pack, 0) == UNLOCKED_STATE.UNLOCKED_STATE_LOCKED;
+                bool flag = CTRPreferences.getUnlockedForPackLevel(pack, 0) == UNLOCKED_STATE.UNLOCKED_STATE_LOCKED;
                 string text2 = "BOXSEL_BOX_PRESSED";
                 List<string> list2 = new List<string>();
                 list2.Add("box_id");
-                list2.Add(this.pack.ToString());
+                list2.Add(pack.ToString());
                 list2.Add("box_unlocked");
                 list2.Add((!flag).ToString());
                 FrameworkTypes.FlurryAPI.logEventwithParams(text2, list2, true, false, false);
                 if (flag)
                 {
-                    this.showCantUnlockPopupForPack(this.activeView(), this.pack);
+                    showCantUnlockPopupForPack(activeView(), pack);
                     return;
                 }
-                this.preLevelSelect();
-                this.showView(MenuController.ViewID.VIEW_LEVEL_SELECT);
+                preLevelSelect();
+                showView(MenuController.ViewID.VIEW_LEVEL_SELECT);
                 return;
             }
             else
             {
                 if (n >= 3000 && n < 4000)
                 {
-                    this.packContainer.moveToScrollPointmoveMultiplier(n - 3000, 1f);
+                    packContainer.moveToScrollPointmoveMultiplier(n - 3000, 1f);
                     return;
                 }
                 if (n >= 4000)
@@ -1597,15 +1597,15 @@ namespace ctr_wp7.ctr_original
                         list4.Add(id.ToString());
                         FrameworkTypes.FlurryAPI.logEventwithParams(text4, list4, true, true, false);
                     }
-                    CartoonsAfterwatchView cartoonsAfterwatchView = (CartoonsAfterwatchView)this.getView(MenuController.ViewID.VIEW_CARTOONS_AFTERWATCH);
+                    CartoonsAfterwatchView cartoonsAfterwatchView = (CartoonsAfterwatchView)getView(MenuController.ViewID.VIEW_CARTOONS_AFTERWATCH);
                     cartoonsAfterwatchView.renumberEpisode(blockInterface.getNumber());
                     cartoonsAfterwatchView.setLast(blockConfig.getNextSameType(blockInterface) == -1);
-                    CartoonsSelectView cartoonsSelectView = (CartoonsSelectView)this.getView(MenuController.ViewID.VIEW_CARTOONS_SELECT);
+                    CartoonsSelectView cartoonsSelectView = (CartoonsSelectView)getView(MenuController.ViewID.VIEW_CARTOONS_SELECT);
                     cartoonsSelectView.notifyBlockWatched(num);
-                    if (type == 1 && this.activeViewID != 12)
+                    if (type == 1 && activeViewID != 12)
                     {
                         cartoonsSelectView.openCurtain();
-                        this.showView(MenuController.ViewID.VIEW_CARTOONS_AFTERWATCH);
+                        showView(MenuController.ViewID.VIEW_CARTOONS_AFTERWATCH);
                     }
                     NSString url = blockInterface.getUrl();
                     if (url != null && url.length() != 0)
@@ -1627,12 +1627,12 @@ namespace ctr_wp7.ctr_original
                             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
                             ctrrootController.setPack(0);
                             ctrrootController.setLevel(0);
-                            this.preLevelSelect();
+                            preLevelSelect();
                             ctrrootController.setViewTransition(-1);
-                            MapPickerController mapPickerController = (MapPickerController)this.getChild(0);
+                            MapPickerController mapPickerController = (MapPickerController)getChild(0);
                             mapPickerController.setAutoLoadMap(MapPickerController.getLevelNameForPackLevel(0, 0));
-                            this.replayingIntroMovie = true;
-                            this.showView(MenuController.ViewID.VIEW_MOVIE);
+                            replayingIntroMovie = true;
+                            showView(MenuController.ViewID.VIEW_MOVIE);
                             CTRSoundMgr._stopMusic();
                             NSString nsstring = NSObject.NSS("intro.wmv");
                             Application.sharedMovieMgr().delegateMovieMgrDelegate = this;
@@ -1641,20 +1641,20 @@ namespace ctr_wp7.ctr_original
                         }
                         CTRSoundMgr._playMusic(58);
                         FrameworkTypes.AndroidAPI.showBanner();
-                        this.showView(MenuController.ViewID.VIEW_DELIVERY_SELECT);
+                        showView(MenuController.ViewID.VIEW_DELIVERY_SELECT);
                         return;
                     case 1:
                         FrameworkTypes.FlurryAPI.logEvent("MMENU_SETBT_PRESSED", null);
-                        this.showView(MenuController.ViewID.VIEW_OPTIONS);
+                        showView(MenuController.ViewID.VIEW_OPTIONS);
                         return;
                     case 2:
                         {
-                            this.pack = ((CTRRootController)Application.sharedRootController()).getPack();
-                            this.preLevelSelect();
+                            pack = ((CTRRootController)Application.sharedRootController()).getPack();
+                            preLevelSelect();
                             Application.sharedRootController().setViewTransition(-1);
-                            MapPickerController mapPickerController2 = (MapPickerController)this.getChild(0);
+                            MapPickerController mapPickerController2 = (MapPickerController)getChild(0);
                             mapPickerController2.setNormalMode();
-                            this.activateChild(MenuController.CHILD_TYPE.CHILD_PICKER);
+                            activateChild(MenuController.CHILD_TYPE.CHILD_PICKER);
                             return;
                         }
                     case 3:
@@ -1703,25 +1703,25 @@ namespace ctr_wp7.ctr_original
                         }
                     case 7:
                         FrameworkTypes.AndroidAPI.hideBanner();
-                        this.aboutContainer.setScroll(MathHelper.vect(0.0, 0.0));
-                        this.aboutAutoScroll = true;
+                        aboutContainer.setScroll(MathHelper.vect(0.0, 0.0));
+                        aboutAutoScroll = true;
                         FrameworkTypes.FlurryAPI.logEvent("SETSCR_ABOUTBT_PRESSED", null);
-                        this.showView(MenuController.ViewID.VIEW_ABOUT);
+                        showView(MenuController.ViewID.VIEW_ABOUT);
                         return;
                     case 8:
                         FrameworkTypes.AndroidAPI.hideBanner();
-                        this.showView(MenuController.ViewID.VIEW_RESET);
+                        showView(MenuController.ViewID.VIEW_RESET);
                         FrameworkTypes.FlurryAPI.logEvent("SETSCR_PROGRESSBT_PRESSED", null);
                         return;
                     case 9:
                         FrameworkTypes.AndroidAPI.showBanner();
-                        this.showView(MenuController.ViewID.VIEW_MAIN_MENU);
+                        showView(MenuController.ViewID.VIEW_MAIN_MENU);
                         return;
                     case 10:
                     case 36:
                     case 38:
                         FrameworkTypes.AndroidAPI.showBanner();
-                        this.showView(MenuController.ViewID.VIEW_OPTIONS);
+                        showView(MenuController.ViewID.VIEW_OPTIONS);
                         return;
                     case 11:
                         {
@@ -1729,8 +1729,8 @@ namespace ctr_wp7.ctr_original
                             FrameworkTypes.AndroidAPI.showBanner();
                             Application.sharedRootController().setViewTransition(4);
                             Application.sharedRootController().setTransitionTime();
-                            Application.sharedRootController().onControllerViewHide(this.getView(MenuController.ViewID.VIEW_LEVEL_SELECT));
-                            this.deleteView(MenuController.ViewID.VIEW_LEVEL_SELECT);
+                            Application.sharedRootController().onControllerViewHide(getView(MenuController.ViewID.VIEW_LEVEL_SELECT));
+                            deleteView(MenuController.ViewID.VIEW_LEVEL_SELECT);
                             ResourceMgr resourceMgr = Application.sharedResourceMgr();
                             resourceMgr.freePack(ResDataPhoneFull.PACK_GAME_COVER_01);
                             resourceMgr.freePack(ResDataPhoneFull.PACK_GAME_COVER_02);
@@ -1748,7 +1748,7 @@ namespace ctr_wp7.ctr_original
                                 resourceMgr.freePack(ResDataPhoneFull.PACK_GAME_COVER_12);
                                 resourceMgr.freePack(ResDataPhoneFull.PACK_GAME_COVER_13);
                             }
-                            this.showView(MenuController.ViewID.VIEW_PACK_SELECT);
+                            showView(MenuController.ViewID.VIEW_PACK_SELECT);
                             FrameworkTypes.AndroidAPI.showBanner();
                             GC.Collect();
                             return;
@@ -1759,15 +1759,15 @@ namespace ctr_wp7.ctr_original
                             CTRPreferences ctrpreferences = Application.sharedPreferences();
                             ctrpreferences.resetToDefaults();
                             ctrpreferences.savePreferences();
-                            this.deleteView(MenuController.ViewID.VIEW_PACK_SELECT);
-                            this.pack = 0;
+                            deleteView(MenuController.ViewID.VIEW_PACK_SELECT);
+                            pack = 0;
                             FrameworkTypes.AndroidAPI.showBanner();
-                            this.showView(MenuController.ViewID.VIEW_OPTIONS);
+                            showView(MenuController.ViewID.VIEW_OPTIONS);
                             return;
                         }
                     case 13:
                         FrameworkTypes.AndroidAPI.showBanner();
-                        this.showView(MenuController.ViewID.VIEW_OPTIONS);
+                        showView(MenuController.ViewID.VIEW_OPTIONS);
                         return;
                     case 14:
                     case 15:
@@ -1778,7 +1778,7 @@ namespace ctr_wp7.ctr_original
                     case 29:
                         return;
                     case 16:
-                        if (this.activeViewID == 11)
+                        if (activeViewID == 11)
                         {
                             FrameworkTypes.FlurryAPI.logEvent("CARTOONSEL_TWITTER_PRESSED", null);
                         }
@@ -1789,7 +1789,7 @@ namespace ctr_wp7.ctr_original
                         FrameworkTypes.AndroidAPI.openUrl("https://mobile.twitter.com/zeptolab");
                         return;
                     case 17:
-                        if (this.activeViewID == 11)
+                        if (activeViewID == 11)
                         {
                             FrameworkTypes.FlurryAPI.logEvent("CARTOONSEL_FACEBOOK_PRESSED", null);
                         }
@@ -1807,7 +1807,7 @@ namespace ctr_wp7.ctr_original
                     case 20:
                         MenuController.ep.hidePopup();
                         MenuController.ep = null;
-                        this.FLAG_RESTORING = false;
+                        FLAG_RESTORING = false;
                         return;
                     case 21:
                         break;
@@ -1816,7 +1816,7 @@ namespace ctr_wp7.ctr_original
                             string text8 = "BOXSEL_MISSING-OK_PRESSED";
                             List<string> list8 = new List<string>();
                             list8.Add("box_id");
-                            list8.Add(this.currentPackIndex.ToString());
+                            list8.Add(currentPackIndex.ToString());
                             FrameworkTypes.FlurryAPI.logEventwithParams(text8, list8, true, true, false);
                             break;
                         }
@@ -1830,10 +1830,10 @@ namespace ctr_wp7.ctr_original
                                 num2 = 0;
                             }
                             ctrpreferences2.setIntforKey(num2, "PREFS_SELECTED_CANDY", true);
-                            Image image = (Image)this.activeView().getChildWithName(NSObject.NSS("logoCandy"));
+                            Image image = (Image)activeView().getChildWithName(NSObject.NSS("logoCandy"));
                             int num3 = 1 + num2;
                             image.setDrawQuad(num3);
-                            this.setElementPositionWithRelativeQuadOffset2(image, 69, 0, 69, num3);
+                            setElementPositionWithRelativeQuadOffset2(image, 69, 0, 69, num3);
                             image.playTimeline(0);
                             ctrpreferences2.setBooleanforKey(true, "PREFS_CANDY_WAS_CHANGED", true);
                             return;
@@ -1848,10 +1848,10 @@ namespace ctr_wp7.ctr_original
                         FrameworkTypes.AndroidAPI.openUrl("http://www.facebook.com/cuttherope");
                         return;
                     case 32:
-                        this.showView(MenuController.ViewID.VIEW_ABOUT);
+                        showView(MenuController.ViewID.VIEW_ABOUT);
                         return;
                     case 33:
-                        this.showView(MenuController.ViewID.VIEW_TERMS);
+                        showView(MenuController.ViewID.VIEW_TERMS);
                         return;
                     case 34:
                         FrameworkTypes.AndroidAPI.openUrl(Application.getString(1310824));
@@ -1863,25 +1863,25 @@ namespace ctr_wp7.ctr_original
                         FrameworkTypes.FlurryAPI.logEvent("SETSCR_ACHIEVEMENTS_PRESSED", null);
                         if (AchievementsView.Init)
                         {
-                            ((AchievementsView)this.views[8]).resetScroll();
-                            this.showView(MenuController.ViewID.VIEW_ACHIEVEMENTS);
+                            ((AchievementsView)views[8]).resetScroll();
+                            showView(MenuController.ViewID.VIEW_ACHIEVEMENTS);
                             return;
                         }
                         return;
                     case 39:
                         FrameworkTypes.FlurryAPI.logEvent("SETSCR_LEADERBOARDS_PRESSED", null);
-                        this.showView(MenuController.ViewID.VIEW_LEADERBOARDS);
+                        showView(MenuController.ViewID.VIEW_LEADERBOARDS);
                         return;
                     case 40:
                     case 41:
-                        if (4 != this.activeViewID)
+                        if (4 != activeViewID)
                         {
-                            this.showBuyFullPopup();
+                            showBuyFullPopup();
                             return;
                         }
                         return;
                     case 42:
-                        this.showBuyFullPopup();
+                        showBuyFullPopup();
                         return;
                     case 43:
                     case 44:
@@ -1894,14 +1894,14 @@ namespace ctr_wp7.ctr_original
                             list9.Add(num4.ToString());
                             FrameworkTypes.FlurryAPI.logEvent(text9, list9);
                             CTRPreferences.setLastDelivery(num4);
-                            this.deleteView(MenuController.ViewID.VIEW_PACK_SELECT);
-                            this.createPackSelect();
+                            deleteView(MenuController.ViewID.VIEW_PACK_SELECT);
+                            createPackSelect();
                             if (num4 == 0)
                             {
-                                this.showIntroIfNeeded();
+                                showIntroIfNeeded();
                                 return;
                             }
-                            this.showView(MenuController.ViewID.VIEW_PACK_SELECT);
+                            showView(MenuController.ViewID.VIEW_PACK_SELECT);
                             return;
                         }
                     case 46:
@@ -1910,20 +1910,20 @@ namespace ctr_wp7.ctr_original
                             {
                                 FrameworkTypes.FlurryAPI.logEvent("SEASONSEL_CARTOONS_PRESSED", null);
                             }
-                            CartoonsSelectView cartoonsSelectView2 = (CartoonsSelectView)this.getView(MenuController.ViewID.VIEW_CARTOONS_SELECT);
+                            CartoonsSelectView cartoonsSelectView2 = (CartoonsSelectView)getView(MenuController.ViewID.VIEW_CARTOONS_SELECT);
                             if (cartoonsSelectView2.isRebuildNeeded())
                             {
                                 cartoonsSelectView2.rebuild();
                             }
-                            this.showView(MenuController.ViewID.VIEW_CARTOONS_SELECT);
+                            showView(MenuController.ViewID.VIEW_CARTOONS_SELECT);
                             return;
                         }
                     case 47:
                         CTRPreferences.setLastDelivery(CTRPreferences.getLastDelivery() + 1);
-                        this.needRecreate = true;
+                        needRecreate = true;
                         return;
                     case 48:
-                        this.showView(MenuController.ViewID.VIEW_DELIVERY_SELECT);
+                        showView(MenuController.ViewID.VIEW_DELIVERY_SELECT);
                         return;
                     case 49:
                         {
@@ -1936,10 +1936,10 @@ namespace ctr_wp7.ctr_original
                             FrameworkTypes.FlurryAPI.logEvent(text10, list10);
                             if (lastActivated == -1)
                             {
-                                this.onButtonPressed(4000);
+                                onButtonPressed(4000);
                                 return;
                             }
-                            this.onButtonPressed(4000 + lastActivated);
+                            onButtonPressed(4000 + lastActivated);
                             return;
                         }
                     case 50:
@@ -1969,7 +1969,7 @@ namespace ctr_wp7.ctr_original
                                 list12.Add("next_cartoon_id");
                                 list12.Add(block4.getId().ToString());
                                 FrameworkTypes.FlurryAPI.logEvent(text12, list12);
-                                this.onButtonPressed(4000 + nextSameType);
+                                onButtonPressed(4000 + nextSameType);
                                 return;
                             }
                             return;
@@ -1982,7 +1982,7 @@ namespace ctr_wp7.ctr_original
                             list13.Add("cartoon_id");
                             list13.Add(block5.getId().ToString());
                             FrameworkTypes.FlurryAPI.logEvent(text13, list13);
-                            this.showView(MenuController.ViewID.VIEW_CARTOONS_SELECT);
+                            showView(MenuController.ViewID.VIEW_CARTOONS_SELECT);
                             return;
                         }
                     case 53:
@@ -2004,35 +2004,35 @@ namespace ctr_wp7.ctr_original
         private void gotoNextBox()
         {
             Application.sharedPreferences();
-            for (int i = 0; i < this.packSelect.size; i++)
+            for (int i = 0; i < packSelect.size; i++)
             {
-                int num = this.packSelect.content[i];
+                int num = packSelect.content[i];
                 if (BoxFabric.isGameBox(num))
                 {
                     int saveIndex = BoxFabric.getSaveIndex(num);
                     if (CTRPreferences.getUnlockedForPackLevel(saveIndex, 0) == UNLOCKED_STATE.UNLOCKED_STATE_JUST_UNLOCKED_WITH_CHEAT)
                     {
-                        int firstContainerForPack = this.getFirstContainerForPack(saveIndex);
+                        int firstContainerForPack = getFirstContainerForPack(saveIndex);
                         if (firstContainerForPack != -1)
                         {
-                            this.packContainer.moveToScrollPointmoveMultiplier(firstContainerForPack, 0.8);
-                            this.ddPackSelect.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(this.selector_gotoNextBox), null, 0.7);
+                            packContainer.moveToScrollPointmoveMultiplier(firstContainerForPack, 0.8);
+                            ddPackSelect.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(selector_gotoNextBox), null, 0.7);
                         }
                         return;
                     }
                 }
             }
-            this.packContainer.moveToScrollPointmoveMultiplier(this.animationStartPackIndex, 0.3);
-            this.unlockAnimation = false;
+            packContainer.moveToScrollPointmoveMultiplier(animationStartPackIndex, 0.3);
+            unlockAnimation = false;
         }
 
         // Token: 0x060006CB RID: 1739 RVA: 0x00037730 File Offset: 0x00035930
         private void unlockBoxes()
         {
-            this.needUnlock = false;
+            needUnlock = false;
             Application.sharedPreferences();
-            this.unlockAnimation = true;
-            this.animationStartPackIndex = this.currentPackIndex;
+            unlockAnimation = true;
+            animationStartPackIndex = currentPackIndex;
             int i = 0;
             int packsCount = CTRPreferences.getPacksCount();
             while (i < packsCount)
@@ -2043,9 +2043,9 @@ namespace ctr_wp7.ctr_original
                 }
                 i++;
             }
-            this.deleteView(MenuController.ViewID.VIEW_PACK_SELECT);
-            this.createPackSelect();
-            this.ddPackSelect.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(this.selector_gotoNextBox), null, 0.5);
+            deleteView(MenuController.ViewID.VIEW_PACK_SELECT);
+            createPackSelect();
+            ddPackSelect.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(selector_gotoNextBox), null, 0.5);
         }
 
         // Token: 0x060006CC RID: 1740 RVA: 0x000377B0 File Offset: 0x000359B0
@@ -2056,73 +2056,73 @@ namespace ctr_wp7.ctr_original
             {
                 UpdatePopup.showUpdatePopup();
             }
-            if (this.activeViewID == 2 && this.aboutAutoScroll)
+            if (activeViewID == 2 && aboutAutoScroll)
             {
-                Vector scroll = this.aboutContainer.getScroll();
-                Vector maxScroll = this.aboutContainer.getMaxScroll();
+                Vector scroll = aboutContainer.getScroll();
+                Vector maxScroll = aboutContainer.getMaxScroll();
                 scroll.y += 0.5f;
                 scroll.y = MathHelper.FIT_TO_BOUNDARIES((double)scroll.y, 0.0, (double)maxScroll.y);
-                this.aboutContainer.setScroll(scroll);
+                aboutContainer.setScroll(scroll);
             }
-            else if (this.activeViewID == 4 && this.ddPackSelect != null)
+            else if (activeViewID == 4 && ddPackSelect != null)
             {
-                this.ddPackSelect.update(delta);
+                ddPackSelect.update(delta);
             }
-            else if (this.activeViewID == 0 && this.ddMainMenu != null)
+            else if (activeViewID == 0 && ddMainMenu != null)
             {
-                this.ddMainMenu.update(delta);
+                ddMainMenu.update(delta);
             }
-            if (this.needRecreate)
+            if (needRecreate)
             {
-                this.needRecreate = false;
-                if (this.activeViewID == 4)
+                needRecreate = false;
+                if (activeViewID == 4)
                 {
                     Application.sharedRootController().setViewTransition(4);
-                    Application.sharedRootController().onControllerViewHide(this.getView(MenuController.ViewID.VIEW_PACK_SELECT));
+                    Application.sharedRootController().onControllerViewHide(getView(MenuController.ViewID.VIEW_PACK_SELECT));
                 }
-                this.deleteView(MenuController.ViewID.VIEW_PACK_SELECT);
-                this.createPackSelect();
-                if (this.activeViewID == 4)
+                deleteView(MenuController.ViewID.VIEW_PACK_SELECT);
+                createPackSelect();
+                if (activeViewID == 4)
                 {
-                    Application.sharedRootController().onControllerViewShow(this.getView(MenuController.ViewID.VIEW_PACK_SELECT));
-                    this.packContainer.moveToScrollPointmoveMultiplier(this.boxFabric.isZeroBoxDefined() ? 1 : 0, 0.8);
+                    Application.sharedRootController().onControllerViewShow(getView(MenuController.ViewID.VIEW_PACK_SELECT));
+                    packContainer.moveToScrollPointmoveMultiplier(boxFabric.isZeroBoxDefined() ? 1 : 0, 0.8);
                 }
             }
-            if (this.needUnlock)
+            if (needUnlock)
             {
-                this.unlockBoxes();
+                unlockBoxes();
             }
-            if (this.statusBackupRestore > 0)
+            if (statusBackupRestore > 0)
             {
                 if (MenuController.ep != null)
                 {
                     MenuController.ep.hidePopup();
                     MenuController.ep = null;
                 }
-                switch (this.statusBackupRestore)
+                switch (statusBackupRestore)
                 {
                     case 1:
-                        this.showStatusPopup(this.activeView(), Application.getString(1310780));
+                        showStatusPopup(activeView(), Application.getString(1310780));
                         break;
                     case 2:
-                        this.showStatusPopup(this.activeView(), Application.getString(1310779));
+                        showStatusPopup(activeView(), Application.getString(1310779));
                         break;
                 }
-                this.statusBackupRestore = 0;
+                statusBackupRestore = 0;
             }
         }
 
         // Token: 0x060006CD RID: 1741 RVA: 0x00037976 File Offset: 0x00035B76
         public override bool touchesBeganwithEvent(List<CTRTouchState> touches)
         {
-            if (this.unlockAnimation)
+            if (unlockAnimation)
             {
                 return true;
             }
             base.touchesBeganwithEvent(touches);
-            if (this.activeViewID == 2 && this.aboutAutoScroll)
+            if (activeViewID == 2 && aboutAutoScroll)
             {
-                this.aboutAutoScroll = false;
+                aboutAutoScroll = false;
             }
             return true;
         }
@@ -2130,7 +2130,7 @@ namespace ctr_wp7.ctr_original
         // Token: 0x060006CE RID: 1742 RVA: 0x000379A4 File Offset: 0x00035BA4
         public override bool backButtonPressed()
         {
-            if (this.FLAG_RESTORING || this.unlockAnimation)
+            if (FLAG_RESTORING || unlockAnimation)
             {
                 return true;
             }
@@ -2143,7 +2143,7 @@ namespace ctr_wp7.ctr_original
             int activeViewID = this.activeViewID;
             if (activeViewID == 0)
             {
-                PromoBanner promoBanner = (PromoBanner)this.activeView().getChildWithName("promoBanner");
+                PromoBanner promoBanner = (PromoBanner)activeView().getChildWithName("promoBanner");
                 if (promoBanner != null && !promoBanner.promoMainHidden)
                 {
                     promoBanner.reset();
@@ -2154,39 +2154,39 @@ namespace ctr_wp7.ctr_original
                 {
                     promoBanner.reset();
                 }
-                this.showYesNoPopup(this.activeView(), Application.getString(1310736), 18, 21);
+                showYesNoPopup(activeView(), Application.getString(1310736), 18, 21);
             }
             if (activeViewID == 1)
             {
-                this.onButtonPressed(9);
+                onButtonPressed(9);
             }
             else if (activeViewID == 2 || activeViewID == 3)
             {
-                this.onButtonPressed(10);
+                onButtonPressed(10);
             }
             else if (activeViewID == 4 || activeViewID == 11)
             {
-                this.onButtonPressed(48);
+                onButtonPressed(48);
             }
             else if (activeViewID == 5)
             {
-                this.onButtonPressed(11);
+                onButtonPressed(11);
             }
             else if (activeViewID == 8)
             {
-                this.onButtonPressed(10);
+                onButtonPressed(10);
             }
             else if (activeViewID == 9)
             {
-                this.onButtonPressed(10);
+                onButtonPressed(10);
             }
             else if (activeViewID == 10)
             {
-                this.onButtonPressed(9);
+                onButtonPressed(9);
             }
             else if (activeViewID == 12)
             {
-                this.onButtonPressed(52);
+                onButtonPressed(52);
             }
             return true;
         }
@@ -2204,35 +2204,35 @@ namespace ctr_wp7.ctr_original
             {
                 return;
             }
-            this.handAnimation.setEnabled(true);
-            this.glowAnimation.setEnabled(true);
-            this.handAnimation.playTimeline(0);
-            this.glowAnimation.playTimeline(0);
-            this.ddMainMenu.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(this.selector_playHandAnimation), null, 14f);
+            handAnimation.setEnabled(true);
+            glowAnimation.setEnabled(true);
+            handAnimation.playTimeline(0);
+            glowAnimation.playTimeline(0);
+            ddMainMenu.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(selector_playHandAnimation), null, 14f);
         }
 
         // Token: 0x060006D1 RID: 1745 RVA: 0x00037B21 File Offset: 0x00035D21
         private void restoreSuccess()
         {
-            this.FLAG_RESTORING = false;
-            this.needRecreate = true;
-            this.statusBackupRestore = 2;
+            FLAG_RESTORING = false;
+            needRecreate = true;
+            statusBackupRestore = 2;
         }
 
         // Token: 0x060006D2 RID: 1746 RVA: 0x00037B38 File Offset: 0x00035D38
         private void setProblem(int problemID)
         {
-            this.FLAG_RESTORING = false;
-            this.statusBackupRestore = problemID;
+            FLAG_RESTORING = false;
+            statusBackupRestore = problemID;
         }
 
         // Token: 0x060006D3 RID: 1747 RVA: 0x00037B48 File Offset: 0x00035D48
         private int getFirstContainerForPack(int ppack)
         {
-            int num = ((ppack == -1) ? this.pack : ppack);
-            for (int i = 0; i < this.packSelect.size; i++)
+            int num = ((ppack == -1) ? pack : ppack);
+            for (int i = 0; i < packSelect.size; i++)
             {
-                if (BoxFabric.getSaveIndex(this.packSelect.content[i]) == num)
+                if (BoxFabric.getSaveIndex(packSelect.content[i]) == num)
                 {
                     return i;
                 }
@@ -2249,7 +2249,7 @@ namespace ctr_wp7.ctr_original
             text.setAlignment(2);
             text.setStringandWidth(statusText, num);
             Button button = MenuController.createButtonWithTextIDDelegate(Application.getString(1310754), 20, this);
-            this.showPopup(parent, text, button);
+            showPopup(parent, text, button);
         }
 
         // Token: 0x060006D5 RID: 1749 RVA: 0x00037BE8 File Offset: 0x00035DE8
@@ -2292,7 +2292,7 @@ namespace ctr_wp7.ctr_original
             text.setAlignment(2);
             text.setStringandWidth(statusText, num);
             text.y = -34f;
-            this.showPopup(parent, text, vbox);
+            showPopup(parent, text, vbox);
         }
 
         // Token: 0x060006D7 RID: 1751 RVA: 0x00037D9C File Offset: 0x00035F9C
@@ -2312,13 +2312,13 @@ namespace ctr_wp7.ctr_original
             text.setAlignment(2);
             text.setStringandWidth(Application.getString(1310832), num);
             text.y = -34f;
-            this.showPopup(this.activeView(), text, button);
+            showPopup(activeView(), text, button);
         }
 
         // Token: 0x060006D8 RID: 1752 RVA: 0x00037E7C File Offset: 0x0003607C
         public virtual void showUnlockShareware()
         {
-            this.showYesNoPopup(this.activeView(), Application.getString(1310802), 29, 21);
+            showYesNoPopup(activeView(), Application.getString(1310802), 29, 21);
         }
 
         // Token: 0x060006D9 RID: 1753 RVA: 0x00037E98 File Offset: 0x00036098
@@ -2343,7 +2343,7 @@ namespace ctr_wp7.ctr_original
             text3.setStringandWidth(Application.getString(1310758), num);
             vbox.addChild(text3);
             Button button = MenuController.createButtonWithTextIDDelegate(Application.getString(1310754), 22, this);
-            this.showPopup(parent, vbox, button);
+            showPopup(parent, vbox, button);
         }
 
         // Token: 0x060006DA RID: 1754 RVA: 0x00037FB0 File Offset: 0x000361B0
@@ -2361,15 +2361,15 @@ namespace ctr_wp7.ctr_original
             text2.setStringandWidth(Application.getString(1310760), num);
             vbox.addChild(text2);
             Button button = MenuController.createButtonWithTextIDDelegate(Application.getString(1310754), 21, this);
-            this.showPopup(parent, vbox, button);
+            showPopup(parent, vbox, button);
         }
 
         // Token: 0x060006DB RID: 1755 RVA: 0x00038068 File Offset: 0x00036268
         public virtual void changedActiveSpointFromTo(int pp, int cp)
         {
-            this.liftScrollbar.getTotalScrollPoints();
-            TouchImage touchImage = (TouchImage)this.bulletContainer.getChild(pp);
-            TouchImage touchImage2 = (TouchImage)this.bulletContainer.getChild(cp);
+            liftScrollbar.getTotalScrollPoints();
+            TouchImage touchImage = (TouchImage)bulletContainer.getChild(pp);
+            TouchImage touchImage2 = (TouchImage)bulletContainer.getChild(cp);
             touchImage.setDrawQuad(8);
             touchImage2.setDrawQuad(9);
         }
@@ -2389,12 +2389,12 @@ namespace ctr_wp7.ctr_original
             {
                 FrameworkTypes.FlurryAPI.logEvent("SEASONSEL_SCREEN_SHOWN", null);
                 VideoDataManager.init();
-                DeliverySelectView deliverySelectView = (DeliverySelectView)this.getView(MenuController.ViewID.VIEW_DELIVERY_SELECT);
+                DeliverySelectView deliverySelectView = (DeliverySelectView)getView(MenuController.ViewID.VIEW_DELIVERY_SELECT);
                 deliverySelectView.checkCartoonsWatched();
             }
             else if (n == MenuController.ViewID.VIEW_CARTOONS_SELECT)
             {
-                CartoonsSelectView cartoonsSelectView = (CartoonsSelectView)this.getView(MenuController.ViewID.VIEW_CARTOONS_SELECT);
+                CartoonsSelectView cartoonsSelectView = (CartoonsSelectView)getView(MenuController.ViewID.VIEW_CARTOONS_SELECT);
                 cartoonsSelectView.closeCurtain();
                 FrameworkTypes.FlurryAPI.logEvent("CARTOONSEL_SCREEN_SHOWN", null);
             }
@@ -2407,17 +2407,17 @@ namespace ctr_wp7.ctr_original
                 string text = "BOXSEL_SCREEN_SHOWN";
                 List<string> list = new List<string>();
                 list.Add("box_id");
-                list.Add(this.currentPackIndex.ToString());
+                list.Add(currentPackIndex.ToString());
                 FrameworkTypes.FlurryAPI.logEvent(text, list);
-                int num = Math.Min(this.packSelect.size - 1, CTRPreferences.getLastPack());
-                this.packContainer.placeToScrollPoint((num != -1) ? num : this.packSelect.getFirstGameBox());
+                int num = Math.Min(packSelect.size - 1, CTRPreferences.getLastPack());
+                packContainer.placeToScrollPoint((num != -1) ? num : packSelect.getFirstGameBox());
             }
             else if (n == MenuController.ViewID.VIEW_LEVEL_SELECT)
             {
                 string text2 = "LEVSEL_SCREEN_SHOWN";
                 List<string> list2 = new List<string>();
                 list2.Add("box_id");
-                list2.Add(this.currentPackIndex.ToString());
+                list2.Add(currentPackIndex.ToString());
                 FrameworkTypes.FlurryAPI.logEvent(text2, list2);
             }
             else if (n == MenuController.ViewID.VIEW_MAIN_MENU)
@@ -2465,7 +2465,7 @@ namespace ctr_wp7.ctr_original
         public void createAchievements()
         {
             AchievementsView achievementsView = (AchievementsView)new AchievementsView().init();
-            this.addViewwithID(achievementsView, MenuController.ViewID.VIEW_ACHIEVEMENTS);
+            addViewwithID(achievementsView, MenuController.ViewID.VIEW_ACHIEVEMENTS);
             Button button = MenuController.createBackButtonWithDelegateID(this, 36);
             button.setName("backb");
             button.x = 0f;
@@ -2476,7 +2476,7 @@ namespace ctr_wp7.ctr_original
         public virtual void createLeaderboards()
         {
             LeaderboardsView leaderboardsView = (LeaderboardsView)new LeaderboardsView().init();
-            this.addViewwithID(leaderboardsView, MenuController.ViewID.VIEW_LEADERBOARDS);
+            addViewwithID(leaderboardsView, MenuController.ViewID.VIEW_LEADERBOARDS);
             Button button = MenuController.createBackButtonWithDelegateID(this, 38);
             button.setName("backb");
             button.x = 0f;
@@ -2777,13 +2777,13 @@ namespace ctr_wp7.ctr_original
             public override bool onTouchDownXY(float tx, float ty)
             {
                 base.onTouchDownXY(tx, ty);
-                Rectangle rectangle = FrameworkTypes.MakeRectangle(this.drawX + this.bbc.x, this.drawY + this.bbc.y, (float)this.width + this.bbc.w, (float)this.height + this.bbc.h);
+                Rectangle rectangle = FrameworkTypes.MakeRectangle(drawX + bbc.x, drawY + bbc.y, (float)width + bbc.w, (float)height + bbc.h);
                 Rectangle rectangle2 = MathHelper.rectInRectIntersection(FrameworkTypes.MakeRectangle(0.0, 0.0, (double)FrameworkTypes.SCREEN_WIDTH, (double)FrameworkTypes.SCREEN_HEIGHT), rectangle);
                 if (MathHelper.pointInRect(tx, ty, rectangle.x, rectangle.y, rectangle.w, rectangle.h) && (double)rectangle2.w > (double)rectangle.w / 2.0)
                 {
-                    if (this.delegateButtonDelegate != null)
+                    if (delegateButtonDelegate != null)
                     {
-                        this.delegateButtonDelegate.onButtonPressed(this.bid);
+                        delegateButtonDelegate.onButtonPressed(bid);
                     }
                     return true;
                 }

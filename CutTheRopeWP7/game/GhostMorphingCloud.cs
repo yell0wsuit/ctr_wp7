@@ -13,14 +13,14 @@ namespace ctr_wp7.game
         {
             if (base.initWithTotalParticlesandImageGrid(5, Image.Image_createWithResID(180)) != null)
             {
-                this.angle = (float)MathHelper.RND_RANGE(0, 360);
-                this.size = 1.6f;
-                this.angleVar = 360f;
-                this.life = 0.5f;
-                this.duration = 1.5f;
-                this.speed = 30f;
-                this.startColor = RGBAColor.solidOpaqueRGBA;
-                this.endColor = RGBAColor.transparentRGBA;
+                angle = (float)MathHelper.RND_RANGE(0, 360);
+                size = 1.6f;
+                angleVar = 360f;
+                life = 0.5f;
+                duration = 1.5f;
+                speed = 30f;
+                startColor = RGBAColor.solidOpaqueRGBA;
+                endColor = RGBAColor.transparentRGBA;
             }
             return this;
         }
@@ -28,15 +28,15 @@ namespace ctr_wp7.game
         // Token: 0x06000447 RID: 1095 RVA: 0x0001DE44 File Offset: 0x0001C044
         public override void initParticle(ref Particle particle)
         {
-            this.angle += 360f / (float)this.totalParticles;
+            angle += 360f / (float)totalParticles;
             base.initParticle(ref particle);
             int num = MathHelper.RND_RANGE(2, 4);
-            Quad2D quad2D = this.imageGrid.texture.quads[num];
+            Quad2D quad2D = imageGrid.texture.quads[num];
             Quad3D quad3D = Quad3D.MakeQuad3D(0f, 0f, 0f, 0f, 0f);
-            this.drawer.setTextureQuadatVertexQuadatIndex(quad2D, quad3D, this.particleCount);
-            Rectangle rectangle = this.imageGrid.texture.quadRects[num];
-            particle.width = rectangle.w * this.size;
-            particle.height = rectangle.h * this.size;
+            drawer.setTextureQuadatVertexQuadatIndex(quad2D, quad3D, particleCount);
+            Rectangle rectangle = imageGrid.texture.quadRects[num];
+            particle.width = rectangle.w * size;
+            particle.height = rectangle.h * size;
             particle.deltaColor = RGBAColor.MakeRGBA(0f, 0f, 0f, 0f);
         }
 
@@ -44,13 +44,13 @@ namespace ctr_wp7.game
         public override void update(float delta)
         {
             base.update(delta);
-            for (int i = 0; i < this.particleCount; i++)
+            for (int i = 0; i < particleCount; i++)
             {
-                Particle particle = this.particles[i];
+                Particle particle = particles[i];
                 if (particle.life > 0f)
                 {
-                    float num = 0.2f * this.life;
-                    if (particle.life > this.life - num)
+                    float num = 0.2f * life;
+                    if (particle.life > life - num)
                     {
                         float num2 = 1.025f;
                         particle.width *= num2;
@@ -58,10 +58,10 @@ namespace ctr_wp7.game
                     }
                     else
                     {
-                        particle.deltaColor.r = (this.endColor.r - this.startColor.r) / num;
-                        particle.deltaColor.g = (this.endColor.g - this.startColor.g) / num;
-                        particle.deltaColor.b = (this.endColor.b - this.startColor.b) / num;
-                        particle.deltaColor.a = (this.endColor.a - this.startColor.a) / num;
+                        particle.deltaColor.r = (endColor.r - startColor.r) / num;
+                        particle.deltaColor.g = (endColor.g - startColor.g) / num;
+                        particle.deltaColor.b = (endColor.b - startColor.b) / num;
+                        particle.deltaColor.a = (endColor.a - startColor.a) / num;
                         float num3 = 0.98f;
                         particle.width *= num3;
                         particle.height *= num3;

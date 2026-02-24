@@ -15,9 +15,9 @@ namespace ctr_wp7.iframework.visual
         {
             get
             {
-                if (this.texture != null)
+                if (texture != null)
                 {
-                    return this.texture._resName;
+                    return texture._resName;
                 }
                 return "ERROR: texture == null";
             }
@@ -138,16 +138,16 @@ namespace ctr_wp7.iframework.visual
         {
             if (base.init() != null)
             {
-                this.texture = t;
-                NSObject.NSRET(this.texture);
-                this.restoreCutTransparency = false;
-                if (this.texture.quadsCount > 0)
+                texture = t;
+                NSObject.NSRET(texture);
+                restoreCutTransparency = false;
+                if (texture.quadsCount > 0)
                 {
-                    this.setDrawQuad(0);
+                    setDrawQuad(0);
                 }
                 else
                 {
-                    this.setDrawFullImage();
+                    setDrawFullImage();
                 }
             }
             return this;
@@ -156,59 +156,59 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060000B7 RID: 183 RVA: 0x00006DB5 File Offset: 0x00004FB5
         public virtual void setDrawFullImage()
         {
-            this.quadToDraw = -1;
-            this.width = this.texture._realWidth;
-            this.height = this.texture._realHeight;
+            quadToDraw = -1;
+            width = texture._realWidth;
+            height = texture._realHeight;
         }
 
         // Token: 0x060000B8 RID: 184 RVA: 0x00006DE0 File Offset: 0x00004FE0
         public virtual void setDrawQuad(int n)
         {
-            this.quadToDraw = n;
-            if (!this.restoreCutTransparency)
+            quadToDraw = n;
+            if (!restoreCutTransparency)
             {
-                this.width = (int)this.texture.quadRects[n].w;
-                this.height = (int)this.texture.quadRects[n].h;
+                width = (int)texture.quadRects[n].w;
+                height = (int)texture.quadRects[n].h;
             }
         }
 
         // Token: 0x060000B9 RID: 185 RVA: 0x00006E38 File Offset: 0x00005038
         public virtual void doRestoreCutTransparency()
         {
-            if (this.texture.preCutSize.x != MathHelper.vectUndefined.x)
+            if (texture.preCutSize.x != MathHelper.vectUndefined.x)
             {
-                this.restoreCutTransparency = true;
-                this.width = (int)this.texture.preCutSize.x;
-                this.height = (int)this.texture.preCutSize.y;
+                restoreCutTransparency = true;
+                width = (int)texture.preCutSize.x;
+                height = (int)texture.preCutSize.y;
             }
         }
 
         // Token: 0x060000BA RID: 186 RVA: 0x00006E96 File Offset: 0x00005096
         public override void draw()
         {
-            this.preDraw();
-            if (this.quadToDraw == -1)
+            preDraw();
+            if (quadToDraw == -1)
             {
-                GLDrawer.drawImage(this.texture, this.drawX, this.drawY);
+                GLDrawer.drawImage(texture, drawX, drawY);
             }
             else
             {
-                this.drawQuad(this.quadToDraw);
+                drawQuad(quadToDraw);
             }
-            this.postDraw();
+            postDraw();
         }
 
         // Token: 0x060000BB RID: 187 RVA: 0x00006ED4 File Offset: 0x000050D4
         public virtual void drawQuad(int n)
         {
-            float w = this.texture.quadRects[n].w;
-            float h = this.texture.quadRects[n].h;
-            float num = this.drawX;
-            float num2 = this.drawY;
-            if (this.restoreCutTransparency)
+            float w = texture.quadRects[n].w;
+            float h = texture.quadRects[n].h;
+            float num = drawX;
+            float num2 = drawY;
+            if (restoreCutTransparency)
             {
-                num += this.texture.quadOffsets[n].x;
-                num2 += this.texture.quadOffsets[n].y;
+                num += texture.quadOffsets[n].x;
+                num2 += texture.quadOffsets[n].y;
             }
             float[] array = new float[]
             {
@@ -222,9 +222,9 @@ namespace ctr_wp7.iframework.visual
                 num2 + h
             };
             OpenGL.glEnable(0);
-            OpenGL.glBindTexture(this.texture.name());
+            OpenGL.glBindTexture(texture.name());
             OpenGL.glVertexPointer(2, 5, 0, array);
-            OpenGL.glTexCoordPointer(2, 5, 0, this.texture.quads[n].toFloatArray());
+            OpenGL.glTexCoordPointer(2, 5, 0, texture.quads[n].toFloatArray());
             OpenGL.glDrawArrays(8, 0, 4);
         }
 
@@ -237,7 +237,7 @@ namespace ctr_wp7.iframework.visual
             }
             if (a.actionName == "ACTION_SET_DRAWQUAD")
             {
-                this.setDrawQuad(a.actionParam);
+                setDrawQuad(a.actionParam);
                 return true;
             }
             return false;
@@ -252,7 +252,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060000BE RID: 190 RVA: 0x00007010 File Offset: 0x00005210
         public override void dealloc()
         {
-            NSObject.NSREL(this.texture);
+            NSObject.NSREL(texture);
             base.dealloc();
         }
 

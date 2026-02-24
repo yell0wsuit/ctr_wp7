@@ -8,15 +8,15 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060002E6 RID: 742 RVA: 0x00012DAF File Offset: 0x00010FAF
         public virtual void setTile(int t)
         {
-            this.q = t;
+            q = t;
         }
 
         // Token: 0x060002E7 RID: 743 RVA: 0x00012DB8 File Offset: 0x00010FB8
         public override void draw()
         {
-            this.preDraw();
-            GLDrawer.drawImageTiled(this.texture, this.q, this.drawX, this.drawY, (float)this.width, (float)this.height);
-            this.postDraw();
+            preDraw();
+            GLDrawer.drawImageTiled(texture, q, drawX, drawY, (float)width, (float)height);
+            postDraw();
         }
 
         // Token: 0x060002E8 RID: 744 RVA: 0x00012DF1 File Offset: 0x00010FF1

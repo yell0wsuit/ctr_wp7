@@ -12,7 +12,7 @@ namespace ctr_wp7.game
         // Token: 0x060005B6 RID: 1462 RVA: 0x0002BF7C File Offset: 0x0002A17C
         public virtual BaseElement createPackElementforContainer(int i, int pbox, ScrollableContainer c, ButtonDelegate d)
         {
-            this.buttonDelegate = d;
+            buttonDelegate = d;
             int saveIndex = BoxFabric.getSaveIndex(pbox);
             Application.sharedPreferences();
             BaseElement baseElement = (BaseElement)new BaseElement().init();
@@ -25,7 +25,7 @@ namespace ctr_wp7.game
                 MenuController.TouchBaseElement touchBaseElement = (MenuController.TouchBaseElement)new MenuController.TouchBaseElement().init();
                 baseElement2 = touchBaseElement;
                 touchBaseElement.bid = -1;
-                touchBaseElement.delegateButtonDelegate = this.buttonDelegate;
+                touchBaseElement.delegateButtonDelegate = buttonDelegate;
                 touchBaseElement.bbc = FrameworkTypes.MakeRectangle(70.0, 0.0, -70.0, 0.0);
                 int totalStarsInDelivery = CTRPreferences.getTotalStarsInDelivery(-1);
                 if (CTRPreferences.getUnlockedForPackLevel(saveIndex, 0) == UNLOCKED_STATE.UNLOCKED_STATE_LOCKED && totalStarsInDelivery >= CTRPreferences.packUnlockStars(saveIndex))
@@ -38,33 +38,33 @@ namespace ctr_wp7.game
                 timeline.addKeyFrame(KeyFrame.makeScale(1.05, 0.95, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.2));
                 timeline.addKeyFrame(KeyFrame.makeScale(1.0, 1.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.25));
                 baseElement.addTimeline(timeline);
-                baseElement3 = this.buildGameBox(i, saveIndex, baseElement, touchBaseElement, c);
+                baseElement3 = buildGameBox(i, saveIndex, baseElement, touchBaseElement, c);
             }
             else if (pbox == 18)
             {
                 baseElement2 = (BaseElement)new BaseElement().init();
-                baseElement3 = this.buildComingSoonBox();
+                baseElement3 = buildComingSoonBox();
             }
             else if (pbox == 19)
             {
                 baseElement2 = (BaseElement)new BaseElement().init();
-                baseElement3 = this.buildNextDeliveryBox(this.buttonDelegate);
+                baseElement3 = buildNextDeliveryBox(buttonDelegate);
                 baseElement3.anchor = (baseElement3.parentAnchor = 18);
             }
             else if (pbox == 0)
             {
                 baseElement2 = (BaseElement)new BaseElement().init();
-                baseElement3 = this.buildZeroBox(this.buttonDelegate);
+                baseElement3 = buildZeroBox(buttonDelegate);
             }
             else if (pbox == 20)
             {
                 baseElement2 = (BaseElement)new BaseElement().init();
-                baseElement3 = this.buildLiteBox(this.buttonDelegate);
+                baseElement3 = buildLiteBox(buttonDelegate);
             }
             else if (pbox == 1)
             {
                 baseElement2 = (BaseElement)new BaseElement().init();
-                baseElement3 = this.buildVideoBox(this.buttonDelegate);
+                baseElement3 = buildVideoBox(buttonDelegate);
             }
             baseElement2.addChild(baseElement);
             if (baseElement3.parent == null)
@@ -196,7 +196,7 @@ namespace ctr_wp7.game
         // Token: 0x060005C0 RID: 1472 RVA: 0x0002C3C1 File Offset: 0x0002A5C1
         public virtual bool isZeroBoxDefined()
         {
-            return this.isZeroBoxLowerDefined() || this.isZeroBoxUpperDefined();
+            return isZeroBoxLowerDefined() || isZeroBoxUpperDefined();
         }
 
         // Token: 0x060005C1 RID: 1473

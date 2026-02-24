@@ -33,19 +33,19 @@ namespace ctr_wp7.game
         public override void update(float delta)
         {
             base.update(delta);
-            if (this.mover != null)
+            if (mover != null)
             {
-                this.updateRotation();
+                updateRotation();
             }
         }
 
         // Token: 0x0600028C RID: 652 RVA: 0x00010490 File Offset: 0x0000E690
         public override void draw()
         {
-            Timeline currentTimeline = this.light.getCurrentTimeline();
+            Timeline currentTimeline = light.getCurrentTimeline();
             if (currentTimeline != null && currentTimeline.state == Timeline.TimelineState.TIMELINE_STOPPED)
             {
-                this.light.visible = false;
+                light.visible = false;
             }
             base.draw();
         }
@@ -53,12 +53,12 @@ namespace ctr_wp7.game
         // Token: 0x0600028D RID: 653 RVA: 0x000104C8 File Offset: 0x0000E6C8
         public void createAnimations()
         {
-            this.light = Animation.Animation_createWithResID(145);
-            this.light.anchor = 34;
-            this.light.parentAnchor = 10;
-            this.light.y = 90f;
-            this.light.x = 0f;
-            Animation animation = this.light;
+            light = Animation.Animation_createWithResID(145);
+            light.anchor = 34;
+            light.parentAnchor = 10;
+            light.y = 90f;
+            light.x = 0f;
+            Animation animation = light;
             int num = 0;
             float num2 = 0.05f;
             Timeline.LoopType loopType = Timeline.LoopType.TIMELINE_NO_LOOP;
@@ -69,25 +69,25 @@ namespace ctr_wp7.game
             list.Add(4);
             list.Add(4);
             animation.addAnimationWithIDDelayLoopCountSequence(num, num2, loopType, num3, num4, list);
-            this.light.doRestoreCutTransparency();
-            this.light.visible = false;
-            this.addChild(this.light);
+            light.doRestoreCutTransparency();
+            light.visible = false;
+            addChild(light);
         }
 
         // Token: 0x0600028E RID: 654 RVA: 0x00010574 File Offset: 0x0000E774
         public void updateRotation()
         {
-            this.t1.x = this.x - 15f;
-            this.t2.x = this.x + 15f;
-            this.t1.y = (this.t2.y = this.y);
-            this.b1.x = this.t1.x;
-            this.b2.x = this.t2.x;
-            this.b1.y = (this.b2.y = this.y + 1f);
-            this.angle = (double)MathHelper.DEGREES_TO_RADIANS(this.rotation);
-            this.t1 = MathHelper.vectRotateAround(this.t1, this.angle, this.x, this.y);
-            this.t2 = MathHelper.vectRotateAround(this.t2, this.angle, this.x, this.y);
-            this.b1 = MathHelper.vectRotateAround(this.b1, this.angle, this.x, this.y);
-            this.b2 = MathHelper.vectRotateAround(this.b2, this.angle, this.x, this.y);
+            t1.x = x - 15f;
+            t2.x = x + 15f;
+            t1.y = (t2.y = y);
+            b1.x = t1.x;
+            b2.x = t2.x;
+            b1.y = (b2.y = y + 1f);
+            angle = (double)MathHelper.DEGREES_TO_RADIANS(rotation);
+            t1 = MathHelper.vectRotateAround(t1, angle, x, y);
+            t2 = MathHelper.vectRotateAround(t2, angle, x, y);
+            b1 = MathHelper.vectRotateAround(b1, angle, x, y);
+            b2 = MathHelper.vectRotateAround(b2, angle, x, y);
         }
 
         // Token: 0x04000884 RID: 2180

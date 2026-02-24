@@ -10,18 +10,18 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060004C2 RID: 1218 RVA: 0x00023B86 File Offset: 0x00021D86
         public virtual void stopTimeline()
         {
-            this.state = Timeline.TimelineState.TIMELINE_STOPPED;
-            this.deactivateTracks();
+            state = Timeline.TimelineState.TIMELINE_STOPPED;
+            deactivateTracks();
         }
 
         // Token: 0x060004C3 RID: 1219 RVA: 0x00023B98 File Offset: 0x00021D98
         public virtual void deactivateTracks()
         {
-            for (int i = 0; i < this.tracks.Length; i++)
+            for (int i = 0; i < tracks.Length; i++)
             {
-                if (this.tracks[i] != null)
+                if (tracks[i] != null)
                 {
-                    this.tracks[i].state = Track.TrackState.TRACK_NOT_ACTIVE;
+                    tracks[i].state = Track.TrackState.TRACK_NOT_ACTIVE;
                 }
             }
         }
@@ -29,41 +29,41 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060004C4 RID: 1220 RVA: 0x00023BD0 File Offset: 0x00021DD0
         public void jumpToTrackKeyFrame(int t, int k)
         {
-            if (this.state == Timeline.TimelineState.TIMELINE_STOPPED)
+            if (state == Timeline.TimelineState.TIMELINE_STOPPED)
             {
-                this.state = Timeline.TimelineState.TIMELINE_PAUSED;
+                state = Timeline.TimelineState.TIMELINE_PAUSED;
             }
-            Timeline.updateTimeline(this, this.tracks[t].getFrameTime(k) - this.time);
+            Timeline.updateTimeline(this, tracks[t].getFrameTime(k) - time);
         }
 
         // Token: 0x060004C5 RID: 1221 RVA: 0x00023BFC File Offset: 0x00021DFC
         public virtual void playTimeline()
         {
-            if (this.state != Timeline.TimelineState.TIMELINE_PAUSED)
+            if (state != Timeline.TimelineState.TIMELINE_PAUSED)
             {
-                this.time = 0f;
-                this.timelineDirReverse = false;
-                this.length = 0f;
+                time = 0f;
+                timelineDirReverse = false;
+                length = 0f;
                 for (int i = 0; i < 5; i++)
                 {
-                    if (this.tracks[i] != null)
+                    if (tracks[i] != null)
                     {
-                        this.tracks[i].updateRange();
-                        if (this.tracks[i].endTime > this.length)
+                        tracks[i].updateRange();
+                        if (tracks[i].endTime > length)
                         {
-                            this.length = this.tracks[i].endTime;
+                            length = tracks[i].endTime;
                         }
                     }
                 }
             }
-            this.state = Timeline.TimelineState.TIMELINE_PLAYING;
+            state = Timeline.TimelineState.TIMELINE_PLAYING;
             Timeline.updateTimeline(this, 0f);
         }
 
         // Token: 0x060004C6 RID: 1222 RVA: 0x00023C8C File Offset: 0x00021E8C
         public virtual void pauseTimeline()
         {
-            this.state = Timeline.TimelineState.TIMELINE_PAUSED;
+            state = Timeline.TimelineState.TIMELINE_PAUSED;
         }
 
         // Token: 0x060004C7 RID: 1223 RVA: 0x00023C98 File Offset: 0x00021E98
@@ -166,12 +166,12 @@ namespace ctr_wp7.iframework.visual
         {
             if (base.init() != null)
             {
-                this.maxKeyFrames = m;
-                this.time = 0f;
-                this.length = 0f;
-                this.state = Timeline.TimelineState.TIMELINE_STOPPED;
-                this.loopsLimit = -1;
-                this.timelineLoopType = Timeline.LoopType.TIMELINE_NO_LOOP;
+                maxKeyFrames = m;
+                time = 0f;
+                length = 0f;
+                state = Timeline.TimelineState.TIMELINE_STOPPED;
+                loopsLimit = -1;
+                timelineLoopType = Timeline.LoopType.TIMELINE_NO_LOOP;
             }
             return this;
         }
@@ -179,30 +179,30 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060004C9 RID: 1225 RVA: 0x00023EE0 File Offset: 0x000220E0
         public virtual void addKeyFrame(KeyFrame k)
         {
-            int num = ((this.tracks[(int)k.trackType] == null) ? 0 : this.tracks[(int)k.trackType].keyFramesCount);
-            this.setKeyFrameAt(k, num);
+            int num = ((tracks[(int)k.trackType] == null) ? 0 : tracks[(int)k.trackType].keyFramesCount);
+            setKeyFrameAt(k, num);
         }
 
         // Token: 0x060004CA RID: 1226 RVA: 0x00023F1C File Offset: 0x0002211C
         public virtual void setKeyFrameAt(KeyFrame k, int i)
         {
-            if (this.tracks[(int)k.trackType] == null)
+            if (tracks[(int)k.trackType] == null)
             {
-                this.tracks[(int)k.trackType] = new Track().initWithTimelineTypeandMaxKeyFrames(this, k.trackType, this.maxKeyFrames);
+                tracks[(int)k.trackType] = new Track().initWithTimelineTypeandMaxKeyFrames(this, k.trackType, maxKeyFrames);
             }
-            this.tracks[(int)k.trackType].setKeyFrameAt(k, i);
+            tracks[(int)k.trackType].setKeyFrameAt(k, i);
         }
 
         // Token: 0x060004CB RID: 1227 RVA: 0x00023F70 File Offset: 0x00022170
         public virtual void setTimelineLoopType(Timeline.LoopType l)
         {
-            this.timelineLoopType = l;
+            timelineLoopType = l;
         }
 
         // Token: 0x060004CC RID: 1228 RVA: 0x00023F7C File Offset: 0x0002217C
         public virtual Track getTrack(Track.TrackType tt)
         {
-            return this.tracks[(int)tt];
+            return tracks[(int)tt];
         }
 
         // Token: 0x04000A12 RID: 2578

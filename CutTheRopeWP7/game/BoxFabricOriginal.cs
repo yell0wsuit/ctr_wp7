@@ -26,8 +26,8 @@ namespace ctr_wp7.game
         // Token: 0x06000739 RID: 1849 RVA: 0x0003A58C File Offset: 0x0003878C
         protected override BaseElement buildGameBox(int i, int n, BaseElement container, MenuController.TouchBaseElement tpack, ScrollableContainer c)
         {
-            BaseElement baseElement = this.buildBox(n);
-            BaseElement baseElement2 = this.buildText(1310785 + n, false);
+            BaseElement baseElement = buildBox(n);
+            BaseElement baseElement2 = buildText(1310785 + n, false);
             if ((float)baseElement2.width > 200f)
             {
                 baseElement2.scaleX = (baseElement2.scaleY = 200f / (float)baseElement2.width);
@@ -60,11 +60,11 @@ namespace ctr_wp7.game
             if (unlockedForPackLevel != 1)
             {
                 int num = CTRPreferences.packUnlockStars(n);
-                BaseElement baseElement3 = this.buildLock();
+                BaseElement baseElement3 = buildLock();
                 baseElement.addChild(baseElement3);
                 if (unlockedForPackLevel == 4)
                 {
-                    Button button = MenuController.createBigButtonWithTextIDDelegate(Application.getString(1310723), 29, this.buttonDelegate);
+                    Button button = MenuController.createBigButtonWithTextIDDelegate(Application.getString(1310723), 29, buttonDelegate);
                     button.anchor = (button.parentAnchor = 18);
                     button.y = 27f;
                     baseElement3.addChild(button);
@@ -79,7 +79,7 @@ namespace ctr_wp7.game
                     baseElement3.addChild(hbox);
                     if (n >= CTRPreferences.getPacksCount())
                     {
-                        Button button2 = MenuController.createBigButtonWithTextIDDelegate(Application.getString(1310723), 40, this.buttonDelegate);
+                        Button button2 = MenuController.createBigButtonWithTextIDDelegate(Application.getString(1310723), 40, buttonDelegate);
                         button2.anchor = (button2.parentAnchor = 18);
                         button2.y = 27f;
                         baseElement3.addChild(button2);
@@ -89,7 +89,7 @@ namespace ctr_wp7.game
             }
             if (CTRPreferences.isPackPerfect(n))
             {
-                baseElement.addChild(this.buildPerfectMark());
+                baseElement.addChild(buildPerfectMark());
             }
             return baseElement;
         }
@@ -97,8 +97,8 @@ namespace ctr_wp7.game
         // Token: 0x0600073A RID: 1850 RVA: 0x0003A7F4 File Offset: 0x000389F4
         protected override BaseElement buildComingSoonBox()
         {
-            BaseElement baseElement = this.buildBox(14);
-            baseElement.addChild(this.buildText(1310799, true));
+            BaseElement baseElement = buildBox(14);
+            baseElement.addChild(buildText(1310799, true));
             return baseElement;
         }
 
@@ -137,23 +137,23 @@ namespace ctr_wp7.game
             {
                 base.preDraw();
                 OpenGL.glDisable(0);
-                if (this.solid)
+                if (solid)
                 {
-                    GLDrawer.drawSolidRectWOBorder(this.drawX, this.drawY, (float)this.width, (float)this.height, this.color);
+                    GLDrawer.drawSolidRectWOBorder(drawX, drawY, (float)width, (float)height, color);
                 }
                 else
                 {
-                    GLDrawer.drawRect(this.drawX, this.drawY, (float)this.width, (float)this.height, this.color);
+                    GLDrawer.drawRect(drawX, drawY, (float)width, (float)height, color);
                 }
                 OpenGL.glEnable(0);
                 OpenGL.glColor4f(1.0, 1.0, 1.0, 1.0);
-                float x = this.c.getScroll().x;
-                if (x >= this.s && x < this.e)
+                float x = c.getScroll().x;
+                if (x >= s && x < e)
                 {
                     OpenGL.glEnable(4);
-                    float num = x - (this.s + this.e) / 2f;
+                    float num = x - (s + e) / 2f;
                     OpenGL.setScissorRectangle(120.0 - (double)num, 0.0, 100.0, (double)FrameworkTypes.SCREEN_HEIGHT);
-                    this.postDraw();
+                    postDraw();
                     OpenGL.glDisable(4);
                 }
             }

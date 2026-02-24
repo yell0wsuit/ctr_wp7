@@ -41,16 +41,16 @@ namespace ctr_wp7.game
                     num = 147;
                     break;
             }
-            if (this.initWithTexture(Application.getTexture(num)) == null)
+            if (initWithTexture(Application.getTexture(num)) == null)
             {
                 return null;
             }
-            this.rotation = (float)an;
-            this.x = px;
-            this.y = py;
-            this.updateRotation();
+            rotation = (float)an;
+            x = px;
+            y = py;
+            updateRotation();
             int num2 = base.addAnimationDelayLoopFirstLast(0.04f, Timeline.LoopType.TIMELINE_NO_LOOP, 0, 4);
-            Timeline timeline = this.getTimeline(num2);
+            Timeline timeline = getTimeline(num2);
             timeline.addKeyFrame(KeyFrame.makeSingleAction(this, "ACTION_SET_DRAWQUAD", 0, 0, 0.04f));
             return this;
         }
@@ -59,26 +59,26 @@ namespace ctr_wp7.game
         public override void update(float delta)
         {
             base.update(delta);
-            if (this.mover != null)
+            if (mover != null)
             {
-                this.updateRotation();
+                updateRotation();
             }
         }
 
         // Token: 0x06000107 RID: 263 RVA: 0x000085EC File Offset: 0x000067EC
         public virtual void updateRotation()
         {
-            this.t1.x = this.x - (float)(this.width / 2);
-            this.t2.x = this.x + (float)(this.width / 2);
-            this.t1.y = (this.t2.y = (float)((double)this.y - 5.0));
-            this.b1.x = this.t1.x;
-            this.b2.x = this.t2.x;
-            this.b1.y = (this.b2.y = (float)((double)this.y + 5.0));
-            this.angle = MathHelper.DEGREES_TO_RADIANS(this.rotation);
-            this.t1 = MathHelper.vectRotateAround(this.t1, (double)this.angle, this.x, this.y);
-            this.t2 = MathHelper.vectRotateAround(this.t2, (double)this.angle, this.x, this.y);
-            this.b1 = MathHelper.vectRotateAround(this.b1, (double)this.angle, this.x, this.y);
-            this.b2 = MathHelper.vectRotateAround(this.b2, (double)this.angle, this.x, this.y);
+            t1.x = x - (float)(width / 2);
+            t2.x = x + (float)(width / 2);
+            t1.y = (t2.y = (float)((double)y - 5.0));
+            b1.x = t1.x;
+            b2.x = t2.x;
+            b1.y = (b2.y = (float)((double)y + 5.0));
+            angle = MathHelper.DEGREES_TO_RADIANS(rotation);
+            t1 = MathHelper.vectRotateAround(t1, (double)angle, x, y);
+            t2 = MathHelper.vectRotateAround(t2, (double)angle, x, y);
+            b1 = MathHelper.vectRotateAround(b1, (double)angle, x, y);
+            b2 = MathHelper.vectRotateAround(b2, (double)angle, x, y);
         }
 
         // Token: 0x0400073B RID: 1851

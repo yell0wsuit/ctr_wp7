@@ -11,10 +11,10 @@ namespace ctr_wp7.iframework
         public Color toXNA()
         {
             Color color = default(Color);
-            int num = (int)(this.r * 255f);
-            int num2 = (int)(this.g * 255f);
-            int num3 = (int)(this.b * 255f);
-            int num4 = (int)(this.a * 255f);
+            int num = (int)(r * 255f);
+            int num2 = (int)(g * 255f);
+            int num3 = (int)(b * 255f);
+            int num4 = (int)(a * 255f);
             color.R = (byte)((num < 0) ? 0 : ((num > 255) ? 255 : num));
             color.G = (byte)((num2 < 0) ? 0 : ((num2 > 255) ? 255 : num2));
             color.B = (byte)((num3 < 0) ? 0 : ((num3 > 255) ? 255 : num3));
@@ -44,34 +44,34 @@ namespace ctr_wp7.iframework
         // Token: 0x06000176 RID: 374 RVA: 0x0000B3C7 File Offset: 0x000095C7
         public RGBAColor(double _r, double _g, double _b, double _a)
         {
-            this.r = (float)_r;
-            this.g = (float)_g;
-            this.b = (float)_b;
-            this.a = (float)_a;
+            r = (float)_r;
+            g = (float)_g;
+            b = (float)_b;
+            a = (float)_a;
         }
 
         // Token: 0x06000177 RID: 375 RVA: 0x0000B3EA File Offset: 0x000095EA
         public RGBAColor(float _r, float _g, float _b, float _a)
         {
-            this.r = _r;
-            this.g = _g;
-            this.b = _b;
-            this.a = _a;
+            r = _r;
+            g = _g;
+            b = _b;
+            a = _a;
         }
 
         // Token: 0x06000178 RID: 376 RVA: 0x0000B409 File Offset: 0x00009609
         private void init(float _r, float _g, float _b, float _a)
         {
-            this.r = _r;
-            this.g = _g;
-            this.b = _b;
-            this.a = _a;
+            r = _r;
+            g = _g;
+            b = _b;
+            a = _a;
         }
 
         // Token: 0x06000179 RID: 377 RVA: 0x0000B428 File Offset: 0x00009628
         public float[] toFloatArray()
         {
-            return new float[] { this.r, this.g, this.b, this.a };
+            return new float[] { r, g, b, a };
         }
 
         // Token: 0x0600017A RID: 378 RVA: 0x0000B464 File Offset: 0x00009664

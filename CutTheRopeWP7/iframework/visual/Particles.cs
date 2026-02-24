@@ -35,7 +35,7 @@ namespace ctr_wp7.iframework.visual
                 vector2.x = -vector2.y;
                 vector2.y = x;
                 vector2 = MathHelper.vectMult(vector2, p.tangentialAccel);
-                Vector vector3 = MathHelper.vectAdd(MathHelper.vectAdd(vector, vector2), this.gravity);
+                Vector vector3 = MathHelper.vectAdd(MathHelper.vectAdd(vector, vector2), gravity);
                 vector3 = MathHelper.vectMult(vector3, delta);
                 p.dir = MathHelper.vectAdd(p.dir, vector3);
                 vector3 = MathHelper.vectMult(p.dir, delta);
@@ -45,77 +45,77 @@ namespace ctr_wp7.iframework.visual
                 p.color.b = p.color.b + p.deltaColor.b * delta;
                 p.color.a = p.color.a + p.deltaColor.a * delta;
                 p.life -= delta;
-                this.vertices[this.particleIdx].x = p.pos.x;
-                this.vertices[this.particleIdx].y = p.pos.y;
-                this.vertices[this.particleIdx].size = p.size;
-                this.colors[this.particleIdx] = p.color;
-                this.particleIdx++;
+                vertices[particleIdx].x = p.pos.x;
+                vertices[particleIdx].y = p.pos.y;
+                vertices[particleIdx].size = p.size;
+                colors[particleIdx] = p.color;
+                particleIdx++;
                 return;
             }
-            if (this.particleIdx != this.particleCount - 1)
+            if (particleIdx != particleCount - 1)
             {
-                this.particles[this.particleIdx] = this.particles[this.particleCount - 1];
+                particles[particleIdx] = particles[particleCount - 1];
             }
-            this.particleCount--;
+            particleCount--;
         }
 
         // Token: 0x0600038E RID: 910 RVA: 0x00016774 File Offset: 0x00014974
         public override void update(float delta)
         {
             base.update(delta);
-            if (this.particlesDelegate != null && this.particleCount == 0 && !this.active)
+            if (particlesDelegate != null && particleCount == 0 && !active)
             {
-                this.particlesDelegate(this);
+                particlesDelegate(this);
                 return;
             }
-            if (this.vertices == null)
+            if (vertices == null)
             {
                 return;
             }
-            if (this.active && this.emissionRate != 0f)
+            if (active && emissionRate != 0f)
             {
-                float num = 1f / this.emissionRate;
-                this.emitCounter += delta;
-                while (this.particleCount < this.totalParticles && this.emitCounter > num)
+                float num = 1f / emissionRate;
+                emitCounter += delta;
+                while (particleCount < totalParticles && emitCounter > num)
                 {
-                    this.addParticle();
-                    this.emitCounter -= num;
+                    addParticle();
+                    emitCounter -= num;
                 }
-                this.elapsed += delta;
-                if (this.duration != -1f && this.duration < this.elapsed)
+                elapsed += delta;
+                if (duration != -1f && duration < elapsed)
                 {
-                    this.stopSystem();
+                    stopSystem();
                 }
             }
-            this.particleIdx = 0;
-            while (this.particleIdx < this.particleCount)
+            particleIdx = 0;
+            while (particleIdx < particleCount)
             {
-                this.updateParticle(ref this.particles[this.particleIdx], delta);
+                updateParticle(ref particles[particleIdx], delta);
             }
-            OpenGL.glBindBuffer(2, this.verticesID);
-            OpenGL.glBufferData(2, this.vertices, 3);
-            OpenGL.glBindBuffer(2, this.colorsID);
-            OpenGL.glBufferData(2, this.colors, 3);
+            OpenGL.glBindBuffer(2, verticesID);
+            OpenGL.glBufferData(2, vertices, 3);
+            OpenGL.glBindBuffer(2, colorsID);
+            OpenGL.glBufferData(2, colors, 3);
             OpenGL.glBindBuffer(2, 0U);
         }
 
         // Token: 0x0600038F RID: 911 RVA: 0x000168AE File Offset: 0x00014AAE
         public override void dealloc()
         {
-            this.particles = null;
-            this.vertices = null;
-            this.colors = null;
-            OpenGL.glDeleteBuffers(1, ref this.verticesID);
-            OpenGL.glDeleteBuffers(1, ref this.colorsID);
-            this.texture = null;
+            particles = null;
+            vertices = null;
+            colors = null;
+            OpenGL.glDeleteBuffers(1, ref verticesID);
+            OpenGL.glDeleteBuffers(1, ref colorsID);
+            texture = null;
             base.dealloc();
         }
 
         // Token: 0x06000390 RID: 912 RVA: 0x000168EA File Offset: 0x00014AEA
         public override void draw()
         {
-            this.preDraw();
-            this.postDraw();
+            preDraw();
+            postDraw();
         }
 
         // Token: 0x06000391 RID: 913 RVA: 0x000168F8 File Offset: 0x00014AF8
@@ -125,107 +125,107 @@ namespace ctr_wp7.iframework.visual
             {
                 return null;
             }
-            this.width = (int)FrameworkTypes.SCREEN_WIDTH;
-            this.height = (int)FrameworkTypes.SCREEN_HEIGHT;
-            this.totalParticles = numberOfParticles;
-            this.particles = new Particle[this.totalParticles];
-            this.vertices = new PointSprite[this.totalParticles];
-            this.colors = new RGBAColor[this.totalParticles];
-            if (this.particles == null || this.vertices == null || this.colors == null)
+            width = (int)FrameworkTypes.SCREEN_WIDTH;
+            height = (int)FrameworkTypes.SCREEN_HEIGHT;
+            totalParticles = numberOfParticles;
+            particles = new Particle[totalParticles];
+            vertices = new PointSprite[totalParticles];
+            colors = new RGBAColor[totalParticles];
+            if (particles == null || vertices == null || colors == null)
             {
-                this.particles = null;
-                this.vertices = null;
-                this.colors = null;
+                particles = null;
+                vertices = null;
+                colors = null;
                 return null;
             }
-            this.active = false;
-            this.blendAdditive = false;
-            OpenGL.glGenBuffers(1, ref this.verticesID);
-            OpenGL.glGenBuffers(1, ref this.colorsID);
+            active = false;
+            blendAdditive = false;
+            OpenGL.glGenBuffers(1, ref verticesID);
+            OpenGL.glGenBuffers(1, ref colorsID);
             return this;
         }
 
         // Token: 0x06000392 RID: 914 RVA: 0x000169B7 File Offset: 0x00014BB7
         public virtual bool addParticle()
         {
-            if (this.isFull())
+            if (isFull())
             {
                 return false;
             }
-            this.initParticle(ref this.particles[this.particleCount]);
-            this.particleCount++;
+            initParticle(ref particles[particleCount]);
+            particleCount++;
             return true;
         }
 
         // Token: 0x06000393 RID: 915 RVA: 0x000169EC File Offset: 0x00014BEC
         public virtual void initParticle(ref Particle particle)
         {
-            particle.pos.x = this.x + this.posVar.x * MathHelper.RND_MINUS1_1;
-            particle.pos.y = this.y + this.posVar.y * MathHelper.RND_MINUS1_1;
+            particle.pos.x = x + posVar.x * MathHelper.RND_MINUS1_1;
+            particle.pos.y = y + posVar.y * MathHelper.RND_MINUS1_1;
             particle.startPos = particle.pos;
-            float num = MathHelper.DEGREES_TO_RADIANS(this.angle + this.angleVar * MathHelper.RND_MINUS1_1);
+            float num = MathHelper.DEGREES_TO_RADIANS(angle + angleVar * MathHelper.RND_MINUS1_1);
             Vector vector;
             vector.y = MathHelper.sinf(num);
             vector.x = MathHelper.cosf(num);
-            float num2 = this.speed + this.speedVar * MathHelper.RND_MINUS1_1;
+            float num2 = speed + speedVar * MathHelper.RND_MINUS1_1;
             particle.dir = MathHelper.vectMult(vector, num2);
-            particle.radialAccel = this.radialAccel + this.radialAccelVar * MathHelper.RND_MINUS1_1;
-            particle.tangentialAccel = this.tangentialAccel + this.tangentialAccelVar * MathHelper.RND_MINUS1_1;
-            particle.life = this.life + this.lifeVar * MathHelper.RND_MINUS1_1;
+            particle.radialAccel = radialAccel + radialAccelVar * MathHelper.RND_MINUS1_1;
+            particle.tangentialAccel = tangentialAccel + tangentialAccelVar * MathHelper.RND_MINUS1_1;
+            particle.life = life + lifeVar * MathHelper.RND_MINUS1_1;
             RGBAColor rgbacolor = default(RGBAColor);
-            rgbacolor.r = this.startColor.r + this.startColorVar.r * MathHelper.RND_MINUS1_1;
-            rgbacolor.g = this.startColor.g + this.startColorVar.g * MathHelper.RND_MINUS1_1;
-            rgbacolor.b = this.startColor.b + this.startColorVar.b * MathHelper.RND_MINUS1_1;
-            rgbacolor.a = this.startColor.a + this.startColorVar.a * MathHelper.RND_MINUS1_1;
+            rgbacolor.r = startColor.r + startColorVar.r * MathHelper.RND_MINUS1_1;
+            rgbacolor.g = startColor.g + startColorVar.g * MathHelper.RND_MINUS1_1;
+            rgbacolor.b = startColor.b + startColorVar.b * MathHelper.RND_MINUS1_1;
+            rgbacolor.a = startColor.a + startColorVar.a * MathHelper.RND_MINUS1_1;
             RGBAColor rgbacolor2 = default(RGBAColor);
-            rgbacolor2.r = this.endColor.r + this.endColorVar.r * MathHelper.RND_MINUS1_1;
-            rgbacolor2.g = this.endColor.g + this.endColorVar.g * MathHelper.RND_MINUS1_1;
-            rgbacolor2.b = this.endColor.b + this.endColorVar.b * MathHelper.RND_MINUS1_1;
-            rgbacolor2.a = this.endColor.a + this.endColorVar.a * MathHelper.RND_MINUS1_1;
+            rgbacolor2.r = endColor.r + endColorVar.r * MathHelper.RND_MINUS1_1;
+            rgbacolor2.g = endColor.g + endColorVar.g * MathHelper.RND_MINUS1_1;
+            rgbacolor2.b = endColor.b + endColorVar.b * MathHelper.RND_MINUS1_1;
+            rgbacolor2.a = endColor.a + endColorVar.a * MathHelper.RND_MINUS1_1;
             particle.color = rgbacolor;
             particle.deltaColor.r = (rgbacolor2.r - rgbacolor.r) / particle.life;
             particle.deltaColor.g = (rgbacolor2.g - rgbacolor.g) / particle.life;
             particle.deltaColor.b = (rgbacolor2.b - rgbacolor.b) / particle.life;
             particle.deltaColor.a = (rgbacolor2.a - rgbacolor.a) / particle.life;
-            particle.size = this.size + this.sizeVar * MathHelper.RND_MINUS1_1;
+            particle.size = size + sizeVar * MathHelper.RND_MINUS1_1;
         }
 
         // Token: 0x06000394 RID: 916 RVA: 0x00016CBF File Offset: 0x00014EBF
         public virtual void startSystem(int initialParticles)
         {
-            this.particleCount = 0;
-            while (this.particleCount < initialParticles)
+            particleCount = 0;
+            while (particleCount < initialParticles)
             {
-                this.addParticle();
+                addParticle();
             }
-            this.active = true;
+            active = true;
         }
 
         // Token: 0x06000395 RID: 917 RVA: 0x00016CE1 File Offset: 0x00014EE1
         public virtual void stopSystem()
         {
-            this.active = false;
-            this.elapsed = this.duration;
-            this.emitCounter = 0f;
+            active = false;
+            elapsed = duration;
+            emitCounter = 0f;
         }
 
         // Token: 0x06000396 RID: 918 RVA: 0x00016D01 File Offset: 0x00014F01
         public virtual void resetSystem()
         {
-            this.elapsed = 0f;
-            this.emitCounter = 0f;
+            elapsed = 0f;
+            emitCounter = 0f;
         }
 
         // Token: 0x06000397 RID: 919 RVA: 0x00016D19 File Offset: 0x00014F19
         public virtual bool isFull()
         {
-            return this.particleCount == this.totalParticles;
+            return particleCount == totalParticles;
         }
 
         // Token: 0x06000398 RID: 920 RVA: 0x00016D29 File Offset: 0x00014F29
         public virtual void setBlendAdditive(bool b)
         {
-            this.blendAdditive = b;
+            blendAdditive = b;
         }
 
         // Token: 0x04000913 RID: 2323

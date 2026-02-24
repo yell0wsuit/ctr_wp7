@@ -11,12 +11,12 @@ namespace ctr_wp7.wp7utilities
         // Token: 0x060007AF RID: 1967 RVA: 0x0003C408 File Offset: 0x0003A608
         public Camera2d(Vector2 position)
         {
-            this.zoom_ = new Vector2(1f, 1f);
-            this.rotation_ = 0f;
-            this.translate_ = position;
-            this.positionZero_ = position;
-            this.move_ = default(Vector2);
-            this.rotationCenter_ = position;
+            zoom_ = new Vector2(1f, 1f);
+            rotation_ = 0f;
+            translate_ = position;
+            positionZero_ = position;
+            move_ = default(Vector2);
+            rotationCenter_ = position;
         }
 
         // Token: 0x17000022 RID: 34
@@ -26,11 +26,11 @@ namespace ctr_wp7.wp7utilities
         {
             get
             {
-                return this.zoom_;
+                return zoom_;
             }
             set
             {
-                this.zoom_ = value;
+                zoom_ = value;
             }
         }
 
@@ -41,18 +41,18 @@ namespace ctr_wp7.wp7utilities
         {
             get
             {
-                return this.rotation_;
+                return rotation_;
             }
             set
             {
-                this.rotation_ = value;
+                rotation_ = value;
             }
         }
 
         // Token: 0x060007B4 RID: 1972 RVA: 0x0003C47E File Offset: 0x0003A67E
         public void Move(Vector2 amount)
         {
-            this.move_ -= amount;
+            move_ -= amount;
         }
 
         // Token: 0x17000024 RID: 36
@@ -62,12 +62,12 @@ namespace ctr_wp7.wp7utilities
         {
             get
             {
-                return this.translate_;
+                return translate_;
             }
             set
             {
-                this.translate_ = value * -1f;
-                this.translate_ += this.positionZero_;
+                translate_ = value * -1f;
+                translate_ += positionZero_;
             }
         }
 
@@ -78,11 +78,11 @@ namespace ctr_wp7.wp7utilities
         {
             get
             {
-                return this.rotationCenter_;
+                return rotationCenter_;
             }
             set
             {
-                this.rotationCenter_ = value;
+                rotationCenter_ = value;
             }
         }
 
@@ -92,15 +92,15 @@ namespace ctr_wp7.wp7utilities
         {
             get
             {
-                return new Vector((float)ScreenSizes.Width2 - this.move_.X, (float)ScreenSizes.Height2 - this.move_.Y);
+                return new Vector((float)ScreenSizes.Width2 - move_.X, (float)ScreenSizes.Height2 - move_.Y);
             }
         }
 
         // Token: 0x060007BA RID: 1978 RVA: 0x0003C500 File Offset: 0x0003A700
         public Matrix getTransformation(GraphicsDevice graphicsDevice)
         {
-            this.transform_ = Matrix.CreateTranslation(new Vector3(-this.translate_.X + this.move_.X, -this.translate_.Y + this.move_.Y, 0f)) * Matrix.CreateRotationZ(this.Rotation) * Matrix.CreateScale(new Vector3(this.Zoom.X, this.Zoom.Y, 1f)) * Matrix.CreateTranslation(new Vector3((float)graphicsDevice.Viewport.Width * 0.5f, (float)graphicsDevice.Viewport.Height * 0.5f, 0f));
-            return this.transform_;
+            transform_ = Matrix.CreateTranslation(new Vector3(-translate_.X + move_.X, -translate_.Y + move_.Y, 0f)) * Matrix.CreateRotationZ(Rotation) * Matrix.CreateScale(new Vector3(Zoom.X, Zoom.Y, 1f)) * Matrix.CreateTranslation(new Vector3((float)graphicsDevice.Viewport.Width * 0.5f, (float)graphicsDevice.Viewport.Height * 0.5f, 0f));
+            return transform_;
         }
 
         // Token: 0x04000D07 RID: 3335

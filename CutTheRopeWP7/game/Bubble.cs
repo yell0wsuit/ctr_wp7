@@ -31,15 +31,15 @@ namespace ctr_wp7.game
         public override void draw()
         {
             base.preDraw();
-            if (!this.withoutShadow)
+            if (!withoutShadow)
             {
-                if (this.quadToDraw == -1)
+                if (quadToDraw == -1)
                 {
-                    GLDrawer.drawImage(this.texture, this.drawX, this.drawY);
+                    GLDrawer.drawImage(texture, drawX, drawY);
                 }
                 else
                 {
-                    this.drawQuad(this.quadToDraw);
+                    drawQuad(quadToDraw);
                 }
             }
             base.postDraw();

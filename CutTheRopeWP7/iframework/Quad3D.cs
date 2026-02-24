@@ -52,15 +52,15 @@
         // Token: 0x06000171 RID: 369 RVA: 0x0000B1E0 File Offset: 0x000093E0
         public float[] toFloatArray()
         {
-            if (this._array == null)
+            if (_array == null)
             {
-                this._array = new float[]
+                _array = new float[]
                 {
-                    this.blX, this.blY, this.blZ, this.brX, this.brY, this.brZ, this.tlX, this.tlY, this.tlZ, this.trX,
-                    this.trY, this.trZ
+                    blX, blY, blZ, brX, brY, brZ, tlX, tlY, tlZ, trX,
+                    trY, trZ
                 };
             }
-            return this._array;
+            return _array;
         }
 
         // Token: 0x040007A7 RID: 1959

@@ -11,8 +11,8 @@ namespace ctr_wp7.game.remotedata
         {
             if (base.init() != null)
             {
-                this.jblockConfig = pBlockConfig;
-                this.hardcode = (BlockInterface)new BlockHardcode().init();
+                jblockConfig = pBlockConfig;
+                hardcode = (BlockInterface)new BlockHardcode().init();
             }
             return this;
         }
@@ -20,9 +20,9 @@ namespace ctr_wp7.game.remotedata
         // Token: 0x06000217 RID: 535 RVA: 0x0000DE58 File Offset: 0x0000C058
         public int getTotalBlocks()
         {
-            if (this.jblockConfig != null)
+            if (jblockConfig != null)
             {
-                return this.jblockConfig.getTotalBlocks();
+                return jblockConfig.getTotalBlocks();
             }
             return 0;
         }
@@ -32,20 +32,20 @@ namespace ctr_wp7.game.remotedata
         {
             if (blocknum == -1)
             {
-                return this.hardcode;
+                return hardcode;
             }
-            Block block = this.jblockConfig.getBlock(blocknum);
+            Block block = jblockConfig.getBlock(blocknum);
             return (BlockInterface)new BlockInternet().initWithJObject(block);
         }
 
         // Token: 0x06000219 RID: 537 RVA: 0x0000DEB4 File Offset: 0x0000C0B4
         public int getNextSameType(BlockInterface block)
         {
-            int totalBlocks = this.getTotalBlocks();
+            int totalBlocks = getTotalBlocks();
             int i;
             for (i = 0; i < totalBlocks; i++)
             {
-                BlockInterface block2 = this.getBlock(i);
+                BlockInterface block2 = getBlock(i);
                 if (block.getId().isEqualToString(block2.getId()))
                 {
                     break;
@@ -58,7 +58,7 @@ namespace ctr_wp7.game.remotedata
             int type = block.getType();
             for (int j = i - 1; j >= 0; j--)
             {
-                if (this.getBlock(j).getType() == type)
+                if (getBlock(j).getType() == type)
                 {
                     return j;
                 }

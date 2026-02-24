@@ -18,26 +18,26 @@ namespace ctr_wp7.game
         // Token: 0x06000421 RID: 1057 RVA: 0x0001D26D File Offset: 0x0001B46D
         public virtual void setMap(XMLNode map)
         {
-            this.loadedMap = map;
+            loadedMap = map;
         }
 
         // Token: 0x06000422 RID: 1058 RVA: 0x0001D276 File Offset: 0x0001B476
         public virtual XMLNode getMap()
         {
-            return this.loadedMap;
+            return loadedMap;
         }
 
         // Token: 0x06000423 RID: 1059 RVA: 0x0001D27E File Offset: 0x0001B47E
         public virtual NSString getMapName()
         {
-            return this.mapName;
+            return mapName;
         }
 
         // Token: 0x06000424 RID: 1060 RVA: 0x0001D286 File Offset: 0x0001B486
         public virtual void setMapName(NSString map)
         {
-            NSObject.NSREL(this.mapName);
-            this.mapName = map;
+            NSObject.NSREL(mapName);
+            mapName = map;
         }
 
         // Token: 0x06000425 RID: 1061 RVA: 0x0001D29A File Offset: 0x0001B49A
@@ -54,7 +54,7 @@ namespace ctr_wp7.game
         // Token: 0x06000427 RID: 1063 RVA: 0x0001D2A3 File Offset: 0x0001B4A3
         public virtual int getPack()
         {
-            return this.pack;
+            return pack;
         }
 
         // Token: 0x06000428 RID: 1064 RVA: 0x0001D2AC File Offset: 0x0001B4AC
@@ -62,16 +62,16 @@ namespace ctr_wp7.game
         {
             if (base.initWithParent(p) != null)
             {
-                this.hacked = false;
-                this.loadedMap = null;
+                hacked = false;
+                loadedMap = null;
                 ResourceMgr resourceMgr = Application.sharedResourceMgr();
                 resourceMgr.initLoading();
                 resourceMgr.loadPack(ResDataPhoneFull.PACK_STARTUP);
                 resourceMgr.loadImmediately();
                 StartupController startupController = (StartupController)new StartupController().initWithParent(this);
-                this.addChildwithID(startupController, 0);
+                addChildwithID(startupController, 0);
                 NSObject.NSREL(startupController);
-                this.viewTransition = -1;
+                viewTransition = -1;
             }
             return this;
         }
@@ -81,9 +81,9 @@ namespace ctr_wp7.game
         {
             CTRPreferences.isFirstLaunch();
             base.activate();
-            this.activateChild(0);
+            activateChild(0);
             Application.sharedCanvas().beforeRender();
-            this.activeChild().activeView().draw();
+            activeChild().activeView().draw();
             Application.sharedCanvas().afterRender();
             CTRPreferences.setGameSessionsCount(CTRPreferences.getGameSessionsCount() + 1);
         }
@@ -92,7 +92,7 @@ namespace ctr_wp7.game
         public virtual void deleteMenu()
         {
             ResourceMgr resourceMgr = Application.sharedResourceMgr();
-            this.deleteChild(1);
+            deleteChild(1);
             resourceMgr.freePack(ResDataPhoneFull.PACK_MENU);
             GC.Collect();
         }
@@ -110,17 +110,17 @@ namespace ctr_wp7.game
         // Token: 0x0600042D RID: 1069 RVA: 0x0001D392 File Offset: 0x0001B592
         public override void suspend()
         {
-            this.suspended = true;
+            suspended = true;
         }
 
         // Token: 0x0600042E RID: 1070 RVA: 0x0001D39B File Offset: 0x0001B59B
         public override void resume()
         {
-            if (this.inCrystal)
+            if (inCrystal)
             {
                 return;
             }
-            this.suspended = false;
+            suspended = false;
         }
 
         // Token: 0x0600042F RID: 1071 RVA: 0x0001D3B0 File Offset: 0x0001B5B0
@@ -129,32 +129,32 @@ namespace ctr_wp7.game
             FrameworkTypes._LOG("start deactivating");
             if (FrameworkTypes.IS_WVGA)
             {
-                this.setViewTransition(4);
+                setViewTransition(4);
             }
             LoadingController loadingController = (LoadingController)new LoadingController().initWithParent(this);
-            this.addChildwithID(loadingController, 2);
+            addChildwithID(loadingController, 2);
             FrameworkTypes._LOG("start deactivating2");
             FrameworkTypes._LOG("start deactivating3");
             MenuController menuController = (MenuController)new MenuController().initWithParent(this);
-            this.addChildwithID(menuController, 1);
+            addChildwithID(menuController, 1);
             FrameworkTypes._LOG("start deactivating4");
-            this.deleteChild(0);
+            deleteChild(0);
             rm.freePack(ResDataPhoneFull.PACK_STARTUP);
             menuController.viewToShow = MenuController.ViewID.VIEW_MAIN_MENU;
             if (Preferences._getBooleanForKey("PREFS_GAME_CENTER_ENABLED"))
             {
-                this.enableGameCenter();
+                enableGameCenter();
             }
             else
             {
-                this.disableGameCenter();
+                disableGameCenter();
             }
             if (Preferences._getBooleanForKey("IAP_BANNERS"))
             {
                 FrameworkTypes.AndroidAPI.disableBanners();
             }
             FrameworkTypes._LOG("activate child menu");
-            this.activateChild(1);
+            activateChild(1);
             if (CTRPreferences.isFirstLaunch() && SaveMgr.isSaveAvailable())
             {
                 menuController.showYesNoPopup(menuController.activeView(), Application.getString(1310778), 19, 20);
@@ -175,22 +175,22 @@ namespace ctr_wp7.game
                         {
                             if (FrameworkTypes.IS_WVGA)
                             {
-                                this.setViewTransition(4);
+                                setViewTransition(4);
                             }
                             CoppaController coppaController = (CoppaController)new CoppaController().initWithParent(this);
-                            this.addChildwithID(coppaController, 4);
-                            this.activateChild(4);
+                            addChildwithID(coppaController, 4);
+                            activateChild(4);
                             return;
                         }
-                        this.initMenu(resourceMgr);
+                        initMenu(resourceMgr);
                         return;
                     }
                 case 1:
                     {
-                        this.deleteMenu();
-                        resourceMgr.resourcesDelegate = (LoadingController)this.getChild(2);
+                        deleteMenu();
+                        resourceMgr.resourcesDelegate = (LoadingController)getChild(2);
                         int[] array = null;
-                        switch (this.pack)
+                        switch (pack)
                         {
                             case 0:
                                 array = ResDataPhoneFull.PACK_GAME_01;
@@ -240,15 +240,15 @@ namespace ctr_wp7.game
                         resourceMgr.loadPack(ResDataPhoneFull.PACK_GAME_NORMAL);
                         resourceMgr.loadPack(array);
                         resourceMgr.startLoading();
-                        LoadingController loadingController = (LoadingController)this.getChild(2);
+                        LoadingController loadingController = (LoadingController)getChild(2);
                         loadingController.nextController = 0;
                         loadingController.MusicToLoad = 59;
-                        this.activateChild(2);
+                        activateChild(2);
                         return;
                     }
                 case 2:
                     {
-                        LoadingController loadingController2 = (LoadingController)this.getChild(2);
+                        LoadingController loadingController2 = (LoadingController)getChild(2);
                         int nextController = loadingController2.nextController;
                         switch (nextController)
                         {
@@ -256,8 +256,8 @@ namespace ctr_wp7.game
                                 {
                                     CTRRootController.setShowGreeting(true);
                                     GameController gameController = (GameController)new GameController().initWithParent(this);
-                                    this.addChildwithID(gameController, 3);
-                                    this.activateChild(3);
+                                    addChildwithID(gameController, 3);
+                                    activateChild(3);
                                     return;
                                 }
                             case 1:
@@ -266,7 +266,7 @@ namespace ctr_wp7.game
                             case 4:
                                 {
                                     MenuController menuController = (MenuController)new MenuController().initWithParent(this);
-                                    this.addChildwithID(menuController, 1);
+                                    addChildwithID(menuController, 1);
                                     resourceMgr.freePack(ResDataPhoneFull.PACK_GAME_COVER_01);
                                     resourceMgr.freePack(ResDataPhoneFull.PACK_GAME_COVER_02);
                                     if (!CTRPreferences.isLiteVersion())
@@ -286,7 +286,7 @@ namespace ctr_wp7.game
                                     }
                                     if (FrameworkTypes.IS_WVGA)
                                     {
-                                        this.setViewTransition(4);
+                                        setViewTransition(4);
                                     }
                                     if (nextController == 1)
                                     {
@@ -298,9 +298,9 @@ namespace ctr_wp7.game
                                     }
                                     if (nextController == 3)
                                     {
-                                        menuController.viewToShow = ((this.pack < CTRPreferences.getPacksCount() - 1 || CTRPreferences.isLiteVersion()) ? MenuController.ViewID.VIEW_PACK_SELECT : MenuController.ViewID.VIEW_MOVIE);
+                                        menuController.viewToShow = ((pack < CTRPreferences.getPacksCount() - 1 || CTRPreferences.isLiteVersion()) ? MenuController.ViewID.VIEW_PACK_SELECT : MenuController.ViewID.VIEW_MOVIE);
                                     }
-                                    this.activateChild(1);
+                                    activateChild(1);
                                     if (nextController == 4)
                                     {
                                         menuController.showUnlockShareware();
@@ -320,7 +320,7 @@ namespace ctr_wp7.game
                 case 3:
                     {
                         SaveMgr.backup();
-                        GameController gameController2 = (GameController)this.getChild(3);
+                        GameController gameController2 = (GameController)getChild(3);
                         int exitCode = gameController2.exitCode;
                         GameScene gameScene = (GameScene)gameController2.getView(0).getChild(0);
                         switch (exitCode)
@@ -330,7 +330,7 @@ namespace ctr_wp7.game
                             case 2:
                             case 3:
                                 {
-                                    this.deleteChild(3);
+                                    deleteChild(3);
                                     resourceMgr.freePack(ResDataPhoneFull.PACK_GAME);
                                     resourceMgr.freePack(ResDataPhoneFull.PACK_GAME_NORMAL);
                                     resourceMgr.freePack(ResDataPhoneFull.PACK_GAME_01);
@@ -350,11 +350,11 @@ namespace ctr_wp7.game
                                         resourceMgr.freePack(ResDataPhoneFull.PACK_GAME_13);
                                         resourceMgr.freePack(ResDataPhoneFull.PACK_GAME_14);
                                     }
-                                    resourceMgr.resourcesDelegate = (LoadingController)this.getChild(2);
+                                    resourceMgr.resourcesDelegate = (LoadingController)getChild(2);
                                     resourceMgr.initLoading();
                                     resourceMgr.loadPack(ResDataPhoneFull.PACK_MENU);
                                     resourceMgr.startLoading();
-                                    LoadingController loadingController3 = (LoadingController)this.getChild(2);
+                                    LoadingController loadingController3 = (LoadingController)getChild(2);
                                     if (exitCode == 0)
                                     {
                                         loadingController3.nextController = 1;
@@ -372,7 +372,7 @@ namespace ctr_wp7.game
                                         loadingController3.nextController = 3;
                                     }
                                     loadingController3.MusicToLoad = 58;
-                                    this.activateChild(2);
+                                    activateChild(2);
                                     GC.Collect();
                                     return;
                                 }
@@ -382,8 +382,8 @@ namespace ctr_wp7.game
                         break;
                     }
                 case 4:
-                    this.deleteChild(4);
-                    this.initMenu(resourceMgr);
+                    deleteChild(4);
+                    initMenu(resourceMgr);
                     return;
                 default:
                     return;
@@ -393,8 +393,8 @@ namespace ctr_wp7.game
         // Token: 0x06000431 RID: 1073 RVA: 0x0001D96D File Offset: 0x0001BB6D
         public override void dealloc()
         {
-            this.loadedMap = null;
-            this.mapName = null;
+            loadedMap = null;
+            mapName = null;
             base.dealloc();
         }
 
@@ -444,43 +444,43 @@ namespace ctr_wp7.game
         // Token: 0x06000437 RID: 1079 RVA: 0x0001DA47 File Offset: 0x0001BC47
         public virtual void setPack(int p)
         {
-            this.pack = p;
+            pack = p;
         }
 
         // Token: 0x06000438 RID: 1080 RVA: 0x0001DA50 File Offset: 0x0001BC50
         public virtual void setLevel(int l)
         {
-            this.level = l;
+            level = l;
         }
 
         // Token: 0x06000439 RID: 1081 RVA: 0x0001DA59 File Offset: 0x0001BC59
         public virtual int getLevel()
         {
-            return this.level;
+            return level;
         }
 
         // Token: 0x0600043A RID: 1082 RVA: 0x0001DA61 File Offset: 0x0001BC61
         public virtual void setPicker(bool p)
         {
-            this.picker = p;
+            picker = p;
         }
 
         // Token: 0x0600043B RID: 1083 RVA: 0x0001DA6A File Offset: 0x0001BC6A
         public virtual bool isPicker()
         {
-            return this.picker;
+            return picker;
         }
 
         // Token: 0x0600043C RID: 1084 RVA: 0x0001DA72 File Offset: 0x0001BC72
         public virtual void setSurvival(bool s)
         {
-            this.survival = s;
+            survival = s;
         }
 
         // Token: 0x0600043D RID: 1085 RVA: 0x0001DA7B File Offset: 0x0001BC7B
         public virtual bool isSurvival()
         {
-            return this.survival;
+            return survival;
         }
 
         // Token: 0x0600043E RID: 1086 RVA: 0x0001DA84 File Offset: 0x0001BC84

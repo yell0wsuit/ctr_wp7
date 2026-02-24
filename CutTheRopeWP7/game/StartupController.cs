@@ -31,7 +31,7 @@ namespace ctr_wp7.game
             resourceMgr.loadPack(ResDataPhoneFull.PACK_MENU);
             resourceMgr.loadPack(ResDataPhoneFull.PACK_MUSIC);
             resourceMgr.startLoading();
-            this.showView(0);
+            showView(0);
         }
 
         // Token: 0x06000721 RID: 1825 RVA: 0x00039468 File Offset: 0x00037668
@@ -40,9 +40,9 @@ namespace ctr_wp7.game
             FrameworkTypes._LOG("!!!!!!!!!!!!! activate");
             base.activate();
             StartupView startupView = (StartupView)new StartupView().initFullscreen();
-            this.addViewwithID(startupView, 0);
+            addViewwithID(startupView, 0);
             NSObject.NSREL(startupView);
-            this.moviePlaybackFinished(null);
+            moviePlaybackFinished(null);
         }
 
         // Token: 0x06000722 RID: 1826 RVA: 0x000394AA File Offset: 0x000376AA
@@ -82,7 +82,7 @@ namespace ctr_wp7.game
                 FrameworkTypes.AndroidAPI.showVideoBanner();
                 return;
             }
-            this.onVideoBannerFinished();
+            onVideoBannerFinished();
         }
 
         // Token: 0x06000727 RID: 1831 RVA: 0x00039520 File Offset: 0x00037720

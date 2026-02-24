@@ -30,12 +30,12 @@ namespace ctr_wp7.game
         // Token: 0x060000FE RID: 254 RVA: 0x0000833C File Offset: 0x0000653C
         public virtual void updateRotation()
         {
-            this.t1.x = this.x - this.bb.w / 2f;
-            this.t2.x = this.x + this.bb.w / 2f;
-            this.t1.y = (this.t2.y = this.y);
-            this.angle = (double)MathHelper.DEGREES_TO_RADIANS(this.rotation);
-            this.t1 = MathHelper.vectRotateAround(this.t1, this.angle, this.x, this.y);
-            this.t2 = MathHelper.vectRotateAround(this.t2, this.angle, this.x, this.y);
+            t1.x = x - bb.w / 2f;
+            t2.x = x + bb.w / 2f;
+            t1.y = (t2.y = y);
+            angle = (double)MathHelper.DEGREES_TO_RADIANS(rotation);
+            t1 = MathHelper.vectRotateAround(t1, angle, x, y);
+            t2 = MathHelper.vectRotateAround(t2, angle, x, y);
         }
 
         // Token: 0x04000732 RID: 1842

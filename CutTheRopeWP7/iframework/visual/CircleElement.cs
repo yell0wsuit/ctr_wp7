@@ -11,8 +11,8 @@ namespace ctr_wp7.iframework.visual
         {
             if (base.init() != null)
             {
-                this.vertextCount = 32;
-                this.solid = true;
+                vertextCount = 32;
+                solid = true;
             }
             return this;
         }
@@ -22,8 +22,8 @@ namespace ctr_wp7.iframework.visual
         {
             base.preDraw();
             OpenGL.glDisable(0);
-            MathHelper.MIN(this.width, this.height);
-            bool flag = this.solid;
+            MathHelper.MIN(width, height);
+            bool flag = solid;
             OpenGL.glEnable(0);
             OpenGL.SetWhiteColor();
             base.postDraw();

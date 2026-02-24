@@ -14,7 +14,7 @@ namespace ctr_wp7.ctr_original
         {
             if (base.init() != null)
             {
-                this.remoteDataManager = (RemoteDataManager)new RemoteDataManager().acquireInfo(0);
+                remoteDataManager = (RemoteDataManager)new RemoteDataManager().acquireInfo(0);
                 if (!CTRPreferences.isTrial)
                 {
                     int levelsInPackCount = CTRPreferences.getLevelsInPackCount(true);
@@ -27,25 +27,25 @@ namespace ctr_wp7.ctr_original
                         }
                     }
                 }
-                bool flag = !this.getBooleanForKey("PREFS_EXIST");
+                bool flag = !getBooleanForKey("PREFS_EXIST");
                 if (flag)
                 {
-                    this.setBooleanforKey(true, "PREFS_EXIST", false);
-                    this.setIntforKey(0, "PREFS_GAME_STARTS", false);
-                    this.setIntforKey(0, "PREFS_LEVELS_WON", false);
-                    this.resetToDefaults();
+                    setBooleanforKey(true, "PREFS_EXIST", false);
+                    setIntforKey(0, "PREFS_GAME_STARTS", false);
+                    setIntforKey(0, "PREFS_LEVELS_WON", false);
+                    resetToDefaults();
                     Preferences._setIntforKey(0, "GAME_SESSIONS_COUNT_", true);
-                    this.resetMusicSound();
-                    this.firstLaunch = true;
-                    this.showPromoBanner = false;
-                    this.playLevelScroll = false;
+                    resetMusicSound();
+                    firstLaunch = true;
+                    showPromoBanner = false;
+                    playLevelScroll = false;
                 }
                 else
                 {
-                    int intForKey = this.getIntForKey("PREFS_VERSION");
+                    int intForKey = getIntForKey("PREFS_VERSION");
                     if (intForKey < 1)
                     {
-                        this.getTotalScore();
+                        getTotalScore();
                         int j = 0;
                         int packsCount2 = CTRPreferences.getPacksCount();
                         while (j < packsCount2)
@@ -55,7 +55,7 @@ namespace ctr_wp7.ctr_original
                             int levelsInPackCount2 = CTRPreferences.getLevelsInPackCount();
                             while (k < levelsInPackCount2)
                             {
-                                int intForKey2 = this.getIntForKey(CTRPreferences.getPackLevelKey("SCORE_", j, k));
+                                int intForKey2 = getIntForKey(CTRPreferences.getPackLevelKey("SCORE_", j, k));
                                 if (intForKey2 > 5999)
                                 {
                                     num = 150000;
@@ -66,18 +66,18 @@ namespace ctr_wp7.ctr_original
                             }
                             if (num > 149999)
                             {
-                                this.resetToDefaults();
-                                this.resetMusicSound();
+                                resetToDefaults();
+                                resetMusicSound();
                                 break;
                             }
                             j++;
                         }
-                        this.setScoreHash();
+                        setScoreHash();
                     }
-                    this.firstLaunch = false;
-                    this.playLevelScroll = false;
+                    firstLaunch = false;
+                    playLevelScroll = false;
                 }
-                this.setIntforKey(2, "PREFS_VERSION", true);
+                setIntforKey(2, "PREFS_VERSION", true);
             }
             return this;
         }
@@ -85,8 +85,8 @@ namespace ctr_wp7.ctr_original
         // Token: 0x0600054C RID: 1356 RVA: 0x0002939D File Offset: 0x0002759D
         private void resetMusicSound()
         {
-            this.setBooleanforKey(true, "SOUND_ON", true);
-            this.setBooleanforKey(true, "MUSIC_ON", true);
+            setBooleanforKey(true, "SOUND_ON", true);
+            setBooleanforKey(true, "MUSIC_ON", true);
         }
 
         // Token: 0x0600054D RID: 1357 RVA: 0x000293BC File Offset: 0x000275BC
@@ -102,10 +102,10 @@ namespace ctr_wp7.ctr_original
                 DeviceParams deviceParams = new DeviceParams();
                 flag = deviceParams.isEnglishDevice();
             }
-            bool flag2 = this.getCoppaShowed();
+            bool flag2 = getCoppaShowed();
             if (!flag)
             {
-                this.setCoppaShowed(true);
+                setCoppaShowed(true);
                 flag2 = true;
             }
             return !flag2;
@@ -114,37 +114,37 @@ namespace ctr_wp7.ctr_original
         // Token: 0x0600054E RID: 1358 RVA: 0x000293FF File Offset: 0x000275FF
         public bool getCoppaShowed()
         {
-            return this.getBooleanForKey("PREFS_COPPA_SHOWED");
+            return getBooleanForKey("PREFS_COPPA_SHOWED");
         }
 
         // Token: 0x0600054F RID: 1359 RVA: 0x0002940C File Offset: 0x0002760C
         public void setCoppaShowed(bool b)
         {
-            this.setBooleanforKey(b, "PREFS_COPPA_SHOWED", true);
+            setBooleanforKey(b, "PREFS_COPPA_SHOWED", true);
         }
 
         // Token: 0x06000550 RID: 1360 RVA: 0x0002941B File Offset: 0x0002761B
         public void setUserAge(int age)
         {
-            this.setIntforKey(age, "PREFS_USER_AGE", true);
+            setIntforKey(age, "PREFS_USER_AGE", true);
         }
 
         // Token: 0x06000551 RID: 1361 RVA: 0x0002942A File Offset: 0x0002762A
         public int getUserAge()
         {
-            return this.getIntForKey("PREFS_USER_AGE");
+            return getIntForKey("PREFS_USER_AGE");
         }
 
         // Token: 0x06000552 RID: 1362 RVA: 0x00029437 File Offset: 0x00027637
         public bool isCoppaRestricted()
         {
-            return this.getBooleanForKey("PREFS_COPPA_RESTRICTED");
+            return getBooleanForKey("PREFS_COPPA_RESTRICTED");
         }
 
         // Token: 0x06000553 RID: 1363 RVA: 0x00029444 File Offset: 0x00027644
         public void setCoppaRestricted(bool b)
         {
-            this.setBooleanforKey(b, "PREFS_COPPA_RESTRICTED", true);
+            setBooleanforKey(b, "PREFS_COPPA_RESTRICTED", true);
         }
 
         // Token: 0x06000554 RID: 1364 RVA: 0x00029453 File Offset: 0x00027653
@@ -444,42 +444,42 @@ namespace ctr_wp7.ctr_original
                 while (j < levelsInPackCount)
                 {
                     int num = (((CTRPreferences.packUnlockStars(i) == 0 || (CTRPreferences.isShareware() && i < CTRPreferences.sharewareFreePacks())) && j == 0) ? 1 : 0);
-                    this.setIntforKey(0, CTRPreferences.getPackLevelKey("SCORE_", i, j), false);
-                    this.setIntforKey(0, CTRPreferences.getPackLevelKey("STARS_", i, j), false);
-                    this.setIntforKey(num, CTRPreferences.getPackLevelKey("UNLOCKED_", i, j), false);
-                    this.setIntforKey(0, "ATTEMPTS_" + i.ToString() + j.ToString(), false);
-                    this.setIntforKey(0, "WINS_" + i.ToString() + "_" + j.ToString(), false);
+                    setIntforKey(0, CTRPreferences.getPackLevelKey("SCORE_", i, j), false);
+                    setIntforKey(0, CTRPreferences.getPackLevelKey("STARS_", i, j), false);
+                    setIntforKey(num, CTRPreferences.getPackLevelKey("UNLOCKED_", i, j), false);
+                    setIntforKey(0, "ATTEMPTS_" + i.ToString() + j.ToString(), false);
+                    setIntforKey(0, "WINS_" + i.ToString() + "_" + j.ToString(), false);
                     j++;
                 }
                 i++;
             }
-            this.setIntforKey(1, "GAME_SESSIONS_COUNT_", false);
-            this.setIntforKey(0, "PREFS_ROPES_CUT", false);
-            this.setIntforKey(0, "PREFS_BUBBLES_POPPED", false);
-            this.setIntforKey(0, "PREFS_SPIDERS_BUSTED", false);
-            this.setIntforKey(0, "PREFS_SPIDERS_WON", false);
-            this.setIntforKey(0, "PREFS_CANDIES_LOST", false);
-            this.setIntforKey(0, "PREFS_CANDIES_UNITED", false);
-            this.setIntforKey(0, "PREFS_SOCKS_USED", false);
-            this.setIntforKey(0, "PREFS_SELECTED_CANDY", false);
-            this.setBooleanforKey(false, "PREFS_CANDY_WAS_CHANGED", false);
-            this.setBooleanforKey(true, "PREFS_GAME_CENTER_ENABLED", false);
-            this.setIntforKey(0, "PREFS_NEW_DRAWINGS_COUNTER", false);
+            setIntforKey(1, "GAME_SESSIONS_COUNT_", false);
+            setIntforKey(0, "PREFS_ROPES_CUT", false);
+            setIntforKey(0, "PREFS_BUBBLES_POPPED", false);
+            setIntforKey(0, "PREFS_SPIDERS_BUSTED", false);
+            setIntforKey(0, "PREFS_SPIDERS_WON", false);
+            setIntforKey(0, "PREFS_CANDIES_LOST", false);
+            setIntforKey(0, "PREFS_CANDIES_UNITED", false);
+            setIntforKey(0, "PREFS_SOCKS_USED", false);
+            setIntforKey(0, "PREFS_SELECTED_CANDY", false);
+            setBooleanforKey(false, "PREFS_CANDY_WAS_CHANGED", false);
+            setBooleanforKey(true, "PREFS_GAME_CENTER_ENABLED", false);
+            setIntforKey(0, "PREFS_NEW_DRAWINGS_COUNTER", false);
             base._deleteKey("PREFS_LAST_DELIVERY", false);
             for (int k = 0; k < 3; k++)
             {
                 base._deleteKey("PREFS_LAST_PACK" + k.ToString(), false);
             }
             base._deleteKeysStartWith("PREFS_CARTOON_WATCHED_", false);
-            this.checkForUnlockIAP();
-            this.savePreferences();
-            this.setScoreHash();
+            checkForUnlockIAP();
+            savePreferences();
+            setScoreHash();
         }
 
         // Token: 0x0600057A RID: 1402 RVA: 0x00029A10 File Offset: 0x00027C10
         private void checkForUnlockIAP()
         {
-            if (this.getBooleanForKey("IAP_UNLOCK"))
+            if (getBooleanForKey("IAP_UNLOCK"))
             {
                 int i = 0;
                 int packsCount = CTRPreferences.getPacksCount();
@@ -502,7 +502,7 @@ namespace ctr_wp7.ctr_original
             {
                 for (int j = 0; j < CTRPreferences.getLevelsInPackCount(); j++)
                 {
-                    num += this.getIntForKey(CTRPreferences.getPackLevelKey("SCORE_", i, j));
+                    num += getIntForKey(CTRPreferences.getPackLevelKey("SCORE_", i, j));
                 }
             }
             return num;
@@ -511,17 +511,17 @@ namespace ctr_wp7.ctr_original
         // Token: 0x0600057C RID: 1404 RVA: 0x00029A98 File Offset: 0x00027C98
         public void setScoreHash()
         {
-            NSString nsstring = NSObject.NSS(this.getTotalScore().ToString());
+            NSString nsstring = NSObject.NSS(getTotalScore().ToString());
             NSString md5Str = MathHelper.getMD5Str(nsstring);
-            this.setStringforKey(md5Str.ToString(), "PREFS_SCORE_HASH", true);
+            setStringforKey(md5Str.ToString(), "PREFS_SCORE_HASH", true);
         }
 
         // Token: 0x0600057D RID: 1405 RVA: 0x00029AD4 File Offset: 0x00027CD4
         public bool isScoreHashValid()
         {
-            NSString nsstring = NSObject.NSS(this.getTotalScore().ToString());
+            NSString nsstring = NSObject.NSS(getTotalScore().ToString());
             NSString md5Str = MathHelper.getMD5Str(nsstring);
-            NSString nsstring2 = NSObject.NSS(this.getStringForKey("PREFS_SCORE_HASH"));
+            NSString nsstring2 = NSObject.NSS(getStringForKey("PREFS_SCORE_HASH"));
             return md5Str.isEqualToString(nsstring2);
         }
 
@@ -555,13 +555,13 @@ namespace ctr_wp7.ctr_original
                 int levelsInPackCount = CTRPreferences.getLevelsInPackCount();
                 while (j < levelsInPackCount)
                 {
-                    this.setIntforKey(1, CTRPreferences.getPackLevelKey("UNLOCKED_", i, j), false);
-                    this.setIntforKey(stars, CTRPreferences.getPackLevelKey("STARS_", i, j), false);
+                    setIntforKey(1, CTRPreferences.getPackLevelKey("UNLOCKED_", i, j), false);
+                    setIntforKey(stars, CTRPreferences.getPackLevelKey("STARS_", i, j), false);
                     j++;
                 }
                 i++;
             }
-            this.savePreferences();
+            savePreferences();
         }
 
         // Token: 0x06000582 RID: 1410 RVA: 0x00029BC4 File Offset: 0x00027DC4

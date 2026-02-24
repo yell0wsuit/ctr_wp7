@@ -8,7 +8,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060004A9 RID: 1193 RVA: 0x00021E77 File Offset: 0x00020077
         public Action()
         {
-            this.data = new ActionData();
+            data = new ActionData();
         }
 
         // Token: 0x060004AA RID: 1194 RVA: 0x00021E8C File Offset: 0x0002008C

@@ -7,28 +7,28 @@
         public override int addChildwithID(BaseElement c, int i)
         {
             int num = base.addChildwithID(c, i);
-            if (this.align == 8)
+            if (align == 8)
             {
                 c.anchor = (c.parentAnchor = 9);
             }
-            else if (this.align == 16)
+            else if (align == 16)
             {
                 c.anchor = (c.parentAnchor = 17);
             }
-            else if (this.align == 32)
+            else if (align == 32)
             {
                 c.anchor = (c.parentAnchor = 33);
             }
-            c.x = this.nextElementX;
-            this.nextElementX += (float)c.width + this.offset;
-            this.width = (int)(this.nextElementX - this.offset);
+            c.x = nextElementX;
+            nextElementX += (float)c.width + offset;
+            width = (int)(nextElementX - offset);
             return num;
         }
 
         // Token: 0x06000458 RID: 1112 RVA: 0x0001E88A File Offset: 0x0001CA8A
         public virtual HBox initWithOffsetAlignHeight(double of, int a, double h)
         {
-            return this.initWithOffsetAlignHeight((float)of, a, (float)h);
+            return initWithOffsetAlignHeight((float)of, a, (float)h);
         }
 
         // Token: 0x06000459 RID: 1113 RVA: 0x0001E897 File Offset: 0x0001CA97
@@ -36,10 +36,10 @@
         {
             if (base.init() != null)
             {
-                this.offset = of;
-                this.align = a;
-                this.nextElementX = 0f;
-                this.height = (int)h;
+                offset = of;
+                align = a;
+                nextElementX = 0f;
+                height = (int)h;
             }
             return this;
         }

@@ -6,11 +6,11 @@
         // Token: 0x060004A7 RID: 1191 RVA: 0x00021E30 File Offset: 0x00020030
         public KeyFrameValue()
         {
-            this.action = new ActionParams();
-            this.scale = new ScaleParams();
-            this.pos = new PosParams();
-            this.rotation = new RotationParams();
-            this.color = new ColorParams();
+            action = new ActionParams();
+            scale = new ScaleParams();
+            pos = new PosParams();
+            rotation = new RotationParams();
+            color = new ColorParams();
         }
 
         // Token: 0x040009E4 RID: 2532

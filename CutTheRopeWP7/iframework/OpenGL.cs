@@ -837,8 +837,8 @@ namespace ctr_wp7.iframework
             // Token: 0x0600052D RID: 1325 RVA: 0x00025F9A File Offset: 0x0002419A
             public GLVertexPointer(int size, int type, int stride, object pointer)
             {
-                this.pointer_ = ((pointer != null) ? ((float[])pointer) : null);
-                this.size_ = size;
+                pointer_ = ((pointer != null) ? ((float[])pointer) : null);
+                size_ = size;
             }
 
             // Token: 0x17000012 RID: 18
@@ -847,11 +847,11 @@ namespace ctr_wp7.iframework
             {
                 get
                 {
-                    if (this.pointer_ == null || this.size_ == 0)
+                    if (pointer_ == null || size_ == 0)
                     {
                         return 0;
                     }
-                    return this.pointer_.Length / this.size_;
+                    return pointer_.Length / size_;
                 }
             }
 
@@ -868,8 +868,8 @@ namespace ctr_wp7.iframework
             // Token: 0x0600052F RID: 1327 RVA: 0x00025FE0 File Offset: 0x000241E0
             public GLTexCoordPointer(int size, int type, int stride, object pointer)
             {
-                this.pointer_ = ((pointer != null) ? ((float[])pointer) : null);
-                this.size_ = size;
+                pointer_ = ((pointer != null) ? ((float[])pointer) : null);
+                size_ = size;
             }
 
             // Token: 0x17000013 RID: 19
@@ -878,11 +878,11 @@ namespace ctr_wp7.iframework
             {
                 get
                 {
-                    if (this.pointer_ == null || this.size_ == 0)
+                    if (pointer_ == null || size_ == 0)
                     {
                         return 0;
                     }
-                    return this.pointer_.Length / this.size_;
+                    return pointer_.Length / size_;
                 }
             }
 

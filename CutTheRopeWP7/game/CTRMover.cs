@@ -29,12 +29,12 @@ namespace ctr_wp7.game
                 {
                     float num5 = (float)((double)s.x + (double)num * Math.Cos((double)num4));
                     float num6 = (float)((double)s.y + (double)num * Math.Sin((double)num4));
-                    this.addPathPoint(new Vector(num5, num6));
+                    addPathPoint(new Vector(num5, num6));
                     num4 += num3;
                 }
                 return;
             }
-            this.addPathPoint(s);
+            addPathPoint(s);
             if (p.characterAtIndex(p.length() - 1) == ',')
             {
                 p = p.substringToIndex(p.length() - 1);
@@ -44,7 +44,7 @@ namespace ctr_wp7.game
             {
                 NSString nsstring2 = list[j];
                 NSString nsstring3 = list[j + 1];
-                this.addPathPoint(new Vector(s.x + nsstring2.floatValue(), s.y + nsstring3.floatValue()));
+                addPathPoint(new Vector(s.x + nsstring2.floatValue(), s.y + nsstring3.floatValue()));
             }
         }
     }

@@ -238,9 +238,9 @@ namespace ctr_wp7.iframework
             // Token: 0x060002FA RID: 762 RVA: 0x0001387B File Offset: 0x00011A7B
             public md5_context()
             {
-                this.total = new uint[2];
-                this.state = new uint[4];
-                this.buffer = new byte[64];
+                total = new uint[2];
+                state = new uint[4];
+                buffer = new byte[64];
             }
 
             // Token: 0x040008C5 RID: 2245

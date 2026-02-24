@@ -22,7 +22,7 @@ namespace ctr_wp7.game
         public override void update(float delta)
         {
             base.update(delta);
-            Timeline.updateTimeline(this.ani, delta);
+            Timeline.updateTimeline(ani, delta);
         }
 
         // Token: 0x040009CD RID: 2509

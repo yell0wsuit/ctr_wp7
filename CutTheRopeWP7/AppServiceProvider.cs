@@ -21,7 +21,7 @@ namespace ctr_wp7
             {
                 throw new ArgumentException("service does not match the specified serviceType");
             }
-            this.services.Add(serviceType, service);
+            services.Add(serviceType, service);
         }
 
         // Token: 0x060002AF RID: 687 RVA: 0x000118B7 File Offset: 0x0000FAB7
@@ -31,7 +31,7 @@ namespace ctr_wp7
             {
                 throw new ArgumentNullException("serviceType");
             }
-            return this.services[serviceType];
+            return services[serviceType];
         }
 
         // Token: 0x060002B0 RID: 688 RVA: 0x000118D3 File Offset: 0x0000FAD3
@@ -41,7 +41,7 @@ namespace ctr_wp7
             {
                 throw new ArgumentNullException("serviceType");
             }
-            this.services.Remove(serviceType);
+            services.Remove(serviceType);
         }
 
         // Token: 0x040008A9 RID: 2217

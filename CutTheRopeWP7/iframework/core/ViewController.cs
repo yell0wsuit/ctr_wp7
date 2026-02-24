@@ -15,7 +15,7 @@ namespace ctr_wp7.iframework.core
         // Token: 0x060002FF RID: 767 RVA: 0x000138A8 File Offset: 0x00011AA8
         public ViewController()
         {
-            this.views = new Dictionary<int, View>();
+            views = new Dictionary<int, View>();
         }
 
         // Token: 0x06000300 RID: 768 RVA: 0x000138BC File Offset: 0x00011ABC
@@ -23,13 +23,13 @@ namespace ctr_wp7.iframework.core
         {
             if (base.init() != null)
             {
-                this.controllerState = ViewController.ControllerState.CONTROLLER_DEACTIVE;
-                this.views = new Dictionary<int, View>();
-                this.childs = new Dictionary<int, ViewController>();
-                this.activeViewID = -1;
-                this.activeChildID = -1;
-                this.pausedViewID = -1;
-                this.parent = p;
+                controllerState = ViewController.ControllerState.CONTROLLER_DEACTIVE;
+                views = new Dictionary<int, View>();
+                childs = new Dictionary<int, ViewController>();
+                activeViewID = -1;
+                activeChildID = -1;
+                pausedViewID = -1;
+                parent = p;
             }
             return this;
         }
@@ -37,7 +37,7 @@ namespace ctr_wp7.iframework.core
         // Token: 0x06000301 RID: 769 RVA: 0x0001390B File Offset: 0x00011B0B
         public virtual void activate()
         {
-            this.controllerState = ViewController.ControllerState.CONTROLLER_ACTIVE;
+            controllerState = ViewController.ControllerState.CONTROLLER_ACTIVE;
             Application.sharedRootController().onControllerActivated(this);
         }
 
@@ -50,50 +50,50 @@ namespace ctr_wp7.iframework.core
         // Token: 0x06000303 RID: 771 RVA: 0x0001392C File Offset: 0x00011B2C
         public virtual void deactivateImmediately()
         {
-            this.controllerState = ViewController.ControllerState.CONTROLLER_DEACTIVE;
-            if (this.activeViewID != -1)
+            controllerState = ViewController.ControllerState.CONTROLLER_DEACTIVE;
+            if (activeViewID != -1)
             {
-                this.hideActiveView();
+                hideActiveView();
             }
             Application.sharedRootController().onControllerDeactivated(this);
-            this.parent.onChildDeactivated(this.parent.activeChildID);
+            parent.onChildDeactivated(parent.activeChildID);
         }
 
         // Token: 0x06000304 RID: 772 RVA: 0x00013965 File Offset: 0x00011B65
         public virtual void pause()
         {
-            this.controllerState = ViewController.ControllerState.CONTROLLER_PAUSED;
+            controllerState = ViewController.ControllerState.CONTROLLER_PAUSED;
             Application.sharedRootController().onControllerPaused(this);
-            if (this.activeViewID != -1)
+            if (activeViewID != -1)
             {
-                this.pausedViewID = this.activeViewID;
-                this.hideActiveView();
+                pausedViewID = activeViewID;
+                hideActiveView();
             }
         }
 
         // Token: 0x06000305 RID: 773 RVA: 0x00013994 File Offset: 0x00011B94
         public virtual void unpause()
         {
-            this.controllerState = ViewController.ControllerState.CONTROLLER_ACTIVE;
-            if (this.activeChildID != -1)
+            controllerState = ViewController.ControllerState.CONTROLLER_ACTIVE;
+            if (activeChildID != -1)
             {
-                this.activeChildID = -1;
+                activeChildID = -1;
             }
             Application.sharedRootController().onControllerUnpaused(this);
-            if (this.pausedViewID != -1)
+            if (pausedViewID != -1)
             {
-                this.showView(this.pausedViewID);
+                showView(pausedViewID);
             }
         }
 
         // Token: 0x06000306 RID: 774 RVA: 0x000139D0 File Offset: 0x00011BD0
         public virtual void update(float delta)
         {
-            if (this.activeViewID == -1)
+            if (activeViewID == -1)
             {
                 return;
             }
-            View view = this.activeView();
+            View view = activeView();
             view.update(delta);
         }
 
@@ -101,37 +101,37 @@ namespace ctr_wp7.iframework.core
         public virtual void addViewwithID(View v, int n)
         {
             View view;
-            this.views.TryGetValue(n, out view);
-            this.views[n] = v;
+            views.TryGetValue(n, out view);
+            views[n] = v;
         }
 
         // Token: 0x06000308 RID: 776 RVA: 0x00013A21 File Offset: 0x00011C21
         public virtual void deleteView(int n)
         {
-            this.views[n] = null;
+            views[n] = null;
         }
 
         // Token: 0x06000309 RID: 777 RVA: 0x00013A30 File Offset: 0x00011C30
         public virtual void hideActiveView()
         {
-            View view = this.views[this.activeViewID];
+            View view = views[activeViewID];
             Application.sharedRootController().onControllerViewHide(view);
             if (view != null)
             {
                 view.hide();
             }
-            this.activeViewID = -1;
+            activeViewID = -1;
         }
 
         // Token: 0x0600030A RID: 778 RVA: 0x00013A6C File Offset: 0x00011C6C
         public virtual void showView(int n)
         {
-            if (this.activeViewID != -1)
+            if (activeViewID != -1)
             {
-                this.hideActiveView();
+                hideActiveView();
             }
-            this.activeViewID = n;
-            View view = this.views[n];
+            activeViewID = n;
+            View view = views[n];
             Application.sharedRootController().onControllerViewShow(view);
             view.show();
         }
@@ -139,14 +139,14 @@ namespace ctr_wp7.iframework.core
         // Token: 0x0600030B RID: 779 RVA: 0x00013AB0 File Offset: 0x00011CB0
         public virtual View activeView()
         {
-            return this.views[this.activeViewID];
+            return views[activeViewID];
         }
 
         // Token: 0x0600030C RID: 780 RVA: 0x00013AD0 File Offset: 0x00011CD0
         public virtual View getView(int n)
         {
             View view = null;
-            this.views.TryGetValue(n, out view);
+            views.TryGetValue(n, out view);
             return view;
         }
 
@@ -158,63 +158,63 @@ namespace ctr_wp7.iframework.core
             {
                 viewController.dealloc();
             }
-            this.childs[n] = c;
+            childs[n] = c;
         }
 
         // Token: 0x0600030E RID: 782 RVA: 0x00013B18 File Offset: 0x00011D18
         public virtual void deleteChild(int n)
         {
             ViewController viewController = null;
-            if (this.childs.TryGetValue(n, out viewController))
+            if (childs.TryGetValue(n, out viewController))
             {
                 viewController.dealloc();
-                this.childs[n] = null;
+                childs[n] = null;
             }
         }
 
         // Token: 0x0600030F RID: 783 RVA: 0x00013B4C File Offset: 0x00011D4C
         public virtual void deactivateActiveChild()
         {
-            ViewController viewController = this.childs[this.activeChildID];
+            ViewController viewController = childs[activeChildID];
             viewController.deactivate();
-            this.activeChildID = -1;
+            activeChildID = -1;
         }
 
         // Token: 0x06000310 RID: 784 RVA: 0x00013B78 File Offset: 0x00011D78
         public virtual void activateChild(int n)
         {
-            if (this.activeChildID != -1)
+            if (activeChildID != -1)
             {
-                this.deactivateActiveChild();
+                deactivateActiveChild();
             }
-            this.pause();
-            this.activeChildID = n;
-            ViewController viewController = this.childs[n];
+            pause();
+            activeChildID = n;
+            ViewController viewController = childs[n];
             viewController.activate();
         }
 
         // Token: 0x06000311 RID: 785 RVA: 0x00013BB4 File Offset: 0x00011DB4
         public virtual void onChildDeactivated(int n)
         {
-            this.unpause();
+            unpause();
         }
 
         // Token: 0x06000312 RID: 786 RVA: 0x00013BBC File Offset: 0x00011DBC
         public virtual ViewController activeChild()
         {
-            return this.childs[this.activeChildID];
+            return childs[activeChildID];
         }
 
         // Token: 0x06000313 RID: 787 RVA: 0x00013BDC File Offset: 0x00011DDC
         public virtual ViewController getChild(int n)
         {
-            return this.childs[n];
+            return childs[n];
         }
 
         // Token: 0x06000314 RID: 788 RVA: 0x00013BEC File Offset: 0x00011DEC
         private bool checkNoChildsActive()
         {
-            foreach (KeyValuePair<int, ViewController> keyValuePair in this.childs)
+            foreach (KeyValuePair<int, ViewController> keyValuePair in childs)
             {
                 ViewController value = keyValuePair.Value;
                 if (value != null && value.controllerState != ViewController.ControllerState.CONTROLLER_DEACTIVE)
@@ -234,11 +234,11 @@ namespace ctr_wp7.iframework.core
         // Token: 0x06000316 RID: 790 RVA: 0x00013C5C File Offset: 0x00011E5C
         public virtual bool touchesBeganwithEvent(List<CTRTouchState> touches)
         {
-            if (this.activeViewID == -1)
+            if (activeViewID == -1)
             {
                 return false;
             }
-            View view = this.activeView();
+            View view = activeView();
             int num = -1;
             for (int i = 0; i < touches.Count; i++)
             {
@@ -259,11 +259,11 @@ namespace ctr_wp7.iframework.core
         // Token: 0x06000317 RID: 791 RVA: 0x00013CD0 File Offset: 0x00011ED0
         public virtual bool touchesEndedwithEvent(List<CTRTouchState> touches)
         {
-            if (this.activeViewID == -1)
+            if (activeViewID == -1)
             {
                 return false;
             }
-            View view = this.activeView();
+            View view = activeView();
             int num = -1;
             for (int i = 0; i < touches.Count; i++)
             {
@@ -284,11 +284,11 @@ namespace ctr_wp7.iframework.core
         // Token: 0x06000318 RID: 792 RVA: 0x00013D44 File Offset: 0x00011F44
         public virtual bool touchesMovedwithEvent(List<CTRTouchState> touches)
         {
-            if (this.activeViewID == -1)
+            if (activeViewID == -1)
             {
                 return false;
             }
-            View view = this.activeView();
+            View view = activeView();
             int num = -1;
             for (int i = 0; i < touches.Count; i++)
             {
@@ -319,10 +319,10 @@ namespace ctr_wp7.iframework.core
         // Token: 0x0600031A RID: 794 RVA: 0x00013E08 File Offset: 0x00012008
         public override void dealloc()
         {
-            this.views.Clear();
-            this.views = null;
-            this.childs.Clear();
-            this.childs = null;
+            views.Clear();
+            views = null;
+            childs.Clear();
+            childs = null;
             base.dealloc();
         }
 

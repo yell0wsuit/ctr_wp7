@@ -9,42 +9,42 @@ namespace ctr_wp7.utils
         // Token: 0x06000001 RID: 1 RVA: 0x00002050 File Offset: 0x00000250
         public void Parse()
         {
-            if (this.xmlReader != null)
+            if (xmlReader != null)
             {
-                while (this.xmlReader.Read())
+                while (xmlReader.Read())
                 {
-                    XmlNodeType nodeType = this.xmlReader.NodeType;
+                    XmlNodeType nodeType = xmlReader.NodeType;
                     switch (nodeType)
                     {
                         case XmlNodeType.Element:
                             {
                                 Dictionary<string, string> dictionary = new Dictionary<string, string>();
-                                string baseURI = this.xmlReader.BaseURI;
-                                string localName = this.xmlReader.LocalName;
-                                string name = this.xmlReader.Name;
-                                bool flag = this.xmlReader.MoveToFirstAttribute();
+                                string baseURI = xmlReader.BaseURI;
+                                string localName = xmlReader.LocalName;
+                                string name = xmlReader.Name;
+                                bool flag = xmlReader.MoveToFirstAttribute();
                                 while (flag)
                                 {
                                     string text = "";
-                                    if (this.xmlReader.HasValue)
+                                    if (xmlReader.HasValue)
                                     {
-                                        text = this.xmlReader.Value;
+                                        text = xmlReader.Value;
                                     }
-                                    dictionary.Add(this.xmlReader.Name, text);
-                                    flag = this.xmlReader.MoveToNextAttribute();
+                                    dictionary.Add(xmlReader.Name, text);
+                                    flag = xmlReader.MoveToNextAttribute();
                                 }
-                                this.StartElement(baseURI, localName, name, dictionary);
+                                StartElement(baseURI, localName, name, dictionary);
                                 break;
                             }
                         case XmlNodeType.Attribute:
                             break;
                         case XmlNodeType.Text:
-                            this.Characters(this.xmlReader.Value);
+                            Characters(xmlReader.Value);
                             break;
                         default:
                             if (nodeType == XmlNodeType.EndElement)
                             {
-                                this.EndElement(this.xmlReader.BaseURI, this.xmlReader.LocalName, this.xmlReader.Name);
+                                EndElement(xmlReader.BaseURI, xmlReader.LocalName, xmlReader.Name);
                             }
                             break;
                     }

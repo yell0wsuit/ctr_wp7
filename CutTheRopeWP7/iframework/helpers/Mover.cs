@@ -16,23 +16,23 @@ namespace ctr_wp7.iframework.helpers
             int num2 = (int)r_;
             if (base.init() != null)
             {
-                this.pathLen = 0;
-                this.pathCapacity = l;
-                this.rotateSpeed = (float)num2;
-                if (this.pathCapacity > 0)
+                pathLen = 0;
+                pathCapacity = l;
+                rotateSpeed = (float)num2;
+                if (pathCapacity > 0)
                 {
-                    this.path = new Vector[this.pathCapacity];
-                    for (int i = 0; i < this.path.Length; i++)
+                    path = new Vector[pathCapacity];
+                    for (int i = 0; i < path.Length; i++)
                     {
-                        this.path[i] = default(Vector);
+                        path[i] = default(Vector);
                     }
-                    this.moveSpeed = new float[this.pathCapacity];
-                    for (int j = 0; j < this.moveSpeed.Length; j++)
+                    moveSpeed = new float[pathCapacity];
+                    for (int j = 0; j < moveSpeed.Length; j++)
                     {
-                        this.moveSpeed[j] = (float)num;
+                        moveSpeed[j] = (float)num;
                     }
                 }
-                this.paused = false;
+                paused = false;
             }
             return this;
         }
@@ -40,9 +40,9 @@ namespace ctr_wp7.iframework.helpers
         // Token: 0x0600045C RID: 1116 RVA: 0x0001E978 File Offset: 0x0001CB78
         public virtual void setMoveSpeed(float ms)
         {
-            for (int i = 0; i < this.pathCapacity; i++)
+            for (int i = 0; i < pathCapacity; i++)
             {
-                this.moveSpeed[i] = ms;
+                moveSpeed[i] = ms;
             }
         }
 
@@ -65,12 +65,12 @@ namespace ctr_wp7.iframework.helpers
                 {
                     float num5 = s.x + (float)num * (float)Math.Cos((double)num4);
                     float num6 = s.y + (float)num * (float)Math.Sin((double)num4);
-                    this.addPathPoint(MathHelper.vect(num5, num6));
+                    addPathPoint(MathHelper.vect(num5, num6));
                     num4 += num3;
                 }
                 return;
             }
-            this.addPathPoint(s);
+            addPathPoint(s);
             if (p.characterAtIndex(p.length() - 1) == ',')
             {
                 p = p.substringToIndex(p.length() - 1);
@@ -80,98 +80,98 @@ namespace ctr_wp7.iframework.helpers
             {
                 NSString nsstring2 = list[j];
                 NSString nsstring3 = list[j + 1];
-                this.addPathPoint(MathHelper.vect(s.x + nsstring2.floatValue(), s.y + nsstring3.floatValue()));
+                addPathPoint(MathHelper.vect(s.x + nsstring2.floatValue(), s.y + nsstring3.floatValue()));
             }
         }
 
         // Token: 0x0600045E RID: 1118 RVA: 0x0001EAD8 File Offset: 0x0001CCD8
         public virtual void addPathPoint(Vector v)
         {
-            this.path[this.pathLen++] = v;
+            path[pathLen++] = v;
         }
 
         // Token: 0x0600045F RID: 1119 RVA: 0x0001EB07 File Offset: 0x0001CD07
         public virtual void start()
         {
-            if (this.pathLen > 0)
+            if (pathLen > 0)
             {
-                this.pos = this.path[0];
-                this.targetPoint = 1;
-                this.calculateOffset();
+                pos = path[0];
+                targetPoint = 1;
+                calculateOffset();
             }
         }
 
         // Token: 0x06000460 RID: 1120 RVA: 0x0001EB36 File Offset: 0x0001CD36
         public virtual void pause()
         {
-            this.paused = true;
+            paused = true;
         }
 
         // Token: 0x06000461 RID: 1121 RVA: 0x0001EB3F File Offset: 0x0001CD3F
         public virtual void unpause()
         {
-            this.paused = false;
+            paused = false;
         }
 
         // Token: 0x06000462 RID: 1122 RVA: 0x0001EB48 File Offset: 0x0001CD48
         public virtual void setRotateSpeed(float rs)
         {
-            this.rotateSpeed = rs;
+            rotateSpeed = rs;
         }
 
         // Token: 0x06000463 RID: 1123 RVA: 0x0001EB51 File Offset: 0x0001CD51
         public virtual void jumpToPoint(int p)
         {
-            this.targetPoint = p;
-            this.pos = this.path[this.targetPoint];
-            this.calculateOffset();
+            targetPoint = p;
+            pos = path[targetPoint];
+            calculateOffset();
         }
 
         // Token: 0x06000464 RID: 1124 RVA: 0x0001EB7C File Offset: 0x0001CD7C
         public virtual void calculateOffset()
         {
-            Vector vector = this.path[this.targetPoint];
-            this.offset = MathHelper.vectMult(MathHelper.vectNormalize(MathHelper.vectSub(vector, this.pos)), this.moveSpeed[this.targetPoint]);
+            Vector vector = path[targetPoint];
+            offset = MathHelper.vectMult(MathHelper.vectNormalize(MathHelper.vectSub(vector, pos)), moveSpeed[targetPoint]);
         }
 
         // Token: 0x06000465 RID: 1125 RVA: 0x0001EBC9 File Offset: 0x0001CDC9
         public virtual void setMoveSpeedforPoint(float ms, int i)
         {
-            this.moveSpeed[i] = ms;
+            moveSpeed[i] = ms;
         }
 
         // Token: 0x06000466 RID: 1126 RVA: 0x0001EBD4 File Offset: 0x0001CDD4
         public virtual void setMoveReverse(bool r)
         {
-            this.reverse = r;
+            reverse = r;
         }
 
         // Token: 0x06000467 RID: 1127 RVA: 0x0001EBE0 File Offset: 0x0001CDE0
         public virtual void update(float delta)
         {
-            if (this.paused)
+            if (paused)
             {
                 return;
             }
-            if (this.pathLen > 0)
+            if (pathLen > 0)
             {
-                Vector vector = this.path[this.targetPoint];
+                Vector vector = path[targetPoint];
                 bool flag = false;
-                if (!MathHelper.vectEqual(this.pos, vector))
+                if (!MathHelper.vectEqual(pos, vector))
                 {
                     float num = delta;
-                    if (this.overrun != 0f)
+                    if (overrun != 0f)
                     {
-                        num += this.overrun;
-                        this.overrun = 0f;
+                        num += overrun;
+                        overrun = 0f;
                     }
-                    this.pos = MathHelper.vectAdd(this.pos, MathHelper.vectMult(this.offset, num));
-                    if (!MathHelper.sameSign(this.offset.x, vector.x - this.pos.x) || !MathHelper.sameSign(this.offset.y, vector.y - this.pos.y))
+                    pos = MathHelper.vectAdd(pos, MathHelper.vectMult(offset, num));
+                    if (!MathHelper.sameSign(offset.x, vector.x - pos.x) || !MathHelper.sameSign(offset.y, vector.y - pos.y))
                     {
-                        this.overrun = MathHelper.vectLength(MathHelper.vectSub(this.pos, vector));
-                        float num2 = MathHelper.vectLength(this.offset);
-                        this.overrun /= num2;
-                        this.pos = vector;
+                        overrun = MathHelper.vectLength(MathHelper.vectSub(pos, vector));
+                        float num2 = MathHelper.vectLength(offset);
+                        overrun /= num2;
+                        pos = vector;
                         flag = true;
                     }
                 }
@@ -181,36 +181,36 @@ namespace ctr_wp7.iframework.helpers
                 }
                 if (flag)
                 {
-                    if (this.reverse)
+                    if (reverse)
                     {
-                        this.targetPoint--;
-                        if (this.targetPoint < 0)
+                        targetPoint--;
+                        if (targetPoint < 0)
                         {
-                            this.targetPoint = this.pathLen - 1;
+                            targetPoint = pathLen - 1;
                         }
                     }
                     else
                     {
-                        this.targetPoint++;
-                        if (this.targetPoint >= this.pathLen)
+                        targetPoint++;
+                        if (targetPoint >= pathLen)
                         {
-                            this.targetPoint = 0;
+                            targetPoint = 0;
                         }
                     }
-                    this.calculateOffset();
+                    calculateOffset();
                 }
             }
-            if (this.rotateSpeed != 0f)
+            if (rotateSpeed != 0f)
             {
-                this.angle += (double)(this.rotateSpeed * delta);
+                angle += (double)(rotateSpeed * delta);
             }
         }
 
         // Token: 0x06000468 RID: 1128 RVA: 0x0001ED72 File Offset: 0x0001CF72
         public override void dealloc()
         {
-            this.path = null;
-            this.moveSpeed = null;
+            path = null;
+            moveSpeed = null;
             base.dealloc();
         }
 

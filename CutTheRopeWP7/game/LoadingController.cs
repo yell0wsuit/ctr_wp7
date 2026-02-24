@@ -17,7 +17,7 @@ namespace ctr_wp7.game
             if (base.initWithParent(p) != null)
             {
                 LoadingView loadingView = (LoadingView)new LoadingView().initFullscreen();
-                this.addViewwithID(loadingView, 0);
+                addViewwithID(loadingView, 0);
                 Text text = new Text().initWithFont(Application.getFont(5));
                 text.setAlignment(2);
                 if (ResDataPhoneFull.LANGUAGE == Language.LANG_KO)
@@ -43,9 +43,9 @@ namespace ctr_wp7.game
         {
             FrameworkTypes.AndroidAPI.showBanner();
             base.activate();
-            LoadingView loadingView = (LoadingView)this.getView(0);
-            loadingView.game = this.nextController == 0;
-            this.showView(0);
+            LoadingView loadingView = (LoadingView)getView(0);
+            loadingView.game = nextController == 0;
+            showView(0);
         }
 
         // Token: 0x06000640 RID: 1600 RVA: 0x000302B3 File Offset: 0x0002E4B3
@@ -56,11 +56,11 @@ namespace ctr_wp7.game
         // Token: 0x06000641 RID: 1601 RVA: 0x000302B5 File Offset: 0x0002E4B5
         public virtual void allResourcesLoaded()
         {
-            if (this.MusicToLoad > 0)
+            if (MusicToLoad > 0)
             {
-                CTRSoundMgr._playMusic(this.MusicToLoad);
+                CTRSoundMgr._playMusic(MusicToLoad);
                 CTRSoundMgr._stopMusic();
-                this.MusicToLoad = -1;
+                MusicToLoad = -1;
             }
             GC.Collect();
             FrameworkTypes.AndroidAPI.hideBanner();

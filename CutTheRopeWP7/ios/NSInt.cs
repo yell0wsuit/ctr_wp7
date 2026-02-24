@@ -15,7 +15,7 @@
         // Token: 0x06000589 RID: 1417 RVA: 0x00029E97 File Offset: 0x00028097
         public virtual int intValue()
         {
-            return this._value;
+            return _value;
         }
 
         // Token: 0x04000ADC RID: 2780

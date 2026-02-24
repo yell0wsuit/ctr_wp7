@@ -6,9 +6,9 @@
         // Token: 0x06000167 RID: 359 RVA: 0x0000AF64 File Offset: 0x00009164
         public PointSprite(float xx, float yy, float s)
         {
-            this.x = xx;
-            this.y = yy;
-            this.size = s;
+            x = xx;
+            y = yy;
+            size = s;
         }
 
         // Token: 0x04000798 RID: 1944

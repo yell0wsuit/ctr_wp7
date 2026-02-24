@@ -21,7 +21,7 @@ namespace ctr_wp7.game
         {
             get
             {
-                return this.boxCloseHandled;
+                return boxCloseHandled;
             }
         }
 
@@ -31,7 +31,7 @@ namespace ctr_wp7.game
         {
             get
             {
-                return this.boxLevelWonClosing;
+                return boxLevelWonClosing;
             }
         }
 
@@ -40,8 +40,8 @@ namespace ctr_wp7.game
         {
             if (base.initWithParent(p) != null)
             {
-                this.createGameView();
-                this.shouldDoNextLevel = false;
+                createGameView();
+                shouldDoNextLevel = false;
             }
             CtrRenderer.gUseFingerDelta = false;
             return this;
@@ -56,8 +56,8 @@ namespace ctr_wp7.game
             CTRSoundMgr._stopMusic();
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
             CTRSoundMgr._playMusic(59);
-            this.initGameView();
-            this.showView(0);
+            initGameView();
+            showView(0);
         }
 
         // Token: 0x060007C0 RID: 1984 RVA: 0x0003C659 File Offset: 0x0003A859
@@ -74,10 +74,10 @@ namespace ctr_wp7.game
             {
                 UpdatePopup.showUpdatePopup();
             }
-            if (this.shouldDoNextLevel)
+            if (shouldDoNextLevel)
             {
-                this.shouldDoNextLevel = false;
-                this.onNextLevel();
+                shouldDoNextLevel = false;
+                onNextLevel();
             }
         }
 
@@ -115,28 +115,28 @@ namespace ctr_wp7.game
                 Preferences._savePreferences();
                 Scorer.postLeaderboardResultforLaderboardIdlowestValFirstforGameCenter(num2, pack, false);
             }
-            this.boxCloseHandled = true;
-            this.boxLevelWonClosing = false;
+            boxCloseHandled = true;
+            boxLevelWonClosing = false;
         }
 
         // Token: 0x060007C3 RID: 1987 RVA: 0x0003C766 File Offset: 0x0003A966
         public virtual void gameWon()
         {
-            this.postLevelEventwithMask("LEVSCR_LEVEL_WON", 15, true);
-            this.levelWon();
+            postLevelEventwithMask("LEVSCR_LEVEL_WON", 15, true);
+            levelWon();
         }
 
         // Token: 0x060007C4 RID: 1988 RVA: 0x0003C77C File Offset: 0x0003A97C
         public virtual void gameLost()
         {
-            this.postLevelEventwithMask("LEVSCR_LEVEL_LOST", 6, false);
+            postLevelEventwithMask("LEVSCR_LEVEL_LOST", 6, false);
         }
 
         // Token: 0x060007C5 RID: 1989 RVA: 0x0003C78C File Offset: 0x0003A98C
         public virtual void onButtonPressed(int n)
         {
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
-            View view = this.getView(0);
+            View view = getView(0);
             view.onTouchMoveXY(-10000f, -10000f);
             CTRSoundMgr._playSound(21);
             switch (n)
@@ -146,9 +146,9 @@ namespace ctr_wp7.game
                         FrameworkTypes.AndroidAPI.hideBanner();
                         FrameworkTypes.FlurryAPI.logEvent("LEVMENU_CONTBT_PRESSED", null);
                         GameScene gameScene = (GameScene)view.getChild(0);
-                        gameScene.dimTime = this.tmpDimTime;
-                        this.tmpDimTime = 0f;
-                        this.setPaused(false);
+                        gameScene.dimTime = tmpDimTime;
+                        tmpDimTime = 0f;
+                        setPaused(false);
                         return;
                     }
                 case 1:
@@ -156,14 +156,14 @@ namespace ctr_wp7.game
                 case 2:
                     {
                         FrameworkTypes.AndroidAPI.hideBanner();
-                        this.postLevelEventwithMask("LEVMENU_SKIPBT_PRESSED", 0, true);
-                        if (this.lastLevelInPack() && !ctrrootController.isPicker())
+                        postLevelEventwithMask("LEVMENU_SKIPBT_PRESSED", 0, true);
+                        if (lastLevelInPack() && !ctrrootController.isPicker())
                         {
-                            this.levelQuit();
+                            levelQuit();
                             return;
                         }
-                        this.unlockNextLevel();
-                        this.setPaused(false);
+                        unlockNextLevel();
+                        setPaused(false);
                         GameScene gameScene2 = (GameScene)view.getChild(0);
                         gameScene2.loadNextMap();
                         return;
@@ -172,74 +172,74 @@ namespace ctr_wp7.game
                     FrameworkTypes.AndroidAPI.hideBanner();
                     if (ctrrootController.getLevel() == CTRPreferences.sharewareFreeLevels() - 1 && !CTRPreferences.isSharewareUnlocked())
                     {
-                        this.exitCode = 3;
+                        exitCode = 3;
                     }
                     else
                     {
-                        this.exitCode = 1;
+                        exitCode = 1;
                     }
                     CTRSoundMgr._stopAll();
-                    this.levelQuit();
-                    this.postLevelEventwithMask("LEVMENU_LEVSELBT_PRESSED", 0, true);
+                    levelQuit();
+                    postLevelEventwithMask("LEVMENU_LEVSELBT_PRESSED", 0, true);
                     return;
                 case 4:
                     FrameworkTypes.AndroidAPI.hideBanner();
-                    this.exitCode = 0;
+                    exitCode = 0;
                     CTRSoundMgr._stopAll();
-                    this.levelQuit();
+                    levelQuit();
                     FrameworkTypes.FlurryAPI.logEvent("LEVMENU_MMENUBT_PRESSED", null);
                     return;
                 case 5:
                     FrameworkTypes.AndroidAPI.hideBanner();
                     if (ctrrootController.getLevel() == CTRPreferences.sharewareFreeLevels() - 1 && !CTRPreferences.isSharewareUnlocked())
                     {
-                        this.exitCode = 3;
+                        exitCode = 3;
                     }
                     else
                     {
-                        this.exitCode = 1;
+                        exitCode = 1;
                     }
                     CTRSoundMgr._stopAll();
-                    if (!this.boxCloseHandled)
+                    if (!boxCloseHandled)
                     {
-                        this.boxClosed();
+                        boxClosed();
                     }
-                    this.postLevelEventwithMask("LEVWONSCR_MENUBT_PRESSED", 1, false);
-                    this.deactivate();
+                    postLevelEventwithMask("LEVWONSCR_MENUBT_PRESSED", 1, false);
+                    deactivate();
                     return;
                 case 6:
                     {
                         FrameworkTypes.AndroidAPI.showBanner();
                         GameScene gameScene3 = (GameScene)view.getChild(0);
-                        this.tmpDimTime = gameScene3.dimTime;
-                        this.releaseAllTouches(gameScene3);
+                        tmpDimTime = gameScene3.dimTime;
+                        releaseAllTouches(gameScene3);
                         gameScene3.dimTime = 0f;
-                        this.setPaused(true);
-                        this.postLevelEventwithMask("LEVSCR_MENUBT_PRESSED", 0, true);
+                        setPaused(true);
+                        postLevelEventwithMask("LEVSCR_MENUBT_PRESSED", 0, true);
                         return;
                     }
                 case 7:
                     FrameworkTypes.AndroidAPI.hideBanner();
-                    this.onNextLevel();
+                    onNextLevel();
                     return;
                 case 8:
-                    if (!this.boxCloseHandled)
+                    if (!boxCloseHandled)
                     {
-                        this.boxClosed();
+                        boxClosed();
                     }
-                    this.postLevelEventwithMask("LEVWONSCR_REPLAYBT_PRESSED", 1, false);
+                    postLevelEventwithMask("LEVWONSCR_REPLAYBT_PRESSED", 1, false);
                     break;
                 case 9:
                     {
                         GameScene gameScene4 = (GameScene)view.getChild(0);
-                        this.releaseAllTouches(gameScene4);
+                        releaseAllTouches(gameScene4);
                         FrameworkTypes.AndroidAPI.hideBanner();
                         CTRSoundMgr._stopLoopedSounds();
-                        if (!this.boxCloseHandled)
+                        if (!boxCloseHandled)
                         {
-                            this.boxClosed();
+                            boxClosed();
                         }
-                        this.postLevelEventwithMask("LEVWONSCR_NEXTBT_PRESSED", 1, false);
+                        postLevelEventwithMask("LEVWONSCR_NEXTBT_PRESSED", 1, false);
                         int num = Preferences._getIntForKey("PREFS_LEVELS_WON");
                         Preferences._setIntforKey(num + 1, "PREFS_LEVELS_WON", false);
                         if (CTRPreferences.isBannersMustBeShown())
@@ -249,7 +249,7 @@ namespace ctr_wp7.game
                             FrameworkTypes.AndroidAPI.showVideoBanner();
                             return;
                         }
-                        this.onNextLevel();
+                        onNextLevel();
                         return;
                     }
                 default:
@@ -259,21 +259,21 @@ namespace ctr_wp7.game
             GameScene gameScene5 = (GameScene)view.getChild(0);
             if (!gameScene5.isEnabled())
             {
-                this.levelStart();
+                levelStart();
             }
             gameScene5.animateRestartDim = n == 1;
             gameScene5.reload();
             if (n != 1)
             {
-                this.setPaused(false);
+                setPaused(false);
             }
-            this.postLevelEventwithMask("LEVSCR_RESTARTBT_PRESSED", 6, false);
+            postLevelEventwithMask("LEVSCR_RESTARTBT_PRESSED", 6, false);
         }
 
         // Token: 0x060007C6 RID: 1990 RVA: 0x0003CA70 File Offset: 0x0003AC70
         public override bool touchesBeganwithEvent(List<CTRTouchState> touches)
         {
-            View view = this.getView(0);
+            View view = getView(0);
             GameView gameView = (GameView)view;
             if (gameView.videoAdLoading)
             {
@@ -296,9 +296,9 @@ namespace ctr_wp7.game
                     int num = -1;
                     for (int i = 0; i < 5; i++)
                     {
-                        if (this.touchAddressMap[i] == null)
+                        if (touchAddressMap[i] == null)
                         {
-                            this.touchAddressMap[i] = ctrtouchState;
+                            touchAddressMap[i] = ctrtouchState;
                             num = i;
                             break;
                         }
@@ -315,7 +315,7 @@ namespace ctr_wp7.game
         // Token: 0x060007C7 RID: 1991 RVA: 0x0003CB60 File Offset: 0x0003AD60
         public override bool touchesEndedwithEvent(List<CTRTouchState> touches)
         {
-            View view = this.getView(0);
+            View view = getView(0);
             GameScene gameScene = (GameScene)view.getChild(0);
             bool flag = base.touchesEndedwithEvent(touches);
             if (flag)
@@ -333,9 +333,9 @@ namespace ctr_wp7.game
                     int num = -1;
                     for (int i = 0; i < 5; i++)
                     {
-                        if (this.touchAddressMap[i] != null && this.touchAddressMap[i].Id == ctrtouchState.Id)
+                        if (touchAddressMap[i] != null && touchAddressMap[i].Id == ctrtouchState.Id)
                         {
-                            this.touchAddressMap[i] = null;
+                            touchAddressMap[i] = null;
                             num = i;
                             break;
                         }
@@ -346,7 +346,7 @@ namespace ctr_wp7.game
                     }
                     else
                     {
-                        this.releaseAllTouches(gameScene);
+                        releaseAllTouches(gameScene);
                     }
                 }
             }
@@ -356,7 +356,7 @@ namespace ctr_wp7.game
         // Token: 0x060007C8 RID: 1992 RVA: 0x0003CC60 File Offset: 0x0003AE60
         public override bool touchesMovedwithEvent(List<CTRTouchState> touches)
         {
-            View view = this.getView(0);
+            View view = getView(0);
             GameScene gameScene = (GameScene)view.getChild(0);
             bool flag = base.touchesMovedwithEvent(touches);
             if (flag)
@@ -374,7 +374,7 @@ namespace ctr_wp7.game
                     int num = -1;
                     for (int i = 0; i < 5; i++)
                     {
-                        if (this.touchAddressMap[i] != null && this.touchAddressMap[i].Id == ctrtouchState.Id)
+                        if (touchAddressMap[i] != null && touchAddressMap[i].Id == ctrtouchState.Id)
                         {
                             num = i;
                             break;
@@ -394,12 +394,12 @@ namespace ctr_wp7.game
         {
             for (int i = 0; i < 5; i++)
             {
-                this.touchAddressMap[i] = null;
+                touchAddressMap[i] = null;
             }
             GameView gameView = (GameView)new GameView().initFullscreen();
             GameScene gameScene = (GameScene)new GameScene().init();
-            gameScene.gameSceneDelegate_gameWon = new GameScene.gameWonDelegate(this.gameWon);
-            gameScene.gameSceneDelegate_gameLost = new GameScene.gameLostDelegate(this.gameLost);
+            gameScene.gameSceneDelegate_gameWon = new GameScene.gameWonDelegate(gameWon);
+            gameScene.gameSceneDelegate_gameLost = new GameScene.gameLostDelegate(gameLost);
             gameView.addChildwithID(gameScene, 0);
             Button button = MenuController.createButtonWithImageQuad1Quad2IDDelegate(100, 0, 1, 6, this);
             button.setTouchIncreaseLeftRightTopBottom(2f, 6f, 6f, 6f);
@@ -427,16 +427,16 @@ namespace ctr_wp7.game
             image.passTransformationsToChilds = false;
             image.y = -FrameworkTypes.SCREEN_OFFSET_Y;
             image.scaleX = FrameworkTypes.SCREEN_BG_SCALE_X;
-            this.mapNameLabel = new Text().initWithFont(Application.getFont(6));
+            mapNameLabel = new Text().initWithFont(Application.getFont(6));
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
             int scoreForPackLevel = CTRPreferences.getScoreForPackLevel(ctrrootController.getPack(), ctrrootController.getLevel());
-            this.mapNameLabel.setString(NSObject.NSS(Application.getString(1310745) + ",  %d" + scoreForPackLevel));
-            this.mapNameLabel.parentAnchor = 12;
-            this.mapNameLabel.anchor = 20;
-            this.mapNameLabel.x = -10f;
-            this.mapNameLabel.y = 20f;
-            this.mapNameLabel.x += FrameworkTypes.SCREEN_OFFSET_X;
-            image.addChild(this.mapNameLabel);
+            mapNameLabel.setString(NSObject.NSS(Application.getString(1310745) + ",  %d" + scoreForPackLevel));
+            mapNameLabel.parentAnchor = 12;
+            mapNameLabel.anchor = 20;
+            mapNameLabel.x = -10f;
+            mapNameLabel.y = 20f;
+            mapNameLabel.x += FrameworkTypes.SCREEN_OFFSET_X;
+            image.addChild(mapNameLabel);
             VBox vbox = new VBox().initWithOffsetAlignWidth(5.0, 2, (double)FrameworkTypes.SCREEN_WIDTH);
             Button button4 = MenuController.createButtonWithTextIDDelegate(Application.getString(1310762), 0, this);
             vbox.addChild(button4);
@@ -450,25 +450,25 @@ namespace ctr_wp7.game
             vbox.y = 140f;
             image.addChild(vbox);
             gameView.addChildwithID(image, 4);
-            this.addViewwithID(gameView, 0);
+            addViewwithID(gameView, 0);
             BoxOpenClose boxOpenClose = (BoxOpenClose)new BoxOpenClose().initWithButtonDelegate(this);
-            boxOpenClose.delegateboxClosed = new BoxOpenClose.boxClosed(this.boxClosed);
+            boxOpenClose.delegateboxClosed = new BoxOpenClose.boxClosed(boxClosed);
             gameView.addChildwithID(boxOpenClose, 5);
         }
 
         // Token: 0x060007CA RID: 1994 RVA: 0x0003D10D File Offset: 0x0003B30D
         public virtual void initGameView()
         {
-            this.setPaused(false);
-            this.levelFirstStart();
+            setPaused(false);
+            levelFirstStart();
         }
 
         // Token: 0x060007CB RID: 1995 RVA: 0x0003D11C File Offset: 0x0003B31C
         public virtual void levelFirstStart()
         {
-            View view = this.getView(0);
+            View view = getView(0);
             ((BoxOpenClose)view.getChild(5)).levelFirstStart();
-            this.isGamePaused = false;
+            isGamePaused = false;
             view.getChild(0).touchable = true;
             view.getChild(1).touchable = true;
             view.getChild(2).touchable = true;
@@ -477,9 +477,9 @@ namespace ctr_wp7.game
         // Token: 0x060007CC RID: 1996 RVA: 0x0003D170 File Offset: 0x0003B370
         public virtual void levelStart()
         {
-            View view = this.getView(0);
+            View view = getView(0);
             ((BoxOpenClose)view.getChild(5)).levelStart();
-            this.isGamePaused = false;
+            isGamePaused = false;
             view.getChild(0).touchable = true;
             view.getChild(1).touchable = true;
             view.getChild(2).touchable = true;
@@ -490,12 +490,12 @@ namespace ctr_wp7.game
         public virtual void levelWon()
         {
             bool flag = false;
-            this.boxCloseHandled = false;
-            this.boxLevelWonClosing = true;
+            boxCloseHandled = false;
+            boxLevelWonClosing = true;
             Application.sharedPreferences();
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
             CTRSoundMgr._playSound(47);
-            View view = this.getView(0);
+            View view = getView(0);
             view.getChild(5).touchable = true;
             GameScene gameScene = (GameScene)view.getChild(0);
             BoxOpenClose boxOpenClose = (BoxOpenClose)view.getChild(5);
@@ -511,7 +511,7 @@ namespace ctr_wp7.game
             boxOpenClose.starBonus = gameScene.starBonus;
             boxOpenClose.timeBonus = gameScene.timeBonus;
             boxOpenClose.score = gameScene.score;
-            this.isGamePaused = true;
+            isGamePaused = true;
             gameScene.touchable = false;
             view.getChild(2).touchable = false;
             view.getChild(1).touchable = false;
@@ -543,8 +543,8 @@ namespace ctr_wp7.game
             CTRPreferences.gameViewChanged(NSObject.NSS("menu"));
             CTRPreferences.setWinsForPackLevel(winsForPackLevel + 1, pack, level);
             boxOpenClose.levelWon();
-            this.postLevelEventwithMask("LEVWONSCR_SCREEN_SHOWN", 9, false);
-            if (this.unlockNextLevel())
+            postLevelEventwithMask("LEVWONSCR_SCREEN_SHOWN", 9, false);
+            if (unlockNextLevel())
             {
                 flag = false;
             }
@@ -557,14 +557,14 @@ namespace ctr_wp7.game
         // Token: 0x060007CE RID: 1998 RVA: 0x0003D42C File Offset: 0x0003B62C
         public virtual void levelLost()
         {
-            View view = this.getView(0);
+            View view = getView(0);
             ((BoxOpenClose)view.getChild(5)).levelLost();
         }
 
         // Token: 0x060007CF RID: 1999 RVA: 0x0003D454 File Offset: 0x0003B654
         public virtual void levelQuit()
         {
-            View view = this.getView(0);
+            View view = getView(0);
             ((BoxOpenClose)view.getChild(5)).levelQuit();
             view.getChild(0).touchable = false;
         }
@@ -572,14 +572,14 @@ namespace ctr_wp7.game
         // Token: 0x060007D0 RID: 2000 RVA: 0x0003D488 File Offset: 0x0003B688
         public virtual void setPaused(bool p)
         {
-            this.isGamePaused = p;
-            View view = this.getView(0);
+            isGamePaused = p;
+            View view = getView(0);
             view.getChild(4).setEnabled(p);
             view.getChild(1).setEnabled(!p);
             view.getChild(2).setEnabled(!p);
             view.getChild(0).touchable = !p;
             view.getChild(0).updateable = !p;
-            if (!this.isGamePaused)
+            if (!isGamePaused)
             {
                 CTRPreferences.gameViewChanged(NSObject.NSS("game"));
                 CTRSoundMgr._unpause();
@@ -590,11 +590,11 @@ namespace ctr_wp7.game
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
             if (ctrrootController.isPicker())
             {
-                this.mapNameLabel.setString(NSObject.NSS(""));
+                mapNameLabel.setString(NSObject.NSS(""));
                 return;
             }
             int scoreForPackLevel = CTRPreferences.getScoreForPackLevel(ctrrootController.getPack(), ctrrootController.getLevel());
-            this.mapNameLabel.setString(NSObject.NSS(Application.getString(1310745) + ": " + scoreForPackLevel));
+            mapNameLabel.setString(NSObject.NSS(Application.getString(1310745) + ": " + scoreForPackLevel));
         }
 
         // Token: 0x060007D1 RID: 2001 RVA: 0x0003D587 File Offset: 0x0003B787
@@ -606,7 +606,7 @@ namespace ctr_wp7.game
         // Token: 0x060007D2 RID: 2002 RVA: 0x0003D590 File Offset: 0x0003B790
         protected void postLevelEventwithMask(string s, int mask = 0, bool mixpanel = false)
         {
-            View view = this.getView(0);
+            View view = getView(0);
             GameScene gameScene = (GameScene)view.getChild(0);
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
             int pack = ctrrootController.getPack();
@@ -629,13 +629,13 @@ namespace ctr_wp7.game
             int level = ctrrootController.getLevel();
             if (level == CTRPreferences.getLevelsInPackCount() - 1)
             {
-                this.exitCode = 2;
+                exitCode = 2;
                 CTRSoundMgr._stopAll();
                 return true;
             }
             if (level == CTRPreferences.sharewareFreeLevels() - 1 && !CTRPreferences.isSharewareUnlocked())
             {
-                this.exitCode = 3;
+                exitCode = 3;
                 CTRSoundMgr._stopAll();
                 return true;
             }
@@ -659,7 +659,7 @@ namespace ctr_wp7.game
         // Token: 0x060007D5 RID: 2005 RVA: 0x0003D6CC File Offset: 0x0003B8CC
         public override bool backButtonPressed()
         {
-            View view = this.getView(0);
+            View view = getView(0);
             Popup popup = (Popup)view.getChildWithName("popup");
             if (popup != null)
             {
@@ -673,15 +673,15 @@ namespace ctr_wp7.game
             }
             else if (view.getChild(1).touchable)
             {
-                this.onButtonPressed(6);
+                onButtonPressed(6);
             }
             else if (view.getChild(4).isEnabled())
             {
-                this.onButtonPressed(0);
+                onButtonPressed(0);
             }
             else if (view.getChild(5).touchable)
             {
-                this.onButtonPressed(5);
+                onButtonPressed(5);
             }
             return true;
         }
@@ -689,14 +689,14 @@ namespace ctr_wp7.game
         // Token: 0x060007D6 RID: 2006 RVA: 0x0003D760 File Offset: 0x0003B960
         public override bool menuButtonPressed()
         {
-            View view = this.getView(0);
+            View view = getView(0);
             if (view.getChild(1).touchable)
             {
-                this.onButtonPressed(6);
+                onButtonPressed(6);
             }
             else if (view.getChild(4).isEnabled())
             {
-                this.onButtonPressed(0);
+                onButtonPressed(0);
             }
             return true;
         }
@@ -706,24 +706,24 @@ namespace ctr_wp7.game
         {
             CTRPreferences.gameViewChanged(NSObject.NSS("game"));
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
-            View view = this.getView(0);
+            View view = getView(0);
             GameView gameView = (GameView)view;
             gameView.videoAdLoading = false;
             gameView.unsetJSkipper();
-            if (this.lastLevelInPack() && !ctrrootController.isPicker())
+            if (lastLevelInPack() && !ctrrootController.isPicker())
             {
-                this.deactivate();
+                deactivate();
                 return;
             }
             GameScene gameScene = (GameScene)view.getChild(0);
             gameScene.loadNextMap();
-            this.levelStart();
+            levelStart();
         }
 
         // Token: 0x060007D8 RID: 2008 RVA: 0x0003D817 File Offset: 0x0003BA17
         public virtual void onVideoBannerFinished()
         {
-            this.shouldDoNextLevel = true;
+            shouldDoNextLevel = true;
         }
 
         // Token: 0x060007D9 RID: 2009 RVA: 0x0003D820 File Offset: 0x0003BA20
@@ -731,7 +731,7 @@ namespace ctr_wp7.game
         {
             for (int i = 0; i < 5; i++)
             {
-                this.touchAddressMap[i] = null;
+                touchAddressMap[i] = null;
                 gs.touchUpXYIndex(-500f, -500f, i);
             }
         }
@@ -739,7 +739,7 @@ namespace ctr_wp7.game
         // Token: 0x060007DA RID: 2010 RVA: 0x0003D854 File Offset: 0x0003BA54
         public virtual void setAdSkipper(object skipper)
         {
-            View view = this.getView(0);
+            View view = getView(0);
             GameView gameView = (GameView)view;
             gameView.setJSkipper(skipper);
             gameView.videoAdLoading = false;

@@ -20,7 +20,7 @@ namespace ctr_wp7.Specials
             switch (n)
             {
                 case 0:
-                    this.hidePopup();
+                    hidePopup();
                     return;
                 case 1:
                     Guide.ShowMarketplace(PlayerIndex.One);

@@ -12,9 +12,9 @@ namespace ctr_wp7.iframework.sfe
         {
             if (base.init() != null)
             {
-                this.forces = new Vector[10];
-                this.setWeight(1f);
-                this.resetAll();
+                forces = new Vector[10];
+                setWeight(1f);
+                resetAll();
             }
             return this;
         }
@@ -22,56 +22,56 @@ namespace ctr_wp7.iframework.sfe
         // Token: 0x06000149 RID: 329 RVA: 0x0000A4AE File Offset: 0x000086AE
         public virtual void setWeight(float w)
         {
-            this.weight = w;
-            this.invWeight = (float)(1.0 / (double)this.weight);
-            this.gravity = MathHelper.vect(0f, 784f * this.weight);
+            weight = w;
+            invWeight = (float)(1.0 / (double)weight);
+            gravity = MathHelper.vect(0f, 784f * weight);
         }
 
         // Token: 0x0600014A RID: 330 RVA: 0x0000A4EB File Offset: 0x000086EB
         public override void dealloc()
         {
-            this.forces = null;
+            forces = null;
             base.dealloc();
         }
 
         // Token: 0x0600014B RID: 331 RVA: 0x0000A4FA File Offset: 0x000086FA
         public virtual void resetForces()
         {
-            this.forces = new Vector[10];
-            this.highestForceIndex = -1;
+            forces = new Vector[10];
+            highestForceIndex = -1;
         }
 
         // Token: 0x0600014C RID: 332 RVA: 0x0000A510 File Offset: 0x00008710
         public virtual void resetAll()
         {
-            this.resetForces();
-            this.v = MathHelper.vectZero;
-            this.a = MathHelper.vectZero;
-            this.pos = MathHelper.vectZero;
-            this.posDelta = MathHelper.vectZero;
-            this.totalForce = MathHelper.vectZero;
+            resetForces();
+            v = MathHelper.vectZero;
+            a = MathHelper.vectZero;
+            pos = MathHelper.vectZero;
+            posDelta = MathHelper.vectZero;
+            totalForce = MathHelper.vectZero;
         }
 
         // Token: 0x0600014D RID: 333 RVA: 0x0000A54F File Offset: 0x0000874F
         public virtual void setForcewithID(Vector force, int n)
         {
-            this.forces[n] = force;
-            if (n > this.highestForceIndex)
+            forces[n] = force;
+            if (n > highestForceIndex)
             {
-                this.highestForceIndex = n;
+                highestForceIndex = n;
             }
         }
 
         // Token: 0x0600014E RID: 334 RVA: 0x0000A573 File Offset: 0x00008773
         public virtual void deleteForce(int n)
         {
-            this.forces[n] = MathHelper.vectZero;
+            forces[n] = MathHelper.vectZero;
         }
 
         // Token: 0x0600014F RID: 335 RVA: 0x0000A58B File Offset: 0x0000878B
         public virtual Vector getForce(int n)
         {
-            return this.forces[n];
+            return forces[n];
         }
 
         // Token: 0x06000150 RID: 336 RVA: 0x0000A5A0 File Offset: 0x000087A0
@@ -80,7 +80,7 @@ namespace ctr_wp7.iframework.sfe
             if (!MathHelper.vectEqual(impulse, MathHelper.vectZero))
             {
                 Vector vector = MathHelper.vectMult(impulse, (float)((double)delta / 1.0));
-                this.pos = MathHelper.vectAdd(this.pos, vector);
+                pos = MathHelper.vectAdd(pos, vector);
             }
         }
 
@@ -94,37 +94,37 @@ namespace ctr_wp7.iframework.sfe
             }
             for (int i = 0; i < num; i++)
             {
-                this.update(delta);
+                update(delta);
             }
         }
 
         // Token: 0x06000152 RID: 338 RVA: 0x0000A610 File Offset: 0x00008810
         public virtual void update(float delta)
         {
-            this.totalForce = MathHelper.vectZero;
-            if (!this.disableGravity)
+            totalForce = MathHelper.vectZero;
+            if (!disableGravity)
             {
                 if (!MathHelper.vectEqual(MaterialPoint.globalGravity, MathHelper.vectZero))
                 {
-                    this.totalForce = MathHelper.vectAdd(this.totalForce, MathHelper.vectMult(MaterialPoint.globalGravity, this.weight));
+                    totalForce = MathHelper.vectAdd(totalForce, MathHelper.vectMult(MaterialPoint.globalGravity, weight));
                 }
                 else
                 {
-                    this.totalForce = MathHelper.vectAdd(this.totalForce, this.gravity);
+                    totalForce = MathHelper.vectAdd(totalForce, gravity);
                 }
             }
-            if (this.highestForceIndex != -1)
+            if (highestForceIndex != -1)
             {
-                for (int i = 0; i <= this.highestForceIndex; i++)
+                for (int i = 0; i <= highestForceIndex; i++)
                 {
-                    this.totalForce = MathHelper.vectAdd(this.totalForce, this.forces[i]);
+                    totalForce = MathHelper.vectAdd(totalForce, forces[i]);
                 }
             }
-            this.totalForce = MathHelper.vectMult(this.totalForce, this.invWeight);
-            this.a = MathHelper.vectMult(this.totalForce, (float)((double)delta / 1.0));
-            this.v = MathHelper.vectAdd(this.v, this.a);
-            this.posDelta = MathHelper.vectMult(this.v, (float)((double)delta / 1.0));
-            this.pos = MathHelper.vectAdd(this.pos, this.posDelta);
+            totalForce = MathHelper.vectMult(totalForce, invWeight);
+            a = MathHelper.vectMult(totalForce, (float)((double)delta / 1.0));
+            v = MathHelper.vectAdd(v, a);
+            posDelta = MathHelper.vectMult(v, (float)((double)delta / 1.0));
+            pos = MathHelper.vectAdd(pos, posDelta);
         }
 
         // Token: 0x06000153 RID: 339 RVA: 0x0000A738 File Offset: 0x00008938

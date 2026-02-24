@@ -47,25 +47,25 @@ namespace ctr_wp7.game
             Vector vector13 = MathHelper.vectSub(vector10, vector6);
             Vector vector14 = MathHelper.vectAdd(vector7, vector6);
             Vector vector15 = MathHelper.vectAdd(vector11, vector6);
-            this.cverts[0] = vector5.x;
-            this.cverts[1] = vector5.y;
-            this.cverts[2] = vector10.x;
-            this.cverts[3] = vector10.y;
-            this.cverts[4] = vector12.x;
-            this.cverts[5] = vector12.y;
-            this.cverts[6] = vector13.x;
-            this.cverts[7] = vector13.y;
-            this.cverts[8] = vector14.x;
-            this.cverts[9] = vector14.y;
-            this.cverts[10] = vector15.x;
-            this.cverts[11] = vector15.y;
-            this.cverts[12] = vector7.x;
-            this.cverts[13] = vector7.y;
-            this.cverts[14] = vector11.x;
-            this.cverts[15] = vector11.y;
+            cverts[0] = vector5.x;
+            cverts[1] = vector5.y;
+            cverts[2] = vector10.x;
+            cverts[3] = vector10.y;
+            cverts[4] = vector12.x;
+            cverts[5] = vector12.y;
+            cverts[6] = vector13.x;
+            cverts[7] = vector13.y;
+            cverts[8] = vector14.x;
+            cverts[9] = vector14.y;
+            cverts[10] = vector15.x;
+            cverts[11] = vector15.y;
+            cverts[12] = vector7.x;
+            cverts[13] = vector7.y;
+            cverts[14] = vector11.x;
+            cverts[15] = vector11.y;
             Bungee.ccolors[2] = (Bungee.ccolors[3] = (Bungee.ccolors[4] = (Bungee.ccolors[5] = color)));
             OpenGL.glColorPointer_add(4, 5, 0, Bungee.ccolors);
-            OpenGL.glVertexPointer_add(2, 5, 0, this.cverts);
+            OpenGL.glVertexPointer_add(2, 5, 0, cverts);
         }
 
         // Token: 0x06000683 RID: 1667 RVA: 0x00032098 File Offset: 0x00030298
@@ -165,7 +165,7 @@ namespace ctr_wp7.game
                     OpenGL.glColorPointer_setAdditive(8 * (num20 - 1));
                     for (int i = 0; i < num20 - 1; i++)
                     {
-                        this.drawAntialiasedLineContinued(array[i * 2], array[i * 2 + 1], array[i * 2 + 2], array[i * 2 + 3], (float)b.width, rgbacolor10, ref num16, ref num17, ref num18, ref num19);
+                        drawAntialiasedLineContinued(array[i * 2], array[i * 2 + 1], array[i * 2 + 2], array[i * 2 + 3], (float)b.width, rgbacolor10, ref num16, ref num17, ref num18, ref num19);
                     }
                     OpenGL.glDrawArrays(8, 0, 8);
                     array[0] = array[num7 - 2];
@@ -195,44 +195,44 @@ namespace ctr_wp7.game
         {
             if (base.init() != null)
             {
-                this.relaxationTimes = 30;
-                this.lineWidth = 3f;
-                this.width = 2;
-                this.cut = -1;
-                this.bungeeMode = 0;
+                relaxationTimes = 30;
+                lineWidth = 3f;
+                width = 2;
+                cut = -1;
+                bungeeMode = 0;
                 if (h != null)
                 {
-                    this.bungeeAnchor = h;
+                    bungeeAnchor = h;
                 }
                 else
                 {
-                    this.bungeeAnchor = (ConstraintedPoint)new ConstraintedPoint().init();
+                    bungeeAnchor = (ConstraintedPoint)new ConstraintedPoint().init();
                 }
                 if (t != null)
                 {
-                    this.tail = t;
+                    tail = t;
                 }
                 else
                 {
-                    this.tail = (ConstraintedPoint)new ConstraintedPoint().init();
+                    tail = (ConstraintedPoint)new ConstraintedPoint().init();
                 }
-                this.bungeeAnchor.setWeight(0.02f);
-                this.bungeeAnchor.pos = MathHelper.vect(hx, hy);
-                this.tail.pos = MathHelper.vect(tx, ty);
-                this.tail.setWeight(1f);
-                this.addPart(this.bungeeAnchor);
-                this.addPart(this.tail);
-                this.tail.addConstraintwithRestLengthofType(this.bungeeAnchor, 30f, Constraint.CONSTRAINT.CONSTRAINT_DISTANCE);
-                Vector vector = MathHelper.vectSub(this.tail.pos, this.bungeeAnchor.pos);
+                bungeeAnchor.setWeight(0.02f);
+                bungeeAnchor.pos = MathHelper.vect(hx, hy);
+                tail.pos = MathHelper.vect(tx, ty);
+                tail.setWeight(1f);
+                addPart(bungeeAnchor);
+                addPart(tail);
+                tail.addConstraintwithRestLengthofType(bungeeAnchor, 30f, Constraint.CONSTRAINT.CONSTRAINT_DISTANCE);
+                Vector vector = MathHelper.vectSub(tail.pos, bungeeAnchor.pos);
                 int num = (int)(len / 30f + 2f);
                 vector = MathHelper.vectDiv(vector, (float)num);
-                this.rollplacingWithOffset(len, vector);
-                this.forceWhite = false;
-                this.initialCandleAngle = -1f;
-                this.chosenOne = false;
-                this.hideTailParts = false;
-                this.dontDrawRedStretch = false;
-                this.alternateColors = false;
+                rollplacingWithOffset(len, vector);
+                forceWhite = false;
+                initialCandleAngle = -1f;
+                chosenOne = false;
+                hideTailParts = false;
+                dontDrawRedStretch = false;
+                alternateColors = false;
             }
             return this;
         }
@@ -246,10 +246,10 @@ namespace ctr_wp7.game
             }
             int num = 0;
             Vector vector = MathHelper.vectZero;
-            int count = this.parts.Count;
+            int count = parts.Count;
             for (int i = 0; i < count; i++)
             {
-                ConstraintedPoint constraintedPoint = this.parts[i];
+                ConstraintedPoint constraintedPoint = parts[i];
                 if (i > 0)
                 {
                     num += (int)MathHelper.vectDistance(vector, constraintedPoint.pos);
@@ -263,17 +263,17 @@ namespace ctr_wp7.game
         public virtual float rollBack(float amount)
         {
             float num = amount;
-            ConstraintedPoint constraintedPoint = this.parts[this.parts.Count - 2];
-            int num2 = (int)this.tail.restLengthFor(constraintedPoint);
-            int num3 = this.parts.Count;
+            ConstraintedPoint constraintedPoint = parts[parts.Count - 2];
+            int num2 = (int)tail.restLengthFor(constraintedPoint);
+            int num3 = parts.Count;
             while (num > 0f)
             {
                 if (num >= 30f)
                 {
-                    ConstraintedPoint constraintedPoint2 = this.parts[num3 - 2];
-                    ConstraintedPoint constraintedPoint3 = this.parts[num3 - 3];
-                    this.tail.changeConstraintFromTowithRestLength(constraintedPoint2, constraintedPoint3, (float)num2);
-                    this.parts.RemoveAt(this.parts.Count - 2);
+                    ConstraintedPoint constraintedPoint2 = parts[num3 - 2];
+                    ConstraintedPoint constraintedPoint3 = parts[num3 - 3];
+                    tail.changeConstraintFromTowithRestLength(constraintedPoint2, constraintedPoint3, (float)num2);
+                    parts.RemoveAt(parts.Count - 2);
                     num3--;
                     num -= 30f;
                 }
@@ -287,16 +287,16 @@ namespace ctr_wp7.game
                     }
                     else
                     {
-                        ConstraintedPoint constraintedPoint4 = this.parts[num3 - 2];
-                        this.tail.changeRestLengthToFor((float)num4, constraintedPoint4);
+                        ConstraintedPoint constraintedPoint4 = parts[num3 - 2];
+                        tail.changeRestLengthToFor((float)num4, constraintedPoint4);
                         num = 0f;
                     }
                 }
             }
-            int count = this.tail.constraints.Count;
+            int count = tail.constraints.Count;
             for (int i = 0; i < count; i++)
             {
-                Constraint constraint = this.tail.constraints[i];
+                Constraint constraint = tail.constraints[i];
                 if (constraint != null && constraint.type == Constraint.CONSTRAINT.CONSTRAINT_NOT_MORE_THAN)
                 {
                     constraint.restLength = (float)(num3 - 1) * 33f;
@@ -308,24 +308,24 @@ namespace ctr_wp7.game
         // Token: 0x06000687 RID: 1671 RVA: 0x00032887 File Offset: 0x00030A87
         public virtual void roll(float rollLen)
         {
-            this.rollplacingWithOffset(rollLen, MathHelper.vectZero);
+            rollplacingWithOffset(rollLen, MathHelper.vectZero);
         }
 
         // Token: 0x06000688 RID: 1672 RVA: 0x00032898 File Offset: 0x00030A98
         public virtual void rollplacingWithOffset(float rollLen, Vector off)
         {
-            ConstraintedPoint constraintedPoint = this.parts[this.parts.Count - 2];
-            int num = (int)this.tail.restLengthFor(constraintedPoint);
+            ConstraintedPoint constraintedPoint = parts[parts.Count - 2];
+            int num = (int)tail.restLengthFor(constraintedPoint);
             while (rollLen > 0f)
             {
                 if (rollLen >= 30f)
                 {
-                    ConstraintedPoint constraintedPoint2 = this.parts[this.parts.Count - 2];
+                    ConstraintedPoint constraintedPoint2 = parts[parts.Count - 2];
                     ConstraintedPoint constraintedPoint3 = (ConstraintedPoint)new ConstraintedPoint().init();
                     constraintedPoint3.setWeight(0.02f);
                     constraintedPoint3.pos = MathHelper.vectAdd(constraintedPoint2.pos, off);
-                    this.addPartAt(constraintedPoint3, this.parts.Count - 1);
-                    this.tail.changeConstraintFromTowithRestLength(constraintedPoint2, constraintedPoint3, (float)num);
+                    addPartAt(constraintedPoint3, parts.Count - 1);
+                    tail.changeConstraintFromTowithRestLength(constraintedPoint2, constraintedPoint3, (float)num);
                     constraintedPoint3.addConstraintwithRestLengthofType(constraintedPoint2, 30f, Constraint.CONSTRAINT.CONSTRAINT_DISTANCE);
                     rollLen -= 30f;
                 }
@@ -339,8 +339,8 @@ namespace ctr_wp7.game
                     }
                     else
                     {
-                        ConstraintedPoint constraintedPoint4 = this.parts[this.parts.Count - 2];
-                        this.tail.changeRestLengthToFor((float)num2, constraintedPoint4);
+                        ConstraintedPoint constraintedPoint4 = parts[parts.Count - 2];
+                        tail.changeRestLengthToFor((float)num2, constraintedPoint4);
                         rollLen = 0f;
                     }
                 }
@@ -350,12 +350,12 @@ namespace ctr_wp7.game
         // Token: 0x06000689 RID: 1673 RVA: 0x000329C0 File Offset: 0x00030BC0
         public virtual void removePart(int part)
         {
-            this.forceWhite = false;
-            ConstraintedPoint constraintedPoint = this.parts[part];
+            forceWhite = false;
+            ConstraintedPoint constraintedPoint = parts[part];
             ConstraintedPoint constraintedPoint2;
-            if (part + 1 < this.parts.Count)
+            if (part + 1 < parts.Count)
             {
-                constraintedPoint2 = this.parts[part + 1];
+                constraintedPoint2 = parts[part + 1];
             }
             else
             {
@@ -377,16 +377,16 @@ namespace ctr_wp7.game
                         constraintedPoint3.setWeight(1E-05f);
                         constraintedPoint3.pos = constraintedPoint2.pos;
                         constraintedPoint3.prevPos = constraintedPoint2.prevPos;
-                        this.addPartAt(constraintedPoint3, part + 1);
+                        addPartAt(constraintedPoint3, part + 1);
                         constraintedPoint3.addConstraintwithRestLengthofType(constraintedPoint, 30f, Constraint.CONSTRAINT.CONSTRAINT_DISTANCE);
                         break;
                     }
                 }
             }
-            for (int j = 0; j < this.parts.Count; j++)
+            for (int j = 0; j < parts.Count; j++)
             {
-                ConstraintedPoint constraintedPoint4 = this.parts[j];
-                if (constraintedPoint4 != this.tail)
+                ConstraintedPoint constraintedPoint4 = parts[j];
+                if (constraintedPoint4 != tail)
                 {
                     constraintedPoint4.setWeight(1E-05f);
                 }
@@ -396,29 +396,29 @@ namespace ctr_wp7.game
         // Token: 0x0600068A RID: 1674 RVA: 0x00032ADF File Offset: 0x00030CDF
         public virtual void setCut(int part)
         {
-            this.cut = part;
-            this.cutTime = 2f;
-            this.forceWhite = true;
+            cut = part;
+            cutTime = 2f;
+            forceWhite = true;
         }
 
         // Token: 0x0600068B RID: 1675 RVA: 0x00032AFC File Offset: 0x00030CFC
         public virtual void strengthen()
         {
-            int count = this.parts.Count;
+            int count = parts.Count;
             for (int i = 0; i < count; i++)
             {
-                ConstraintedPoint constraintedPoint = this.parts[i];
+                ConstraintedPoint constraintedPoint = parts[i];
                 if (constraintedPoint != null)
                 {
-                    if (this.bungeeAnchor.pin.x != -1f)
+                    if (bungeeAnchor.pin.x != -1f)
                     {
-                        if (constraintedPoint != this.tail)
+                        if (constraintedPoint != tail)
                         {
                             constraintedPoint.setWeight(0.5f);
                         }
                         if (i != 0)
                         {
-                            constraintedPoint.addConstraintwithRestLengthofType(this.bungeeAnchor, (float)i * 33f, Constraint.CONSTRAINT.CONSTRAINT_NOT_MORE_THAN);
+                            constraintedPoint.addConstraintwithRestLengthofType(bungeeAnchor, (float)i * 33f, Constraint.CONSTRAINT.CONSTRAINT_NOT_MORE_THAN);
                         }
                     }
                     i++;
@@ -429,35 +429,35 @@ namespace ctr_wp7.game
         // Token: 0x0600068C RID: 1676 RVA: 0x00032B78 File Offset: 0x00030D78
         public override void update(float delta)
         {
-            this.update(delta, 1f);
+            update(delta, 1f);
         }
 
         // Token: 0x0600068D RID: 1677 RVA: 0x00032B88 File Offset: 0x00030D88
         public virtual void update(float delta, float koeff)
         {
-            if ((double)this.cutTime > 0.0)
+            if ((double)cutTime > 0.0)
             {
-                Mover.moveVariableToTarget(ref this.cutTime, 0f, 1f, delta);
-                if (this.cutTime < 1.95f && this.forceWhite)
+                Mover.moveVariableToTarget(ref cutTime, 0f, 1f, delta);
+                if (cutTime < 1.95f && forceWhite)
                 {
-                    this.removePart(this.cut);
+                    removePart(cut);
                 }
             }
-            int count = this.parts.Count;
+            int count = parts.Count;
             for (int i = 0; i < count; i++)
             {
-                ConstraintedPoint constraintedPoint = this.parts[i];
-                if (constraintedPoint != this.tail)
+                ConstraintedPoint constraintedPoint = parts[i];
+                if (constraintedPoint != tail)
                 {
                     ConstraintedPoint.qcpupdate(constraintedPoint, delta, koeff);
                 }
             }
-            for (int j = 0; j < this.relaxationTimes; j++)
+            for (int j = 0; j < relaxationTimes; j++)
             {
-                int count2 = this.parts.Count;
+                int count2 = parts.Count;
                 for (int k = 0; k < count2; k++)
                 {
-                    ConstraintedPoint constraintedPoint2 = this.parts[k];
+                    ConstraintedPoint constraintedPoint2 = parts[k];
                     ConstraintedPoint.satisfyConstraints(constraintedPoint2);
                 }
             }
@@ -466,17 +466,17 @@ namespace ctr_wp7.game
         // Token: 0x0600068E RID: 1678 RVA: 0x00032C5C File Offset: 0x00030E5C
         public override void draw()
         {
-            int count = this.parts.Count;
+            int count = parts.Count;
             OpenGL.SetRopeColor();
-            if (this.cut == -1)
+            if (cut == -1)
             {
                 Vector[] array = new Vector[count];
                 for (int i = 0; i < count; i++)
                 {
-                    ConstraintedPoint constraintedPoint = this.parts[i];
+                    ConstraintedPoint constraintedPoint = parts[i];
                     array[i] = constraintedPoint.pos;
                 }
-                this.drawBungee(this, array, count, 3);
+                drawBungee(this, array, count, 3);
                 return;
             }
             Vector[] array2 = new Vector[count];
@@ -485,11 +485,11 @@ namespace ctr_wp7.game
             int num = 0;
             for (int j = 0; j < count; j++)
             {
-                ConstraintedPoint constraintedPoint2 = this.parts[j];
+                ConstraintedPoint constraintedPoint2 = parts[j];
                 bool flag2 = true;
                 if (j > 0)
                 {
-                    ConstraintedPoint constraintedPoint3 = this.parts[j - 1];
+                    ConstraintedPoint constraintedPoint3 = parts[j - 1];
                     if (!constraintedPoint2.hasConstraintTo(constraintedPoint3))
                     {
                         flag2 = false;
@@ -513,11 +513,11 @@ namespace ctr_wp7.game
             int num2 = count - num;
             if (num2 > 0)
             {
-                this.drawBungee(this, array2, num2, 3);
+                drawBungee(this, array2, num2, 3);
             }
-            if (num > 0 && !this.hideTailParts)
+            if (num > 0 && !hideTailParts)
             {
-                this.drawBungee(this, array3, num, 3);
+                drawBungee(this, array3, num, 3);
             }
         }
 

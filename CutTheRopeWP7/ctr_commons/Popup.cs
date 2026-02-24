@@ -18,13 +18,13 @@ namespace ctr_wp7.ctr_commons
                 timeline.addKeyFrame(KeyFrame.makeScale(1.1, 1.1, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.3));
                 timeline.addKeyFrame(KeyFrame.makeScale(0.9, 0.9, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.1));
                 timeline.addKeyFrame(KeyFrame.makeScale(1.0, 1.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.2));
-                this.addTimeline(timeline);
+                addTimeline(timeline);
                 timeline = new Timeline().initWithMaxKeyFramesOnTrack(2);
                 timeline.addKeyFrame(KeyFrame.makeScale(1.0, 1.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
                 timeline.addKeyFrame(KeyFrame.makeScale(0.0, 0.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.3));
-                this.width = (int)FrameworkTypes.SCREEN_WIDTH;
-                this.height = (int)FrameworkTypes.SCREEN_HEIGHT;
-                this.addTimeline(timeline);
+                width = (int)FrameworkTypes.SCREEN_WIDTH;
+                height = (int)FrameworkTypes.SCREEN_HEIGHT;
+                addTimeline(timeline);
                 timeline.delegateTimelineDelegate = this;
             }
             return this;
@@ -52,7 +52,7 @@ namespace ctr_wp7.ctr_commons
         // Token: 0x0600032D RID: 813 RVA: 0x00014848 File Offset: 0x00012A48
         public virtual void timelineFinished(Timeline t)
         {
-            View view = (View)this.parent;
+            View view = (View)parent;
             if (view != null)
             {
                 view.removeChild(this);
@@ -62,21 +62,21 @@ namespace ctr_wp7.ctr_commons
         // Token: 0x0600032E RID: 814 RVA: 0x0001486B File Offset: 0x00012A6B
         public virtual void showPopup()
         {
-            this.isShow = true;
-            this.playTimeline(0);
+            isShow = true;
+            playTimeline(0);
         }
 
         // Token: 0x0600032F RID: 815 RVA: 0x0001487B File Offset: 0x00012A7B
         public virtual void hidePopup()
         {
-            this.isShow = false;
-            this.playTimeline(1);
+            isShow = false;
+            playTimeline(1);
         }
 
         // Token: 0x06000330 RID: 816 RVA: 0x0001488B File Offset: 0x00012A8B
         public override bool onTouchDownXY(float tx, float ty)
         {
-            if (this.isShow)
+            if (isShow)
             {
                 base.onTouchDownXY(tx, ty);
             }
@@ -86,7 +86,7 @@ namespace ctr_wp7.ctr_commons
         // Token: 0x06000331 RID: 817 RVA: 0x0001489F File Offset: 0x00012A9F
         public override bool onTouchUpXY(float tx, float ty)
         {
-            if (this.isShow)
+            if (isShow)
             {
                 base.onTouchUpXY(tx, ty);
             }
@@ -96,7 +96,7 @@ namespace ctr_wp7.ctr_commons
         // Token: 0x06000332 RID: 818 RVA: 0x000148B3 File Offset: 0x00012AB3
         public override bool onTouchMoveXY(float tx, float ty)
         {
-            if (this.isShow)
+            if (isShow)
             {
                 base.onTouchMoveXY(tx, ty);
             }

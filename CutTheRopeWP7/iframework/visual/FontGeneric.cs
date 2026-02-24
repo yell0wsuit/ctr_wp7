@@ -14,8 +14,8 @@ namespace ctr_wp7.iframework.visual
             float num3 = 0f;
             for (int i = 0; i < num2; i++)
             {
-                num3 = this.getCharOffset(characters, i, num2);
-                num += this.getCharWidth(characters[i]) + num3;
+                num3 = getCharOffset(characters, i, num2);
+                num += getCharWidth(characters[i]) + num3;
             }
             return num - num3;
         }
@@ -44,7 +44,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060001E1 RID: 481 RVA: 0x0000C9BE File Offset: 0x0000ABBE
         public virtual float getLineOffset()
         {
-            return this.lineOffset;
+            return lineOffset;
         }
 
         // Token: 0x060001E2 RID: 482 RVA: 0x0000C9C6 File Offset: 0x0000ABC6

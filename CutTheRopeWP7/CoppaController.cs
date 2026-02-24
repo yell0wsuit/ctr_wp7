@@ -23,7 +23,7 @@ internal class CoppaController : ViewController, ButtonDelegate, TimelineDelegat
         base.initWithParent(p);
         float num = FrameworkTypes.SCREEN_HEIGHT * 0.03f;
         CoppaView coppaView = (CoppaView)new CoppaView().initFullscreen();
-        this.addViewwithID(coppaView, CoppaController.COPPA_VIEW_MAIN);
+        addViewwithID(coppaView, CoppaController.COPPA_VIEW_MAIN);
         coppaView.blendingMode = 1;
         Image image = Image.Image_createWithResIDQuad(407, 0);
         image.parentAnchor = (image.anchor = 18);
@@ -31,9 +31,9 @@ internal class CoppaController : ViewController, ButtonDelegate, TimelineDelegat
         image.scaleY = FrameworkTypes.SCREEN_BG_SCALE_Y;
         image.scaleX = FrameworkTypes.SCREEN_BG_SCALE_X;
         coppaView.addChild(image);
-        this.okb = MenuController.createShortButtonWithTextIDDelegate(Application.getString(1310754), CoppaController.COPPA_BUTTON_OK, this);
-        Image.setElementPositionWithQuadCenter(this.okb, 409, 8);
-        coppaView.addChild(this.okb);
+        okb = MenuController.createShortButtonWithTextIDDelegate(Application.getString(1310754), CoppaController.COPPA_BUTTON_OK, this);
+        Image.setElementPositionWithQuadCenter(okb, 409, 8);
+        coppaView.addChild(okb);
         Vector vector = MathHelper.vectMult(Image.getQuadSize(409, 10), 0.2f);
         Text text = Text.createWithFontandString(5, Application.getString(3276952));
         text.setAlignment(2);
@@ -77,14 +77,14 @@ internal class CoppaController : ViewController, ButtonDelegate, TimelineDelegat
         timeline.addKeyFrame(KeyFrame.makePos((double)(image2.x + 3f), (double)image2.y, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.05));
         timeline.addKeyFrame(KeyFrame.makePos((double)image2.x, (double)image2.y, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.05));
         image2.addTimeline(timeline);
-        this.roll = new Rollbar().Create();
-        this.roll.setName("agePicker");
-        Image.setElementPositionWithQuadOffset(this.roll, 409, 0);
-        this.roll.x -= FrameworkTypes.SCREEN_OFFSET_X;
-        this.roll.y -= FrameworkTypes.SCREEN_OFFSET_Y;
-        this.roll.scrollWithSpeed(-16300f);
-        coppaView.addChild(this.roll);
-        this.okb.x = FrameworkTypes.SCREEN_WIDTH / 2f;
+        roll = new Rollbar().Create();
+        roll.setName("agePicker");
+        Image.setElementPositionWithQuadOffset(roll, 409, 0);
+        roll.x -= FrameworkTypes.SCREEN_OFFSET_X;
+        roll.y -= FrameworkTypes.SCREEN_OFFSET_Y;
+        roll.scrollWithSpeed(-16300f);
+        coppaView.addChild(roll);
+        okb.x = FrameworkTypes.SCREEN_WIDTH / 2f;
         Button button = new Button().initWithUpElementDownElementandID(Image.Image_createWithResIDQuad(409, 6), Image.Image_createWithResIDQuad(409, 7), CoppaController.COPPA_BUTTON_PRIVACY);
         button.delegateButtonDelegate = this;
         button.y = FrameworkTypes.SCREEN_HEIGHT - 40f;
@@ -106,25 +106,25 @@ internal class CoppaController : ViewController, ButtonDelegate, TimelineDelegat
             }
             return;
         }
-        if (this.ageValid())
+        if (ageValid())
         {
             CTRPreferences ctrpreferences = Application.sharedPreferences();
             ctrpreferences.setCoppaShowed(true);
-            int num = this.getSelectedAge();
+            int num = getSelectedAge();
             ctrpreferences.setCoppaRestricted(num < 13);
             if (num < 13)
             {
                 FrameworkTypes.FlurryAPI.enabled = false;
                 num = -1;
             }
-            this.trackCoppaParams(num);
+            trackCoppaParams(num);
             ctrpreferences.setUserAge(num);
-            this.deactivate();
+            deactivate();
             return;
         }
-        BaseElement childWithName = this.activeView().getChildWithName(NSObject.NSS("baloon"));
-        BaseElement childWithName2 = this.activeView().getChildWithName(NSObject.NSS("baloonText"));
-        Rollbar rollbar = (Rollbar)this.activeView().getChildWithName(NSObject.NSS("agePicker"));
+        BaseElement childWithName = activeView().getChildWithName(NSObject.NSS("baloon"));
+        BaseElement childWithName2 = activeView().getChildWithName(NSObject.NSS("baloonText"));
+        Rollbar rollbar = (Rollbar)activeView().getChildWithName(NSObject.NSS("agePicker"));
         if (Math.Abs(rollbar.getOffsetY()) > 1f)
         {
             return;
@@ -153,33 +153,33 @@ internal class CoppaController : ViewController, ButtonDelegate, TimelineDelegat
     // Token: 0x06000671 RID: 1649 RVA: 0x00031929 File Offset: 0x0002FB29
     private bool ageValid()
     {
-        return this.getSelectedAge() >= CoppaController.minAge && this.getSelectedAge() <= CoppaController.maxAge;
+        return getSelectedAge() >= CoppaController.minAge && getSelectedAge() <= CoppaController.maxAge;
     }
 
     // Token: 0x06000672 RID: 1650 RVA: 0x0003194A File Offset: 0x0002FB4A
     private int getSelectedAge()
     {
-        return this.roll.getIndex() + 1;
+        return roll.getIndex() + 1;
     }
 
     // Token: 0x06000673 RID: 1651 RVA: 0x00031959 File Offset: 0x0002FB59
     public override void activate()
     {
         base.activate();
-        this.showView(CoppaController.COPPA_VIEW_MAIN);
+        showView(CoppaController.COPPA_VIEW_MAIN);
     }
 
     // Token: 0x06000674 RID: 1652 RVA: 0x0003196C File Offset: 0x0002FB6C
     public override void update(float delta)
     {
         base.update(delta);
-        this.okb.color = new RGBAColor(1f, 1f, 1f, (float)((this.ageValid() ? 1 : 0) + 1) * 0.5f);
+        okb.color = new RGBAColor(1f, 1f, 1f, (float)((ageValid() ? 1 : 0) + 1) * 0.5f);
     }
 
     // Token: 0x06000675 RID: 1653 RVA: 0x000319AC File Offset: 0x0002FBAC
     public void trackCoppaParams(int age)
     {
-        string text = string.Format("{0}age={1}&app={2}", CoppaController.COPPA_URL, age, this.getAppName());
+        string text = string.Format("{0}age={1}&app={2}", CoppaController.COPPA_URL, age, getAppName());
         WebRequest.Create(text);
     }
 

@@ -107,15 +107,15 @@ namespace ctr_wp7.iframework.core
         // Token: 0x06000136 RID: 310 RVA: 0x0000A230 File Offset: 0x00008430
         public virtual void applicationDidFinishLaunching(UIApplication application)
         {
-            Application.appSettings = this.createAppSettings();
-            Application.canvas = this.createCanvas();
+            Application.appSettings = createAppSettings();
+            Application.canvas = createCanvas();
             if (Application.resourceMgr == null)
             {
-                Application.resourceMgr = this.createResourceMgr();
+                Application.resourceMgr = createResourceMgr();
             }
-            Application.root = this.createRootController();
-            Application.soundMgr = this.createSoundMgr();
-            Application.prefs = this.createPreferences();
+            Application.root = createRootController();
+            Application.soundMgr = createSoundMgr();
+            Application.prefs = createPreferences();
             Application.canvas.touchDelegate = Application.root;
             Application.canvas.show();
             Application.root.activate();

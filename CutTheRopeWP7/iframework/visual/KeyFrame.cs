@@ -8,7 +8,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060004AB RID: 1195 RVA: 0x00021ED5 File Offset: 0x000200D5
         public KeyFrame()
         {
-            this.value = new KeyFrameValue();
+            value = new KeyFrameValue();
         }
 
         // Token: 0x060004AC RID: 1196 RVA: 0x00021EE8 File Offset: 0x000200E8

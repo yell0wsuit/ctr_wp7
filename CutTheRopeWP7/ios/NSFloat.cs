@@ -15,7 +15,7 @@
         // Token: 0x0600058C RID: 1420 RVA: 0x00029EC3 File Offset: 0x000280C3
         public virtual float floatValue()
         {
-            return this._value;
+            return _value;
         }
 
         // Token: 0x04000ADD RID: 2781

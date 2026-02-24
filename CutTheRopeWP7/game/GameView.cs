@@ -16,22 +16,22 @@ namespace ctr_wp7.game
             {
                 return null;
             }
-            this.videoAdLoading = false;
-            this.loadingText = new Text().initWithFont(Application.getFont(5));
-            this.loadingText.setAlignment(2);
+            videoAdLoading = false;
+            loadingText = new Text().initWithFont(Application.getFont(5));
+            loadingText.setAlignment(2);
             if (ResDataPhoneFull.LANGUAGE == Language.LANG_KO)
             {
-                this.loadingText.setStringandWidth(Application.getString(1310752), 200.0);
+                loadingText.setStringandWidth(Application.getString(1310752), 200.0);
             }
             else
             {
-                this.loadingText.setStringandWidth(Application.getString(1310752), 300.0);
+                loadingText.setStringandWidth(Application.getString(1310752), 300.0);
             }
-            this.loadingText.anchor = (this.loadingText.parentAnchor = 34);
-            this.loadingText.visible = false;
-            this.addChildwithID(this.loadingText, 6);
-            this.skipAd = (AdSkipper)new AdSkipper().init();
-            this.addChildwithID(this.skipAd, 7);
+            loadingText.anchor = (loadingText.parentAnchor = 34);
+            loadingText.visible = false;
+            addChildwithID(loadingText, 6);
+            skipAd = (AdSkipper)new AdSkipper().init();
+            addChildwithID(skipAd, 7);
             return this;
         }
 
@@ -50,10 +50,10 @@ namespace ctr_wp7.game
         // Token: 0x06000537 RID: 1335 RVA: 0x00026208 File Offset: 0x00024408
         public override void draw()
         {
-            int num = this.childsCount();
+            int num = childsCount();
             for (int i = 0; i < num; i++)
             {
-                BaseElement child = this.getChild(i);
+                BaseElement child = getChild(i);
                 if (child.visible)
                 {
                     int num2 = i;
@@ -69,7 +69,7 @@ namespace ctr_wp7.game
                     child.draw();
                 }
             }
-            if (this.videoAdLoading || this.skipAd.active)
+            if (videoAdLoading || skipAd.active)
             {
                 OpenGL.glDisable(0);
                 OpenGL.glEnable(1);
@@ -77,16 +77,16 @@ namespace ctr_wp7.game
                 GLDrawer.drawSolidRectWOBorder(-FrameworkTypes.SCREEN_OFFSET_X, -FrameworkTypes.SCREEN_OFFSET_Y, FrameworkTypes.SCREEN_WIDTH_EXPANDED, FrameworkTypes.SCREEN_HEIGHT_EXPANDED, RGBAColor.MakeRGBA(0.0, 0.0, 0.0, 0.5));
                 OpenGL.SetWhiteColor();
                 OpenGL.glEnable(0);
-                if (this.videoAdLoading)
+                if (videoAdLoading)
                 {
-                    this.loadingText.draw();
+                    loadingText.draw();
                 }
-                if (this.skipAd.active && (double)this.skipAd.timerNoDraw >= 2.5)
+                if (skipAd.active && (double)skipAd.timerNoDraw >= 2.5)
                 {
-                    this.skipAd.draw();
+                    skipAd.draw();
                 }
             }
-            GameScene gameScene = (GameScene)this.getChild(0);
+            GameScene gameScene = (GameScene)getChild(0);
             if ((double)gameScene.dimTime > 0.0)
             {
                 float num3 = gameScene.dimTime / 0.15f;
@@ -113,13 +113,13 @@ namespace ctr_wp7.game
         // Token: 0x06000539 RID: 1337 RVA: 0x0002642A File Offset: 0x0002462A
         public void setJSkipper(object skipper)
         {
-            this.skipAd.setJskipper(skipper);
+            skipAd.setJskipper(skipper);
         }
 
         // Token: 0x0600053A RID: 1338 RVA: 0x00026438 File Offset: 0x00024638
         public void unsetJSkipper()
         {
-            this.skipAd.freeJskipper();
+            skipAd.freeJskipper();
         }
 
         // Token: 0x04000A7F RID: 2687

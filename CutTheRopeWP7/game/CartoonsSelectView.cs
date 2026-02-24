@@ -15,15 +15,15 @@ namespace ctr_wp7.game
         {
             if (base.initFullscreen() != null)
             {
-                this.buttonDelegate = d;
+                buttonDelegate = d;
                 float num = 20f;
                 float num2 = 30f;
-                this.sheight = FrameworkTypes.SCREEN_HEIGHT_EXPANDED - 60f - 2f * num;
+                sheight = FrameworkTypes.SCREEN_HEIGHT_EXPANDED - 60f - 2f * num;
                 BaseElement baseElement = (BaseElement)new BaseElement().init();
                 baseElement.x = -FrameworkTypes.SCREEN_OFFSET_X;
                 baseElement.y = num - FrameworkTypes.SCREEN_OFFSET_Y;
                 baseElement.width = (int)FrameworkTypes.SCREEN_WIDTH_EXPANDED;
-                baseElement.height = (int)this.sheight;
+                baseElement.height = (int)sheight;
                 Image image = Image.Image_createWithResIDQuad(403, 11);
                 image.anchor = 18;
                 image.parentAnchor = 10;
@@ -33,10 +33,10 @@ namespace ctr_wp7.game
                 image2.anchor = 18;
                 image2.parentAnchor = 34;
                 baseElement.addChild(image2);
-                this.box = new VBox().initWithOffsetAlignWidth(num2, 2, FrameworkTypes.SCREEN_WIDTH);
-                this.buildBlocks();
+                box = new VBox().initWithOffsetAlignWidth(num2, 2, FrameworkTypes.SCREEN_WIDTH);
+                buildBlocks();
                 float num3 = 3f;
-                ScrollableContainer scrollableContainer = new ScrollableContainer().initWithWidthHeightContainer((float)this.box.width, this.sheight + num3 * 2f, this.box);
+                ScrollableContainer scrollableContainer = new ScrollableContainer().initWithWidthHeightContainer((float)box.width, sheight + num3 * 2f, box);
                 scrollableContainer.shouldBounceVertically = true;
                 scrollableContainer.resetScrollOnShow = false;
                 scrollableContainer.untouchChildsOnMove = true;
@@ -53,23 +53,23 @@ namespace ctr_wp7.game
                 image4.scaleY = -1f;
                 baseElement.addChild(image4);
                 int num4 = 48;
-                Button button = MenuController.createBackButtonWithDelegateID(this.buttonDelegate, num4);
+                Button button = MenuController.createBackButtonWithDelegateID(buttonDelegate, num4);
                 background.addChild(button);
                 if (ResDataPhoneFull.LANGUAGE != Language.LANG_ZH)
                 {
                     Application.sharedPreferences().remoteDataManager.getHideSocialNetworks();
                 }
                 background.addChild(baseElement);
-                this.addChild(background);
-                this.curtain = (RectangleElement)new RectangleElement().init();
-                this.curtain.anchor = (this.curtain.parentAnchor = 9);
-                this.curtain.x = -FrameworkTypes.SCREEN_OFFSET_X;
-                this.curtain.y = -FrameworkTypes.SCREEN_OFFSET_Y;
-                this.curtain.width = (int)FrameworkTypes.SCREEN_WIDTH_EXPANDED;
-                this.curtain.height = (int)FrameworkTypes.SCREEN_HEIGHT_EXPANDED;
-                this.curtain.color = RGBAColor.blackRGBA;
-                this.curtain.setEnabled(false);
-                this.addChild(this.curtain);
+                addChild(background);
+                curtain = (RectangleElement)new RectangleElement().init();
+                curtain.anchor = (curtain.parentAnchor = 9);
+                curtain.x = -FrameworkTypes.SCREEN_OFFSET_X;
+                curtain.y = -FrameworkTypes.SCREEN_OFFSET_Y;
+                curtain.width = (int)FrameworkTypes.SCREEN_WIDTH_EXPANDED;
+                curtain.height = (int)FrameworkTypes.SCREEN_HEIGHT_EXPANDED;
+                curtain.color = RGBAColor.blackRGBA;
+                curtain.setEnabled(false);
+                addChild(curtain);
             }
             return this;
         }
@@ -78,33 +78,33 @@ namespace ctr_wp7.game
         public virtual void buildBlocks()
         {
             BaseElement baseElement = (BaseElement)new BaseElement().init();
-            this.box.addChild(baseElement);
+            box.addChild(baseElement);
             BlockConfig blockConfig = VideoDataManager.getBlockConfig();
             int totalBlocks = blockConfig.getTotalBlocks();
             if (totalBlocks > 0)
             {
                 for (int i = 0; i < totalBlocks; i++)
                 {
-                    Button button = ButtonBlock.createWithIDDelegateBlock(4000 + i, this.buttonDelegate, blockConfig.getBlock(i));
-                    this.box.addChild(button);
+                    Button button = ButtonBlock.createWithIDDelegateBlock(4000 + i, buttonDelegate, blockConfig.getBlock(i));
+                    box.addChild(button);
                 }
             }
             else
             {
-                Button button2 = ButtonBlock.createWithIDDelegateBlock(4000, this.buttonDelegate, blockConfig.getBlock(-1));
-                this.box.addChild(button2);
+                Button button2 = ButtonBlock.createWithIDDelegateBlock(4000, buttonDelegate, blockConfig.getBlock(-1));
+                box.addChild(button2);
             }
             BaseElement baseElement2 = (BaseElement)new BaseElement().init();
-            this.box.addChild(baseElement2);
+            box.addChild(baseElement2);
         }
 
         // Token: 0x06000121 RID: 289 RVA: 0x0000A07C File Offset: 0x0000827C
         public virtual void rebuild()
         {
             CartoonsSelectView.needrebuild = false;
-            this.box.removeAllChilds();
-            ((VBox)this.box).nextElementY = 0f;
-            this.buildBlocks();
+            box.removeAllChilds();
+            ((VBox)box).nextElementY = 0f;
+            buildBlocks();
         }
 
         // Token: 0x06000122 RID: 290 RVA: 0x0000A0AA File Offset: 0x000082AA
@@ -116,7 +116,7 @@ namespace ctr_wp7.game
         // Token: 0x06000123 RID: 291 RVA: 0x0000A0B4 File Offset: 0x000082B4
         public virtual void notifyBlockWatched(int blocknum)
         {
-            BaseElement child = this.box.getChild(blocknum + 1);
+            BaseElement child = box.getChild(blocknum + 1);
             if (child != null)
             {
                 BaseElement childWithName = child.getChildWithName(NSObject.NSS("nimbus"));
@@ -130,13 +130,13 @@ namespace ctr_wp7.game
         // Token: 0x06000124 RID: 292 RVA: 0x0000A0EE File Offset: 0x000082EE
         public virtual void openCurtain()
         {
-            this.curtain.setEnabled(true);
+            curtain.setEnabled(true);
         }
 
         // Token: 0x06000125 RID: 293 RVA: 0x0000A0FC File Offset: 0x000082FC
         public virtual void closeCurtain()
         {
-            this.curtain.setEnabled(false);
+            curtain.setEnabled(false);
         }
 
         // Token: 0x06000126 RID: 294 RVA: 0x0000A10A File Offset: 0x0000830A
@@ -144,7 +144,7 @@ namespace ctr_wp7.game
         {
             if (CartoonsSelectView.needrebuild)
             {
-                this.rebuild();
+                rebuild();
             }
             base.update(delta);
         }

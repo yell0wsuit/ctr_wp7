@@ -15,22 +15,22 @@ namespace ctr_wp7.iframework.core
         {
             if (base.initWithParent(p) != null)
             {
-                this.viewTransition = -1;
-                this.transitionTime = -1f;
-                this.previousView = null;
-                this.transitionDelay = 0.3f;
-                this.screenGrabber = (Grabber)new Grabber().init();
-                if (this.prevScreenImage != null && this.prevScreenImage.xnaTexture_ != null)
+                viewTransition = -1;
+                transitionTime = -1f;
+                previousView = null;
+                transitionDelay = 0.3f;
+                screenGrabber = (Grabber)new Grabber().init();
+                if (prevScreenImage != null && prevScreenImage.xnaTexture_ != null)
                 {
-                    this.prevScreenImage.xnaTexture_.Dispose();
+                    prevScreenImage.xnaTexture_.Dispose();
                 }
-                this.prevScreenImage = null;
-                if (this.nextScreenImage != null && this.nextScreenImage.xnaTexture_ != null)
+                prevScreenImage = null;
+                if (nextScreenImage != null && nextScreenImage.xnaTexture_ != null)
                 {
-                    this.nextScreenImage.xnaTexture_.Dispose();
+                    nextScreenImage.xnaTexture_.Dispose();
                 }
-                this.nextScreenImage = null;
-                this.deactivateCurrentController = false;
+                nextScreenImage = null;
+                deactivateCurrentController = false;
             }
             return this;
         }
@@ -38,48 +38,48 @@ namespace ctr_wp7.iframework.core
         // Token: 0x06000405 RID: 1029 RVA: 0x0001CA90 File Offset: 0x0001AC90
         public void performTick(float delta)
         {
-            this.lastTime += delta;
-            if (this.transitionTime == -1f)
+            lastTime += delta;
+            if (transitionTime == -1f)
             {
-                this.currentController.update(delta);
+                currentController.update(delta);
             }
-            if (this.deactivateCurrentController)
+            if (deactivateCurrentController)
             {
-                this.deactivateCurrentController = false;
-                this.currentController.deactivateImmediately();
+                deactivateCurrentController = false;
+                currentController.deactivateImmediately();
             }
         }
 
         // Token: 0x06000406 RID: 1030 RVA: 0x0001CAE0 File Offset: 0x0001ACE0
         public void performDraw()
         {
-            if (this.currentController.activeViewID != -1)
+            if (currentController.activeViewID != -1)
             {
                 Application.sharedCanvas().beforeRender();
                 OpenGL.glPushMatrix();
-                this.applyLandscape();
-                if (this.transitionTime == -1f)
+                applyLandscape();
+                if (transitionTime == -1f)
                 {
-                    this.currentController.activeView().draw();
+                    currentController.activeView().draw();
                 }
                 else
                 {
-                    this.drawViewTransition();
-                    if (this.lastTime > this.transitionTime)
+                    drawViewTransition();
+                    if (lastTime > transitionTime)
                     {
-                        this.transitionTime = -1f;
-                        NSObject.NSREL(this.prevScreenImage);
-                        if (this.prevScreenImage != null && this.prevScreenImage.xnaTexture_ != null)
+                        transitionTime = -1f;
+                        NSObject.NSREL(prevScreenImage);
+                        if (prevScreenImage != null && prevScreenImage.xnaTexture_ != null)
                         {
-                            this.prevScreenImage.xnaTexture_.Dispose();
+                            prevScreenImage.xnaTexture_.Dispose();
                         }
-                        this.prevScreenImage = null;
-                        NSObject.NSREL(this.nextScreenImage);
-                        if (this.nextScreenImage != null && this.nextScreenImage.xnaTexture_ != null)
+                        prevScreenImage = null;
+                        NSObject.NSREL(nextScreenImage);
+                        if (nextScreenImage != null && nextScreenImage.xnaTexture_ != null)
                         {
-                            this.nextScreenImage.xnaTexture_.Dispose();
+                            nextScreenImage.xnaTexture_.Dispose();
                         }
-                        this.nextScreenImage = null;
+                        nextScreenImage = null;
                     }
                 }
                 OpenGL.glPopMatrix();
@@ -95,19 +95,19 @@ namespace ctr_wp7.iframework.core
         // Token: 0x06000408 RID: 1032 RVA: 0x0001CBD3 File Offset: 0x0001ADD3
         public virtual void setViewTransition(int transition)
         {
-            this.viewTransition = transition;
+            viewTransition = transition;
         }
 
         // Token: 0x06000409 RID: 1033 RVA: 0x0001CBDC File Offset: 0x0001ADDC
         public virtual void setTransitionTime()
         {
-            this.transitionTime = this.lastTime + this.transitionDelay;
+            transitionTime = lastTime + transitionDelay;
         }
 
         // Token: 0x0600040A RID: 1034 RVA: 0x0001CBF1 File Offset: 0x0001ADF1
         private void setViewTransitionDelay(float delay)
         {
-            this.transitionDelay = delay;
+            transitionDelay = delay;
         }
 
         // Token: 0x0600040B RID: 1035 RVA: 0x0001CBFC File Offset: 0x0001ADFC
@@ -118,18 +118,18 @@ namespace ctr_wp7.iframework.core
             OpenGL.glEnable(1);
             OpenGL.glBlendFunc(BlendingFactor.GL_SRC_ALPHA, BlendingFactor.GL_ONE_MINUS_SRC_ALPHA);
             Application.sharedCanvas().setDefaultRealProjection();
-            switch (this.viewTransition)
+            switch (viewTransition)
             {
                 case 4:
                 case 5:
                     {
-                        float num = MathHelper.MIN(1.0, (double)((this.transitionDelay - (this.transitionTime - this.lastTime)) / this.transitionDelay));
+                        float num = MathHelper.MIN(1.0, (double)((transitionDelay - (transitionTime - lastTime)) / transitionDelay));
                         if ((double)num < 0.5)
                         {
-                            if (this.prevScreenImage != null)
+                            if (prevScreenImage != null)
                             {
-                                RGBAColor rgbacolor = ((this.viewTransition == 4) ? RGBAColor.MakeRGBA(0.0, 0.0, 0.0, (double)num * 2.0) : RGBAColor.MakeRGBA(1.0, 1.0, 1.0, (double)num * 2.0));
-                                Grabber.drawGrabbedImage(this.prevScreenImage, 0, 0);
+                                RGBAColor rgbacolor = ((viewTransition == 4) ? RGBAColor.MakeRGBA(0.0, 0.0, 0.0, (double)num * 2.0) : RGBAColor.MakeRGBA(1.0, 1.0, 1.0, (double)num * 2.0));
+                                Grabber.drawGrabbedImage(prevScreenImage, 0, 0);
                                 OpenGL.glDisable(0);
                                 OpenGL.glEnable(1);
                                 OpenGL.glBlendFunc(BlendingFactor.GL_SRC_ALPHA, BlendingFactor.GL_ONE_MINUS_SRC_ALPHA);
@@ -138,7 +138,7 @@ namespace ctr_wp7.iframework.core
                             }
                             else
                             {
-                                if (this.viewTransition == 4)
+                                if (viewTransition == 4)
                                 {
                                     OpenGL.glClearColor(0.0, 0.0, 0.0, 1.0);
                                 }
@@ -149,10 +149,10 @@ namespace ctr_wp7.iframework.core
                                 OpenGL.glClear(0);
                             }
                         }
-                        else if (this.nextScreenImage != null)
+                        else if (nextScreenImage != null)
                         {
-                            RGBAColor rgbacolor2 = ((this.viewTransition == 4) ? RGBAColor.MakeRGBA(0.0, 0.0, 0.0, 2.0 - (double)num * 2.0) : RGBAColor.MakeRGBA(1.0, 1.0, 1.0, 2.0 - (double)num * 2.0));
-                            Grabber.drawGrabbedImage(this.nextScreenImage, 0, 0);
+                            RGBAColor rgbacolor2 = ((viewTransition == 4) ? RGBAColor.MakeRGBA(0.0, 0.0, 0.0, 2.0 - (double)num * 2.0) : RGBAColor.MakeRGBA(1.0, 1.0, 1.0, 2.0 - (double)num * 2.0));
+                            Grabber.drawGrabbedImage(nextScreenImage, 0, 0);
                             OpenGL.glDisable(0);
                             OpenGL.glEnable(1);
                             OpenGL.glBlendFunc(BlendingFactor.GL_SRC_ALPHA, BlendingFactor.GL_ONE_MINUS_SRC_ALPHA);
@@ -161,7 +161,7 @@ namespace ctr_wp7.iframework.core
                         }
                         else
                         {
-                            if (this.viewTransition == 4)
+                            if (viewTransition == 4)
                             {
                                 OpenGL.glClearColor(0.0, 0.0, 0.0, 1.0);
                             }
@@ -175,15 +175,15 @@ namespace ctr_wp7.iframework.core
                     }
                 case 6:
                     {
-                        float num2 = MathHelper.MIN(1.0, (double)((this.transitionDelay - (this.transitionTime - this.lastTime)) / this.transitionDelay));
+                        float num2 = MathHelper.MIN(1.0, (double)((transitionDelay - (transitionTime - lastTime)) / transitionDelay));
                         OpenGL.glColor4f(1.0, 1.0, 1.0, 1.0 - (double)num2);
-                        Grabber.drawGrabbedImage(this.prevScreenImage, 0, 0);
+                        Grabber.drawGrabbedImage(prevScreenImage, 0, 0);
                         OpenGL.glColor4f(1.0, 1.0, 1.0, (double)num2);
-                        Grabber.drawGrabbedImage(this.nextScreenImage, 0, 0);
+                        Grabber.drawGrabbedImage(nextScreenImage, 0, 0);
                         break;
                     }
             }
-            this.applyLandscape();
+            applyLandscape();
             OpenGL.glDisable(0);
             OpenGL.glDisable(1);
         }
@@ -202,51 +202,51 @@ namespace ctr_wp7.iframework.core
         // Token: 0x0600040E RID: 1038 RVA: 0x0001CF9C File Offset: 0x0001B19C
         public virtual void onControllerActivated(ViewController c)
         {
-            this.setCurrentController(c);
+            setCurrentController(c);
         }
 
         // Token: 0x0600040F RID: 1039 RVA: 0x0001CFA5 File Offset: 0x0001B1A5
         public virtual void onControllerDeactivated(ViewController c)
         {
-            this.setCurrentController(null);
+            setCurrentController(null);
         }
 
         // Token: 0x06000410 RID: 1040 RVA: 0x0001CFAE File Offset: 0x0001B1AE
         public virtual void onControllerPaused(ViewController c)
         {
-            this.setCurrentController(null);
+            setCurrentController(null);
         }
 
         // Token: 0x06000411 RID: 1041 RVA: 0x0001CFB7 File Offset: 0x0001B1B7
         public virtual void onControllerUnpaused(ViewController c)
         {
-            this.setCurrentController(c);
+            setCurrentController(c);
         }
 
         // Token: 0x06000412 RID: 1042 RVA: 0x0001CFC0 File Offset: 0x0001B1C0
         public virtual void onControllerDeactivationRequest(ViewController c)
         {
-            this.deactivateCurrentController = true;
+            deactivateCurrentController = true;
         }
 
         // Token: 0x06000413 RID: 1043 RVA: 0x0001CFCC File Offset: 0x0001B1CC
         public virtual void onControllerViewShow(View v)
         {
-            if (this.viewTransition != -1 && this.previousView != null)
+            if (viewTransition != -1 && previousView != null)
             {
                 Application.sharedCanvas().setDefaultProjection();
                 OpenGL.glClearColor(0.0, 0.0, 0.0, 1.0);
                 OpenGL.glClear(0);
-                this.transitionTime = this.lastTime + this.transitionDelay;
-                this.applyLandscape();
-                this.currentController.activeView().draw();
-                NSObject.NSREL(this.nextScreenImage);
-                if (this.nextScreenImage != null && this.nextScreenImage.xnaTexture_ != null)
+                transitionTime = lastTime + transitionDelay;
+                applyLandscape();
+                currentController.activeView().draw();
+                NSObject.NSREL(nextScreenImage);
+                if (nextScreenImage != null && nextScreenImage.xnaTexture_ != null)
                 {
-                    this.nextScreenImage.xnaTexture_.Dispose();
+                    nextScreenImage.xnaTexture_.Dispose();
                 }
-                this.nextScreenImage = this.screenGrabber.grab();
-                NSObject.NSRET(this.nextScreenImage);
+                nextScreenImage = screenGrabber.grab();
+                NSObject.NSRET(nextScreenImage);
                 OpenGL.glLoadIdentity();
             }
         }
@@ -254,21 +254,21 @@ namespace ctr_wp7.iframework.core
         // Token: 0x06000414 RID: 1044 RVA: 0x0001D0A4 File Offset: 0x0001B2A4
         public virtual void onControllerViewHide(View v)
         {
-            this.previousView = v;
-            if (this.viewTransition != -1 && this.previousView != null)
+            previousView = v;
+            if (viewTransition != -1 && previousView != null)
             {
                 Application.sharedCanvas().setDefaultProjection();
                 OpenGL.glClearColor(0.0, 0.0, 0.0, 1.0);
                 OpenGL.glClear(0);
-                this.applyLandscape();
-                this.previousView.draw();
-                NSObject.NSREL(this.prevScreenImage);
-                if (this.prevScreenImage != null && this.prevScreenImage.xnaTexture_ != null)
+                applyLandscape();
+                previousView.draw();
+                NSObject.NSREL(prevScreenImage);
+                if (prevScreenImage != null && prevScreenImage.xnaTexture_ != null)
                 {
-                    this.prevScreenImage.xnaTexture_.Dispose();
+                    prevScreenImage.xnaTexture_.Dispose();
                 }
-                this.prevScreenImage = this.screenGrabber.grab();
-                NSObject.NSRET(this.prevScreenImage);
+                prevScreenImage = screenGrabber.grab();
+                NSObject.NSRET(prevScreenImage);
                 OpenGL.glLoadIdentity();
             }
         }
@@ -276,67 +276,67 @@ namespace ctr_wp7.iframework.core
         // Token: 0x06000415 RID: 1045 RVA: 0x0001D16B File Offset: 0x0001B36B
         public virtual bool isSuspended()
         {
-            return this.suspended;
+            return suspended;
         }
 
         // Token: 0x06000416 RID: 1046 RVA: 0x0001D173 File Offset: 0x0001B373
         public virtual void suspend()
         {
-            this.suspended = true;
+            suspended = true;
         }
 
         // Token: 0x06000417 RID: 1047 RVA: 0x0001D17C File Offset: 0x0001B37C
         public virtual void resume()
         {
-            this.suspended = false;
+            suspended = false;
         }
 
         // Token: 0x06000418 RID: 1048 RVA: 0x0001D185 File Offset: 0x0001B385
         public override bool backButtonPressed()
         {
-            return this.suspended || this.transitionTime != -1f || this.currentController.backButtonPressed();
+            return suspended || transitionTime != -1f || currentController.backButtonPressed();
         }
 
         // Token: 0x06000419 RID: 1049 RVA: 0x0001D1AB File Offset: 0x0001B3AB
         public override bool menuButtonPressed()
         {
-            return this.suspended || this.transitionTime != -1f || this.currentController.menuButtonPressed();
+            return suspended || transitionTime != -1f || currentController.menuButtonPressed();
         }
 
         // Token: 0x0600041A RID: 1050 RVA: 0x0001D1D1 File Offset: 0x0001B3D1
         public override bool touchesBeganwithEvent(List<CTRTouchState> touches)
         {
-            return !this.suspended && (this.transitionTime != -1f || this.currentController.touchesBeganwithEvent(touches));
+            return !suspended && (transitionTime != -1f || currentController.touchesBeganwithEvent(touches));
         }
 
         // Token: 0x0600041B RID: 1051 RVA: 0x0001D1F8 File Offset: 0x0001B3F8
         public override bool touchesMovedwithEvent(List<CTRTouchState> touches)
         {
-            return !this.suspended && (this.transitionTime != -1f || this.currentController.touchesMovedwithEvent(touches));
+            return !suspended && (transitionTime != -1f || currentController.touchesMovedwithEvent(touches));
         }
 
         // Token: 0x0600041C RID: 1052 RVA: 0x0001D21F File Offset: 0x0001B41F
         public override bool touchesEndedwithEvent(List<CTRTouchState> touches)
         {
-            return !this.suspended && (this.transitionTime != -1f || this.currentController.touchesEndedwithEvent(touches));
+            return !suspended && (transitionTime != -1f || currentController.touchesEndedwithEvent(touches));
         }
 
         // Token: 0x0600041D RID: 1053 RVA: 0x0001D246 File Offset: 0x0001B446
         public override bool touchesCancelledwithEvent(List<CTRTouchState> touches)
         {
-            return this.currentController.touchesCancelledwithEvent(touches);
+            return currentController.touchesCancelledwithEvent(touches);
         }
 
         // Token: 0x0600041E RID: 1054 RVA: 0x0001D254 File Offset: 0x0001B454
         public virtual void setCurrentController(ViewController c)
         {
-            this.currentController = c;
+            currentController = c;
         }
 
         // Token: 0x0600041F RID: 1055 RVA: 0x0001D25D File Offset: 0x0001B45D
         public virtual ViewController getCurrentController()
         {
-            return this.currentController;
+            return currentController;
         }
 
         // Token: 0x04000968 RID: 2408

@@ -13,11 +13,11 @@ namespace ctr_wp7.ctr_commons
         {
             get
             {
-                return this.id;
+                return id;
             }
             set
             {
-                this.id = value;
+                id = value;
             }
         }
 
@@ -28,11 +28,11 @@ namespace ctr_wp7.ctr_commons
         {
             get
             {
-                return this.position;
+                return position;
             }
             set
             {
-                this.position = value;
+                position = value;
             }
         }
 
@@ -43,11 +43,11 @@ namespace ctr_wp7.ctr_commons
         {
             get
             {
-                return this.state;
+                return state;
             }
             set
             {
-                this.state = value;
+                state = value;
             }
         }
 
@@ -58,11 +58,11 @@ namespace ctr_wp7.ctr_commons
         {
             get
             {
-                return this.moved;
+                return moved;
             }
             set
             {
-                this.moved = value;
+                moved = value;
             }
         }
 

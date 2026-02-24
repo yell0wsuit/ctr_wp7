@@ -18,20 +18,20 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060000C7 RID: 199 RVA: 0x00007035 File Offset: 0x00005235
         public virtual void show()
         {
-            this.destroyFramebuffer();
-            this.createFramebuffer();
+            destroyFramebuffer();
+            createFramebuffer();
         }
 
         // Token: 0x060000C8 RID: 200 RVA: 0x00007044 File Offset: 0x00005244
         public virtual void hide()
         {
-            this.destroyFramebuffer();
+            destroyFramebuffer();
         }
 
         // Token: 0x060000C9 RID: 201 RVA: 0x0000704C File Offset: 0x0000524C
         public virtual void beforeRender()
         {
-            this.setDefaultProjection();
+            setDefaultProjection();
             OpenGL.glDisable(1);
             OpenGL.glEnableClientState(11);
             OpenGL.glEnableClientState(12);
@@ -45,26 +45,26 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060000CB RID: 203 RVA: 0x0000706A File Offset: 0x0000526A
         public virtual void initFPSMeterWithFont(FontGeneric font)
         {
-            this.fpsFont = font;
-            this.fpsText = new Text().initWithFont(this.fpsFont);
+            fpsFont = font;
+            fpsText = new Text().initWithFont(fpsFont);
         }
 
         // Token: 0x060000CC RID: 204 RVA: 0x0000708C File Offset: 0x0000528C
         public virtual void drawFPS(int fps)
         {
-            if (this.fpsText == null || this.fpsFont == null)
+            if (fpsText == null || fpsFont == null)
             {
                 return;
             }
             NSString nsstring = NSObject.NSS(fps.ToString());
-            this.fpsText.setString(nsstring);
+            fpsText.setString(nsstring);
             OpenGL.SetWhiteColor();
             OpenGL.glEnable(0);
             OpenGL.glEnable(1);
             OpenGL.glBlendFunc(BlendingFactor.GL_SRC_ALPHA, BlendingFactor.GL_ONE_MINUS_SRC_ALPHA);
-            this.fpsText.x = 5f;
-            this.fpsText.y = 5f;
-            this.fpsText.draw();
+            fpsText.x = 5f;
+            fpsText.y = 5f;
+            fpsText.draw();
             OpenGL.glDisable(1);
             OpenGL.glDisable(0);
         }
@@ -72,9 +72,9 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060000CD RID: 205 RVA: 0x0000711A File Offset: 0x0000531A
         public virtual bool createFramebuffer()
         {
-            this.backingWidth = (int)FrameworkTypes.SCREEN_WIDTH;
-            this.backingHeight = (int)FrameworkTypes.SCREEN_HEIGHT;
-            this.setDefaultProjection();
+            backingWidth = (int)FrameworkTypes.SCREEN_WIDTH;
+            backingHeight = (int)FrameworkTypes.SCREEN_HEIGHT;
+            setDefaultProjection();
             OpenGL.glEnableClientState(11);
             OpenGL.glEnableClientState(12);
             return true;
@@ -110,57 +110,57 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060000D1 RID: 209 RVA: 0x00007253 File Offset: 0x00005453
         public virtual void touchesBeganwithEvent(List<CTRTouchState> touches)
         {
-            if (this.touchDelegate != null)
+            if (touchDelegate != null)
             {
-                this.touchDelegate.touchesBeganwithEvent(touches);
+                touchDelegate.touchesBeganwithEvent(touches);
             }
         }
 
         // Token: 0x060000D2 RID: 210 RVA: 0x0000726A File Offset: 0x0000546A
         public virtual void touchesMovedwithEvent(List<CTRTouchState> touches)
         {
-            if (this.touchDelegate != null)
+            if (touchDelegate != null)
             {
-                this.touchDelegate.touchesMovedwithEvent(touches);
+                touchDelegate.touchesMovedwithEvent(touches);
             }
         }
 
         // Token: 0x060000D3 RID: 211 RVA: 0x00007281 File Offset: 0x00005481
         public virtual void touchesEndedwithEvent(List<CTRTouchState> touches)
         {
-            if (this.touchDelegate != null)
+            if (touchDelegate != null)
             {
-                this.touchDelegate.touchesEndedwithEvent(touches);
+                touchDelegate.touchesEndedwithEvent(touches);
             }
         }
 
         // Token: 0x060000D4 RID: 212 RVA: 0x00007298 File Offset: 0x00005498
         public virtual void touchesCancelledwithEvent(List<CTRTouchState> touches)
         {
-            if (this.touchDelegate != null)
+            if (touchDelegate != null)
             {
-                this.touchDelegate.touchesCancelledwithEvent(touches);
+                touchDelegate.touchesCancelledwithEvent(touches);
             }
         }
 
         // Token: 0x060000D5 RID: 213 RVA: 0x000072AF File Offset: 0x000054AF
         public virtual bool backButtonPressed()
         {
-            return this.touchDelegate != null && this.touchDelegate.backButtonPressed();
+            return touchDelegate != null && touchDelegate.backButtonPressed();
         }
 
         // Token: 0x060000D6 RID: 214 RVA: 0x000072C6 File Offset: 0x000054C6
         public virtual bool menuButtonPressed()
         {
-            return this.touchDelegate != null && this.touchDelegate.menuButtonPressed();
+            return touchDelegate != null && touchDelegate.menuButtonPressed();
         }
 
         // Token: 0x060000D7 RID: 215 RVA: 0x000072DD File Offset: 0x000054DD
         public override void dealloc()
         {
-            NSObject.NSREL(this.fpsFont);
-            NSObject.NSREL(this.fpsText);
-            this.hide();
+            NSObject.NSREL(fpsFont);
+            NSObject.NSREL(fpsText);
+            hide();
         }
 
         // Token: 0x04000721 RID: 1825

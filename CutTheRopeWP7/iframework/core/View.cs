@@ -11,8 +11,8 @@ namespace ctr_wp7.iframework.core
         {
             if (base.init() != null)
             {
-                this.width = (int)FrameworkTypes.SCREEN_WIDTH;
-                this.height = (int)FrameworkTypes.SCREEN_HEIGHT;
+                width = (int)FrameworkTypes.SCREEN_WIDTH;
+                height = (int)FrameworkTypes.SCREEN_HEIGHT;
             }
             return this;
         }
@@ -20,7 +20,7 @@ namespace ctr_wp7.iframework.core
         // Token: 0x0600011A RID: 282 RVA: 0x00009C80 File Offset: 0x00007E80
         public override NSObject init()
         {
-            return this.initFullscreen();
+            return initFullscreen();
         }
 
         // Token: 0x0600011B RID: 283 RVA: 0x00009C88 File Offset: 0x00007E88

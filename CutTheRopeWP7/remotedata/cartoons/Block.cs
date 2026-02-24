@@ -16,10 +16,10 @@ namespace ctr_wp7.remotedata.cartoons
             object obj = text;
             text = string.Concat(new object[]
             {
-                obj, "type ", this.type, " order ", this.order, " hash ", this.hash, " id ", this.id, " number ",
-                this.number, " url ", this.url, " image_id ", this.image_id, " loadState ", this.loadState, " updatehash ", this.updatehash
+                obj, "type ", type, " order ", order, " hash ", hash, " id ", id, " number ",
+                number, " url ", url, " image_id ", image_id, " loadState ", loadState, " updatehash ", updatehash
             });
-            foreach (KeyValuePair<string, string> keyValuePair in this.langs)
+            foreach (KeyValuePair<string, string> keyValuePair in langs)
             {
                 string text2 = text;
                 text = string.Concat(new string[] { text2, " ", keyValuePair.Key, " ", keyValuePair.Value });
@@ -30,49 +30,49 @@ namespace ctr_wp7.remotedata.cartoons
         // Token: 0x0600064A RID: 1610 RVA: 0x000308A8 File Offset: 0x0002EAA8
         public Block()
         {
-            this.langs = new Dictionary<string, string>();
-            this.updatehash = 0;
+            langs = new Dictionary<string, string>();
+            updatehash = 0;
         }
 
         // Token: 0x0600064B RID: 1611 RVA: 0x000308C2 File Offset: 0x0002EAC2
         public string getType()
         {
-            return this.type;
+            return type;
         }
 
         // Token: 0x0600064C RID: 1612 RVA: 0x000308CA File Offset: 0x0002EACA
         public string getName()
         {
-            if (this.image_id == null)
+            if (image_id == null)
             {
                 return null;
             }
-            return "block_" + this.image_id;
+            return "block_" + image_id;
         }
 
         // Token: 0x0600064D RID: 1613 RVA: 0x000308E6 File Offset: 0x0002EAE6
         public string getId()
         {
-            return this.id;
+            return id;
         }
 
         // Token: 0x0600064E RID: 1614 RVA: 0x000308EE File Offset: 0x0002EAEE
         public string getNumber()
         {
-            return this.number;
+            return number;
         }
 
         // Token: 0x0600064F RID: 1615 RVA: 0x000308F6 File Offset: 0x0002EAF6
         public string getUrl()
         {
-            return this.url;
+            return url;
         }
 
         // Token: 0x06000650 RID: 1616 RVA: 0x00030900 File Offset: 0x0002EB00
         public string getText()
         {
             string text = null;
-            this.langs.TryGetValue(Application.sharedAppSettings().getString(8).ToString(), ref text);
+            langs.TryGetValue(Application.sharedAppSettings().getString(8).ToString(), ref text);
             if (text == null)
             {
                 return "";
@@ -83,13 +83,13 @@ namespace ctr_wp7.remotedata.cartoons
         // Token: 0x06000651 RID: 1617 RVA: 0x00030937 File Offset: 0x0002EB37
         public bool isImageExists()
         {
-            return this.loadState != Block.LoadState.NO_IMAGE;
+            return loadState != Block.LoadState.NO_IMAGE;
         }
 
         // Token: 0x06000652 RID: 1618 RVA: 0x00030944 File Offset: 0x0002EB44
         public bool isImageReady()
         {
-            return this.loadState == Block.LoadState.DONE;
+            return loadState == Block.LoadState.DONE;
         }
 
         // Token: 0x04000BB4 RID: 2996
