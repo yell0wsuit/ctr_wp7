@@ -47,13 +47,10 @@ namespace ctre_wp7.iframework.media
 			{
 				return soundEffect;
 			}
-			try
+			SoundMgr.TryLoadAssetWithFallback<SoundEffect>(resId, out soundEffect);
+			if (soundEffect != null)
 			{
-				soundEffect = SoundMgr._contentManager.Load<SoundEffect>("ctr/sounds/" + CTRResourceMgr.XNA_ResName(resId));
 				this.LoadedSounds.Add(resId, soundEffect);
-			}
-			catch (Exception)
-			{
 			}
 			return soundEffect;
 		}
@@ -134,7 +131,11 @@ namespace ctre_wp7.iframework.media
 				{
 					if (!this.AllSongs.TryGetValue(sid, out this.song))
 					{
-						this.song = SoundMgr._contentManager.Load<Song>("ctr/sounds/" + CTRResourceMgr.XNA_ResName(sid));
+						SoundMgr.TryLoadAssetWithFallback<Song>(sid, out this.song);
+						if (this.song == null)
+						{
+							return;
+						}
 						this.AllSongs.Add(sid, this.song);
 					}
 					MediaPlayer.IsRepeating = true;
@@ -160,10 +161,38 @@ namespace ctre_wp7.iframework.media
 		{
 			if (!this.AllSongs.TryGetValue(sid, out this.song))
 			{
-				this.song = SoundMgr._contentManager.Load<Song>("ctr/sounds/" + CTRResourceMgr.XNA_ResName(sid));
-				this.AllSongs.Add(sid, this.song);
+				SoundMgr.TryLoadAssetWithFallback<Song>(sid, out this.song);
+				if (this.song != null)
+				{
+					this.AllSongs.Add(sid, this.song);
+				}
 			}
 			this.song = null;
+		}
+
+		private static bool TryLoadAssetWithFallback<T>(int resId, out T asset) where T : class
+		{
+			asset = default(T);
+			if (SoundMgr._contentManager == null)
+			{
+				return false;
+			}
+			string text = CTRResourceMgr.XNA_ResName(resId);
+			foreach (string text2 in new string[] { "ctr/sounds/" + text, "sounds/" + text })
+			{
+				try
+				{
+					asset = SoundMgr._contentManager.Load<T>(text2);
+					if (asset != null)
+					{
+						return true;
+					}
+				}
+				catch (Exception)
+				{
+				}
+			}
+			return false;
 		}
 
 		// Token: 0x0600018B RID: 395 RVA: 0x0000B9BE File Offset: 0x00009BBE
