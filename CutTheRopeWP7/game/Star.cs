@@ -65,7 +65,7 @@ namespace ctr_wp7.game
             if ((double)timeout > 0.0)
             {
                 timedAnim = Animation_createWithResID(127);
-                timedAnim.anchor = (timedAnim.parentAnchor = 18);
+                timedAnim.anchor = timedAnim.parentAnchor = 18;
                 float num = timeout / 37f;
                 timedAnim.addAnimationWithIDDelayLoopFirstLast(0, num, Timeline.LoopType.TIMELINE_NO_LOOP, 19, 55);
                 timedAnim.playTimeline(0);
@@ -99,7 +99,7 @@ namespace ctr_wp7.game
             _ = animation.addAnimationDelayLoopFirstLast(0.05f, Timeline.LoopType.TIMELINE_REPLAY, 1, 18);
             animation.playTimeline(0);
             Timeline.updateTimeline(animation.getTimeline(0), (float)((double)RND_RANGE(0, 20) / 10.0));
-            animation.anchor = (animation.parentAnchor = 18);
+            animation.anchor = animation.parentAnchor = 18;
             _ = addChild(animation);
         }
 

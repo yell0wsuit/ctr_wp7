@@ -134,17 +134,17 @@ namespace ctr_wp7.game
             candy.anchor = 18;
             candy.bb = new Rectangle(46.0, 49.0, 35.0, 35.0);
             candy.passTransformationsToChilds = false;
-            candy.scaleX = (candy.scaleY = 0.71f);
+            candy.scaleX = candy.scaleY = 0.71f;
             candyMain = GameObject.GameObject_createWithResIDQuad(CANDIES[num], 1);
             candyMain.doRestoreCutTransparency();
-            candyMain.anchor = (candyMain.parentAnchor = 18);
+            candyMain.anchor = candyMain.parentAnchor = 18;
             _ = candy.addChild(candyMain);
-            candyMain.scaleX = (candyMain.scaleY = 0.71f);
+            candyMain.scaleX = candyMain.scaleY = 0.71f;
             candyTop = GameObject.GameObject_createWithResIDQuad(CANDIES[num], 2);
             candyTop.doRestoreCutTransparency();
-            candyTop.anchor = (candyTop.parentAnchor = 18);
+            candyTop.anchor = candyTop.parentAnchor = 18;
             _ = candy.addChild(candyTop);
-            candyTop.scaleX = (candyTop.scaleY = 0.71f);
+            candyTop.scaleX = candyTop.scaleY = 0.71f;
             candyBlink = Animation.Animation_createWithResID(103);
             candyBlink.addAnimationWithIDDelayLoopFirstLast(0, 0.07f, Timeline.LoopType.TIMELINE_NO_LOOP, 5, 14);
             Animation animation = candyBlink;
@@ -159,13 +159,13 @@ namespace ctr_wp7.game
             timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.solidOpaqueRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
             timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.2));
             candyBlink.visible = false;
-            candyBlink.anchor = (candyBlink.parentAnchor = 18);
-            candyBlink.scaleX = (candyBlink.scaleY = 0.71f);
+            candyBlink.anchor = candyBlink.parentAnchor = 18;
+            candyBlink.scaleX = candyBlink.scaleY = 0.71f;
             _ = candy.addChild(candyBlink);
             candyBubbleAnimation = Animation.Animation_createWithResID(120);
             candyBubbleAnimation.x = candy.x;
             candyBubbleAnimation.y = candy.y;
-            candyBubbleAnimation.parentAnchor = (candyBubbleAnimation.anchor = 18);
+            candyBubbleAnimation.parentAnchor = candyBubbleAnimation.anchor = 18;
             _ = candyBubbleAnimation.addAnimationDelayLoopFirstLast(0.05f, Timeline.LoopType.TIMELINE_REPLAY, 0, 12);
             candyBubbleAnimation.playTimeline(0);
             _ = candy.addChild(candyBubbleAnimation);
@@ -212,7 +212,7 @@ namespace ctr_wp7.game
                         special = xmlnode2["special"].intValue();
                         ropePhysicsSpeed = xmlnode2["ropePhysicsSpeed"].floatValue();
                         nightLevel = xmlnode2["nightLevel"].isEqualToString(NSS("true"));
-                        twoParts = (xmlnode2["twoParts"].isEqualToString(NSS("true")) ? 0 : 2);
+                        twoParts = xmlnode2["twoParts"].isEqualToString(NSS("true")) ? 0 : 2;
                     }
                     else if (xmlnode2.Name == "candyL")
                     {
@@ -223,7 +223,7 @@ namespace ctr_wp7.game
                         candyL.doRestoreCutTransparency();
                         candyL.anchor = 18;
                         _ = NSRET(candyL);
-                        candyL.scaleX = (candyL.scaleY = 0.71f);
+                        candyL.scaleX = candyL.scaleY = 0.71f;
                         candyL.x = starL.pos.x;
                         candyL.y = starL.pos.y;
                         candyL.bb = new Rectangle(52.0, 56.0, 23.0, 24.0);
@@ -237,7 +237,7 @@ namespace ctr_wp7.game
                         candyR.doRestoreCutTransparency();
                         candyR.anchor = 18;
                         _ = NSRET(candyR);
-                        candyR.scaleX = (candyR.scaleY = 0.71f);
+                        candyR.scaleX = candyR.scaleY = 0.71f;
                         candyR.x = starR.pos.x;
                         candyR.y = starR.pos.y;
                         candyR.bb = new Rectangle(52.0, 56.0, 23.0, 24.0);
@@ -358,15 +358,15 @@ namespace ctr_wp7.game
                         Bubble bubble = Bubble.Bubble_createWithResIDQuad(124, num8);
                         bubble.doRestoreCutTransparency();
                         bubble.bb = new Rectangle(0.0, 0.0, 57.0, 57.0);
-                        bubble.initial_x = (bubble.x = (float)xmlnode4["x"].intValue() * 1f + 0f);
-                        bubble.initial_y = (bubble.y = (float)xmlnode4["y"].intValue() * 1f + 0f);
+                        bubble.initial_x = bubble.x = (float)xmlnode4["x"].intValue() * 1f + 0f;
+                        bubble.initial_y = bubble.y = (float)xmlnode4["y"].intValue() * 1f + 0f;
                         bubble.initial_rotation = 0f;
                         bubble.initial_rotatedCircle = null;
                         bubble.anchor = 18;
                         bubble.popped = false;
                         Image image = Image.Image_createWithResIDQuad(124, 0);
                         image.doRestoreCutTransparency();
-                        image.parentAnchor = (image.anchor = 18);
+                        image.parentAnchor = image.anchor = 18;
                         _ = bubble.addChild(image);
                         bubbles.Add(bubble);
                     }
@@ -382,8 +382,8 @@ namespace ctr_wp7.game
                         List<int> list2 = [2, 3, 0];
                         _ = animation2.addAnimationWithDelayLoopedCountSequence(num9, loopType2, num10, num11, list2);
                         pump.bb = new Rectangle(94.0, 95.0, 57.0, 57.0);
-                        pump.initial_x = (pump.x = (float)xmlnode4["x"].intValue() * 1f + 0f);
-                        pump.initial_y = (pump.y = (float)xmlnode4["y"].intValue() * 1f + 0f);
+                        pump.initial_x = pump.x = (float)xmlnode4["x"].intValue() * 1f + 0f;
+                        pump.initial_y = pump.y = (float)xmlnode4["y"].intValue() * 1f + 0f;
                         pump.initial_rotation = 0f;
                         pump.initial_rotatedCircle = null;
                         pump.rotation = xmlnode4["angle"].floatValue() + 90f;
@@ -395,7 +395,7 @@ namespace ctr_wp7.game
                     {
                         Sock sock = Sock.Sock_createWithResID(145);
                         sock.createAnimations();
-                        sock.scaleX = (sock.scaleY = 0.7f);
+                        sock.scaleX = sock.scaleY = 0.7f;
                         sock.doRestoreCutTransparency();
                         sock.x = (float)xmlnode4["x"].intValue() * 1f + 0f;
                         sock.y = (float)xmlnode4["y"].intValue() * 1f + 0f;
@@ -430,7 +430,7 @@ namespace ctr_wp7.game
                         int num16 = -1;
                         if (nsstring3 != null && nsstring3.length() > 0)
                         {
-                            num16 = (nsstring3.isEqualToString(NSS("false")) ? (-1) : nsstring3.intValue());
+                            num16 = nsstring3.isEqualToString(NSS("false")) ? (-1) : nsstring3.intValue();
                         }
                         Spikes spikes = (Spikes)new Spikes().initWithPosXYWidthAndAngleToggled(num12, num13, num14, num15, num16);
                         spikes.parseMover(xmlnode4);
@@ -471,8 +471,8 @@ namespace ctr_wp7.game
                         rotatedCircle.x = num17;
                         rotatedCircle.y = num18;
                         rotatedCircle.rotation = num20;
-                        rotatedCircle.inithanlde1 = (rotatedCircle.handle1 = vect(rotatedCircle.x - num19, rotatedCircle.y));
-                        rotatedCircle.inithanlde2 = (rotatedCircle.handle2 = vect(rotatedCircle.x + num19, rotatedCircle.y));
+                        rotatedCircle.inithanlde1 = rotatedCircle.handle1 = vect(rotatedCircle.x - num19, rotatedCircle.y);
+                        rotatedCircle.inithanlde2 = rotatedCircle.handle2 = vect(rotatedCircle.x + num19, rotatedCircle.y);
                         rotatedCircle.handle1 = vectRotateAround(rotatedCircle.handle1, (double)DEGREES_TO_RADIANS(num20), rotatedCircle.x, rotatedCircle.y);
                         rotatedCircle.handle2 = vectRotateAround(rotatedCircle.handle2, (double)DEGREES_TO_RADIANS(num20), rotatedCircle.x, rotatedCircle.y);
                         rotatedCircle.setSize(num19);
@@ -493,7 +493,7 @@ namespace ctr_wp7.game
                         if (!isCandyInGhostBubbleAnimationLoaded)
                         {
                             candyGhostBubbleAnimation = CandyInGhostBubbleAnimation.CIGBAnimation_createWithResID(120);
-                            candyGhostBubbleAnimation.parentAnchor = (candyGhostBubbleAnimation.anchor = 18);
+                            candyGhostBubbleAnimation.parentAnchor = candyGhostBubbleAnimation.anchor = 18;
                             _ = candyGhostBubbleAnimation.addAnimationDelayLoopFirstLast(0.05f, Timeline.LoopType.TIMELINE_REPLAY, 0, 12);
                             candyGhostBubbleAnimation.playTimeline(0);
                             _ = candy.addChild(candyGhostBubbleAnimation);
@@ -506,7 +506,7 @@ namespace ctr_wp7.game
                             if (!isCandyInGhostBubbleAnimationLeftLoaded)
                             {
                                 candyGhostBubbleAnimationL = CandyInGhostBubbleAnimation.CIGBAnimation_createWithResID(120);
-                                candyGhostBubbleAnimationL.parentAnchor = (candyGhostBubbleAnimationL.anchor = 18);
+                                candyGhostBubbleAnimationL.parentAnchor = candyGhostBubbleAnimationL.anchor = 18;
                                 _ = candyGhostBubbleAnimationL.addAnimationDelayLoopFirstLast(0.05f, Timeline.LoopType.TIMELINE_REPLAY, 0, 12);
                                 candyGhostBubbleAnimationL.playTimeline(0);
                                 _ = candyL.addChild(candyGhostBubbleAnimationL);
@@ -517,7 +517,7 @@ namespace ctr_wp7.game
                             if (!isCandyInGhostBubbleAnimationRightLoaded)
                             {
                                 candyGhostBubbleAnimationR = CandyInGhostBubbleAnimation.CIGBAnimation_createWithResID(120);
-                                candyGhostBubbleAnimationR.parentAnchor = (candyGhostBubbleAnimationR.anchor = 18);
+                                candyGhostBubbleAnimationR.parentAnchor = candyGhostBubbleAnimationR.anchor = 18;
                                 _ = candyGhostBubbleAnimationR.addAnimationDelayLoopFirstLast(0.05f, Timeline.LoopType.TIMELINE_REPLAY, 0, 12);
                                 candyGhostBubbleAnimationR.playTimeline(0);
                                 _ = candyR.addChild(candyGhostBubbleAnimationR);
@@ -551,8 +551,8 @@ namespace ctr_wp7.game
                         bool flag7 = xmlnode4["part"].isEqualToString(NSS("L"));
                         bool flag8 = xmlnode4["hidePath"].isEqualToString(NSS("true"));
                         Grab grab = (Grab)new Grab().init();
-                        grab.initial_x = (grab.x = num30);
-                        grab.initial_y = (grab.y = num31);
+                        grab.initial_x = grab.x = num30;
+                        grab.initial_y = grab.y = num31;
                         grab.initial_rotation = 0f;
                         grab.wheel = flag4;
                         grab.setSpider(flag6);
@@ -586,7 +586,7 @@ namespace ctr_wp7.game
                             ConstraintedPoint constraintedPoint = star;
                             if (twoParts != 2)
                             {
-                                constraintedPoint = (flag7 ? starL : starR);
+                                constraintedPoint = flag7 ? starL : starR;
                             }
                             Bungee bungee = (Bungee)new Bungee().initWithHeadAtXYTailAtTXTYandLength(null, num30, num31, constraintedPoint, constraintedPoint.pos.x, constraintedPoint.pos.y, num32);
                             bungee.bungeeAnchor.pin = bungee.bungeeAnchor.pos;
@@ -699,10 +699,10 @@ namespace ctr_wp7.game
                         support.anchor = 18;
                         NSString nsstring4 = xmlnode4["x"];
                         float num46 = (float)(1 - nsstring4.intValue() % 2) * 0.33f;
-                        targetIdle.x = (target.x = (support.x = (float)nsstring4.intValue() * 1f + 0f + num46));
+                        targetIdle.x = target.x = support.x = (float)nsstring4.intValue() * 1f + 0f + num46;
                         NSString nsstring5 = xmlnode4["y"];
                         float num47 = (float)(1 - nsstring5.intValue() % 2) * 0.33f;
-                        targetIdle.y = (target.y = (support.y = (float)nsstring5.intValue() * 1f + 0f + num47));
+                        targetIdle.y = target.y = support.y = (float)nsstring5.intValue() * 1f + 0f + num47;
                         idlesTimer = RND_RANGE(5, 20);
                     }
                     else if (xmlnode4.Name == "steamTube")
@@ -734,13 +734,13 @@ namespace ctr_wp7.game
             if (twoParts != 2)
             {
                 candyBubbleAnimationL = Animation.Animation_createWithResID(120);
-                candyBubbleAnimationL.parentAnchor = (candyBubbleAnimationL.anchor = 18);
+                candyBubbleAnimationL.parentAnchor = candyBubbleAnimationL.anchor = 18;
                 _ = candyBubbleAnimationL.addAnimationDelayLoopFirstLast(0.05f, Timeline.LoopType.TIMELINE_REPLAY, 0, 12);
                 candyBubbleAnimationL.playTimeline(0);
                 _ = candyL.addChild(candyBubbleAnimationL);
                 candyBubbleAnimationL.visible = false;
                 candyBubbleAnimationR = Animation.Animation_createWithResID(120);
-                candyBubbleAnimationR.parentAnchor = (candyBubbleAnimationR.anchor = 18);
+                candyBubbleAnimationR.parentAnchor = candyBubbleAnimationR.anchor = 18;
                 _ = candyBubbleAnimationR.addAnimationDelayLoopFirstLast(0.05f, Timeline.LoopType.TIMELINE_REPLAY, 0, 12);
                 candyBubbleAnimationR.playTimeline(0);
                 _ = candyR.addChild(candyBubbleAnimationR);
@@ -781,7 +781,7 @@ namespace ctr_wp7.game
             text.y = SCREEN_HEIGHT + 10f;
             text2.y = 30f;
             text2.rotationCenterX -= (float)text2.width / 2f;
-            text2.scaleX = (text2.scaleY = 0.7f);
+            text2.scaleX = text2.scaleY = 0.7f;
             if (LANGUAGE == Language.LANG_ZH || LANGUAGE == Language.LANG_KO || LANGUAGE == Language.LANG_JA)
             {
                 text2.y -= 7f;
@@ -938,7 +938,7 @@ namespace ctr_wp7.game
                 }
             }
             _ = Mover.moveVariableToTarget(ref ropeAtOnceTimer, 0f, 1f, delta);
-            ConstraintedPoint constraintedPoint = ((twoParts != 2) ? starL : star);
+            ConstraintedPoint constraintedPoint = (twoParts != 2) ? starL : star;
             float num2 = constraintedPoint.pos.x - SCREEN_WIDTH / 2f;
             float num3 = constraintedPoint.pos.y - SCREEN_HEIGHT / 2f;
             float num4 = FIT_TO_BOUNDARIES(num2, 0f, mapWidth - SCREEN_WIDTH);
@@ -1117,7 +1117,7 @@ namespace ctr_wp7.game
                         float num10 = RADIANS_TO_DEGREES(vectAngleNormalized(vector));
                         if (twoParts != 2)
                         {
-                            GameObject gameObject = ((constraintedPoint2 == starL) ? candyL : candyR);
+                            GameObject gameObject = (constraintedPoint2 == starL) ? candyL : candyR;
                             if (!rope.chosenOne)
                             {
                                 rope.initialCandleAngle = gameObject.rotation - num10;
@@ -1243,7 +1243,7 @@ namespace ctr_wp7.game
                         }
                         else if (candyBubbleL != null || candyBubbleR != null)
                         {
-                            candyBubble = ((candyBubbleL != null) ? candyBubbleL : candyBubbleR);
+                            candyBubble = (candyBubbleL != null) ? candyBubbleL : candyBubbleR;
                             candyBubbleAnimation.visible = true;
                             if (ghosts != null)
                             {
@@ -1612,8 +1612,8 @@ namespace ctr_wp7.game
                 {
                     isCandyInLantern = true;
                     candy.passTransformationsToChilds = true;
-                    candyMain.scaleX = (candyMain.scaleY = 1f);
-                    candyTop.scaleX = (candyTop.scaleY = 1f);
+                    candyMain.scaleX = candyMain.scaleY = 1f;
+                    candyTop.scaleX = candyTop.scaleY = 1f;
                     Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(2);
                     timeline.addKeyFrame(KeyFrame.makePos((double)candy.x, (double)candy.y, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
                     timeline.addKeyFrame(KeyFrame.makePos((double)lantern.x, (double)lantern.y, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.1));
@@ -2149,7 +2149,7 @@ namespace ctr_wp7.game
                 CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
                 int num4 = ctrrootController.getPack();
                 Texture2D texture = Application.getTexture(188 + num4 * 2);
-                int num5 = ((num4 == 0 || num4 == 9) ? 1 : 2);
+                int num5 = (num4 == 0 || num4 == 9) ? 1 : 2;
                 float y = texture.quadOffsets[num5].y;
                 Rectangle rectangle = texture.quadRects[num5];
                 rectangle.y += num3;
@@ -2591,7 +2591,7 @@ namespace ctr_wp7.game
                 }
             }
             Vector vector = vect(tx, ty);
-            prevStartPos[ti] = (startPos[ti] = vector);
+            prevStartPos[ti] = startPos[ti] = vector;
             if (candyBubble != null && handleBubbleTouchXY(star, tx, ty))
             {
                 return true;
@@ -2870,7 +2870,7 @@ namespace ctr_wp7.game
                         num3 = FBOUND_PI(num3);
                         rotatedCircle.handle1 = vectRotateAround(rotatedCircle.inithanlde1, (double)num3, rotatedCircle.x, rotatedCircle.y);
                         rotatedCircle.handle2 = vectRotateAround(rotatedCircle.inithanlde2, (double)num3, rotatedCircle.x, rotatedCircle.y);
-                        int num4 = ((num > 0f) ? 56 : 57);
+                        int num4 = (num > 0f) ? 56 : 57;
                         if ((double)Math.Abs(num) < 0.07)
                         {
                             num4 = -1;
@@ -3142,7 +3142,7 @@ namespace ctr_wp7.game
             noCandy = true;
             Image image = Image.Image_createWithResIDQuad(94, 12);
             image.doRestoreCutTransparency();
-            candy.anchor = (candy.parentAnchor = 18);
+            candy.anchor = candy.parentAnchor = 18;
             candy.x = 0f;
             candy.y = -5f;
             _ = image.addChild(candy);
@@ -3274,8 +3274,8 @@ namespace ctr_wp7.game
             }
             noCandy = true;
             candy.passTransformationsToChilds = true;
-            candyMain.scaleX = (candyMain.scaleY = 1f);
-            candyTop.scaleX = (candyTop.scaleY = 1f);
+            candyMain.scaleX = candyMain.scaleY = 1f;
+            candyTop.scaleX = candyTop.scaleY = 1f;
             if (candy.hasTimeline(0))
             {
                 candy.removeTimeline(0);
@@ -3362,7 +3362,7 @@ namespace ctr_wp7.game
                 camera.type = CAMERA_TYPE.CAMERA_SPEED_PIXELS;
                 camera.speed = 10f;
                 cameraMoveMode = 0;
-                ConstraintedPoint constraintedPoint = ((twoParts != 2) ? starL : star);
+                ConstraintedPoint constraintedPoint = (twoParts != 2) ? starL : star;
                 float num;
                 float num2;
                 if (mapWidth > SCREEN_WIDTH)
@@ -3473,7 +3473,7 @@ namespace ctr_wp7.game
                         for (int l = 0; l < num6 - 1; l++)
                         {
                             float num11 = num3;
-                            float num12 = ((l == num6 - 2) ? 1f : (num3 + num10));
+                            float num12 = (l == num6 - 2) ? 1f : (num3 + num10);
                             Vector vector3 = vect(array2[l * 2], array2[l * 2 + 1]);
                             Vector vector4 = vect(array2[(l + 1) * 2], array2[(l + 1) * 2 + 1]);
                             Vector vector5 = vectSub(vector4, vector3);
@@ -3612,8 +3612,8 @@ namespace ctr_wp7.game
             {
                 Vector vector3 = vect(star.pos.x, star.pos.y);
                 Vector vector4 = vect(star.v.x, star.v.y);
-                vector3 = vectRotateAround(vector3, (double)(-(double)num2), tube.x, tube.y);
-                vector4 = vectRotate(vector4, (double)(-(double)num2));
+                vector3 = vectRotateAround(vector3, (double)-(double)num2, tube.x, tube.y);
+                vector4 = vectRotate(vector4, (double)-(double)num2);
                 if (rectInRect(vector3.x - num5, vector3.y - num5 / 2f, vector3.x + num5, vector3.y + num5, vector.x, vector.y, vector2.x, vector2.y))
                 {
                     foreach (Bouncer bouncer in bouncers)
@@ -3665,8 +3665,8 @@ namespace ctr_wp7.game
             {
                 Vector vector6 = vect(starL.pos.x, starL.pos.y);
                 Vector vector7 = vect(starL.v.x, starL.v.y);
-                vector6 = vectRotateAround(vector6, (double)(-(double)num2), tube.x, tube.y);
-                vector7 = vectRotate(vector7, (double)(-(double)num2));
+                vector6 = vectRotateAround(vector6, (double)-(double)num2, tube.x, tube.y);
+                vector7 = vectRotate(vector7, (double)-(double)num2);
                 if (rectInRect(vector6.x - num5, vector6.y - num5 / 2f, vector6.x + num5, vector6.y + num5, vector.x, vector.y, vector2.x, vector2.y))
                 {
                     foreach (Bouncer bouncer2 in bouncers)
@@ -3714,8 +3714,8 @@ namespace ctr_wp7.game
                 }
                 vector6 = vect(starR.pos.x, starR.pos.y);
                 vector7 = vect(starR.v.x, starR.v.y);
-                vector6 = vectRotateAround(vector6, (double)(-(double)num2), tube.x, tube.y);
-                vector7 = vectRotate(vector7, (double)(-(double)num2));
+                vector6 = vectRotateAround(vector6, (double)-(double)num2, tube.x, tube.y);
+                vector7 = vectRotate(vector7, (double)-(double)num2);
                 if (rectInRect(vector6.x - num5, vector6.y - num5 / 2f, vector6.x + num5, vector6.y + num5, vector.x, vector.y, vector2.x, vector2.y))
                 {
                     foreach (Bouncer bouncer3 in bouncers)
@@ -3775,7 +3775,7 @@ namespace ctr_wp7.game
                 vector2.x = p.x - p.bb.w / 2f;
                 Vector vector3;
                 vector3.x = p.x + p.bb.w / 2f;
-                vector2.y = (vector3.y = p.y);
+                vector2.y = vector3.y = p.y;
                 if (p.angle != 0.0)
                 {
                     vector = vectRotateAround(vector, -p.angle, p.x, p.y);
@@ -3800,12 +3800,12 @@ namespace ctr_wp7.game
             }
             b.skip = true;
             Vector vector = vectSub(s.prevPos, s.pos);
-            int num = ((vectRotateAround(s.prevPos, (double)(-(double)b.angle), b.x, b.y).y < b.y) ? (-1) : 1);
+            int num = (vectRotateAround(s.prevPos, (double)-(double)b.angle, b.x, b.y).y < b.y) ? (-1) : 1;
             float num2 = Math.Max(vectLength(vector) * 40f, 300f) * (float)num;
             Vector vector2 = vectForAngle(b.angle);
             Vector vector3 = vectMult(vectPerp(vector2), num2);
-            s.pos = vectRotateAround(s.pos, (double)(-(double)b.angle), b.x, b.y);
-            s.prevPos = vectRotateAround(s.prevPos, (double)(-(double)b.angle), b.x, b.y);
+            s.pos = vectRotateAround(s.pos, (double)-(double)b.angle, b.x, b.y);
+            s.prevPos = vectRotateAround(s.prevPos, (double)-(double)b.angle, b.x, b.y);
             s.prevPos.y = s.pos.y;
             s.pos = vectRotateAround(s.pos, (double)b.angle, b.x, b.y);
             s.prevPos = vectRotateAround(s.prevPos, (double)b.angle, b.x, b.y);
@@ -3932,8 +3932,8 @@ namespace ctr_wp7.game
             Vector vector2 = vectNormalize(vector);
             Vector vector3 = vectRperp(vector2);
             Vector vector4 = vectPerp(vector2);
-            Vector vector5 = (vectEqual(frs, vectUndefined) ? vectAdd(start, vectMult(vector3, startSize)) : frs);
-            Vector vector6 = (vectEqual(fls, vectUndefined) ? vectAdd(start, vectMult(vector4, startSize)) : fls);
+            Vector vector5 = vectEqual(frs, vectUndefined) ? vectAdd(start, vectMult(vector3, startSize)) : frs;
+            Vector vector6 = vectEqual(fls, vectUndefined) ? vectAdd(start, vectMult(vector4, startSize)) : fls;
             Vector vector7 = vectAdd(end, vectMult(vector3, endSize));
             Vector vector8 = vectAdd(end, vectMult(vector4, endSize));
             float[] array = new float[] { vector6.x, vector6.y, vector5.x, vector5.y, vector7.x, vector7.y, vector8.x, vector8.y };
@@ -3992,9 +3992,9 @@ namespace ctr_wp7.game
             isCandyInLantern = false;
             candy.color = RGBAColor.solidOpaqueRGBA;
             candy.passTransformationsToChilds = false;
-            candy.scaleX = (candy.scaleY = 0.71f);
-            candyMain.scaleX = (candyMain.scaleY = 0.71f);
-            candyTop.scaleX = (candyTop.scaleY = 0.71f);
+            candy.scaleX = candy.scaleY = 0.71f;
+            candyMain.scaleX = candyMain.scaleY = 0.71f;
+            candyTop.scaleX = candyTop.scaleY = 0.71f;
         }
 
         // Token: 0x06000834 RID: 2100 RVA: 0x00049F5C File Offset: 0x0004815C

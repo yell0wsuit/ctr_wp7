@@ -17,11 +17,11 @@ namespace ctr_wp7.game
                 active = false;
                 skipper = null;
                 skipAd = MenuController.createButtonWithTextIDDelegate(Application.getString(1310817), 0, this);
-                skipAd.anchor = (skipAd.parentAnchor = 34);
+                skipAd.anchor = skipAd.parentAnchor = 34;
                 skipAd.setEnabled(false);
                 _ = addChild(skipAd);
                 visible = false;
-                anchor = (parentAnchor = 34);
+                anchor = parentAnchor = 34;
             }
             return this;
         }

@@ -40,7 +40,7 @@ namespace ctr_wp7.game
                 scrollableContainer.shouldBounceVertically = true;
                 scrollableContainer.resetScrollOnShow = false;
                 scrollableContainer.untouchChildsOnMove = true;
-                scrollableContainer.anchor = (scrollableContainer.parentAnchor = 10);
+                scrollableContainer.anchor = scrollableContainer.parentAnchor = 10;
                 scrollableContainer.y = -num3;
                 _ = baseElement.addChild(scrollableContainer);
                 Image image3 = Image.Image_createWithResIDQuad(403, 12);
@@ -62,7 +62,7 @@ namespace ctr_wp7.game
                 _ = background.addChild(baseElement);
                 _ = addChild(background);
                 curtain = (RectangleElement)new RectangleElement().init();
-                curtain.anchor = (curtain.parentAnchor = 9);
+                curtain.anchor = curtain.parentAnchor = 9;
                 curtain.x = -SCREEN_OFFSET_X;
                 curtain.y = -SCREEN_OFFSET_Y;
                 curtain.width = (int)SCREEN_WIDTH_EXPANDED;

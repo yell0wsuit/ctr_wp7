@@ -32,7 +32,7 @@ namespace ctr_wp7.iframework.core
             {
                 return nsobject;
             }
-            string text = ((resType != ResourceType.STRINGS) ? CTRResourceMgr.XNA_ResName(resID) : "");
+            string text = (resType != ResourceType.STRINGS) ? CTRResourceMgr.XNA_ResName(resID) : "";
             bool flag = isWvgaResource(resID);
             float num = getNormalScaleX(resID);
             float num2 = getNormalScaleY(resID);

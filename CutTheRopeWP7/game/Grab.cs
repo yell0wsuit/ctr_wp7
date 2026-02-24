@@ -68,11 +68,11 @@ namespace ctr_wp7.game
                 }
                 if (num == 0f)
                 {
-                    wheelImage2.scaleX = (wheelImage2.scaleY = 0f);
+                    wheelImage2.scaleX = wheelImage2.scaleY = 0f;
                 }
                 else
                 {
-                    wheelImage2.scaleX = (wheelImage2.scaleY = (float)Math.Max(0.0, Math.Min(1.2, 1.0 - (double)num / 700.0)));
+                    wheelImage2.scaleX = wheelImage2.scaleY = (float)Math.Max(0.0, Math.Min(1.2, 1.0 - (double)num / 700.0));
                 }
             }
             if (bee != null)
@@ -83,7 +83,7 @@ namespace ctr_wp7.game
                 float num2 = 0f;
                 if (Math.Abs(vector2.x) > 15f)
                 {
-                    num2 = ((vector2.x > 0f) ? 10f : (-10f));
+                    num2 = (vector2.x > 0f) ? 10f : (-10f);
                 }
                 _ = Mover.moveVariableToTarget(ref bee.rotation, num2, 60f, delta);
             }
@@ -161,9 +161,9 @@ namespace ctr_wp7.game
                 int num = RND_RANGE(125, 126);
                 back = Image_createWithResIDQuad(num, 0);
                 back.doRestoreCutTransparency();
-                back.anchor = (back.parentAnchor = 18);
+                back.anchor = back.parentAnchor = 18;
                 front = Image_createWithResIDQuad(num, 1);
-                front.anchor = (front.parentAnchor = 18);
+                front.anchor = front.parentAnchor = 18;
                 _ = addChild(back);
                 _ = addChild(front);
                 back.visible = false;
@@ -173,9 +173,9 @@ namespace ctr_wp7.game
             {
                 back = Image_createWithResIDQuad(122, 0);
                 back.doRestoreCutTransparency();
-                back.anchor = (back.parentAnchor = 18);
+                back.anchor = back.parentAnchor = 18;
                 front = Image_createWithResIDQuad(122, 1);
-                front.anchor = (front.parentAnchor = 18);
+                front.anchor = front.parentAnchor = 18;
                 _ = addChild(back);
                 _ = addChild(front);
                 back.visible = false;
@@ -193,16 +193,16 @@ namespace ctr_wp7.game
             if (wheel)
             {
                 wheelImage = Image_createWithResIDQuad(134, 0);
-                wheelImage.anchor = (wheelImage.parentAnchor = 18);
+                wheelImage.anchor = wheelImage.parentAnchor = 18;
                 _ = addChild(wheelImage);
                 wheelImage.visible = false;
                 wheelImage2 = Image_createWithResIDQuad(134, 1);
                 wheelImage2.passTransformationsToChilds = false;
                 wheelHighlight = Image_createWithResIDQuad(134, 2);
-                wheelHighlight.anchor = (wheelHighlight.parentAnchor = 18);
+                wheelHighlight.anchor = wheelHighlight.parentAnchor = 18;
                 _ = wheelImage2.addChild(wheelHighlight);
                 wheelImage3 = Image_createWithResIDQuad(134, 3);
-                wheelImage3.anchor = (wheelImage3.parentAnchor = (wheelImage2.anchor = (wheelImage2.parentAnchor = 18)));
+                wheelImage3.anchor = wheelImage3.parentAnchor = wheelImage2.anchor = wheelImage2.parentAnchor = 18;
                 _ = wheelImage2.addChild(wheelImage3);
                 _ = addChild(wheelImage2);
                 wheelImage2.visible = false;
@@ -225,11 +225,11 @@ namespace ctr_wp7.game
                 moveBackground.x = -17f;
                 grabMoverHighlight = Image_createWithResIDQuad(142, 3);
                 grabMoverHighlight.visible = false;
-                grabMoverHighlight.anchor = (grabMoverHighlight.parentAnchor = 18);
+                grabMoverHighlight.anchor = grabMoverHighlight.parentAnchor = 18;
                 _ = addChild(grabMoverHighlight);
                 grabMover = Image_createWithResIDQuad(142, 4);
                 grabMover.visible = false;
-                grabMover.anchor = (grabMover.parentAnchor = 18);
+                grabMover.anchor = grabMover.parentAnchor = 18;
                 _ = addChild(grabMover);
                 _ = grabMover.addChild(moveBackground);
                 if (moveVertical)
@@ -263,7 +263,7 @@ namespace ctr_wp7.game
             bee.doRestoreCutTransparency();
             bee.parentAnchor = 18;
             Animation animation = Animation_createWithResID(148);
-            animation.parentAnchor = (animation.anchor = 9);
+            animation.parentAnchor = animation.anchor = 9;
             animation.doRestoreCutTransparency();
             _ = animation.addAnimationDelayLoopFirstLast(0.03f, Timeline.LoopType.TIMELINE_PING_PONG, 2, 4);
             animation.playTimeline(0);
@@ -274,7 +274,7 @@ namespace ctr_wp7.game
             bee.y = -quadOffset.y;
             bee.rotationCenterX = quadOffset.x - (float)(bee.width / 2);
             bee.rotationCenterY = quadOffset.y - (float)(bee.height / 2);
-            bee.scaleX = (bee.scaleY = 0.7692308f);
+            bee.scaleX = bee.scaleY = 0.7692308f;
             _ = addChild(bee);
         }
 
@@ -425,7 +425,7 @@ namespace ctr_wp7.game
             wheelImage2.rotation += num;
             wheelImage3.rotation += num;
             wheelHighlight.rotation += num;
-            num = ((num > 0f) ? MIN((double)MAX(1.0, (double)num), 2.0) : MAX((double)MIN(-1.0, (double)num), -2.0));
+            num = (num > 0f) ? MIN((double)MAX(1.0, (double)num), 2.0) : MAX((double)MIN(-1.0, (double)num), -2.0);
             if (rope != null)
             {
                 float num2 = (float)rope.getLength();

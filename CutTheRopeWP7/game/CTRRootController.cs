@@ -297,7 +297,7 @@ namespace ctr_wp7.game
                                     }
                                     if (nextController == 3)
                                     {
-                                        menuController.viewToShow = ((pack < CTRPreferences.getPacksCount() - 1 || CTRPreferences.isLiteVersion()) ? MenuController.ViewID.VIEW_PACK_SELECT : MenuController.ViewID.VIEW_MOVIE);
+                                        menuController.viewToShow = (pack < CTRPreferences.getPacksCount() - 1 || CTRPreferences.isLiteVersion()) ? MenuController.ViewID.VIEW_PACK_SELECT : MenuController.ViewID.VIEW_MOVIE;
                                     }
                                     activateChild(1);
                                     if (nextController == 4)

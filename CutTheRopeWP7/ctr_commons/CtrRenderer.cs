@@ -267,7 +267,7 @@ namespace ctr_wp7.ctr_commons
             REAL_SCREEN_WIDTH = (float)width;
             REAL_SCREEN_HEIGHT = (float)height;
             SCREEN_RATIO = REAL_SCREEN_HEIGHT / REAL_SCREEN_WIDTH;
-            IS_WVGA = (width > 500 || height > 500);
+            IS_WVGA = width > 500 || height > 500;
             IS_QVGA = width < 280 || height < 280;
             if (isLowMem)
             {

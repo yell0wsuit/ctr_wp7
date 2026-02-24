@@ -63,7 +63,7 @@ namespace ctr_wp7.game
             cverts[13] = vector7.y;
             cverts[14] = vector11.x;
             cverts[15] = vector11.y;
-            ccolors[2] = (ccolors[3] = (ccolors[4] = (ccolors[5] = color)));
+            ccolors[2] = ccolors[3] = ccolors[4] = ccolors[5] = color;
             OpenGL.glColorPointer_add(4, 5, 0, ccolors);
             OpenGL.glVertexPointer_add(2, 5, 0, cverts);
         }
@@ -71,7 +71,7 @@ namespace ctr_wp7.game
         // Token: 0x06000683 RID: 1667 RVA: 0x00032098 File Offset: 0x00030298
         private void drawBungee(Bungee b, Vector[] pts, int count, int points)
         {
-            float num = ((b.cut == -1 || b.forceWhite) ? 1f : (b.cutTime / 1.95f));
+            float num = (b.cut == -1 || b.forceWhite) ? 1f : (b.cutTime / 1.95f);
             if (num == 0f)
             {
                 return;
@@ -81,8 +81,8 @@ namespace ctr_wp7.game
             RGBAColor rgbacolor3 = RGBAColor.MakeRGBA(0.304, 0.198, 0.124, (double)num);
             RGBAColor rgbacolor4 = RGBAColor.MakeRGBA(0.475, 0.305, 0.185, (double)num);
             RGBAColor rgbacolor5 = RGBAColor.MakeRGBA(0.19, 0.122, 0.074, (double)num);
-            RGBAColor rgbacolor6 = (b.alternateColors ? rgbacolor : rgbacolor2);
-            RGBAColor rgbacolor7 = (b.alternateColors ? rgbacolor : rgbacolor3);
+            RGBAColor rgbacolor6 = b.alternateColors ? rgbacolor : rgbacolor2;
+            RGBAColor rgbacolor7 = b.alternateColors ? rgbacolor : rgbacolor3;
             float num2 = vectDistance(vect(pts[0].x, pts[0].y), vect(pts[1].x, pts[1].y));
             if ((double)num2 <= 30.3)
             {

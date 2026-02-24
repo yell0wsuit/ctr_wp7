@@ -86,7 +86,7 @@ namespace ctr_wp7.iframework.visual
             OpenGL.glViewport(0.0, 0.0, (double)REAL_SCREEN_WIDTH, (double)REAL_SCREEN_HEIGHT);
             OpenGL.glMatrixMode(15);
             OpenGL.glLoadIdentity();
-            OpenGL.glOrthof((double)(-(double)SCREEN_OFFSET_X), (double)(SCREEN_WIDTH + SCREEN_OFFSET_X), (double)(SCREEN_HEIGHT + SCREEN_OFFSET_Y), (double)(-(double)SCREEN_OFFSET_Y), -1.0, 1.0);
+            OpenGL.glOrthof((double)-(double)SCREEN_OFFSET_X, (double)(SCREEN_WIDTH + SCREEN_OFFSET_X), (double)(SCREEN_HEIGHT + SCREEN_OFFSET_Y), (double)-(double)SCREEN_OFFSET_Y, -1.0, 1.0);
             OpenGL.glMatrixMode(14);
             OpenGL.glLoadIdentity();
         }

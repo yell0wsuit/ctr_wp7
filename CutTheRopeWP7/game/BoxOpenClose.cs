@@ -19,8 +19,8 @@ namespace ctr_wp7.game
             {
                 result = (BaseElement)new BaseElement().init();
                 _ = addChildwithID(result, 1);
-                anchor = (parentAnchor = 18);
-                result.anchor = (result.parentAnchor = 18);
+                anchor = parentAnchor = 18;
+                result.anchor = result.parentAnchor = 18;
                 result.setEnabled(false);
                 Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(2);
                 timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
@@ -250,7 +250,7 @@ namespace ctr_wp7.game
             Text text = (Text)result.getChildWithName("dataTitle");
             Text text2 = (Text)result.getChildWithName("dataValue");
             Text text3 = (Text)result.getChildWithName("scoreValue");
-            text.color.a = (text2.color.a = (text3.color.a = 1f));
+            text.color.a = text2.color.a = text3.color.a = 1f;
         }
 
         // Token: 0x06000478 RID: 1144 RVA: 0x0001F824 File Offset: 0x0001DA24
@@ -258,7 +258,7 @@ namespace ctr_wp7.game
         {
             openCloseAnims = (BaseElement)new BaseElement().init();
             _ = addChildwithID(openCloseAnims, 0);
-            openCloseAnims.parentAnchor = (openCloseAnims.anchor = 18);
+            openCloseAnims.parentAnchor = openCloseAnims.anchor = 18;
             openCloseAnims.scaleY = SCREEN_BG_SCALE_Y;
             openCloseAnims.scaleX = SCREEN_BG_SCALE_X;
             openCloseAnims.passTransformationsToChilds = true;
@@ -313,7 +313,7 @@ namespace ctr_wp7.game
                             Text text5 = (Text)result.getChildWithName("dataValue");
                             text5.setEnabled(true);
                             Text text6 = (Text)result.getChildWithName("scoreValue");
-                            text4.color.a = (text5.color.a = (text6.color.a = 1f - raDelay / 0.2f));
+                            text4.color.a = text5.color.a = text6.color.a = 1f - raDelay / 0.2f;
                             if (flag)
                             {
                                 raState = 2;
@@ -343,7 +343,7 @@ namespace ctr_wp7.game
                         {
                             Text text9 = (Text)result.getChildWithName("dataTitle");
                             Text text10 = (Text)result.getChildWithName("dataValue");
-                            text9.color.a = (text10.color.a = raDelay / 0.2f);
+                            text9.color.a = text10.color.a = raDelay / 0.2f;
                             if (flag)
                             {
                                 raState = 4;
@@ -362,7 +362,7 @@ namespace ctr_wp7.game
                         {
                             Text text13 = (Text)result.getChildWithName("dataTitle");
                             Text text14 = (Text)result.getChildWithName("dataValue");
-                            text13.color.a = (text14.color.a = 1f - raDelay / 0.2f);
+                            text13.color.a = text14.color.a = 1f - raDelay / 0.2f;
                             if (flag)
                             {
                                 raState = 5;
@@ -393,7 +393,7 @@ namespace ctr_wp7.game
                         {
                             Text text17 = (Text)result.getChildWithName("dataTitle");
                             Text text18 = (Text)result.getChildWithName("dataValue");
-                            text17.color.a = (text18.color.a = raDelay / 0.2f);
+                            text17.color.a = text18.color.a = raDelay / 0.2f;
                             if (flag)
                             {
                                 raState = 7;
@@ -411,7 +411,7 @@ namespace ctr_wp7.game
                         {
                             Text text21 = (Text)result.getChildWithName("dataTitle");
                             Text text22 = (Text)result.getChildWithName("dataValue");
-                            text21.color.a = (text22.color.a = 1f - raDelay / 0.2f);
+                            text21.color.a = text22.color.a = 1f - raDelay / 0.2f;
                             if (flag)
                             {
                                 raState = 8;
@@ -436,9 +436,9 @@ namespace ctr_wp7.game
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
             int num = 216 + ctrrootController.getPack();
             Image image = Image.Image_createWithResIDQuad(97, 16);
-            image.rotationCenterX = (float)(-(float)image.width) / 2f + 1f;
-            image.rotationCenterY = (float)(-(float)image.height) / 2f + 1f;
-            image.scaleX = (image.scaleY = 4f);
+            image.rotationCenterX = (float)-(float)image.width / 2f + 1f;
+            image.rotationCenterY = (float)-(float)image.height / 2f + 1f;
+            image.scaleX = image.scaleY = 4f;
             Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(2);
             if (open)
             {
@@ -455,7 +455,7 @@ namespace ctr_wp7.game
             _ = openCloseAnims.addChild(image);
             Image image2 = Image.Image_createWithResIDQuad(num, 0);
             Image image3 = Image.Image_createWithResIDQuad(num, 0);
-            image2.rotationCenterX = (float)(-(float)image2.width) / 2f;
+            image2.rotationCenterX = (float)-(float)image2.width / 2f;
             image3.rotationCenterX = image2.rotationCenterX;
             image3.y = -0.5f;
             image3.rotation = 180f;
@@ -533,7 +533,7 @@ namespace ctr_wp7.game
             image5.playTimeline(0);
             Image image6 = Image.Image_createWithResIDQuad(num, 1);
             Image image7 = Image.Image_createWithResIDQuad(num, 1);
-            image6.rotationCenterX = (float)(-(float)image6.width) / 2f;
+            image6.rotationCenterX = (float)-(float)image6.width / 2f;
             image7.rotationCenterX = image6.rotationCenterX;
             float num2 = -10f;
             float num3 = -5f;

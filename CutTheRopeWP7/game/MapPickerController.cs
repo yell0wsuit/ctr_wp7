@@ -28,7 +28,7 @@ namespace ctr_wp7.game
                 FontGeneric font = Application.getFont(6);
                 Text text = new Text().initWithFont(font);
                 text.setString(NSS("Loading..."));
-                text.anchor = (text.parentAnchor = 18);
+                text.anchor = text.parentAnchor = 18;
                 _ = view.addChild(text);
                 addViewwithID(view, 1);
                 setNormalMode();
@@ -56,9 +56,9 @@ namespace ctr_wp7.game
             text.setString(NSS("START"));
             Text text2 = new Text().initWithFont(font);
             text2.setString(NSS("START"));
-            text2.scaleX = (text2.scaleY = 1.2f);
+            text2.scaleX = text2.scaleY = 1.2f;
             Button button = new Button().initWithUpElementDownElementandID(text, text2, 0);
-            button.anchor = (button.parentAnchor = 34);
+            button.anchor = button.parentAnchor = 34;
             button.delegateButtonDelegate = this;
             _ = view.addChild(button);
             addViewwithID(view, 0);

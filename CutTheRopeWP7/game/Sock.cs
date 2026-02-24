@@ -75,10 +75,10 @@ namespace ctr_wp7.game
         {
             t1.x = x - 15f;
             t2.x = x + 15f;
-            t1.y = (t2.y = y);
+            t1.y = t2.y = y;
             b1.x = t1.x;
             b2.x = t2.x;
-            b1.y = (b2.y = y + 1f);
+            b1.y = b2.y = y + 1f;
             angle = (double)DEGREES_TO_RADIANS(rotation);
             t1 = vectRotateAround(t1, angle, x, y);
             t2 = vectRotateAround(t2, angle, x, y);

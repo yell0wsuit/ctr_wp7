@@ -442,7 +442,7 @@ namespace ctr_wp7.ctr_original
                 int levelsInPackCount = getLevelsInPackCount();
                 while (j < levelsInPackCount)
                 {
-                    int num = (((packUnlockStars(i) == 0 || (isShareware() && i < sharewareFreePacks())) && j == 0) ? 1 : 0);
+                    int num = ((packUnlockStars(i) == 0 || (isShareware() && i < sharewareFreePacks())) && j == 0) ? 1 : 0;
                     setIntforKey(0, getPackLevelKey("SCORE_", i, j), false);
                     setIntforKey(0, getPackLevelKey("STARS_", i, j), false);
                     setIntforKey(num, getPackLevelKey("UNLOCKED_", i, j), false);

@@ -32,7 +32,7 @@ namespace ctr_wp7.game
                 {
                     text.setStringandWidth(Application.getString(1310752), 300.0);
                 }
-                text.anchor = (text.parentAnchor = 18);
+                text.anchor = text.parentAnchor = 18;
                 _ = loadingView.addChild(text);
             }
             return this;

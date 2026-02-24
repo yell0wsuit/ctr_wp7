@@ -35,7 +35,7 @@ namespace ctr_wp7.game
             backCloud = Image_createWithResIDQuad(180, 4);
             backCloud.x = x + 28f;
             backCloud.y = y + 8f;
-            backCloud.anchor = (backCloud.parentAnchor = 18);
+            backCloud.anchor = backCloud.parentAnchor = 18;
             _ = addChild(backCloud);
             Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(5);
             timeline.setTimelineLoopType(Timeline.LoopType.TIMELINE_REPLAY);
@@ -54,7 +54,7 @@ namespace ctr_wp7.game
             backCloud2 = Image_createWithResIDQuad(180, 3);
             backCloud2.x = x + 22f;
             backCloud2.y = y + 16f;
-            backCloud2.anchor = (backCloud2.parentAnchor = 18);
+            backCloud2.anchor = backCloud2.parentAnchor = 18;
             _ = addChild(backCloud2);
             Timeline timeline2 = new Timeline().initWithMaxKeyFramesOnTrack(5);
             timeline2.setTimelineLoopType(Timeline.LoopType.TIMELINE_REPLAY);
@@ -73,7 +73,7 @@ namespace ctr_wp7.game
             backCloud3 = Image_createWithResIDQuad(180, 3);
             backCloud3.x = x - 28f;
             backCloud3.y = y + 5f;
-            backCloud3.anchor = (backCloud3.parentAnchor = 18);
+            backCloud3.anchor = backCloud3.parentAnchor = 18;
             _ = addChild(backCloud3);
             Timeline timeline3 = new Timeline().initWithMaxKeyFramesOnTrack(5);
             timeline3.setTimelineLoopType(Timeline.LoopType.TIMELINE_REPLAY);
@@ -92,7 +92,7 @@ namespace ctr_wp7.game
             Image image = Image_createWithResIDQuad(180, 4);
             image.x = x - 23f;
             image.y = y + 16f;
-            image.anchor = (image.parentAnchor = 18);
+            image.anchor = image.parentAnchor = 18;
             image.doRestoreCutTransparency();
             _ = addChild(image);
             Timeline timeline4 = new Timeline().initWithMaxKeyFramesOnTrack(5);
@@ -112,7 +112,7 @@ namespace ctr_wp7.game
             Image image2 = Image_createWithResIDQuad(180, 0);
             image2.x = x - 5f;
             image2.y = y + 25f;
-            image2.anchor = (image2.parentAnchor = 18);
+            image2.anchor = image2.parentAnchor = 18;
             image2.doRestoreCutTransparency();
             _ = addChild(image2);
             Timeline timeline5 = new Timeline().initWithMaxKeyFramesOnTrack(5);

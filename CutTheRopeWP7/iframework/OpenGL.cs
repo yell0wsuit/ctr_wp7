@@ -489,7 +489,7 @@ namespace ctr_wp7.iframework
         // Token: 0x0600051D RID: 1309 RVA: 0x000259A0 File Offset: 0x00023BA0
         private static BasicEffect getEffect(bool useTexture, bool useColor)
         {
-            BasicEffect basicEffect = (useTexture ? (useColor ? s_effectTextureColor : s_effectTexture) : s_effectColor);
+            BasicEffect basicEffect = useTexture ? (useColor ? s_effectTextureColor : s_effectTexture) : s_effectColor;
             if (useTexture)
             {
                 basicEffect.Alpha = (float)s_Color.A / 255f;
@@ -549,7 +549,7 @@ namespace ctr_wp7.iframework
                 return;
             }
             _ = s_glClientStateFlags.TryGetValue(13, out bool flag);
-            VertexPositionColor[] array = (flag ? ConstructColorVertices() : ConstructCurrentColorVertices());
+            VertexPositionColor[] array = flag ? ConstructColorVertices() : ConstructCurrentColorVertices();
             foreach (EffectPass effectPass in effect.CurrentTechnique.Passes)
             {
                 effectPass.Apply();
@@ -829,7 +829,7 @@ namespace ctr_wp7.iframework
             // Token: 0x0600052D RID: 1325 RVA: 0x00025F9A File Offset: 0x0002419A
             public GLVertexPointer(int size, int type, int stride, object pointer)
             {
-                pointer_ = ((pointer != null) ? ((float[])pointer) : null);
+                pointer_ = (pointer != null) ? ((float[])pointer) : null;
                 size_ = size;
             }
 
@@ -860,7 +860,7 @@ namespace ctr_wp7.iframework
             // Token: 0x0600052F RID: 1327 RVA: 0x00025FE0 File Offset: 0x000241E0
             public GLTexCoordPointer(int size, int type, int stride, object pointer)
             {
-                pointer_ = ((pointer != null) ? ((float[])pointer) : null);
+                pointer_ = (pointer != null) ? ((float[])pointer) : null;
                 size_ = size;
             }
 

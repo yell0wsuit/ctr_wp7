@@ -29,7 +29,7 @@ namespace ctr_wp7.game
                 if (CTRPreferences.isLiteVersion())
                 {
                     Button button = MenuController.createButtonWithTextIDDelegateAutoScale(Application.getString(1310723), 41, buttonDelegate);
-                    button.anchor = (button.parentAnchor = 18);
+                    button.anchor = button.parentAnchor = 18;
                     button.y = 23f;
                     BaseElement baseElement5 = baseElement3.getChildWithName("del_button");
                     ((Button)baseElement5).touchable = false;
@@ -37,7 +37,7 @@ namespace ctr_wp7.game
                     baseElement5.getChildWithName("del_text_down").color = RGBAColor.MakeRGBA(1.0, 1.0, 1.0, 0.5);
                     _ = baseElement3.addChild(button);
                     button = MenuController.createButtonWithTextIDDelegateAutoScale(Application.getString(1310723), 41, buttonDelegate);
-                    button.anchor = (button.parentAnchor = 18);
+                    button.anchor = button.parentAnchor = 18;
                     button.y = 23f;
                     baseElement5 = baseElement4.getChildWithName("del_button");
                     ((Button)baseElement5).touchable = false;
@@ -53,7 +53,7 @@ namespace ctr_wp7.game
                 ScrollableContainer scrollableContainer = new ScrollableContainer().initWithWidthHeightContainer((float)box.width, SCREEN_HEIGHT_EXPANDED + 3f, box);
                 scrollableContainer.shouldBounceVertically = true;
                 scrollableContainer.resetScrollOnShow = false;
-                scrollableContainer.anchor = (scrollableContainer.parentAnchor = 10);
+                scrollableContainer.anchor = scrollableContainer.parentAnchor = 10;
                 scrollableContainer.y -= SCREEN_OFFSET_Y;
                 _ = background.addChild(scrollableContainer);
                 Button button2 = MenuController.createBackButtonWithDelegateID(buttonDelegate, 9);

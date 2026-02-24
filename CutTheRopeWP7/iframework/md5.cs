@@ -29,7 +29,7 @@ namespace ctr_wp7.iframework
         // Token: 0x060002EF RID: 751 RVA: 0x00012EA9 File Offset: 0x000110A9
         private static void P(ref uint a, uint b, uint c, uint d, uint k, uint s, uint t, uint[] X, FuncF F)
         {
-            a += F(b, c, d) + X[(int)((UIntPtr)k)] + t;
+            a += F(b, c, d) + X[(int)(UIntPtr)k] + t;
             a = S(a, s) + b;
         }
 
@@ -211,7 +211,7 @@ namespace ctr_wp7.iframework
             PUT_UINT32(num2, ref array, 0);
             PUT_UINT32(num, ref array, 4);
             uint num3 = ctx.total[0] & 63U;
-            uint num4 = ((num3 < 56U) ? (56U - num3) : (120U - num3));
+            uint num4 = (num3 < 56U) ? (56U - num3) : (120U - num3);
             md5_update(ref ctx, md5_padding, num4);
             md5_update(ref ctx, array, 8U);
             PUT_UINT32(ctx.state[0], ref digest, 0);

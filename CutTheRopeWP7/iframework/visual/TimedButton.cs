@@ -36,7 +36,7 @@ namespace ctr_wp7.iframework.visual
         {
             if (initWithID(n) != null)
             {
-                up.parentAnchor = (down.parentAnchor = 9);
+                up.parentAnchor = down.parentAnchor = 9;
                 _ = addChildwithID(up, 0);
                 _ = addChildwithID(down, 1);
                 setState(TIMED_BUTTON.TIMED_BUTTON_UP);
@@ -79,7 +79,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060003EF RID: 1007 RVA: 0x0001C3FC File Offset: 0x0001A5FC
         public virtual bool isInTouchZoneXYforTouchDown(float tx, float ty, bool td)
         {
-            float num = (td ? 0f : 15f);
+            float num = td ? 0f : 15f;
             if (forcedTouchZone.w != -1f)
             {
                 return pointInRect(tx, ty, drawX + forcedTouchZone.x - num, drawY + forcedTouchZone.y - num, forcedTouchZone.w + num * 2f, forcedTouchZone.h + num * 2f);

@@ -55,7 +55,7 @@ namespace ctr_wp7.iframework.helpers
         // Token: 0x06000211 RID: 529 RVA: 0x0000DCB3 File Offset: 0x0000BEB3
         public virtual void applyCameraTransformation()
         {
-            OpenGL.glTranslatef((double)(-(double)pos.x), (double)(-(double)pos.y), 0.0);
+            OpenGL.glTranslatef((double)-(double)pos.x, (double)-(double)pos.y, 0.0);
         }
 
         // Token: 0x06000212 RID: 530 RVA: 0x0000DCDD File Offset: 0x0000BEDD

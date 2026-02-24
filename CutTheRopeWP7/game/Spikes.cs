@@ -57,7 +57,7 @@ namespace ctr_wp7.game
                 image2.doRestoreCutTransparency();
                 rotateButton = new Button().initWithUpElementDownElementandID(image, image2, 0);
                 rotateButton.delegateButtonDelegate = this;
-                rotateButton.anchor = (rotateButton.parentAnchor = 18);
+                rotateButton.anchor = rotateButton.parentAnchor = 18;
                 _ = addChild(rotateButton);
                 Vector quadOffset = getQuadOffset(140, num2);
                 Vector quadSize = getQuadSize(140, num2);
@@ -67,7 +67,7 @@ namespace ctr_wp7.game
             }
             passColorToChilds = false;
             spikesNormal = false;
-            origRotation = (rotation = (float)an);
+            origRotation = rotation = (float)an;
             x = px;
             y = py;
             setToggled(t);
@@ -97,10 +97,10 @@ namespace ctr_wp7.game
             num /= 2f;
             t1.x = x - num;
             t2.x = x + num;
-            t1.y = (t2.y = y - 5f);
+            t1.y = t2.y = y - 5f;
             b1.x = t1.x;
             b2.x = t2.x;
-            b1.y = (b2.y = y + 5f);
+            b1.y = b2.y = y + 5f;
             angle = (double)DEGREES_TO_RADIANS(rotation);
             t1 = vectRotateAround(t1, angle, x, y);
             t2 = vectRotateAround(t2, angle, x, y);

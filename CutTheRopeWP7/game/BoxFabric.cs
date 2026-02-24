@@ -17,7 +17,7 @@ namespace ctr_wp7.game
             _ = Application.sharedPreferences();
             BaseElement baseElement = (BaseElement)new BaseElement().init();
             baseElement.setName(NSS("boxContainer"));
-            baseElement.anchor = (baseElement.parentAnchor = 9);
+            baseElement.anchor = baseElement.parentAnchor = 9;
             BaseElement baseElement2 = null;
             BaseElement baseElement3 = null;
             if (isGameBox(pbox))
@@ -49,7 +49,7 @@ namespace ctr_wp7.game
             {
                 baseElement2 = (BaseElement)new BaseElement().init();
                 baseElement3 = buildNextDeliveryBox(buttonDelegate);
-                baseElement3.anchor = (baseElement3.parentAnchor = 18);
+                baseElement3.anchor = baseElement3.parentAnchor = 18;
             }
             else if (pbox == 0)
             {
@@ -73,18 +73,18 @@ namespace ctr_wp7.game
             }
             if (isGameBox(pbox) || pbox == 18 || pbox == 19)
             {
-                baseElement.height = (baseElement2.height = 300);
-                baseElement.width = (baseElement2.width = 300);
+                baseElement.height = baseElement2.height = 300;
+                baseElement.width = baseElement2.width = 300;
             }
             else if (pbox == 20)
             {
-                baseElement.height = (baseElement2.height = 300);
-                baseElement.width = (baseElement2.width = 330);
+                baseElement.height = baseElement2.height = 300;
+                baseElement.width = baseElement2.width = 330;
             }
             else
             {
-                baseElement.height = (baseElement2.height = baseElement3.height);
-                baseElement.width = (baseElement2.width = baseElement3.width);
+                baseElement.height = baseElement2.height = baseElement3.height;
+                baseElement.width = baseElement2.width = baseElement3.width;
             }
             return baseElement2;
         }
@@ -211,7 +211,7 @@ namespace ctr_wp7.game
             Image image = Image.Image_createWithResIDQuad(71, 1);
             image.setName(NSS("lockHideMe"));
             image.doRestoreCutTransparency();
-            image.anchor = (image.parentAnchor = 9);
+            image.anchor = image.parentAnchor = 9;
             Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(2);
             timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.solidOpaqueRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
             timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 1.5));
@@ -226,7 +226,7 @@ namespace ctr_wp7.game
         {
             NSString @string = Application.getString(label);
             Text text = new Text().initWithFont(Application.getFont(5));
-            text.anchor = (text.parentAnchor = 10);
+            text.anchor = text.parentAnchor = 10;
             text.setAlignment(2);
             if (multistring)
             {
@@ -245,7 +245,7 @@ namespace ctr_wp7.game
         {
             Image image = Image.Image_createWithResIDQuad(71, 4);
             image.doRestoreCutTransparency();
-            image.parentAnchor = (image.anchor = 9);
+            image.parentAnchor = image.anchor = 9;
             return image;
         }
 
@@ -257,23 +257,23 @@ namespace ctr_wp7.game
             MenuController.TouchBaseElement touchBaseElement = (MenuController.TouchBaseElement)new MenuController.TouchBaseElement().init();
             touchBaseElement.bid = 47;
             touchBaseElement.delegateButtonDelegate = buttonDelegate;
-            touchBaseElement.anchor = (touchBaseElement.parentAnchor = 18);
+            touchBaseElement.anchor = touchBaseElement.parentAnchor = 18;
             touchBaseElement.height = image.height + image2.height;
             touchBaseElement.width = image.width;
-            image.anchor = (image.parentAnchor = 9);
-            image2.anchor = (image2.parentAnchor = 33);
+            image.anchor = image.parentAnchor = 9;
+            image2.anchor = image2.parentAnchor = 33;
             image2.scaleY = -1f;
             image2.y = -1f;
             touchBaseElement.rotation = 5f;
             _ = touchBaseElement.addChild(image);
             _ = touchBaseElement.addChild(image2);
             Text text = Text.createWithFontandString(5, Application.getString(1310837));
-            text.anchor = (text.parentAnchor = 18);
+            text.anchor = text.parentAnchor = 18;
             text.y = -2f;
             text.x = -4f;
             if ((float)text.width > 150f)
             {
-                text.scaleX = (text.scaleY = 150f / (float)text.width);
+                text.scaleX = text.scaleY = 150f / (float)text.width;
             }
             text.setAlignment(2);
             _ = touchBaseElement.addChild(text);
@@ -291,7 +291,7 @@ namespace ctr_wp7.game
             _ = Application.sharedAppSettings().getString(8).isEqualToString("zh");
             VBox vbox = new VBox().initWithOffsetAlignWidth(30.0, 2, (double)num2 + (double)(SCREEN_WIDTH_EXPANDED - num2) / 2.0 + (double)num);
             vbox.x = num;
-            vbox.parentAnchor = (vbox.anchor = 10);
+            vbox.parentAnchor = vbox.anchor = 10;
             if (baseElement != null)
             {
                 _ = vbox.addChild(baseElement);

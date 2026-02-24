@@ -63,8 +63,8 @@ namespace ctr_wp7.Banner
         // Token: 0x0600074B RID: 1867 RVA: 0x0003ADB0 File Offset: 0x00038FB0
         public RemoteConfig(string pList, string pWeight)
         {
-            bannersList = ((pList.Length > 0) ? convertArray(pList.Split(new char[] { ',' })) : []);
-            bannersWeights = ((pWeight.Length > 0) ? convertArray(pWeight.Split(new char[] { ',' })) : []);
+            bannersList = (pList.Length > 0) ? convertArray(pList.Split(new char[] { ',' })) : [];
+            bannersWeights = (pWeight.Length > 0) ? convertArray(pWeight.Split(new char[] { ',' })) : [];
             currentBanner = 0;
             currentWeight = 0;
             hideMainPromo = false;

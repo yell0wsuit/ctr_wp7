@@ -25,7 +25,7 @@ internal class CoppaController : ViewController, ButtonDelegate, TimelineDelegat
         addViewwithID(coppaView, COPPA_VIEW_MAIN);
         coppaView.blendingMode = 1;
         Image image = Image.Image_createWithResIDQuad(407, 0);
-        image.parentAnchor = (image.anchor = 18);
+        image.parentAnchor = image.anchor = 18;
         image.passTransformationsToChilds = false;
         image.scaleY = SCREEN_BG_SCALE_Y;
         image.scaleX = SCREEN_BG_SCALE_X;

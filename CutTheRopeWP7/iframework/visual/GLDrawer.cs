@@ -355,7 +355,7 @@ namespace ctr_wp7.iframework.visual
             RGBAColor[] array3 = colors;
             int num3 = 4;
             colors[5] = color;
-            array[num] = (array2[num2] = (array3[num3] = color));
+            array[num] = array2[num2] = array3[num3] = color;
             OpenGL.glColorPointer_add(4, 5, 0, colors);
             OpenGL.glVertexPointer_add(2, 5, 0, verts);
         }

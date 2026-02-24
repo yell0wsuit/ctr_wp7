@@ -24,30 +24,30 @@ internal class Rollbar : BaseElement
         baseElement.anchor = 9;
         baseElement.parentAnchor = 9;
         Image image = Image.Image_createWithResIDQuad(409, 0);
-        image.anchor = (image.parentAnchor = 9);
+        image.anchor = image.parentAnchor = 9;
         Image image2 = Image.Image_createWithResIDQuad(409, 0);
-        image2.anchor = (image2.parentAnchor = 12);
+        image2.anchor = image2.parentAnchor = 12;
         image2.scaleX = -1f;
-        width = (baseElement.width = image.width * 2);
-        height = (baseElement.height = image.height);
+        width = baseElement.width = image.width * 2;
+        height = baseElement.height = image.height;
         _ = baseElement.addChild(image);
         _ = baseElement.addChild(image2);
         _ = addChild(baseElement);
         scrollTop = Image.Image_createWithResIDQuad(409, 4);
-        scrollTop.anchor = (scrollTop.parentAnchor = 9);
+        scrollTop.anchor = scrollTop.parentAnchor = 9;
         Image.setElementPositionWithRelativeQuadOffset(scrollTop, 409, 0, 4);
         _ = addChild(scrollTop);
         scrollTop.visible = false;
         centralCellTL = Image.getRelativeQuadOffset(409, 0, 3);
         Text text = Text.createWithFontandString(5, NSS(" "));
         text.visible = false;
-        text.anchor = (text.parentAnchor = 18);
+        text.anchor = text.parentAnchor = 18;
         elements.Add(text);
         _ = addChild(text);
         Image image3 = Image.Image_createWithResIDQuad(409, 2);
         image3.scaleY = -1f;
         image3.visible = false;
-        image3.anchor = (image3.parentAnchor = 18);
+        image3.anchor = image3.parentAnchor = 18;
         elements.Add(image3);
         _ = addChild(image3);
         Timeline timeline = new Timeline();
@@ -61,13 +61,13 @@ internal class Rollbar : BaseElement
         {
             text = Text.createWithFontandString(5, new NSString(i.ToString()));
             text.visible = false;
-            text.anchor = (text.parentAnchor = 18);
+            text.anchor = text.parentAnchor = 18;
             elements.Add(text);
             _ = addChild(text);
         }
         image3 = Image.Image_createWithResIDQuad(409, 2);
         image3.visible = false;
-        image3.anchor = (image3.parentAnchor = 18);
+        image3.anchor = image3.parentAnchor = 18;
         elements.Add(image3);
         _ = addChild(image3);
         timeline = new Timeline();
@@ -81,7 +81,7 @@ internal class Rollbar : BaseElement
         double num = (double)scrollTop.height / 2.0 / (double)centralCellHeight;
         halfVisibleCount = (int)Math.Ceiling(num);
         offsetY = (double)(-24f * centralCellHeight);
-        lastTouchY = (double)(-(double)SCREEN_HEIGHT_EXPANDED);
+        lastTouchY = (double)-(double)SCREEN_HEIGHT_EXPANDED;
         BaseElement baseElement2 = (BaseElement)new BaseElement().init();
         Image.setElementPositionWithQuadCenter(baseElement2, 409, 1);
         scissorTL = vect(baseElement2.x - 20f, baseElement2.y - 80f);
@@ -106,7 +106,7 @@ internal class Rollbar : BaseElement
     // Token: 0x06000663 RID: 1635 RVA: 0x00030F80 File Offset: 0x0002F180
     public override bool onTouchMoveXY(float x, float y)
     {
-        if (lastTouchY > (double)(-(double)SCREEN_HEIGHT_EXPANDED))
+        if (lastTouchY > (double)-(double)SCREEN_HEIGHT_EXPANDED)
         {
             preLastTouchY = lastTouchY;
             float num = (float)((double)y - lastTouchY);
@@ -124,7 +124,7 @@ internal class Rollbar : BaseElement
     public override bool onTouchUpXY(float x, float y)
     {
         manualMode = false;
-        if (lastTouchY <= (double)(-(double)SCREEN_HEIGHT_EXPANDED))
+        if (lastTouchY <= (double)-(double)SCREEN_HEIGHT_EXPANDED)
         {
             return false;
         }
@@ -133,7 +133,7 @@ internal class Rollbar : BaseElement
             lastMoveSpeed = 0.0;
         }
         speedY = lastMoveSpeed * 2.0;
-        lastTouchY = (double)(-(double)SCREEN_HEIGHT_EXPANDED);
+        lastTouchY = (double)-(double)SCREEN_HEIGHT_EXPANDED;
         return true;
     }
 
@@ -203,7 +203,7 @@ internal class Rollbar : BaseElement
         {
             offsetY -= (double)(num2 * 20f * delta);
         }
-        num2 = (float)((double)((float)(-(float)(elements.Count - halfVisibleCount + 1)) * centralCellHeight) - offsetY);
+        num2 = (float)((double)((float)-(float)(elements.Count - halfVisibleCount + 1) * centralCellHeight) - offsetY);
         if (num2 > 0f && !manualMode)
         {
             offsetY += (double)(num2 * 20f * delta);

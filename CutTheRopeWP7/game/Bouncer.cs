@@ -69,10 +69,10 @@ namespace ctr_wp7.game
         {
             t1.x = x - (float)(width / 2);
             t2.x = x + (float)(width / 2);
-            t1.y = (t2.y = (float)((double)y - 5.0));
+            t1.y = t2.y = (float)((double)y - 5.0);
             b1.x = t1.x;
             b2.x = t2.x;
-            b1.y = (b2.y = (float)((double)y + 5.0));
+            b1.y = b2.y = (float)((double)y + 5.0);
             angle = DEGREES_TO_RADIANS(rotation);
             t1 = vectRotateAround(t1, (double)angle, x, y);
             t2 = vectRotateAround(t2, (double)angle, x, y);

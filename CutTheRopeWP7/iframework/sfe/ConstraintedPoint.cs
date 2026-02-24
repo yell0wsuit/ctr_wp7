@@ -202,7 +202,7 @@ namespace ctr_wp7.iframework.sfe
                 vectZero.y = constraint.cp.pos.y - p.pos.y;
                 if (vectZero.x == 0f && vectZero.y == 0f)
                 {
-                    vectZero.x = (vectZero.y = 1f);
+                    vectZero.x = vectZero.y = 1f;
                 }
                 float num = vectLength(vectZero);
                 float restLength = constraint.restLength;
@@ -230,7 +230,7 @@ namespace ctr_wp7.iframework.sfe
             IL_0109:
                 vector = vectZero;
                 float invWeight = constraint.cp.invWeight;
-                float num2 = ((num > 1f) ? num : 1f);
+                float num2 = (num > 1f) ? num : 1f;
                 float num3 = (num - restLength) / (num2 * (p.invWeight + invWeight));
                 float num4 = p.invWeight * num3;
                 vectZero.x *= num4;

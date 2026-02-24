@@ -26,7 +26,7 @@ namespace ctr_wp7.game
             {
                 loadingText.setStringandWidth(Application.getString(1310752), 300.0);
             }
-            loadingText.anchor = (loadingText.parentAnchor = 34);
+            loadingText.anchor = loadingText.parentAnchor = 34;
             loadingText.visible = false;
             _ = addChildwithID(loadingText, 6);
             skipAd = (AdSkipper)new AdSkipper().init();

@@ -51,8 +51,8 @@ namespace ctr_wp7.ctr_original
             text.setString(str);
             Text text2 = new Text().initWithFont(font);
             text2.setString(str);
-            text.anchor = (text.parentAnchor = 18);
-            text2.anchor = (text2.parentAnchor = 18);
+            text.anchor = text.parentAnchor = 18;
+            text2.anchor = text2.parentAnchor = 18;
             BaseElement baseElement = text;
             BaseElement baseElement2 = text;
             BaseElement baseElement3 = text2;
@@ -126,8 +126,8 @@ namespace ctr_wp7.ctr_original
             text.setString(str);
             Text text2 = new Text().initWithFont(font);
             text2.setString(str);
-            text.anchor = (text.parentAnchor = 18);
-            text2.anchor = (text2.parentAnchor = 18);
+            text.anchor = text.parentAnchor = 18;
+            text2.anchor = text2.parentAnchor = 18;
             _ = image.addChild(text);
             _ = image2.addChild(text2);
             TimedButton timedButton = new TimedButton().initWithUpElementDownElementandID(image, image2, bid);
@@ -141,7 +141,7 @@ namespace ctr_wp7.ctr_original
         public static Button createPromoBanner(ButtonDelegate d)
         {
             Button button = createButton2WithImageQuad1Quad2IDDelegate(77, 6, 6, 27, d);
-            button.parentAnchor = (button.anchor = 36);
+            button.parentAnchor = button.anchor = 36;
             float screen_OFFSET_Y = SCREEN_OFFSET_Y;
             float num = screen_OFFSET_Y + (float)button.height;
             button.y = num;
@@ -161,7 +161,7 @@ namespace ctr_wp7.ctr_original
         public static BaseElement frameElement(BaseElement block, int res, int frameid, int shadowid)
         {
             BaseElement baseElement = Image.createElementWithLeftPart(res, frameid);
-            baseElement.anchor = (baseElement.parentAnchor = 18);
+            baseElement.anchor = baseElement.parentAnchor = 18;
             BaseElement baseElement2 = Image.createElementWithLeftPart(res, shadowid);
             baseElement2.anchor = 10;
             baseElement2.parentAnchor = 34;
@@ -180,8 +180,8 @@ namespace ctr_wp7.ctr_original
             text.setString(str);
             Text text2 = new Text().initWithFont(font);
             text2.setString(str);
-            text.anchor = (text.parentAnchor = 18);
-            text2.anchor = (text2.parentAnchor = 18);
+            text.anchor = text.parentAnchor = 18;
+            text2.anchor = text2.parentAnchor = 18;
             _ = image.addChild(text);
             _ = image2.addChild(text2);
             Button button = new Button().initWithUpElementDownElementandID(image, image2, bid);
@@ -206,10 +206,10 @@ namespace ctr_wp7.ctr_original
             text3.setString(str2);
             Text text4 = new Text().initWithFont(font);
             text4.setString(str2);
-            text.anchor = (text.parentAnchor = 18);
-            text2.anchor = (text2.parentAnchor = 18);
-            text3.anchor = (text3.parentAnchor = 18);
-            text4.anchor = (text4.parentAnchor = 18);
+            text.anchor = text.parentAnchor = 18;
+            text2.anchor = text2.parentAnchor = 18;
+            text3.anchor = text3.parentAnchor = 18;
+            text4.anchor = text4.parentAnchor = 18;
             _ = image.addChild(text);
             _ = image2.addChild(text2);
             _ = image3.addChild(text3);
@@ -224,7 +224,7 @@ namespace ctr_wp7.ctr_original
         public static Button createBackButtonWithDelegateID(ButtonDelegate d, int bid)
         {
             Button button = createButtonWithImageQuad1Quad2IDDelegate(72, 0, 1, bid, d);
-            button.anchor = (button.parentAnchor = 33);
+            button.anchor = button.parentAnchor = 33;
             button.y += SCREEN_OFFSET_Y;
             button.x -= SCREEN_OFFSET_X;
             return button;
@@ -243,7 +243,7 @@ namespace ctr_wp7.ctr_original
             button.x += SCREEN_OFFSET_X;
             button.y += SCREEN_OFFSET_Y;
             Button button2 = createButton2WithImageQuad1Quad2IDDelegate(72, 2, 2, bidface, d);
-            button2.anchor = (button2.parentAnchor = 9);
+            button2.anchor = button2.parentAnchor = 9;
             Image.setElementPositionWithRelativeQuadOffset(button2, 72, 3, 2);
             _ = button.addChild(button2);
             Image image = Image.Image_createWithResIDQuad(73, 0);
@@ -313,8 +313,8 @@ namespace ctr_wp7.ctr_original
             text.setString(str);
             Text text2 = new Text().initWithFont(font);
             text2.setString(str);
-            text.anchor = (text.parentAnchor = 18);
-            text2.anchor = (text2.parentAnchor = 18);
+            text.anchor = text.parentAnchor = 18;
+            text2.anchor = text2.parentAnchor = 18;
             _ = baseElement.addChild(text);
             _ = baseElement2.addChild(text2);
             baseElement2.color = color;
@@ -325,7 +325,7 @@ namespace ctr_wp7.ctr_original
             button.setTouchIncreaseLeftRightTopBottom(15.0, 15.0, 15.0, 15.0);
             if ((float)text.width > (float)button.width * 0.8f)
             {
-                text.scaleX = (text.scaleY = (text2.scaleX = (text2.scaleY = (float)button.width * 0.8f / (float)text.width)));
+                text.scaleX = text.scaleY = text2.scaleX = text2.scaleY = (float)button.width * 0.8f / (float)text.width;
             }
             button.delegateButtonDelegate = d;
             return button;
@@ -336,7 +336,7 @@ namespace ctr_wp7.ctr_original
         {
             BaseElement baseElement = createMenuElementQuadText(q, str);
             BaseElement baseElement2 = createMenuElementQuadText(q, str);
-            baseElement2.scaleX = (baseElement2.scaleY = 1.2f);
+            baseElement2.scaleX = baseElement2.scaleY = 1.2f;
             Button button = new Button().initWithUpElementDownElementandID(baseElement, baseElement2, bid);
             button.delegateButtonDelegate = d;
             return button;
@@ -352,10 +352,10 @@ namespace ctr_wp7.ctr_original
             _ = image.addChild(image2);
             FontGeneric font = Application.getFont(5);
             Text text = new Text().initWithFont(font);
-            text.scaleX = (text.scaleY = 0.7f);
+            text.scaleX = text.scaleY = 0.7f;
             text.setAlignment(2);
             text.setStringandWidth(str, (float)image.width);
-            text.parentAnchor = (text.anchor = 18);
+            text.parentAnchor = text.anchor = 18;
             _ = image.addChild(text);
             return image;
         }
@@ -383,16 +383,16 @@ namespace ctr_wp7.ctr_original
             NSString @string = Application.getString(1310803);
             Text text = new Text().initWithFont(font);
             text.setString(@string);
-            text.anchor = (text.parentAnchor = 20);
+            text.anchor = text.parentAnchor = 20;
             text.x = -65f;
             _ = image.addChild(text);
             Text text2 = new Text().initWithFont(font);
             text2.setString(@string);
-            text2.anchor = (text2.parentAnchor = 20);
+            text2.anchor = text2.parentAnchor = 20;
             text2.x = text.x;
             _ = image2.addChild(text2);
             Button button = new Button().initWithUpElementDownElementandID(image, image2, bid);
-            button.parentAnchor = (button.anchor = 36);
+            button.parentAnchor = button.anchor = 36;
             button.delegateButtonDelegate = d;
             float num = SCREEN_OFFSET_Y;
             if (CTRPreferences.isBannersMustBeShown())
@@ -417,16 +417,16 @@ namespace ctr_wp7.ctr_original
         // Token: 0x060006AB RID: 1707 RVA: 0x00033C30 File Offset: 0x00031E30
         private static Image createAudioElementForQuadwithCrosspressed(int q, bool b, bool p)
         {
-            int num = (p ? 1 : 0);
+            int num = p ? 1 : 0;
             Image image = Image.Image_createWithResIDQuad(397, num);
             Image image2 = Image.Image_createWithResIDQuad(397, q);
-            image2.parentAnchor = (image2.anchor = 18);
+            image2.parentAnchor = image2.anchor = 18;
             _ = image.addChild(image2);
             if (b)
             {
                 image2.color = RGBAColor.MakeRGBA(0.5f, 0.5f, 0.5f, 0.5f);
                 Image image3 = Image.Image_createWithResIDQuad(397, 4);
-                image3.parentAnchor = (image3.anchor = 9);
+                image3.parentAnchor = image3.anchor = 9;
                 Image.setElementPositionWithRelativeQuadOffset(image3, 397, num, 4);
                 _ = image.addChild(image3);
             }
@@ -452,10 +452,10 @@ namespace ctr_wp7.ctr_original
             int num2 = 0;
             BaseElement baseElement = (BaseElement)new BaseElement().init();
             BaseElement baseElement2 = Image.createElementWithLeftPart(num, num2);
-            baseElement2.anchor = (baseElement2.parentAnchor = 33);
+            baseElement2.anchor = baseElement2.parentAnchor = 33;
             _ = baseElement.addChild(baseElement2);
             Image image = Image.Image_createWithResIDQuad(num, heroid);
-            image.anchor = (image.parentAnchor = 9);
+            image.anchor = image.parentAnchor = 9;
             Image.setElementPositionWithRelativeQuadOffset(image, num, num2, heroid);
             if (under)
             {
@@ -465,22 +465,22 @@ namespace ctr_wp7.ctr_original
             BaseElement baseElement3 = Image.createElementWithLeftPart(num, num3);
             BaseElement baseElement4 = Image.createElementWithLeftPart(num, num3);
             baseElement4.color = RGBAColor.MakeRGBA(0.8f, 0.8f, 0.8f, 1f);
-            baseElement4.scaleX = (baseElement4.scaleY = 0.95f);
+            baseElement4.scaleX = baseElement4.scaleY = 0.95f;
             string text = Application.getString(1310834).ToString().Replace("%d", (framenum + 1).ToString());
             NSString nsstring = new NSString(text);
             Text text2 = Text.createWithFontandString(5, nsstring);
             text2.setName("del_text_up");
-            text2.anchor = (text2.parentAnchor = 18);
+            text2.anchor = text2.parentAnchor = 18;
             text2.y = 4f;
             _ = baseElement3.addChild(text2);
             Text text3 = Text.createWithFontandString(5, nsstring);
             text3.setName("del_text_down");
-            text3.anchor = (text3.parentAnchor = 18);
+            text3.anchor = text3.parentAnchor = 18;
             text3.y = 4f;
             _ = baseElement4.addChild(text3);
             Button button = new Button().initWithUpElementDownElementandID(baseElement3, baseElement4, bid);
             button.delegateButtonDelegate = d;
-            button.anchor = (button.parentAnchor = 9);
+            button.anchor = button.parentAnchor = 9;
             button.setName("del_button");
             Image.setElementPositionWithRelativeQuadOffset(button, num, num2, num3);
             _ = baseElement2.addChild(button);
@@ -488,11 +488,11 @@ namespace ctr_wp7.ctr_original
             int num5 = 1 + framenum * 2;
             Vector relativeQuadOffset = Image.getRelativeQuadOffset(num, num2, num4);
             Image image2 = Image.Image_createWithResIDQuad(num, num4);
-            image2.anchor = (image2.parentAnchor = 9);
+            image2.anchor = image2.parentAnchor = 9;
             image2.y = relativeQuadOffset.y;
             _ = baseElement2.addChild(image2);
             Image image3 = Image.Image_createWithResIDQuad(num, num5);
-            image3.anchor = (image3.parentAnchor = 12);
+            image3.anchor = image3.parentAnchor = 12;
             image3.scaleX = -1f;
             image3.y = relativeQuadOffset.y;
             _ = baseElement2.addChild(image3);
@@ -516,32 +516,32 @@ namespace ctr_wp7.ctr_original
             baseElement2.getChild(1).x += 1.33f;
             BaseElement baseElement3 = Image.createElementWithLeftPart(num, num2);
             baseElement3.color = RGBAColor.MakeRGBA(0.8f, 0.8f, 0.8f, 1f);
-            baseElement3.scaleX = (baseElement3.scaleY = 0.95f);
+            baseElement3.scaleX = baseElement3.scaleY = 0.95f;
             baseElement3.getChild(1).x += 1.33f;
             NSString @string = Application.getString(1310835);
             Text text = Text.createWithFontandString(5, @string);
-            text.anchor = (text.parentAnchor = 18);
+            text.anchor = text.parentAnchor = 18;
             _ = baseElement2.addChild(text);
             Text text2 = Text.createWithFontandString(5, @string);
-            text2.anchor = (text2.parentAnchor = 18);
+            text2.anchor = text2.parentAnchor = 18;
             _ = baseElement3.addChild(text2);
             Button button = new Button().initWithUpElementDownElementandID(baseElement2, baseElement3, bid);
             button.delegateButtonDelegate = d;
-            button.anchor = (button.parentAnchor = 9);
+            button.anchor = button.parentAnchor = 9;
             _ = baseElement.addChild(button);
             if ((float)text.width > 0.8f * (float)button.width)
             {
-                text.scaleX = (text.scaleY = (text2.scaleX = (text2.scaleY = 0.8f * (float)button.width / (float)text.width)));
+                text.scaleX = text.scaleY = text2.scaleX = text2.scaleY = 0.8f * (float)button.width / (float)text.width;
             }
             if (newmark)
             {
                 Image image = Image.Image_createWithResIDQuad(num, 11);
-                image.anchor = (image.parentAnchor = 12);
+                image.anchor = image.parentAnchor = 12;
                 image.passTransformationsToChilds = false;
                 image.x = -15f;
                 image.setName(NSS("newCartoonsLabel"));
                 Image image2 = Image.Image_createWithResIDQuad(num, 12);
-                image2.anchor = (image2.parentAnchor = 18);
+                image2.anchor = image2.parentAnchor = 18;
                 _ = image.addChild(image2);
                 Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(2);
                 timeline.addKeyFrame(KeyFrame.makeRotation(0, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0f));
@@ -567,14 +567,14 @@ namespace ctr_wp7.ctr_original
         private Image createBackgroundWithLogo(bool l, bool mm = false)
         {
             Image image = Image.Image_createWithResIDQuad(66, 0);
-            image.anchor = (image.parentAnchor = 18);
+            image.anchor = image.parentAnchor = 18;
             image.passTransformationsToChilds = false;
             image.scaleY = SCREEN_BG_SCALE_Y;
             image.scaleX = SCREEN_BG_SCALE_X;
             if (l || mm)
             {
                 Image image2 = Image.Image_createWithResIDQuad(66, 1);
-                image2.anchor = (image2.parentAnchor = 34);
+                image2.anchor = image2.parentAnchor = 34;
                 image2.scaleY = SCREEN_BG_SCALE_Y * CHOOSE3(1.02, 1.18, 1.02);
                 image2.scaleX = SCREEN_BG_SCALE_X;
                 image2.y += SCREEN_OFFSET_Y;
@@ -594,7 +594,7 @@ namespace ctr_wp7.ctr_original
                 touchImage.delegateButtonDelegate = this;
                 touchImage.setName(NSS("logoCandy"));
                 Image.setElementPositionWithRelativeQuadOffset(touchImage, 69, 0, num);
-                touchImage.anchor = (touchImage.parentAnchor = 9);
+                touchImage.anchor = touchImage.parentAnchor = 9;
                 _ = image3.addChild(touchImage);
                 Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(4);
                 timeline.addKeyFrame(KeyFrame.makeScale(1.0, 1.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.0));
@@ -627,8 +627,8 @@ namespace ctr_wp7.ctr_original
                 _ = glowAnimation.addTimeline(timeline2);
             }
             Image image4 = Image.Image_createWithResID(74);
-            image4.anchor = (image4.parentAnchor = 18);
-            image4.scaleX = (image4.scaleY = 2.3f);
+            image4.anchor = image4.parentAnchor = 18;
+            image4.scaleX = image4.scaleY = 2.3f;
             Timeline timeline3 = new Timeline().initWithMaxKeyFramesOnTrack(3);
             timeline3.addKeyFrame(KeyFrame.makeRotation(45.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
             timeline3.addKeyFrame(KeyFrame.makeRotation(405.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 75.0));
@@ -645,7 +645,7 @@ namespace ctr_wp7.ctr_original
             MenuView menuView = (MenuView)new MenuView().initFullscreen();
             Image image = createBackgroundWithLogo(true, false);
             VBox vbox = new VBox().initWithOffsetAlignWidth(5f, 2, SCREEN_WIDTH);
-            vbox.anchor = (vbox.parentAnchor = 10);
+            vbox.anchor = vbox.parentAnchor = 10;
             vbox.y = 265f;
             Button button = createButtonWithTextIDDelegate(Application.getString(1310720), 0, this);
             _ = vbox.addChild(button);
@@ -713,7 +713,7 @@ namespace ctr_wp7.ctr_original
             MenuView menuView = (MenuView)new MenuView().initFullscreen();
             Image image = createBackgroundWithLogo(false, false);
             VBox vbox = new VBox().initWithOffsetAlignWidth(10.0, 2, (double)SCREEN_WIDTH);
-            vbox.anchor = (vbox.parentAnchor = 18);
+            vbox.anchor = vbox.parentAnchor = 18;
             vbox.y += 0.33f;
             _ = Application.getString(1310730);
             _ = Application.getString(1310728);
@@ -779,7 +779,7 @@ namespace ctr_wp7.ctr_original
             MenuView menuView = (MenuView)new MenuView().initFullscreen();
             Image image = createBackgroundWithLogo(false, false);
             VBox vbox = new VBox().initWithOffsetAlignWidth(10.0, 2, (double)SCREEN_WIDTH - 40.0);
-            vbox.parentAnchor = (vbox.anchor = 18);
+            vbox.parentAnchor = vbox.anchor = 18;
             Text text = new Text().initWithFont(Application.getFont(5));
             text.setAlignment(2);
             text.setStringandWidth(Application.getString(1310735), (float)vbox.width);
@@ -790,10 +790,10 @@ namespace ctr_wp7.ctr_original
             _ = vbox.addChild(text2);
             _ = image.addChild(vbox);
             TimedButton timedButton = createTimedButtonWithTextIDDelegateTimer(Application.getString(1310747), 12, this, 3f);
-            timedButton.anchor = (timedButton.parentAnchor = 34);
+            timedButton.anchor = timedButton.parentAnchor = 34;
             timedButton.y = -130f;
             Button button = createButtonWithTextIDDelegate(Application.getString(1310748), 13, this);
-            button.anchor = (button.parentAnchor = 34);
+            button.anchor = button.parentAnchor = 34;
             button.y = -70f;
             vbox.y = -65f;
             _ = image.addChild(timedButton);
@@ -822,7 +822,7 @@ namespace ctr_wp7.ctr_original
             MenuView menuView = (MenuView)new MenuView().initFullscreen();
             Image image = createBackgroundWithLogo(false, false);
             VBox vbox = new VBox().initWithOffsetAlignWidth(5f, 2, SCREEN_WIDTH_EXPANDED - 20f);
-            vbox.parentAnchor = (vbox.anchor = 18);
+            vbox.parentAnchor = vbox.anchor = 18;
             vbox.y = -20f;
             _ = image.addChild(vbox);
             Text text = new Text().initWithFont(Application.getFont(6));
@@ -880,7 +880,7 @@ namespace ctr_wp7.ctr_original
             text3.setStringandWidth(NSS(text2), 310f);
             _ = vbox.addChild(text3);
             aboutContainer = new ScrollableContainer().initWithWidthHeightContainer(310f, 350f, vbox);
-            aboutContainer.anchor = (aboutContainer.parentAnchor = 18);
+            aboutContainer.anchor = aboutContainer.parentAnchor = 18;
             _ = image.addChild(aboutContainer);
             Button button = createBackButtonWithDelegateID(this, 10);
             _ = image.addChild(button);
@@ -922,7 +922,7 @@ namespace ctr_wp7.ctr_original
             packContainer.x = -SCREEN_OFFSET_X;
             packContainer.turnScrollPointsOnWithCapacity(packSelect.size);
             packContainer.delegateScrollableContainerProtocol = this;
-            hbox.anchor = (hbox.parentAnchor = 12);
+            hbox.anchor = hbox.parentAnchor = 12;
             _ = image.addChild(hbox);
             float num = 0f;
             for (int i = 0; i < packSelect.size; i++)
@@ -932,7 +932,7 @@ namespace ctr_wp7.ctr_original
                 _ = hbox2.addChild(baseElement);
                 baseElement.x -= 25f - SCREEN_OFFSET_X;
                 baseElement.y -= 20f;
-                num += ((i != 0) ? ((float)packSelect.elements[i - 1].width + -50f) : 0f);
+                num += (i != 0) ? ((float)packSelect.elements[i - 1].width + -50f) : 0f;
                 _ = packContainer.addScrollPointAtXY((double)num, 0.0);
             }
             hbox2.width += Math.Max(50, (int)((float)packSelect.size * SCREEN_OFFSET_X));
@@ -964,14 +964,14 @@ namespace ctr_wp7.ctr_original
             if (packSelect.size >= 4)
             {
                 liftScrollbar = HLiftScrollbar.createWithResIDBackQuadLiftQuadLiftQuadPressed(71, 5, 6, 7);
-                liftScrollbar.anchor = (liftScrollbar.parentAnchor = 34);
+                liftScrollbar.anchor = liftScrollbar.parentAnchor = 34;
                 liftScrollbar.delegateLiftScrollbarDelegate = this;
                 liftScrollbar.setContainer(packContainer);
                 liftScrollbar.y = -75f;
                 bulletContainer = (BaseElement)new BaseElement().init();
                 bulletContainer.width = liftScrollbar.width;
                 bulletContainer.height = liftScrollbar.height;
-                bulletContainer.anchor = (bulletContainer.parentAnchor = 34);
+                bulletContainer.anchor = bulletContainer.parentAnchor = 34;
                 bulletContainer.blendingMode = 1;
                 bulletContainer.y = liftScrollbar.y - 14f;
                 _ = menuView.addChild(bulletContainer);
@@ -1067,7 +1067,7 @@ namespace ctr_wp7.ctr_original
             int num = 2 * (flag ? 1 : 0);
             if (num == 0)
             {
-                num = ((CTRPreferences.getUnlockedForPackLevel(p, l) == UNLOCKED_STATE.UNLOCKED_STATE_LOCKED) ? 1 : 0);
+                num = (CTRPreferences.getUnlockedForPackLevel(p, l) == UNLOCKED_STATE.UNLOCKED_STATE_LOCKED) ? 1 : 0;
             }
             int starsForPackLevel = CTRPreferences.getStarsForPackLevel(p, l);
             TouchBaseElement touchBaseElement = (TouchBaseElement)new TouchBaseElement().init();
@@ -1094,15 +1094,15 @@ namespace ctr_wp7.ctr_original
                 Text text = new Text().initWithFont(Application.getFont(5));
                 NSString nsstring = NSS((l + 1).ToString());
                 text.setString(nsstring);
-                text.anchor = (text.parentAnchor = 18);
+                text.anchor = text.parentAnchor = 18;
                 text.y -= 5f;
                 _ = image.addChild(text);
                 Image image2 = Image.Image_createWithResIDQuad(70, 3 + starsForPackLevel);
                 image2.doRestoreCutTransparency();
-                image2.anchor = (image2.parentAnchor = 9);
+                image2.anchor = image2.parentAnchor = 9;
                 _ = image.addChild(image2);
             }
-            image.anchor = (image.parentAnchor = 18);
+            image.anchor = image.parentAnchor = 18;
             _ = touchBaseElement.addChild(image);
             touchBaseElement.setSizeToChildsBounds();
             return touchBaseElement;
@@ -1123,7 +1123,7 @@ namespace ctr_wp7.ctr_original
             image2.y -= 0.5f;
             image2.x -= 0.33f;
             BaseElement baseElement = (BaseElement)new BaseElement().init();
-            baseElement.parentAnchor = (baseElement.anchor = 18);
+            baseElement.parentAnchor = baseElement.anchor = 18;
             baseElement.scaleY = SCREEN_BG_SCALE_Y;
             baseElement.scaleX = SCREEN_BG_SCALE_X;
             baseElement.passTransformationsToChilds = true;
@@ -1145,8 +1145,8 @@ namespace ctr_wp7.ctr_original
             _ = baseElement.addChild(image4);
             Image image5 = Image.Image_createWithResID(74);
             image5.setName("shadow");
-            image5.anchor = (image5.parentAnchor = 18);
-            image5.scaleX = (image5.scaleY = 2.3f);
+            image5.anchor = image5.parentAnchor = 18;
+            image5.scaleX = image5.scaleY = 2.3f;
             Timeline timeline2 = new Timeline().initWithMaxKeyFramesOnTrack(2);
             timeline2.addKeyFrame(KeyFrame.makeScale(2.0, 2.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
             timeline2.addKeyFrame(KeyFrame.makeScale(5.0, 5.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.3));
@@ -1193,7 +1193,7 @@ namespace ctr_wp7.ctr_original
             timeline6.addKeyFrame(KeyFrame.makeColor(RGBAColor.solidOpaqueRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0f));
             timeline6.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.3));
             _ = vbox.addTimeline(timeline6);
-            hbox.anchor = (hbox.parentAnchor = 12);
+            hbox.anchor = hbox.parentAnchor = 12;
             hbox.setName("starText");
             Timeline timeline7 = new Timeline().initWithMaxKeyFramesOnTrack(2);
             timeline7.addKeyFrame(KeyFrame.makeColor(RGBAColor.solidOpaqueRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0f));
@@ -1206,10 +1206,10 @@ namespace ctr_wp7.ctr_original
             button.setName("backButton");
             Timeline timeline8 = new Timeline().initWithMaxKeyFramesOnTrack(2);
             timeline8.addKeyFrame(KeyFrame.makePos(0.0, 0.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
-            timeline8.addKeyFrame(KeyFrame.makePos(0.0, (double)(-(double)WVGAD(50.0)), KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.3));
+            timeline8.addKeyFrame(KeyFrame.makePos(0.0, (double)-(double)WVGAD(50.0), KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.3));
             _ = button.addTimeline(timeline8);
             Timeline timeline9 = new Timeline().initWithMaxKeyFramesOnTrack(2);
-            timeline9.addKeyFrame(KeyFrame.makePos(0.0, (double)(-(double)WVGAD(50.0)), KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
+            timeline9.addKeyFrame(KeyFrame.makePos(0.0, (double)-(double)WVGAD(50.0), KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
             timeline9.addKeyFrame(KeyFrame.makePos(0.0, 0.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.3));
             _ = button.addTimeline(timeline9);
             Timeline timeline10 = new Timeline().initWithMaxKeyFramesOnTrack(2);
@@ -1462,7 +1462,7 @@ namespace ctr_wp7.ctr_original
                 int intForKey = ctrpreferences.getIntForKey("PREFS_SELECTED_CANDY");
                 Image image = (Image)activeView().getChildWithName(NSS("logoCandy"));
                 int num = 1 + intForKey;
-                int num2 = ((num != 3) ? 3 : 1);
+                int num2 = (num != 3) ? 3 : 1;
                 if (i == 2)
                 {
                     image.setDrawQuad(num2);
@@ -2209,7 +2209,7 @@ namespace ctr_wp7.ctr_original
         // Token: 0x060006D3 RID: 1747 RVA: 0x00037B48 File Offset: 0x00035D48
         private int getFirstContainerForPack(int ppack)
         {
-            int num = ((ppack == -1) ? pack : ppack);
+            int num = (ppack == -1) ? pack : ppack;
             for (int i = 0; i < packSelect.size; i++)
             {
                 if (BoxFabric.getSaveIndex(packSelect.content[i]) == num)
@@ -2238,9 +2238,9 @@ namespace ctr_wp7.ctr_original
             Popup popup = (Popup)new Popup().init();
             popup.setName(NSS("popup"));
             Image image = Image.Image_createWithResIDQuad(68, 0);
-            image.anchor = (image.parentAnchor = 18);
+            image.anchor = image.parentAnchor = 18;
             _ = popup.addChild(image);
-            message.anchor = (message.parentAnchor = 18);
+            message.anchor = message.parentAnchor = 18;
             _ = image.addChild(message);
             buttons.y += -14f;
             buttons.anchor = 18;
@@ -2255,7 +2255,7 @@ namespace ctr_wp7.ctr_original
         public virtual void showYesNoPopup(BaseElement parent, NSString statusText, int buttonYes, int buttonNo)
         {
             Button button = createButtonWithTextIDDelegate(Application.getString(1310748), buttonNo, this);
-            button.anchor = (button.parentAnchor = 18);
+            button.anchor = button.parentAnchor = 18;
             button.setTouchIncreaseLeftRightTopBottom(15f, 15f, 0f, 0f);
             Button button2 = createButtonWithTextIDDelegate(Application.getString(1310747), buttonYes, this);
             button2.anchor = 33;
@@ -2279,7 +2279,7 @@ namespace ctr_wp7.ctr_original
         public virtual void showBuyFullPopup()
         {
             Button button = createButtonWithTextIDDelegate(Application.getString(1310833), 21, this);
-            button.anchor = (button.parentAnchor = 18);
+            button.anchor = button.parentAnchor = 18;
             button.setTouchIncreaseLeftRightTopBottom(15f, 15f, 0f, 0f);
             Button button2 = createButtonWithTextIDDelegateAutoScale(Application.getString(1310723), 4, this);
             button2.anchor = 33;

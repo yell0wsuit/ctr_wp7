@@ -30,7 +30,7 @@ namespace ctr_wp7.game
                     delayedDispatcher = (DelayedDispatcher)new DelayedDispatcher().init();
                 }
                 fire = Image_createWithResIDQuad(186, 1);
-                fire.anchor = (fire.parentAnchor = 18);
+                fire.anchor = fire.parentAnchor = 18;
                 fire.color = RGBAColor.transparentRGBA;
                 fire.doRestoreCutTransparency();
                 _ = addChild(fire);
@@ -42,7 +42,7 @@ namespace ctr_wp7.game
                 timeline.setTimelineLoopType(Timeline.LoopType.TIMELINE_PING_PONG);
                 fire.addTimelinewithID(timeline, 2);
                 idleForm = Image_createWithResIDQuad(186, 0);
-                idleForm.anchor = (idleForm.parentAnchor = 18);
+                idleForm.anchor = idleForm.parentAnchor = 18;
                 idleForm.doRestoreCutTransparency();
                 _ = addChild(idleForm);
                 timeline = new Timeline().initWithMaxKeyFramesOnTrack(2);
@@ -54,7 +54,7 @@ namespace ctr_wp7.game
                 timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.solidOpaqueRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.3));
                 idleForm.addTimelinewithID(timeline, 1);
                 activeForm = Image_createWithResIDQuad(186, 2);
-                activeForm.anchor = (activeForm.parentAnchor = 18);
+                activeForm.anchor = activeForm.parentAnchor = 18;
                 activeForm.color = RGBAColor.transparentRGBA;
                 activeForm.y = 1f;
                 activeForm.doRestoreCutTransparency();
@@ -72,7 +72,7 @@ namespace ctr_wp7.game
                 int intForKey = ctrpreferences.getIntForKey("PREFS_SELECTED_CANDY");
                 num += intForKey;
                 innerCandy = Image_createWithResIDQuad(186, num);
-                innerCandy.anchor = (innerCandy.parentAnchor = 18);
+                innerCandy.anchor = innerCandy.parentAnchor = 18;
                 innerCandy.color = RGBAColor.transparentRGBA;
                 innerCandy.y = -4f;
                 innerCandy.doRestoreCutTransparency();
@@ -123,7 +123,7 @@ namespace ctr_wp7.game
             CTRSoundMgr._playSound(64);
             sharedCandyPoint = candyPoint;
             candyPoint.disableGravity = true;
-            candyPoint.pos = (candyPoint.prevPos = vect(x, y));
+            candyPoint.pos = candyPoint.prevPos = vect(x, y);
             List<Lantern> list = getAllLanterns();
             foreach (Lantern lantern in list)
             {
@@ -164,7 +164,7 @@ namespace ctr_wp7.game
             delayedDispatcher.update(delta);
             if (sharedCandyPoint != null)
             {
-                sharedCandyPoint.pos = (sharedCandyPoint.prevPos = vect(x, y));
+                sharedCandyPoint.pos = sharedCandyPoint.prevPos = vect(x, y);
                 if (lanternState != 1)
                 {
                     lanternState = 1;

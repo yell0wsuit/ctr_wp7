@@ -52,7 +52,7 @@ namespace ctr_wp7.Specials
             UpdatePopup updatePopup = (UpdatePopup)new UpdatePopup().init();
             updatePopup.setName(NSS("popup"));
             Button button = MenuController.createButtonWithTextIDDelegate(Application.getString(1310748), 0, updatePopup);
-            button.anchor = (button.parentAnchor = 18);
+            button.anchor = button.parentAnchor = 18;
             button.setTouchIncreaseLeftRightTopBottom(15f, 15f, 0f, 0f);
             Button button2 = MenuController.createButtonWithTextIDDelegate(Application.getString(1310747), 1, updatePopup);
             button2.anchor = 33;
@@ -69,16 +69,16 @@ namespace ctr_wp7.Specials
             text.setAlignment(2);
             text.setStringandWidth(Application.getString(1310828), num);
             text.y = -34f;
-            text.scaleX = (text.scaleY = 0.8f);
+            text.scaleX = text.scaleY = 0.8f;
             if (LANGUAGE == Language.LANG_KO)
             {
                 text.scaleX *= 0.85f;
                 text.scaleY *= 0.85f;
             }
             Image image = Image.Image_createWithResIDQuad(68, 0);
-            image.anchor = (image.parentAnchor = 18);
+            image.anchor = image.parentAnchor = 18;
             _ = updatePopup.addChild(image);
-            text.anchor = (text.parentAnchor = 18);
+            text.anchor = text.parentAnchor = 18;
             _ = image.addChild(text);
             button.y += -14f;
             button.anchor = 18;

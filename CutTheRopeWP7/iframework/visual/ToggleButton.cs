@@ -27,7 +27,7 @@
                 buttonID = bid;
                 b1 = new Button().initWithUpElementDownElementandID(u1, d1, 0);
                 b2 = new Button().initWithUpElementDownElementandID(u2, d2, 1);
-                b1.parentAnchor = (b2.parentAnchor = 9);
+                b1.parentAnchor = b2.parentAnchor = 9;
                 width = b1.width;
                 height = b1.height;
                 _ = addChildwithID(b1, 0);

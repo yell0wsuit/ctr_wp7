@@ -196,8 +196,8 @@ namespace ctr_wp7.game
             }
             if (steamState != 3)
             {
-                steamBack.anchor = (steamBack.parentAnchor = 18);
-                steamFront.anchor = (steamFront.parentAnchor = 18);
+                steamBack.anchor = steamBack.parentAnchor = 18;
+                steamFront.anchor = steamFront.parentAnchor = 18;
                 int num = 7;
                 if (steamState == 1)
                 {
@@ -249,12 +249,12 @@ namespace ctr_wp7.game
                     }
                     else if (i % 3 == 2)
                     {
-                        num7 *= (float)(-(float)steamState);
+                        num7 *= (float)-(float)steamState;
                     }
                     Animation animation = Animation.Animation_createWithResID(184);
                     animation.doRestoreCutTransparency();
                     _ = animation.addAnimationDelayLoopFirstLast(num5, Timeline.LoopType.TIMELINE_REPLAY, num2, num3);
-                    animation.anchor = (animation.parentAnchor = 18);
+                    animation.anchor = animation.parentAnchor = 18;
                     Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(2);
                     timeline.addKeyFrame(KeyFrame.makePos(0.0, 0.0, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
                     timeline.addKeyFrame(KeyFrame.makePos((double)num7, (double)num6, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, (double)num4));
@@ -267,7 +267,7 @@ namespace ctr_wp7.game
                     baseElement.addTimelinewithID(timeline, 0);
                     dd.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(startPuffFloatingAndAnimation), baseElement, num4 * (float)i / (float)num);
                     _ = baseElement.addChild(animation);
-                    baseElement.anchor = (baseElement.parentAnchor = 18);
+                    baseElement.anchor = baseElement.parentAnchor = 18;
                     baseElement.setEnabled(false);
                     if (i % 3 == 0)
                     {

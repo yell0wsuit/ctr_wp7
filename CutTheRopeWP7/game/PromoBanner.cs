@@ -70,7 +70,7 @@ namespace ctr_wp7.game
             setName("promoBanner");
             BaseElement baseElement = (BaseElement)new BaseElement().init();
             baseElement.setName("container");
-            baseElement.parentAnchor = (baseElement.anchor = 10);
+            baseElement.parentAnchor = baseElement.anchor = 10;
             BaseElement baseElement2 = createBanner();
             _ = baseElement.addChild(baseElement2);
             RectangleElement rectangleElement = (RectangleElement)new RectangleElement().init();
@@ -85,12 +85,12 @@ namespace ctr_wp7.game
             image.parentAnchor = 9;
             _ = baseElement.addChild(image);
             Text text = Text.createWithFontandString(5, Application.getString(1310733));
-            text.parentAnchor = (text.anchor = 17);
+            text.parentAnchor = text.anchor = 17;
             text.x = 10f;
             text.y = 2f;
             _ = image.addChild(text);
             Button button = MenuController.createButtonWithImageQuadIDDelegate(77, 4, 1, this);
-            button.parentAnchor = (button.anchor = 9);
+            button.parentAnchor = button.anchor = 9;
             Image.setElementPositionWithQuadCenter(button, 77, 4);
             _ = image.addChild(button);
             Image image2 = Image.Image_createWithResIDQuad(77, 2);
@@ -100,12 +100,12 @@ namespace ctr_wp7.game
             image2.scaleX = 1.01f;
             _ = baseElement.addChild(image2);
             Button button2 = MenuController.createButtonWithImageQuadIDDelegate(77, 5, 3, this);
-            button2.parentAnchor = (button2.anchor = 9);
+            button2.parentAnchor = button2.anchor = 9;
             Image.setElementPositionWithQuadCenter(button2, 77, 5);
             button2.setName("promoSwitchRightButton");
             _ = baseElement.addChild(button2);
             Button button3 = MenuController.createButtonWithImageQuadIDDelegate(77, 5, 2, this);
-            button3.parentAnchor = (button3.anchor = 9);
+            button3.parentAnchor = button3.anchor = 9;
             button3.scaleX = -1f;
             Image.setElementPositionWithQuadCenter(button3, 77, 10);
             button3.setName("promoSwitchLeftButton");
@@ -128,7 +128,7 @@ namespace ctr_wp7.game
             bungee.alternateColors = true;
             hook.setWeight(1f);
             BungeeDrawer bungeeDrawer = (BungeeDrawer)new BungeeDrawer().init();
-            bungeeDrawer.parentAnchor = (bungeeDrawer.anchor = 9);
+            bungeeDrawer.parentAnchor = bungeeDrawer.anchor = 9;
             bungeeDrawer.bungee = bungee;
             bungeeDrawer.tailPos = hook.pos;
             bungeeDrawer.down = false;
@@ -171,7 +171,7 @@ namespace ctr_wp7.game
             timeline3.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 2f));
             arrowContainer.playTimeline(0);
             Image image3 = Image.Image_createWithResIDQuad(77, 0);
-            image3.parentAnchor = (image3.anchor = 10);
+            image3.parentAnchor = image3.anchor = 10;
             _ = arrowContainer.addChild(image3);
             Timeline timeline4 = new Timeline().initWithMaxKeyFramesOnTrack(5);
             _ = image3.addTimeline(timeline4);

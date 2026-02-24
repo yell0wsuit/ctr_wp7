@@ -629,7 +629,7 @@ namespace ctr_wp7.iframework.visual
         public virtual void startMovingToSpointInDirection(Vector d)
         {
             movingToSpoint = true;
-            targetSpoint = (lastTargetSpoint = -1);
+            targetSpoint = lastTargetSpoint = -1;
             calculateNearsetScrollPointInDirection(d);
         }
 

@@ -423,7 +423,7 @@ namespace ctr_wp7.game
             _ = gameView.addChildwithID(button2, 2);
             _ = gameView.addChildwithID(button3, 3);
             Image image = Image.Image_createWithResIDQuad(96, 0);
-            image.anchor = (image.parentAnchor = 10);
+            image.anchor = image.parentAnchor = 10;
             image.passTransformationsToChilds = false;
             image.y = -SCREEN_OFFSET_Y;
             image.scaleX = SCREEN_BG_SCALE_X;
@@ -446,7 +446,7 @@ namespace ctr_wp7.game
             _ = vbox.addChild(button6);
             Button button7 = MenuController.createButtonWithTextIDDelegate(Application.getString(1310765), 4, this);
             _ = vbox.addChild(button7);
-            vbox.anchor = (vbox.parentAnchor = 10);
+            vbox.anchor = vbox.parentAnchor = 10;
             vbox.y = 140f;
             _ = image.addChild(vbox);
             _ = gameView.addChildwithID(image, 4);

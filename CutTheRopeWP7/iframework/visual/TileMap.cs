@@ -289,8 +289,8 @@ namespace ctr_wp7.iframework.visual
             {
                 maxColsOnScreen = Math.Min(maxColsOnScreen, columns);
             }
-            width = (tileMapWidth = columns * tileWidth);
-            height = (tileMapHeight = rows * tileHeight);
+            width = tileMapWidth = columns * tileWidth;
+            height = tileMapHeight = rows * tileHeight;
         }
 
         // Token: 0x040007F4 RID: 2036

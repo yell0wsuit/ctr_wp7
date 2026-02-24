@@ -179,7 +179,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060004C9 RID: 1225 RVA: 0x00023EE0 File Offset: 0x000220E0
         public virtual void addKeyFrame(KeyFrame k)
         {
-            int num = ((tracks[(int)k.trackType] == null) ? 0 : tracks[(int)k.trackType].keyFramesCount);
+            int num = (tracks[(int)k.trackType] == null) ? 0 : tracks[(int)k.trackType].keyFramesCount;
             setKeyFrameAt(k, num);
         }
 

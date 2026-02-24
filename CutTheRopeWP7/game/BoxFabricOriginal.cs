@@ -13,10 +13,10 @@ namespace ctr_wp7.game
         {
             Image image = Image.Image_createWithResIDQuad(399, quad);
             image.doRestoreCutTransparency();
-            image.anchor = (image.parentAnchor = 9);
+            image.anchor = image.parentAnchor = 9;
             Image image2 = Image.Image_createWithResIDQuad(399, quad);
             image2.doRestoreCutTransparency();
-            image2.anchor = (image2.parentAnchor = 9);
+            image2.anchor = image2.parentAnchor = 9;
             image2.scaleX = -1f;
             image2.x += 1.33f;
             _ = image.addChild(image2);
@@ -30,7 +30,7 @@ namespace ctr_wp7.game
             BaseElement baseElement2 = buildText(1310785 + n, false);
             if ((float)baseElement2.width > 200f)
             {
-                baseElement2.scaleX = (baseElement2.scaleY = 200f / (float)baseElement2.width);
+                baseElement2.scaleX = baseElement2.scaleY = 200f / (float)baseElement2.width;
             }
             _ = baseElement.addChild(baseElement2);
             int unlockedForPackLevel = (int)CTRPreferences.getUnlockedForPackLevel(n, 0);
@@ -40,7 +40,7 @@ namespace ctr_wp7.game
                 MonsterSlot monsterSlot = MonsterSlot.createMonsterSlot();
                 Image image = Image.Image_createWithResIDQuad(71, 0);
                 monsterSlot.c = c;
-                monsterSlot.anchor = (monsterSlot.parentAnchor = 9);
+                monsterSlot.anchor = monsterSlot.parentAnchor = 9;
                 _ = container.addChild(monsterSlot);
                 image.doRestoreCutTransparency();
                 image.anchor = 18;
@@ -65,7 +65,7 @@ namespace ctr_wp7.game
                 if (unlockedForPackLevel == 4)
                 {
                     Button button = MenuController.createBigButtonWithTextIDDelegate(Application.getString(1310723), 29, buttonDelegate);
-                    button.anchor = (button.parentAnchor = 18);
+                    button.anchor = button.parentAnchor = 18;
                     button.y = 27f;
                     _ = baseElement3.addChild(button);
                 }
@@ -73,14 +73,14 @@ namespace ctr_wp7.game
                 {
                     tpack.bid = 2000 + n;
                     HBox hbox = MenuController.createTextWithStar(num.ToString());
-                    hbox.anchor = (hbox.parentAnchor = 18);
+                    hbox.anchor = hbox.parentAnchor = 18;
                     hbox.y = 40f;
                     hbox.x = 5f;
                     _ = baseElement3.addChild(hbox);
                     if (n >= CTRPreferences.getPacksCount())
                     {
                         Button button2 = MenuController.createBigButtonWithTextIDDelegate(Application.getString(1310723), 40, buttonDelegate);
-                        button2.anchor = (button2.parentAnchor = 18);
+                        button2.anchor = button2.parentAnchor = 18;
                         button2.y = 27f;
                         _ = baseElement3.addChild(button2);
                         hbox.visible = false;
@@ -106,13 +106,13 @@ namespace ctr_wp7.game
         protected override BaseElement buildVideoBox(ButtonDelegate buttonDelegate)
         {
             MenuController.TouchBaseElement touchBaseElement = (MenuController.TouchBaseElement)new MenuController.TouchBaseElement().init();
-            touchBaseElement.height = (touchBaseElement.width = 300);
-            touchBaseElement.anchor = (touchBaseElement.parentAnchor = 18);
+            touchBaseElement.height = touchBaseElement.width = 300;
+            touchBaseElement.anchor = touchBaseElement.parentAnchor = 18;
             touchBaseElement.delegateButtonDelegate = buttonDelegate;
             touchBaseElement.bid = 53;
             touchBaseElement.bbc = MakeRectangle(60.0, 90.0, -60.0, -180.0);
             BaseElement baseElement = MenuController.createButtonCartoons(53, buttonDelegate, false);
-            baseElement.anchor = (baseElement.parentAnchor = 18);
+            baseElement.anchor = baseElement.parentAnchor = 18;
             baseElement.x = 26f;
             _ = touchBaseElement.addChild(baseElement);
             return touchBaseElement;

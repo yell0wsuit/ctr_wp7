@@ -58,7 +58,7 @@ internal class CoppaLoader
             { 800, 400 }
         };
         NSString nsstring = new NSString(string.Format("curtain:%dx%d", array[num, 0], array[num, 1]));
-        int num2 = (((double)FrameworkTypes.SCREEN_RATIO >= 1.5555555555555556) ? 1 : 0);
+        int num2 = ((double)FrameworkTypes.SCREEN_RATIO >= 1.5555555555555556) ? 1 : 0;
         int[,] array2 = new int[,]
         {
             { 768, 1024 },

@@ -44,9 +44,9 @@ namespace ctr_wp7.iframework.visual
             spaceWidth = sw;
             if (_isWvga)
             {
-                charOffset = (float)((int)((double)charOffset / 1.5));
-                lineOffset = (float)((int)((double)lineOffset / 1.5));
-                spaceWidth = (float)((int)((double)spaceWidth / 1.5));
+                charOffset = (float)(int)((double)charOffset / 1.5);
+                lineOffset = (float)(int)((double)lineOffset / 1.5);
+                spaceWidth = (float)(int)((double)spaceWidth / 1.5);
             }
         }
 

@@ -9,15 +9,15 @@
             int num = base.addChildwithID(c, i);
             if (align == 1)
             {
-                c.anchor = (c.parentAnchor = 9);
+                c.anchor = c.parentAnchor = 9;
             }
             else if (align == 4)
             {
-                c.anchor = (c.parentAnchor = 12);
+                c.anchor = c.parentAnchor = 12;
             }
             else if (align == 2)
             {
-                c.anchor = (c.parentAnchor = 10);
+                c.anchor = c.parentAnchor = 10;
             }
             c.y = nextElementY;
             nextElementY += (float)c.height + offset;

@@ -127,7 +127,7 @@ namespace ctr_wp7.iframework.core
                         {
                             if (prevScreenImage != null)
                             {
-                                RGBAColor rgbacolor = ((viewTransition == 4) ? RGBAColor.MakeRGBA(0.0, 0.0, 0.0, (double)num * 2.0) : RGBAColor.MakeRGBA(1.0, 1.0, 1.0, (double)num * 2.0));
+                                RGBAColor rgbacolor = (viewTransition == 4) ? RGBAColor.MakeRGBA(0.0, 0.0, 0.0, (double)num * 2.0) : RGBAColor.MakeRGBA(1.0, 1.0, 1.0, (double)num * 2.0);
                                 Grabber.drawGrabbedImage(prevScreenImage, 0, 0);
                                 OpenGL.glDisable(0);
                                 OpenGL.glEnable(1);
@@ -150,7 +150,7 @@ namespace ctr_wp7.iframework.core
                         }
                         else if (nextScreenImage != null)
                         {
-                            RGBAColor rgbacolor2 = ((viewTransition == 4) ? RGBAColor.MakeRGBA(0.0, 0.0, 0.0, 2.0 - (double)num * 2.0) : RGBAColor.MakeRGBA(1.0, 1.0, 1.0, 2.0 - (double)num * 2.0));
+                            RGBAColor rgbacolor2 = (viewTransition == 4) ? RGBAColor.MakeRGBA(0.0, 0.0, 0.0, 2.0 - (double)num * 2.0) : RGBAColor.MakeRGBA(1.0, 1.0, 1.0, 2.0 - (double)num * 2.0);
                             Grabber.drawGrabbedImage(nextScreenImage, 0, 0);
                             OpenGL.glDisable(0);
                             OpenGL.glEnable(1);

@@ -36,7 +36,7 @@ namespace ctr_wp7.iframework.visual
                 num = (float)width - 2f;
                 num2 = 1f;
                 num3 = (float)Math.Round(((double)height - 2.0) / (double)sc.y);
-                float num4 = ((mp.y != 0f) ? (sp.y / mp.y) : 1f);
+                float num4 = (mp.y != 0f) ? (sp.y / mp.y) : 1f;
                 num5 = (float)(1.0 + ((double)height - 2.0 - (double)num3) * (double)num4);
                 if (num3 > (float)height)
                 {
@@ -48,7 +48,7 @@ namespace ctr_wp7.iframework.visual
                 num3 = (float)height - 2f;
                 num5 = 1f;
                 num = (float)Math.Round(((double)width - 2.0) / (double)sc.x);
-                float num6 = ((mp.x != 0f) ? (sp.x / mp.x) : 1f);
+                float num6 = (mp.x != 0f) ? (sp.x / mp.x) : 1f;
                 num2 = (float)(1.0 + ((double)width - 2.0 - (double)num) * (double)num6);
                 if (num > (float)width)
                 {

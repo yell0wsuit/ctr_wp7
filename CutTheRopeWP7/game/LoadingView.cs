@@ -33,7 +33,7 @@ namespace ctr_wp7.game
             if (!game)
             {
                 OpenGL.glEnable(4);
-                OpenGL.setScissorRectangle(0.0, (double)(-(double)SCREEN_OFFSET_Y), (double)SCREEN_WIDTH, (double)SCREEN_BG_SCALE_Y * 500.0 * (double)num2 / 100.0);
+                OpenGL.setScissorRectangle(0.0, (double)-(double)SCREEN_OFFSET_Y, (double)SCREEN_WIDTH, (double)SCREEN_BG_SCALE_Y * 500.0 * (double)num2 / 100.0);
             }
             OpenGL.SetWhiteColor();
             if (game || num2 > 0f)

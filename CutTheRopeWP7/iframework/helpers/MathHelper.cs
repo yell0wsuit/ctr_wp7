@@ -284,7 +284,7 @@ namespace ctr_wp7.iframework.helpers
             float num = angle;
             while (Math.Abs(num) > 360f)
             {
-                num -= ((num > 0f) ? 360f : (-360f));
+                num -= (num > 0f) ? 360f : (-360f);
             }
             if (num < 0f)
             {

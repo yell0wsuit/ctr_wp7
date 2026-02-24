@@ -70,16 +70,16 @@ namespace ctr_wp7.game
             {
                 baseElement = Image.createElementWithLeftPart(num, num4);
                 Image image = Image.Image_createWithResIDQuad(num, num5);
-                image.anchor = (image.parentAnchor = 9);
+                image.anchor = image.parentAnchor = 9;
                 Image.setElementPositionWithRelativeQuadOffset(image, num, num4, num5);
                 Image image2 = Image.Image_createWithResIDQuad(num, num5);
-                image2.anchor = (image2.parentAnchor = 12);
+                image2.anchor = image2.parentAnchor = 12;
                 image2.x = -image.x;
                 image2.y = image.y;
                 _ = baseElement.addChild(image);
                 _ = baseElement.addChild(image2);
                 BaseElement baseElement2 = (BaseElement)new BaseElement().init();
-                baseElement2.anchor = (baseElement2.parentAnchor = 18);
+                baseElement2.anchor = baseElement2.parentAnchor = 18;
                 baseElement2.setName(NSS("dummy"));
                 baseElement2.width = baseElement.width;
                 baseElement2.height = baseElement.height;
@@ -89,7 +89,7 @@ namespace ctr_wp7.game
             {
                 baseElement = Image.Image_create(texture);
                 Text text = new Text().initWithFont(Application.getFont(5));
-                text.anchor = (text.parentAnchor = 18);
+                text.anchor = text.parentAnchor = 18;
                 text.setAlignment(2);
                 text.setStringandWidth(title, (float)baseElement.width * 0.8f);
                 _ = baseElement.addChild(text);
@@ -111,7 +111,7 @@ namespace ctr_wp7.game
             {
                 baseElement = Image.Image_createWithResIDQuad(num, num4);
                 BaseElement baseElement2 = (BaseElement)new BaseElement().init();
-                baseElement2.anchor = (baseElement2.parentAnchor = 18);
+                baseElement2.anchor = baseElement2.parentAnchor = 18;
                 baseElement2.setName(NSS("dummy"));
                 baseElement2.width = baseElement.width;
                 baseElement2.height = baseElement.height;
@@ -132,7 +132,7 @@ namespace ctr_wp7.game
                     timeline2.addKeyFrame(KeyFrame.makeSingleAction(image, "ACTION_SET_VISIBLE", 0, 0, transition));
                     _ = image.addTimeline(timeline2);
                     image.playTimeline(0);
-                    image.anchor = (image.parentAnchor = 18);
+                    image.anchor = image.parentAnchor = 18;
                     image.setName(NSS("progressbar"));
                     _ = baseElement.addChild(image);
                 }
@@ -141,7 +141,7 @@ namespace ctr_wp7.game
             {
                 baseElement = Image.Image_create(texture);
                 Text text = new Text().initWithFont(Application.getFont(5));
-                text.anchor = (text.parentAnchor = 18);
+                text.anchor = text.parentAnchor = 18;
                 text.setAlignment(2);
                 text.setStringandWidth(title, (float)baseElement.width * 0.9f);
                 _ = baseElement.addChild(text);
@@ -154,14 +154,14 @@ namespace ctr_wp7.game
             if (number != null && number.length() != 0)
             {
                 Image image2 = Image.Image_createWithResIDQuad(num, num5);
-                image2.anchor = (image2.parentAnchor = 9);
+                image2.anchor = image2.parentAnchor = 9;
                 Image.setElementPositionWithRelativeQuadOffset(image2, num, num4, num5);
                 _ = baseElement.addChild(image2);
                 if (isNew)
                 {
                     int num6 = 4;
                     Image image3 = Image.Image_createWithResIDQuad(num, num6);
-                    image3.anchor = (image3.parentAnchor = 9);
+                    image3.anchor = image3.parentAnchor = 9;
                     Timeline timeline3 = new Timeline().initWithMaxKeyFramesOnTrack(11);
                     timeline3.addKeyFrame(KeyFrame.makeRotation(0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0f));
                     timeline3.addKeyFrame(KeyFrame.makeRotation(-360, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 8f));
@@ -180,7 +180,7 @@ namespace ctr_wp7.game
                     Image.setElementPositionWithRelativeQuadOffset(image3, num, num5, num6);
                     int num7 = 5;
                     Image image4 = Image.Image_createWithResIDQuad(num, num7);
-                    image4.anchor = (image4.parentAnchor = 9);
+                    image4.anchor = image4.parentAnchor = 9;
                     Timeline timeline4 = new Timeline().initWithMaxKeyFramesOnTrack(11);
                     timeline4.addKeyFrame(KeyFrame.makeRotation(0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0f));
                     timeline4.addKeyFrame(KeyFrame.makeRotation(360, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 8f));
@@ -200,14 +200,14 @@ namespace ctr_wp7.game
                     BaseElement baseElement4 = (BaseElement)new BaseElement().init();
                     baseElement4.width = image2.width;
                     baseElement4.height = image2.height;
-                    baseElement4.anchor = (baseElement4.parentAnchor = 9);
+                    baseElement4.anchor = baseElement4.parentAnchor = 9;
                     baseElement4.setName(NSS("nimbus"));
                     _ = image2.addChild(baseElement4);
                     _ = baseElement4.addChild(image3);
                     _ = baseElement4.addChild(image4);
                 }
                 Text text2 = Text.createWithFontandString(5, number);
-                text2.anchor = (text2.parentAnchor = 18);
+                text2.anchor = text2.parentAnchor = 18;
                 text2.x = -3f;
                 text2.y = -2f;
                 _ = image2.addChild(text2);
@@ -237,7 +237,7 @@ namespace ctr_wp7.game
                         timeline.addKeyFrame(KeyFrame.makeScale(1f, 1f, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, transition));
                         _ = image.addTimeline(timeline);
                         image.playTimeline(0);
-                        image.anchor = (image.parentAnchor = 18);
+                        image.anchor = image.parentAnchor = 18;
                         _ = childWithName.addChild(image);
                         BaseElement childWithName2 = getChild(0).getChildWithName(NSS("progressbar"));
                         if (childWithName2 != null)
@@ -246,7 +246,7 @@ namespace ctr_wp7.game
                         }
                         BaseElement childWithName3 = getChild(1).getChildWithName(NSS("dummy"));
                         Image image2 = Image.Image_create(texture2D);
-                        image2.anchor = (image2.parentAnchor = 18);
+                        image2.anchor = image2.parentAnchor = 18;
                         _ = childWithName3.addChild(image2);
                         BaseElement childWithName4 = getChild(1).getChildWithName(NSS("progressbar"));
                         if (childWithName4 != null)

@@ -201,7 +201,7 @@ namespace ctr_wp7.game
                         ghostBubble.popped = false;
                         Image image = Image.Image_createWithResIDQuad(124, 0);
                         image.doRestoreCutTransparency();
-                        image.parentAnchor = (image.anchor = 18);
+                        image.parentAnchor = image.anchor = 18;
                         _ = ghostBubble.addChild(image);
                         bubble = ghostBubble;
                         gsBubbles.Add(ghostBubble);
