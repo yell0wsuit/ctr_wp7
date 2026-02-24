@@ -4,7 +4,6 @@ using ctr_wp7.game;
 using ctr_wp7.iframework;
 using ctr_wp7.iframework.core;
 using ctr_wp7.iframework.visual;
-using ctr_wp7.ios;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.GamerServices;

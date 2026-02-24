@@ -2,7 +2,6 @@
 
 using ctr_wp7.game;
 using ctr_wp7.iframework.core;
-using ctr_wp7.iframework.helpers;
 using ctr_wp7.iframework.sfe;
 
 namespace ctr_wp7.iframework.visual

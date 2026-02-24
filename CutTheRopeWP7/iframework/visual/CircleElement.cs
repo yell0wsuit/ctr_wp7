@@ -1,5 +1,4 @@
-﻿using ctr_wp7.iframework.helpers;
-using ctr_wp7.ios;
+﻿using ctr_wp7.ios;
 
 namespace ctr_wp7.iframework.visual
 {

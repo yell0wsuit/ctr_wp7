@@ -1,6 +1,5 @@
 ﻿using ctr_wp7.ctr_commons;
 using ctr_wp7.iframework.core;
-using ctr_wp7.iframework.helpers;
 using ctr_wp7.iframework.visual;
 using ctr_wp7.ios;
 

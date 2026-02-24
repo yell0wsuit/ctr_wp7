@@ -1,5 +1,4 @@
 ﻿using ctr_wp7.iframework.core;
-using ctr_wp7.iframework.helpers;
 
 namespace ctr_wp7.iframework.visual
 {

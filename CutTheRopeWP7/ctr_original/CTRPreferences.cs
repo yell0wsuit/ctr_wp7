@@ -1,7 +1,6 @@
 ﻿using ctr_wp7.Banner;
 using ctr_wp7.game;
 using ctr_wp7.iframework.core;
-using ctr_wp7.iframework.helpers;
 using ctr_wp7.ios;
 
 namespace ctr_wp7.ctr_original

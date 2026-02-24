@@ -1,7 +1,5 @@
 ﻿using System;
 
-using ctr_wp7.ios;
-
 using Microsoft.Xna.Framework.Graphics;
 
 namespace ctr_wp7.iframework.visual
