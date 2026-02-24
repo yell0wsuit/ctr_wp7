@@ -40,7 +40,7 @@ namespace ctr_wp7.iframework.media
         // Token: 0x06000184 RID: 388 RVA: 0x0000B690 File Offset: 0x00009890
         public SoundEffect getSound(int resId)
         {
-            if (resId == 58 || resId == 59)
+            if (resId is 58 or 59)
             {
                 return null;
             }

@@ -1735,7 +1735,7 @@ namespace ctr_wp7.ctr_original
         {
             if (r <= 79)
             {
-                if (r != 66 && r != 79)
+                if (r is not 66 and not 79)
                 {
                     goto IL_0173;
                 }

@@ -10,13 +10,13 @@ namespace ctr_wp7.ctr_original
         // Token: 0x06000006 RID: 6 RVA: 0x00002179 File Offset: 0x00000379
         public static bool isSound(int id)
         {
-            return (id >= 21 && id <= 65) || id == 58 || id == 59;
+            return id is >= 21 and <= 65 or 58 or 59;
         }
 
         // Token: 0x06000007 RID: 7 RVA: 0x00002191 File Offset: 0x00000391
         public static bool isFont(int id)
         {
-            return id == 5 || id == 13 || id == 6 || id == 14 || id == 98 || id == 112;
+            return id is 5 or 13 or 6 or 14 or 98 or 112;
         }
 
         // Token: 0x06000008 RID: 8 RVA: 0x000021B4 File Offset: 0x000003B4

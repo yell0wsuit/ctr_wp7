@@ -102,7 +102,7 @@ namespace ctr_wp7.game
         // Token: 0x060005B8 RID: 1464 RVA: 0x0002C2AE File Offset: 0x0002A4AE
         public static bool isGameBox(int box)
         {
-            return box > 2 && box < 17;
+            return box is > 2 and < 17;
         }
 
         // Token: 0x060005B9 RID: 1465 RVA: 0x0002C2BC File Offset: 0x0002A4BC

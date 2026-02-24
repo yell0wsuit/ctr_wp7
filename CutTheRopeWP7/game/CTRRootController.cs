@@ -291,7 +291,7 @@ namespace ctr_wp7.game
                                     {
                                         menuController.viewToShow = MenuController.ViewID.VIEW_MAIN_MENU;
                                     }
-                                    if (nextController == 2 || nextController == 4)
+                                    if (nextController is 2 or 4)
                                     {
                                         menuController.viewToShow = MenuController.ViewID.VIEW_LEVEL_SELECT;
                                     }

@@ -469,7 +469,7 @@ namespace ctr_wp7.iframework.core
             }
             else
             {
-                if (resId == 58 || resId == 59)
+                if (resId is 58 or 59)
                 {
                     Application.sharedSoundMgr().LoadMusic(resId);
                     return;

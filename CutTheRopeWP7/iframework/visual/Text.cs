@@ -204,7 +204,7 @@ namespace ctr_wp7.iframework.visual
             int[] array = new int[num];
             for (int i = 0; i < num2; i++)
             {
-                if (characters[i] != ' ' && characters[i] != '*' && characters[i] != '\n')
+                if (characters[i] is not ' ' and not '*' and not '\n')
                 {
                     array[font.getCharmapIndex(characters[i])]++;
                 }
@@ -357,7 +357,7 @@ namespace ctr_wp7.iframework.visual
             while (i < num)
             {
                 char c = characters[i++];
-                if (c == ' ' || c == '\n' || c == '*')
+                if (c is ' ' or '\n' or '*')
                 {
                     num7 += num4;
                     num6 = i - 1;

@@ -107,7 +107,7 @@ namespace ctr_wp7.iframework.visual
                     currentStepPerSecond.value.color.rgba.a = (dst.value.color.rgba.a - src.value.color.rgba.a) / keyFrameTimeLeft;
                     break;
             }
-            if (dst.transitionType == KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN || dst.transitionType == KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT)
+            if (dst.transitionType is KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN or KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT)
             {
                 switch (type)
                 {
@@ -381,7 +381,7 @@ namespace ctr_wp7.iframework.visual
                 return;
             }
             thiss.keyFrameTimeLeft -= delta;
-            if (thiss.keyFrames[thiss.nextKeyFrame].transitionType == KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN || thiss.keyFrames[thiss.nextKeyFrame].transitionType == KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT)
+            if (thiss.keyFrames[thiss.nextKeyFrame].transitionType is KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN or KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT)
             {
                 KeyFrame keyFrame = thiss.currentStepPerSecond;
                 _ = keyFrame.debugBreak;

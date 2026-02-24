@@ -37,7 +37,7 @@ namespace ctr_wp7.ctr_commons
         // Token: 0x060006F4 RID: 1780 RVA: 0x0003853E File Offset: 0x0003673E
         public static void onPause()
         {
-            if (state == 2 || state == 5)
+            if (state is 2 or 5)
             {
                 Java_com_zeptolab_ctr_CtrRenderer_nativePause();
                 state = 3;

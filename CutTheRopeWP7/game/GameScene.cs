@@ -308,7 +308,7 @@ namespace ctr_wp7.game
                             }
                         }
                     }
-                    else if (xmlnode4.Name == "tutorial01" || xmlnode4.Name == "tutorial02" || xmlnode4.Name == "tutorial03" || xmlnode4.Name == "tutorial04" || xmlnode4.Name == "tutorial05" || xmlnode4.Name == "tutorial06" || xmlnode4.Name == "tutorial07" || xmlnode4.Name == "tutorial08" || xmlnode4.Name == "tutorial09" || xmlnode4.Name == "tutorial10")
+                    else if (xmlnode4.Name is "tutorial01" or "tutorial02" or "tutorial03" or "tutorial04" or "tutorial05" or "tutorial06" or "tutorial07" or "tutorial08" or "tutorial09" or "tutorial10")
                     {
                         if (!shouldSkipTutorialElement(xmlnode4))
                         {
@@ -418,7 +418,7 @@ namespace ctr_wp7.game
                         sock.updateRotation();
                         socks.Add(sock);
                     }
-                    else if (xmlnode4.Name == "spike1" || xmlnode4.Name == "spike2" || xmlnode4.Name == "spike3" || xmlnode4.Name == "spike4" || xmlnode4.Name == "electro")
+                    else if (xmlnode4.Name is "spike1" or "spike2" or "spike3" or "spike4" or "electro")
                     {
                         float num12 = (xmlnode4["x"].intValue() * 1f) + 0f;
                         float num13 = (xmlnode4["y"].intValue() * 1f) + 0f;
@@ -525,7 +525,7 @@ namespace ctr_wp7.game
                             }
                         }
                     }
-                    else if (xmlnode4.Name == "bouncer1" || xmlnode4.Name == "bouncer2")
+                    else if (xmlnode4.Name is "bouncer1" or "bouncer2")
                     {
                         float num26 = (xmlnode4["x"].intValue() * 1f) + 0f;
                         float num27 = (xmlnode4["y"].intValue() * 1f) + 0f;
@@ -780,7 +780,7 @@ namespace ctr_wp7.game
             text2.y = 30f;
             text2.rotationCenterX -= text2.width / 2f;
             text2.scaleX = text2.scaleY = 0.7f;
-            if (LANGUAGE == Language.LANG_ZH || LANGUAGE == Language.LANG_KO || LANGUAGE == Language.LANG_JA)
+            if (LANGUAGE is Language.LANG_ZH or Language.LANG_KO or Language.LANG_JA)
             {
                 text2.y -= 7f;
             }
@@ -2129,7 +2129,7 @@ namespace ctr_wp7.game
                 CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
                 int num4 = ctrrootController.getPack();
                 Texture2D texture = Application.getTexture(188 + (num4 * 2));
-                int num5 = (num4 == 0 || num4 == 9) ? 1 : 2;
+                int num5 = (num4 is 0 or 9) ? 1 : 2;
                 float y = texture.quadOffsets[num5].y;
                 Rectangle rectangle = texture.quadRects[num5];
                 rectangle.y += num3;
@@ -2969,7 +2969,7 @@ namespace ctr_wp7.game
                     {
                         CTRRootController.postAchievementName(NSS("acRopeCutter"));
                     }
-                    if (ropesCutAtOnce >= 3 && ropesCutAtOnce < 5)
+                    if (ropesCutAtOnce is >= 3 and < 5)
                     {
                         CTRRootController.postAchievementName(NSS("acQuickFinger"));
                     }

@@ -1498,11 +1498,11 @@ namespace ctr_wp7.ctr_original
         public virtual void onButtonPressed(int n)
         {
             _ = activeView().onTouchMoveXY(-10000f, -10000f);
-            if (n != -1 && n != 14 && n != 40)
+            if (n is not -1 and not 14 and not 40)
             {
                 CTRSoundMgr._playSound(21);
             }
-            if (n >= 1000 && n < 2000)
+            if (n is >= 1000 and < 2000)
             {
                 level = n - 1000;
                 int starsForPackLevel = CTRPreferences.getStarsForPackLevel(pack, level);
@@ -1530,7 +1530,7 @@ namespace ctr_wp7.ctr_original
                 childWithName5.playTimeline(2);
                 return;
             }
-            if (n >= 2000 && n < 3000)
+            if (n is >= 2000 and < 3000)
             {
                 AndroidAPI.hideBanner();
                 pack = n - 2000;
@@ -1557,7 +1557,7 @@ namespace ctr_wp7.ctr_original
             }
             else
             {
-                if (n >= 3000 && n < 4000)
+                if (n is >= 3000 and < 4000)
                 {
                     packContainer.moveToScrollPointmoveMultiplier(n - 3000, 1f);
                     return;
@@ -2134,11 +2134,11 @@ namespace ctr_wp7.ctr_original
             {
                 onButtonPressed(9);
             }
-            else if (activeViewID == 2 || activeViewID == 3)
+            else if (activeViewID is 2 or 3)
             {
                 onButtonPressed(10);
             }
-            else if (activeViewID == 4 || activeViewID == 11)
+            else if (activeViewID is 4 or 11)
             {
                 onButtonPressed(48);
             }
@@ -2351,7 +2351,7 @@ namespace ctr_wp7.ctr_original
         // Token: 0x060006DC RID: 1756 RVA: 0x000380B4 File Offset: 0x000362B4
         private void showView(ViewID n)
         {
-            if (n == ViewID.VIEW_OPTIONS || n == ViewID.VIEW_RESET || n == ViewID.VIEW_PACK_SELECT)
+            if (n is ViewID.VIEW_OPTIONS or ViewID.VIEW_RESET or ViewID.VIEW_PACK_SELECT)
             {
                 AndroidAPI.showBanner();
             }

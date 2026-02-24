@@ -195,7 +195,7 @@ namespace ctr_wp7.ios
                     num2 = -1;
                     i++;
                 }
-                else if (value_[i] == ',' || value_[i] == '.')
+                else if (value_[i] is ',' or '.')
                 {
                     num3 = 1;
                     num4 = 10;

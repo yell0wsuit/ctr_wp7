@@ -194,7 +194,7 @@ namespace ctr_wp7.remotedata.cartoons
                         parrent.blockConfig.hash = text2;
                     }
                 }
-                else if (localName == "episode" || localName == "adblock")
+                else if (localName is "episode" or "adblock")
                 {
                     _ = atts.TryGetValue("id", out string text3);
                     _ = atts.TryGetValue("hash", out string text4);
@@ -232,7 +232,7 @@ namespace ctr_wp7.remotedata.cartoons
             // Token: 0x0600036A RID: 874 RVA: 0x00015BD0 File Offset: 0x00013DD0
             public override void EndElement(string URI, string localName, string qName)
             {
-                if (localName == "episode" || localName == "adblock")
+                if (localName is "episode" or "adblock")
                 {
                     writeblock.type = localName;
                     writeblock = null;
