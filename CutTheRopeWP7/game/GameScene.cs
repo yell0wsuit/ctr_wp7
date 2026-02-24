@@ -312,7 +312,7 @@ namespace ctr_wp7.game
                     {
                         if (!shouldSkipTutorialElement(xmlnode4))
                         {
-                            NSString nsstring2 = new(xmlnode4.Name.Substring(8));
+                            NSString nsstring2 = new(xmlnode4.Name[8..]);
                             int num7 = nsstring2.intValue() - 1;
                             GameObjectSpecial gameObjectSpecial = GameObjectSpecial.GameObjectSpecial_createWithResIDQuad(144, num7);
                             gameObjectSpecial.color = RGBAColor.transparentRGBA;

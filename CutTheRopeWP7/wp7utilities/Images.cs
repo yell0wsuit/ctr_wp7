@@ -60,7 +60,7 @@ namespace ctr_wp7.wp7utilities
 
             if (path.StartsWith(CtrPrefix, StringComparison.OrdinalIgnoreCase))
             {
-                string suffix = path.Substring(CtrPrefix.Length);
+                string suffix = path[CtrPrefix.Length..];
                 yield return suffix;
                 yield return ImagesPrefix + suffix;
                 yield break;
@@ -68,7 +68,7 @@ namespace ctr_wp7.wp7utilities
 
             if (path.StartsWith(ImagesPrefix, StringComparison.OrdinalIgnoreCase))
             {
-                string suffix = path.Substring(ImagesPrefix.Length);
+                string suffix = path[ImagesPrefix.Length..];
                 yield return suffix;
                 yield return CtrPrefix + suffix;
                 yield break;

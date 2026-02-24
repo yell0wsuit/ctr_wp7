@@ -120,13 +120,13 @@ namespace ctr_wp7.ios
         // Token: 0x060005E2 RID: 1506 RVA: 0x0002C915 File Offset: 0x0002AB15
         public NSString substringFromIndex(int n)
         {
-            return new NSString(value_.Substring(n));
+            return new NSString(value_[n..]);
         }
 
         // Token: 0x060005E3 RID: 1507 RVA: 0x0002C928 File Offset: 0x0002AB28
         public NSString substringToIndex(int n)
         {
-            return new NSString(value_.Substring(0, n));
+            return new NSString(value_[..n]);
         }
 
         // Token: 0x060005E4 RID: 1508 RVA: 0x0002C93C File Offset: 0x0002AB3C

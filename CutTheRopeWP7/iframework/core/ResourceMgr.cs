@@ -169,7 +169,7 @@ namespace ctr_wp7.iframework.core
             Texture2D texture2D = tryLoadTextureAsset(text, flag, num2);
             if (texture2D == null && isWvga && path.EndsWith("_hd", StringComparison.OrdinalIgnoreCase))
             {
-                string text2 = path.Substring(0, path.Length - 3);
+                string text2 = path[..^3];
                 XMLNode xmlnode = XMLNode.parseXML(text2);
                 if (xmlnode != null)
                 {
