@@ -266,12 +266,8 @@ namespace ctre_wp7.ctr_commons
 			FrameworkTypes.REAL_SCREEN_WIDTH = (float)width;
 			FrameworkTypes.REAL_SCREEN_HEIGHT = (float)height;
 			FrameworkTypes.SCREEN_RATIO = FrameworkTypes.REAL_SCREEN_HEIGHT / FrameworkTypes.REAL_SCREEN_WIDTH;
-			FrameworkTypes.IS_WVGA = width > 500 || height > 500;
+			FrameworkTypes.IS_WVGA = true;
 			FrameworkTypes.IS_QVGA = width < 280 || height < 280;
-			if (isLowMem)
-			{
-				FrameworkTypes.IS_WVGA = false;
-			}
 			FrameworkTypes.VIEW_SCREEN_WIDTH = FrameworkTypes.REAL_SCREEN_WIDTH;
 			FrameworkTypes.VIEW_SCREEN_HEIGHT = FrameworkTypes.SCREEN_HEIGHT * FrameworkTypes.REAL_SCREEN_WIDTH / FrameworkTypes.SCREEN_WIDTH;
 			if (FrameworkTypes.VIEW_SCREEN_HEIGHT > FrameworkTypes.REAL_SCREEN_HEIGHT)

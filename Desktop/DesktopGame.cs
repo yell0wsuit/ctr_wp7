@@ -15,12 +15,17 @@ namespace ctre_wp7.Desktop
 {
     internal sealed class DesktopGame : Game
     {
+        private const int PortraitWidth = 480;
+        private const int PortraitHeight = 800;
+
         public DesktopGame()
         {
             _graphics = new GraphicsDeviceManager(this)
             {
                 PreferMultiSampling = false,
-                SynchronizeWithVerticalRetrace = true
+                SynchronizeWithVerticalRetrace = true,
+                PreferredBackBufferWidth = PortraitWidth,
+                PreferredBackBufferHeight = PortraitHeight,
             };
 
             Window.AllowUserResizing = true;
@@ -79,10 +84,23 @@ namespace ctre_wp7.Desktop
 
         private void OnClientSizeChanged(object sender, EventArgs e)
         {
-            if (Window.ClientBounds.Width > 0 && Window.ClientBounds.Height > 0)
+            if (_resizing) return;
+            int w = Window.ClientBounds.Width;
+            int h = Window.ClientBounds.Height;
+            if (w <= 0 || h <= 0) return;
+
+            int portraitWidth = Math.Max(1, h * PortraitWidth / PortraitHeight);
+            if (w != portraitWidth)
             {
-                CtrRenderer.onSurfaceChanged(Window.ClientBounds.Width, Window.ClientBounds.Height);
+                _resizing = true;
+                _graphics.PreferredBackBufferWidth = portraitWidth;
+                _graphics.PreferredBackBufferHeight = h;
+                _graphics.ApplyChanges();
+                _resizing = false;
+                return;
             }
+
+            CtrRenderer.onSurfaceChanged(w, h);
         }
 
         private static Language GetSystemLanguage()
@@ -108,5 +126,6 @@ namespace ctre_wp7.Desktop
 
         private readonly GraphicsDeviceManager _graphics;
         private MouseTouchBridge _mouseBridge;
+        private bool _resizing;
     }
 }
