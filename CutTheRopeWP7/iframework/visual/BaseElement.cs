@@ -451,7 +451,7 @@ namespace ctr_wp7.iframework.visual
         {
             if (childs.TryGetValue(i, out BaseElement baseElement))
             {
-                baseElement?.parent = null;
+                _ = (baseElement?.parent = null);
                 _ = childs.Remove(i);
             }
         }
