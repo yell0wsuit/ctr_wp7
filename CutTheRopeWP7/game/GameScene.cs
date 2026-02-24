@@ -805,7 +805,7 @@ namespace ctr_wp7.game
         // Token: 0x06000804 RID: 2052 RVA: 0x000422E4 File Offset: 0x000404E4
         public void timelinereachedKeyFramewithIndex(Timeline t, KeyFrame k, int i)
         {
-            if (t.element is RotatedCircle && rotatedCircles.IndexOf((RotatedCircle)t.element) >= 0)
+            if (t.element is RotatedCircle circle && rotatedCircles.IndexOf(circle) >= 0)
             {
                 return;
             }
