@@ -1,12 +1,12 @@
 ﻿using System;
-using ctre_wp7.ctr_original;
-using ctre_wp7.game;
-using ctre_wp7.iframework.media;
-using ctre_wp7.iframework.visual;
-using ctre_wp7.ios;
-using ctre_wp7.wp7utilities;
+using ctr_wp7.ctr_original;
+using ctr_wp7.game;
+using ctr_wp7.iframework.media;
+using ctr_wp7.iframework.visual;
+using ctr_wp7.ios;
+using ctr_wp7.wp7utilities;
 
-namespace ctre_wp7.iframework.core
+namespace ctr_wp7.iframework.core
 {
 	// Token: 0x02000019 RID: 25
 	internal class Application : NSObject

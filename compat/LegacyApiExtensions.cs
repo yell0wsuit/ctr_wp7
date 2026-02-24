@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace ctre_wp7
+namespace ctr_wp7
 {
     internal static class LegacyApiExtensions
     {

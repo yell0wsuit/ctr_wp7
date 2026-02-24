@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Xml;
 
-namespace ctre_wp7.utils
+namespace ctr_wp7.utils
 {
 	// Token: 0x02000002 RID: 2
 	public abstract class DefaultHandler

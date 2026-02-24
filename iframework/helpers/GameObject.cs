@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using ctre_wp7.iframework.core;
-using ctre_wp7.iframework.visual;
-using ctre_wp7.ios;
+using ctr_wp7.iframework.core;
+using ctr_wp7.iframework.visual;
+using ctr_wp7.ios;
 
-namespace ctre_wp7.iframework.helpers
+namespace ctr_wp7.iframework.helpers
 {
 	// Token: 0x0200000E RID: 14
 	internal class GameObject : Animation

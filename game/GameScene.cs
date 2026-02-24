@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using ctre_wp7.ctr_original;
-using ctre_wp7.iframework;
-using ctre_wp7.iframework.core;
-using ctre_wp7.iframework.helpers;
-using ctre_wp7.iframework.sfe;
-using ctre_wp7.iframework.visual;
-using ctre_wp7.ios;
-using ctre_wp7.wp7utilities;
+using ctr_wp7.ctr_original;
+using ctr_wp7.iframework;
+using ctr_wp7.iframework.core;
+using ctr_wp7.iframework.helpers;
+using ctr_wp7.iframework.sfe;
+using ctr_wp7.iframework.visual;
+using ctr_wp7.ios;
+using ctr_wp7.wp7utilities;
 
-namespace ctre_wp7.game
+namespace ctr_wp7.game
 {
 	// Token: 0x02000108 RID: 264
 	internal class GameScene : BaseElement, ButtonDelegate, TimelineDelegate
@@ -4511,8 +4511,8 @@ namespace ctre_wp7.game
 			public override void switchToAnimationatEndOfAnimationDelay(int a2, int a1, float d)
 			{
 				Timeline timeline = this.getTimeline(a1);
-				List<ctre_wp7.iframework.visual.Action> list = new List<ctre_wp7.iframework.visual.Action>();
-				list.Add(ctre_wp7.iframework.visual.Action.createAction(this, "ACTION_PLAY_TIMELINE", 0, a2));
+				List<ctr_wp7.iframework.visual.Action> list = new List<ctr_wp7.iframework.visual.Action>();
+				list.Add(ctr_wp7.iframework.visual.Action.createAction(this, "ACTION_PLAY_TIMELINE", 0, a2));
 				timeline.addKeyFrame(KeyFrame.makeAction(list, d));
 			}
 

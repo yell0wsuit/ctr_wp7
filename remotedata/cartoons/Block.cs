@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
-using ctre_wp7.iframework.core;
+using ctr_wp7.iframework.core;
 
-namespace ctre_wp7.remotedata.cartoons
+namespace ctr_wp7.remotedata.cartoons
 {
 	// Token: 0x020000D8 RID: 216
 	[DataContract]

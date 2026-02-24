@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ctre_wp7.ctr_commons
+namespace ctr_wp7.ctr_commons
 {
 	// Token: 0x020000DB RID: 219
 	internal class SaveMgr

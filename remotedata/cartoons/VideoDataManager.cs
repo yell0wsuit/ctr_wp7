@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Net;
 using System.Text;
 using System.Xml;
-using ctre_wp7.game;
-using ctre_wp7.utils;
+using ctr_wp7.game;
+using ctr_wp7.utils;
 
-namespace ctre_wp7.remotedata.cartoons
+namespace ctr_wp7.remotedata.cartoons
 {
 	// Token: 0x02000070 RID: 112
 	public class VideoDataManager : ServerDataManager, ImageDownloader.ImageDownloadedListener

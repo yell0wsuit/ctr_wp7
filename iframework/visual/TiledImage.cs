@@ -1,7 +1,7 @@
 ﻿using System;
-using ctre_wp7.iframework.core;
+using ctr_wp7.iframework.core;
 
-namespace ctre_wp7.iframework.visual
+namespace ctr_wp7.iframework.visual
 {
 	// Token: 0x02000062 RID: 98
 	internal class TiledImage : Image

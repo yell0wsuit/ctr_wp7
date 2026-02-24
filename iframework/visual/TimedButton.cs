@@ -1,8 +1,8 @@
 ﻿using System;
-using ctre_wp7.iframework.helpers;
-using ctre_wp7.ios;
+using ctr_wp7.iframework.helpers;
+using ctr_wp7.ios;
 
-namespace ctre_wp7.iframework.visual
+namespace ctr_wp7.iframework.visual
 {
 	// Token: 0x02000087 RID: 135
 	internal class TimedButton : BaseElement

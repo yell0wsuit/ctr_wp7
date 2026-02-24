@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using ctre_wp7.ios;
+using ctr_wp7.ios;
 
-namespace ctre_wp7.iframework.visual
+namespace ctr_wp7.iframework.visual
 {
 	// Token: 0x02000009 RID: 9
 	internal class BaseElement : NSObject

@@ -1,7 +1,7 @@
 ﻿using System;
-using ctre_wp7.ios;
+using ctr_wp7.ios;
 
-namespace ctre_wp7.game.remotedata
+namespace ctr_wp7.game.remotedata
 {
 	// Token: 0x020000FA RID: 250
 	internal abstract class BlockInterface : NSObject

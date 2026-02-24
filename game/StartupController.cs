@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using ctre_wp7.ctr_commons;
-using ctre_wp7.ctr_original;
-using ctre_wp7.iframework;
-using ctre_wp7.iframework.core;
-using ctre_wp7.iframework.media;
-using ctre_wp7.ios;
+using ctr_wp7.ctr_commons;
+using ctr_wp7.ctr_original;
+using ctr_wp7.iframework;
+using ctr_wp7.iframework.core;
+using ctr_wp7.iframework.media;
+using ctr_wp7.ios;
 
-namespace ctre_wp7.game
+namespace ctr_wp7.game
 {
 	// Token: 0x020000ED RID: 237
 	internal class StartupController : ViewController, ResourceMgrDelegate, MovieMgrDelegate

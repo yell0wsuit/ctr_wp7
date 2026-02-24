@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Net;
 using System.Xml;
-using ctre_wp7.utils;
+using ctr_wp7.utils;
 
-namespace ctre_wp7.remotedata.cartoons
+namespace ctr_wp7.remotedata.cartoons
 {
 	// Token: 0x0200002A RID: 42
 	public class ImageDownloader

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ctre_wp7.ios
+namespace ctr_wp7.ios
 {
 	// Token: 0x020000CA RID: 202
 	internal class NSString : NSObject

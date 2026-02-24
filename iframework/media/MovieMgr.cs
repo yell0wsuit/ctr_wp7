@@ -1,8 +1,8 @@
 ﻿using System;
-using ctre_wp7.ios;
+using ctr_wp7.ios;
 using Microsoft.Xna.Framework.Media;
 
-namespace ctre_wp7.iframework.media
+namespace ctr_wp7.iframework.media
 {
 	// Token: 0x0200004F RID: 79
 	internal class MovieMgr : NSObject

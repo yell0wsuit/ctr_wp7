@@ -1,7 +1,7 @@
-using ctre_wp7.iframework.media;
-using ctre_wp7.ios;
+using ctr_wp7.iframework.media;
+using ctr_wp7.ios;
 
-namespace ctre_wp7
+namespace ctr_wp7
 {
     internal sealed class GamePage
     {

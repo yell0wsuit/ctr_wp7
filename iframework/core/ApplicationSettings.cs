@@ -1,8 +1,8 @@
 ﻿using System;
-using ctre_wp7.ctr_original;
-using ctre_wp7.ios;
+using ctr_wp7.ctr_original;
+using ctr_wp7.ios;
 
-namespace ctre_wp7.iframework.core
+namespace ctr_wp7.iframework.core
 {
 	// Token: 0x020000B6 RID: 182
 	internal class ApplicationSettings : NSObject

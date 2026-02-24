@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using ctre_wp7.ios;
+using ctr_wp7.ios;
 
-namespace ctre_wp7.iframework.helpers
+namespace ctr_wp7.iframework.helpers
 {
 	// Token: 0x0200007F RID: 127
 	internal class DelayedDispatcher : NSObject

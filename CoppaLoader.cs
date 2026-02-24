@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using ctre_wp7.iframework;
-using ctre_wp7.ios;
-using ctre_wp7.remotedata.cartoons;
+using ctr_wp7.iframework;
+using ctr_wp7.ios;
+using ctr_wp7.remotedata.cartoons;
 using Microsoft.Xna.Framework.GamerServices;
 
 // Token: 0x02000072 RID: 114

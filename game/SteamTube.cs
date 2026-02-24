@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using ctre_wp7.ctr_original;
-using ctre_wp7.iframework.core;
-using ctre_wp7.iframework.helpers;
-using ctre_wp7.iframework.visual;
-using ctre_wp7.ios;
+using ctr_wp7.ctr_original;
+using ctr_wp7.iframework.core;
+using ctr_wp7.iframework.helpers;
+using ctr_wp7.iframework.visual;
+using ctr_wp7.ios;
 
-namespace ctre_wp7.game
+namespace ctr_wp7.game
 {
 	// Token: 0x020000C0 RID: 192
 	internal class SteamTube : BaseElement, TimelineDelegate

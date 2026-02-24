@@ -1,11 +1,11 @@
 ﻿using System;
-using ctre_wp7.ctr_commons;
-using ctre_wp7.iframework.core;
-using ctre_wp7.iframework.helpers;
-using ctre_wp7.iframework.visual;
-using ctre_wp7.ios;
+using ctr_wp7.ctr_commons;
+using ctr_wp7.iframework.core;
+using ctr_wp7.iframework.helpers;
+using ctr_wp7.iframework.visual;
+using ctr_wp7.ios;
 
-namespace ctre_wp7.Specials
+namespace ctr_wp7.Specials
 {
 	// Token: 0x0200005D RID: 93
 	internal class LiftScrollbar : Image

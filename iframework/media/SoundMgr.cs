@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using ctre_wp7.ctr_original;
-using ctre_wp7.iframework.core;
-using ctre_wp7.ios;
+using ctr_wp7.ctr_original;
+using ctr_wp7.iframework.core;
+using ctr_wp7.ios;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Media;
 
-namespace ctre_wp7.iframework.media
+namespace ctr_wp7.iframework.media
 {
 	// Token: 0x02000028 RID: 40
 	internal class SoundMgr : NSObject

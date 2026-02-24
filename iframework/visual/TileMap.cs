@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using ctre_wp7.iframework.core;
-using ctre_wp7.iframework.helpers;
+using ctr_wp7.iframework.core;
+using ctr_wp7.iframework.helpers;
 
-namespace ctre_wp7.iframework.visual
+namespace ctr_wp7.iframework.visual
 {
 	// Token: 0x02000036 RID: 54
 	internal class TileMap : BaseElement

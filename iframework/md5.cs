@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ctre_wp7.iframework
+namespace ctr_wp7.iframework
 {
 	// Token: 0x02000063 RID: 99
 	internal class md5

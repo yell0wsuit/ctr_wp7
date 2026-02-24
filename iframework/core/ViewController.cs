@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using ctre_wp7.ctr_commons;
-using ctre_wp7.iframework.visual;
-using ctre_wp7.ios;
+using ctr_wp7.ctr_commons;
+using ctr_wp7.iframework.visual;
+using ctr_wp7.ios;
 using Microsoft.Xna.Framework.Input.Touch;
 
-namespace ctre_wp7.iframework.core
+namespace ctr_wp7.iframework.core
 {
 	// Token: 0x02000066 RID: 102
 	internal class ViewController : NSObject, TouchDelegate

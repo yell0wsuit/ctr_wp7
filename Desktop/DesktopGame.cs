@@ -2,16 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 
-using ctre_wp7.ctr_commons;
-using ctre_wp7.iframework;
-using ctre_wp7.wp7utilities;
+using ctr_wp7.ctr_commons;
+using ctr_wp7.iframework;
+using ctr_wp7.wp7utilities;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Input.Touch;
 
-namespace ctre_wp7.Desktop
+namespace ctr_wp7.Desktop
 {
     internal sealed class DesktopGame : Game
     {

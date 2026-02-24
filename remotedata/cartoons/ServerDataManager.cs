@@ -2,11 +2,11 @@
 using System.IO;
 using System.IO.IsolatedStorage;
 using System.Runtime.Serialization;
-using ctre_wp7.iframework;
-using ctre_wp7.iframework.core;
-using ctre_wp7.utils;
+using ctr_wp7.iframework;
+using ctr_wp7.iframework.core;
+using ctr_wp7.utils;
 
-namespace ctre_wp7.remotedata.cartoons
+namespace ctr_wp7.remotedata.cartoons
 {
 	// Token: 0x0200006F RID: 111
 	public abstract class ServerDataManager

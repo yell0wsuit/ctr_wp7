@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.IO.IsolatedStorage;
-using ctre_wp7.ios;
+using ctr_wp7.ios;
 
-namespace ctre_wp7.iframework.core
+namespace ctr_wp7.iframework.core
 {
 	// Token: 0x02000083 RID: 131
 	internal class Preferences : NSObject

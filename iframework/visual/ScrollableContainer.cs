@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using ctre_wp7.ctr_original;
-using ctre_wp7.iframework.core;
-using ctre_wp7.iframework.helpers;
+using ctr_wp7.ctr_original;
+using ctr_wp7.iframework.core;
+using ctr_wp7.iframework.helpers;
 
-namespace ctre_wp7.iframework.visual
+namespace ctr_wp7.iframework.visual
 {
 	// Token: 0x020000CF RID: 207
 	internal class ScrollableContainer : BaseElement

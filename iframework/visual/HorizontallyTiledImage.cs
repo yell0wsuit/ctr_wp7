@@ -1,7 +1,7 @@
 ﻿using System;
-using ctre_wp7.iframework.core;
+using ctr_wp7.iframework.core;
 
-namespace ctre_wp7.iframework.visual
+namespace ctr_wp7.iframework.visual
 {
 	// Token: 0x02000060 RID: 96
 	internal class HorizontallyTiledImage : Image

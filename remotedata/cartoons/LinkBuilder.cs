@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Text;
-using ctre_wp7.utils;
+using ctr_wp7.utils;
 
-namespace ctre_wp7.remotedata.cartoons
+namespace ctr_wp7.remotedata.cartoons
 {
 	// Token: 0x02000098 RID: 152
 	public class LinkBuilder

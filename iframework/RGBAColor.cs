@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 
-namespace ctre_wp7.iframework
+namespace ctr_wp7.iframework
 {
 	// Token: 0x02000026 RID: 38
 	public struct RGBAColor

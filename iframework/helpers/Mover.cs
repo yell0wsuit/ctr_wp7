@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using ctre_wp7.iframework.core;
-using ctre_wp7.ios;
+using ctr_wp7.iframework.core;
+using ctr_wp7.ios;
 
-namespace ctre_wp7.iframework.helpers
+namespace ctr_wp7.iframework.helpers
 {
 	// Token: 0x02000093 RID: 147
 	internal class Mover : NSObject

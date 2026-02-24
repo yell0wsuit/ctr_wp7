@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ctre_wp7.ctr_original
+namespace ctr_wp7.ctr_original
 {
 	// Token: 0x020000BA RID: 186
 	public enum UNLOCKED_STATE

@@ -1,8 +1,8 @@
 ﻿using System;
-using ctre_wp7.ios;
-using ctre_wp7.remotedata.cartoons;
+using ctr_wp7.ios;
+using ctr_wp7.remotedata.cartoons;
 
-namespace ctre_wp7.game.remotedata
+namespace ctr_wp7.game.remotedata
 {
 	// Token: 0x020000FC RID: 252
 	internal class BlockInternet : BlockInterface

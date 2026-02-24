@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 
-using ctre_wp7.iframework.core;
-using ctre_wp7.iframework.visual;
+using ctr_wp7.iframework.core;
+using ctr_wp7.iframework.visual;
 
-namespace ctre_wp7.wp7utilities
+namespace ctr_wp7.wp7utilities
 {
     internal sealed class FontWP7 : FontGeneric
     {

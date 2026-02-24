@@ -1,9 +1,9 @@
 ﻿using System;
-using ctre_wp7.iframework.core;
-using ctre_wp7.iframework.helpers;
-using ctre_wp7.iframework.visual;
+using ctr_wp7.iframework.core;
+using ctr_wp7.iframework.helpers;
+using ctr_wp7.iframework.visual;
 
-namespace ctre_wp7.ctr_commons
+namespace ctr_wp7.ctr_commons
 {
 	// Token: 0x02000117 RID: 279
 	internal class HLiftScrollbar : Image

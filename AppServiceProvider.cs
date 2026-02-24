@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ctre_wp7
+namespace ctr_wp7
 {
 	// Token: 0x0200005A RID: 90
 	public class AppServiceProvider : IServiceProvider

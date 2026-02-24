@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using ctre_wp7.ctr_original;
-using ctre_wp7.iframework.helpers;
-using ctre_wp7.ios;
+using ctr_wp7.ctr_original;
+using ctr_wp7.iframework.helpers;
+using ctr_wp7.ios;
 
-namespace ctre_wp7.iframework
+namespace ctr_wp7.iframework
 {
 	// Token: 0x02000005 RID: 5
 	internal class FrameworkTypes : MathHelper

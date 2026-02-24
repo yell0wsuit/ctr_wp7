@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using System.Reflection;
 using System.Threading;
-using ctre_wp7.ctr_commons;
-using ctre_wp7.game;
-using ctre_wp7.game.remotedata;
-using ctre_wp7.iframework;
-using ctre_wp7.iframework.core;
-using ctre_wp7.iframework.helpers;
-using ctre_wp7.iframework.media;
-using ctre_wp7.iframework.visual;
-using ctre_wp7.ios;
-using ctre_wp7.Specials;
+using ctr_wp7.ctr_commons;
+using ctr_wp7.game;
+using ctr_wp7.game.remotedata;
+using ctr_wp7.iframework;
+using ctr_wp7.iframework.core;
+using ctr_wp7.iframework.helpers;
+using ctr_wp7.iframework.media;
+using ctr_wp7.iframework.visual;
+using ctr_wp7.ios;
+using ctr_wp7.Specials;
 
-namespace ctre_wp7.ctr_original
+namespace ctr_wp7.ctr_original
 {
 	// Token: 0x020000E3 RID: 227
 	internal class MenuController : ViewController, ButtonDelegate, MovieMgrDelegate, ScrollableContainerProtocol, TimelineDelegate, LiftScrollbarDelegate

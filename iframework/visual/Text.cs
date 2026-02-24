@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using ctre_wp7.iframework.core;
-using ctre_wp7.iframework.helpers;
-using ctre_wp7.ios;
-using ctre_wp7.wp7utilities;
+using ctr_wp7.iframework.core;
+using ctr_wp7.iframework.helpers;
+using ctr_wp7.ios;
+using ctr_wp7.wp7utilities;
 
-namespace ctre_wp7.iframework.visual
+namespace ctr_wp7.iframework.visual
 {
 	// Token: 0x020000CD RID: 205
 	internal class Text : BaseElement

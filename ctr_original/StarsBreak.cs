@@ -1,8 +1,8 @@
 ﻿using System;
-using ctre_wp7.iframework;
-using ctre_wp7.iframework.visual;
+using ctr_wp7.iframework;
+using ctr_wp7.iframework.visual;
 
-namespace ctre_wp7.ctr_original
+namespace ctr_wp7.ctr_original
 {
 	// Token: 0x02000105 RID: 261
 	internal class StarsBreak : RotateableMultiParticles

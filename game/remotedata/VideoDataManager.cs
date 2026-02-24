@@ -1,10 +1,10 @@
 ﻿using System;
-using ctre_wp7.iframework;
-using ctre_wp7.iframework.core;
-using ctre_wp7.ios;
-using ctre_wp7.remotedata.cartoons;
+using ctr_wp7.iframework;
+using ctr_wp7.iframework.core;
+using ctr_wp7.ios;
+using ctr_wp7.remotedata.cartoons;
 
-namespace ctre_wp7.game.remotedata
+namespace ctr_wp7.game.remotedata
 {
 	// Token: 0x020000DA RID: 218
 	internal class VideoDataManager
@@ -12,7 +12,7 @@ namespace ctre_wp7.game.remotedata
 		// Token: 0x06000653 RID: 1619 RVA: 0x00030952 File Offset: 0x0002EB52
 		public static void initVideoDataManager()
 		{
-			VideoDataManager.videoDataMgr = new ctre_wp7.remotedata.cartoons.VideoDataManager();
+			VideoDataManager.videoDataMgr = new ctr_wp7.remotedata.cartoons.VideoDataManager();
 		}
 
 		// Token: 0x06000654 RID: 1620 RVA: 0x00030960 File Offset: 0x0002EB60
@@ -35,7 +35,7 @@ namespace ctre_wp7.game.remotedata
 		{
 			if (VideoDataManager.videoDataMgr != null)
 			{
-				ctre_wp7.remotedata.cartoons.BlockConfig blockConfig = VideoDataManager.videoDataMgr.getBlockConfig();
+				ctr_wp7.remotedata.cartoons.BlockConfig blockConfig = VideoDataManager.videoDataMgr.getBlockConfig();
 				return (BlockConfig)new BlockConfig().initWithJObject(blockConfig);
 			}
 			return null;
@@ -80,6 +80,6 @@ namespace ctre_wp7.game.remotedata
 		protected static int lastActivated = -1;
 
 		// Token: 0x04000BC5 RID: 3013
-		protected static ctre_wp7.remotedata.cartoons.VideoDataManager videoDataMgr = null;
+		protected static ctr_wp7.remotedata.cartoons.VideoDataManager videoDataMgr = null;
 	}
 }

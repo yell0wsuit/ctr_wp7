@@ -1,6 +1,6 @@
 ﻿using System;
-using ctre_wp7.iframework;
-using ctre_wp7.iframework.core;
+using ctr_wp7.iframework;
+using ctr_wp7.iframework.core;
 
 // Token: 0x02000040 RID: 64
 internal class CoppaView : View

@@ -1,9 +1,9 @@
 ﻿using System;
-using ctre_wp7.iframework.core;
-using ctre_wp7.iframework.helpers;
-using ctre_wp7.ios;
+using ctr_wp7.iframework.core;
+using ctr_wp7.iframework.helpers;
+using ctr_wp7.ios;
 
-namespace ctre_wp7.game
+namespace ctr_wp7.game
 {
 	// Token: 0x02000010 RID: 16
 	internal class CTRGameObject : GameObject

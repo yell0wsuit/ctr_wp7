@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ctre_wp7.iframework.visual
+namespace ctr_wp7.iframework.visual
 {
 	// Token: 0x020000A5 RID: 165
 	internal class ActionData

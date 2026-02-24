@@ -1,8 +1,8 @@
 ﻿using System;
-using ctre_wp7.iframework.core;
-using ctre_wp7.ios;
+using ctr_wp7.iframework.core;
+using ctr_wp7.ios;
 
-namespace ctre_wp7.iframework.helpers
+namespace ctr_wp7.iframework.helpers
 {
 	// Token: 0x0200003B RID: 59
 	internal class Camera2D : NSObject

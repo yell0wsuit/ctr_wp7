@@ -1,6 +1,6 @@
-using ctre_wp7.iframework.core;
+using ctr_wp7.iframework.core;
 
-namespace ctre_wp7.ctr_original
+namespace ctr_wp7.ctr_original
 {
     internal class AchievementsView : View
     {

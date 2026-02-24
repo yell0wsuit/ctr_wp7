@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using ctre_wp7.iframework.visual;
-using ctre_wp7.wp7utilities;
+using ctr_wp7.iframework.visual;
+using ctr_wp7.wp7utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace ctre_wp7.iframework
+namespace ctr_wp7.iframework
 {
 	// Token: 0x020000B3 RID: 179
 	internal class OpenGL
@@ -154,7 +154,7 @@ namespace ctre_wp7.iframework
 		}
 
 		// Token: 0x060004FF RID: 1279 RVA: 0x00025299 File Offset: 0x00023499
-		public static void glBindTexture(ctre_wp7.iframework.visual.Texture2D t)
+		public static void glBindTexture(ctr_wp7.iframework.visual.Texture2D t)
 		{
 			OpenGL.s_Texture = t;
 		}
@@ -765,7 +765,7 @@ namespace ctre_wp7.iframework
 		private static Matrix s_matrixProjection = Matrix.Identity;
 
 		// Token: 0x04000A59 RID: 2649
-		private static ctre_wp7.iframework.visual.Texture2D s_Texture;
+		private static ctr_wp7.iframework.visual.Texture2D s_Texture;
 
 		// Token: 0x04000A5A RID: 2650
 		private static Color s_glClearColor = Color.White;

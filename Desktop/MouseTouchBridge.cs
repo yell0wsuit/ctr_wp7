@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Input.Touch;
 
-namespace ctre_wp7.Desktop
+namespace ctr_wp7.Desktop
 {
     internal sealed class MouseTouchBridge
     {

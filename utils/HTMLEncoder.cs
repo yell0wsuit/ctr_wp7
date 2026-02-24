@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net;
 
-namespace ctre_wp7.utils
+namespace ctr_wp7.utils
 {
 	// Token: 0x020000C8 RID: 200
 	public class HTMLEncoder

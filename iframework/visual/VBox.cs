@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ctre_wp7.iframework.visual
+namespace ctr_wp7.iframework.visual
 {
 	// Token: 0x0200001B RID: 27
 	internal class VBox : BaseElement

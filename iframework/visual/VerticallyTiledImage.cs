@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ctre_wp7.iframework.visual
+namespace ctr_wp7.iframework.visual
 {
 	// Token: 0x02000061 RID: 97
 	internal class VerticallyTiledImage : Image

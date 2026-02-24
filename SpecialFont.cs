@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.IO;
 using System.IO.IsolatedStorage;
-using ctre_wp7.ctr_original;
-using ctre_wp7.game;
-using ctre_wp7.iframework;
-using ctre_wp7.ios;
+using ctr_wp7.ctr_original;
+using ctr_wp7.game;
+using ctr_wp7.iframework;
+using ctr_wp7.ios;
 
-namespace ctre_wp7
+namespace ctr_wp7
 {
 	// Token: 0x0200005E RID: 94
 	public class SpecialFont

@@ -1,6 +1,6 @@
 using System;
 
-namespace ctre_wp7
+namespace ctr_wp7
 {
     internal static class Program
     {

@@ -2,7 +2,7 @@ using System;
 using System.Reflection;
 using System.Runtime.InteropServices;
 
-namespace ctre_wp7.utils
+namespace ctr_wp7.utils
 {
     public static class SystemInfo
     {

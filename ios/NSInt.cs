@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ctre_wp7.ios
+namespace ctr_wp7.ios
 {
 	// Token: 0x020000BC RID: 188
 	internal class NSInt : NSObject

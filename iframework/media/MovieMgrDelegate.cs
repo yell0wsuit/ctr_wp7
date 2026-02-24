@@ -1,7 +1,7 @@
 ﻿using System;
-using ctre_wp7.ios;
+using ctr_wp7.ios;
 
-namespace ctre_wp7.iframework.media
+namespace ctr_wp7.iframework.media
 {
 	// Token: 0x0200004E RID: 78
 	internal interface MovieMgrDelegate

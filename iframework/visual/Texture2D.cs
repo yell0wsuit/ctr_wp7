@@ -1,13 +1,13 @@
 ﻿using System;
 using System.IO.IsolatedStorage;
-using ctre_wp7.ctr_commons;
-using ctre_wp7.iframework.core;
-using ctre_wp7.iframework.helpers;
-using ctre_wp7.ios;
-using ctre_wp7.wp7utilities;
+using ctr_wp7.ctr_commons;
+using ctr_wp7.iframework.core;
+using ctr_wp7.iframework.helpers;
+using ctr_wp7.ios;
+using ctr_wp7.wp7utilities;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace ctre_wp7.iframework.visual
+namespace ctr_wp7.iframework.visual
 {
 	// Token: 0x0200004A RID: 74
 	internal class Texture2D : NSObject

@@ -6,7 +6,7 @@ using System.Globalization;
 using System.Resources;
 using System.Runtime.CompilerServices;
 
-namespace ctre_wp7
+namespace ctr_wp7
 {
 	// Token: 0x02000027 RID: 39
 	[DebuggerNonUserCode]
@@ -28,7 +28,7 @@ namespace ctre_wp7
 			{
 				if (object.ReferenceEquals(CutTheRope.resourceMan, null))
 				{
-					ResourceManager resourceManager = new ResourceManager("ctre_wp7.CutTheRope", typeof(CutTheRope).Assembly);
+					ResourceManager resourceManager = new ResourceManager("ctr_wp7.CutTheRope", typeof(CutTheRope).Assembly);
 					CutTheRope.resourceMan = resourceManager;
 				}
 				return CutTheRope.resourceMan;

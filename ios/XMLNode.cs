@@ -5,12 +5,12 @@ using System.Linq;
 using System.Net;
 using System.Xml;
 using System.Xml.Linq;
-using ctre_wp7.Banner;
-using ctre_wp7.ctr_original;
-using ctre_wp7.wp7utilities;
+using ctr_wp7.Banner;
+using ctr_wp7.ctr_original;
+using ctr_wp7.wp7utilities;
 using Microsoft.Xna.Framework;
 
-namespace ctre_wp7.ios
+namespace ctr_wp7.ios
 {
 	// Token: 0x020000F4 RID: 244
 	internal class XMLNode

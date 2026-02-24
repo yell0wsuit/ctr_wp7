@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ctre_wp7.iframework
+namespace ctr_wp7.iframework
 {
 	// Token: 0x02000024 RID: 36
 	internal struct Quad2D

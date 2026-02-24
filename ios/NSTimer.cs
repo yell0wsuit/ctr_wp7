@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using ctre_wp7.iframework.helpers;
+using ctr_wp7.iframework.helpers;
 
-namespace ctre_wp7.ios
+namespace ctr_wp7.ios
 {
 	// Token: 0x02000046 RID: 70
 	internal class NSTimer : NSObject

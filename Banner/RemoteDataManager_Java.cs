@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.IO.IsolatedStorage;
 using System.Reflection;
-using ctre_wp7.iframework.core;
-using ctre_wp7.ios;
-using ctre_wp7.utils;
+using ctr_wp7.iframework.core;
+using ctr_wp7.ios;
+using ctr_wp7.utils;
 
-namespace ctre_wp7.Banner
+namespace ctr_wp7.Banner
 {
 	// Token: 0x02000041 RID: 65
 	public class RemoteDataManager_Java

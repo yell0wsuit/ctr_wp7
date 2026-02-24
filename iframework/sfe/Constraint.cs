@@ -1,7 +1,7 @@
 ﻿using System;
-using ctre_wp7.ios;
+using ctr_wp7.ios;
 
-namespace ctre_wp7.iframework.sfe
+namespace ctr_wp7.iframework.sfe
 {
 	// Token: 0x0200001C RID: 28
 	internal class Constraint : NSObject

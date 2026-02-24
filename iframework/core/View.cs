@@ -1,8 +1,8 @@
 ﻿using System;
-using ctre_wp7.iframework.visual;
-using ctre_wp7.ios;
+using ctr_wp7.iframework.visual;
+using ctr_wp7.ios;
 
-namespace ctre_wp7.iframework.core
+namespace ctr_wp7.iframework.core
 {
 	// Token: 0x02000016 RID: 22
 	internal class View : BaseElement

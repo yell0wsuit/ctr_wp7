@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using ctre_wp7.Banner;
-using ctre_wp7.ctr_original;
-using ctre_wp7.game;
-using ctre_wp7.game.remotedata;
-using ctre_wp7.iframework;
-using ctre_wp7.iframework.core;
-using ctre_wp7.iframework.helpers;
-using ctre_wp7.iframework.visual;
-using ctre_wp7.ios;
-using ctre_wp7.wp7utilities;
+using ctr_wp7.Banner;
+using ctr_wp7.ctr_original;
+using ctr_wp7.game;
+using ctr_wp7.game.remotedata;
+using ctr_wp7.iframework;
+using ctr_wp7.iframework.core;
+using ctr_wp7.iframework.helpers;
+using ctr_wp7.iframework.visual;
+using ctr_wp7.ios;
+using ctr_wp7.wp7utilities;
 using Microsoft.Xna.Framework.Input.Touch;
 
-namespace ctre_wp7.ctr_commons
+namespace ctr_wp7.ctr_commons
 {
 	// Token: 0x020000EA RID: 234
 	internal class CtrRenderer : NSObject
