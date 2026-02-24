@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.IO.IsolatedStorage;
+using System.Text.Json;
 
 using ctr_wp7.ios;
 
@@ -25,8 +25,6 @@ namespace ctr_wp7.iframework.core
         // Token: 0x060003C5 RID: 965 RVA: 0x00018152 File Offset: 0x00016352
         public static void ResetPreferences()
         {
-            data_ = null;
-            dataStrings_ = null;
             data_ = [];
             dataStrings_ = [];
         }
@@ -76,14 +74,7 @@ namespace ctr_wp7.iframework.core
         // Token: 0x060003CD RID: 973 RVA: 0x000181B4 File Offset: 0x000163B4
         public static void _setIntforKey(int v, string key, bool comit)
         {
-            if (data_.TryGetValue(key, out _))
-            {
-                data_[key] = v;
-            }
-            else
-            {
-                data_.Add(key, v);
-            }
+            data_[key] = v;
             if (comit)
             {
                 _savePreferences();
@@ -93,14 +84,7 @@ namespace ctr_wp7.iframework.core
         // Token: 0x060003CE RID: 974 RVA: 0x000181F4 File Offset: 0x000163F4
         public static void _setStringforKey(string v, string k, bool comit)
         {
-            if (dataStrings_.TryGetValue(k, out _))
-            {
-                dataStrings_[k] = v;
-            }
-            else
-            {
-                dataStrings_.Add(k, v);
-            }
+            dataStrings_[k] = v;
             if (comit)
             {
                 _savePreferences();
@@ -206,105 +190,41 @@ namespace ctr_wp7.iframework.core
         // Token: 0x060003D8 RID: 984 RVA: 0x00018464 File Offset: 0x00016664
         public static void _savePreferences()
         {
-            bool flag = false;
-            bool flag2 = false;
+            string saveFilePath = getSaveFilePath();
             try
             {
-                using (IsolatedStorageFile userStoreForApplication = IsolatedStorageFile.GetUserStoreForApplication())
+                _ = Directory.CreateDirectory(getSaveDirectoryPath());
+                PreferencesSaveData preferencesSaveData = new()
                 {
-                    try
-                    {
-                        userStoreForApplication.DeleteFile(saveBakFileName_);
-                        userStoreForApplication.MoveFile(saveFileName_, saveBakFileName_);
-                        flag = true;
-                    }
-                    catch (Exception ex)
-                    {
-                        _LOG("Error: cannot save, " + ex.ToString());
-                    }
-                    using (IsolatedStorageFileStream isolatedStorageFileStream = userStoreForApplication.CreateFile(saveFileName_))
-                    {
-                        BinaryWriter binaryWriter = new(isolatedStorageFileStream);
-                        binaryWriter.Write(data_.Count);
-                        foreach (KeyValuePair<string, int> keyValuePair in data_)
-                        {
-                            binaryWriter.Write(keyValuePair.Key);
-                            binaryWriter.Write(keyValuePair.Value);
-                        }
-                        binaryWriter.Write(dataStrings_.Count);
-                        foreach (KeyValuePair<string, string> keyValuePair2 in dataStrings_)
-                        {
-                            binaryWriter.Write(keyValuePair2.Key);
-                            binaryWriter.Write(keyValuePair2.Value);
-                        }
-                        binaryWriter.Close();
-                        flag2 = true;
-                    }
-                }
+                    ints = data_,
+                    strings = dataStrings_
+                };
+                string contents = JsonSerializer.Serialize(preferencesSaveData);
+                File.WriteAllText(saveFilePath, contents);
             }
             catch (Exception ex2)
             {
                 _LOG("Error: cannot save, " + ex2.ToString());
             }
-            if (!flag2 && flag)
-            {
-                using (IsolatedStorageFile userStoreForApplication2 = IsolatedStorageFile.GetUserStoreForApplication())
-                {
-                    try
-                    {
-                        userStoreForApplication2.DeleteFile(saveFileName_);
-                        userStoreForApplication2.MoveFile(saveBakFileName_, saveFileName_);
-                    }
-                    catch (Exception ex3)
-                    {
-                        _LOG("Error: cannot save, " + ex3.ToString());
-                    }
-                    return;
-                }
-            }
-            if (flag2)
-            {
-                using (IsolatedStorageFile userStoreForApplication3 = IsolatedStorageFile.GetUserStoreForApplication())
-                {
-                    userStoreForApplication3.DeleteFile(saveBakFileName_);
-                    userStoreForApplication3.CopyFile(saveFileName_, saveBakFileName_);
-                }
-            }
         }
 
         // Token: 0x060003D9 RID: 985 RVA: 0x00018728 File Offset: 0x00016928
-        public static void loadFromFile(IsolatedStorageFile isf, string fname)
+        public static void loadFromFile(string fname)
         {
-            using (IsolatedStorageFileStream isolatedStorageFileStream = isf.OpenFile(fname, FileMode.Open))
+            try
             {
-                BinaryReader binaryReader = new(isolatedStorageFileStream);
-                try
-                {
-                    save_check = 'N';
-                    int num = binaryReader.ReadInt32();
-                    for (int i = 0; i < num; i++)
-                    {
-                        string text = binaryReader.ReadString();
-                        int num2 = binaryReader.ReadInt32();
-                        data_.Add(text, num2);
-                    }
-                    num = binaryReader.ReadInt32();
-                    for (int j = 0; j < num; j++)
-                    {
-                        string text2 = binaryReader.ReadString();
-                        string text3 = binaryReader.ReadString();
-                        dataStrings_.Add(text2, text3);
-                    }
-                    firstStart = false;
-                    binaryReader.Close();
-                }
-                catch (Exception ex)
-                {
-                    _LOG("Error:" + ex.ToString());
-                    _LOG("Error:" + fname + "corrupted");
-                    save_check = 'C';
-                    binaryReader.Close();
-                }
+                save_check = 'N';
+                string json = File.ReadAllText(fname);
+                PreferencesSaveData preferencesSaveData = JsonSerializer.Deserialize<PreferencesSaveData>(json) ?? throw new InvalidDataException("Save file is empty.");
+                data_ = preferencesSaveData.ints ?? [];
+                dataStrings_ = preferencesSaveData.strings ?? [];
+                firstStart = false;
+            }
+            catch (Exception ex)
+            {
+                _LOG("Error:" + ex.ToString());
+                _LOG("Error:" + fname + "corrupted");
+                save_check = 'C';
             }
         }
 
@@ -317,73 +237,126 @@ namespace ctr_wp7.iframework.core
         // Token: 0x060003DB RID: 987 RVA: 0x0001882C File Offset: 0x00016A2C
         internal static bool _loadPreferences()
         {
-            bool flag;
-            using (IsolatedStorageFile userStoreForApplication = IsolatedStorageFile.GetUserStoreForApplication())
+            string saveFilePath = getSaveFilePath();
+            if (!File.Exists(saveFilePath))
             {
-                if (userStoreForApplication.FileExists(saveFileName_))
+                _LOG("Info: nothing to load");
+                return !firstStart;
+            }
+
+            save_check = 'C';
+            loadFromFile(saveFilePath);
+            if (save_check != 'N')
+            {
+                _LOG("Error:" + saveFilePath + "corrupted");
+                try
                 {
-                    save_check = 'C';
-                    loadFromFile(userStoreForApplication, saveFileName_);
-                    if (save_check == 'N')
-                    {
-                        if (userStoreForApplication.FileExists(saveBakFileName_))
-                        {
-                            userStoreForApplication.DeleteFile(saveBakFileName_);
-                        }
-                        userStoreForApplication.CopyFile(saveFileName_, saveBakFileName_);
-                        flag = !firstStart;
-                    }
-                    else
-                    {
-                        _LOG("Error:" + saveFileName_ + "corrupted");
-                        userStoreForApplication.DeleteFile(saveFileName_);
-                        ResetPreferences();
-                        if (userStoreForApplication.FileExists(saveBakFileName_))
-                        {
-                            save_check = 'C';
-                            loadFromFile(userStoreForApplication, saveBakFileName_);
-                            if (save_check == 'N')
-                            {
-                                flag = !firstStart;
-                            }
-                            else
-                            {
-                                ResetPreferences();
-                                flag = !firstStart;
-                            }
-                        }
-                        else
-                        {
-                            ResetPreferences();
-                            flag = !firstStart;
-                        }
-                    }
+                    File.Delete(saveFilePath);
                 }
-                else
+                catch (Exception ex)
                 {
-                    _LOG("Info: nothing to load - trying to load .bak");
-                    if (userStoreForApplication.FileExists(saveBakFileName_))
-                    {
-                        save_check = 'C';
-                        loadFromFile(userStoreForApplication, saveBakFileName_);
-                        if (save_check == 'N')
-                        {
-                            flag = !firstStart;
-                        }
-                        else
-                        {
-                            userStoreForApplication.DeleteFile(saveBakFileName_);
-                            ResetPreferences();
-                            flag = !firstStart;
-                        }
-                    }
-                    else
-                    {
-                        flag = !firstStart;
-                    }
+                    _LOG("Error: cannot delete corrupted save, " + ex.ToString());
+                }
+                ResetPreferences();
+            }
+            return !firstStart;
+        }
+
+        private static string getSaveDirectoryPath()
+        {
+            if (saveDirectoryPath_ != null)
+            {
+                return saveDirectoryPath_;
+            }
+
+            saveDirectoryPath_ = determineSaveDirectoryPath();
+            _LOG("Info: using save directory: " + saveDirectoryPath_);
+            return saveDirectoryPath_;
+        }
+
+        private static string getSaveFilePath()
+        {
+            return Path.Combine(getSaveDirectoryPath(), saveFileName_);
+        }
+
+        private static string determineSaveDirectoryPath()
+        {
+            string exeDir = AppContext.BaseDirectory;
+            if (!isInsideMacAppBundle(exeDir))
+            {
+                string exeSaveDir = Path.Combine(exeDir, saveDirectoryName_);
+                if (tryCreateDirectory(exeSaveDir))
+                {
+                    return exeSaveDir;
                 }
             }
-            return flag;
+
+            string documentsDir = Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+                saveDirectoryName_);
+            if (tryCreateDirectory(documentsDir))
+            {
+                return documentsDir;
+            }
+
+            string localAppDataDir = Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+                saveDirectoryName_);
+            if (tryCreateDirectory(localAppDataDir))
+            {
+                return localAppDataDir;
+            }
+
+            _LOG("Warning: all save directory options failed, using current directory");
+            return ".";
+        }
+
+        private static bool tryCreateDirectory(string path)
+        {
+            try
+            {
+                if (!Directory.Exists(path))
+                {
+                    _ = Directory.CreateDirectory(path);
+                }
+                return isDirectoryWritable(path);
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private static bool isDirectoryWritable(string path)
+        {
+            try
+            {
+                string testFilePath = Path.Combine(path, ".write_test_" + Guid.NewGuid().ToString("N"));
+                File.WriteAllText(testFilePath, "test");
+                File.Delete(testFilePath);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private static bool isInsideMacAppBundle(string path)
+        {
+            DirectoryInfo directoryInfo = new(path);
+            while (directoryInfo != null)
+            {
+                if (directoryInfo.Name.Equals("MacOS", StringComparison.OrdinalIgnoreCase) &&
+                    directoryInfo.Parent?.Name.Equals("Contents", StringComparison.OrdinalIgnoreCase) == true &&
+                    directoryInfo.Parent.Parent?.Name.EndsWith(".app", StringComparison.OrdinalIgnoreCase) == true)
+                {
+                    return true;
+                }
+                directoryInfo = directoryInfo.Parent;
+            }
+
+            return false;
         }
 
         // Token: 0x04000945 RID: 2373
@@ -396,21 +369,31 @@ namespace ctr_wp7.iframework.core
         private static char save_check;
 
         // Token: 0x04000948 RID: 2376
-        private static readonly string saveFileName_ = "ctr.sav";
+        private static readonly string saveFileName_ = "ctrwp7_preferences.json";
 
         // Token: 0x04000949 RID: 2377
-        private static readonly string saveBakFileName_ = "ctr.sav.bak";
+        private static readonly string saveDirectoryName_ = "CutTheRopeWP7_savedata";
 
         // Token: 0x0400094A RID: 2378
-        private static bool initialised;
+        private static string saveDirectoryPath_;
 
         // Token: 0x0400094B RID: 2379
-        private static readonly bool saveInProcess;
+        private static bool initialised;
 
         // Token: 0x0400094C RID: 2380
-        private static readonly byte[] saveArray;
+        private static readonly bool saveInProcess;
 
         // Token: 0x0400094D RID: 2381
+        private static readonly byte[] saveArray;
+
+        // Token: 0x0400094E RID: 2382
         public static bool firstStart = true;
+
+        private sealed class PreferencesSaveData
+        {
+            public Dictionary<string, int> ints { get; set; } = [];
+
+            public Dictionary<string, string> strings { get; set; } = [];
+        }
     }
 }
