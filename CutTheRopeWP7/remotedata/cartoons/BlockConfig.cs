@@ -36,8 +36,7 @@ namespace ctr_wp7.remotedata.cartoons
         // Token: 0x06000293 RID: 659 RVA: 0x0001079C File Offset: 0x0000E99C
         public Block getBlockWithIDandHash(string id, string hash)
         {
-            Block block = null;
-            _ = blocks.TryGetValue(id, out block);
+            _ = blocks.TryGetValue(id, out Block block);
             if (block == null || !block.hash.Equals(hash))
             {
                 block = new Block();

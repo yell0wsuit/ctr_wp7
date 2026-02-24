@@ -410,8 +410,7 @@ namespace ctr_wp7.Banner
             if (banners != null && config != null && !bannersprocessing)
             {
                 int currentBannerID = config.getCurrentBannerID();
-                Banner banner;
-                if (!banners.TryGetValue(currentBannerID, out banner))
+                if (!banners.TryGetValue(currentBannerID, out Banner banner))
                 {
                     return null;
                 }

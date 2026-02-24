@@ -100,8 +100,7 @@ namespace ctr_wp7.iframework.core
         // Token: 0x06000307 RID: 775 RVA: 0x000139F8 File Offset: 0x00011BF8
         public virtual void addViewwithID(View v, int n)
         {
-            View view;
-            _ = views.TryGetValue(n, out view);
+            _ = views.TryGetValue(n, out View view);
             views[n] = v;
         }
 
@@ -145,8 +144,7 @@ namespace ctr_wp7.iframework.core
         // Token: 0x0600030C RID: 780 RVA: 0x00013AD0 File Offset: 0x00011CD0
         public virtual View getView(int n)
         {
-            View view = null;
-            _ = views.TryGetValue(n, out view);
+            _ = views.TryGetValue(n, out View view);
             return view;
         }
 
@@ -164,8 +162,7 @@ namespace ctr_wp7.iframework.core
         // Token: 0x0600030E RID: 782 RVA: 0x00013B18 File Offset: 0x00011D18
         public virtual void deleteChild(int n)
         {
-            ViewController viewController = null;
-            if (childs.TryGetValue(n, out viewController))
+            if (childs.TryGetValue(n, out ViewController viewController))
             {
                 viewController.dealloc();
                 childs[n] = null;

@@ -224,8 +224,7 @@ namespace ctr_wp7.iframework.visual
             int num = 0;
             while (i < childs.Count)
             {
-                BaseElement baseElement;
-                bool flag = childs.TryGetValue(num, out baseElement);
+                bool flag = childs.TryGetValue(num, out BaseElement baseElement);
                 if (flag)
                 {
                     if (baseElement != null && baseElement.visible)
@@ -253,8 +252,7 @@ namespace ctr_wp7.iframework.visual
             int num = 0;
             while (i < childs.Count)
             {
-                BaseElement baseElement;
-                bool flag = childs.TryGetValue(num, out baseElement);
+                bool flag = childs.TryGetValue(num, out BaseElement baseElement);
                 if (flag)
                 {
                     if (baseElement != null && baseElement.updateable)
@@ -420,13 +418,11 @@ namespace ctr_wp7.iframework.visual
         public virtual int addChildwithID(BaseElement c, int i)
         {
             c.parent = this;
-            BaseElement baseElement2;
             if (i == -1)
             {
                 i = 0;
                 bool flag = false;
-                BaseElement baseElement;
-                while (childs.TryGetValue(i, out baseElement))
+                while (childs.TryGetValue(i, out BaseElement baseElement))
                 {
                     if (baseElement == null)
                     {
@@ -441,7 +437,7 @@ namespace ctr_wp7.iframework.visual
                     childs.Add(i, c);
                 }
             }
-            else if (childs.TryGetValue(i, out baseElement2))
+            else if (childs.TryGetValue(i, out BaseElement baseElement2))
             {
                 if (baseElement2 != c)
                 {
@@ -459,8 +455,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x0600008C RID: 140 RVA: 0x000064D4 File Offset: 0x000046D4
         public virtual void removeChildWithID(int i)
         {
-            BaseElement baseElement = null;
-            if (childs.TryGetValue(i, out baseElement))
+            if (childs.TryGetValue(i, out BaseElement baseElement))
             {
                 if (baseElement != null)
                 {
@@ -492,8 +487,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x0600008F RID: 143 RVA: 0x00006588 File Offset: 0x00004788
         public virtual BaseElement getChild(int i)
         {
-            BaseElement baseElement = null;
-            _ = childs.TryGetValue(i, out baseElement);
+            _ = childs.TryGetValue(i, out BaseElement baseElement);
             return baseElement;
         }
 
@@ -552,8 +546,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x06000096 RID: 150 RVA: 0x00006680 File Offset: 0x00004880
         public virtual void playTimeline(int t)
         {
-            Timeline timeline = null;
-            _ = timelines.TryGetValue(t, out timeline);
+            _ = timelines.TryGetValue(t, out Timeline timeline);
             if (timeline == null)
             {
                 return;
@@ -602,8 +595,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x0600009C RID: 156 RVA: 0x00006728 File Offset: 0x00004928
         public virtual Timeline getTimeline(int n)
         {
-            Timeline timeline = null;
-            _ = timelines.TryGetValue(n, out timeline);
+            _ = timelines.TryGetValue(n, out Timeline timeline);
             return timeline;
         }
 

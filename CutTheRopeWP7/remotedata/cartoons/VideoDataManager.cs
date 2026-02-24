@@ -182,26 +182,22 @@ namespace ctr_wp7.remotedata.cartoons
             {
                 if (localName == "response")
                 {
-                    string text;
-                    if (atts.TryGetValue("update", out text) && text == "true")
+                    if (atts.TryGetValue("update", out string text) && text == "true")
                     {
                         updatehash = new Random().Next();
                     }
                 }
                 else if (localName == "hash")
                 {
-                    string text2;
-                    if (atts.TryGetValue("value", out text2))
+                    if (atts.TryGetValue("value", out string text2))
                     {
                         parrent.blockConfig.hash = text2;
                     }
                 }
                 else if (localName == "episode" || localName == "adblock")
                 {
-                    string text3 = null;
-                    _ = atts.TryGetValue("id", out text3);
-                    string text4 = null;
-                    _ = atts.TryGetValue("hash", out text4);
+                    _ = atts.TryGetValue("id", out string text3);
+                    _ = atts.TryGetValue("hash", out string text4);
                     writeblock = parrent.blockConfig.getBlockWithIDandHash(text3, text4);
                     if (writeblock.hash == null)
                     {

@@ -111,11 +111,10 @@ namespace ctr_wp7.iframework.visual
             int num8 = (int)height % (int)num4;
             int num9 = (int)((num7 == 0) ? num3 : ((float)num7));
             int num10 = (int)((num8 == 0) ? num4 : ((float)num8));
-            int num11 = (int)x;
             int num12 = (int)y;
             for (int i = num6 - 1; i >= 0; i--)
             {
-                num11 = (int)x;
+                int num11 = (int)x;
                 for (int j = num5 - 1; j >= 0; j--)
                 {
                     if (j == 0 || i == 0)
@@ -144,8 +143,7 @@ namespace ctr_wp7.iframework.visual
         {
             if (count > 2)
             {
-                Vector[] array;
-                if (!VectorArray.TryGetValue(count - 1, out array))
+                if (!VectorArray.TryGetValue(count - 1, out Vector[] array))
                 {
                     array = new Vector[count - 1];
                     VectorArray.Add(count - 1, array);

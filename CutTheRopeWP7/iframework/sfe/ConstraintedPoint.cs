@@ -194,7 +194,6 @@ namespace ctr_wp7.iframework.sfe
             }
             int count = p.constraints.Count;
             Vector vectZero = MathHelper.vectZero;
-            Vector vector = MathHelper.vectZero;
             int i = 0;
             while (i < count)
             {
@@ -227,6 +226,7 @@ namespace ctr_wp7.iframework.sfe
             IL_021B:
                 i++;
                 continue;
+                Vector vector;
             IL_0109:
                 vector = vectZero;
                 float invWeight = constraint.cp.invWeight;

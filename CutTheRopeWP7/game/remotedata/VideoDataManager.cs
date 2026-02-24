@@ -60,7 +60,6 @@ namespace ctr_wp7.game.remotedata
                 NSString @string = Application.sharedAppSettings().getString(8);
                 if (@string.isEqualToString("zh"))
                 {
-                    text += "_zh";
                 }
             }
         }

@@ -270,8 +270,7 @@ namespace ctr_wp7.iframework
         // Token: 0x06000512 RID: 1298 RVA: 0x00025380 File Offset: 0x00023580
         public static void glVertexPointer_setAdditive(int size, int type, int stride, int length)
         {
-            float[] array;
-            if (!FloatArray.TryGetValue(length, out array))
+            if (!FloatArray.TryGetValue(length, out float[] array))
             {
                 array = new float[length];
                 FloatArray.Add(length, array);
@@ -321,8 +320,7 @@ namespace ctr_wp7.iframework
         // Token: 0x06000517 RID: 1303 RVA: 0x00025428 File Offset: 0x00023628
         private static VertexPositionColor[] ConstructColorVertices()
         {
-            VertexPositionColor[] array;
-            if (!VertexPositionColorArray.TryGetValue(s_GLVertexPointer.Count, out array))
+            if (!VertexPositionColorArray.TryGetValue(s_GLVertexPointer.Count, out VertexPositionColor[] array))
             {
                 array = new VertexPositionColor[s_GLVertexPointer.Count];
                 VertexPositionColorArray.Add(s_GLVertexPointer.Count, array);
@@ -350,8 +348,7 @@ namespace ctr_wp7.iframework
         // Token: 0x06000518 RID: 1304 RVA: 0x00025518 File Offset: 0x00023718
         private static VertexPositionColor[] ConstructCurrentColorVertices()
         {
-            VertexPositionColor[] array;
-            if (!VertexPositionColorArray.TryGetValue(s_GLVertexPointer.Count, out array))
+            if (!VertexPositionColorArray.TryGetValue(s_GLVertexPointer.Count, out VertexPositionColor[] array))
             {
                 array = new VertexPositionColor[s_GLVertexPointer.Count];
                 VertexPositionColorArray.Add(s_GLVertexPointer.Count, array);
@@ -391,8 +388,7 @@ namespace ctr_wp7.iframework
         private static VertexPositionNormalTexture[] ConstructTexturedVertices()
         {
             Vector3 vector = new Vector3(0f, 0f, 1f);
-            VertexPositionNormalTexture[] array;
-            if (!VertexPositionNormalTextureArray.TryGetValue(s_GLVertexPointer.Count, out array))
+            if (!VertexPositionNormalTextureArray.TryGetValue(s_GLVertexPointer.Count, out VertexPositionNormalTexture[] array))
             {
                 array = new VertexPositionNormalTexture[s_GLVertexPointer.Count];
                 VertexPositionNormalTextureArray.Add(s_GLVertexPointer.Count, array);
@@ -431,8 +427,7 @@ namespace ctr_wp7.iframework
         // Token: 0x0600051B RID: 1307 RVA: 0x00025780 File Offset: 0x00023980
         private static VertexPositionColorTexture[] ConstructTexturedColoredVertices(int VertexCount)
         {
-            VertexPositionColorTexture[] array;
-            if (!VertexPositionColorTextureArray.TryGetValue(VertexCount, out array))
+            if (!VertexPositionColorTextureArray.TryGetValue(VertexCount, out VertexPositionColorTexture[] array))
             {
                 array = new VertexPositionColorTexture[VertexCount];
                 VertexPositionColorTextureArray.Add(VertexCount, array);
@@ -532,8 +527,7 @@ namespace ctr_wp7.iframework
         // Token: 0x0600051F RID: 1311 RVA: 0x00025AC0 File Offset: 0x00023CC0
         private static void DrawTriangleStrip(int first, int count)
         {
-            bool flag = false;
-            _ = s_glServerSideFlags.TryGetValue(0, out flag);
+            _ = s_glServerSideFlags.TryGetValue(0, out bool flag);
             if (flag)
             {
                 _ = s_glClientStateFlags.TryGetValue(0, out flag);
@@ -554,8 +548,7 @@ namespace ctr_wp7.iframework
             {
                 return;
             }
-            bool flag = false;
-            _ = s_glClientStateFlags.TryGetValue(13, out flag);
+            _ = s_glClientStateFlags.TryGetValue(13, out bool flag);
             VertexPositionColor[] array = (flag ? ConstructColorVertices() : ConstructCurrentColorVertices());
             foreach (EffectPass effectPass in effect.CurrentTechnique.Passes)
             {
@@ -604,8 +597,7 @@ namespace ctr_wp7.iframework
         // Token: 0x06000524 RID: 1316 RVA: 0x00025CB8 File Offset: 0x00023EB8
         private static void DrawTriangleList(int first, int count, short[] indices)
         {
-            bool flag = false;
-            _ = s_glClientStateFlags.TryGetValue(13, out flag);
+            _ = s_glClientStateFlags.TryGetValue(13, out bool flag);
             if (flag)
             {
                 DrawTriangleListColored(first, count, indices);

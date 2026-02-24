@@ -62,8 +62,7 @@ namespace ctr_wp7.ios
         {
             get
             {
-                string text = null;
-                if (!attributes_.TryGetValue(key, out text))
+                if (!attributes_.TryGetValue(key, out string text))
                 {
                     return new NSString("");
                 }
@@ -80,8 +79,7 @@ namespace ctr_wp7.ios
             }
             foreach (XMLNode xmlnode in childs_)
             {
-                string text;
-                if (xmlnode.name == tag && xmlnode.attributes() && xmlnode.attributes_.TryGetValue(attrName, out text) && text == attrVal)
+                if (xmlnode.name == tag && xmlnode.attributes() && xmlnode.attributes_.TryGetValue(attrName, out string text) && text == attrVal)
                 {
                     return xmlnode;
                 }
@@ -327,13 +325,12 @@ namespace ctr_wp7.ios
         // Token: 0x06000772 RID: 1906 RVA: 0x0003B668 File Offset: 0x00039868
         private static void Response_Completed(IAsyncResult result)
         {
-            XDocument xdocument = null;
             try
             {
                 WebRequest webRequest = (WebRequest)result.AsyncState;
                 WebResponse webResponse = webRequest.EndGetResponse(result);
                 Stream responseStream = webResponse.GetResponseStream();
-                xdocument = XDocument.Load(responseStream);
+                XDocument xdocument = XDocument.Load(responseStream);
                 responseStream.Dispose();
                 IEnumerable<XElement> enumerable = xdocument.Elements();
                 _ = MGR_STORED.XMLDownloadFinished(ReadNodeLINQ(Enumerable.First(enumerable), null));

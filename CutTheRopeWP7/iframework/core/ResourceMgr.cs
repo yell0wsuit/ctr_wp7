@@ -14,8 +14,7 @@ namespace ctr_wp7.iframework.core
         // Token: 0x06000336 RID: 822 RVA: 0x000148D0 File Offset: 0x00012AD0
         public virtual bool hasResource(int resID)
         {
-            NSObject nsobject = null;
-            _ = s_Resources.TryGetValue(resID, out nsobject);
+            _ = s_Resources.TryGetValue(resID, out NSObject nsobject);
             return nsobject != null;
         }
 
@@ -29,8 +28,7 @@ namespace ctr_wp7.iframework.core
         // Token: 0x06000338 RID: 824 RVA: 0x00014914 File Offset: 0x00012B14
         public virtual NSObject loadResource(int resID, ResourceType resType)
         {
-            NSObject nsobject = null;
-            if (s_Resources.TryGetValue(resID, out nsobject))
+            if (s_Resources.TryGetValue(resID, out NSObject nsobject))
             {
                 return nsobject;
             }
@@ -507,8 +505,7 @@ namespace ctr_wp7.iframework.core
                 Application.sharedSoundMgr().freeSound(resId);
                 return;
             }
-            NSObject nsobject = null;
-            if (s_Resources.TryGetValue(resId, out nsobject))
+            if (s_Resources.TryGetValue(resId, out NSObject nsobject))
             {
                 if (nsobject != null)
                 {

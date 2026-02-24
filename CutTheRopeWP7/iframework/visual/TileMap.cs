@@ -88,7 +88,6 @@ namespace ctr_wp7.iframework.visual
                 if (imageMultiDrawer.image.texture._realWidth == tileWidth)
                 {
                     int realHeight = imageMultiDrawer.image.texture._realHeight;
-                    int num2 = tileHeight;
                 }
             }
             if (num == -1)

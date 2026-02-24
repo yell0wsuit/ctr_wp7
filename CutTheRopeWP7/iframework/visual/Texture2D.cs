@@ -275,7 +275,6 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x06000265 RID: 613 RVA: 0x0000FA1D File Offset: 0x0000DC1D
         public void optimizeMemory()
         {
-            int lowypoint = _lowypoint;
         }
 
         // Token: 0x06000266 RID: 614 RVA: 0x0000FA28 File Offset: 0x0000DC28

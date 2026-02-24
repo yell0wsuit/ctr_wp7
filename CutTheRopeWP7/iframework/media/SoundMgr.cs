@@ -44,8 +44,7 @@ namespace ctr_wp7.iframework.media
             {
                 return null;
             }
-            SoundEffect soundEffect;
-            if (LoadedSounds.TryGetValue(resId, out soundEffect))
+            if (LoadedSounds.TryGetValue(resId, out SoundEffect soundEffect))
             {
                 return soundEffect;
             }

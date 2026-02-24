@@ -1706,8 +1706,7 @@ namespace ctr_wp7.ctr_original
                 dictionary.Add(410, "menu_agepopup_hd");
                 resNames_ = dictionary;
             }
-            string text = null;
-            _ = resNames_.TryGetValue(handleLocalizedResource(handleWvgaResource(resId)), out text);
+            _ = resNames_.TryGetValue(handleLocalizedResource(handleWvgaResource(resId)), out string text);
             return text;
         }
 

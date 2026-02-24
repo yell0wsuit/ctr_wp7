@@ -76,8 +76,7 @@ namespace ctr_wp7.iframework.core
         // Token: 0x060003CD RID: 973 RVA: 0x000181B4 File Offset: 0x000163B4
         public static void _setIntforKey(int v, string key, bool comit)
         {
-            int num;
-            if (data_.TryGetValue(key, out num))
+            if (data_.TryGetValue(key, out int num))
             {
                 data_[key] = v;
             }
@@ -94,8 +93,7 @@ namespace ctr_wp7.iframework.core
         // Token: 0x060003CE RID: 974 RVA: 0x000181F4 File Offset: 0x000163F4
         public static void _setStringforKey(string v, string k, bool comit)
         {
-            string text;
-            if (dataStrings_.TryGetValue(k, out text))
+            if (dataStrings_.TryGetValue(k, out string text))
             {
                 dataStrings_[k] = v;
             }
@@ -112,8 +110,7 @@ namespace ctr_wp7.iframework.core
         // Token: 0x060003CF RID: 975 RVA: 0x00018234 File Offset: 0x00016434
         public static int _getIntForKey(string k)
         {
-            int num;
-            if (data_.TryGetValue(k, out num))
+            if (data_.TryGetValue(k, out int num))
             {
                 return num;
             }
@@ -142,8 +139,7 @@ namespace ctr_wp7.iframework.core
         // Token: 0x060003D3 RID: 979 RVA: 0x00018288 File Offset: 0x00016488
         public static string _getStringForKey(string k)
         {
-            string text;
-            if (dataStrings_.TryGetValue(k, out text))
+            if (dataStrings_.TryGetValue(k, out string text))
             {
                 return text;
             }
@@ -153,13 +149,11 @@ namespace ctr_wp7.iframework.core
         // Token: 0x060003D4 RID: 980 RVA: 0x000182AC File Offset: 0x000164AC
         public void _deleteKey(string k, bool comit)
         {
-            string text;
-            if (dataStrings_.TryGetValue(k, out text))
+            if (dataStrings_.TryGetValue(k, out string text))
             {
                 _ = dataStrings_.Remove(k);
             }
-            int num;
-            if (data_.TryGetValue(k, out num))
+            if (data_.TryGetValue(k, out int num))
             {
                 _ = data_.Remove(k);
             }

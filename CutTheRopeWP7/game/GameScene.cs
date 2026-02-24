@@ -2411,7 +2411,6 @@ namespace ctr_wp7.game
                 }
             }
             aniPool.draw();
-            bool flag = nightLevel;
             OpenGL.glBlendFunc(BlendingFactor.GL_SRC_ALPHA, BlendingFactor.GL_ONE_MINUS_SRC_ALPHA);
             OpenGL.glDisable(0);
             OpenGL.SetWhiteColor();

@@ -391,8 +391,7 @@ namespace ctr_wp7.ctr_original
                 dictionary.Add("menu_agepopup", "<info format='0' fileFormat='2' filter='1' scale='0'><quads>2,2,59,155,0,0,83,115,64,1,15,19,0,0,83,36,81,1,96,131,1,160,143,69,146,160,85,44,1,231,96,54,0,0,106,42,0,0,116,33,0,0,221,47,</quads><offsets>101,171,118,191,152,275,118,231,112,183,91,101,13,420,7,414,107,349,105,110,51,23,</offsets><preCutWidth>320</preCutWidth><preCutHeight>480</preCutHeight></info>");
                 xmls_ = dictionary;
             }
-            string text;
-            _ = xmls_.TryGetValue(resName, out text);
+            _ = xmls_.TryGetValue(resName, out string text);
             return text;
         }
 

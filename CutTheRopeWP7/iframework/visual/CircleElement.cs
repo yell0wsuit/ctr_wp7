@@ -22,7 +22,6 @@ namespace ctr_wp7.iframework.visual
             base.preDraw();
             OpenGL.glDisable(0);
             _ = MIN(width, height);
-            bool flag = solid;
             OpenGL.glEnable(0);
             OpenGL.SetWhiteColor();
             base.postDraw();

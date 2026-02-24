@@ -131,7 +131,6 @@ namespace ctr_wp7.wp7utilities
             // Token: 0x0600037E RID: 894 RVA: 0x000163A1 File Offset: 0x000145A1
             public override void update(float delta)
             {
-                int num = frame_;
                 frame_++;
                 if (frame_ > 1000)
                 {
