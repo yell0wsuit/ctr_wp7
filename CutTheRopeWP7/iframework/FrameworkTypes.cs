@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 
 using ctr_wp7.ctr_original;
 using ctr_wp7.iframework.helpers;

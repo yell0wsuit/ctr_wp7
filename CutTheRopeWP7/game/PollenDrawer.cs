@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 
 using ctr_wp7.iframework;
 using ctr_wp7.iframework.core;
