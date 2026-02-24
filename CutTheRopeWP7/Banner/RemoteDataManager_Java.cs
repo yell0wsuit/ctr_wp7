@@ -61,7 +61,8 @@ namespace ctr_wp7.Banner
                     list.Add(keyValuePair.Key);
                 }
             }
-            DeviceParams deviceParams = new();
+
+            _ = new DeviceParams();
             _ = Environment.OSVersion.Version.Minor;
             string osversion = SystemInfo.getOSVersion();
             string appVersion = SystemInfo.getAppVersion();

@@ -98,7 +98,7 @@ namespace ctr_wp7.ctr_original
             }
             else
             {
-                DeviceParams deviceParams = new();
+                _ = new DeviceParams();
                 flag = DeviceParams.isEnglishDevice();
             }
             bool flag2 = getCoppaShowed();
