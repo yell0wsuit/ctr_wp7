@@ -4,6 +4,7 @@ using System.Diagnostics;
 using ctre_wp7.Banner;
 using ctre_wp7.ctr_original;
 using ctre_wp7.game;
+using ctre_wp7.game.remotedata;
 using ctre_wp7.iframework;
 using ctre_wp7.iframework.core;
 using ctre_wp7.iframework.helpers;
@@ -179,6 +180,7 @@ namespace ctre_wp7.ctr_commons
 			ResDataPhoneFull.LANGUAGE = language;
 			MathHelper.fmInit();
 			RemoteDataManager.initRemoteDataMgr(new RemoteDataManager_Java());
+			VideoDataManager.initVideoDataManager();
 			CtrRenderer.gApp = new CTRApp();
 			CtrRenderer.gApp.init();
 			CtrRenderer.gApp.applicationDidFinishLaunching(null);
