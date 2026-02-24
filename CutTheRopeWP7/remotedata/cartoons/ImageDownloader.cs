@@ -57,13 +57,8 @@ namespace ctr_wp7.remotedata.cartoons
         protected static ImageDownloader.ImageDownloadedListener lImageDownloaded;
 
         // Token: 0x0200002B RID: 43
-        protected class ImageDataSaxHandler : DefaultHandler
+        protected class ImageDataSaxHandler(Block pBlock) : DefaultHandler
         {
-            // Token: 0x060001A8 RID: 424 RVA: 0x0000BE16 File Offset: 0x0000A016
-            public ImageDataSaxHandler(Block pBlock)
-            {
-                block = pBlock;
-            }
 
             // Token: 0x060001A9 RID: 425 RVA: 0x0000BE28 File Offset: 0x0000A028
             public override void StartElement(string URI, string localName, string qName, Dictionary<string, string> atts)
@@ -87,7 +82,7 @@ namespace ctr_wp7.remotedata.cartoons
             }
 
             // Token: 0x040007D0 RID: 2000
-            private Block block;
+            private Block block = pBlock;
         }
 
         // Token: 0x0200002C RID: 44

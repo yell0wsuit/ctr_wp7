@@ -6,18 +6,8 @@ using Microsoft.Xna.Framework.Graphics;
 namespace ctr_wp7.wp7utilities
 {
     // Token: 0x020000FF RID: 255
-    public class Camera2d
+    public class Camera2d(Vector2 position)
     {
-        // Token: 0x060007AF RID: 1967 RVA: 0x0003C408 File Offset: 0x0003A608
-        public Camera2d(Vector2 position)
-        {
-            zoom_ = new Vector2(1f, 1f);
-            rotation_ = 0f;
-            translate_ = position;
-            positionZero_ = position;
-            move_ = default(Vector2);
-            rotationCenter_ = position;
-        }
 
         // Token: 0x17000022 RID: 34
         // (get) Token: 0x060007B0 RID: 1968 RVA: 0x0003C45C File Offset: 0x0003A65C
@@ -104,24 +94,24 @@ namespace ctr_wp7.wp7utilities
         }
 
         // Token: 0x04000D07 RID: 3335
-        private Vector2 zoom_;
+        private Vector2 zoom_ = new Vector2(1f, 1f);
 
         // Token: 0x04000D08 RID: 3336
         private Matrix transform_;
 
         // Token: 0x04000D09 RID: 3337
-        private Vector2 translate_;
+        private Vector2 translate_ = position;
 
         // Token: 0x04000D0A RID: 3338
-        private Vector2 move_;
+        private Vector2 move_ = default(Vector2);
 
         // Token: 0x04000D0B RID: 3339
-        private Vector2 positionZero_;
+        private Vector2 positionZero_ = position;
 
         // Token: 0x04000D0C RID: 3340
-        private float rotation_;
+        private float rotation_ = 0f;
 
         // Token: 0x04000D0D RID: 3341
-        private Vector2 rotationCenter_;
+        private Vector2 rotationCenter_ = position;
     }
 }

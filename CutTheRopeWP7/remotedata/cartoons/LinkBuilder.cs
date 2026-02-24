@@ -5,14 +5,8 @@ using ctr_wp7.utils;
 namespace ctr_wp7.remotedata.cartoons
 {
     // Token: 0x02000098 RID: 152
-    public class LinkBuilder
+    public class LinkBuilder(string start)
     {
-        // Token: 0x06000489 RID: 1161 RVA: 0x00020BC2 File Offset: 0x0001EDC2
-        public LinkBuilder(string start)
-        {
-            link = new StringBuilder(start);
-            skipampersand = start.EndsWith("?");
-        }
 
         // Token: 0x0600048A RID: 1162 RVA: 0x00020BE8 File Offset: 0x0001EDE8
         public void put(string key, object value)
@@ -41,9 +35,9 @@ namespace ctr_wp7.remotedata.cartoons
         }
 
         // Token: 0x040009CE RID: 2510
-        private StringBuilder link;
+        private StringBuilder link = new StringBuilder(start);
 
         // Token: 0x040009CF RID: 2511
-        private bool skipampersand;
+        private bool skipampersand = start.EndsWith("?");
     }
 }

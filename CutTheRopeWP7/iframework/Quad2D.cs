@@ -1,20 +1,8 @@
 ﻿namespace ctr_wp7.iframework
 {
     // Token: 0x02000024 RID: 36
-    internal struct Quad2D
+    internal struct Quad2D(float x, float y, float w, float h)
     {
-        // Token: 0x0600016B RID: 363 RVA: 0x0000AFF8 File Offset: 0x000091F8
-        public Quad2D(float x, float y, float w, float h)
-        {
-            tlX = x;
-            tlY = y;
-            trX = x + w;
-            trY = y;
-            blX = x;
-            blY = y + h;
-            brX = x + w;
-            brY = y + h;
-        }
 
         // Token: 0x0600016C RID: 364 RVA: 0x0000B048 File Offset: 0x00009248
         public float[] toFloatArray()
@@ -30,27 +18,27 @@
         }
 
         // Token: 0x0400079F RID: 1951
-        public float tlX;
+        public float tlX = x;
 
         // Token: 0x040007A0 RID: 1952
-        public float tlY;
+        public float tlY = y;
 
         // Token: 0x040007A1 RID: 1953
-        public float trX;
+        public float trX = x + w;
 
         // Token: 0x040007A2 RID: 1954
-        public float trY;
+        public float trY = y;
 
         // Token: 0x040007A3 RID: 1955
-        public float blX;
+        public float blX = x;
 
         // Token: 0x040007A4 RID: 1956
-        public float blY;
+        public float blY = y + h;
 
         // Token: 0x040007A5 RID: 1957
-        public float brX;
+        public float brX = x + w;
 
         // Token: 0x040007A6 RID: 1958
-        public float brY;
+        public float brY = y + h;
     }
 }

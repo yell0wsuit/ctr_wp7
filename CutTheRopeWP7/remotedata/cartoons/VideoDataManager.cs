@@ -174,13 +174,8 @@ namespace ctr_wp7.remotedata.cartoons
         protected int resolution;
 
         // Token: 0x02000071 RID: 113
-        private class VideoDataSaxHandler : DefaultHandler
+        private class VideoDataSaxHandler(VideoDataManager parrent) : DefaultHandler
         {
-            // Token: 0x06000368 RID: 872 RVA: 0x000159D4 File Offset: 0x00013BD4
-            public VideoDataSaxHandler(VideoDataManager parrent)
-            {
-                this.parrent = parrent;
-            }
 
             // Token: 0x06000369 RID: 873 RVA: 0x000159E4 File Offset: 0x00013BE4
             public override void StartElement(string URI, string localName, string qName, Dictionary<string, string> atts)
@@ -320,7 +315,7 @@ namespace ctr_wp7.remotedata.cartoons
             private int order;
 
             // Token: 0x040008F8 RID: 2296
-            private VideoDataManager parrent;
+            private VideoDataManager parrent = parrent;
         }
     }
 }

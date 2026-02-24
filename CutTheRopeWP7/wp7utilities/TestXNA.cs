@@ -152,13 +152,8 @@ namespace ctr_wp7.wp7utilities
         }
 
         // Token: 0x02000075 RID: 117
-        private class TestRotate : BaseElement
+        private class TestRotate(BaseElement testObject) : BaseElement
         {
-            // Token: 0x06000380 RID: 896 RVA: 0x000163D4 File Offset: 0x000145D4
-            public TestRotate(BaseElement testObject)
-            {
-                testObject_ = testObject;
-            }
 
             // Token: 0x06000381 RID: 897 RVA: 0x000163E4 File Offset: 0x000145E4
             public override void update(float delta)
@@ -183,7 +178,7 @@ namespace ctr_wp7.wp7utilities
             }
 
             // Token: 0x040008FF RID: 2303
-            private BaseElement testObject_;
+            private BaseElement testObject_ = testObject;
         }
     }
 }

@@ -5,13 +5,8 @@ using ctr_wp7.iframework.visual;
 
 namespace ctr_wp7.wp7utilities
 {
-    internal sealed class FontWP7 : FontGeneric
+    internal sealed class FontWP7(int fontId) : FontGeneric
     {
-        public FontWP7(int fontId)
-        {
-            _font = (FontGeneric)Application.sharedResourceMgr().loadResource(fontId, ResourceMgr.ResourceType.FONT);
-        }
-
         public override void setCharOffsetLineOffsetSpaceWidth(float co, float lo, float sw)
         {
             _font?.setCharOffsetLineOffsetSpaceWidth(co, lo, sw);
@@ -87,6 +82,6 @@ namespace ctr_wp7.wp7utilities
             public float y;
         }
 
-        private readonly FontGeneric _font;
+        private readonly FontGeneric _font = (FontGeneric)Application.sharedResourceMgr().loadResource(fontId, ResourceMgr.ResourceType.FONT);
     }
 }
