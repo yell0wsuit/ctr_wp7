@@ -31,11 +31,7 @@ namespace ctr_wp7.ctr_original
         // Token: 0x06000199 RID: 409 RVA: 0x0000BC1D File Offset: 0x00009E1D
         public static SoundEffectInstance _playSoundLooped(int s)
         {
-            if (s_EnableLoopedSounds && Preferences._getBooleanForKey("SOUND_ON"))
-            {
-                return Application.sharedSoundMgr().playSoundLooped(s);
-            }
-            return null;
+            return s_EnableLoopedSounds && Preferences._getBooleanForKey("SOUND_ON") ? Application.sharedSoundMgr().playSoundLooped(s) : null;
         }
 
         // Token: 0x0600019A RID: 410 RVA: 0x0000BC3F File Offset: 0x00009E3F

@@ -20,11 +20,7 @@ namespace ctr_wp7.game.remotedata
         // Token: 0x06000217 RID: 535 RVA: 0x0000DE58 File Offset: 0x0000C058
         public int getTotalBlocks()
         {
-            if (jblockConfig != null)
-            {
-                return jblockConfig.getTotalBlocks();
-            }
-            return 0;
+            return jblockConfig != null ? jblockConfig.getTotalBlocks() : 0;
         }
 
         // Token: 0x06000218 RID: 536 RVA: 0x0000DE7C File Offset: 0x0000C07C

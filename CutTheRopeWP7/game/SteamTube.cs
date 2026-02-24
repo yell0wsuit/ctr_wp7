@@ -21,10 +21,7 @@ namespace ctr_wp7.game
         {
             if (init() != null)
             {
-                if (dd == null)
-                {
-                    dd = (DelayedDispatcher)new DelayedDispatcher().init();
-                }
+                dd ??= (DelayedDispatcher)new DelayedDispatcher().init();
                 x = position.x;
                 y = position.y;
                 rotation = angle;

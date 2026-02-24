@@ -258,11 +258,7 @@ namespace ctr_wp7.Banner
         // Token: 0x0600075F RID: 1887 RVA: 0x0003B0FE File Offset: 0x000392FE
         public int getCurrentBannerID()
         {
-            if (totalBanners > 0)
-            {
-                return bannersList[currentBanner];
-            }
-            return -1;
+            return totalBanners > 0 ? bannersList[currentBanner] : -1;
         }
 
         // Token: 0x06000760 RID: 1888 RVA: 0x0003B11C File Offset: 0x0003931C

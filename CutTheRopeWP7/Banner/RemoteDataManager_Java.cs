@@ -49,10 +49,7 @@ namespace ctr_wp7.Banner
             height = pHeight;
             banners = getStoredBanners();
             config = getStoredConfig();
-            if (config == null)
-            {
-                config = new RemoteConfig("", "");
-            }
+            config ??= new RemoteConfig("", "");
             List<int> list = [];
             foreach (KeyValuePair<int, Banner> keyValuePair in banners)
             {
@@ -307,81 +304,49 @@ namespace ctr_wp7.Banner
         // Token: 0x0600022A RID: 554 RVA: 0x0000EC9C File Offset: 0x0000CE9C
         public bool hasSenseToRotateBanners()
         {
-            if (config != null)
-            {
-                return config.hasSenseToRotateBanners();
-            }
-            throw new NullReferenceException("config is null");
+            return config != null ? config.hasSenseToRotateBanners() : throw new NullReferenceException("config is null");
         }
 
         // Token: 0x0600022B RID: 555 RVA: 0x0000ECBC File Offset: 0x0000CEBC
         public bool getHideMainPromo()
         {
-            if (config != null)
-            {
-                return config.getHideMainPromo();
-            }
-            throw new NullReferenceException("config is null");
+            return config != null ? config.getHideMainPromo() : throw new NullReferenceException("config is null");
         }
 
         // Token: 0x0600022C RID: 556 RVA: 0x0000ECDC File Offset: 0x0000CEDC
         public bool getHideSocialNetworks()
         {
-            if (config != null)
-            {
-                return config.getHideSocialNetworks();
-            }
-            throw new NullReferenceException("config is null");
+            return config != null ? config.getHideSocialNetworks() : throw new NullReferenceException("config is null");
         }
 
         // Token: 0x0600022D RID: 557 RVA: 0x0000ECFC File Offset: 0x0000CEFC
         public int getInterstitialBannersPeriod()
         {
-            if (config != null)
-            {
-                return config.getInterstitialBannersPeriod();
-            }
-            throw new NullReferenceException("config is null");
+            return config != null ? config.getInterstitialBannersPeriod() : throw new NullReferenceException("config is null");
         }
 
         // Token: 0x0600022E RID: 558 RVA: 0x0000ED1C File Offset: 0x0000CF1C
         public int getChangeInterstitialToVideoPeriod()
         {
-            if (config != null)
-            {
-                return config.getChangeInterstitialToVideoPeriod();
-            }
-            throw new NullReferenceException("config is null");
+            return config != null ? config.getChangeInterstitialToVideoPeriod() : throw new NullReferenceException("config is null");
         }
 
         // Token: 0x0600022F RID: 559 RVA: 0x0000ED3C File Offset: 0x0000CF3C
         public bool getDefaultInterstitial()
         {
-            if (config != null)
-            {
-                return config.getDefaultInterstitial();
-            }
-            throw new NullReferenceException("config is null");
+            return config != null ? config.getDefaultInterstitial() : throw new NullReferenceException("config is null");
         }
 
         // Token: 0x06000230 RID: 560 RVA: 0x0000ED5C File Offset: 0x0000CF5C
         public int getVideoBannersCount()
         {
-            if (config != null)
-            {
-                return config.getVideoBannersCount();
-            }
-            throw new NullReferenceException("config is null");
+            return config != null ? config.getVideoBannersCount() : throw new NullReferenceException("config is null");
         }
 
         // Token: 0x06000231 RID: 561 RVA: 0x0000ED7C File Offset: 0x0000CF7C
         public int getBoxForCrossPromo()
         {
-            if (config != null)
-            {
-                return config.getBoxForCrossPromo();
-            }
-            throw new NullReferenceException("config is null");
+            return config != null ? config.getBoxForCrossPromo() : throw new NullReferenceException("config is null");
         }
 
         // Token: 0x06000232 RID: 562 RVA: 0x0000ED9C File Offset: 0x0000CF9C

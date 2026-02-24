@@ -104,11 +104,7 @@ namespace ctr_wp7.Banner
         public string getString()
         {
             string text = langs[ApplicationSettings.getString(8).ToString()];
-            if (text == null)
-            {
-                return "";
-            }
-            return text;
+            return text == null ? "" : text;
         }
 
         // Token: 0x04000998 RID: 2456

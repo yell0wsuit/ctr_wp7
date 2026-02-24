@@ -359,13 +359,9 @@ namespace ctr_wp7.game
                                     {
                                         loadingController3.nextController = 1;
                                     }
-                                    else if (exitCode == 1)
-                                    {
-                                        loadingController3.nextController = 2;
-                                    }
                                     else
                                     {
-                                        loadingController3.nextController = exitCode == 3 ? 4 : 3;
+                                        loadingController3.nextController = exitCode == 1 ? 2 : exitCode == 3 ? 4 : 3;
                                     }
                                     loadingController3.MusicToLoad = 58;
                                     activateChild(2);

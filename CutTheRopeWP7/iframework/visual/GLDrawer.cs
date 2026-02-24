@@ -154,11 +154,7 @@ namespace ctr_wp7.iframework.visual
                 }
                 return calcPathBezier_2(array, count - 1, delta);
             }
-            if (count == 2)
-            {
-                return calc2PointBezier(ref p[0], ref p[1], delta);
-            }
-            return default;
+            return count == 2 ? calc2PointBezier(ref p[0], ref p[1], delta) : default;
         }
 
         // Token: 0x060004D6 RID: 1238 RVA: 0x0002430C File Offset: 0x0002250C
@@ -172,11 +168,7 @@ namespace ctr_wp7.iframework.visual
                 }
                 return calcPathBezier_2(p, count - 1, delta);
             }
-            if (count == 2)
-            {
-                return calc2PointBezier(ref p[0], ref p[1], delta);
-            }
-            return default;
+            return count == 2 ? calc2PointBezier(ref p[0], ref p[1], delta) : default;
         }
 
         // Token: 0x060004D7 RID: 1239 RVA: 0x0002437C File Offset: 0x0002257C

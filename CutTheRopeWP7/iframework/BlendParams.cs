@@ -119,11 +119,9 @@ namespace ctr_wp7.iframework
         // Token: 0x060004EB RID: 1259 RVA: 0x00025014 File Offset: 0x00023214
         public override string ToString()
         {
-            if (!defaultBlending)
-            {
-                return string.Concat(new object[] { "BlendParams(src=", sfactor, ", dst=", dfactor, ", enabled=", enabled, ")" });
-            }
-            return "BlendParams(default)";
+            return !defaultBlending
+                ? string.Concat(new object[] { "BlendParams(src=", sfactor, ", dst=", dfactor, ", enabled=", enabled, ")" })
+                : "BlendParams(default)";
         }
 
         // Token: 0x04000A34 RID: 2612

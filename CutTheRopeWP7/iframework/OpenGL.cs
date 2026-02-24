@@ -821,11 +821,7 @@ namespace ctr_wp7.iframework
             {
                 get
                 {
-                    if (pointer_ == null || size_ == 0)
-                    {
-                        return 0;
-                    }
-                    return pointer_.Length / size_;
+                    return pointer_ == null || size_ == 0 ? 0 : pointer_.Length / size_;
                 }
             }
 
@@ -852,11 +848,7 @@ namespace ctr_wp7.iframework
             {
                 get
                 {
-                    if (pointer_ == null || size_ == 0)
-                    {
-                        return 0;
-                    }
-                    return pointer_.Length / size_;
+                    return pointer_ == null || size_ == 0 ? 0 : pointer_.Length / size_;
                 }
             }
 

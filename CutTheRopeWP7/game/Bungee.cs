@@ -88,13 +88,9 @@ namespace ctr_wp7.game
             {
                 b.relaxed = 0;
             }
-            else if ((double)num2 <= 31.0)
-            {
-                b.relaxed = 1;
-            }
             else
             {
-                b.relaxed = (double)num2 <= 34.0 ? 2 : 3;
+                b.relaxed = (double)num2 <= 31.0 ? 1 : (double)num2 <= 34.0 ? 2 : 3;
             }
             if ((double)num2 > 37.0 && !b.dontDrawRedStretch)
             {
@@ -142,15 +138,7 @@ namespace ctr_wp7.game
                 b.drawPts[num8++] = vector.y;
                 if (num7 >= 6 || (double)num6 >= 1.0)
                 {
-                    RGBAColor rgbacolor10;
-                    if (b.forceWhite)
-                    {
-                        rgbacolor10 = RGBAColor.whiteRGBA;
-                    }
-                    else
-                    {
-                        rgbacolor10 = flag ? rgbacolor8 : rgbacolor9;
-                    }
+                    RGBAColor rgbacolor10 = b.forceWhite ? RGBAColor.whiteRGBA : flag ? rgbacolor8 : rgbacolor9;
                     OpenGL.glColor4f(rgbacolor10.r, rgbacolor10.g, rgbacolor10.b, rgbacolor10.a);
                     int num20 = num7 >> 1;
                     OpenGL.glVertexPointer_setAdditive(2, 5, 0, 16 * (num20 - 1));

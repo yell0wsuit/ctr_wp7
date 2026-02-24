@@ -43,11 +43,7 @@ namespace ctr_wp7.remotedata.cartoons
         // Token: 0x0600064C RID: 1612 RVA: 0x000308CA File Offset: 0x0002EACA
         public string getName()
         {
-            if (image_id == null)
-            {
-                return null;
-            }
-            return "block_" + image_id;
+            return image_id == null ? null : "block_" + image_id;
         }
 
         // Token: 0x0600064D RID: 1613 RVA: 0x000308E6 File Offset: 0x0002EAE6
@@ -73,11 +69,7 @@ namespace ctr_wp7.remotedata.cartoons
         {
             string text = null;
             _ = langs.TryGetValue(ApplicationSettings.getString(8).ToString(), ref text);
-            if (text == null)
-            {
-                return "";
-            }
-            return text;
+            return text == null ? "" : text;
         }
 
         // Token: 0x06000651 RID: 1617 RVA: 0x00030937 File Offset: 0x0002EB37

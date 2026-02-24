@@ -25,10 +25,7 @@ namespace ctr_wp7.game
                 x = position.x;
                 y = position.y;
                 lanternState = 0;
-                if (delayedDispatcher == null)
-                {
-                    delayedDispatcher = (DelayedDispatcher)new DelayedDispatcher().init();
-                }
+                delayedDispatcher ??= (DelayedDispatcher)new DelayedDispatcher().init();
                 fire = Image_createWithResIDQuad(186, 1);
                 fire.anchor = fire.parentAnchor = 18;
                 fire.color = RGBAColor.transparentRGBA;
@@ -143,10 +140,7 @@ namespace ctr_wp7.game
         // Token: 0x06000856 RID: 2134 RVA: 0x0004ABE8 File Offset: 0x00048DE8
         public static List<Lantern> getAllLanterns()
         {
-            if (allLanterns == null)
-            {
-                allLanterns = [];
-            }
+            allLanterns ??= [];
             return allLanterns;
         }
 

@@ -27,11 +27,9 @@ namespace ctr_wp7.game.remotedata
         // Token: 0x060007A6 RID: 1958 RVA: 0x0003C36C File Offset: 0x0003A56C
         public override NSString getUrl()
         {
-            if (!ApplicationSettings.getString(8).isEqualToString(NSS("zh")))
-            {
-                return NSS("vnd.youtube:bj3cbCE56wQ?vndapp=youtube_mobile");
-            }
-            return NSS("http://v.youku.com/v_show/id_XNDIwMTM4Mjcy.html");
+            return !ApplicationSettings.getString(8).isEqualToString(NSS("zh"))
+                ? NSS("vnd.youtube:bj3cbCE56wQ?vndapp=youtube_mobile")
+                : NSS("http://v.youku.com/v_show/id_XNDIwMTM4Mjcy.html");
         }
 
         // Token: 0x060007A7 RID: 1959 RVA: 0x0003C3AC File Offset: 0x0003A5AC

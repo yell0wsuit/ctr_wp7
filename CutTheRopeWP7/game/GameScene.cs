@@ -3549,14 +3549,7 @@ namespace ctr_wp7.game
                     if (tube.rotation == 0f)
                     {
                         float num7 = tube.x - vector3.x;
-                        if (Math.Abs(num7) > num3 / 4f)
-                        {
-                            num6 = (-vector4.x / num) + (0.25f * num7);
-                        }
-                        else
-                        {
-                            num6 = Math.Abs(vector4.x) < 1f ? -vector4.x : -vector4.x / num;
-                        }
+                        num6 = Math.Abs(num7) > num3 / 4f ? (-vector4.x / num) + (0.25f * num7) : Math.Abs(vector4.x) < 1f ? -vector4.x : -vector4.x / num;
                     }
                     float num8 = -32f / star.weight;
                     if (tube.rotation != 0f)
@@ -3598,14 +3591,7 @@ namespace ctr_wp7.game
                     if (tube.rotation == 0f)
                     {
                         float num11 = tube.x - vector6.x;
-                        if (Math.Abs(num11) > num3 / 4f)
-                        {
-                            num10 = (-vector7.x / num) + (0.25f * num11);
-                        }
-                        else
-                        {
-                            num10 = Math.Abs(vector7.x) < 1f ? -vector7.x : -vector7.x / num;
-                        }
+                        num10 = Math.Abs(num11) > num3 / 4f ? (-vector7.x / num) + (0.25f * num11) : Math.Abs(vector7.x) < 1f ? -vector7.x : -vector7.x / num;
                     }
                     float num12 = -32f / starL.weight;
                     if (tube.rotation != 0f)
@@ -3643,14 +3629,7 @@ namespace ctr_wp7.game
                     if (tube.rotation == 0f)
                     {
                         float num15 = tube.x - vector6.x;
-                        if (Math.Abs(num15) > num3 / 4f)
-                        {
-                            num14 = (-vector7.x / num) + (0.25f * num15);
-                        }
-                        else
-                        {
-                            num14 = Math.Abs(vector7.x) < 1f ? -vector7.x : -vector7.x / num;
-                        }
+                        num14 = Math.Abs(num15) > num3 / 4f ? (-vector7.x / num) + (0.25f * num15) : Math.Abs(vector7.x) < 1f ? -vector7.x : -vector7.x / num;
                     }
                     float num16 = -32f / starR.weight;
                     if (tube.rotation != 0f)
@@ -3773,11 +3752,7 @@ namespace ctr_wp7.game
         // Token: 0x06000827 RID: 2087 RVA: 0x00049C10 File Offset: 0x00047E10
         public bool pointOutOfScreen(ConstraintedPoint p)
         {
-            if (pack == 10)
-            {
-                return p.pos.y > mapHeight + 200.0 || p.pos.y < -200.0;
-            }
-            return p.pos.y > mapHeight + 100.0 || p.pos.y < -50.0;
+            return pack == 10 ? p.pos.y > mapHeight + 200.0 || p.pos.y < -200.0 : p.pos.y > mapHeight + 100.0 || p.pos.y < -50.0;
         }
 
         // Token: 0x06000828 RID: 2088 RVA: 0x00049C98 File Offset: 0x00047E98
@@ -3858,45 +3833,17 @@ namespace ctr_wp7.game
         // Token: 0x06000831 RID: 2097 RVA: 0x00049E28 File Offset: 0x00048028
         private static float maxOf4(float v1, float v2, float v3, float v4)
         {
-            if (v1 >= v2 && v1 >= v3 && v1 >= v4)
-            {
-                return v1;
-            }
-            if (v2 >= v1 && v2 >= v3 && v2 >= v4)
-            {
-                return v2;
-            }
-            if (v3 >= v2 && v3 >= v1 && v3 >= v4)
-            {
-                return v3;
-            }
-            if (v4 >= v2 && v4 >= v3 && v4 >= v1)
-            {
-                return v4;
-            }
-            return -1f;
+            return v1 >= v2 && v1 >= v3 && v1 >= v4
+                ? v1
+                : v2 >= v1 && v2 >= v3 && v2 >= v4 ? v2 : v3 >= v2 && v3 >= v1 && v3 >= v4 ? v3 : v4 >= v2 && v4 >= v3 && v4 >= v1 ? v4 : -1f;
         }
 
         // Token: 0x06000832 RID: 2098 RVA: 0x00049E7C File Offset: 0x0004807C
         private static float minOf4(float v1, float v2, float v3, float v4)
         {
-            if (v1 <= v2 && v1 <= v3 && v1 <= v4)
-            {
-                return v1;
-            }
-            if (v2 <= v1 && v2 <= v3 && v2 <= v4)
-            {
-                return v2;
-            }
-            if (v3 <= v2 && v3 <= v1 && v3 <= v4)
-            {
-                return v3;
-            }
-            if (v4 <= v2 && v4 <= v3 && v4 <= v1)
-            {
-                return v4;
-            }
-            return -1f;
+            return v1 <= v2 && v1 <= v3 && v1 <= v4
+                ? v1
+                : v2 <= v1 && v2 <= v3 && v2 <= v4 ? v2 : v3 <= v2 && v3 <= v1 && v3 <= v4 ? v3 : v4 <= v2 && v4 <= v3 && v4 <= v1 ? v4 : -1f;
         }
 
         // Token: 0x06000833 RID: 2099 RVA: 0x00049ED0 File Offset: 0x000480D0
@@ -3916,10 +3863,7 @@ namespace ctr_wp7.game
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
             int num = ctrrootController.getPack();
             int level = ctrrootController.getLevel();
-            if (dict == null)
-            {
-                dict = [];
-            }
+            dict ??= [];
             dict["level"] = num.ToString() + "-" + level.ToString();
             FlurryAPI.logEventwithParams(_string, dict, true, mixpanel, false);
         }

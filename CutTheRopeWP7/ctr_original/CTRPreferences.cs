@@ -211,11 +211,7 @@ namespace ctr_wp7.ctr_original
         // Token: 0x0600055E RID: 1374 RVA: 0x00029503 File Offset: 0x00027703
         public static int getPacksCount(bool isLite)
         {
-            if (!isLite)
-            {
-                return 14;
-            }
-            return 2;
+            return !isLite ? 14 : 2;
         }
 
         // Token: 0x0600055F RID: 1375 RVA: 0x0002950C File Offset: 0x0002770C
@@ -227,11 +223,7 @@ namespace ctr_wp7.ctr_original
         // Token: 0x06000560 RID: 1376 RVA: 0x00029518 File Offset: 0x00027718
         public static int getLevelsInPackCount(bool isLite)
         {
-            if (!isLite)
-            {
-                return 25;
-            }
-            return 9;
+            return !isLite ? 25 : 9;
         }
 
         // Token: 0x06000561 RID: 1377 RVA: 0x00029524 File Offset: 0x00027724
@@ -273,11 +265,7 @@ namespace ctr_wp7.ctr_original
         // Token: 0x06000563 RID: 1379 RVA: 0x000295A8 File Offset: 0x000277A8
         public static int packUnlockStars(int n)
         {
-            if (!isLiteVersion())
-            {
-                return PACK_UNLOCK_STARS[n];
-            }
-            return PACK_UNLOCK_STARS_LITE[n];
+            return !isLiteVersion() ? PACK_UNLOCK_STARS[n] : PACK_UNLOCK_STARS_LITE[n];
         }
 
         // Token: 0x06000564 RID: 1380 RVA: 0x000295C0 File Offset: 0x000277C0

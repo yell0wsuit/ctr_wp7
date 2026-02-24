@@ -19,20 +19,14 @@ namespace ctr_wp7.iframework.core
         // Token: 0x0600012A RID: 298 RVA: 0x0000A131 File Offset: 0x00008331
         public static CTRResourceMgr sharedResourceMgr()
         {
-            if (resourceMgr == null)
-            {
-                resourceMgr = (CTRResourceMgr)new CTRResourceMgr().init();
-            }
+            resourceMgr ??= (CTRResourceMgr)new CTRResourceMgr().init();
             return resourceMgr;
         }
 
         // Token: 0x0600012B RID: 299 RVA: 0x0000A153 File Offset: 0x00008353
         public static RootController sharedRootController()
         {
-            if (root == null)
-            {
-                root = (CTRRootController)new CTRRootController().initWithParent(null);
-            }
+            root ??= (CTRRootController)new CTRRootController().initWithParent(null);
             return root;
         }
 
@@ -51,20 +45,14 @@ namespace ctr_wp7.iframework.core
         // Token: 0x0600012E RID: 302 RVA: 0x0000A184 File Offset: 0x00008384
         public static SoundMgr sharedSoundMgr()
         {
-            if (soundMgr == null)
-            {
-                soundMgr = new SoundMgr().init();
-            }
+            soundMgr ??= new SoundMgr().init();
             return soundMgr;
         }
 
         // Token: 0x0600012F RID: 303 RVA: 0x0000A1A1 File Offset: 0x000083A1
         public static MovieMgr sharedMovieMgr()
         {
-            if (movieMgr == null)
-            {
-                movieMgr = new MovieMgr();
-            }
+            movieMgr ??= new MovieMgr();
             return movieMgr;
         }
 
@@ -109,10 +97,7 @@ namespace ctr_wp7.iframework.core
         {
             appSettings = createAppSettings();
             canvas = createCanvas();
-            if (resourceMgr == null)
-            {
-                resourceMgr = createResourceMgr();
-            }
+            resourceMgr ??= createResourceMgr();
             root = createRootController();
             soundMgr = createSoundMgr();
             prefs = createPreferences();
@@ -124,11 +109,9 @@ namespace ctr_wp7.iframework.core
         // Token: 0x06000137 RID: 311 RVA: 0x0000A2A9 File Offset: 0x000084A9
         internal static FontGeneric getFont(int fontResID)
         {
-            if ((fontResID == 5 || fontResID == 6) && (LANGUAGE == Language.LANG_ZH || LANGUAGE == Language.LANG_KO || LANGUAGE == Language.LANG_JA))
-            {
-                return new FontWP7(fontResID);
-            }
-            return (FontGeneric)sharedResourceMgr().loadResource(fontResID, ResourceMgr.ResourceType.FONT);
+            return (fontResID == 5 || fontResID == 6) && (LANGUAGE == Language.LANG_ZH || LANGUAGE == Language.LANG_KO || LANGUAGE == Language.LANG_JA)
+                ? new FontWP7(fontResID)
+                : (FontGeneric)sharedResourceMgr().loadResource(fontResID, ResourceMgr.ResourceType.FONT);
         }
 
         // Token: 0x06000138 RID: 312 RVA: 0x0000A2E3 File Offset: 0x000084E3

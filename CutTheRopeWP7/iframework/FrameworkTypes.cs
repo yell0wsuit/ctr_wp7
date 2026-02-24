@@ -260,10 +260,7 @@ namespace ctr_wp7.iframework
             {
                 if (enabled)
                 {
-                    if (Parameters_Double_String == null)
-                    {
-                        Parameters_Double_String = [];
-                    }
+                    Parameters_Double_String ??= [];
                     injectGlobalLoggingParams(Parameters_Double_String);
                     if (flurryon)
                     {

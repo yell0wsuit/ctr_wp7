@@ -65,10 +65,7 @@ namespace ctr_wp7.iframework.visual
         public virtual void setStringandWidth(NSString newString, float w)
         {
             string_ = newString;
-            if (string_ == null)
-            {
-                string_ = new NSString("");
-            }
+            string_ ??= new NSString("");
             font.notifyTextChanged(this);
             if (w == -1f)
             {
@@ -124,15 +121,7 @@ namespace ctr_wp7.iframework.visual
                 FormattedString formattedString = formattedStrings[i];
                 int num7 = formattedString.string_.length();
                 char[] characters2 = formattedString.string_.getCharacters();
-                float num8;
-                if (align != 1)
-                {
-                    num8 = align == 2 ? (wrapWidth - formattedString.width) / 2f : wrapWidth - formattedString.width;
-                }
-                else
-                {
-                    num8 = 0f;
-                }
+                float num8 = align != 1 ? align == 2 ? (wrapWidth - formattedString.width) / 2f : wrapWidth - formattedString.width : 0f;
                 for (int j = 0; j < num7; j++)
                 {
                     if (characters2[j] != '*')
@@ -225,15 +214,7 @@ namespace ctr_wp7.iframework.visual
                 FormattedString formattedString = formattedStrings[k];
                 int num9 = formattedString.string_.length();
                 char[] characters3 = formattedString.string_.getCharacters();
-                float num10;
-                if (align != 1)
-                {
-                    num10 = align == 2 ? (wrapWidth - formattedString.width) / 2f : wrapWidth - formattedString.width;
-                }
-                else
-                {
-                    num10 = 0f;
-                }
+                float num10 = align != 1 ? align == 2 ? (wrapWidth - formattedString.width) / 2f : wrapWidth - formattedString.width : 0f;
                 for (int l = 0; l < num9; l++)
                 {
                     if (characters3[l] != '*')

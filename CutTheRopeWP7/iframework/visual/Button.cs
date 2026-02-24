@@ -69,11 +69,9 @@ namespace ctr_wp7.iframework.visual
         public virtual bool isInTouchZoneXYforTouchDown(float tx, float ty, bool td)
         {
             float num = td ? 0f : 15f;
-            if (forcedTouchZone.w != -1f)
-            {
-                return pointInRect(tx, ty, drawX + forcedTouchZone.x - num - touchLeftInc, drawY + forcedTouchZone.y - num - touchTopInc, forcedTouchZone.w + (num * 2f) + (touchLeftInc + touchRightInc), forcedTouchZone.h + (touchTopInc + touchBottomInc) + (num * 2f));
-            }
-            return pointInRect(tx, ty, drawX - touchLeftInc - num, drawY - touchTopInc - num, width + (touchLeftInc + touchRightInc) + (num * 2f), height + (touchTopInc + touchBottomInc) + (num * 2f));
+            return forcedTouchZone.w != -1f
+                ? pointInRect(tx, ty, drawX + forcedTouchZone.x - num - touchLeftInc, drawY + forcedTouchZone.y - num - touchTopInc, forcedTouchZone.w + (num * 2f) + (touchLeftInc + touchRightInc), forcedTouchZone.h + (touchTopInc + touchBottomInc) + (num * 2f))
+                : pointInRect(tx, ty, drawX - touchLeftInc - num, drawY - touchTopInc - num, width + (touchLeftInc + touchRightInc) + (num * 2f), height + (touchTopInc + touchBottomInc) + (num * 2f));
         }
 
         // Token: 0x060002A1 RID: 673 RVA: 0x00010BC8 File Offset: 0x0000EDC8

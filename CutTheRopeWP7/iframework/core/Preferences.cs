@@ -110,11 +110,7 @@ namespace ctr_wp7.iframework.core
         // Token: 0x060003CF RID: 975 RVA: 0x00018234 File Offset: 0x00016434
         public static int _getIntForKey(string k)
         {
-            if (data_.TryGetValue(k, out int num))
-            {
-                return num;
-            }
-            return 0;
+            return data_.TryGetValue(k, out int num) ? num : 0;
         }
 
         // Token: 0x060003D0 RID: 976 RVA: 0x00018253 File Offset: 0x00016453
@@ -139,11 +135,7 @@ namespace ctr_wp7.iframework.core
         // Token: 0x060003D3 RID: 979 RVA: 0x00018288 File Offset: 0x00016488
         public static string _getStringForKey(string k)
         {
-            if (dataStrings_.TryGetValue(k, out string text))
-            {
-                return text;
-            }
-            return "";
+            return dataStrings_.TryGetValue(k, out string text) ? text : "";
         }
 
         // Token: 0x060003D4 RID: 980 RVA: 0x000182AC File Offset: 0x000164AC

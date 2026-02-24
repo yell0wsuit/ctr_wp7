@@ -52,14 +52,11 @@
         // Token: 0x06000171 RID: 369 RVA: 0x0000B1E0 File Offset: 0x000093E0
         public float[] toFloatArray()
         {
-            if (_array == null)
-            {
-                _array =
+            _array ??=
                 [
                     blX, blY, blZ, brX, brY, brZ, tlX, tlY, tlZ, trX,
                     trY, trZ
                 ];
-            }
             return _array;
         }
 

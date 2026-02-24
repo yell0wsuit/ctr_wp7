@@ -10,11 +10,7 @@ namespace ctr_wp7.iframework.core
         // Token: 0x06000531 RID: 1329 RVA: 0x00026026 File Offset: 0x00024226
         public static int getInt(int s)
         {
-            if (s == 5)
-            {
-                return 50;
-            }
-            throw new NotImplementedException();
+            return s == 5 ? 50 : throw new NotImplementedException();
         }
 
         // Token: 0x06000532 RID: 1330 RVA: 0x00026034 File Offset: 0x00024234

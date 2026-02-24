@@ -65,15 +65,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x06000778 RID: 1912 RVA: 0x0003B844 File Offset: 0x00039A44
         public override float getCharWidth(char c)
         {
-            if (c == '*')
-            {
-                return 0f;
-            }
-            if (c == ' ' || getCharQuad(c) == -1)
-            {
-                return spaceWidth;
-            }
-            return charmap.texture.quadRects[getCharQuad(c)].w;
+            return c == '*' ? 0f : c == ' ' || getCharQuad(c) == -1 ? spaceWidth : charmap.texture.quadRects[getCharQuad(c)].w;
         }
 
         // Token: 0x06000779 RID: 1913 RVA: 0x0003B893 File Offset: 0x00039A93
@@ -86,21 +78,13 @@ namespace ctr_wp7.iframework.visual
         public override int getCharQuad(char c)
         {
             int num = chars.IndexOf(c);
-            if (num >= 0)
-            {
-                return num;
-            }
-            return -1;
+            return num >= 0 ? num : -1;
         }
 
         // Token: 0x0600077B RID: 1915 RVA: 0x0003B8B9 File Offset: 0x00039AB9
         public override float getCharOffset(char[] s, int c, int len)
         {
-            if (c == len - 1)
-            {
-                return 0f;
-            }
-            return charOffset;
+            return c == len - 1 ? 0f : charOffset;
         }
 
         // Token: 0x0600077C RID: 1916 RVA: 0x0003B8CD File Offset: 0x00039ACD

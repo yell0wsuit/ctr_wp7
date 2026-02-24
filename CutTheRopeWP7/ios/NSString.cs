@@ -26,11 +26,7 @@ namespace ctr_wp7.ios
         // Token: 0x060005D7 RID: 1495 RVA: 0x0002C7C5 File Offset: 0x0002A9C5
         public int length()
         {
-            if (value_ == null)
-            {
-                return 0;
-            }
-            return value_.Length;
+            return value_ == null ? 0 : value_.Length;
         }
 
         // Token: 0x060005D8 RID: 1496 RVA: 0x0002C7DC File Offset: 0x0002A9DC
@@ -42,11 +38,7 @@ namespace ctr_wp7.ios
         // Token: 0x060005D9 RID: 1497 RVA: 0x0002C7EA File Offset: 0x0002A9EA
         public bool isEqualToString(string str)
         {
-            if (value_ == null)
-            {
-                return str == null;
-            }
-            return str != null && value_ == str;
+            return value_ == null ? str == null : str != null && value_ == str;
         }
 
         // Token: 0x060005DA RID: 1498 RVA: 0x0002C80A File Offset: 0x0002AA0A

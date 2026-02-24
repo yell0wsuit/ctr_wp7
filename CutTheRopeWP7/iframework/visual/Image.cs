@@ -14,11 +14,7 @@ namespace ctr_wp7.iframework.visual
         {
             get
             {
-                if (texture != null)
-                {
-                    return texture._resName;
-                }
-                return "ERROR: texture == null";
+                return texture != null ? texture._resName : "ERROR: texture == null";
             }
         }
 

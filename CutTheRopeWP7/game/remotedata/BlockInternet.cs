@@ -20,11 +20,7 @@ namespace ctr_wp7.game.remotedata
         public override int getType()
         {
             string type = jblock.getType();
-            if (type == "adblock")
-            {
-                return 0;
-            }
-            return 1;
+            return type == "adblock" ? 0 : 1;
         }
 
         // Token: 0x0600079A RID: 1946 RVA: 0x0003C25C File Offset: 0x0003A45C

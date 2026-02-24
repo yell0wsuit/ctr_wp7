@@ -42,11 +42,7 @@ internal sealed class DeviceParams
     // Token: 0x06000746 RID: 1862 RVA: 0x0003AAF8 File Offset: 0x00038CF8
     private static string string_isEnglishDevice()
     {
-        if (isEnglishDevice())
-        {
-            return "Yes";
-        }
-        return "No";
+        return isEnglishDevice() ? "Yes" : "No";
     }
 
     // Token: 0x06000747 RID: 1863 RVA: 0x0003AB18 File Offset: 0x00038D18

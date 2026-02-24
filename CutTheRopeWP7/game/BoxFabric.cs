@@ -93,11 +93,7 @@ namespace ctr_wp7.game
         // Token: 0x060005B7 RID: 1463 RVA: 0x0002C29D File Offset: 0x0002A49D
         public static int getSaveIndex(int box)
         {
-            if (isGameBox(box))
-            {
-                return box - 2 - 1;
-            }
-            return -1;
+            return isGameBox(box) ? box - 2 - 1 : -1;
         }
 
         // Token: 0x060005B8 RID: 1464 RVA: 0x0002C2AE File Offset: 0x0002A4AE

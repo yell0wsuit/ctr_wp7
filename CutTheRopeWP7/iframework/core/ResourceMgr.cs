@@ -78,10 +78,7 @@ namespace ctr_wp7.iframework.core
         public NSString loadStringsInfo(int key)
         {
             key &= 65535;
-            if (xmlStrings == null)
-            {
-                xmlStrings = XMLNode.parseXML("menu_strings.xml");
-            }
+            xmlStrings ??= XMLNode.parseXML("menu_strings.xml");
             XMLNode xmlnode = xmlStrings.childs()[key];
             if (xmlnode != null)
             {
@@ -154,10 +151,7 @@ namespace ctr_wp7.iframework.core
         // Token: 0x0600033C RID: 828 RVA: 0x00014BA0 File Offset: 0x00012DA0
         public virtual Texture2D loadTextureImageInfo(string path, XMLNode i, bool isWvga, float scaleX, float scaleY)
         {
-            if (i == null)
-            {
-                i = XMLNode.parseXML(path);
-            }
+            i ??= XMLNode.parseXML(path);
             if (i == null)
             {
                 throw new InvalidOperationException("Texture metadata not found for '" + path + "'.");
@@ -364,11 +358,7 @@ namespace ctr_wp7.iframework.core
         // Token: 0x06000348 RID: 840 RVA: 0x00014FA1 File Offset: 0x000131A1
         public virtual int getPercentLoaded()
         {
-            if (loadCount == 0)
-            {
-                return 100;
-            }
-            return 100 * loaded / getLoadCount();
+            return loadCount == 0 ? 100 : 100 * loaded / getLoadCount();
         }
 
         // Token: 0x06000349 RID: 841 RVA: 0x00014FC0 File Offset: 0x000131C0
@@ -418,11 +408,7 @@ namespace ctr_wp7.iframework.core
         // Token: 0x0600034D RID: 845 RVA: 0x0001508E File Offset: 0x0001328E
         private int getLoadCount()
         {
-            if (!bUseFake)
-            {
-                return loadCount;
-            }
-            return 100;
+            return !bUseFake ? loadCount : 100;
         }
 
         // Token: 0x0600034E RID: 846 RVA: 0x000150A4 File Offset: 0x000132A4

@@ -131,11 +131,7 @@ namespace ctr_wp7.Banner
         // Token: 0x060001B8 RID: 440 RVA: 0x0000C0EB File Offset: 0x0000A2EB
         public static int getBoxForCrossPromo()
         {
-            if (remoteDataMgr == null)
-            {
-                return -1;
-            }
-            return remoteDataMgr.getBoxForCrossPromo();
+            return remoteDataMgr == null ? -1 : remoteDataMgr.getBoxForCrossPromo();
         }
 
         // Token: 0x060001B9 RID: 441 RVA: 0x0000C100 File Offset: 0x0000A300

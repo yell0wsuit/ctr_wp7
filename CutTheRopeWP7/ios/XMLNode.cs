@@ -50,11 +50,7 @@ namespace ctr_wp7.ios
         {
             get
             {
-                if (!attributes_.TryGetValue(key, out string text))
-                {
-                    return new NSString("");
-                }
-                return new NSString(text);
+                return !attributes_.TryGetValue(key, out string text) ? new NSString("") : new NSString(text);
             }
         }
 
