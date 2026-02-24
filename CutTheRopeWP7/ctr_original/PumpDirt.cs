@@ -10,7 +10,7 @@ namespace ctr_wp7.ctr_original
         // Token: 0x060007E5 RID: 2021 RVA: 0x0003DC74 File Offset: 0x0003BE74
         public PumpDirt initWithTotalParticlesAngleandImageGrid(int p, float a, Image grid)
         {
-            if (base.initWithTotalParticlesandImageGrid(p, grid) == null)
+            if (initWithTotalParticlesandImageGrid(p, grid) == null)
             {
                 return null;
             }

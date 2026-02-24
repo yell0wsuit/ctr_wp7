@@ -11,7 +11,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060000C6 RID: 198 RVA: 0x0000702B File Offset: 0x0000522B
         public GLCanvas initWithFrame(Rectangle frame)
         {
-            _ = base.init();
+            _ = init();
             return this;
         }
 

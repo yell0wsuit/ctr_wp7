@@ -12,14 +12,14 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x06000643 RID: 1603 RVA: 0x000302F8 File Offset: 0x0002E4F8
         public override void draw()
         {
-            base.preDraw();
+            preDraw();
             OpenGL.glDisable(0);
             OpenGL.glBlendFunc(BlendingFactor.GL_SRC_ALPHA, BlendingFactor.GL_ONE_MINUS_SRC_ALPHA);
             bungee.draw();
             OpenGL.SetWhiteColor();
             OpenGL.glBlendFunc(BlendingFactor.GL_ONE, BlendingFactor.GL_ONE_MINUS_SRC_ALPHA);
             OpenGL.glEnable(0);
-            base.postDraw();
+            postDraw();
         }
 
         // Token: 0x06000644 RID: 1604 RVA: 0x00030348 File Offset: 0x0002E548

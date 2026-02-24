@@ -34,7 +34,7 @@
         // Token: 0x06000459 RID: 1113 RVA: 0x0001E897 File Offset: 0x0001CA97
         public HBox initWithOffsetAlignHeight(float of, int a, float h)
         {
-            if (base.init() != null)
+            if (init() != null)
             {
                 offset = of;
                 align = a;

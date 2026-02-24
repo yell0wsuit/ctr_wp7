@@ -9,7 +9,7 @@ namespace ctr_wp7.game.remotedata
         // Token: 0x06000798 RID: 1944 RVA: 0x0003C21B File Offset: 0x0003A41B
         public NSObject initWithJObject(Block pBlock)
         {
-            if (base.init() != null)
+            if (init() != null)
             {
                 jblock = pBlock;
             }

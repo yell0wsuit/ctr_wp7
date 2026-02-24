@@ -66,7 +66,7 @@ namespace ctr_wp7.iframework.visual
             float y = container.y;
             container.x = (float)Math.Round(container.x);
             container.y = (float)Math.Round(container.y);
-            base.preDraw();
+            preDraw();
             OpenGL.glEnable(4);
             OpenGL.setScissorRectangle(drawX, drawY, width, height);
             postDraw();
@@ -388,7 +388,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x06000612 RID: 1554 RVA: 0x0002E570 File Offset: 0x0002C770
         public ScrollableContainer initWithWidthHeightContainer(float w, float h, BaseElement c)
         {
-            if (base.init() != null)
+            if (init() != null)
             {
                 float num = ApplicationSettings.getInt(5);
                 fixedDelta = (float)(1.0 / (double)num);

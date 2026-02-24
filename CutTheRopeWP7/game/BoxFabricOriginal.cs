@@ -135,7 +135,7 @@ namespace ctr_wp7.game
             // Token: 0x0600073E RID: 1854 RVA: 0x0003A93C File Offset: 0x00038B3C
             public override void draw()
             {
-                base.preDraw();
+                preDraw();
                 OpenGL.glDisable(0);
                 if (solid)
                 {

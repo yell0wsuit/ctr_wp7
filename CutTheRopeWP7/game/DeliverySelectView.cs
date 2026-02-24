@@ -13,7 +13,7 @@ namespace ctr_wp7.game
         // Token: 0x06000327 RID: 807 RVA: 0x00014278 File Offset: 0x00012478
         public NSObject initFullscreenBackgroundDelegate(BaseElement background, ButtonDelegate d)
         {
-            if (base.initFullscreen() != null)
+            if (initFullscreen() != null)
             {
                 buttonDelegate = d;
                 box = new VBox().initWithOffsetAlignWidth(6f, 2, SCREEN_WIDTH_EXPANDED);

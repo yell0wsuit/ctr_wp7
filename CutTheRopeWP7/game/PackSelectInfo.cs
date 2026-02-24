@@ -9,7 +9,7 @@ namespace ctr_wp7.game
         // Token: 0x0600084C RID: 2124 RVA: 0x0004A188 File Offset: 0x00048388
         public NSObject initWithSize(int pSize)
         {
-            if (base.init() != null)
+            if (init() != null)
             {
                 i = 0;
                 size = pSize;

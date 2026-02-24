@@ -135,7 +135,7 @@ namespace ctr_wp7.game
         // Token: 0x06000865 RID: 2149 RVA: 0x0004B9C8 File Offset: 0x00049BC8
         public override void draw()
         {
-            base.preDraw();
+            preDraw();
             if (!withoutShadow)
             {
                 if (quadToDraw == -1)
@@ -149,7 +149,7 @@ namespace ctr_wp7.game
             }
             if (!popped)
             {
-                base.postDraw();
+                postDraw();
                 return;
             }
             restoreColor(this);

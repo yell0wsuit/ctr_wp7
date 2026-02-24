@@ -48,7 +48,7 @@ namespace ctr_wp7.game
         public void onVideoBannerFinished()
         {
             Application.sharedRootController().setViewTransition(4);
-            base.deactivate();
+            deactivate();
         }
 
         // Token: 0x06000723 RID: 1827 RVA: 0x000394BD File Offset: 0x000376BD

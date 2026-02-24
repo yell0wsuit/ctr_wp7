@@ -11,7 +11,7 @@ namespace ctr_wp7.game
         // Token: 0x060005B2 RID: 1458 RVA: 0x0002B7C4 File Offset: 0x000299C4
         public NSObject initWithPositionXPositionY(float px, float py)
         {
-            if (base.init() != null)
+            if (init() != null)
             {
                 x = px;
                 y = py;

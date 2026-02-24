@@ -17,7 +17,7 @@ namespace ctr_wp7.Specials
         // Token: 0x060002CB RID: 715 RVA: 0x00011FEC File Offset: 0x000101EC
         public NSObject initWithResIDBackQuadLiftQuadLiftQuadPressed(int resID, int bq, int lq, int lqp)
         {
-            if (base.initWithTexture(Application.getTexture(resID)) != null)
+            if (initWithTexture(Application.getTexture(resID)) != null)
             {
                 setDrawQuad(bq);
                 Image image = Image_createWithResIDQuad(resID, lq);

@@ -200,7 +200,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x06000260 RID: 608 RVA: 0x0000F824 File Offset: 0x0000DA24
         public Texture2D initWithPath(string path, bool assets)
         {
-            if (base.init() == null)
+            if (init() == null)
             {
                 return null;
             }
@@ -303,7 +303,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x06000269 RID: 617 RVA: 0x0000FA7C File Offset: 0x0000DC7C
         public NSObject initFromPixels(int x, int y, int w, int h)
         {
-            if (base.init() == null)
+            if (init() == null)
             {
                 return null;
             }
@@ -347,7 +347,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x0600026B RID: 619 RVA: 0x0000FBAC File Offset: 0x0000DDAC
         public Texture2D initWithTexture(Microsoft.Xna.Framework.Graphics.Texture2D texture)
         {
-            if (base.init() == null)
+            if (init() == null)
             {
                 return null;
             }
@@ -369,7 +369,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x0600026C RID: 620 RVA: 0x0000FC20 File Offset: 0x0000DE20
         public Texture2D initWithImagePath(string path)
         {
-            if (base.init() == null)
+            if (init() == null)
             {
                 return null;
             }

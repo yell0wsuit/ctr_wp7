@@ -18,7 +18,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060003EA RID: 1002 RVA: 0x0001C204 File Offset: 0x0001A404
         public TimedButton initWithID(int n)
         {
-            if (base.init() != null)
+            if (init() != null)
             {
                 buttonID = n;
                 state = TIMED_BUTTON.TIMED_BUTTON_UP;

@@ -15,7 +15,7 @@ namespace ctr_wp7.game
         // Token: 0x0600046D RID: 1133 RVA: 0x0001EF08 File Offset: 0x0001D108
         public NSObject initWithButtonDelegate(ButtonDelegate b)
         {
-            if (base.init() != null)
+            if (init() != null)
             {
                 result = (BaseElement)new BaseElement().init();
                 _ = addChildwithID(result, 1);

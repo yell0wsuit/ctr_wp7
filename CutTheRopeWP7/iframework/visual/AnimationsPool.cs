@@ -8,7 +8,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x0600070C RID: 1804 RVA: 0x00038F4A File Offset: 0x0003714A
         public AnimationsPool()
         {
-            _ = base.init();
+            _ = init();
         }
 
         // Token: 0x0600070D RID: 1805 RVA: 0x00038F64 File Offset: 0x00037164

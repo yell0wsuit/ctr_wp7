@@ -10,7 +10,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x06000773 RID: 1907 RVA: 0x0003B6E8 File Offset: 0x000398E8
         public Font initWithVariableSizeCharscharMapFileKerning(NSString strParam, Texture2D charmapfile, object k)
         {
-            if (base.init() != null)
+            if (init() != null)
             {
                 _isWvga = charmapfile.isWvga();
                 charmap = new Image().initWithTexture(charmapfile);

@@ -12,7 +12,7 @@ namespace ctr_wp7.game
         // Token: 0x0600044B RID: 1099 RVA: 0x0001E090 File Offset: 0x0001C290
         public NSObject initFullscreenBackgroundDelegate(BaseElement background, ButtonDelegate d)
         {
-            if (base.initFullscreen() != null)
+            if (initFullscreen() != null)
             {
                 texID = 402;
                 shineID = 0;

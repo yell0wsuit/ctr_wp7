@@ -20,7 +20,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060003F9 RID: 1017 RVA: 0x0001C6E8 File Offset: 0x0001A8E8
         public override void draw()
         {
-            base.preDraw();
+            preDraw();
             if (vectEqual(sp, vectUndefined) && delegateProvider != null)
             {
                 delegateProvider(ref sp, ref mp, ref sc);
@@ -62,13 +62,13 @@ namespace ctr_wp7.iframework.visual
             }
             OpenGL.glEnable(0);
             OpenGL.SetWhiteColor();
-            base.postDraw();
+            postDraw();
         }
 
         // Token: 0x060003FA RID: 1018 RVA: 0x0001C8E0 File Offset: 0x0001AAE0
         public Scrollbar initWithWidthHeightVertical(float w, float h, bool v)
         {
-            if (base.init() != null)
+            if (init() != null)
             {
                 width = (int)w;
                 height = (int)h;

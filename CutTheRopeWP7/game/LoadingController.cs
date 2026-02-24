@@ -64,7 +64,7 @@ namespace ctr_wp7.game
             }
             GC.Collect();
             AndroidAPI.hideBanner();
-            base.deactivate();
+            deactivate();
         }
 
         // Token: 0x04000BA8 RID: 2984

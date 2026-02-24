@@ -19,7 +19,7 @@
         // Token: 0x0600024C RID: 588 RVA: 0x0000F1A4 File Offset: 0x0000D3A4
         public ToggleButton initWithUpElement1DownElement1UpElement2DownElement2andID(BaseElement u1, BaseElement d1, BaseElement u2, BaseElement d2, int bid)
         {
-            if (base.init() != null)
+            if (init() != null)
             {
                 buttonID = bid;
                 b1 = new Button().initWithUpElementDownElementandID(u1, d1, 0);

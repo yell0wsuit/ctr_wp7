@@ -18,7 +18,7 @@ internal sealed class Rollbar : BaseElement
     // Token: 0x06000661 RID: 1633 RVA: 0x00030AA8 File Offset: 0x0002ECA8
     public Rollbar Create()
     {
-        _ = base.init();
+        _ = init();
         elements = [];
         BaseElement baseElement = (BaseElement)new BaseElement().init();
         baseElement.anchor = 9;

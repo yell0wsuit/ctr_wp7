@@ -17,7 +17,7 @@ namespace ctr_wp7.game
         // Token: 0x0600031E RID: 798 RVA: 0x00013E48 File Offset: 0x00012048
         public NSObject initWithLoading(bool loading)
         {
-            if (base.init() != null)
+            if (init() != null)
             {
                 width = (int)SCREEN_WIDTH_EXPANDED;
                 height = (int)SCREEN_HEIGHT_EXPANDED + 1;
@@ -57,7 +57,7 @@ namespace ctr_wp7.game
         // Token: 0x0600031F RID: 799 RVA: 0x00014030 File Offset: 0x00012230
         public NSObject initWithTouchesBlocking(bool b)
         {
-            if (base.init() != null)
+            if (init() != null)
             {
                 width = (int)SCREEN_WIDTH;
                 height = (int)SCREEN_HEIGHT;

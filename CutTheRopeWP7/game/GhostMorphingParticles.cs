@@ -26,7 +26,7 @@ namespace ctr_wp7.game
         // Token: 0x06000443 RID: 1091 RVA: 0x0001DBCC File Offset: 0x0001BDCC
         public new NSObject initWithTotalParticles(int numberOfParticles)
         {
-            if (base.initWithTotalParticlesandImageGrid(numberOfParticles, Image.Image_createWithResID(180)) != null)
+            if (initWithTotalParticlesandImageGrid(numberOfParticles, Image.Image_createWithResID(180)) != null)
             {
                 size = 0.6f;
                 sizeVar = 0.2f;

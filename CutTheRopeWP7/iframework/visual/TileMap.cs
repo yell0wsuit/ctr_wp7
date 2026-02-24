@@ -33,7 +33,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060001FF RID: 511 RVA: 0x0000D1AC File Offset: 0x0000B3AC
         public TileMap initWithRowsColumns(int r, int c)
         {
-            if (base.init() != null)
+            if (init() != null)
             {
                 rows = r;
                 columns = c;

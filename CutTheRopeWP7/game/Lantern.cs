@@ -17,7 +17,7 @@ namespace ctr_wp7.game
         public Lantern initWithPosition(Vector position)
         {
             Texture2D texture = Application.getTexture(186);
-            if (base.initWithTexture(texture) != null)
+            if (initWithTexture(texture) != null)
             {
                 sharedCandyPoint = null;
                 getAllLanterns().Add(this);
@@ -187,8 +187,8 @@ namespace ctr_wp7.game
         // Token: 0x0600085A RID: 2138 RVA: 0x0004ACD0 File Offset: 0x00048ED0
         public override void draw()
         {
-            base.preDraw();
-            base.postDraw();
+            preDraw();
+            postDraw();
         }
 
         // Token: 0x0600085B RID: 2139 RVA: 0x0004ACDE File Offset: 0x00048EDE

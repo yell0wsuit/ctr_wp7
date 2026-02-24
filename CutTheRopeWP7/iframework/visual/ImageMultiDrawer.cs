@@ -10,7 +10,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x06000712 RID: 1810 RVA: 0x00039004 File Offset: 0x00037204
         public ImageMultiDrawer initWithImageandCapacity(Image i, int n)
         {
-            if (base.init() == null)
+            if (init() == null)
             {
                 return null;
             }

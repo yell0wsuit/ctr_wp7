@@ -8,7 +8,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060005ED RID: 1517 RVA: 0x0002CBC1 File Offset: 0x0002ADC1
         public FormattedString initWithStringAndWidth(NSString str, float w)
         {
-            if (base.init() != null)
+            if (init() != null)
             {
                 string_ = (NSString)NSRET(str);
                 width = w;

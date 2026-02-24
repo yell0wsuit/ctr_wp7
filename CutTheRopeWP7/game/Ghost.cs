@@ -13,7 +13,7 @@ namespace ctr_wp7.game
         // Token: 0x06000110 RID: 272 RVA: 0x000090F8 File Offset: 0x000072F8
         public Ghost initWithPositionPossibleStatesMaskGrabRadiusBouncerAngleBubblesBungeesBouncers(Vector position, int possibleStateMask, float grabRadius, float bouncerAngle, List<Bubble> bubbles, List<Grab> bungees, List<Bouncer> bouncers)
         {
-            if (base.init() != null)
+            if (init() != null)
             {
                 possibleStatesMask = possibleStateMask | 1;
                 ghostState = 1;

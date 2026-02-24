@@ -19,7 +19,7 @@ namespace ctr_wp7.game
         // Token: 0x06000592 RID: 1426 RVA: 0x00029F04 File Offset: 0x00028104
         public SteamTube initWithPositionAngle(Vector position, float angle)
         {
-            if (base.init() != null)
+            if (init() != null)
             {
                 if (dd == null)
                 {

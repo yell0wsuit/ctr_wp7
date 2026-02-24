@@ -9,7 +9,7 @@ namespace ctr_wp7.game.remotedata
         // Token: 0x06000216 RID: 534 RVA: 0x0000DE2F File Offset: 0x0000C02F
         public NSObject initWithJObject(ctr_wp7.remotedata.cartoons.BlockConfig pBlockConfig)
         {
-            if (base.init() != null)
+            if (init() != null)
             {
                 jblockConfig = pBlockConfig;
                 hardcode = (BlockInterface)new BlockHardcode().init();

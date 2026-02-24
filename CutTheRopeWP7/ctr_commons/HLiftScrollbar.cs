@@ -15,7 +15,7 @@ namespace ctr_wp7.ctr_commons
         // Token: 0x06000872 RID: 2162 RVA: 0x0004BBE8 File Offset: 0x00049DE8
         public HLiftScrollbar initWithResIDBackQuadLiftQuadLiftQuadPressed(int resID, int bq, int lq, int lqp)
         {
-            if (base.initWithTexture(Application.getTexture(resID)) != null)
+            if (initWithTexture(Application.getTexture(resID)) != null)
             {
                 setDrawQuad(bq);
                 Image image = Image_createWithResIDQuad(resID, lq);

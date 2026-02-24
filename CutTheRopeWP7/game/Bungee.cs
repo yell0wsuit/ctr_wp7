@@ -185,7 +185,7 @@ namespace ctr_wp7.game
         // Token: 0x06000684 RID: 1668 RVA: 0x0003256C File Offset: 0x0003076C
         public NSObject initWithHeadAtXYTailAtTXTYandLength(ConstraintedPoint h, float hx, float hy, ConstraintedPoint t, float tx, float ty, float len)
         {
-            if (base.init() != null)
+            if (init() != null)
             {
                 relaxationTimes = 30;
                 lineWidth = 3f;

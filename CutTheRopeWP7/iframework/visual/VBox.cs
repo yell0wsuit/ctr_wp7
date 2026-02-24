@@ -34,7 +34,7 @@
         // Token: 0x06000145 RID: 325 RVA: 0x0000A449 File Offset: 0x00008649
         public VBox initWithOffsetAlignWidth(float of, int a, float w)
         {
-            if (base.init() != null)
+            if (init() != null)
             {
                 offset = of;
                 align = a;

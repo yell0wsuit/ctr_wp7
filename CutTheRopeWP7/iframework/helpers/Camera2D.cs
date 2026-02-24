@@ -9,7 +9,7 @@ namespace ctr_wp7.iframework.helpers
         // Token: 0x0600020E RID: 526 RVA: 0x0000DB3C File Offset: 0x0000BD3C
         public Camera2D initWithSpeedandType(float s, CAMERA_TYPE t)
         {
-            if (base.init() != null)
+            if (init() != null)
             {
                 speed = s;
                 type = t;

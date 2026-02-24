@@ -837,9 +837,9 @@ namespace ctr_wp7.game
         // Token: 0x06000805 RID: 2053 RVA: 0x000423AC File Offset: 0x000405AC
         public void timelineFinished(Timeline t)
         {
-            if (t.element is RotatedCircle && rotatedCircles.IndexOf((RotatedCircle)t.element) >= 0)
+            if (t.element is RotatedCircle circle && rotatedCircles.IndexOf(circle) >= 0)
             {
-                RotatedCircle rotatedCircle = (RotatedCircle)t.element;
+                RotatedCircle rotatedCircle = circle;
                 rotatedCircle.removeOnNextUpdate = true;
             }
         }
@@ -2093,7 +2093,7 @@ namespace ctr_wp7.game
         // Token: 0x06000808 RID: 2056 RVA: 0x00045820 File Offset: 0x00043A20
         public override void draw()
         {
-            base.preDraw();
+            preDraw();
             OpenGL.glPushMatrix();
             OpenGL.glTranslatef(-SCREEN_OFFSET_X, -SCREEN_OFFSET_Y, 0f);
             float num = SCREEN_BG_SCALE_X;
@@ -2345,7 +2345,7 @@ namespace ctr_wp7.game
             {
                 OpenGL.glDisable(4);
             }
-            base.postDraw();
+            postDraw();
         }
 
         // Token: 0x06000809 RID: 2057 RVA: 0x0004615C File Offset: 0x0004435C

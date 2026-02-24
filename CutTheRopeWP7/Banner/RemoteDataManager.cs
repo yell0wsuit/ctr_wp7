@@ -22,7 +22,7 @@ namespace ctr_wp7.Banner
         // Token: 0x060001AF RID: 431 RVA: 0x0000BE90 File Offset: 0x0000A090
         public NSObject acquireInfo(int setID)
         {
-            if (base.init() != null && remoteDataMgr != null)
+            if (init() != null && remoteDataMgr != null)
             {
                 BannerSize bannerSize = getBannerSize();
                 string text = "ctr";

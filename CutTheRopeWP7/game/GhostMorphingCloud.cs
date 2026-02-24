@@ -10,7 +10,7 @@ namespace ctr_wp7.game
         // Token: 0x06000446 RID: 1094 RVA: 0x0001DDC4 File Offset: 0x0001BFC4
         public override NSObject init()
         {
-            if (base.initWithTotalParticlesandImageGrid(5, Image.Image_createWithResID(180)) != null)
+            if (initWithTotalParticlesandImageGrid(5, Image.Image_createWithResID(180)) != null)
             {
                 angle = RND_RANGE(0, 360);
                 size = 1.6f;
@@ -72,7 +72,7 @@ namespace ctr_wp7.game
         // Token: 0x06000449 RID: 1097 RVA: 0x0001E07C File Offset: 0x0001C27C
         public void startSystem()
         {
-            base.startSystem(5);
+            startSystem(5);
         }
 
         // Token: 0x0400098F RID: 2447

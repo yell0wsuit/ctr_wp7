@@ -10,7 +10,7 @@ namespace ctr_wp7.game
         // Token: 0x0600021C RID: 540 RVA: 0x0000DF34 File Offset: 0x0000C134
         public NSObject initWithPositionSupportedElement(Vector pos, int supEl)
         {
-            if (base.init() != null)
+            if (init() != null)
             {
                 Image image = Image.Image_createWithResIDQuad(180, 1);
                 Image image2 = Image.Image_createWithResIDQuad(180, 0);

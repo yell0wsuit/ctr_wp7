@@ -155,7 +155,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060004C8 RID: 1224 RVA: 0x00023EA0 File Offset: 0x000220A0
         public Timeline initWithMaxKeyFramesOnTrack(int m)
         {
-            if (base.init() != null)
+            if (init() != null)
             {
                 maxKeyFrames = m;
                 time = 0f;

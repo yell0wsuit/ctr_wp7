@@ -1333,7 +1333,7 @@ namespace ctr_wp7.ctr_original
             base.onChildDeactivated(n);
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
             ctrrootController.setSurvival(false);
-            base.deactivate();
+            deactivate();
         }
 
         // Token: 0x060006C4 RID: 1732 RVA: 0x0003664C File Offset: 0x0003484C
@@ -2396,31 +2396,31 @@ namespace ctr_wp7.ctr_original
                 FlurryAPI.logEventwithParams(text4, list3, true, true, false);
                 FirstTime = false;
             }
-            base.showView((int)n);
+            showView((int)n);
         }
 
         // Token: 0x060006DD RID: 1757 RVA: 0x00038273 File Offset: 0x00036473
         private View getView(ViewID n)
         {
-            return base.getView((int)n);
+            return getView((int)n);
         }
 
         // Token: 0x060006DE RID: 1758 RVA: 0x0003827C File Offset: 0x0003647C
         private void deleteView(ViewID n)
         {
-            base.deleteView((int)n);
+            deleteView((int)n);
         }
 
         // Token: 0x060006DF RID: 1759 RVA: 0x00038285 File Offset: 0x00036485
         private void addViewwithID(View view, ViewID n)
         {
-            base.addViewwithID(view, (int)n);
+            addViewwithID(view, (int)n);
         }
 
         // Token: 0x060006E0 RID: 1760 RVA: 0x0003828F File Offset: 0x0003648F
         private void activateChild(CHILD_TYPE c)
         {
-            base.activateChild((int)c);
+            activateChild((int)c);
         }
 
         // Token: 0x060006E1 RID: 1761 RVA: 0x00038298 File Offset: 0x00036498

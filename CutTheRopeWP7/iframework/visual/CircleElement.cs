@@ -19,12 +19,12 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x0600020C RID: 524 RVA: 0x0000DAFC File Offset: 0x0000BCFC
         public override void draw()
         {
-            base.preDraw();
+            preDraw();
             OpenGL.glDisable(0);
             _ = MIN(width, height);
             OpenGL.glEnable(0);
             OpenGL.SetWhiteColor();
-            base.postDraw();
+            postDraw();
         }
 
         // Token: 0x0400080D RID: 2061
