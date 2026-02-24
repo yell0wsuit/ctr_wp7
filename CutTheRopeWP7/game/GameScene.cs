@@ -4007,7 +4007,7 @@ namespace ctr_wp7.game
         private const float GD_SLOWING_FACTOR = 5f;
 
         // Token: 0x04000D77 RID: 3447
-        private static int[] CANDIES = [93, 101, 102];
+        private static readonly int[] CANDIES = [93, 101, 102];
 
         // Token: 0x04000D78 RID: 3448
         private DelayedDispatcher dd;
@@ -4139,13 +4139,13 @@ namespace ctr_wp7.game
         private Animation blink;
 
         // Token: 0x04000DA3 RID: 3491
-        private bool[] dragging = new bool[5];
+        private readonly bool[] dragging = new bool[5];
 
         // Token: 0x04000DA4 RID: 3492
-        private Vector[] startPos = new Vector[5];
+        private readonly Vector[] startPos = new Vector[5];
 
         // Token: 0x04000DA5 RID: 3493
-        private Vector[] prevStartPos = new Vector[5];
+        private readonly Vector[] prevStartPos = new Vector[5];
 
         // Token: 0x04000DA6 RID: 3494
         private float ropePhysicsSpeed;
@@ -4160,7 +4160,7 @@ namespace ctr_wp7.game
         private GameObject candyBubbleR;
 
         // Token: 0x04000DAA RID: 3498
-        private Animation[] hudStar = new Animation[3];
+        private readonly Animation[] hudStar = new Animation[3];
 
         // Token: 0x04000DAB RID: 3499
         private Camera2D camera;
@@ -4295,7 +4295,7 @@ namespace ctr_wp7.game
         private Vector slastTouch;
 
         // Token: 0x04000DD7 RID: 3543
-        private List<FingerCut>[] fingerCuts = new List<FingerCut>[5];
+        private readonly List<FingerCut>[] fingerCuts = new List<FingerCut>[5];
 
         // Token: 0x04000DD8 RID: 3544
         private float JugglingTime;

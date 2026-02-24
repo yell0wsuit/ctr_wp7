@@ -117,7 +117,7 @@ namespace ctr_wp7.wp7utilities
         }
 
         // Token: 0x040008FC RID: 2300
-        private List<BaseElement> objects = [];
+        private readonly List<BaseElement> objects = [];
 
         // Token: 0x02000074 RID: 116
         private sealed class TestCameraMove : BaseElement
@@ -174,7 +174,7 @@ namespace ctr_wp7.wp7utilities
             }
 
             // Token: 0x040008FF RID: 2303
-            private BaseElement testObject_ = testObject;
+            private readonly BaseElement testObject_ = testObject;
         }
     }
 }

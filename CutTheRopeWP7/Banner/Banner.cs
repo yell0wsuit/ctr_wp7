@@ -108,7 +108,7 @@ namespace ctr_wp7.Banner
         }
 
         // Token: 0x04000998 RID: 2456
-        private static long serialVersionUID = 1L;
+        private static readonly long serialVersionUID = 1L;
 
         // Token: 0x04000999 RID: 2457
         public bool saved;

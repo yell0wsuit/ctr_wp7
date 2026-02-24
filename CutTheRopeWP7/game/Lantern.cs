@@ -239,10 +239,10 @@ namespace ctr_wp7.game
         private static ConstraintedPoint sharedCandyPoint;
 
         // Token: 0x04000DF0 RID: 3568
-        private static float LANTERN_TOUCH_RADIUS = 35f;
+        private static readonly float LANTERN_TOUCH_RADIUS = 35f;
 
         // Token: 0x04000DF1 RID: 3569
-        private static float LANTERN_INACTIVE_DELAY = 0.4f;
+        private static readonly float LANTERN_INACTIVE_DELAY = 0.4f;
 
         // Token: 0x04000DF2 RID: 3570
         public int lanternState;

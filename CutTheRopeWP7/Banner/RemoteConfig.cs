@@ -275,13 +275,13 @@ namespace ctr_wp7.Banner
         }
 
         // Token: 0x04000CD9 RID: 3289
-        private static long serialVersionUID = 1L;
+        private static readonly long serialVersionUID = 1L;
 
         // Token: 0x04000CDA RID: 3290
-        private List<int> bannersList;
+        private readonly List<int> bannersList;
 
         // Token: 0x04000CDB RID: 3291
-        private List<int> bannersWeights;
+        private readonly List<int> bannersWeights;
 
         // Token: 0x04000CDC RID: 3292
         private int currentBanner;

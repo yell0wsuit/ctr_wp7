@@ -564,7 +564,7 @@ namespace ctr_wp7.game
         public bool alternateColors;
 
         // Token: 0x04000C0C RID: 3084
-        private static RGBAColor[] ccolors =
+        private static readonly RGBAColor[] ccolors =
         [
             RGBAColor.transparentRGBA,
             RGBAColor.transparentRGBA,
@@ -577,7 +577,7 @@ namespace ctr_wp7.game
         ];
 
         // Token: 0x04000C0D RID: 3085
-        private float[] cverts = new float[16];
+        private readonly float[] cverts = new float[16];
 
         // Token: 0x020000E1 RID: 225
         private enum BUNGEE_MODE

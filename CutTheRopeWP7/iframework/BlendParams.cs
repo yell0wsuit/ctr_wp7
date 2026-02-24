@@ -125,7 +125,7 @@ namespace ctr_wp7.iframework
         }
 
         // Token: 0x04000A34 RID: 2612
-        private static BlendState[] states = new BlendState[4];
+        private static readonly BlendState[] states = new BlendState[4];
 
         // Token: 0x04000A35 RID: 2613
         private BlendType lastBlend = BlendType.Unknown;
@@ -134,13 +134,13 @@ namespace ctr_wp7.iframework
         private bool enabled;
 
         // Token: 0x04000A37 RID: 2615
-        private bool defaultBlending;
+        private readonly bool defaultBlending;
 
         // Token: 0x04000A38 RID: 2616
-        private BlendingFactor sfactor;
+        private readonly BlendingFactor sfactor;
 
         // Token: 0x04000A39 RID: 2617
-        private BlendingFactor dfactor;
+        private readonly BlendingFactor dfactor;
 
         // Token: 0x020000B2 RID: 178
         private enum BlendType

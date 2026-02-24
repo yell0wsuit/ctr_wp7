@@ -296,7 +296,7 @@ namespace ctr_wp7.remotedata.cartoons
             private int order;
 
             // Token: 0x040008F8 RID: 2296
-            private VideoDataManager parrent = parrent;
+            private readonly VideoDataManager parrent = parrent;
         }
     }
 }

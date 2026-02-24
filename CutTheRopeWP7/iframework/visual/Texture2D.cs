@@ -527,16 +527,16 @@ namespace ctr_wp7.iframework.visual
         private struct TexParams
         {
             // Token: 0x04000864 RID: 2148
-            private uint minFilter;
+            private readonly uint minFilter;
 
             // Token: 0x04000865 RID: 2149
-            private uint magFilter;
+            private readonly uint magFilter;
 
             // Token: 0x04000866 RID: 2150
-            private uint wrapS;
+            private readonly uint wrapS;
 
             // Token: 0x04000867 RID: 2151
-            private uint wrapT;
+            private readonly uint wrapT;
         }
     }
 }

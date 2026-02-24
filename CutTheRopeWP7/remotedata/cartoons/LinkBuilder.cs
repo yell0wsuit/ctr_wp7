@@ -35,7 +35,7 @@ namespace ctr_wp7.remotedata.cartoons
         }
 
         // Token: 0x040009CE RID: 2510
-        private StringBuilder link = new(start);
+        private readonly StringBuilder link = new(start);
 
         // Token: 0x040009CF RID: 2511
         private bool skipampersand = start.EndsWith("?");

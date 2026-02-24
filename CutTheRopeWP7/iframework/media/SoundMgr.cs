@@ -338,7 +338,7 @@ namespace ctr_wp7.iframework.media
         private int LastID = -1;
 
         // Token: 0x040007C9 RID: 1993
-        private Dictionary<int, Song> AllSongs = [];
+        private readonly Dictionary<int, Song> AllSongs = [];
 
         // Token: 0x040007CA RID: 1994
         protected static int currentMusicId = -1;

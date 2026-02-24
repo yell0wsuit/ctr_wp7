@@ -101,7 +101,7 @@ namespace ctr_wp7.ctr_commons
         }
 
         // Token: 0x040008D8 RID: 2264
-        private Image imageBackground;
+        private readonly Image imageBackground;
 
         // Token: 0x040008D9 RID: 2265
         private bool isShow;

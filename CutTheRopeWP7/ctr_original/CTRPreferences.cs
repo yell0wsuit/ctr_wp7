@@ -871,14 +871,14 @@ namespace ctr_wp7.ctr_original
         private static bool isTrial;
 
         // Token: 0x04000ADA RID: 2778
-        private static int[] PACK_UNLOCK_STARS_LITE =
+        private static readonly int[] PACK_UNLOCK_STARS_LITE =
         [
             0, 20, 80, 170, 230, 0, 40, 90, 150, 200,
             0, 40, 90, 150
         ];
 
         // Token: 0x04000ADB RID: 2779
-        private static int[] PACK_UNLOCK_STARS =
+        private static readonly int[] PACK_UNLOCK_STARS =
         [
             0, 30, 80, 170, 230, 0, 40, 90, 150, 200,
             0, 40, 90, 150

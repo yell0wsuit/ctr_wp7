@@ -81,7 +81,7 @@ namespace ctr_wp7.remotedata.cartoons
             }
 
             // Token: 0x040007D0 RID: 2000
-            private Block block = pBlock;
+            private readonly Block block = pBlock;
         }
 
         // Token: 0x0200002C RID: 44

@@ -326,7 +326,7 @@ namespace ctr_wp7.ios
         private XMLNode parent;
 
         // Token: 0x04000CE8 RID: 3304
-        private List<XMLNode> childs_;
+        private readonly List<XMLNode> childs_;
 
         // Token: 0x04000CE9 RID: 3305
         private string name;
@@ -335,7 +335,7 @@ namespace ctr_wp7.ios
         private NSString value;
 
         // Token: 0x04000CEB RID: 3307
-        private Dictionary<string, string> attributes_;
+        private readonly Dictionary<string, string> attributes_;
 
         // Token: 0x04000CEC RID: 3308
         private static RemoteDataManager_Java MGR_STORED;

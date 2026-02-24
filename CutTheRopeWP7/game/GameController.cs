@@ -785,7 +785,7 @@ namespace ctr_wp7.game
         private Text mapNameLabel;
 
         // Token: 0x04000D23 RID: 3363
-        private CTRTouchState[] touchAddressMap = new CTRTouchState[5];
+        private readonly CTRTouchState[] touchAddressMap = new CTRTouchState[5];
 
         // Token: 0x04000D24 RID: 3364
         private bool boxCloseHandled;

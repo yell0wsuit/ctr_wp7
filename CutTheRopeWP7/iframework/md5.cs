@@ -230,7 +230,7 @@ namespace ctr_wp7.iframework
         }
 
         // Token: 0x040008C4 RID: 2244
-        private static byte[] md5_padding;
+        private static readonly byte[] md5_padding;
 
         // Token: 0x02000064 RID: 100
         public sealed class md5_context

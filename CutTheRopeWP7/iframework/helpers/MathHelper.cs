@@ -621,10 +621,10 @@ namespace ctr_wp7.iframework.helpers
         private const int COHEN_TOP = 8;
 
         // Token: 0x040006C9 RID: 1737
-        private static Random random_ = new();
+        private static readonly Random random_ = new();
 
         // Token: 0x040006CA RID: 1738
-        private static long ARC4RANDOM_MAX = 4294967296L;
+        private static readonly long ARC4RANDOM_MAX = 4294967296L;
 
         // Token: 0x040006CB RID: 1739
         private static float[] fmSins;

@@ -470,10 +470,10 @@ namespace ctr_wp7.ctr_commons
         private static long prevTick;
 
         // Token: 0x04000C96 RID: 3222
-        private static long DELTA_NANOS = 18181818L;
+        private static readonly long DELTA_NANOS = 18181818L;
 
         // Token: 0x04000C97 RID: 3223
-        private static long DELTA_NANOS_THRES = (long)(DELTA_NANOS * 0.35);
+        private static readonly long DELTA_NANOS_THRES = (long)(DELTA_NANOS * 0.35);
 
         // Token: 0x04000C98 RID: 3224
         private static bool DRAW_NOTHING;
@@ -485,7 +485,7 @@ namespace ctr_wp7.ctr_commons
         private static bool gPaused;
 
         // Token: 0x04000C9B RID: 3227
-        private static long[] fpsDeltas = new long[10];
+        private static readonly long[] fpsDeltas = new long[10];
 
         // Token: 0x04000C9C RID: 3228
         private static int fpsDeltasPos;
@@ -496,6 +496,6 @@ namespace ctr_wp7.ctr_commons
         // Token: 0x04000C9E RID: 3230
         private static List<CTRTouchState> prevTouches = new(5);
         private static List<CTRTouchState> prevTouchesTemp = new(5);
-        private static List<CTRTouchState> currentTouches = new(5);
+        private static readonly List<CTRTouchState> currentTouches = new(5);
     }
 }

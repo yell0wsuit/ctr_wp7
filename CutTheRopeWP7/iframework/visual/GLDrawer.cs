@@ -432,10 +432,10 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x04000A25 RID: 2597
-        private static Dictionary<int, Vector[]> VectorArray = [];
+        private static readonly Dictionary<int, Vector[]> VectorArray = [];
 
         // Token: 0x04000A26 RID: 2598
-        private static RGBAColor[] colors =
+        private static readonly RGBAColor[] colors =
         [
             RGBAColor.transparentRGBA,
             RGBAColor.transparentRGBA,
@@ -448,6 +448,6 @@ namespace ctr_wp7.iframework.visual
         ];
 
         // Token: 0x04000A27 RID: 2599
-        private static float[] verts = new float[16];
+        private static readonly float[] verts = new float[16];
     }
 }

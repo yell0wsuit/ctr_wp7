@@ -195,44 +195,44 @@ internal sealed class CoppaController : ViewController, ButtonDelegate, Timeline
     private Rollbar roll;
 
     // Token: 0x04000BE1 RID: 3041
-    private static string COPPA_URL = "http://coppa.zeptodev.com/?";
+    private static readonly string COPPA_URL = "http://coppa.zeptodev.com/?";
 
     // Token: 0x04000BE2 RID: 3042
-    private static int speedAccelerator = 2;
+    private static readonly int speedAccelerator = 2;
 
     // Token: 0x04000BE3 RID: 3043
-    private static int blankSpaceTop = 2;
+    private static readonly int blankSpaceTop = 2;
 
     // Token: 0x04000BE4 RID: 3044
-    private static int blankSpaceBottom = 1;
+    private static readonly int blankSpaceBottom = 1;
 
     // Token: 0x04000BE5 RID: 3045
-    private static int minAge = 1;
+    private static readonly int minAge = 1;
 
     // Token: 0x04000BE6 RID: 3046
-    private static int maxAge = 99;
+    private static readonly int maxAge = 99;
 
     // Token: 0x04000BE7 RID: 3047
-    private static int defaultIdx = maxAge / 4;
+    private static readonly int defaultIdx = maxAge / 4;
 
     // Token: 0x04000BE8 RID: 3048
-    private static float friction = 5f;
+    private static readonly float friction = 5f;
 
     // Token: 0x04000BE9 RID: 3049
-    private static float minFriction = 0.7f;
+    private static readonly float minFriction = 0.7f;
 
     // Token: 0x04000BEA RID: 3050
-    private static float cellBounceSpeed = 3f;
+    private static readonly float cellBounceSpeed = 3f;
 
     // Token: 0x04000BEB RID: 3051
-    private static float boundReturnSpeed = 20f;
+    private static readonly float boundReturnSpeed = 20f;
 
     // Token: 0x04000BEC RID: 3052
-    private static int COPPA_VIEW_MAIN = 300;
+    private static readonly int COPPA_VIEW_MAIN = 300;
 
     // Token: 0x04000BED RID: 3053
-    private static int COPPA_BUTTON_OK;
+    private static readonly int COPPA_BUTTON_OK;
 
     // Token: 0x04000BEE RID: 3054
-    private static int COPPA_BUTTON_PRIVACY = 1;
+    private static readonly int COPPA_BUTTON_PRIVACY = 1;
 }

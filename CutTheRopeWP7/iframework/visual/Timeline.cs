@@ -227,7 +227,7 @@ namespace ctr_wp7.iframework.visual
         public LoopType timelineLoopType;
 
         // Token: 0x04000A1C RID: 2588
-        private Track[] tracks = new Track[5];
+        private readonly Track[] tracks = new Track[5];
 
         // Token: 0x020000AD RID: 173
         public enum TimelineState

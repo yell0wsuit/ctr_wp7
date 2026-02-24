@@ -220,10 +220,10 @@ namespace ctr_wp7.iframework
         public static float SCREEN_RATIO;
 
         // Token: 0x040006F1 RID: 1777
-        private static float PORTRAIT_SCREEN_WIDTH = 480f;
+        private static readonly float PORTRAIT_SCREEN_WIDTH = 480f;
 
         // Token: 0x040006F2 RID: 1778
-        private static float PORTRAIT_SCREEN_HEIGHT = 320f;
+        private static readonly float PORTRAIT_SCREEN_HEIGHT = 320f;
 
         // Token: 0x040006F3 RID: 1779
         public static bool IS_IPAD;

@@ -226,6 +226,6 @@ namespace ctr_wp7.ios
         }
 
         // Token: 0x04000B3D RID: 2877
-        private string value_;
+        private readonly string value_;
     }
 }
