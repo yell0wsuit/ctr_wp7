@@ -106,8 +106,8 @@ namespace ctr_wp7.iframework.visual
         private void updateSystemFontDrawerValues()
         {
             charsToDraw = new List<FontWP7.CharPosition>();
-            string_.length();
-            string_.getCharacters();
+            _ = string_.length();
+            _ = string_.getCharacters();
             float num = 0f;
             int num2 = (int)font.fontHeight();
             int num3 = 0;

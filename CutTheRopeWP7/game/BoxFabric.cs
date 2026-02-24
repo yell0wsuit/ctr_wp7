@@ -14,7 +14,7 @@ namespace ctr_wp7.game
         {
             buttonDelegate = d;
             int saveIndex = getSaveIndex(pbox);
-            Application.sharedPreferences();
+            _ = Application.sharedPreferences();
             BaseElement baseElement = (BaseElement)new BaseElement().init();
             baseElement.setName(NSS("boxContainer"));
             baseElement.anchor = (baseElement.parentAnchor = 9);
@@ -37,7 +37,7 @@ namespace ctr_wp7.game
                 timeline.addKeyFrame(KeyFrame.makeScale(0.95, 1.05, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.15));
                 timeline.addKeyFrame(KeyFrame.makeScale(1.05, 0.95, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.2));
                 timeline.addKeyFrame(KeyFrame.makeScale(1.0, 1.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.25));
-                baseElement.addTimeline(timeline);
+                _ = baseElement.addTimeline(timeline);
                 baseElement3 = buildGameBox(i, saveIndex, baseElement, touchBaseElement, c);
             }
             else if (pbox == 18)
@@ -66,10 +66,10 @@ namespace ctr_wp7.game
                 baseElement2 = (BaseElement)new BaseElement().init();
                 baseElement3 = buildVideoBox(buttonDelegate);
             }
-            baseElement2.addChild(baseElement);
+            _ = baseElement2.addChild(baseElement);
             if (baseElement3.parent == null)
             {
-                baseElement.addChild(baseElement3);
+                _ = baseElement.addChild(baseElement3);
             }
             if (isGameBox(pbox) || pbox == 18 || pbox == 19)
             {
@@ -217,7 +217,7 @@ namespace ctr_wp7.game
             timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 1.5));
             timeline.addKeyFrame(KeyFrame.makeScale(1.0, 1.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
             timeline.addKeyFrame(KeyFrame.makeScale(2.0, 2.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 1.5));
-            image.addTimeline(timeline);
+            _ = image.addTimeline(timeline);
             return image;
         }
 
@@ -265,8 +265,8 @@ namespace ctr_wp7.game
             image2.scaleY = -1f;
             image2.y = -1f;
             touchBaseElement.rotation = 5f;
-            touchBaseElement.addChild(image);
-            touchBaseElement.addChild(image2);
+            _ = touchBaseElement.addChild(image);
+            _ = touchBaseElement.addChild(image2);
             Text text = Text.createWithFontandString(5, Application.getString(1310837));
             text.anchor = (text.parentAnchor = 18);
             text.y = -2f;
@@ -276,7 +276,7 @@ namespace ctr_wp7.game
                 text.scaleX = (text.scaleY = 150f / (float)text.width);
             }
             text.setAlignment(2);
-            touchBaseElement.addChild(text);
+            _ = touchBaseElement.addChild(text);
             touchBaseElement.x = 40f;
             return touchBaseElement;
         }
@@ -288,17 +288,17 @@ namespace ctr_wp7.game
             BaseElement baseElement2 = null;
             float num = 25f;
             float num2 = 0f;
-            Application.sharedAppSettings().getString(8).isEqualToString("zh");
+            _ = Application.sharedAppSettings().getString(8).isEqualToString("zh");
             VBox vbox = new VBox().initWithOffsetAlignWidth(30.0, 2, (double)num2 + (double)(SCREEN_WIDTH_EXPANDED - num2) / 2.0 + (double)num);
             vbox.x = num;
             vbox.parentAnchor = (vbox.anchor = 10);
             if (baseElement != null)
             {
-                vbox.addChild(baseElement);
+                _ = vbox.addChild(baseElement);
             }
             if (baseElement2 != null)
             {
-                vbox.addChild(baseElement2);
+                _ = vbox.addChild(baseElement2);
             }
             return vbox;
         }

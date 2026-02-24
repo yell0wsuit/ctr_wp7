@@ -19,7 +19,7 @@ namespace ctr_wp7.game
                 skipAd = MenuController.createButtonWithTextIDDelegate(Application.getString(1310817), 0, this);
                 skipAd.anchor = (skipAd.parentAnchor = 34);
                 skipAd.setEnabled(false);
-                addChild(skipAd);
+                _ = addChild(skipAd);
                 visible = false;
                 anchor = (parentAnchor = 34);
             }

@@ -51,7 +51,7 @@ namespace ctr_wp7.remotedata.cartoons
                 injectAdditionalParameters(linkBuilder);
                 string text = linkBuilder.ToString();
                 HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(new Uri(text));
-                httpWebRequest.BeginGetResponse(delegate (IAsyncResult r)
+                _ = httpWebRequest.BeginGetResponse(delegate (IAsyncResult r)
                 {
                     try
                     {
@@ -146,7 +146,7 @@ namespace ctr_wp7.remotedata.cartoons
         // Token: 0x06000364 RID: 868 RVA: 0x000159B0 File Offset: 0x00013BB0
         protected void saveBlockConfig()
         {
-            saveObject(blockConfig, "BlockConfig");
+            _ = saveObject(blockConfig, "BlockConfig");
         }
 
         // Token: 0x06000365 RID: 869 RVA: 0x000159C4 File Offset: 0x00013BC4
@@ -204,17 +204,17 @@ namespace ctr_wp7.remotedata.cartoons
                 else if (localName == "episode" || localName == "adblock")
                 {
                     string text3 = null;
-                    atts.TryGetValue("id", out text3);
+                    _ = atts.TryGetValue("id", out text3);
                     string text4 = null;
-                    atts.TryGetValue("hash", out text4);
+                    _ = atts.TryGetValue("hash", out text4);
                     writeblock = parrent.blockConfig.getBlockWithIDandHash(text3, text4);
                     if (writeblock.hash == null)
                     {
                         writeblock.id = text3;
                         writeblock.hash = text4;
-                        atts.TryGetValue("number", out writeblock.number);
-                        atts.TryGetValue("url", out writeblock.url);
-                        atts.TryGetValue("image_id", out writeblock.image_id);
+                        _ = atts.TryGetValue("number", out writeblock.number);
+                        _ = atts.TryGetValue("url", out writeblock.url);
+                        _ = atts.TryGetValue("image_id", out writeblock.image_id);
                         if (writeblock.image_id == null || writeblock.image_id.Length == 0)
                         {
                             writeblock.loadState = Block.LoadState.NO_IMAGE;
@@ -299,7 +299,7 @@ namespace ctr_wp7.remotedata.cartoons
                     {
                         stringBuilder = new StringBuilder();
                     }
-                    stringBuilder.Append(ch);
+                    _ = stringBuilder.Append(ch);
                     writeblock.langs[currentlang] = stringBuilder.ToString();
                 }
             }

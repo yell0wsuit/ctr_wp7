@@ -72,7 +72,7 @@ namespace ctr_wp7.remotedata.cartoons
         public string getText()
         {
             string text = null;
-            langs.TryGetValue(Application.sharedAppSettings().getString(8).ToString(), ref text);
+            _ = langs.TryGetValue(Application.sharedAppSettings().getString(8).ToString(), ref text);
             if (text == null)
             {
                 return "";

@@ -31,7 +31,7 @@ namespace ctr_wp7.ctr_commons
                 lift.liftDelegate = new Lift.PercentXY(percentXY);
                 int num = 45;
                 lift.setTouchIncreaseLeftRightTopBottom((float)num, (float)num, -5f, 10f);
-                addChild(lift);
+                _ = addChild(lift);
                 spointsNum = 0;
                 spoints = null;
                 activeSpoint = 0;

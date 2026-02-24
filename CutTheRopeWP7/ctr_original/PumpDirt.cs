@@ -105,7 +105,7 @@ namespace ctr_wp7.ctr_original
                 emitCounter += delta;
                 while (particleCount < totalParticles && emitCounter > num)
                 {
-                    addParticle();
+                    _ = addParticle();
                     emitCounter -= num;
                 }
                 elapsed += delta;

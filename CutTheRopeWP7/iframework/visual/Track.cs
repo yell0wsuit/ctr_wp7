@@ -248,7 +248,7 @@ namespace ctr_wp7.iframework.visual
                         for (int i = 0; i < kf.value.action.actionSet.Count; i++)
                         {
                             Action action = kf.value.action.actionSet[i];
-                            action.actionTarget.handleAction(action.data);
+                            _ = action.actionTarget.handleAction(action.data);
                         }
                         return;
                     }

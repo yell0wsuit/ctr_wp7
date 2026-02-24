@@ -15,7 +15,7 @@ namespace ctr_wp7.game
         // Token: 0x0600071F RID: 1823 RVA: 0x000393FF File Offset: 0x000375FF
         public override NSObject initWithParent(ViewController p)
         {
-            base.initWithParent(p);
+            _ = base.initWithParent(p);
             return this;
         }
 

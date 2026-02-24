@@ -392,7 +392,7 @@ namespace ctr_wp7.ctr_original
                 xmls_ = dictionary;
             }
             string text;
-            xmls_.TryGetValue(resName, out text);
+            _ = xmls_.TryGetValue(resName, out text);
             return text;
         }
 

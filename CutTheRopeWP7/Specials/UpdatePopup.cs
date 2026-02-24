@@ -58,7 +58,7 @@ namespace ctr_wp7.Specials
             button2.anchor = 33;
             button2.parentAnchor = 9;
             button2.setTouchIncreaseLeftRightTopBottom(15f, 15f, 0f, 0f);
-            button.addChild(button2);
+            _ = button.addChild(button2);
             FontGeneric font = Application.getFont(5);
             float num = 300f;
             if (LANGUAGE == Language.LANG_KO)
@@ -77,17 +77,17 @@ namespace ctr_wp7.Specials
             }
             Image image = Image.Image_createWithResIDQuad(68, 0);
             image.anchor = (image.parentAnchor = 18);
-            updatePopup.addChild(image);
+            _ = updatePopup.addChild(image);
             text.anchor = (text.parentAnchor = 18);
-            image.addChild(text);
+            _ = image.addChild(text);
             button.y += -14f;
             button.anchor = 18;
             button.parentAnchor = 34;
-            image.addChild(button);
+            _ = image.addChild(button);
             updatePopup.showPopup();
             ViewController currentController = Application.sharedRootController().getCurrentController();
             View view = currentController.activeView();
-            view.addChild(updatePopup);
+            _ = view.addChild(updatePopup);
             if (flag)
             {
                 ((GameController)currentController).setPaused(true);

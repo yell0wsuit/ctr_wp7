@@ -30,8 +30,8 @@
                 b1.parentAnchor = (b2.parentAnchor = 9);
                 width = b1.width;
                 height = b1.height;
-                addChildwithID(b1, 0);
-                addChildwithID(b2, 1);
+                _ = addChildwithID(b1, 0);
+                _ = addChildwithID(b2, 1);
                 b2.setEnabled(false);
                 b1.delegateButtonDelegate = this;
                 b2.delegateButtonDelegate = this;

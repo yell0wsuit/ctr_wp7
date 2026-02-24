@@ -18,7 +18,7 @@ namespace ctr_wp7.game
             if (base.init() != null)
             {
                 result = (BaseElement)new BaseElement().init();
-                addChildwithID(result, 1);
+                _ = addChildwithID(result, 1);
                 anchor = (parentAnchor = 18);
                 result.anchor = (result.parentAnchor = 18);
                 result.setEnabled(false);
@@ -34,38 +34,38 @@ namespace ctr_wp7.game
                 image.anchor = 18;
                 image.setName("star1");
                 Image.setElementPositionWithQuadOffset(image, 97, 0);
-                result.addChild(image);
+                _ = result.addChild(image);
                 Image image2 = Image.Image_createWithResIDQuad(97, 14);
                 image2.anchor = 18;
                 image2.setName("star2");
                 Image.setElementPositionWithQuadOffset(image2, 97, 1);
-                result.addChild(image2);
+                _ = result.addChild(image2);
                 Image image3 = Image.Image_createWithResIDQuad(97, 14);
                 image3.anchor = 18;
                 image3.setName("star3");
                 Image.setElementPositionWithQuadOffset(image3, 97, 2);
-                result.addChild(image3);
+                _ = result.addChild(image3);
                 Text text = new Text().initWithFont(Application.getFont(5));
                 text.setString(Application.getString(1310737));
                 Image.setElementPositionWithQuadOffset(text, 97, 3);
                 text.anchor = 18;
                 text.setName("passText");
-                result.addChild(text);
+                _ = result.addChild(text);
                 Image image4 = Image.Image_createWithResIDQuad(97, 15);
                 image4.anchor = 18;
                 Image.setElementPositionWithQuadOffset(image4, 97, 4);
-                result.addChild(image4);
+                _ = result.addChild(image4);
                 stamp = Image.Image_createWithResIDQuad(99, 0);
                 Timeline timeline2 = new Timeline().initWithMaxKeyFramesOnTrack(7);
                 timeline2.addKeyFrame(KeyFrame.makeScale(3.0, 3.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
                 timeline2.addKeyFrame(KeyFrame.makeScale(1.0, 1.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.5));
                 timeline2.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
                 timeline2.addKeyFrame(KeyFrame.makeColor(RGBAColor.solidOpaqueRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.5));
-                stamp.addTimeline(timeline2);
+                _ = stamp.addTimeline(timeline2);
                 stamp.anchor = 18;
                 stamp.setEnabled(false);
                 Image.setElementPositionWithQuadOffset(stamp, 97, 12);
-                result.addChild(stamp);
+                _ = result.addChild(stamp);
                 Button button = MenuController.createShortButtonWithTextIDDelegate(Application.getString(1310749), 8, b);
                 button.anchor = 18;
                 button.setName("buttonWinRestart");
@@ -77,22 +77,22 @@ namespace ctr_wp7.game
                     button.getChild(1).getChild(0).scaleY = 0.9f;
                 }
                 Image.setElementPositionWithQuadOffset(button, 97, 11);
-                result.addChild(button);
+                _ = result.addChild(button);
                 Button button2 = MenuController.createShortButtonWithTextIDDelegate(Application.getString(1310750), 9, b);
                 button2.anchor = 18;
                 button2.setName("buttonWinNextLevel");
                 Image.setElementPositionWithQuadOffset(button2, 97, 10);
-                result.addChild(button2);
+                _ = result.addChild(button2);
                 Button button3 = MenuController.createShortButtonWithTextIDDelegate(Application.getString(1310751), 5, b);
                 button3.anchor = 18;
                 button3.setName("buttonWinExit");
                 Image.setElementPositionWithQuadOffset(button3, 97, 9);
-                result.addChild(button3);
+                _ = result.addChild(button3);
                 Text text2 = new Text().initWithFont(Application.getFont(6));
                 text2.setName("dataTitle");
                 text2.anchor = 18;
                 Image.setElementPositionWithQuadOffset(text2, 97, 5);
-                result.addChild(text2);
+                _ = result.addChild(text2);
                 Text text3 = new Text().initWithFont(Application.getFont(6));
                 text3.setName("dataValue");
                 text3.anchor = 18;
@@ -101,14 +101,14 @@ namespace ctr_wp7.game
                 {
                     text3.x += 20f;
                 }
-                result.addChild(text3);
+                _ = result.addChild(text3);
                 Text text4 = new Text().initWithFont(Application.getFont(98));
                 text4.setName("scoreValue");
                 text4.anchor = 18;
                 Image.setElementPositionWithQuadOffset(text4, 97, 8);
-                result.addChild(text4);
+                _ = result.addChild(text4);
                 confettiAnims = (BaseElement)new BaseElement().init();
-                result.addChild(confettiAnims);
+                _ = result.addChild(confettiAnims);
                 openCloseAnims = null;
                 boxAnim = -1;
             }
@@ -234,7 +234,7 @@ namespace ctr_wp7.game
             timeline.addKeyFrame(KeyFrame.makeScale(1.0, 1.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.3));
             timeline.addKeyFrame(KeyFrame.makeRotation(RND_RANGE(-360, 360), KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0f));
             timeline.addKeyFrame(KeyFrame.makeRotation(RND_RANGE(-360, 360), KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, num6));
-            confetti.addTimeline(timeline);
+            _ = confetti.addTimeline(timeline);
             confetti.playTimeline(1);
             return confetti;
         }
@@ -257,7 +257,7 @@ namespace ctr_wp7.game
         public virtual void createOpenCloseAnims()
         {
             openCloseAnims = (BaseElement)new BaseElement().init();
-            addChildwithID(openCloseAnims, 0);
+            _ = addChildwithID(openCloseAnims, 0);
             openCloseAnims.parentAnchor = (openCloseAnims.anchor = 18);
             openCloseAnims.scaleY = SCREEN_BG_SCALE_Y;
             openCloseAnims.scaleX = SCREEN_BG_SCALE_X;
@@ -269,7 +269,7 @@ namespace ctr_wp7.game
         {
             for (int i = 0; i < 70; i++)
             {
-                confettiAnims.addChild(createConfettiParticleNear(vectZero));
+                _ = confettiAnims.addChild(createConfettiParticleNear(vectZero));
             }
         }
 
@@ -452,7 +452,7 @@ namespace ctr_wp7.game
             }
             image.addTimelinewithID(timeline, 0);
             image.playTimeline(0);
-            openCloseAnims.addChild(image);
+            _ = openCloseAnims.addChild(image);
             Image image2 = Image.Image_createWithResIDQuad(num, 0);
             Image image3 = Image.Image_createWithResIDQuad(num, 0);
             image2.rotationCenterX = (float)(-(float)image2.width) / 2f;
@@ -557,7 +557,7 @@ namespace ctr_wp7.game
             }
             image6.addTimelinewithID(timeline, 0);
             image6.playTimeline(0);
-            openCloseAnims.addChild(image6);
+            _ = openCloseAnims.addChild(image6);
             timeline = new Timeline().initWithMaxKeyFramesOnTrack(2);
             if (open)
             {
@@ -575,13 +575,13 @@ namespace ctr_wp7.game
             }
             image7.addTimelinewithID(timeline, 0);
             image7.playTimeline(0);
-            openCloseAnims.addChild(image7);
-            openCloseAnims.addChild(image2);
-            openCloseAnims.addChild(image3);
+            _ = openCloseAnims.addChild(image7);
+            _ = openCloseAnims.addChild(image2);
+            _ = openCloseAnims.addChild(image3);
             if (boxAnim == 0)
             {
-                openCloseAnims.addChild(image4);
-                openCloseAnims.addChild(image5);
+                _ = openCloseAnims.addChild(image4);
+                _ = openCloseAnims.addChild(image5);
             }
         }
 

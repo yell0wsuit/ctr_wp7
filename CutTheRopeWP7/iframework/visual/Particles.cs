@@ -77,7 +77,7 @@ namespace ctr_wp7.iframework.visual
                 emitCounter += delta;
                 while (particleCount < totalParticles && emitCounter > num)
                 {
-                    addParticle();
+                    _ = addParticle();
                     emitCounter -= num;
                 }
                 elapsed += delta;
@@ -195,7 +195,7 @@ namespace ctr_wp7.iframework.visual
             particleCount = 0;
             while (particleCount < initialParticles)
             {
-                addParticle();
+                _ = addParticle();
             }
             active = true;
         }

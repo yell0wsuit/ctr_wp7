@@ -28,9 +28,9 @@ namespace ctr_wp7.game
             }
             loadingText.anchor = (loadingText.parentAnchor = 34);
             loadingText.visible = false;
-            addChildwithID(loadingText, 6);
+            _ = addChildwithID(loadingText, 6);
             skipAd = (AdSkipper)new AdSkipper().init();
-            addChildwithID(skipAd, 7);
+            _ = addChildwithID(skipAd, 7);
             return this;
         }
 

@@ -17,7 +17,7 @@ namespace ctr_wp7.iframework.core
             {
                 return null;
             }
-            _loadPreferences();
+            _ = _loadPreferences();
             initialised = true;
             return this;
         }
@@ -156,12 +156,12 @@ namespace ctr_wp7.iframework.core
             string text;
             if (dataStrings_.TryGetValue(k, out text))
             {
-                dataStrings_.Remove(k);
+                _ = dataStrings_.Remove(k);
             }
             int num;
             if (data_.TryGetValue(k, out num))
             {
-                data_.Remove(k);
+                _ = data_.Remove(k);
             }
             if (comit)
             {
@@ -183,7 +183,7 @@ namespace ctr_wp7.iframework.core
             }
             foreach (string text in list)
             {
-                dataStrings_.Remove(text);
+                _ = dataStrings_.Remove(text);
             }
             list.Clear();
             foreach (KeyValuePair<string, int> keyValuePair2 in data_)
@@ -196,7 +196,7 @@ namespace ctr_wp7.iframework.core
             }
             foreach (string text2 in list)
             {
-                data_.Remove(text2);
+                _ = data_.Remove(text2);
             }
             if (comit)
             {

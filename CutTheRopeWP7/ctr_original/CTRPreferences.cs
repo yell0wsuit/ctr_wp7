@@ -44,7 +44,7 @@ namespace ctr_wp7.ctr_original
                     int intForKey = getIntForKey("PREFS_VERSION");
                     if (intForKey < 1)
                     {
-                        getTotalScore();
+                        _ = getTotalScore();
                         int j = 0;
                         int packsCount2 = getPacksCount();
                         while (j < packsCount2)

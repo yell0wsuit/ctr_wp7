@@ -20,7 +20,7 @@ namespace ctr_wp7.game
                 backCloud2.y = y + num * (float)Math.Sin((double)DEGREES_TO_RADIANS((float)(170.0 + an)));
                 backCloud2.anchor = 18;
                 backCloud2.visible = false;
-                addChild(backCloud2);
+                _ = addChild(backCloud2);
                 Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(5);
                 timeline.setTimelineLoopType(Timeline.LoopType.TIMELINE_REPLAY);
                 timeline.addKeyFrame(KeyFrame.makeScale(0.699999988079071, 0.699999988079071, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
@@ -41,7 +41,7 @@ namespace ctr_wp7.game
                 backCloud.y = y + num2 * (float)Math.Sin((double)DEGREES_TO_RADIANS((float)(10.0 + an)));
                 backCloud.anchor = 18;
                 backCloud.visible = false;
-                addChild(backCloud);
+                _ = addChild(backCloud);
                 Timeline timeline2 = new Timeline().initWithMaxKeyFramesOnTrack(5);
                 timeline2.setTimelineLoopType(Timeline.LoopType.TIMELINE_REPLAY);
                 timeline2.addKeyFrame(KeyFrame.makeScale(0.8999999761581421, 0.8999999761581421, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
@@ -61,7 +61,7 @@ namespace ctr_wp7.game
                 image.y = y + 20f;
                 image.anchor = 18;
                 image.doRestoreCutTransparency();
-                addChild(image);
+                _ = addChild(image);
                 Timeline timeline3 = new Timeline().initWithMaxKeyFramesOnTrack(5);
                 timeline3.setTimelineLoopType(Timeline.LoopType.TIMELINE_REPLAY);
                 timeline3.addKeyFrame(KeyFrame.makeScale(1.100000023841858, 1.100000023841858, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
@@ -81,7 +81,7 @@ namespace ctr_wp7.game
                 image2.y = y + 20f;
                 image2.anchor = 18;
                 image2.doRestoreCutTransparency();
-                addChild(image2);
+                _ = addChild(image2);
                 Timeline timeline4 = new Timeline().initWithMaxKeyFramesOnTrack(5);
                 timeline4.setTimelineLoopType(Timeline.LoopType.TIMELINE_REPLAY);
                 timeline4.addKeyFrame(KeyFrame.makeScale(1.100000023841858, 1.100000023841858, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));

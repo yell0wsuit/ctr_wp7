@@ -20,7 +20,7 @@ namespace ctr_wp7.game
                 image.y = y + 2f;
                 image.anchor = 18;
                 image.doRestoreCutTransparency();
-                addChild(image);
+                _ = addChild(image);
                 Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(5);
                 timeline.setTimelineLoopType(Timeline.LoopType.TIMELINE_REPLAY);
                 timeline.addKeyFrame(KeyFrame.makeScale(0.4300000071525574, 0.4300000071525574, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
@@ -40,7 +40,7 @@ namespace ctr_wp7.game
                 image2.y = y + 8f;
                 image2.anchor = 18;
                 image2.doRestoreCutTransparency();
-                addChild(image2);
+                _ = addChild(image2);
                 Timeline timeline2 = new Timeline().initWithMaxKeyFramesOnTrack(5);
                 timeline2.setTimelineLoopType(Timeline.LoopType.TIMELINE_REPLAY);
                 timeline2.addKeyFrame(KeyFrame.makeScale(0.8999999761581421, 0.8999999761581421, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
@@ -60,7 +60,7 @@ namespace ctr_wp7.game
                 image3.y = y + 15f;
                 image3.anchor = 18;
                 image3.doRestoreCutTransparency();
-                addChild(image3);
+                _ = addChild(image3);
                 Timeline timeline3 = new Timeline().initWithMaxKeyFramesOnTrack(5);
                 timeline3.setTimelineLoopType(Timeline.LoopType.TIMELINE_REPLAY);
                 timeline3.addKeyFrame(KeyFrame.makeScale(1.100000023841858, 1.100000023841858, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));

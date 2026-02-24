@@ -78,7 +78,7 @@ namespace ctr_wp7.game
         // Token: 0x06000429 RID: 1065 RVA: 0x0001D314 File Offset: 0x0001B514
         public override void activate()
         {
-            CTRPreferences.isFirstLaunch();
+            _ = CTRPreferences.isFirstLaunch();
             base.activate();
             activateChild(0);
             Application.sharedCanvas().beforeRender();

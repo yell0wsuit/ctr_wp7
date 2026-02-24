@@ -66,7 +66,7 @@ namespace ctr_wp7.Banner
             string osversion = SystemInfo.getOSVersion();
             string appVersion = SystemInfo.getAppVersion();
             string text = deviceParams.getTimeZoneOffset().ToString();
-            SystemInfo.getNetworkType().ToString();
+            _ = SystemInfo.getNetworkType().ToString();
             string phoneModel = SystemInfo.getPhoneModel();
             string text2 = Application.sharedAppSettings().getString(8).ToString();
             string appMarket = SystemInfo.getAppMarket();
@@ -419,7 +419,7 @@ namespace ctr_wp7.Banner
                 {
                     return banner;
                 }
-                banners.Remove(currentBannerID);
+                _ = banners.Remove(currentBannerID);
                 config.removeBanner(currentBannerID);
             }
             return null;

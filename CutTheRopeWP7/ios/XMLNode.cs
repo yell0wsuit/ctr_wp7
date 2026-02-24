@@ -166,7 +166,7 @@ namespace ctr_wp7.ios
                 {
                     xmlnode.attributes_.Add(textReader.Name, textReader.Value);
                 }
-                textReader.MoveToElement();
+                _ = textReader.MoveToElement();
             }
             bool flag = false;
             try
@@ -180,7 +180,7 @@ namespace ctr_wp7.ios
                 goto IL_00A5;
             }
         IL_009D:
-            ReadNode(textReader, xmlnode);
+            _ = ReadNode(textReader, xmlnode);
         IL_00A5:
             if ((!flag && !textReader.Read()) || textReader.Depth <= xmlnode.depth)
             {
@@ -224,7 +224,7 @@ namespace ctr_wp7.ios
             IEnumerable<XElement> enumerable2 = nodeLinq.Elements();
             foreach (XElement xelement in enumerable2)
             {
-                ReadNodeLINQ(xelement, xmlnode);
+                _ = ReadNodeLINQ(xelement, xmlnode);
             }
             return xmlnode;
         }
@@ -321,7 +321,7 @@ namespace ctr_wp7.ios
         {
             MGR_STORED = MGR;
             WebRequest webRequest = WebRequest.Create(URL);
-            webRequest.BeginGetResponse(new AsyncCallback(Response_Completed), webRequest);
+            _ = webRequest.BeginGetResponse(new AsyncCallback(Response_Completed), webRequest);
         }
 
         // Token: 0x06000772 RID: 1906 RVA: 0x0003B668 File Offset: 0x00039868
@@ -336,7 +336,7 @@ namespace ctr_wp7.ios
                 xdocument = XDocument.Load(responseStream);
                 responseStream.Dispose();
                 IEnumerable<XElement> enumerable = xdocument.Elements();
-                MGR_STORED.XMLDownloadFinished(ReadNodeLINQ(Enumerable.First<XElement>(enumerable), null));
+                _ = MGR_STORED.XMLDownloadFinished(ReadNodeLINQ(Enumerable.First<XElement>(enumerable), null));
             }
             catch (WebException)
             {

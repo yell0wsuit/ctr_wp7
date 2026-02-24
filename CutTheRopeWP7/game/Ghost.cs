@@ -25,11 +25,11 @@ namespace ctr_wp7.game
                 x = position.x;
                 y = position.y;
                 ghostImage = (BaseElement)new BaseElement().init();
-                addChild(ghostImage);
+                _ = addChild(ghostImage);
                 morphingBubbles = (GhostMorphingParticles)new GhostMorphingParticles().initWithTotalParticles(7);
                 morphingBubbles.x = position.x;
                 morphingBubbles.y = position.y;
-                addChild(morphingBubbles);
+                _ = addChild(morphingBubbles);
                 Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(2);
                 timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
                 timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.solidOpaqueRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.36f));
@@ -44,7 +44,7 @@ namespace ctr_wp7.game
                 ghostImageBody.y = position.y;
                 ghostImageBody.anchor = 18;
                 ghostImageBody.doRestoreCutTransparency();
-                ghostImage.addChild(ghostImageBody);
+                _ = ghostImage.addChild(ghostImageBody);
                 float rnd_0_ = RND_0_1;
                 Timeline timeline3 = new Timeline().initWithMaxKeyFramesOnTrack(2);
                 timeline3.addKeyFrame(KeyFrame.makePos((double)x, (double)y, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
@@ -57,7 +57,7 @@ namespace ctr_wp7.game
                 ghostImageFace.y = position.y;
                 ghostImageFace.anchor = 18;
                 ghostImageFace.doRestoreCutTransparency();
-                ghostImage.addChild(ghostImageFace);
+                _ = ghostImage.addChild(ghostImageFace);
                 Timeline timeline4 = new Timeline().initWithMaxKeyFramesOnTrack(2);
                 timeline4.addKeyFrame(KeyFrame.makePos((double)x, (double)y, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
                 timeline4.addKeyFrame(KeyFrame.makePos((double)x, (double)y - 2.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, (double)rnd_0_ + 0.005));
@@ -92,18 +92,18 @@ namespace ctr_wp7.game
         {
             if (bubble != null && bubble.getCurrentTimelineIndex() == 11 && bubble.getCurrentTimeline().state == Timeline.TimelineState.TIMELINE_STOPPED)
             {
-                gsBubbles.Remove(bubble);
+                _ = gsBubbles.Remove(bubble);
                 bubble = null;
             }
             if (bouncer != null && bouncer.getCurrentTimelineIndex() == 11 && bouncer.getCurrentTimeline().state == Timeline.TimelineState.TIMELINE_STOPPED)
             {
-                gsBouncers.Remove(bouncer);
+                _ = gsBouncers.Remove(bouncer);
                 bouncer = null;
             }
             if (grab != null && grab.getCurrentTimelineIndex() == 11 && grab.getCurrentTimeline().state == Timeline.TimelineState.TIMELINE_STOPPED)
             {
                 grab.destroyRope();
-                gsBungees.Remove(grab);
+                _ = gsBungees.Remove(grab);
                 grab = null;
             }
             base.update(delta);
@@ -130,7 +130,7 @@ namespace ctr_wp7.game
             {
                 if (bubble.getCurrentTimelineIndex() == 11)
                 {
-                    gsBubbles.Remove(bubble);
+                    _ = gsBubbles.Remove(bubble);
                     bubble = null;
                 }
                 else
@@ -155,7 +155,7 @@ namespace ctr_wp7.game
                 if (grab.getCurrentTimelineIndex() == 11)
                 {
                     grab.destroyRope();
-                    gsBungees.Remove(grab);
+                    _ = gsBungees.Remove(grab);
                     grab = null;
                 }
                 else
@@ -168,7 +168,7 @@ namespace ctr_wp7.game
             {
                 if (bouncer.getCurrentTimelineIndex() == 11)
                 {
-                    gsBouncers.Remove(bouncer);
+                    _ = gsBouncers.Remove(bouncer);
                     bouncer = null;
                 }
                 else
@@ -202,7 +202,7 @@ namespace ctr_wp7.game
                         Image image = Image.Image_createWithResIDQuad(124, 0);
                         image.doRestoreCutTransparency();
                         image.parentAnchor = (image.anchor = 18);
-                        ghostBubble.addChild(image);
+                        _ = ghostBubble.addChild(image);
                         bubble = ghostBubble;
                         gsBubbles.Add(ghostBubble);
                         ghostBubble.passColorToChilds = true;

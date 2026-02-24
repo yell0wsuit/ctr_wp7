@@ -73,7 +73,7 @@ namespace ctr_wp7.Banner
                     vector = vectSub(vector, quadOffset);
                     button.x = vector.x;
                     button.y = vector.y;
-                    image.addChild(button);
+                    _ = image.addChild(button);
                 }
                 return image;
             }

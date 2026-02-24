@@ -33,7 +33,7 @@ namespace ctr_wp7.game
                     text.setStringandWidth(Application.getString(1310752), 300.0);
                 }
                 text.anchor = (text.parentAnchor = 18);
-                loadingView.addChild(text);
+                _ = loadingView.addChild(text);
             }
             return this;
         }

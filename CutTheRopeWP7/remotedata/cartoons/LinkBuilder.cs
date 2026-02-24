@@ -23,15 +23,15 @@ namespace ctr_wp7.remotedata.cartoons
             }
             else
             {
-                link.Append("&");
+                _ = link.Append('&');
             }
-            link.Append(key);
-            link.Append("=");
+            _ = link.Append(key);
+            _ = link.Append('=');
             if (value is string)
             {
                 value = HTMLEncoder.encode((string)value);
             }
-            link.Append(value);
+            _ = link.Append(value);
         }
 
         // Token: 0x0600048B RID: 1163 RVA: 0x00020C57 File Offset: 0x0001EE57

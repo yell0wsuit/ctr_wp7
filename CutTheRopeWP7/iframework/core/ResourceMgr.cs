@@ -15,7 +15,7 @@ namespace ctr_wp7.iframework.core
         public virtual bool hasResource(int resID)
         {
             NSObject nsobject = null;
-            s_Resources.TryGetValue(resID, out nsobject);
+            _ = s_Resources.TryGetValue(resID, out nsobject);
             return nsobject != null;
         }
 
@@ -50,7 +50,7 @@ namespace ctr_wp7.iframework.core
                     break;
                 case ResourceType.FONT:
                     nsobject = loadVariableFontInfo(text, resID, flag);
-                    s_Resources.Remove(resID);
+                    _ = s_Resources.Remove(resID);
                     break;
                 case ResourceType.SOUND:
                     nsobject = loadSoundInfo(text);
@@ -478,15 +478,15 @@ namespace ctr_wp7.iframework.core
                 }
                 if (isSound(resId))
                 {
-                    Application.sharedSoundMgr().getSound(resId);
+                    _ = Application.sharedSoundMgr().getSound(resId);
                     return;
                 }
                 if (isFont(resId))
                 {
-                    Application.getFont(resId);
+                    _ = Application.getFont(resId);
                     return;
                 }
-                Application.getTexture(resId);
+                _ = Application.getTexture(resId);
             }
         }
 
@@ -514,7 +514,7 @@ namespace ctr_wp7.iframework.core
                 {
                     nsobject.dealloc();
                 }
-                s_Resources.Remove(resId);
+                _ = s_Resources.Remove(resId);
             }
         }
 

@@ -32,7 +32,7 @@ namespace ctr_wp7.iframework.sfe
         public virtual void addConstraintwithRestLengthofType(ConstraintedPoint c, float r, Constraint.CONSTRAINT t)
         {
             Constraint constraint = new Constraint();
-            constraint.init();
+            _ = constraint.init();
             constraint.cp = c;
             constraint.restLength = r;
             constraint.type = t;

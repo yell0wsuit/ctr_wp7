@@ -26,10 +26,10 @@ namespace ctr_wp7.game
                 parentAnchor = 18;
                 anchor = 18;
                 fadeElement = (Processing)new Processing().initWithLoading(false);
-                addChild(fadeElement);
+                _ = addChild(fadeElement);
                 promoBanner = createMainBanner();
                 checkSwitchButtons();
-                addChild(promoBanner);
+                _ = addChild(promoBanner);
                 if (CTRPreferences.shouldShowPromo())
                 {
                     CTRPreferences.disablePromoBanner();
@@ -72,44 +72,44 @@ namespace ctr_wp7.game
             baseElement.setName("container");
             baseElement.parentAnchor = (baseElement.anchor = 10);
             BaseElement baseElement2 = createBanner();
-            baseElement.addChild(baseElement2);
+            _ = baseElement.addChild(baseElement2);
             RectangleElement rectangleElement = (RectangleElement)new RectangleElement().init();
             rectangleElement.width = (int)SCREEN_WIDTH_EXPANDED;
             rectangleElement.height = 100;
             rectangleElement.parentAnchor = 10;
             rectangleElement.anchor = 34;
             rectangleElement.color = RGBAColor.blackRGBA;
-            baseElement.addChild(rectangleElement);
+            _ = baseElement.addChild(rectangleElement);
             Image image = Image.Image_createWithResIDQuad(77, 3);
             Image.setElementPositionWithQuadOffset(image, 77, 3);
             image.parentAnchor = 9;
-            baseElement.addChild(image);
+            _ = baseElement.addChild(image);
             Text text = Text.createWithFontandString(5, Application.getString(1310733));
             text.parentAnchor = (text.anchor = 17);
             text.x = 10f;
             text.y = 2f;
-            image.addChild(text);
+            _ = image.addChild(text);
             Button button = MenuController.createButtonWithImageQuadIDDelegate(77, 4, 1, this);
             button.parentAnchor = (button.anchor = 9);
             Image.setElementPositionWithQuadCenter(button, 77, 4);
-            image.addChild(button);
+            _ = image.addChild(button);
             Image image2 = Image.Image_createWithResIDQuad(77, 2);
             image2.parentAnchor = 9;
             Image.setElementPositionWithQuadOffset(image2, 77, 2);
             image2.y -= 1f;
             image2.scaleX = 1.01f;
-            baseElement.addChild(image2);
+            _ = baseElement.addChild(image2);
             Button button2 = MenuController.createButtonWithImageQuadIDDelegate(77, 5, 3, this);
             button2.parentAnchor = (button2.anchor = 9);
             Image.setElementPositionWithQuadCenter(button2, 77, 5);
             button2.setName("promoSwitchRightButton");
-            baseElement.addChild(button2);
+            _ = baseElement.addChild(button2);
             Button button3 = MenuController.createButtonWithImageQuadIDDelegate(77, 5, 2, this);
             button3.parentAnchor = (button3.anchor = 9);
             button3.scaleX = -1f;
             Image.setElementPositionWithQuadCenter(button3, 77, 10);
             button3.setName("promoSwitchLeftButton");
-            baseElement.addChild(button3);
+            _ = baseElement.addChild(button3);
             Vector quadCenter = Image.getQuadCenter(77, 8);
             Vector quadCenter2 = Image.getQuadCenter(77, 9);
             quadCenter2.y += (float)banner_OFFSET;
@@ -135,11 +135,11 @@ namespace ctr_wp7.game
             bungeeDrawer.delegateButtonDelegate = this;
             bungeeDrawer.bid = 1;
             bungeeDrawer.fadeElement = fadeElement;
-            baseElement.addChild(bungeeDrawer);
+            _ = baseElement.addChild(bungeeDrawer);
             hookButton = Image.Image_createWithResIDQuad(77, 1);
             hookButton.anchor = 10;
             hookButton.passTransformationsToChilds = false;
-            bungeeDrawer.addChild(hookButton);
+            _ = bungeeDrawer.addChild(hookButton);
             hookButton.x = hook.pos.x;
             hookButton.y = hook.pos.y - 5f;
             hookButton.rotationCenterY = (float)(-(float)hookButton.height / 2 + 5);
@@ -150,18 +150,18 @@ namespace ctr_wp7.game
             timeline.addKeyFrame(KeyFrame.makePos(0, banner_OFFSET, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0f));
             timeline.addKeyFrame(KeyFrame.makePos(0.0, (double)banner_OFFSET, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.1));
             timeline.addKeyFrame(KeyFrame.makePos(0.0, 0.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.3));
-            baseElement.addTimeline(timeline);
+            _ = baseElement.addTimeline(timeline);
             Timeline timeline2 = new Timeline().initWithMaxKeyFramesOnTrack(2);
             timeline2.addKeyFrame(KeyFrame.makePos(0, 0, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0f));
             timeline2.addKeyFrame(KeyFrame.makePos(0.0, (double)banner_OFFSET, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.3));
-            baseElement.addTimeline(timeline2);
+            _ = baseElement.addTimeline(timeline2);
             baseElement.y = (float)banner_OFFSET;
             arrowContainer = (BaseElement)new BaseElement().init();
             arrowContainer.parentAnchor = 34;
             arrowContainer.anchor = 10;
-            hookButton.addChild(arrowContainer);
+            _ = hookButton.addChild(arrowContainer);
             Timeline timeline3 = new Timeline().initWithMaxKeyFramesOnTrack(6);
-            arrowContainer.addTimeline(timeline3);
+            _ = arrowContainer.addTimeline(timeline3);
             timeline3.setTimelineLoopType(Timeline.LoopType.TIMELINE_REPLAY);
             timeline3.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0f));
             timeline3.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 6.3));
@@ -172,9 +172,9 @@ namespace ctr_wp7.game
             arrowContainer.playTimeline(0);
             Image image3 = Image.Image_createWithResIDQuad(77, 0);
             image3.parentAnchor = (image3.anchor = 10);
-            arrowContainer.addChild(image3);
+            _ = arrowContainer.addChild(image3);
             Timeline timeline4 = new Timeline().initWithMaxKeyFramesOnTrack(5);
-            image3.addTimeline(timeline4);
+            _ = image3.addTimeline(timeline4);
             timeline4.addKeyFrame(KeyFrame.makePos((double)image3.x, (double)image3.y, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.0));
             timeline4.addKeyFrame(KeyFrame.makePos((double)image3.x, (double)(image3.y + 25f), KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.45));
             timeline4.addKeyFrame(KeyFrame.makePos((double)image3.x, (double)image3.y, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.45));
@@ -287,7 +287,7 @@ namespace ctr_wp7.game
             BaseElement childWithName = getChildWithName("container");
             BaseElement childWithName2 = childWithName.getChildWithName("banner");
             childWithName.removeChild(childWithName2);
-            childWithName.addChild(baseElement);
+            _ = childWithName.addChild(baseElement);
         }
 
         // Token: 0x06000632 RID: 1586 RVA: 0x0002F960 File Offset: 0x0002DB60
@@ -301,7 +301,7 @@ namespace ctr_wp7.game
         // Token: 0x06000633 RID: 1587 RVA: 0x0002F9B8 File Offset: 0x0002DBB8
         public void reset()
         {
-            promoBanner.onTouchUpXY(-1000f, -1000f);
+            _ = promoBanner.onTouchUpXY(-1000f, -1000f);
         }
 
         // Token: 0x04000B84 RID: 2948

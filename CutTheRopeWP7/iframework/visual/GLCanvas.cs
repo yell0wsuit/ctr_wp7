@@ -11,7 +11,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060000C6 RID: 198 RVA: 0x0000702B File Offset: 0x0000522B
         public virtual GLCanvas initWithFrame(Rectangle frame)
         {
-            base.init();
+            _ = base.init();
             return this;
         }
 
@@ -19,7 +19,7 @@ namespace ctr_wp7.iframework.visual
         public virtual void show()
         {
             destroyFramebuffer();
-            createFramebuffer();
+            _ = createFramebuffer();
         }
 
         // Token: 0x060000C8 RID: 200 RVA: 0x00007044 File Offset: 0x00005244
@@ -112,7 +112,7 @@ namespace ctr_wp7.iframework.visual
         {
             if (touchDelegate != null)
             {
-                touchDelegate.touchesBeganwithEvent(touches);
+                _ = touchDelegate.touchesBeganwithEvent(touches);
             }
         }
 
@@ -121,7 +121,7 @@ namespace ctr_wp7.iframework.visual
         {
             if (touchDelegate != null)
             {
-                touchDelegate.touchesMovedwithEvent(touches);
+                _ = touchDelegate.touchesMovedwithEvent(touches);
             }
         }
 
@@ -130,7 +130,7 @@ namespace ctr_wp7.iframework.visual
         {
             if (touchDelegate != null)
             {
-                touchDelegate.touchesEndedwithEvent(touches);
+                _ = touchDelegate.touchesEndedwithEvent(touches);
             }
         }
 
@@ -139,7 +139,7 @@ namespace ctr_wp7.iframework.visual
         {
             if (touchDelegate != null)
             {
-                touchDelegate.touchesCancelledwithEvent(touches);
+                _ = touchDelegate.touchesCancelledwithEvent(touches);
             }
         }
 

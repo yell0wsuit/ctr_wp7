@@ -8,7 +8,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x0600026F RID: 623 RVA: 0x0000FD1A File Offset: 0x0000DF1A
         public override NSObject init()
         {
-            base.init();
+            _ = base.init();
             return this;
         }
 

@@ -12,7 +12,7 @@ namespace ctr_wp7.ctr_original
         // Token: 0x0600053C RID: 1340 RVA: 0x0002644D File Offset: 0x0002464D
         public override NSObject init()
         {
-            base.init();
+            _ = base.init();
             return this;
         }
 
@@ -1707,7 +1707,7 @@ namespace ctr_wp7.ctr_original
                 resNames_ = dictionary;
             }
             string text = null;
-            resNames_.TryGetValue(handleLocalizedResource(handleWvgaResource(resId)), out text);
+            _ = resNames_.TryGetValue(handleLocalizedResource(handleWvgaResource(resId)), out text);
             return text;
         }
 

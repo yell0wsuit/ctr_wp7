@@ -44,7 +44,7 @@ namespace ctr_wp7.game
         {
             if ((double)timeout > 0.0 && (double)time > 0.0)
             {
-                Mover.moveVariableToTarget(ref time, 0f, 1f, delta);
+                _ = Mover.moveVariableToTarget(ref time, 0f, 1f, delta);
             }
             base.update(delta);
         }
@@ -71,7 +71,7 @@ namespace ctr_wp7.game
                 timedAnim.playTimeline(0);
                 time = timeout;
                 timedAnim.visible = false;
-                addChild(timedAnim);
+                _ = addChild(timedAnim);
                 Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(2);
                 timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.solidOpaqueRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
                 timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.5));
@@ -96,11 +96,11 @@ namespace ctr_wp7.game
             Timeline.updateTimeline(timeline3, (float)((double)RND_RANGE(0, 20) / 10.0));
             Animation animation = Animation_createWithResID(127);
             animation.doRestoreCutTransparency();
-            animation.addAnimationDelayLoopFirstLast(0.05f, Timeline.LoopType.TIMELINE_REPLAY, 1, 18);
+            _ = animation.addAnimationDelayLoopFirstLast(0.05f, Timeline.LoopType.TIMELINE_REPLAY, 1, 18);
             animation.playTimeline(0);
             Timeline.updateTimeline(animation.getTimeline(0), (float)((double)RND_RANGE(0, 20) / 10.0));
             animation.anchor = (animation.parentAnchor = 18);
-            addChild(animation);
+            _ = addChild(animation);
         }
 
         // Token: 0x0400094E RID: 2382

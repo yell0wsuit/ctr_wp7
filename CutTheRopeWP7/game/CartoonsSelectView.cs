@@ -27,12 +27,12 @@ namespace ctr_wp7.game
                 Image image = Image.Image_createWithResIDQuad(403, 11);
                 image.anchor = 18;
                 image.parentAnchor = 10;
-                baseElement.addChild(image);
+                _ = baseElement.addChild(image);
                 Image image2 = Image.Image_createWithResIDQuad(403, 11);
                 image2.scaleY = -1f;
                 image2.anchor = 18;
                 image2.parentAnchor = 34;
-                baseElement.addChild(image2);
+                _ = baseElement.addChild(image2);
                 box = new VBox().initWithOffsetAlignWidth(num2, 2, SCREEN_WIDTH);
                 buildBlocks();
                 float num3 = 3f;
@@ -42,25 +42,25 @@ namespace ctr_wp7.game
                 scrollableContainer.untouchChildsOnMove = true;
                 scrollableContainer.anchor = (scrollableContainer.parentAnchor = 10);
                 scrollableContainer.y = -num3;
-                baseElement.addChild(scrollableContainer);
+                _ = baseElement.addChild(scrollableContainer);
                 Image image3 = Image.Image_createWithResIDQuad(403, 12);
                 image3.anchor = 18;
                 image3.parentAnchor = 10;
-                baseElement.addChild(image3);
+                _ = baseElement.addChild(image3);
                 Image image4 = Image.Image_createWithResIDQuad(403, 12);
                 image4.anchor = 18;
                 image4.parentAnchor = 34;
                 image4.scaleY = -1f;
-                baseElement.addChild(image4);
+                _ = baseElement.addChild(image4);
                 int num4 = 48;
                 Button button = MenuController.createBackButtonWithDelegateID(buttonDelegate, num4);
-                background.addChild(button);
+                _ = background.addChild(button);
                 if (LANGUAGE != Language.LANG_ZH)
                 {
-                    Application.sharedPreferences().remoteDataManager.getHideSocialNetworks();
+                    _ = Application.sharedPreferences().remoteDataManager.getHideSocialNetworks();
                 }
-                background.addChild(baseElement);
-                addChild(background);
+                _ = background.addChild(baseElement);
+                _ = addChild(background);
                 curtain = (RectangleElement)new RectangleElement().init();
                 curtain.anchor = (curtain.parentAnchor = 9);
                 curtain.x = -SCREEN_OFFSET_X;
@@ -69,7 +69,7 @@ namespace ctr_wp7.game
                 curtain.height = (int)SCREEN_HEIGHT_EXPANDED;
                 curtain.color = RGBAColor.blackRGBA;
                 curtain.setEnabled(false);
-                addChild(curtain);
+                _ = addChild(curtain);
             }
             return this;
         }
@@ -78,7 +78,7 @@ namespace ctr_wp7.game
         public virtual void buildBlocks()
         {
             BaseElement baseElement = (BaseElement)new BaseElement().init();
-            box.addChild(baseElement);
+            _ = box.addChild(baseElement);
             BlockConfig blockConfig = VideoDataManager.getBlockConfig();
             int totalBlocks = blockConfig.getTotalBlocks();
             if (totalBlocks > 0)
@@ -86,16 +86,16 @@ namespace ctr_wp7.game
                 for (int i = 0; i < totalBlocks; i++)
                 {
                     Button button = ButtonBlock.createWithIDDelegateBlock(4000 + i, buttonDelegate, blockConfig.getBlock(i));
-                    box.addChild(button);
+                    _ = box.addChild(button);
                 }
             }
             else
             {
                 Button button2 = ButtonBlock.createWithIDDelegateBlock(4000, buttonDelegate, blockConfig.getBlock(-1));
-                box.addChild(button2);
+                _ = box.addChild(button2);
             }
             BaseElement baseElement2 = (BaseElement)new BaseElement().init();
-            box.addChild(baseElement2);
+            _ = box.addChild(baseElement2);
         }
 
         // Token: 0x06000121 RID: 289 RVA: 0x0000A07C File Offset: 0x0000827C

@@ -27,7 +27,7 @@ namespace ctr_wp7.Specials
                 lift.anchor = 18;
                 lift.maxY = (float)height;
                 lift.liftDelegate = new Lift.PercentXY(percentXY);
-                addChild(lift);
+                _ = addChild(lift);
             }
             return this;
         }

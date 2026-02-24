@@ -37,8 +37,8 @@ namespace ctr_wp7.iframework.visual
             if (initWithID(n) != null)
             {
                 up.parentAnchor = (down.parentAnchor = 9);
-                addChildwithID(up, 0);
-                addChildwithID(down, 1);
+                _ = addChildwithID(up, 0);
+                _ = addChildwithID(down, 1);
                 setState(BUTTON_STATE.BUTTON_UP);
             }
             return this;
@@ -89,7 +89,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060002A2 RID: 674 RVA: 0x00010C00 File Offset: 0x0000EE00
         public override bool onTouchDownXY(float tx, float ty)
         {
-            base.onTouchDownXY(tx, ty);
+            _ = base.onTouchDownXY(tx, ty);
             if (state == BUTTON_STATE.BUTTON_UP && isInTouchZoneXYforTouchDown(tx, ty, true))
             {
                 setState(BUTTON_STATE.BUTTON_DOWN);
@@ -101,7 +101,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060002A3 RID: 675 RVA: 0x00010C28 File Offset: 0x0000EE28
         public override bool onTouchUpXY(float tx, float ty)
         {
-            base.onTouchUpXY(tx, ty);
+            _ = base.onTouchUpXY(tx, ty);
             if (state == BUTTON_STATE.BUTTON_DOWN)
             {
                 setState(BUTTON_STATE.BUTTON_UP);
@@ -120,7 +120,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060002A4 RID: 676 RVA: 0x00010C75 File Offset: 0x0000EE75
         public override bool onTouchMoveXY(float tx, float ty)
         {
-            base.onTouchMoveXY(tx, ty);
+            _ = base.onTouchMoveXY(tx, ty);
             if (state == BUTTON_STATE.BUTTON_DOWN)
             {
                 if (isInTouchZoneXYforTouchDown(tx, ty, false))

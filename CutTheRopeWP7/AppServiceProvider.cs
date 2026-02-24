@@ -41,7 +41,7 @@ namespace ctr_wp7
             {
                 throw new ArgumentNullException("serviceType");
             }
-            services.Remove(serviceType);
+            _ = services.Remove(serviceType);
         }
 
         // Token: 0x040008A9 RID: 2217

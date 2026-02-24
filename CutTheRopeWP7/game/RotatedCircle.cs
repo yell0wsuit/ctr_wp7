@@ -134,10 +134,10 @@ namespace ctr_wp7.game
                 vinilTR.scaleX = (vinilTR.scaleY = -1f);
                 vinilTR.anchor = 33;
                 passColorToChilds = false;
-                addChild(vinilActiveControllerL);
-                addChild(vinilActiveControllerR);
-                addChild(vinilControllerL);
-                addChild(vinilControllerR);
+                _ = addChild(vinilActiveControllerL);
+                _ = addChild(vinilActiveControllerR);
+                _ = addChild(vinilControllerL);
+                _ = addChild(vinilControllerR);
             }
             return this;
         }

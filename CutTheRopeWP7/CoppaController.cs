@@ -19,7 +19,7 @@ internal class CoppaController : ViewController, ButtonDelegate, TimelineDelegat
     // Token: 0x0600066C RID: 1644 RVA: 0x000312F0 File Offset: 0x0002F4F0
     public override NSObject initWithParent(ViewController p)
     {
-        base.initWithParent(p);
+        _ = base.initWithParent(p);
         float num = SCREEN_HEIGHT * 0.03f;
         CoppaView coppaView = (CoppaView)new CoppaView().initFullscreen();
         addViewwithID(coppaView, COPPA_VIEW_MAIN);
@@ -29,10 +29,10 @@ internal class CoppaController : ViewController, ButtonDelegate, TimelineDelegat
         image.passTransformationsToChilds = false;
         image.scaleY = SCREEN_BG_SCALE_Y;
         image.scaleX = SCREEN_BG_SCALE_X;
-        coppaView.addChild(image);
+        _ = coppaView.addChild(image);
         okb = MenuController.createShortButtonWithTextIDDelegate(Application.getString(1310754), COPPA_BUTTON_OK, this);
         Image.setElementPositionWithQuadCenter(okb, 409, 8);
-        coppaView.addChild(okb);
+        _ = coppaView.addChild(okb);
         Vector vector = vectMult(Image.getQuadSize(409, 10), 0.2f);
         Text text = Text.createWithFontandString(5, Application.getString(3276952));
         text.setAlignment(2);
@@ -41,11 +41,11 @@ internal class CoppaController : ViewController, ButtonDelegate, TimelineDelegat
         Image.setElementPositionWithQuadCenter(text, 409, 10);
         text.y += (float)((double)vector.y * 1.1 * 0.5);
         text.anchor = 18;
-        coppaView.addChild(text);
+        _ = coppaView.addChild(text);
         Image image2 = Image.Image_createWithResIDQuad(409, 5);
         image2.setName("baloon");
         Image.setElementPositionWithQuadCenter(image2, 409, 5);
-        coppaView.addChild(image2);
+        _ = coppaView.addChild(image2);
         string text2 = Application.getString(3276953).ToString();
         string[] array = text2.Split(new char[] { '\n' });
         Text[] array2 = new Text[array.Length];
@@ -63,10 +63,10 @@ internal class CoppaController : ViewController, ButtonDelegate, TimelineDelegat
             array2[i].anchor = 18;
             array2[i].scaleX /= 1.5f;
             array2[i].scaleY /= 1.5f;
-            baseElement.addChild(array2[i]);
+            _ = baseElement.addChild(array2[i]);
         }
         baseElement.setName(NSS("baloonText"));
-        coppaView.addChild(baseElement);
+        _ = coppaView.addChild(baseElement);
         Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(7);
         timeline.addKeyFrame(KeyFrame.makePos((double)image2.x, (double)image2.y, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
         timeline.addKeyFrame(KeyFrame.makePos((double)(image2.x + 3f), (double)image2.y, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.05));
@@ -75,20 +75,20 @@ internal class CoppaController : ViewController, ButtonDelegate, TimelineDelegat
         timeline.addKeyFrame(KeyFrame.makePos((double)(image2.x + -3f), (double)image2.y, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.05));
         timeline.addKeyFrame(KeyFrame.makePos((double)(image2.x + 3f), (double)image2.y, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.05));
         timeline.addKeyFrame(KeyFrame.makePos((double)image2.x, (double)image2.y, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.05));
-        image2.addTimeline(timeline);
+        _ = image2.addTimeline(timeline);
         roll = new Rollbar().Create();
         roll.setName("agePicker");
         Image.setElementPositionWithQuadOffset(roll, 409, 0);
         roll.x -= SCREEN_OFFSET_X;
         roll.y -= SCREEN_OFFSET_Y;
         roll.scrollWithSpeed(-16300f);
-        coppaView.addChild(roll);
+        _ = coppaView.addChild(roll);
         okb.x = SCREEN_WIDTH / 2f;
         Button button = new Button().initWithUpElementDownElementandID(Image.Image_createWithResIDQuad(409, 6), Image.Image_createWithResIDQuad(409, 7), COPPA_BUTTON_PRIVACY);
         button.delegateButtonDelegate = this;
         button.y = SCREEN_HEIGHT - 40f;
         button.x += 20f;
-        coppaView.addChild(button);
+        _ = coppaView.addChild(button);
         return this;
     }
 
@@ -179,7 +179,7 @@ internal class CoppaController : ViewController, ButtonDelegate, TimelineDelegat
     public void trackCoppaParams(int age)
     {
         string text = string.Format("{0}age={1}&app={2}", COPPA_URL, age, getAppName());
-        WebRequest.Create(text);
+        _ = WebRequest.Create(text);
     }
 
     // Token: 0x06000676 RID: 1654 RVA: 0x000319DC File Offset: 0x0002FBDC

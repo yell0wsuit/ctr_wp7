@@ -20,7 +20,7 @@ namespace ctr_wp7.remotedata.cartoons
         public static void download(Block block)
         {
             HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(new Uri("http://vps.zeptolab.com/feeder/images?ids=" + block.image_id));
-            httpWebRequest.BeginGetResponse(delegate (IAsyncResult r)
+            _ = httpWebRequest.BeginGetResponse(delegate (IAsyncResult r)
             {
                 try
                 {
@@ -71,7 +71,7 @@ namespace ctr_wp7.remotedata.cartoons
                 if (localName == "image")
                 {
                     string text = null;
-                    atts.TryGetValue("data", out text);
+                    _ = atts.TryGetValue("data", out text);
                     lImageDownloaded.imageDownloaded(text, block);
                 }
             }

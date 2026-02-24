@@ -83,7 +83,7 @@ namespace ctr_wp7.iframework.visual
                 down = true;
                 dragStart = vect(tx, ty);
                 tailStart = bungee.tail.pos;
-                onTouchMoveXY(tx, ty);
+                _ = onTouchMoveXY(tx, ty);
                 return true;
             }
             return flag;

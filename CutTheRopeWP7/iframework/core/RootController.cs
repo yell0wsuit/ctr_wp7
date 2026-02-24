@@ -245,7 +245,7 @@ namespace ctr_wp7.iframework.core
                     nextScreenImage.xnaTexture_.Dispose();
                 }
                 nextScreenImage = screenGrabber.grab();
-                NSRET(nextScreenImage);
+                _ = NSRET(nextScreenImage);
                 OpenGL.glLoadIdentity();
             }
         }
@@ -267,7 +267,7 @@ namespace ctr_wp7.iframework.core
                     prevScreenImage.xnaTexture_.Dispose();
                 }
                 prevScreenImage = screenGrabber.grab();
-                NSRET(prevScreenImage);
+                _ = NSRET(prevScreenImage);
                 OpenGL.glLoadIdentity();
             }
         }

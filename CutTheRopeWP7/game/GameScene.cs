@@ -40,10 +40,10 @@ namespace ctr_wp7.game
                 restartState = -1;
                 aniPool = new AnimationsPool();
                 aniPool.visible = false;
-                addChild(aniPool);
+                _ = addChild(aniPool);
                 staticAniPool = new AnimationsPool();
                 staticAniPool.visible = false;
-                addChild(staticAniPool);
+                _ = addChild(staticAniPool);
                 camera = new Camera2D().initWithSpeedandType(7f, CAMERA_TYPE.CAMERA_SPEED_DELAY);
                 pack = ctrrootController.getPack();
                 int num = 188 + pack * 2;
@@ -56,7 +56,7 @@ namespace ctr_wp7.game
                 {
                     hudStar[i] = Animation.Animation_createWithResID(128);
                     hudStar[i].doRestoreCutTransparency();
-                    hudStar[i].addAnimationDelayLoopFirstLast(0.05f, Timeline.LoopType.TIMELINE_NO_LOOP, 0, 10);
+                    _ = hudStar[i].addAnimationDelayLoopFirstLast(0.05f, Timeline.LoopType.TIMELINE_NO_LOOP, 0, 10);
                     hudStar[i].setPauseAtIndexforAnimation(10, 0);
                     hudStar[i].x = (float)(hudStar[i].width * i);
                     hudStar[i].y = 0f;
@@ -64,12 +64,12 @@ namespace ctr_wp7.game
                     hudStar[i].y -= SCREEN_OFFSET_Y;
                     hudStar[i].x += 0.33f;
                     hudStar[i].y += 0.33f;
-                    addChild(hudStar[i]);
+                    _ = addChild(hudStar[i]);
                 }
                 for (int j = 0; j < 5; j++)
                 {
                     fingerCuts[j] = new List<GameScene.FingerCut>();
-                    NSRET(fingerCuts[j]);
+                    _ = NSRET(fingerCuts[j]);
                 }
             }
             return this;
@@ -130,7 +130,7 @@ namespace ctr_wp7.game
             int num = Preferences._getIntForKey("PREFS_SELECTED_CANDY");
             candy = GameObject.GameObject_createWithResIDQuad(CANDIES[num], 0);
             candy.doRestoreCutTransparency();
-            NSRET(candy);
+            _ = NSRET(candy);
             candy.anchor = 18;
             candy.bb = new Rectangle(46.0, 49.0, 35.0, 35.0);
             candy.passTransformationsToChilds = false;
@@ -138,12 +138,12 @@ namespace ctr_wp7.game
             candyMain = GameObject.GameObject_createWithResIDQuad(CANDIES[num], 1);
             candyMain.doRestoreCutTransparency();
             candyMain.anchor = (candyMain.parentAnchor = 18);
-            candy.addChild(candyMain);
+            _ = candy.addChild(candyMain);
             candyMain.scaleX = (candyMain.scaleY = 0.71f);
             candyTop = GameObject.GameObject_createWithResIDQuad(CANDIES[num], 2);
             candyTop.doRestoreCutTransparency();
             candyTop.anchor = (candyTop.parentAnchor = 18);
-            candy.addChild(candyTop);
+            _ = candy.addChild(candyTop);
             candyTop.scaleX = (candyTop.scaleY = 0.71f);
             candyBlink = Animation.Animation_createWithResID(103);
             candyBlink.addAnimationWithIDDelayLoopFirstLast(0, 0.07f, Timeline.LoopType.TIMELINE_NO_LOOP, 5, 14);
@@ -162,14 +162,14 @@ namespace ctr_wp7.game
             candyBlink.visible = false;
             candyBlink.anchor = (candyBlink.parentAnchor = 18);
             candyBlink.scaleX = (candyBlink.scaleY = 0.71f);
-            candy.addChild(candyBlink);
+            _ = candy.addChild(candyBlink);
             candyBubbleAnimation = Animation.Animation_createWithResID(120);
             candyBubbleAnimation.x = candy.x;
             candyBubbleAnimation.y = candy.y;
             candyBubbleAnimation.parentAnchor = (candyBubbleAnimation.anchor = 18);
-            candyBubbleAnimation.addAnimationDelayLoopFirstLast(0.05f, Timeline.LoopType.TIMELINE_REPLAY, 0, 12);
+            _ = candyBubbleAnimation.addAnimationDelayLoopFirstLast(0.05f, Timeline.LoopType.TIMELINE_REPLAY, 0, 12);
             candyBubbleAnimation.playTimeline(0);
-            candy.addChild(candyBubbleAnimation);
+            _ = candy.addChild(candyBubbleAnimation);
             candyBubbleAnimation.visible = false;
             for (int i = 0; i < 3; i++)
             {
@@ -223,7 +223,7 @@ namespace ctr_wp7.game
                         candyL.passTransformationsToChilds = false;
                         candyL.doRestoreCutTransparency();
                         candyL.anchor = 18;
-                        NSRET(candyL);
+                        _ = NSRET(candyL);
                         candyL.scaleX = (candyL.scaleY = 0.71f);
                         candyL.x = starL.pos.x;
                         candyL.y = starL.pos.y;
@@ -237,7 +237,7 @@ namespace ctr_wp7.game
                         candyR.passTransformationsToChilds = false;
                         candyR.doRestoreCutTransparency();
                         candyR.anchor = 18;
-                        NSRET(candyR);
+                        _ = NSRET(candyR);
                         candyR.scaleX = (candyR.scaleY = 0.71f);
                         candyR.x = starR.pos.x;
                         candyR.y = starR.pos.y;
@@ -263,7 +263,7 @@ namespace ctr_wp7.game
                         gravityButton = createGravityButtonWithDelegate(this);
                         gravityButton.visible = false;
                         gravityButton.touchable = false;
-                        addChild(gravityButton);
+                        _ = addChild(gravityButton);
                         gravityButton.x = (float)xmlnode4["x"].intValue() * 1f + 0f;
                         gravityButton.y = (float)xmlnode4["y"].intValue() * 1f + 0f;
                         gravityButton.anchor = 18;
@@ -368,7 +368,7 @@ namespace ctr_wp7.game
                         Image image = Image.Image_createWithResIDQuad(124, 0);
                         image.doRestoreCutTransparency();
                         image.parentAnchor = (image.anchor = 18);
-                        bubble.addChild(image);
+                        _ = bubble.addChild(image);
                         bubbles.Add(bubble);
                     }
                     else if (xmlnode4.Name == "pump")
@@ -384,7 +384,7 @@ namespace ctr_wp7.game
                         list2.Add(2);
                         list2.Add(3);
                         list2.Add(0);
-                        animation2.addAnimationWithDelayLoopedCountSequence(num9, loopType2, num10, num11, list2);
+                        _ = animation2.addAnimationWithDelayLoopedCountSequence(num9, loopType2, num10, num11, list2);
                         pump.bb = new Rectangle(94.0, 95.0, 57.0, 57.0);
                         pump.initial_x = (pump.x = (float)xmlnode4["x"].intValue() * 1f + 0f);
                         pump.initial_y = (pump.y = (float)xmlnode4["y"].intValue() * 1f + 0f);
@@ -498,9 +498,9 @@ namespace ctr_wp7.game
                         {
                             candyGhostBubbleAnimation = CandyInGhostBubbleAnimation.CIGBAnimation_createWithResID(120);
                             candyGhostBubbleAnimation.parentAnchor = (candyGhostBubbleAnimation.anchor = 18);
-                            candyGhostBubbleAnimation.addAnimationDelayLoopFirstLast(0.05f, Timeline.LoopType.TIMELINE_REPLAY, 0, 12);
+                            _ = candyGhostBubbleAnimation.addAnimationDelayLoopFirstLast(0.05f, Timeline.LoopType.TIMELINE_REPLAY, 0, 12);
                             candyGhostBubbleAnimation.playTimeline(0);
-                            candy.addChild(candyGhostBubbleAnimation);
+                            _ = candy.addChild(candyGhostBubbleAnimation);
                             candyGhostBubbleAnimation.visible = false;
                             candyGhostBubbleAnimation.addSupportingCloudsTimelines();
                             isCandyInGhostBubbleAnimationLoaded = true;
@@ -511,9 +511,9 @@ namespace ctr_wp7.game
                             {
                                 candyGhostBubbleAnimationL = CandyInGhostBubbleAnimation.CIGBAnimation_createWithResID(120);
                                 candyGhostBubbleAnimationL.parentAnchor = (candyGhostBubbleAnimationL.anchor = 18);
-                                candyGhostBubbleAnimationL.addAnimationDelayLoopFirstLast(0.05f, Timeline.LoopType.TIMELINE_REPLAY, 0, 12);
+                                _ = candyGhostBubbleAnimationL.addAnimationDelayLoopFirstLast(0.05f, Timeline.LoopType.TIMELINE_REPLAY, 0, 12);
                                 candyGhostBubbleAnimationL.playTimeline(0);
-                                candyL.addChild(candyGhostBubbleAnimationL);
+                                _ = candyL.addChild(candyGhostBubbleAnimationL);
                                 candyGhostBubbleAnimationL.visible = false;
                                 candyGhostBubbleAnimationL.addSupportingCloudsTimelines();
                                 isCandyInGhostBubbleAnimationLeftLoaded = true;
@@ -522,9 +522,9 @@ namespace ctr_wp7.game
                             {
                                 candyGhostBubbleAnimationR = CandyInGhostBubbleAnimation.CIGBAnimation_createWithResID(120);
                                 candyGhostBubbleAnimationR.parentAnchor = (candyGhostBubbleAnimationR.anchor = 18);
-                                candyGhostBubbleAnimationR.addAnimationDelayLoopFirstLast(0.05f, Timeline.LoopType.TIMELINE_REPLAY, 0, 12);
+                                _ = candyGhostBubbleAnimationR.addAnimationDelayLoopFirstLast(0.05f, Timeline.LoopType.TIMELINE_REPLAY, 0, 12);
                                 candyGhostBubbleAnimationR.playTimeline(0);
-                                candyR.addChild(candyGhostBubbleAnimationR);
+                                _ = candyR.addChild(candyGhostBubbleAnimationR);
                                 candyGhostBubbleAnimationR.visible = false;
                                 candyGhostBubbleAnimationR.addSupportingCloudsTimelines();
                                 isCandyInGhostBubbleAnimationRightLoaded = true;
@@ -666,8 +666,8 @@ namespace ctr_wp7.game
                         targetIdle.switchToAnimationatEndOfAnimationDelay(0, 3, 0.05f);
                         target.switchToAnimationatEndOfAnimationDelay(0, 4, 0.05f);
                         target.switchToAnimationatEndOfAnimationDelay(0, 5, 0.05f);
-                        NSRET(target);
-                        NSRET(targetIdle);
+                        _ = NSRET(target);
+                        _ = NSRET(targetIdle);
                         if (CTRRootController.isShowGreeting())
                         {
                             dd.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(selector_showGreeting), null, 1.3f);
@@ -695,11 +695,11 @@ namespace ctr_wp7.game
                         blink.setActionTargetParamSubParamAtIndexforAnimation("ACTION_SET_VISIBLE", blink, 0, 0, 2, 0);
                         blinkTimer = 3;
                         blink.doRestoreCutTransparency();
-                        targetIdle.addChild(blink);
+                        _ = targetIdle.addChild(blink);
                         CTRRootController ctrrootController2 = (CTRRootController)Application.sharedRootController();
                         int num45 = 189 + ctrrootController2.getPack() * 2;
                         support = Image.Image_createWithResID(num45);
-                        NSRET(support);
+                        _ = NSRET(support);
                         support.doRestoreCutTransparency();
                         support.anchor = 18;
                         NSString nsstring4 = xmlnode4["x"];
@@ -740,15 +740,15 @@ namespace ctr_wp7.game
             {
                 candyBubbleAnimationL = Animation.Animation_createWithResID(120);
                 candyBubbleAnimationL.parentAnchor = (candyBubbleAnimationL.anchor = 18);
-                candyBubbleAnimationL.addAnimationDelayLoopFirstLast(0.05f, Timeline.LoopType.TIMELINE_REPLAY, 0, 12);
+                _ = candyBubbleAnimationL.addAnimationDelayLoopFirstLast(0.05f, Timeline.LoopType.TIMELINE_REPLAY, 0, 12);
                 candyBubbleAnimationL.playTimeline(0);
-                candyL.addChild(candyBubbleAnimationL);
+                _ = candyL.addChild(candyBubbleAnimationL);
                 candyBubbleAnimationL.visible = false;
                 candyBubbleAnimationR = Animation.Animation_createWithResID(120);
                 candyBubbleAnimationR.parentAnchor = (candyBubbleAnimationR.anchor = 18);
-                candyBubbleAnimationR.addAnimationDelayLoopFirstLast(0.05f, Timeline.LoopType.TIMELINE_REPLAY, 0, 12);
+                _ = candyBubbleAnimationR.addAnimationDelayLoopFirstLast(0.05f, Timeline.LoopType.TIMELINE_REPLAY, 0, 12);
                 candyBubbleAnimationR.playTimeline(0);
-                candyR.addChild(candyBubbleAnimationR);
+                _ = candyR.addChild(candyBubbleAnimationR);
                 candyBubbleAnimationR.visible = false;
             }
             for (int num53 = 0; num53 < rotatedCircles.Count; num53++)
@@ -791,7 +791,7 @@ namespace ctr_wp7.game
             {
                 text2.y -= 7f;
             }
-            text.addChild(text2);
+            _ = text.addChild(text2);
             Timeline timeline6 = new Timeline().initWithMaxKeyFramesOnTrack(5);
             timeline6.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
             timeline6.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.5));
@@ -801,7 +801,7 @@ namespace ctr_wp7.game
             text.addTimelinewithID(timeline6, 0);
             text.playTimeline(0);
             timeline6.delegateTimelineDelegate = staticAniPool;
-            staticAniPool.addChild(text);
+            _ = staticAniPool.addChild(text);
             text.y += SCREEN_OFFSET_Y;
             text.x -= SCREEN_OFFSET_X;
             int attemptsForPackLevel = CTRPreferences.getAttemptsForPackLevel(ctrrootController.getPack(), ctrrootController.getLevel());
@@ -920,7 +920,7 @@ namespace ctr_wp7.game
                     GameScene.FingerCut fingerCut = fingerCuts[j][k];
                     if (Mover.moveVariableToTarget(ref fingerCut.c.a, 0f, 10f, delta))
                     {
-                        fingerCuts[j].Remove(fingerCut);
+                        _ = fingerCuts[j].Remove(fingerCut);
                         k--;
                     }
                 }
@@ -938,7 +938,7 @@ namespace ctr_wp7.game
                     }
                 }
             }
-            Mover.moveVariableToTarget(ref ropeAtOnceTimer, 0f, 1f, delta);
+            _ = Mover.moveVariableToTarget(ref ropeAtOnceTimer, 0f, 1f, delta);
             ConstraintedPoint constraintedPoint = ((twoParts != 2) ? starL : star);
             float num2 = constraintedPoint.pos.x - SCREEN_WIDTH / 2f;
             float num3 = constraintedPoint.pos.y - SCREEN_HEIGHT / 2f;
@@ -1302,7 +1302,7 @@ namespace ctr_wp7.game
                         int num14 = animation.addAnimationDelayLoopFirstLast(0.05f, Timeline.LoopType.TIMELINE_NO_LOOP, 0, 4);
                         animation.getTimeline(num14).delegateTimelineDelegate = aniPool;
                         animation.playTimeline(0);
-                        aniPool.addChild(animation);
+                        _ = aniPool.addChild(animation);
                     }
                     else
                     {
@@ -1332,8 +1332,8 @@ namespace ctr_wp7.game
                         if ((double)star.timeout > 0.0 && (double)star.time == 0.0)
                         {
                             star.getTimeline(1).delegateTimelineDelegate = aniPool;
-                            aniPool.addChild(star);
-                            stars.Remove(star);
+                            _ = aniPool.addChild(star);
+                            _ = stars.Remove(star);
                             star.timedAnim.playTimeline(1);
                             star.playTimeline(1);
                             break;
@@ -1356,12 +1356,12 @@ namespace ctr_wp7.game
                             animation2.doRestoreCutTransparency();
                             animation2.x = star.x;
                             animation2.y = star.y;
-                            stars.Remove(star);
+                            _ = stars.Remove(star);
                             animation2.anchor = 18;
                             int num16 = animation2.addAnimationDelayLoopFirstLast(0.05f, Timeline.LoopType.TIMELINE_NO_LOOP, 0, 12);
                             animation2.getTimeline(num16).delegateTimelineDelegate = aniPool;
                             animation2.playTimeline(0);
-                            aniPool.addChild(animation2);
+                            _ = aniPool.addChild(animation2);
                             CTRSoundMgr._playSound(35 + starsCollected - 1);
                             if (targetIdle.visible && targetIdle.getCurrentTimelineIndex() == 0)
                             {
@@ -1678,7 +1678,7 @@ namespace ctr_wp7.game
                     }
                     else if (rotatedCircle3.containedObjects.IndexOf(grab3) >= 0)
                     {
-                        rotatedCircle3.containedObjects.Remove(grab3);
+                        _ = rotatedCircle3.containedObjects.Remove(grab3);
                     }
                 }
                 for (int num25 = 0; num25 < bubbles.Count; num25++)
@@ -1693,7 +1693,7 @@ namespace ctr_wp7.game
                     }
                     else if (rotatedCircle3.containedObjects.IndexOf(bubble2) >= 0)
                     {
-                        rotatedCircle3.containedObjects.Remove(bubble2);
+                        _ = rotatedCircle3.containedObjects.Remove(bubble2);
                     }
                 }
                 for (int num26 = 0; num26 < pumps.Count; num26++)
@@ -1708,7 +1708,7 @@ namespace ctr_wp7.game
                     }
                     else if (rotatedCircle3.containedObjects.IndexOf(pump2) >= 0)
                     {
-                        rotatedCircle3.containedObjects.Remove(pump2);
+                        _ = rotatedCircle3.containedObjects.Remove(pump2);
                     }
                 }
                 if (rotatedCircle3.removeOnNextUpdate)
@@ -1719,7 +1719,7 @@ namespace ctr_wp7.game
             }
             if (rotatedCircle2 != null)
             {
-                rotatedCircles.Remove(rotatedCircle2);
+                _ = rotatedCircles.Remove(rotatedCircle2);
             }
             num = socks.Count;
             for (int num27 = 0; num27 < num; num27++)
@@ -1778,7 +1778,7 @@ namespace ctr_wp7.game
                 if (razor != null)
                 {
                     razor.update(delta);
-                    cutWithRazorOrLine1Line2Immediate(razor, vectZero, vectZero, false);
+                    _ = cutWithRazorOrLine1Line2Immediate(razor, vectZero, vectZero, false);
                 }
             }
             num = spikes.Count;
@@ -1867,7 +1867,7 @@ namespace ctr_wp7.game
                                 noCandy = true;
                             }
                             candyBreak.startSystem(5);
-                            aniPool.addChild(candyBreak);
+                            _ = aniPool.addChild(candyBreak);
                             CTRSoundMgr._playSound(24);
                             releaseAllRopes(flag12);
                             if (restartState != 0 && (twoParts == 2 || !noCandyL || !noCandyR))
@@ -2009,7 +2009,7 @@ namespace ctr_wp7.game
                 }
                 else if ((double)mouthCloseTimer > 0.0)
                 {
-                    Mover.moveVariableToTarget(ref mouthCloseTimer, 0f, 1f, delta);
+                    _ = Mover.moveVariableToTarget(ref mouthCloseTimer, 0f, 1f, delta);
                     if ((double)mouthCloseTimer <= 0.0)
                     {
                         if (isCandyInLantern || vectDistance(star.pos, vect(target.x, target.y)) > 100f)
@@ -2452,7 +2452,7 @@ namespace ctr_wp7.game
             int num = animation.addAnimationDelayLoopFirstLast(0.05f, Timeline.LoopType.TIMELINE_NO_LOOP, 0, 11);
             animation.getTimeline(num).delegateTimelineDelegate = aniPool;
             animation.playTimeline(0);
-            aniPool.addChild(animation);
+            _ = aniPool.addChild(animation);
         }
 
         // Token: 0x0600080B RID: 2059 RVA: 0x0004621C File Offset: 0x0004441C
@@ -2691,9 +2691,9 @@ namespace ctr_wp7.game
                 timeline2.addKeyFrame(KeyFrame.makeColor(RGBAColor.solidOpaqueRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.2));
                 timeline2.delegateTimelineDelegate = this;
                 RotatedCircle rotatedCircle4 = (RotatedCircle)rotatedCircle.copy();
-                rotatedCircle4.addTimeline(timeline2);
+                _ = rotatedCircle4.addTimeline(timeline2);
                 rotatedCircle4.playTimeline(0);
-                rotatedCircle.addTimeline(timeline);
+                _ = rotatedCircle.addTimeline(timeline);
                 rotatedCircle.playTimeline(0);
                 rotatedCircles[rotatedCircles.IndexOf(rotatedCircle)] = rotatedCircle4;
                 rotatedCircles.Add(rotatedCircle);
@@ -2997,7 +2997,7 @@ namespace ctr_wp7.game
             }
             if (dragging[ti])
             {
-                vectAdd(prevStartPos[ti], camera.pos);
+                _ = vectAdd(prevStartPos[ti], camera.pos);
                 Vector vector10 = vectAdd(startPos[ti], camera.pos);
                 Vector vector11 = vectAdd(vect(tx, ty), camera.pos);
                 float num9 = vectDistance(vector10, vector11);
@@ -3108,7 +3108,7 @@ namespace ctr_wp7.game
             image.y = g.spider.y;
             image.anchor = 18;
             timeline.delegateTimelineDelegate = aniPool;
-            aniPool.addChild(image);
+            _ = aniPool.addChild(image);
         }
 
         // Token: 0x06000813 RID: 2067 RVA: 0x00047CB0 File Offset: 0x00045EB0
@@ -3147,7 +3147,7 @@ namespace ctr_wp7.game
             candy.anchor = (candy.parentAnchor = 18);
             candy.x = 0f;
             candy.y = -5f;
-            image.addChild(candy);
+            _ = image.addChild(candy);
             Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(3);
             if (gravityButton != null && !gravityNormal)
             {
@@ -3167,7 +3167,7 @@ namespace ctr_wp7.game
             image.y = sg.spider.y - 10f;
             image.anchor = 18;
             timeline.delegateTimelineDelegate = aniPool;
-            aniPool.addChild(image);
+            _ = aniPool.addChild(image);
             if (restartState != 0)
             {
                 dd.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(selector_gameLost), null, 2f);
@@ -3187,7 +3187,7 @@ namespace ctr_wp7.game
             pumpDirt.x = vector.x;
             pumpDirt.y = vector.y;
             pumpDirt.startSystem(5);
-            aniPool.addChild(pumpDirt);
+            _ = aniPool.addChild(pumpDirt);
             if (!noCandy)
             {
                 handlePumpFlowPtSkin(p, star, candy);
@@ -3292,7 +3292,7 @@ namespace ctr_wp7.game
             candy.addTimelinewithID(timeline, 0);
             candy.playTimeline(0);
             timeline.delegateTimelineDelegate = aniPool;
-            aniPool.addChild(candy);
+            _ = aniPool.addChild(candy);
             dd.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(selector_gameWonDelegate), null, 2f);
             calculateScore();
             releaseAllRopes(false);

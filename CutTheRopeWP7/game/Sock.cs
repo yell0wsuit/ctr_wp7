@@ -70,7 +70,7 @@ namespace ctr_wp7.game
             animation.addAnimationWithIDDelayLoopCountSequence(num, num2, loopType, num3, num4, list);
             light.doRestoreCutTransparency();
             light.visible = false;
-            addChild(light);
+            _ = addChild(light);
         }
 
         // Token: 0x0600028E RID: 654 RVA: 0x00010574 File Offset: 0x0000E774

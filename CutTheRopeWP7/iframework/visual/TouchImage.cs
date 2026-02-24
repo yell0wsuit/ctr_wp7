@@ -8,7 +8,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060005E9 RID: 1513 RVA: 0x0002CB30 File Offset: 0x0002AD30
         public override bool onTouchDownXY(float tx, float ty)
         {
-            base.onTouchDownXY(tx, ty);
+            _ = base.onTouchDownXY(tx, ty);
             if (pointInRect(tx, ty, drawX, drawY, (float)width, (float)height))
             {
                 if (delegateButtonDelegate != null)

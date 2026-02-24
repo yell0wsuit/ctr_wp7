@@ -58,7 +58,7 @@ namespace ctr_wp7.game
                 rotateButton = new Button().initWithUpElementDownElementandID(image, image2, 0);
                 rotateButton.delegateButtonDelegate = this;
                 rotateButton.anchor = (rotateButton.parentAnchor = 18);
-                addChild(rotateButton);
+                _ = addChild(rotateButton);
                 Vector quadOffset = getQuadOffset(140, num2);
                 Vector quadSize = getQuadSize(140, num2);
                 Vector vector = vect(image.texture.preCutSize.x, image.texture.preCutSize.y);
@@ -172,7 +172,7 @@ namespace ctr_wp7.game
             {
                 if (electroOn)
                 {
-                    Mover.moveVariableToTarget(ref electroTimer, 0f, 1f, delta);
+                    _ = Mover.moveVariableToTarget(ref electroTimer, 0f, 1f, delta);
                     if ((double)electroTimer == 0.0)
                     {
                         turnElectroOff();
@@ -181,7 +181,7 @@ namespace ctr_wp7.game
                 }
                 else
                 {
-                    Mover.moveVariableToTarget(ref electroTimer, 0f, 1f, delta);
+                    _ = Mover.moveVariableToTarget(ref electroTimer, 0f, 1f, delta);
                     if ((double)electroTimer == 0.0)
                     {
                         turnElectroOn();

@@ -34,7 +34,7 @@ namespace ctr_wp7.iframework.media
         // Token: 0x06000183 RID: 387 RVA: 0x0000B67E File Offset: 0x0000987E
         public void freeSound(int resId)
         {
-            LoadedSounds.Remove(resId);
+            _ = LoadedSounds.Remove(resId);
         }
 
         // Token: 0x06000184 RID: 388 RVA: 0x0000B690 File Offset: 0x00009890
@@ -49,7 +49,7 @@ namespace ctr_wp7.iframework.media
             {
                 return soundEffect;
             }
-            TryLoadAssetWithFallback(resId, out soundEffect);
+            _ = TryLoadAssetWithFallback(resId, out soundEffect);
             if (soundEffect != null)
             {
                 LoadedSounds.Add(resId, soundEffect);
@@ -133,7 +133,7 @@ namespace ctr_wp7.iframework.media
                 {
                     if (!AllSongs.TryGetValue(sid, out song))
                     {
-                        TryLoadAssetWithFallback(sid, out song);
+                        _ = TryLoadAssetWithFallback(sid, out song);
                         if (song == null)
                         {
                             return;
@@ -163,7 +163,7 @@ namespace ctr_wp7.iframework.media
         {
             if (!AllSongs.TryGetValue(sid, out song))
             {
-                TryLoadAssetWithFallback(sid, out song);
+                _ = TryLoadAssetWithFallback(sid, out song);
                 if (song != null)
                 {
                     AllSongs.Add(sid, song);

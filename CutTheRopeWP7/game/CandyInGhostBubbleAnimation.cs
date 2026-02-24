@@ -36,7 +36,7 @@ namespace ctr_wp7.game
             backCloud.x = x + 28f;
             backCloud.y = y + 8f;
             backCloud.anchor = (backCloud.parentAnchor = 18);
-            addChild(backCloud);
+            _ = addChild(backCloud);
             Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(5);
             timeline.setTimelineLoopType(Timeline.LoopType.TIMELINE_REPLAY);
             timeline.addKeyFrame(KeyFrame.makeScale(0.800000011920929, 0.800000011920929, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
@@ -55,7 +55,7 @@ namespace ctr_wp7.game
             backCloud2.x = x + 22f;
             backCloud2.y = y + 16f;
             backCloud2.anchor = (backCloud2.parentAnchor = 18);
-            addChild(backCloud2);
+            _ = addChild(backCloud2);
             Timeline timeline2 = new Timeline().initWithMaxKeyFramesOnTrack(5);
             timeline2.setTimelineLoopType(Timeline.LoopType.TIMELINE_REPLAY);
             timeline2.addKeyFrame(KeyFrame.makeScale(0.9300000071525574, 0.9300000071525574, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
@@ -74,7 +74,7 @@ namespace ctr_wp7.game
             backCloud3.x = x - 28f;
             backCloud3.y = y + 5f;
             backCloud3.anchor = (backCloud3.parentAnchor = 18);
-            addChild(backCloud3);
+            _ = addChild(backCloud3);
             Timeline timeline3 = new Timeline().initWithMaxKeyFramesOnTrack(5);
             timeline3.setTimelineLoopType(Timeline.LoopType.TIMELINE_REPLAY);
             timeline3.addKeyFrame(KeyFrame.makeScale(0.33000001311302185, 0.33000001311302185, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
@@ -94,7 +94,7 @@ namespace ctr_wp7.game
             image.y = y + 16f;
             image.anchor = (image.parentAnchor = 18);
             image.doRestoreCutTransparency();
-            addChild(image);
+            _ = addChild(image);
             Timeline timeline4 = new Timeline().initWithMaxKeyFramesOnTrack(5);
             timeline4.setTimelineLoopType(Timeline.LoopType.TIMELINE_REPLAY);
             timeline4.addKeyFrame(KeyFrame.makeScale(0.6000000238418579, 0.6000000238418579, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
@@ -114,7 +114,7 @@ namespace ctr_wp7.game
             image2.y = y + 25f;
             image2.anchor = (image2.parentAnchor = 18);
             image2.doRestoreCutTransparency();
-            addChild(image2);
+            _ = addChild(image2);
             Timeline timeline5 = new Timeline().initWithMaxKeyFramesOnTrack(5);
             timeline5.setTimelineLoopType(Timeline.LoopType.TIMELINE_REPLAY);
             timeline5.addKeyFrame(KeyFrame.makeScale(0.9300000071525574, 0.9300000071525574, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));

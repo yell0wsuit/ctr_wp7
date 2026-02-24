@@ -20,7 +20,7 @@ namespace ctr_wp7.iframework.helpers
         private static GameObject GameObject_create(Texture2D t)
         {
             GameObject gameObject = new GameObject();
-            gameObject.initWithTexture(t);
+            _ = gameObject.initWithTexture(t);
             return gameObject;
         }
 

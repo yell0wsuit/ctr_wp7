@@ -31,24 +31,24 @@ namespace ctr_wp7.game
                     timeline.addKeyFrame(KeyFrame.makeRotation(0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0f));
                     timeline.addKeyFrame(KeyFrame.makeRotation(360, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 1f));
                     timeline.setTimelineLoopType(Timeline.LoopType.TIMELINE_REPLAY);
-                    image.addTimeline(timeline);
+                    _ = image.addTimeline(timeline);
                     image.playTimeline(0);
                     Text text = Text.createWithFontandString(5, Application.getString(1310774));
                     HBox hbox = new HBox().initWithOffsetAlignHeight(10f, 16, (float)image.height);
                     hbox.parentAnchor = (hbox.anchor = 18);
-                    addChild(hbox);
-                    hbox.addChild(image);
-                    hbox.addChild(text);
+                    _ = addChild(hbox);
+                    _ = hbox.addChild(image);
+                    _ = hbox.addChild(text);
                 }
                 Timeline timeline2 = new Timeline().initWithMaxKeyFramesOnTrack(2);
                 timeline2.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0f));
                 timeline2.addKeyFrame(KeyFrame.makeColor(RGBAColor.MakeRGBA(0.0, 0.0, 0.0, 0.4), KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.2));
-                addTimeline(timeline2);
+                _ = addTimeline(timeline2);
                 timeline2 = new Timeline().initWithMaxKeyFramesOnTrack(2);
                 timeline2.delegateTimelineDelegate = this;
                 timeline2.addKeyFrame(KeyFrame.makeColor(RGBAColor.MakeRGBA(0.0, 0.0, 0.0, 0.4), KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0f));
                 timeline2.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.2));
-                addTimeline(timeline2);
+                _ = addTimeline(timeline2);
                 playTimeline(0);
             }
             return this;
@@ -67,20 +67,20 @@ namespace ctr_wp7.game
                 timeline.addKeyFrame(KeyFrame.makeRotation(0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0f));
                 timeline.addKeyFrame(KeyFrame.makeRotation(360, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 1f));
                 timeline.setTimelineLoopType(Timeline.LoopType.TIMELINE_REPLAY);
-                image.addTimeline(timeline);
+                _ = image.addTimeline(timeline);
                 image.playTimeline(0);
                 Text text = Text.createWithFontandString(5, Application.getString(1310752));
                 HBox hbox = new HBox().initWithOffsetAlignHeight(10f, 16, (float)image.height);
                 hbox.parentAnchor = (hbox.anchor = 18);
-                addChild(hbox);
-                hbox.addChild(image);
+                _ = addChild(hbox);
+                _ = hbox.addChild(image);
                 if (LANGUAGE == Language.LANG_IT)
                 {
                     text = new Text().initWithFont(Application.getFont(5));
                     text.setStringandWidth(Application.getString(1310752), 120f);
                     hbox.x -= 15f;
                 }
-                hbox.addChild(text);
+                _ = hbox.addChild(text);
                 blockTouches = b;
                 color = RGBAColor.transparentRGBA;
                 if (blockTouches)
@@ -88,7 +88,7 @@ namespace ctr_wp7.game
                     Timeline timeline2 = new Timeline().initWithMaxKeyFramesOnTrack(2);
                     timeline2.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0f));
                     timeline2.addKeyFrame(KeyFrame.makeColor(RGBAColor.MakeRGBA(0.0, 0.0, 0.0, 0.4), KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.2));
-                    addTimeline(timeline2);
+                    _ = addTimeline(timeline2);
                     playTimeline(0);
                 }
             }

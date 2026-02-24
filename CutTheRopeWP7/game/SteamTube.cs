@@ -37,16 +37,16 @@ namespace ctr_wp7.game
                 tube.x = position.x;
                 tube.y = position.y;
                 tube.anchor = 10;
-                addChild(tube);
+                _ = addChild(tube);
                 valve = Image.Image_createWithResIDQuad(184, 1);
                 valve.x = position.x;
                 valve.y = position.y + 27f;
                 valve.anchor = 18;
-                addChild(valve);
+                _ = addChild(valve);
                 steamBack = (BaseElement)new BaseElement().init();
                 steamFront = (BaseElement)new BaseElement().init();
-                addChild(steamBack);
-                addChild(steamFront);
+                _ = addChild(steamBack);
+                _ = addChild(steamFront);
                 adjustSteam();
                 Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(2);
                 timeline.addKeyFrame(KeyFrame.makeRotation(0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0f));
@@ -253,7 +253,7 @@ namespace ctr_wp7.game
                     }
                     Animation animation = Animation.Animation_createWithResID(184);
                     animation.doRestoreCutTransparency();
-                    animation.addAnimationDelayLoopFirstLast(num5, Timeline.LoopType.TIMELINE_REPLAY, num2, num3);
+                    _ = animation.addAnimationDelayLoopFirstLast(num5, Timeline.LoopType.TIMELINE_REPLAY, num2, num3);
                     animation.anchor = (animation.parentAnchor = 18);
                     Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(2);
                     timeline.addKeyFrame(KeyFrame.makePos(0.0, 0.0, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
@@ -263,19 +263,19 @@ namespace ctr_wp7.game
                     timeline.setTimelineLoopType(Timeline.LoopType.TIMELINE_REPLAY);
                     timeline.delegateTimelineDelegate = this;
                     BaseElement baseElement = new BaseElement();
-                    baseElement.init();
+                    _ = baseElement.init();
                     baseElement.addTimelinewithID(timeline, 0);
                     dd.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(startPuffFloatingAndAnimation), baseElement, num4 * (float)i / (float)num);
-                    baseElement.addChild(animation);
+                    _ = baseElement.addChild(animation);
                     baseElement.anchor = (baseElement.parentAnchor = 18);
                     baseElement.setEnabled(false);
                     if (i % 3 == 0)
                     {
-                        steamBack.addChild(baseElement);
+                        _ = steamBack.addChild(baseElement);
                     }
                     else
                     {
-                        steamFront.addChild(baseElement);
+                        _ = steamFront.addChild(baseElement);
                     }
                 }
             }

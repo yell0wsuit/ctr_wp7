@@ -89,8 +89,8 @@ namespace ctr_wp7.iframework.visual
             image2.scaleX = -1f;
             baseElement.width = image.width * 2;
             baseElement.height = image.height;
-            baseElement.addChild(image);
-            baseElement.addChild(image2);
+            _ = baseElement.addChild(image);
+            _ = baseElement.addChild(image2);
             return baseElement;
         }
 
@@ -107,8 +107,8 @@ namespace ctr_wp7.iframework.visual
             image2.anchor = 34;
             baseElement.width = image.width;
             baseElement.height = (int)((float)image.height * 2f);
-            baseElement.addChild(image);
-            baseElement.addChild(image2);
+            _ = baseElement.addChild(image);
+            _ = baseElement.addChild(image2);
             return baseElement;
         }
 
@@ -138,7 +138,7 @@ namespace ctr_wp7.iframework.visual
             if (base.init() != null)
             {
                 texture = t;
-                NSRET(texture);
+                _ = NSRET(texture);
                 restoreCutTransparency = false;
                 if (texture.quadsCount > 0)
                 {

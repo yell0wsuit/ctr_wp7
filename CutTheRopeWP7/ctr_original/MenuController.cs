@@ -60,8 +60,8 @@ namespace ctr_wp7.ctr_original
             baseElement3.scaleX = scale;
             baseElement2.scaleY = scale;
             baseElement.scaleX = scale;
-            image.addChild(text);
-            image2.addChild(text2);
+            _ = image.addChild(text);
+            _ = image2.addChild(text2);
             Button button = new Button().initWithUpElementDownElementandID(image, image2, bid);
             button.setTouchIncreaseLeftRightTopBottom(15.0, 15.0, 15.0, 15.0);
             button.delegateButtonDelegate = d;
@@ -128,8 +128,8 @@ namespace ctr_wp7.ctr_original
             text2.setString(str);
             text.anchor = (text.parentAnchor = 18);
             text2.anchor = (text2.parentAnchor = 18);
-            image.addChild(text);
-            image2.addChild(text2);
+            _ = image.addChild(text);
+            _ = image2.addChild(text2);
             TimedButton timedButton = new TimedButton().initWithUpElementDownElementandID(image, image2, bid);
             timedButton.setTouchIncreaseLeftRightTopBottom(15.0, 15.0, 15.0, 15.0);
             timedButton.timer = time;
@@ -149,11 +149,11 @@ namespace ctr_wp7.ctr_original
             Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(2);
             timeline.addKeyFrame(KeyFrame.makePos((double)button.x, (double)num, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
             timeline.addKeyFrame(KeyFrame.makePos((double)button.x, (double)screen_OFFSET_Y, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.3));
-            button.addTimeline(timeline);
+            _ = button.addTimeline(timeline);
             Timeline timeline2 = new Timeline().initWithMaxKeyFramesOnTrack(2);
             timeline2.addKeyFrame(KeyFrame.makePos((double)button.x, (double)screen_OFFSET_Y, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
             timeline2.addKeyFrame(KeyFrame.makePos((double)button.x, (double)num, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.3));
-            button.addTimeline(timeline2);
+            _ = button.addTimeline(timeline2);
             return button;
         }
 
@@ -165,8 +165,8 @@ namespace ctr_wp7.ctr_original
             BaseElement baseElement2 = Image.createElementWithLeftPart(res, shadowid);
             baseElement2.anchor = 10;
             baseElement2.parentAnchor = 34;
-            baseElement.addChild(baseElement2);
-            block.addChild(baseElement);
+            _ = baseElement.addChild(baseElement2);
+            _ = block.addChild(baseElement);
             return block;
         }
 
@@ -182,8 +182,8 @@ namespace ctr_wp7.ctr_original
             text2.setString(str);
             text.anchor = (text.parentAnchor = 18);
             text2.anchor = (text2.parentAnchor = 18);
-            image.addChild(text);
-            image2.addChild(text2);
+            _ = image.addChild(text);
+            _ = image2.addChild(text2);
             Button button = new Button().initWithUpElementDownElementandID(image, image2, bid);
             button.setTouchIncreaseLeftRightTopBottom(15.0, 15.0, 15.0, 15.0);
             button.delegateButtonDelegate = d;
@@ -210,10 +210,10 @@ namespace ctr_wp7.ctr_original
             text2.anchor = (text2.parentAnchor = 18);
             text3.anchor = (text3.parentAnchor = 18);
             text4.anchor = (text4.parentAnchor = 18);
-            image.addChild(text);
-            image2.addChild(text2);
-            image3.addChild(text3);
-            image4.addChild(text4);
+            _ = image.addChild(text);
+            _ = image2.addChild(text2);
+            _ = image3.addChild(text3);
+            _ = image4.addChild(text4);
             ToggleButton toggleButton = new ToggleButton().initWithUpElement1DownElement1UpElement2DownElement2andID(image, image2, image3, image4, bid);
             toggleButton.setTouchIncreaseLeftRightTopBottom(10.0, 10.0, 10.0, 10.0);
             toggleButton.delegateButtonDelegate = d;
@@ -245,13 +245,13 @@ namespace ctr_wp7.ctr_original
             Button button2 = createButton2WithImageQuad1Quad2IDDelegate(72, 2, 2, bidface, d);
             button2.anchor = (button2.parentAnchor = 9);
             Image.setElementPositionWithRelativeQuadOffset(button2, 72, 3, 2);
-            button.addChild(button2);
+            _ = button.addChild(button2);
             Image image = Image.Image_createWithResIDQuad(73, 0);
             image.anchor = 12;
             image.parentAnchor = 33;
             image.x = -7f;
             image.y = 4f;
-            button2.addChild(image);
+            _ = button2.addChild(image);
             return button;
         }
 
@@ -289,7 +289,7 @@ namespace ctr_wp7.ctr_original
             Image image2 = Image.Image_createWithResIDQuad(res, q2);
             Button button = new Button().initWithUpElementDownElementandID(image, image2, bid);
             button.delegateButtonDelegate = d;
-            Application.getTexture(res);
+            _ = Application.getTexture(res);
             return button;
         }
 
@@ -315,8 +315,8 @@ namespace ctr_wp7.ctr_original
             text2.setString(str);
             text.anchor = (text.parentAnchor = 18);
             text2.anchor = (text2.parentAnchor = 18);
-            baseElement.addChild(text);
-            baseElement2.addChild(text2);
+            _ = baseElement.addChild(text);
+            _ = baseElement2.addChild(text2);
             baseElement2.color = color;
             BaseElement baseElement3 = baseElement2;
             baseElement2.scaleY = scale;
@@ -349,14 +349,14 @@ namespace ctr_wp7.ctr_original
             Image image2 = Image.Image_createWithResIDQuad(72, q);
             image2.parentAnchor = 9;
             Image.setElementPositionWithRelativeQuadOffset(image2, 72, 8, q);
-            image.addChild(image2);
+            _ = image.addChild(image2);
             FontGeneric font = Application.getFont(5);
             Text text = new Text().initWithFont(font);
             text.scaleX = (text.scaleY = 0.7f);
             text.setAlignment(2);
             text.setStringandWidth(str, (float)image.width);
             text.parentAnchor = (text.anchor = 18);
-            image.addChild(text);
+            _ = image.addChild(text);
             return image;
         }
 
@@ -385,12 +385,12 @@ namespace ctr_wp7.ctr_original
             text.setString(@string);
             text.anchor = (text.parentAnchor = 20);
             text.x = -65f;
-            image.addChild(text);
+            _ = image.addChild(text);
             Text text2 = new Text().initWithFont(font);
             text2.setString(@string);
             text2.anchor = (text2.parentAnchor = 20);
             text2.x = text.x;
-            image2.addChild(text2);
+            _ = image2.addChild(text2);
             Button button = new Button().initWithUpElementDownElementandID(image, image2, bid);
             button.parentAnchor = (button.anchor = 36);
             button.delegateButtonDelegate = d;
@@ -406,11 +406,11 @@ namespace ctr_wp7.ctr_original
             timeline.addKeyFrame(KeyFrame.makePos((double)button.x, (double)num2, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
             timeline.addKeyFrame(KeyFrame.makePos((double)button.x, (double)num2, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.5));
             timeline.addKeyFrame(KeyFrame.makePos((double)button.x, (double)num, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.3));
-            button.addTimeline(timeline);
+            _ = button.addTimeline(timeline);
             Timeline timeline2 = new Timeline().initWithMaxKeyFramesOnTrack(2);
             timeline2.addKeyFrame(KeyFrame.makePos((double)button.x, (double)num, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
             timeline2.addKeyFrame(KeyFrame.makePos((double)button.x, (double)num2, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.3));
-            button.addTimeline(timeline2);
+            _ = button.addTimeline(timeline2);
             return button;
         }
 
@@ -421,14 +421,14 @@ namespace ctr_wp7.ctr_original
             Image image = Image.Image_createWithResIDQuad(397, num);
             Image image2 = Image.Image_createWithResIDQuad(397, q);
             image2.parentAnchor = (image2.anchor = 18);
-            image.addChild(image2);
+            _ = image.addChild(image2);
             if (b)
             {
                 image2.color = RGBAColor.MakeRGBA(0.5f, 0.5f, 0.5f, 0.5f);
                 Image image3 = Image.Image_createWithResIDQuad(397, 4);
                 image3.parentAnchor = (image3.anchor = 9);
                 Image.setElementPositionWithRelativeQuadOffset(image3, 397, num, 4);
-                image.addChild(image3);
+                _ = image.addChild(image3);
             }
             return image;
         }
@@ -453,13 +453,13 @@ namespace ctr_wp7.ctr_original
             BaseElement baseElement = (BaseElement)new BaseElement().init();
             BaseElement baseElement2 = Image.createElementWithLeftPart(num, num2);
             baseElement2.anchor = (baseElement2.parentAnchor = 33);
-            baseElement.addChild(baseElement2);
+            _ = baseElement.addChild(baseElement2);
             Image image = Image.Image_createWithResIDQuad(num, heroid);
             image.anchor = (image.parentAnchor = 9);
             Image.setElementPositionWithRelativeQuadOffset(image, num, num2, heroid);
             if (under)
             {
-                baseElement2.addChild(image);
+                _ = baseElement2.addChild(image);
             }
             int num3 = 7 + framenum;
             BaseElement baseElement3 = Image.createElementWithLeftPart(num, num3);
@@ -472,33 +472,33 @@ namespace ctr_wp7.ctr_original
             text2.setName("del_text_up");
             text2.anchor = (text2.parentAnchor = 18);
             text2.y = 4f;
-            baseElement3.addChild(text2);
+            _ = baseElement3.addChild(text2);
             Text text3 = Text.createWithFontandString(5, nsstring);
             text3.setName("del_text_down");
             text3.anchor = (text3.parentAnchor = 18);
             text3.y = 4f;
-            baseElement4.addChild(text3);
+            _ = baseElement4.addChild(text3);
             Button button = new Button().initWithUpElementDownElementandID(baseElement3, baseElement4, bid);
             button.delegateButtonDelegate = d;
             button.anchor = (button.parentAnchor = 9);
             button.setName("del_button");
             Image.setElementPositionWithRelativeQuadOffset(button, num, num2, num3);
-            baseElement2.addChild(button);
+            _ = baseElement2.addChild(button);
             int num4 = 2 + framenum * 2;
             int num5 = 1 + framenum * 2;
             Vector relativeQuadOffset = Image.getRelativeQuadOffset(num, num2, num4);
             Image image2 = Image.Image_createWithResIDQuad(num, num4);
             image2.anchor = (image2.parentAnchor = 9);
             image2.y = relativeQuadOffset.y;
-            baseElement2.addChild(image2);
+            _ = baseElement2.addChild(image2);
             Image image3 = Image.Image_createWithResIDQuad(num, num5);
             image3.anchor = (image3.parentAnchor = 12);
             image3.scaleX = -1f;
             image3.y = relativeQuadOffset.y;
-            baseElement2.addChild(image3);
+            _ = baseElement2.addChild(image3);
             if (!under)
             {
-                baseElement2.addChild(image);
+                _ = baseElement2.addChild(image);
             }
             baseElement.width = baseElement2.width;
             baseElement.height = baseElement2.height + button.height;
@@ -521,14 +521,14 @@ namespace ctr_wp7.ctr_original
             NSString @string = Application.getString(1310835);
             Text text = Text.createWithFontandString(5, @string);
             text.anchor = (text.parentAnchor = 18);
-            baseElement2.addChild(text);
+            _ = baseElement2.addChild(text);
             Text text2 = Text.createWithFontandString(5, @string);
             text2.anchor = (text2.parentAnchor = 18);
-            baseElement3.addChild(text2);
+            _ = baseElement3.addChild(text2);
             Button button = new Button().initWithUpElementDownElementandID(baseElement2, baseElement3, bid);
             button.delegateButtonDelegate = d;
             button.anchor = (button.parentAnchor = 9);
-            baseElement.addChild(button);
+            _ = baseElement.addChild(button);
             if ((float)text.width > 0.8f * (float)button.width)
             {
                 text.scaleX = (text.scaleY = (text2.scaleX = (text2.scaleY = 0.8f * (float)button.width / (float)text.width)));
@@ -542,21 +542,21 @@ namespace ctr_wp7.ctr_original
                 image.setName(NSS("newCartoonsLabel"));
                 Image image2 = Image.Image_createWithResIDQuad(num, 12);
                 image2.anchor = (image2.parentAnchor = 18);
-                image.addChild(image2);
+                _ = image.addChild(image2);
                 Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(2);
                 timeline.addKeyFrame(KeyFrame.makeRotation(0, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0f));
                 timeline.addKeyFrame(KeyFrame.makeRotation(360, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 4f));
                 timeline.setTimelineLoopType(Timeline.LoopType.TIMELINE_REPLAY);
-                image.addTimeline(timeline);
+                _ = image.addTimeline(timeline);
                 image.playTimeline(0);
                 Timeline timeline2 = new Timeline().initWithMaxKeyFramesOnTrack(3);
                 timeline2.addKeyFrame(KeyFrame.makePos((double)image2.x, (double)image2.y, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
                 timeline2.addKeyFrame(KeyFrame.makePos((double)image2.x, (double)(image2.y - 5f), KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.5));
                 timeline2.addKeyFrame(KeyFrame.makePos((double)image2.x, (double)image2.y, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.5));
                 timeline2.setTimelineLoopType(Timeline.LoopType.TIMELINE_REPLAY);
-                image2.addTimeline(timeline2);
+                _ = image2.addTimeline(timeline2);
                 image2.playTimeline(0);
-                baseElement.addChild(image);
+                _ = baseElement.addChild(image);
             }
             baseElement.width = button.width;
             baseElement.height = button.height;
@@ -578,7 +578,7 @@ namespace ctr_wp7.ctr_original
                 image2.scaleY = SCREEN_BG_SCALE_Y * CHOOSE3(1.02, 1.18, 1.02);
                 image2.scaleX = SCREEN_BG_SCALE_X;
                 image2.y += SCREEN_OFFSET_Y;
-                image.addChild(image2);
+                _ = image.addChild(image2);
             }
             if (l)
             {
@@ -587,7 +587,7 @@ namespace ctr_wp7.ctr_original
                 image3.parentAnchor = 10;
                 image3.y = 5f;
                 image3.x += 0.33f;
-                image.addChild(image3);
+                _ = image.addChild(image3);
                 int num = 1 + Preferences._getIntForKey("PREFS_SELECTED_CANDY");
                 TouchImage touchImage = TouchImage.TouchImage_createWithResIDQuad(69, num);
                 touchImage.bid = 23;
@@ -595,20 +595,20 @@ namespace ctr_wp7.ctr_original
                 touchImage.setName(NSS("logoCandy"));
                 Image.setElementPositionWithRelativeQuadOffset(touchImage, 69, 0, num);
                 touchImage.anchor = (touchImage.parentAnchor = 9);
-                image3.addChild(touchImage);
+                _ = image3.addChild(touchImage);
                 Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(4);
                 timeline.addKeyFrame(KeyFrame.makeScale(1.0, 1.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.0));
                 timeline.addKeyFrame(KeyFrame.makeScale(1.15, 1.15, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.1));
                 timeline.addKeyFrame(KeyFrame.makeScale(0.9, 0.9, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.08));
                 timeline.addKeyFrame(KeyFrame.makeScale(1.0, 1.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.25));
                 timeline.setTimelineLoopType(Timeline.LoopType.TIMELINE_NO_LOOP);
-                touchImage.addTimeline(timeline);
+                _ = touchImage.addTimeline(timeline);
                 glowAnimation = Image.Image_createWithResIDQuad(75, 0);
                 glowAnimation.parentAnchor = 9;
                 glowAnimation.anchor = 18;
                 glowAnimation.setEnabled(false);
                 setElementPositionWithRelativeQuadOffset2(glowAnimation, 69, 0, 69, 4);
-                image3.addChild(glowAnimation);
+                _ = image3.addChild(glowAnimation);
                 Timeline timeline2 = new Timeline().initWithMaxKeyFramesOnTrack(23);
                 float num2 = 0.15f;
                 timeline2.addKeyFrame(KeyFrame.makeScale(0.7, 0.7, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
@@ -624,7 +624,7 @@ namespace ctr_wp7.ctr_original
                 timeline2.addKeyFrame(KeyFrame.makeColor(RGBAColor.whiteRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 3f));
                 timeline2.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.3));
                 timeline2.addKeyFrame(KeyFrame.makeSingleAction(glowAnimation, "ACTION_SET_VISIBLE", 0, 0, 3.6));
-                glowAnimation.addTimeline(timeline2);
+                _ = glowAnimation.addTimeline(timeline2);
             }
             Image image4 = Image.Image_createWithResID(74);
             image4.anchor = (image4.parentAnchor = 18);
@@ -633,9 +633,9 @@ namespace ctr_wp7.ctr_original
             timeline3.addKeyFrame(KeyFrame.makeRotation(45.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
             timeline3.addKeyFrame(KeyFrame.makeRotation(405.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 75.0));
             timeline3.setTimelineLoopType(Timeline.LoopType.TIMELINE_REPLAY);
-            image4.addTimeline(timeline3);
+            _ = image4.addTimeline(timeline3);
             image4.playTimeline(0);
-            image.addChild(image4);
+            _ = image.addChild(image4);
             return image;
         }
 
@@ -648,31 +648,31 @@ namespace ctr_wp7.ctr_original
             vbox.anchor = (vbox.parentAnchor = 10);
             vbox.y = 265f;
             Button button = createButtonWithTextIDDelegate(Application.getString(1310720), 0, this);
-            vbox.addChild(button);
+            _ = vbox.addChild(button);
             Button button2 = createButtonWithTextIDDelegate(Application.getString(1310721), 1, this);
-            vbox.addChild(button2);
+            _ = vbox.addChild(button2);
             if (CTRPreferences.isLiteVersion())
             {
                 Button button3 = createButtonWithTextIDDelegateAutoScale(Application.getString(1310723), 42, this);
-                vbox.addChild(button3);
+                _ = vbox.addChild(button3);
             }
-            Application.getTexture(72);
+            _ = Application.getTexture(72);
             if (LANGUAGE != Language.LANG_ZH)
             {
-                Application.sharedPreferences().remoteDataManager.getHideSocialNetworks();
+                _ = Application.sharedPreferences().remoteDataManager.getHideSocialNetworks();
             }
-            CTRPreferences.isBannersMustBeShown();
-            image.addChild(vbox);
+            _ = CTRPreferences.isBannersMustBeShown();
+            _ = image.addChild(vbox);
             BaseElement childWithName = image.getChildWithName(NSS("logoCandy"));
             BaseElement.calculateTopLeft(childWithName.parent);
             BaseElement.calculateTopLeft(childWithName);
-            Image.getQuadCenter(69, 1);
+            _ = Image.getQuadCenter(69, 1);
             Vector vector = vect(childWithName.drawX + (float)(childWithName.width / 2) - 5f, childWithName.drawY + (float)(childWithName.height / 2) - 5f);
             handAnimation = Image.Image_createWithResIDQuad(75, 1);
             handAnimation.rotationCenterX = (float)(-(float)handAnimation.width / 2);
             handAnimation.rotationCenterY = (float)(-(float)handAnimation.height / 2);
             handAnimation.setEnabled(false);
-            image.addChild(handAnimation);
+            _ = image.addChild(handAnimation);
             Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(8);
             float num = 0.5f;
             timeline.addKeyFrame(KeyFrame.makePos((double)SCREEN_WIDTH, (double)(SCREEN_HEIGHT * 2f / 3f), KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
@@ -693,16 +693,16 @@ namespace ctr_wp7.ctr_original
             timeline.addKeyFrame(KeyFrame.makeScale(0.9, 0.9, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.2));
             timeline.addKeyFrame(KeyFrame.makeScale(1.0, 1.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.2));
             timeline.addKeyFrame(KeyFrame.makeSingleAction(handAnimation, "ACTION_SET_VISIBLE", 0, 0, 3.5));
-            handAnimation.addTimeline(timeline);
+            _ = handAnimation.addTimeline(timeline);
             timeline.delegateTimelineDelegate = this;
             ddMainMenu.cancelAllDispatches();
             ddMainMenu.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(selector_playHandAnimation), null, 3f);
-            menuView.addChild(image);
+            _ = menuView.addChild(image);
             if (!Application.sharedPreferences().remoteDataManager.getHideMainPromo())
             {
                 PromoBanner promoBanner = (PromoBanner)new PromoBanner().init();
                 promoBanner.setName("promoBanner");
-                menuView.addChild(promoBanner);
+                _ = menuView.addChild(promoBanner);
             }
             addViewwithID(menuView, ViewID.VIEW_MAIN_MENU);
         }
@@ -715,20 +715,20 @@ namespace ctr_wp7.ctr_original
             VBox vbox = new VBox().initWithOffsetAlignWidth(10.0, 2, (double)SCREEN_WIDTH);
             vbox.anchor = (vbox.parentAnchor = 18);
             vbox.y += 0.33f;
-            Application.getString(1310730);
-            Application.getString(1310728);
-            Application.getString(1310731);
-            Application.getString(1310729);
+            _ = Application.getString(1310730);
+            _ = Application.getString(1310728);
+            _ = Application.getString(1310731);
+            _ = Application.getString(1310729);
             ToggleButton toggleButton = createAudioButtonWithQuadDelegateID(2, this, 5);
             ToggleButton toggleButton2 = createAudioButtonWithQuadDelegateID(3, this, 6);
             HBox hbox = new HBox().initWithOffsetAlignHeight(14f, 16, (float)toggleButton2.height);
-            hbox.addChild(toggleButton);
-            hbox.addChild(toggleButton2);
-            vbox.addChild(hbox);
+            _ = hbox.addChild(toggleButton);
+            _ = hbox.addChild(toggleButton2);
+            _ = vbox.addChild(hbox);
             Button button = createButtonWithTextIDDelegateAutoScale(Application.getString(1310830), 39, this);
             Button button2 = createButtonWithTextIDDelegateAutoScale(Application.getString(1310829), 37, this);
-            vbox.addChild(button);
-            vbox.addChild(button2);
+            _ = vbox.addChild(button);
+            _ = vbox.addChild(button2);
             bool flag = Preferences._getBooleanForKey("SOUND_ON");
             bool flag2 = Preferences._getBooleanForKey("MUSIC_ON");
             if (!flag)
@@ -740,9 +740,9 @@ namespace ctr_wp7.ctr_original
                 toggleButton2.toggle();
             }
             Button button3 = createButtonWithTextIDDelegate(Application.getString(1310725), 7, this);
-            vbox.addChild(button3);
+            _ = vbox.addChild(button3);
             Button button4 = createButtonWithTextIDDelegate(Application.getString(1310724), 8, this);
-            vbox.addChild(button4);
+            _ = vbox.addChild(button4);
             float num = 1f;
             switch (LANGUAGE)
             {
@@ -760,16 +760,16 @@ namespace ctr_wp7.ctr_original
                     break;
             }
             Button button5 = createButtonWithTextscaleTextIDDelegate(Application.getString(1310821), num, 54, this, 4, 0, 1);
-            vbox.addChild(button5);
+            _ = vbox.addChild(button5);
             Button button6 = createBackButtonWithDelegateID(this, 9);
-            image.addChild(button6);
+            _ = image.addChild(button6);
             if (CTRPreferences.isBannersMustBeShown())
             {
                 button6.y -= 50f;
                 vbox.y -= 30f;
             }
-            image.addChild(vbox);
-            menuView.addChild(image);
+            _ = image.addChild(vbox);
+            _ = menuView.addChild(image);
             addViewwithID(menuView, ViewID.VIEW_OPTIONS);
         }
 
@@ -783,12 +783,12 @@ namespace ctr_wp7.ctr_original
             Text text = new Text().initWithFont(Application.getFont(5));
             text.setAlignment(2);
             text.setStringandWidth(Application.getString(1310735), (float)vbox.width);
-            vbox.addChild(text);
+            _ = vbox.addChild(text);
             Text text2 = new Text().initWithFont(Application.getFont(6));
             text2.setAlignment(2);
             text2.setStringandWidth(Application.getString(1310777), (float)vbox.width);
-            vbox.addChild(text2);
-            image.addChild(vbox);
+            _ = vbox.addChild(text2);
+            _ = image.addChild(vbox);
             TimedButton timedButton = createTimedButtonWithTextIDDelegateTimer(Application.getString(1310747), 12, this, 3f);
             timedButton.anchor = (timedButton.parentAnchor = 34);
             timedButton.y = -130f;
@@ -796,11 +796,11 @@ namespace ctr_wp7.ctr_original
             button.anchor = (button.parentAnchor = 34);
             button.y = -70f;
             vbox.y = -65f;
-            image.addChild(timedButton);
-            image.addChild(button);
+            _ = image.addChild(timedButton);
+            _ = image.addChild(button);
             Button button2 = createBackButtonWithDelegateID(this, 10);
-            image.addChild(button2);
-            menuView.addChild(image);
+            _ = image.addChild(button2);
+            _ = menuView.addChild(image);
             addViewwithID(menuView, ViewID.VIEW_RESET);
         }
 
@@ -812,7 +812,7 @@ namespace ctr_wp7.ctr_original
             rectangleElement.width = (int)SCREEN_WIDTH;
             rectangleElement.height = (int)SCREEN_HEIGHT;
             rectangleElement.color = RGBAColor.blackRGBA;
-            menuView.addChild(rectangleElement);
+            _ = menuView.addChild(rectangleElement);
             addViewwithID(menuView, ViewID.VIEW_MOVIE);
         }
 
@@ -824,19 +824,19 @@ namespace ctr_wp7.ctr_original
             VBox vbox = new VBox().initWithOffsetAlignWidth(5f, 2, SCREEN_WIDTH_EXPANDED - 20f);
             vbox.parentAnchor = (vbox.anchor = 18);
             vbox.y = -20f;
-            image.addChild(vbox);
+            _ = image.addChild(vbox);
             Text text = new Text().initWithFont(Application.getFont(6));
             text.setAlignment(2);
             text.setStringandWidth(Application.getString(1310820), (float)vbox.width);
             text.height -= 20;
-            vbox.addChild(text);
+            _ = vbox.addChild(text);
             Button button = createButtonWithTextIDDelegate(Application.getString(1310821), 0.8f, 35, this);
-            vbox.addChild(button);
+            _ = vbox.addChild(button);
             Button button2 = createButtonWithTextIDDelegate(Application.getString(1310822), 0.8f, 34, this);
-            vbox.addChild(button2);
+            _ = vbox.addChild(button2);
             Button button3 = createBackButtonWithDelegateID(this, 32);
-            image.addChild(button3);
-            menuView.addChild(image);
+            _ = image.addChild(button3);
+            _ = menuView.addChild(image);
             addViewwithID(menuView, ViewID.VIEW_TERMS);
         }
 
@@ -845,7 +845,7 @@ namespace ctr_wp7.ctr_original
         {
             MenuView menuView = (MenuView)new MenuView().initFullscreen();
             Image image = createBackgroundWithLogo(false, false);
-            NSS("undefined version");
+            _ = NSS("undefined version");
             string text;
             if (CTRPreferences.isLiteVersion())
             {
@@ -857,7 +857,7 @@ namespace ctr_wp7.ctr_original
             }
             VBox vbox = new VBox().initWithOffsetAlignWidth(0f, 2, 310f);
             Image image2 = Image.Image_createWithResIDQuad(69, 5);
-            vbox.addChild(image2);
+            _ = vbox.addChild(image2);
             string text2 = Application.getString(1310784).ToString();
             string[] array = new string[] { "%@" };
             string[] array2 = text2.Split(array, 0);
@@ -878,13 +878,13 @@ namespace ctr_wp7.ctr_original
             Text text3 = new Text().initWithFont(Application.getFont(6));
             text3.setAlignment(2);
             text3.setStringandWidth(NSS(text2), 310f);
-            vbox.addChild(text3);
+            _ = vbox.addChild(text3);
             aboutContainer = new ScrollableContainer().initWithWidthHeightContainer(310f, 350f, vbox);
             aboutContainer.anchor = (aboutContainer.parentAnchor = 18);
-            image.addChild(aboutContainer);
+            _ = image.addChild(aboutContainer);
             Button button = createBackButtonWithDelegateID(this, 10);
-            image.addChild(button);
-            menuView.addChild(image);
+            _ = image.addChild(button);
+            _ = menuView.addChild(image);
             addViewwithID(menuView, ViewID.VIEW_ABOUT);
         }
 
@@ -894,19 +894,19 @@ namespace ctr_wp7.ctr_original
             HBox hbox = new HBox().initWithOffsetAlignHeight(0.0, 16, 50.0);
             Text text = new Text().initWithFont(Application.getFont(5));
             text.setString(NSS(t));
-            hbox.addChild(text);
+            _ = hbox.addChild(text);
             Image image = Image.Image_createWithResIDQuad(71, 3);
-            hbox.addChild(image);
+            _ = hbox.addChild(image);
             return hbox;
         }
 
         // Token: 0x060006B7 RID: 1719 RVA: 0x00035374 File Offset: 0x00033574
         private void createPackSelect()
         {
-            boxFabric.isZeroBoxDefined();
+            _ = boxFabric.isZeroBoxDefined();
             NSREL(packSelect);
             packSelect = CTRPreferences.getPackSelectInfo(boxFabric.isZeroBoxDefined(), -1);
-            NSRET(packSelect);
+            _ = NSRET(packSelect);
             MenuView menuView = (MenuView)new MenuView().initFullscreen();
             Image image = createBackgroundWithLogo(false, false);
             HBox hbox = createTextWithStar(Application.getString(1310753).ToString().Replace("%d", CTRPreferences.getTotalStarsInDelivery(-1).ToString()));
@@ -923,23 +923,23 @@ namespace ctr_wp7.ctr_original
             packContainer.turnScrollPointsOnWithCapacity(packSelect.size);
             packContainer.delegateScrollableContainerProtocol = this;
             hbox.anchor = (hbox.parentAnchor = 12);
-            image.addChild(hbox);
+            _ = image.addChild(hbox);
             float num = 0f;
             for (int i = 0; i < packSelect.size; i++)
             {
                 BaseElement baseElement = boxFabric.createPackElementforContainer(i, packSelect.content[i], packContainer, this);
                 packSelect.elements[i] = baseElement;
-                hbox2.addChild(baseElement);
+                _ = hbox2.addChild(baseElement);
                 baseElement.x -= 25f - SCREEN_OFFSET_X;
                 baseElement.y -= 20f;
                 num += ((i != 0) ? ((float)packSelect.elements[i - 1].width + -50f) : 0f);
-                packContainer.addScrollPointAtXY((double)num, 0.0);
+                _ = packContainer.addScrollPointAtXY((double)num, 0.0);
             }
             hbox2.width += Math.Max(50, (int)((float)packSelect.size * SCREEN_OFFSET_X));
-            image.addChild(packContainer);
+            _ = image.addChild(packContainer);
             int num2 = 48;
             Button button = createBackButtonWithDelegateID(this, num2);
-            image.addChild(button);
+            _ = image.addChild(button);
             unlockb = null;
             AnimationsPool animationsPool = (AnimationsPool)new AnimationsPool().init();
             Image image2 = Image.Image_createWithResID(11);
@@ -949,9 +949,9 @@ namespace ctr_wp7.ctr_original
             breakParticles.posVar.x = 0f;
             breakParticles.posVar.y = 0f;
             breakParticles.y += 50f;
-            image.addChild(breakParticles);
-            image.addChild(animationsPool);
-            menuView.addChild(image);
+            _ = image.addChild(breakParticles);
+            _ = image.addChild(animationsPool);
+            _ = menuView.addChild(image);
             addViewwithID(menuView, 4);
             ddPackSelect.cancelAllDispatches();
             if (CTRPreferences.isBannersMustBeShown())
@@ -974,7 +974,7 @@ namespace ctr_wp7.ctr_original
                 bulletContainer.anchor = (bulletContainer.parentAnchor = 34);
                 bulletContainer.blendingMode = 1;
                 bulletContainer.y = liftScrollbar.y - 14f;
-                menuView.addChild(bulletContainer);
+                _ = menuView.addChild(bulletContainer);
                 int totalScrollPoints = liftScrollbar.getTotalScrollPoints();
                 for (int j = 0; j < totalScrollPoints; j++)
                 {
@@ -986,9 +986,9 @@ namespace ctr_wp7.ctr_original
                     touchImage.y = scrollPoint.y;
                     touchImage.parentAnchor = 9;
                     touchImage.anchor = 18;
-                    bulletContainer.addChild(touchImage);
+                    _ = bulletContainer.addChild(touchImage);
                 }
-                menuView.addChild(liftScrollbar);
+                _ = menuView.addChild(liftScrollbar);
                 liftScrollbar.updateActiveSpoint();
                 if (CTRPreferences.isBannersMustBeShown())
                 {
@@ -1096,14 +1096,14 @@ namespace ctr_wp7.ctr_original
                 text.setString(nsstring);
                 text.anchor = (text.parentAnchor = 18);
                 text.y -= 5f;
-                image.addChild(text);
+                _ = image.addChild(text);
                 Image image2 = Image.Image_createWithResIDQuad(70, 3 + starsForPackLevel);
                 image2.doRestoreCutTransparency();
                 image2.anchor = (image2.parentAnchor = 9);
-                image.addChild(image2);
+                _ = image.addChild(image2);
             }
             image.anchor = (image.parentAnchor = 18);
-            touchBaseElement.addChild(image);
+            _ = touchBaseElement.addChild(image);
             touchBaseElement.setSizeToChildsBounds();
             return touchBaseElement;
         }
@@ -1127,22 +1127,22 @@ namespace ctr_wp7.ctr_original
             baseElement.scaleY = SCREEN_BG_SCALE_Y;
             baseElement.scaleX = SCREEN_BG_SCALE_X;
             baseElement.passTransformationsToChilds = true;
-            baseElement.addChild(image);
-            baseElement.addChild(image2);
+            _ = baseElement.addChild(image);
+            _ = baseElement.addChild(image2);
             Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(3);
             timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.solidOpaqueRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0f));
             timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.MakeRGBA(0.85, 0.85, 0.85, 1.0), KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.3));
-            baseElement.addTimeline(timeline);
+            _ = baseElement.addTimeline(timeline);
             baseElement.setName("levelsBack");
-            menuView.addChild(baseElement);
+            _ = menuView.addChild(baseElement);
             Image image3 = Image.Image_createWithResIDQuad(7, 0);
             Image image4 = Image.Image_createWithResIDQuad(7, 1);
             image3.x = 141f;
             image3.y = 25f;
             image4.x = 160f;
             image4.y = 25f;
-            baseElement.addChild(image3);
-            baseElement.addChild(image4);
+            _ = baseElement.addChild(image3);
+            _ = baseElement.addChild(image4);
             Image image5 = Image.Image_createWithResID(74);
             image5.setName("shadow");
             image5.anchor = (image5.parentAnchor = 18);
@@ -1151,14 +1151,14 @@ namespace ctr_wp7.ctr_original
             timeline2.addKeyFrame(KeyFrame.makeScale(2.0, 2.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
             timeline2.addKeyFrame(KeyFrame.makeScale(5.0, 5.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.3));
             timeline2.delegateTimelineDelegate = this;
-            image5.addTimeline(timeline2);
+            _ = image5.addTimeline(timeline2);
             Timeline timeline3 = new Timeline().initWithMaxKeyFramesOnTrack(3);
             timeline3.addKeyFrame(KeyFrame.makeRotation(45.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
             timeline3.addKeyFrame(KeyFrame.makeRotation(405.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 75.0));
             timeline3.setTimelineLoopType(Timeline.LoopType.TIMELINE_REPLAY);
-            image5.addTimeline(timeline3);
+            _ = image5.addTimeline(timeline3);
             image5.playTimeline(1);
-            menuView.addChild(image5);
+            _ = menuView.addChild(image5);
             HBox hbox = createTextWithStar(CTRPreferences.getTotalStarsInPack(pack).ToString() + "/" + (CTRPreferences.getLevelsInPackCount() * 3).ToString());
             hbox.x = -10f;
             hbox.y -= SCREEN_OFFSET_Y;
@@ -1173,11 +1173,11 @@ namespace ctr_wp7.ctr_original
             Timeline timeline4 = new Timeline().initWithMaxKeyFramesOnTrack(2);
             timeline4.addKeyFrame(KeyFrame.makePos((double)vbox.x, (double)vbox.y, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
             timeline4.addKeyFrame(KeyFrame.makePos((double)vbox.x, (double)(vbox.y - WVGAD(25.0)), KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.3));
-            vbox.addTimeline(timeline4);
+            _ = vbox.addTimeline(timeline4);
             Timeline timeline5 = new Timeline().initWithMaxKeyFramesOnTrack(2);
             timeline5.addKeyFrame(KeyFrame.makePos((double)vbox.x, (double)(vbox.y - WVGAD(25.0)), KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
             timeline5.addKeyFrame(KeyFrame.makePos((double)vbox.x, (double)vbox.y, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.3));
-            vbox.addTimeline(timeline5);
+            _ = vbox.addTimeline(timeline5);
             int num5 = 5;
             int num6 = 0;
             for (int i = 0; i < num5; i++)
@@ -1185,37 +1185,37 @@ namespace ctr_wp7.ctr_original
                 HBox hbox2 = new HBox().initWithOffsetAlignHeight(num3, 16, num4);
                 for (int j = 0; j < num5; j++)
                 {
-                    hbox2.addChild(createButtonForLevelPack(num6++, pack));
+                    _ = hbox2.addChild(createButtonForLevelPack(num6++, pack));
                 }
-                vbox.addChild(hbox2);
+                _ = vbox.addChild(hbox2);
             }
             Timeline timeline6 = new Timeline().initWithMaxKeyFramesOnTrack(3);
             timeline6.addKeyFrame(KeyFrame.makeColor(RGBAColor.solidOpaqueRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0f));
             timeline6.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.3));
-            vbox.addTimeline(timeline6);
+            _ = vbox.addTimeline(timeline6);
             hbox.anchor = (hbox.parentAnchor = 12);
             hbox.setName("starText");
             Timeline timeline7 = new Timeline().initWithMaxKeyFramesOnTrack(2);
             timeline7.addKeyFrame(KeyFrame.makeColor(RGBAColor.solidOpaqueRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0f));
             timeline7.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.3));
-            hbox.addTimeline(timeline7);
-            menuView.addChild(hbox);
-            menuView.addChild(vbox);
+            _ = hbox.addTimeline(timeline7);
+            _ = menuView.addChild(hbox);
+            _ = menuView.addChild(vbox);
             Button button = createBackButtonWithDelegateID(this, 11);
-            menuView.addChild(button);
+            _ = menuView.addChild(button);
             button.setName("backButton");
             Timeline timeline8 = new Timeline().initWithMaxKeyFramesOnTrack(2);
             timeline8.addKeyFrame(KeyFrame.makePos(0.0, 0.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
             timeline8.addKeyFrame(KeyFrame.makePos(0.0, (double)(-(double)WVGAD(50.0)), KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.3));
-            button.addTimeline(timeline8);
+            _ = button.addTimeline(timeline8);
             Timeline timeline9 = new Timeline().initWithMaxKeyFramesOnTrack(2);
             timeline9.addKeyFrame(KeyFrame.makePos(0.0, (double)(-(double)WVGAD(50.0)), KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
             timeline9.addKeyFrame(KeyFrame.makePos(0.0, 0.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.3));
-            button.addTimeline(timeline9);
+            _ = button.addTimeline(timeline9);
             Timeline timeline10 = new Timeline().initWithMaxKeyFramesOnTrack(2);
             timeline10.addKeyFrame(KeyFrame.makeColor(RGBAColor.solidOpaqueRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0f));
             timeline10.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.3));
-            button.addTimeline(timeline10);
+            _ = button.addTimeline(timeline10);
             addViewwithID(menuView, ViewID.VIEW_LEVEL_SELECT);
         }
 
@@ -1497,7 +1497,7 @@ namespace ctr_wp7.ctr_original
         // Token: 0x060006C9 RID: 1737 RVA: 0x00036984 File Offset: 0x00034B84
         public virtual void onButtonPressed(int n)
         {
-            activeView().onTouchMoveXY(-10000f, -10000f);
+            _ = activeView().onTouchMoveXY(-10000f, -10000f);
             if (n != -1 && n != 14 && n != 40)
             {
                 CTRSoundMgr._playSound(21);
@@ -2003,7 +2003,7 @@ namespace ctr_wp7.ctr_original
         // Token: 0x060006CA RID: 1738 RVA: 0x0003767C File Offset: 0x0003587C
         private void gotoNextBox()
         {
-            Application.sharedPreferences();
+            _ = Application.sharedPreferences();
             for (int i = 0; i < packSelect.size; i++)
             {
                 int num = packSelect.content[i];
@@ -2030,7 +2030,7 @@ namespace ctr_wp7.ctr_original
         private void unlockBoxes()
         {
             needUnlock = false;
-            Application.sharedPreferences();
+            _ = Application.sharedPreferences();
             unlockAnimation = true;
             animationStartPackIndex = currentPackIndex;
             int i = 0;
@@ -2119,7 +2119,7 @@ namespace ctr_wp7.ctr_original
             {
                 return true;
             }
-            base.touchesBeganwithEvent(touches);
+            _ = base.touchesBeganwithEvent(touches);
             if (activeViewID == 2 && aboutAutoScroll)
             {
                 aboutAutoScroll = false;
@@ -2259,16 +2259,16 @@ namespace ctr_wp7.ctr_original
             popup.setName(NSS("popup"));
             Image image = Image.Image_createWithResIDQuad(68, 0);
             image.anchor = (image.parentAnchor = 18);
-            popup.addChild(image);
+            _ = popup.addChild(image);
             message.anchor = (message.parentAnchor = 18);
-            image.addChild(message);
+            _ = image.addChild(message);
             buttons.y += -14f;
             buttons.anchor = 18;
             buttons.parentAnchor = 34;
-            image.addChild(buttons);
+            _ = image.addChild(buttons);
             popup.showPopup();
             ep = popup;
-            parent.addChild(popup);
+            _ = parent.addChild(popup);
         }
 
         // Token: 0x060006D6 RID: 1750 RVA: 0x00037C90 File Offset: 0x00035E90
@@ -2281,10 +2281,10 @@ namespace ctr_wp7.ctr_original
             button2.anchor = 33;
             button2.parentAnchor = 9;
             button2.setTouchIncreaseLeftRightTopBottom(15f, 15f, 0f, 0f);
-            button.addChild(button2);
+            _ = button.addChild(button2);
             VBox vbox = new VBox().initWithOffsetAlignWidth(0.0, 2, (double)SCREEN_WIDTH);
-            vbox.addChild(button2);
-            vbox.addChild(button);
+            _ = vbox.addChild(button2);
+            _ = vbox.addChild(button);
             vbox.y = -34f;
             FontGeneric font = Application.getFont(5);
             float num = 250f;
@@ -2305,7 +2305,7 @@ namespace ctr_wp7.ctr_original
             button2.anchor = 33;
             button2.parentAnchor = 9;
             button2.setTouchIncreaseLeftRightTopBottom(15f, 15f, 0f, 0f);
-            button.addChild(button2);
+            _ = button.addChild(button2);
             FontGeneric font = Application.getFont(5);
             float num = 250f;
             Text text = new Text().initWithFont(font);
@@ -2330,18 +2330,18 @@ namespace ctr_wp7.ctr_original
             Text text = new Text().initWithFont(Application.getFont(5));
             text.setAlignment(2);
             text.setString(Application.getString(1310756));
-            vbox.addChild(text);
+            _ = vbox.addChild(text);
             int totalStarsInDelivery = CTRPreferences.getTotalStarsInDelivery(-1);
             BaseElement baseElement = createTextWithStar((CTRPreferences.packUnlockStars(pack) - totalStarsInDelivery).ToString());
-            vbox.addChild(baseElement);
+            _ = vbox.addChild(baseElement);
             Text text2 = new Text().initWithFont(Application.getFont(5));
             text2.setAlignment(2);
             text2.setStringandWidth(Application.getString(1310757), num);
-            vbox.addChild(text2);
+            _ = vbox.addChild(text2);
             Text text3 = new Text().initWithFont(Application.getFont(6));
             text3.setAlignment(2);
             text3.setStringandWidth(Application.getString(1310758), num);
-            vbox.addChild(text3);
+            _ = vbox.addChild(text3);
             Button button = createButtonWithTextIDDelegate(Application.getString(1310754), 22, this);
             showPopup(parent, vbox, button);
         }
@@ -2355,11 +2355,11 @@ namespace ctr_wp7.ctr_original
             Text text = new Text().initWithFont(Application.getFont(5));
             text.setAlignment(2);
             text.setStringandWidth(Application.getString(1310759), num);
-            vbox.addChild(text);
+            _ = vbox.addChild(text);
             Text text2 = new Text().initWithFont(Application.getFont(6));
             text2.setAlignment(2);
             text2.setStringandWidth(Application.getString(1310760), num);
-            vbox.addChild(text2);
+            _ = vbox.addChild(text2);
             Button button = createButtonWithTextIDDelegate(Application.getString(1310754), 21, this);
             showPopup(parent, vbox, button);
         }
@@ -2367,7 +2367,7 @@ namespace ctr_wp7.ctr_original
         // Token: 0x060006DB RID: 1755 RVA: 0x00038068 File Offset: 0x00036268
         public virtual void changedActiveSpointFromTo(int pp, int cp)
         {
-            liftScrollbar.getTotalScrollPoints();
+            _ = liftScrollbar.getTotalScrollPoints();
             TouchImage touchImage = (TouchImage)bulletContainer.getChild(pp);
             TouchImage touchImage2 = (TouchImage)bulletContainer.getChild(cp);
             touchImage.setDrawQuad(8);
@@ -2469,7 +2469,7 @@ namespace ctr_wp7.ctr_original
             Button button = createBackButtonWithDelegateID(this, 36);
             button.setName("backb");
             button.x = 0f;
-            achievementsView.addChild(button);
+            _ = achievementsView.addChild(button);
         }
 
         // Token: 0x060006E2 RID: 1762 RVA: 0x000382E4 File Offset: 0x000364E4
@@ -2480,7 +2480,7 @@ namespace ctr_wp7.ctr_original
             Button button = createBackButtonWithDelegateID(this, 38);
             button.setName("backb");
             button.x = 0f;
-            leaderboardsView.addChildwithID(button, leaderboardsView.childsCount());
+            _ = leaderboardsView.addChildwithID(button, leaderboardsView.childsCount());
         }
 
         // Token: 0x060006E3 RID: 1763 RVA: 0x00038338 File Offset: 0x00036538
@@ -2488,7 +2488,7 @@ namespace ctr_wp7.ctr_original
         {
             Image image = Image.Image_createWithResIDQuad(389, pressed ? 1 : 0);
             Image image2 = Image.Image_createWithResIDQuad(389, quad);
-            image.addChild(image2);
+            _ = image.addChild(image2);
             image2.parentAnchor = 9;
             Image.setElementPositionWithRelativeQuadOffset(image2, 389, 0, quad);
             return image;
@@ -2776,7 +2776,7 @@ namespace ctr_wp7.ctr_original
             // Token: 0x060006E7 RID: 1767 RVA: 0x000383E4 File Offset: 0x000365E4
             public override bool onTouchDownXY(float tx, float ty)
             {
-                base.onTouchDownXY(tx, ty);
+                _ = base.onTouchDownXY(tx, ty);
                 Rectangle rectangle = MakeRectangle(drawX + bbc.x, drawY + bbc.y, (float)width + bbc.w, (float)height + bbc.h);
                 Rectangle rectangle2 = rectInRectIntersection(MakeRectangle(0.0, 0.0, (double)SCREEN_WIDTH, (double)SCREEN_HEIGHT), rectangle);
                 if (pointInRect(tx, ty, rectangle.x, rectangle.y, rectangle.w, rectangle.h) && (double)rectangle2.w > (double)rectangle.w / 2.0)

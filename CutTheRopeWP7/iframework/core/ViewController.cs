@@ -101,7 +101,7 @@ namespace ctr_wp7.iframework.core
         public virtual void addViewwithID(View v, int n)
         {
             View view;
-            views.TryGetValue(n, out view);
+            _ = views.TryGetValue(n, out view);
             views[n] = v;
         }
 
@@ -146,7 +146,7 @@ namespace ctr_wp7.iframework.core
         public virtual View getView(int n)
         {
             View view = null;
-            views.TryGetValue(n, out view);
+            _ = views.TryGetValue(n, out view);
             return view;
         }
 

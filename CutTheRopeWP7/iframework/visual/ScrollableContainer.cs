@@ -195,8 +195,8 @@ namespace ctr_wp7.iframework.visual
             }
             if (!vectEqual(move, vectZero))
             {
-                vectEqual(targetPoint, vectZero);
-                vect(container.x, container.y);
+                _ = vectEqual(targetPoint, vectZero);
+                _ = vect(container.x, container.y);
                 Vector vector2 = vectMult(vectNeg(move), 2f);
                 move = vectAdd(move, vectMult(vector2, delta));
                 Vector vector3 = vectMult(move, delta);
@@ -210,7 +210,7 @@ namespace ctr_wp7.iframework.visual
                     vector3.y = 0f;
                     move.y = 0f;
                 }
-                moveContainerBy(vector3);
+                _ = moveContainerBy(vector3);
             }
             if ((double)inertiaTimeoutLeft > 0.0)
             {
@@ -301,7 +301,7 @@ namespace ctr_wp7.iframework.visual
                 {
                     touchTimer = 0f;
                     passTouches = false;
-                    base.onTouchUpXY(-1f, -1f);
+                    _ = base.onTouchUpXY(-1f, -1f);
                 }
                 if (container.width <= width)
                 {
@@ -437,7 +437,7 @@ namespace ctr_wp7.iframework.visual
             container = (BaseElement)new BaseElement().init();
             container.width = (int)cw;
             container.height = (int)ch;
-            initWithWidthHeightContainer(w, h, container);
+            _ = initWithWidthHeightContainer(w, h, container);
             return this;
         }
 
@@ -619,8 +619,8 @@ namespace ctr_wp7.iframework.visual
             Vector vector = vectSub(tsp, vect(container.x, container.y));
             vector = vectNormalize(vector);
             vector = vectMult(vector, speed);
-            Mover.moveVariableToTarget(ref container.x, tsp.x, Math.Abs(vector.x), delta);
-            Mover.moveVariableToTarget(ref container.y, tsp.y, Math.Abs(vector.y), delta);
+            _ = Mover.moveVariableToTarget(ref container.x, tsp.x, Math.Abs(vector.x), delta);
+            _ = Mover.moveVariableToTarget(ref container.y, tsp.y, Math.Abs(vector.y), delta);
             targetPoint = tsp;
             move = vectZero;
         }

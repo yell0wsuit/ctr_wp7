@@ -57,9 +57,9 @@ internal class DeviceParams
         List<string> list = new List<string>();
         list.Add("Ok");
         list.Add("Cancel");
-        Guide.BeginShowMessageBox(text, text2, list, 0, MessageBoxIcon.Error, delegate (IAsyncResult asyncResult)
+        _ = Guide.BeginShowMessageBox(text, text2, list, 0, MessageBoxIcon.Error, delegate (IAsyncResult asyncResult)
         {
-            Guide.EndShowMessageBox(asyncResult);
+            _ = Guide.EndShowMessageBox(asyncResult);
         }, null);
     }
 

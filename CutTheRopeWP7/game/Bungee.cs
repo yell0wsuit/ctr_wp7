@@ -372,7 +372,7 @@ namespace ctr_wp7.game
                     Constraint constraint = constraintedPoint2.constraints[i];
                     if (constraint.cp == constraintedPoint)
                     {
-                        constraintedPoint2.constraints.Remove(constraint);
+                        _ = constraintedPoint2.constraints.Remove(constraint);
                         ConstraintedPoint constraintedPoint3 = (ConstraintedPoint)new ConstraintedPoint().init();
                         constraintedPoint3.setWeight(1E-05f);
                         constraintedPoint3.pos = constraintedPoint2.pos;
@@ -437,7 +437,7 @@ namespace ctr_wp7.game
         {
             if ((double)cutTime > 0.0)
             {
-                Mover.moveVariableToTarget(ref cutTime, 0f, 1f, delta);
+                _ = Mover.moveVariableToTarget(ref cutTime, 0f, 1f, delta);
                 if (cutTime < 1.95f && forceWhite)
                 {
                     removePart(cut);

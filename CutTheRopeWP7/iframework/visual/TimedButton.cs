@@ -37,8 +37,8 @@ namespace ctr_wp7.iframework.visual
             if (initWithID(n) != null)
             {
                 up.parentAnchor = (down.parentAnchor = 9);
-                addChildwithID(up, 0);
-                addChildwithID(down, 1);
+                _ = addChildwithID(up, 0);
+                _ = addChildwithID(down, 1);
                 setState(TIMED_BUTTON.TIMED_BUTTON_UP);
                 Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(8);
                 timeline.addKeyFrame(KeyFrame.makeSingleAction(getChild(0), "ACTION_SET_VISIBLE", 1, 1, 0f));
@@ -100,7 +100,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060003F1 RID: 1009 RVA: 0x0001C518 File Offset: 0x0001A718
         public override bool onTouchDownXY(float tx, float ty)
         {
-            base.onTouchDownXY(tx, ty);
+            _ = base.onTouchDownXY(tx, ty);
             if (state == TIMED_BUTTON.TIMED_BUTTON_UP && isInTouchZoneXYforTouchDown(tx, ty, true))
             {
                 setState(TIMED_BUTTON.TIMED_BUTTON_DOWN);
@@ -114,7 +114,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060003F2 RID: 1010 RVA: 0x0001C554 File Offset: 0x0001A754
         public override bool onTouchUpXY(float tx, float ty)
         {
-            base.onTouchUpXY(tx, ty);
+            _ = base.onTouchUpXY(tx, ty);
             if (state == TIMED_BUTTON.TIMED_BUTTON_DOWN)
             {
                 setState(TIMED_BUTTON.TIMED_BUTTON_UP);
@@ -141,7 +141,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060003F3 RID: 1011 RVA: 0x0001C5DB File Offset: 0x0001A7DB
         public override bool onTouchMoveXY(float tx, float ty)
         {
-            base.onTouchMoveXY(tx, ty);
+            _ = base.onTouchMoveXY(tx, ty);
             if (state == TIMED_BUTTON.TIMED_BUTTON_DOWN)
             {
                 if (isInTouchZoneXYforTouchDown(tx, ty, false))

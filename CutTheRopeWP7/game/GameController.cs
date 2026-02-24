@@ -84,7 +84,7 @@ namespace ctr_wp7.game
         // Token: 0x060007C2 RID: 1986 RVA: 0x0003C68C File Offset: 0x0003A88C
         public virtual void boxClosed()
         {
-            Application.sharedPreferences();
+            _ = Application.sharedPreferences();
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
             int pack = ctrrootController.getPack();
             int level = ctrrootController.getLevel();
@@ -137,7 +137,7 @@ namespace ctr_wp7.game
         {
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
             View view = getView(0);
-            view.onTouchMoveXY(-10000f, -10000f);
+            _ = view.onTouchMoveXY(-10000f, -10000f);
             CTRSoundMgr._playSound(21);
             switch (n)
             {
@@ -162,7 +162,7 @@ namespace ctr_wp7.game
                             levelQuit();
                             return;
                         }
-                        unlockNextLevel();
+                        _ = unlockNextLevel();
                         setPaused(false);
                         GameScene gameScene2 = (GameScene)view.getChild(0);
                         gameScene2.loadNextMap();
@@ -305,7 +305,7 @@ namespace ctr_wp7.game
                     }
                     if (num != -1)
                     {
-                        gameScene.touchDownXYIndex(CtrRenderer.transformX(ctrtouchState.Position.X), CtrRenderer.transformY(ctrtouchState.Position.Y), num);
+                        _ = gameScene.touchDownXYIndex(CtrRenderer.transformX(ctrtouchState.Position.X), CtrRenderer.transformY(ctrtouchState.Position.Y), num);
                     }
                 }
             }
@@ -342,7 +342,7 @@ namespace ctr_wp7.game
                     }
                     if (num != -1)
                     {
-                        gameScene.touchUpXYIndex(CtrRenderer.transformX(ctrtouchState.Position.X), CtrRenderer.transformY(ctrtouchState.Position.Y), num);
+                        _ = gameScene.touchUpXYIndex(CtrRenderer.transformX(ctrtouchState.Position.X), CtrRenderer.transformY(ctrtouchState.Position.Y), num);
                     }
                     else
                     {
@@ -382,7 +382,7 @@ namespace ctr_wp7.game
                     }
                     if (num != -1)
                     {
-                        gameScene.touchMoveXYIndex(CtrRenderer.transformX(ctrtouchState.Position.X), CtrRenderer.transformY(ctrtouchState.Position.Y), num);
+                        _ = gameScene.touchMoveXYIndex(CtrRenderer.transformX(ctrtouchState.Position.X), CtrRenderer.transformY(ctrtouchState.Position.Y), num);
                     }
                 }
             }
@@ -400,14 +400,14 @@ namespace ctr_wp7.game
             GameScene gameScene = (GameScene)new GameScene().init();
             gameScene.gameSceneDelegate_gameWon = new GameScene.gameWonDelegate(gameWon);
             gameScene.gameSceneDelegate_gameLost = new GameScene.gameLostDelegate(gameLost);
-            gameView.addChildwithID(gameScene, 0);
+            _ = gameView.addChildwithID(gameScene, 0);
             Button button = MenuController.createButtonWithImageQuad1Quad2IDDelegate(100, 0, 1, 6, this);
             button.setTouchIncreaseLeftRightTopBottom(2f, 6f, 6f, 6f);
             button.y -= SCREEN_OFFSET_Y;
             button.x += SCREEN_OFFSET_X;
             button.x += 0.33f;
             button.y += 0.33f;
-            gameView.addChildwithID(button, 1);
+            _ = gameView.addChildwithID(button, 1);
             Button button2 = MenuController.createButtonWithImageQuad1Quad2IDDelegate(92, 0, 1, 1, this);
             button2.setTouchIncreaseLeftRightTopBottom(6f, 2f, 6f, 6f);
             button2.y -= SCREEN_OFFSET_Y;
@@ -420,8 +420,8 @@ namespace ctr_wp7.game
             button3.setEnabled(false);
             button3.y -= SCREEN_OFFSET_Y;
             button3.x += SCREEN_OFFSET_X;
-            gameView.addChildwithID(button2, 2);
-            gameView.addChildwithID(button3, 3);
+            _ = gameView.addChildwithID(button2, 2);
+            _ = gameView.addChildwithID(button3, 3);
             Image image = Image.Image_createWithResIDQuad(96, 0);
             image.anchor = (image.parentAnchor = 10);
             image.passTransformationsToChilds = false;
@@ -436,24 +436,24 @@ namespace ctr_wp7.game
             mapNameLabel.x = -10f;
             mapNameLabel.y = 20f;
             mapNameLabel.x += SCREEN_OFFSET_X;
-            image.addChild(mapNameLabel);
+            _ = image.addChild(mapNameLabel);
             VBox vbox = new VBox().initWithOffsetAlignWidth(5.0, 2, (double)SCREEN_WIDTH);
             Button button4 = MenuController.createButtonWithTextIDDelegate(Application.getString(1310762), 0, this);
-            vbox.addChild(button4);
+            _ = vbox.addChild(button4);
             Button button5 = MenuController.createButtonWithTextIDDelegate(Application.getString(1310763), 2, this);
-            vbox.addChild(button5);
+            _ = vbox.addChild(button5);
             Button button6 = MenuController.createButtonWithTextIDDelegate(Application.getString(1310764), 3, this);
-            vbox.addChild(button6);
+            _ = vbox.addChild(button6);
             Button button7 = MenuController.createButtonWithTextIDDelegate(Application.getString(1310765), 4, this);
-            vbox.addChild(button7);
+            _ = vbox.addChild(button7);
             vbox.anchor = (vbox.parentAnchor = 10);
             vbox.y = 140f;
-            image.addChild(vbox);
-            gameView.addChildwithID(image, 4);
+            _ = image.addChild(vbox);
+            _ = gameView.addChildwithID(image, 4);
             addViewwithID(gameView, 0);
             BoxOpenClose boxOpenClose = (BoxOpenClose)new BoxOpenClose().initWithButtonDelegate(this);
             boxOpenClose.delegateboxClosed = new BoxOpenClose.boxClosed(boxClosed);
-            gameView.addChildwithID(boxOpenClose, 5);
+            _ = gameView.addChildwithID(boxOpenClose, 5);
         }
 
         // Token: 0x060007CA RID: 1994 RVA: 0x0003D10D File Offset: 0x0003B30D
@@ -492,7 +492,7 @@ namespace ctr_wp7.game
             bool flag = false;
             boxCloseHandled = false;
             boxLevelWonClosing = true;
-            Application.sharedPreferences();
+            _ = Application.sharedPreferences();
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
             CTRSoundMgr._playSound(47);
             View view = getView(0);
@@ -600,7 +600,7 @@ namespace ctr_wp7.game
         // Token: 0x060007D1 RID: 2001 RVA: 0x0003D587 File Offset: 0x0003B787
         public static void checkForBoxPerfect(int pack)
         {
-            CTRPreferences.isPackPerfect(pack);
+            _ = CTRPreferences.isPackPerfect(pack);
         }
 
         // Token: 0x060007D2 RID: 2002 RVA: 0x0003D590 File Offset: 0x0003B790
@@ -623,9 +623,9 @@ namespace ctr_wp7.game
         // Token: 0x060007D3 RID: 2003 RVA: 0x0003D620 File Offset: 0x0003B820
         public virtual bool lastLevelInPack()
         {
-            Application.sharedPreferences();
+            _ = Application.sharedPreferences();
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
-            ctrrootController.getPack();
+            _ = ctrrootController.getPack();
             int level = ctrrootController.getLevel();
             if (level == CTRPreferences.getLevelsInPackCount() - 1)
             {
@@ -732,7 +732,7 @@ namespace ctr_wp7.game
             for (int i = 0; i < 5; i++)
             {
                 touchAddressMap[i] = null;
-                gs.touchUpXYIndex(-500f, -500f, i);
+                _ = gs.touchUpXYIndex(-500f, -500f, i);
             }
         }
 

@@ -12,7 +12,7 @@ namespace ctr_wp7.Specials
         {
             Processing processing = (Processing)new Processing().initWithTouchesBlocking(b);
             processing.setName("processing");
-            v.addChild(processing);
+            _ = v.addChild(processing);
         }
 
         // Token: 0x06000242 RID: 578 RVA: 0x0000F004 File Offset: 0x0000D204

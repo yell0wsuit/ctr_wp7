@@ -466,7 +466,7 @@ namespace ctr_wp7.iframework.visual
                 {
                     baseElement.parent = null;
                 }
-                childs.Remove(i);
+                _ = childs.Remove(i);
             }
         }
 
@@ -483,7 +483,7 @@ namespace ctr_wp7.iframework.visual
             {
                 if (c.Equals(keyValuePair.Value))
                 {
-                    childs.Remove(keyValuePair.Key);
+                    _ = childs.Remove(keyValuePair.Key);
                     break;
                 }
             }
@@ -493,7 +493,7 @@ namespace ctr_wp7.iframework.visual
         public virtual BaseElement getChild(int i)
         {
             BaseElement baseElement = null;
-            childs.TryGetValue(i, out baseElement);
+            _ = childs.TryGetValue(i, out baseElement);
             return baseElement;
         }
 
@@ -546,14 +546,14 @@ namespace ctr_wp7.iframework.visual
             {
                 stopCurrentTimeline();
             }
-            timelines.Remove(i);
+            _ = timelines.Remove(i);
         }
 
         // Token: 0x06000096 RID: 150 RVA: 0x00006680 File Offset: 0x00004880
         public virtual void playTimeline(int t)
         {
             Timeline timeline = null;
-            timelines.TryGetValue(t, out timeline);
+            _ = timelines.TryGetValue(t, out timeline);
             if (timeline == null)
             {
                 return;
@@ -603,7 +603,7 @@ namespace ctr_wp7.iframework.visual
         public virtual Timeline getTimeline(int n)
         {
             Timeline timeline = null;
-            timelines.TryGetValue(n, out timeline);
+            _ = timelines.TryGetValue(n, out timeline);
             return timeline;
         }
 

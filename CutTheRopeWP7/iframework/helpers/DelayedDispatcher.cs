@@ -46,7 +46,7 @@ namespace ctr_wp7.iframework.helpers
                 if ((double)dispatch.delay <= 0.0)
                 {
                     dispatch.dispatch();
-                    dispatchers.Remove(dispatch);
+                    _ = dispatchers.Remove(dispatch);
                     i--;
                     num--;
                 }

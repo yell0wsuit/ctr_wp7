@@ -37,7 +37,7 @@ namespace ctr_wp7.game
                 }
                 image.anchor = 18;
                 image.doRestoreCutTransparency();
-                addChild(image);
+                _ = addChild(image);
                 Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(3);
                 timeline.setTimelineLoopType(Timeline.LoopType.TIMELINE_REPLAY);
                 timeline.addKeyFrame(KeyFrame.makeScale(1.1, 1.1, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
@@ -50,7 +50,7 @@ namespace ctr_wp7.game
                 image.playTimeline(1);
                 image2.anchor = 18;
                 image2.doRestoreCutTransparency();
-                addChild(image2);
+                _ = addChild(image2);
                 Timeline timeline2 = new Timeline().initWithMaxKeyFramesOnTrack(3);
                 timeline2.setTimelineLoopType(Timeline.LoopType.TIMELINE_REPLAY);
                 timeline2.addKeyFrame(KeyFrame.makeScale(1.1, 1.1, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));

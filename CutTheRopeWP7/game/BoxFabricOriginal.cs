@@ -19,7 +19,7 @@ namespace ctr_wp7.game
             image2.anchor = (image2.parentAnchor = 9);
             image2.scaleX = -1f;
             image2.x += 1.33f;
-            image.addChild(image2);
+            _ = image.addChild(image2);
             return image;
         }
 
@@ -32,7 +32,7 @@ namespace ctr_wp7.game
             {
                 baseElement2.scaleX = (baseElement2.scaleY = 200f / (float)baseElement2.width);
             }
-            baseElement.addChild(baseElement2);
+            _ = baseElement.addChild(baseElement2);
             int unlockedForPackLevel = (int)CTRPreferences.getUnlockedForPackLevel(n, 0);
             if (unlockedForPackLevel >= 1)
             {
@@ -41,7 +41,7 @@ namespace ctr_wp7.game
                 Image image = Image.Image_createWithResIDQuad(71, 0);
                 monsterSlot.c = c;
                 monsterSlot.anchor = (monsterSlot.parentAnchor = 9);
-                container.addChild(monsterSlot);
+                _ = container.addChild(monsterSlot);
                 image.doRestoreCutTransparency();
                 image.anchor = 18;
                 image.parentAnchor = -1;
@@ -51,7 +51,7 @@ namespace ctr_wp7.game
                 image.y = 246f;
                 monsterSlot.x = 80f;
                 monsterSlot.y = 170f;
-                monsterSlot.addChild(image);
+                _ = monsterSlot.addChild(image);
                 if (CTRPreferences.isBannersMustBeShown())
                 {
                     image.y -= 50f;
@@ -61,13 +61,13 @@ namespace ctr_wp7.game
             {
                 int num = CTRPreferences.packUnlockStars(n);
                 BaseElement baseElement3 = buildLock();
-                baseElement.addChild(baseElement3);
+                _ = baseElement.addChild(baseElement3);
                 if (unlockedForPackLevel == 4)
                 {
                     Button button = MenuController.createBigButtonWithTextIDDelegate(Application.getString(1310723), 29, buttonDelegate);
                     button.anchor = (button.parentAnchor = 18);
                     button.y = 27f;
-                    baseElement3.addChild(button);
+                    _ = baseElement3.addChild(button);
                 }
                 else if (unlockedForPackLevel == 0)
                 {
@@ -76,20 +76,20 @@ namespace ctr_wp7.game
                     hbox.anchor = (hbox.parentAnchor = 18);
                     hbox.y = 40f;
                     hbox.x = 5f;
-                    baseElement3.addChild(hbox);
+                    _ = baseElement3.addChild(hbox);
                     if (n >= CTRPreferences.getPacksCount())
                     {
                         Button button2 = MenuController.createBigButtonWithTextIDDelegate(Application.getString(1310723), 40, buttonDelegate);
                         button2.anchor = (button2.parentAnchor = 18);
                         button2.y = 27f;
-                        baseElement3.addChild(button2);
+                        _ = baseElement3.addChild(button2);
                         hbox.visible = false;
                     }
                 }
             }
             if (CTRPreferences.isPackPerfect(n))
             {
-                baseElement.addChild(buildPerfectMark());
+                _ = baseElement.addChild(buildPerfectMark());
             }
             return baseElement;
         }
@@ -98,7 +98,7 @@ namespace ctr_wp7.game
         protected override BaseElement buildComingSoonBox()
         {
             BaseElement baseElement = buildBox(14);
-            baseElement.addChild(buildText(1310799, true));
+            _ = baseElement.addChild(buildText(1310799, true));
             return baseElement;
         }
 
@@ -114,7 +114,7 @@ namespace ctr_wp7.game
             BaseElement baseElement = MenuController.createButtonCartoons(53, buttonDelegate, false);
             baseElement.anchor = (baseElement.parentAnchor = 18);
             baseElement.x = 26f;
-            touchBaseElement.addChild(baseElement);
+            _ = touchBaseElement.addChild(baseElement);
             return touchBaseElement;
         }
 
@@ -125,7 +125,7 @@ namespace ctr_wp7.game
             public static BoxFabricOriginal.MonsterSlot createMonsterSlot()
             {
                 BoxFabricOriginal.MonsterSlot monsterSlot = new BoxFabricOriginal.MonsterSlot();
-                monsterSlot.init();
+                _ = monsterSlot.init();
                 monsterSlot.color = RGBAColor.MakeRGBA(0.17647058823529413, 0.17647058823529413, 0.20784313725490197, 1.0);
                 monsterSlot.height = 90;
                 monsterSlot.width = 200;

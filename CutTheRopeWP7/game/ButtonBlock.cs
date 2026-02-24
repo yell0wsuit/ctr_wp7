@@ -47,7 +47,7 @@ namespace ctr_wp7.game
                 baseElement2 = buildEpisodeBlock(texture2D, text, number, recheckneeded, !cartoonWatched);
             }
             baseElement2.color = RGBAColor.MakeRGBA(0.7f, 0.7f, 0.7f, 1f);
-            initWithUpElementDownElementandID(baseElement, baseElement2, bid);
+            _ = initWithUpElementDownElementandID(baseElement, baseElement2, bid);
             return this;
         }
 
@@ -76,14 +76,14 @@ namespace ctr_wp7.game
                 image2.anchor = (image2.parentAnchor = 12);
                 image2.x = -image.x;
                 image2.y = image.y;
-                baseElement.addChild(image);
-                baseElement.addChild(image2);
+                _ = baseElement.addChild(image);
+                _ = baseElement.addChild(image2);
                 BaseElement baseElement2 = (BaseElement)new BaseElement().init();
                 baseElement2.anchor = (baseElement2.parentAnchor = 18);
                 baseElement2.setName(NSS("dummy"));
                 baseElement2.width = baseElement.width;
                 baseElement2.height = baseElement.height;
-                baseElement.addChild(baseElement2);
+                _ = baseElement.addChild(baseElement2);
             }
             else
             {
@@ -92,9 +92,9 @@ namespace ctr_wp7.game
                 text.anchor = (text.parentAnchor = 18);
                 text.setAlignment(2);
                 text.setStringandWidth(title, (float)baseElement.width * 0.8f);
-                baseElement.addChild(text);
+                _ = baseElement.addChild(text);
             }
-            MenuController.frameElement(baseElement, num, num2, num3);
+            _ = MenuController.frameElement(baseElement, num, num2, num3);
             return baseElement;
         }
 
@@ -115,7 +115,7 @@ namespace ctr_wp7.game
                 baseElement2.setName(NSS("dummy"));
                 baseElement2.width = baseElement.width;
                 baseElement2.height = baseElement.height;
-                baseElement.addChild(baseElement2);
+                _ = baseElement.addChild(baseElement2);
                 if (processing)
                 {
                     Image image = Image.Image_createWithResIDQuad(76, 0);
@@ -123,18 +123,18 @@ namespace ctr_wp7.game
                     timeline.addKeyFrame(KeyFrame.makeRotation(0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0f));
                     timeline.addKeyFrame(KeyFrame.makeRotation(360, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 1f));
                     timeline.setTimelineLoopType(Timeline.LoopType.TIMELINE_REPLAY);
-                    image.addTimeline(timeline);
+                    _ = image.addTimeline(timeline);
                     Timeline timeline2 = new Timeline().initWithMaxKeyFramesOnTrack(5);
                     timeline2.addKeyFrame(KeyFrame.makeColor(RGBAColor.solidOpaqueRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0f));
                     timeline2.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, transition));
                     timeline2.addKeyFrame(KeyFrame.makeScale(1f, 1f, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0f));
                     timeline2.addKeyFrame(KeyFrame.makeScale(0f, 0f, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, transition));
                     timeline2.addKeyFrame(KeyFrame.makeSingleAction(image, "ACTION_SET_VISIBLE", 0, 0, transition));
-                    image.addTimeline(timeline2);
+                    _ = image.addTimeline(timeline2);
                     image.playTimeline(0);
                     image.anchor = (image.parentAnchor = 18);
                     image.setName(NSS("progressbar"));
-                    baseElement.addChild(image);
+                    _ = baseElement.addChild(image);
                 }
             }
             else
@@ -144,9 +144,9 @@ namespace ctr_wp7.game
                 text.anchor = (text.parentAnchor = 18);
                 text.setAlignment(2);
                 text.setStringandWidth(title, (float)baseElement.width * 0.9f);
-                baseElement.addChild(text);
+                _ = baseElement.addChild(text);
             }
-            MenuController.frameElement(baseElement, num, num2, num3);
+            _ = MenuController.frameElement(baseElement, num, num2, num3);
             BaseElement baseElement3 = baseElement.getChild(baseElement.childsCount() - 1);
             baseElement3 = baseElement3.getChild(baseElement3.childsCount() - 1);
             baseElement3.getChild(0).x -= 0.83f;
@@ -156,7 +156,7 @@ namespace ctr_wp7.game
                 Image image2 = Image.Image_createWithResIDQuad(num, num5);
                 image2.anchor = (image2.parentAnchor = 9);
                 Image.setElementPositionWithRelativeQuadOffset(image2, num, num4, num5);
-                baseElement.addChild(image2);
+                _ = baseElement.addChild(image2);
                 if (isNew)
                 {
                     int num6 = 4;
@@ -175,7 +175,7 @@ namespace ctr_wp7.game
                     timeline3.addKeyFrame(KeyFrame.makeScale(0.8, 0.8, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 1.0));
                     timeline3.addKeyFrame(KeyFrame.makeScale(1f, 1f, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 1f));
                     timeline3.setTimelineLoopType(Timeline.LoopType.TIMELINE_REPLAY);
-                    image3.addTimeline(timeline3);
+                    _ = image3.addTimeline(timeline3);
                     image3.playTimeline(0);
                     Image.setElementPositionWithRelativeQuadOffset(image3, num, num5, num6);
                     int num7 = 5;
@@ -194,7 +194,7 @@ namespace ctr_wp7.game
                     timeline4.addKeyFrame(KeyFrame.makeScale(0.8, 0.8, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 1.0));
                     timeline4.addKeyFrame(KeyFrame.makeScale(1f, 1f, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 1f));
                     timeline4.setTimelineLoopType(Timeline.LoopType.TIMELINE_REPLAY);
-                    image4.addTimeline(timeline4);
+                    _ = image4.addTimeline(timeline4);
                     image4.playTimeline(0);
                     Image.setElementPositionWithRelativeQuadOffset(image4, num, num5, num7);
                     BaseElement baseElement4 = (BaseElement)new BaseElement().init();
@@ -202,15 +202,15 @@ namespace ctr_wp7.game
                     baseElement4.height = image2.height;
                     baseElement4.anchor = (baseElement4.parentAnchor = 9);
                     baseElement4.setName(NSS("nimbus"));
-                    image2.addChild(baseElement4);
-                    baseElement4.addChild(image3);
-                    baseElement4.addChild(image4);
+                    _ = image2.addChild(baseElement4);
+                    _ = baseElement4.addChild(image3);
+                    _ = baseElement4.addChild(image4);
                 }
                 Text text2 = Text.createWithFontandString(5, number);
                 text2.anchor = (text2.parentAnchor = 18);
                 text2.x = -3f;
                 text2.y = -2f;
-                image2.addChild(text2);
+                _ = image2.addChild(text2);
             }
             return baseElement;
         }
@@ -235,10 +235,10 @@ namespace ctr_wp7.game
                         timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.solidOpaqueRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, transition));
                         timeline.addKeyFrame(KeyFrame.makeScale(0f, 0f, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0f));
                         timeline.addKeyFrame(KeyFrame.makeScale(1f, 1f, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, transition));
-                        image.addTimeline(timeline);
+                        _ = image.addTimeline(timeline);
                         image.playTimeline(0);
                         image.anchor = (image.parentAnchor = 18);
-                        childWithName.addChild(image);
+                        _ = childWithName.addChild(image);
                         BaseElement childWithName2 = getChild(0).getChildWithName(NSS("progressbar"));
                         if (childWithName2 != null)
                         {
@@ -247,7 +247,7 @@ namespace ctr_wp7.game
                         BaseElement childWithName3 = getChild(1).getChildWithName(NSS("dummy"));
                         Image image2 = Image.Image_create(texture2D);
                         image2.anchor = (image2.parentAnchor = 18);
-                        childWithName3.addChild(image2);
+                        _ = childWithName3.addChild(image2);
                         BaseElement childWithName4 = getChild(1).getChildWithName(NSS("progressbar"));
                         if (childWithName4 != null)
                         {

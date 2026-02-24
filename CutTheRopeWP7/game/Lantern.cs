@@ -33,7 +33,7 @@ namespace ctr_wp7.game
                 fire.anchor = (fire.parentAnchor = 18);
                 fire.color = RGBAColor.transparentRGBA;
                 fire.doRestoreCutTransparency();
-                addChild(fire);
+                _ = addChild(fire);
                 Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(3);
                 timeline.addKeyFrame(KeyFrame.makeScale(1.4, 1.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
                 timeline.addKeyFrame(KeyFrame.makeScale(1.05, 1.3, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.5));
@@ -44,7 +44,7 @@ namespace ctr_wp7.game
                 idleForm = Image_createWithResIDQuad(186, 0);
                 idleForm.anchor = (idleForm.parentAnchor = 18);
                 idleForm.doRestoreCutTransparency();
-                addChild(idleForm);
+                _ = addChild(idleForm);
                 timeline = new Timeline().initWithMaxKeyFramesOnTrack(2);
                 timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.solidOpaqueRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
                 timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.3));
@@ -58,7 +58,7 @@ namespace ctr_wp7.game
                 activeForm.color = RGBAColor.transparentRGBA;
                 activeForm.y = 1f;
                 activeForm.doRestoreCutTransparency();
-                addChild(activeForm);
+                _ = addChild(activeForm);
                 timeline = new Timeline().initWithMaxKeyFramesOnTrack(2);
                 timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
                 timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.solidOpaqueRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.3));
@@ -76,7 +76,7 @@ namespace ctr_wp7.game
                 innerCandy.color = RGBAColor.transparentRGBA;
                 innerCandy.y = -4f;
                 innerCandy.doRestoreCutTransparency();
-                addChild(innerCandy);
+                _ = addChild(innerCandy);
                 timeline = new Timeline().initWithMaxKeyFramesOnTrack(4);
                 timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
                 timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.solidOpaqueRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.2));

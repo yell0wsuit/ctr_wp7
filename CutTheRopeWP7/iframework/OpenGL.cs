@@ -533,10 +533,10 @@ namespace ctr_wp7.iframework
         private static void DrawTriangleStrip(int first, int count)
         {
             bool flag = false;
-            s_glServerSideFlags.TryGetValue(0, out flag);
+            _ = s_glServerSideFlags.TryGetValue(0, out flag);
             if (flag)
             {
-                s_glClientStateFlags.TryGetValue(0, out flag);
+                _ = s_glClientStateFlags.TryGetValue(0, out flag);
             }
             if (flag)
             {
@@ -555,7 +555,7 @@ namespace ctr_wp7.iframework
                 return;
             }
             bool flag = false;
-            s_glClientStateFlags.TryGetValue(13, out flag);
+            _ = s_glClientStateFlags.TryGetValue(13, out flag);
             VertexPositionColor[] array = (flag ? ConstructColorVertices() : ConstructCurrentColorVertices());
             foreach (EffectPass effectPass in effect.CurrentTechnique.Passes)
             {
@@ -605,7 +605,7 @@ namespace ctr_wp7.iframework
         private static void DrawTriangleList(int first, int count, short[] indices)
         {
             bool flag = false;
-            s_glClientStateFlags.TryGetValue(13, out flag);
+            _ = s_glClientStateFlags.TryGetValue(13, out flag);
             if (flag)
             {
                 DrawTriangleListColored(first, count, indices);

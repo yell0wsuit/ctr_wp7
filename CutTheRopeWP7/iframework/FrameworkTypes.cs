@@ -344,7 +344,7 @@ namespace ctr_wp7.iframework
             {
                 try
                 {
-                    Process.Start(new ProcessStartInfo(url)
+                    _ = Process.Start(new ProcessStartInfo(url)
                     {
                         UseShellExecute = true
                     });
@@ -359,7 +359,7 @@ namespace ctr_wp7.iframework
             {
                 try
                 {
-                    Process.Start(new ProcessStartInfo(text.ToString())
+                    _ = Process.Start(new ProcessStartInfo(text.ToString())
                     {
                         UseShellExecute = true
                     });

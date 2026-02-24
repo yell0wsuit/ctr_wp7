@@ -92,7 +92,7 @@ namespace ctr_wp7.wp7utilities
         // Token: 0x0600037A RID: 890 RVA: 0x000162AF File Offset: 0x000144AF
         public TestXNA()
         {
-            base.init();
+            _ = base.init();
             scaleTestTop();
             scaleTestCenter();
             scaleTestBottom();

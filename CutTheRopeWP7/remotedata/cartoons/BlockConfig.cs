@@ -37,7 +37,7 @@ namespace ctr_wp7.remotedata.cartoons
         public Block getBlockWithIDandHash(string id, string hash)
         {
             Block block = null;
-            blocks.TryGetValue(id, out block);
+            _ = blocks.TryGetValue(id, out block);
             if (block == null || !block.hash.Equals(hash))
             {
                 block = new Block();
@@ -62,7 +62,7 @@ namespace ctr_wp7.remotedata.cartoons
             }
             foreach (string text in list)
             {
-                blocks.Remove(text);
+                _ = blocks.Remove(text);
             }
             return list2;
         }
