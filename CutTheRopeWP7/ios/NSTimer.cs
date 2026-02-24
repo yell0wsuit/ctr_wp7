@@ -41,7 +41,7 @@ namespace ctr_wp7.ios
                 delay = interval
             };
             Timers.Add(entry);
-            return Enumerable.Count(Timers) - 1;
+            return Timers.Count - 1;
         }
 
         // Token: 0x06000247 RID: 583 RVA: 0x0000F0C0 File Offset: 0x0000D2C0

@@ -3358,7 +3358,7 @@ namespace ctr_wp7.game
                     List<Vector> list = [];
                     Vector vector = default(Vector);
                     bool flag = true;
-                    for (int k = 0; k < Enumerable.Count(array); k++)
+                    for (int k = 0; k < array.Length; k++)
                     {
                         if (k == 0)
                         {
@@ -3374,7 +3374,7 @@ namespace ctr_wp7.game
                     if (!flag)
                     {
                         array = list.ToArray();
-                        num = Enumerable.Count(array) - 1;
+                        num = array.Length - 1;
                         int num6 = num * 2;
                         float[] array2 = new float[num6 * 2];
                         float num7 = 1f / num6;
@@ -3387,7 +3387,7 @@ namespace ctr_wp7.game
                                 num8 = 1f;
                             }
                             Vector vector2 = GLDrawer.calcPathBezier(array, num + 1, num8);
-                            if (num9 > Enumerable.Count(array2) - 2)
+                            if (num9 > array2.Length - 2)
                             {
                                 break;
                             }

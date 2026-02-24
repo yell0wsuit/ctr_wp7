@@ -15,7 +15,7 @@ namespace ctr_wp7.iframework
         // Token: 0x06000050 RID: 80 RVA: 0x00005504 File Offset: 0x00003704
         public static float[] toFloatArray(Quad2D[] quads)
         {
-            float[] array = new float[Enumerable.Count(quads) * 8];
+            float[] array = new float[quads.Length * 8];
             for (int i = 0; i < quads.Length; i++)
             {
                 quads[i].toFloatArray().CopyTo(array, i * 8);
@@ -26,7 +26,7 @@ namespace ctr_wp7.iframework
         // Token: 0x06000051 RID: 81 RVA: 0x00005544 File Offset: 0x00003744
         public static float[] toFloatArray(Quad3D[] quads)
         {
-            float[] array = new float[Enumerable.Count(quads) * 12];
+            float[] array = new float[quads.Length * 12];
             for (int i = 0; i < quads.Length; i++)
             {
                 quads[i].toFloatArray().CopyTo(array, i * 12);
