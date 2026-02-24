@@ -1235,7 +1235,7 @@ namespace ctr_wp7.game
                         }
                         else if (candyBubbleL != null || candyBubbleR != null)
                         {
-                            candyBubble = (candyBubbleL != null) ? candyBubbleL : candyBubbleR;
+                            candyBubble = candyBubbleL ?? candyBubbleR;
                             candyBubbleAnimation.visible = true;
                             if (ghosts != null)
                             {

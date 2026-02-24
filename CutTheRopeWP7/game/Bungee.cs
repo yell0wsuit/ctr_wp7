@@ -192,8 +192,8 @@ namespace ctr_wp7.game
                 width = 2;
                 cut = -1;
                 bungeeMode = 0;
-                bungeeAnchor = h != null ? h : (ConstraintedPoint)new ConstraintedPoint().init();
-                tail = t != null ? t : (ConstraintedPoint)new ConstraintedPoint().init();
+                bungeeAnchor = h ?? (ConstraintedPoint)new ConstraintedPoint().init();
+                tail = t ?? (ConstraintedPoint)new ConstraintedPoint().init();
                 bungeeAnchor.setWeight(0.02f);
                 bungeeAnchor.pos = vect(hx, hy);
                 tail.pos = vect(tx, ty);
