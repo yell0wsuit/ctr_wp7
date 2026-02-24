@@ -206,14 +206,7 @@ namespace ctr_wp7.remotedata.cartoons
                         _ = atts.TryGetValue("number", out writeblock.number);
                         _ = atts.TryGetValue("url", out writeblock.url);
                         _ = atts.TryGetValue("image_id", out writeblock.image_id);
-                        if (writeblock.image_id == null || writeblock.image_id.Length == 0)
-                        {
-                            writeblock.loadState = Block.LoadState.NO_IMAGE;
-                        }
-                        else
-                        {
-                            writeblock.loadState = Block.LoadState.NOT_LOADED;
-                        }
+                        writeblock.loadState = writeblock.image_id == null || writeblock.image_id.Length == 0 ? Block.LoadState.NO_IMAGE : Block.LoadState.NOT_LOADED;
                     }
                     writeblock.langs.Clear();
                     writeblock.order = order++;
@@ -281,15 +274,7 @@ namespace ctr_wp7.remotedata.cartoons
             {
                 if (textsaving && currentlang != null)
                 {
-                    StringBuilder stringBuilder;
-                    if (writeblock.langs.TryGetValue(currentlang, out string value))
-                    {
-                        stringBuilder = new StringBuilder(value);
-                    }
-                    else
-                    {
-                        stringBuilder = new StringBuilder();
-                    }
+                    StringBuilder stringBuilder = writeblock.langs.TryGetValue(currentlang, out string value) ? new StringBuilder(value) : new StringBuilder();
                     _ = stringBuilder.Append(ch);
                     writeblock.langs[currentlang] = stringBuilder.ToString();
                 }

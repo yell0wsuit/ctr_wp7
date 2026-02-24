@@ -577,14 +577,7 @@ namespace ctr_wp7.iframework.visual
             }
             float num6 = angleTo0_360(RADIANS_TO_DEGREES(vectAngleNormalized(move)));
             float num7 = angleTo0_360(RADIANS_TO_DEGREES(vectAngleNormalized(vectSub(spoints[targetSpoint], vector))));
-            if (Math.Abs(angleTo0_360(num6 - num7)) < 90f)
-            {
-                spointMoveMultiplier = (float)Math.Max(1.0, (double)vectLength(move) / 500.0);
-            }
-            else
-            {
-                spointMoveMultiplier = 0.5f;
-            }
+            spointMoveMultiplier = Math.Abs(angleTo0_360(num6 - num7)) < 90f ? (float)Math.Max(1.0, (double)vectLength(move) / 500.0) : 0.5f;
             lastTargetSpoint = targetSpoint;
         }
 

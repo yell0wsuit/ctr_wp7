@@ -155,14 +155,7 @@ namespace ctr_wp7.iframework.sfe
             totalForce = vectZero;
             if (!disableGravity)
             {
-                if (!vectEqual(globalGravity, vectZero))
-                {
-                    totalForce = vectAdd(totalForce, vectMult(globalGravity, weight));
-                }
-                else
-                {
-                    totalForce = vectAdd(totalForce, gravity);
-                }
+                totalForce = !vectEqual(globalGravity, vectZero) ? vectAdd(totalForce, vectMult(globalGravity, weight)) : vectAdd(totalForce, gravity);
             }
             if (highestForceIndex != -1)
             {
@@ -258,14 +251,9 @@ namespace ctr_wp7.iframework.sfe
             p.totalForce = vectZero;
             if (!p.disableGravity)
             {
-                if (!vectEqual(globalGravity, vectZero))
-                {
-                    p.totalForce = vectAdd(p.totalForce, vectMult(globalGravity, p.weight));
-                }
-                else
-                {
-                    p.totalForce = vectAdd(p.totalForce, p.gravity);
-                }
+                p.totalForce = !vectEqual(globalGravity, vectZero)
+                    ? vectAdd(p.totalForce, vectMult(globalGravity, p.weight))
+                    : vectAdd(p.totalForce, p.gravity);
             }
             if (p.highestForceIndex != -1)
             {

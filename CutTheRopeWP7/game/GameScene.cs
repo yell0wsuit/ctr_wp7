@@ -1329,15 +1329,9 @@ namespace ctr_wp7.game
                             star.playTimeline(1);
                             break;
                         }
-                        bool flag8;
-                        if (twoParts != 2)
-                        {
-                            flag8 = (GameObject.objectsIntersect(candyL, star) && !noCandyL) || (GameObject.objectsIntersect(candyR, star) && !noCandyR);
-                        }
-                        else
-                        {
-                            flag8 = GameObject.objectsIntersect(candy, star) && !noCandy;
-                        }
+                        bool flag8 = twoParts != 2
+                            ? (GameObject.objectsIntersect(candyL, star) && !noCandyL) || (GameObject.objectsIntersect(candyR, star) && !noCandyR)
+                            : GameObject.objectsIntersect(candy, star) && !noCandy;
                         if (flag8)
                         {
                             candyBlink.playTimeline(1);
@@ -3559,13 +3553,9 @@ namespace ctr_wp7.game
                         {
                             num6 = (-vector4.x / num) + (0.25f * num7);
                         }
-                        else if (Math.Abs(vector4.x) < 1f)
-                        {
-                            num6 = -vector4.x;
-                        }
                         else
                         {
-                            num6 = -vector4.x / num;
+                            num6 = Math.Abs(vector4.x) < 1f ? -vector4.x : -vector4.x / num;
                         }
                     }
                     float num8 = -32f / star.weight;
@@ -3612,13 +3602,9 @@ namespace ctr_wp7.game
                         {
                             num10 = (-vector7.x / num) + (0.25f * num11);
                         }
-                        else if (Math.Abs(vector7.x) < 1f)
-                        {
-                            num10 = -vector7.x;
-                        }
                         else
                         {
-                            num10 = -vector7.x / num;
+                            num10 = Math.Abs(vector7.x) < 1f ? -vector7.x : -vector7.x / num;
                         }
                     }
                     float num12 = -32f / starL.weight;
@@ -3661,13 +3647,9 @@ namespace ctr_wp7.game
                         {
                             num14 = (-vector7.x / num) + (0.25f * num15);
                         }
-                        else if (Math.Abs(vector7.x) < 1f)
-                        {
-                            num14 = -vector7.x;
-                        }
                         else
                         {
-                            num14 = -vector7.x / num;
+                            num14 = Math.Abs(vector7.x) < 1f ? -vector7.x : -vector7.x / num;
                         }
                     }
                     float num16 = -32f / starR.weight;

@@ -103,14 +103,7 @@ namespace ctr_wp7.iframework.sfe
             totalForce = vectZero;
             if (!disableGravity)
             {
-                if (!vectEqual(globalGravity, vectZero))
-                {
-                    totalForce = vectAdd(totalForce, vectMult(globalGravity, weight));
-                }
-                else
-                {
-                    totalForce = vectAdd(totalForce, gravity);
-                }
+                totalForce = !vectEqual(globalGravity, vectZero) ? vectAdd(totalForce, vectMult(globalGravity, weight)) : vectAdd(totalForce, gravity);
             }
             if (highestForceIndex != -1)
             {

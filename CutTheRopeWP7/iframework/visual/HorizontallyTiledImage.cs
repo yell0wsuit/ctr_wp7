@@ -60,13 +60,9 @@ namespace ctr_wp7.iframework.visual
             {
                 height = (int)h;
             }
-            else if (h2 >= h && h2 >= h3)
-            {
-                height = (int)h2;
-            }
             else
             {
-                height = (int)h3;
+                height = h2 >= h && h2 >= h3 ? (int)h2 : (int)h3;
             }
             offsets[0] = (height - h) / 2f;
             offsets[1] = (height - h2) / 2f;

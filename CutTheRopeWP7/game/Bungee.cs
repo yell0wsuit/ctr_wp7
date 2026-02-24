@@ -92,13 +92,9 @@ namespace ctr_wp7.game
             {
                 b.relaxed = 1;
             }
-            else if ((double)num2 <= 34.0)
-            {
-                b.relaxed = 2;
-            }
             else
             {
-                b.relaxed = 3;
+                b.relaxed = (double)num2 <= 34.0 ? 2 : 3;
             }
             if ((double)num2 > 37.0 && !b.dontDrawRedStretch)
             {
@@ -151,13 +147,9 @@ namespace ctr_wp7.game
                     {
                         rgbacolor10 = RGBAColor.whiteRGBA;
                     }
-                    else if (flag)
-                    {
-                        rgbacolor10 = rgbacolor8;
-                    }
                     else
                     {
-                        rgbacolor10 = rgbacolor9;
+                        rgbacolor10 = flag ? rgbacolor8 : rgbacolor9;
                     }
                     OpenGL.glColor4f(rgbacolor10.r, rgbacolor10.g, rgbacolor10.b, rgbacolor10.a);
                     int num20 = num7 >> 1;
@@ -200,22 +192,8 @@ namespace ctr_wp7.game
                 width = 2;
                 cut = -1;
                 bungeeMode = 0;
-                if (h != null)
-                {
-                    bungeeAnchor = h;
-                }
-                else
-                {
-                    bungeeAnchor = (ConstraintedPoint)new ConstraintedPoint().init();
-                }
-                if (t != null)
-                {
-                    tail = t;
-                }
-                else
-                {
-                    tail = (ConstraintedPoint)new ConstraintedPoint().init();
-                }
+                bungeeAnchor = h != null ? h : (ConstraintedPoint)new ConstraintedPoint().init();
+                tail = t != null ? t : (ConstraintedPoint)new ConstraintedPoint().init();
                 bungeeAnchor.setWeight(0.02f);
                 bungeeAnchor.pos = vect(hx, hy);
                 tail.pos = vect(tx, ty);
@@ -352,15 +330,7 @@ namespace ctr_wp7.game
         {
             forceWhite = false;
             ConstraintedPoint constraintedPoint = parts[part];
-            ConstraintedPoint constraintedPoint2;
-            if (part + 1 < parts.Count)
-            {
-                constraintedPoint2 = parts[part + 1];
-            }
-            else
-            {
-                constraintedPoint2 = null;
-            }
+            ConstraintedPoint constraintedPoint2 = part + 1 < parts.Count ? parts[part + 1] : null;
             if (constraintedPoint2 == null)
             {
                 constraintedPoint.removeConstraints();

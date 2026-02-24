@@ -100,15 +100,9 @@ namespace ctr_wp7.game
             if (radius != -1f || hideRadius)
             {
                 int pack = ((CTRRootController)Application.sharedRootController()).getPack();
-                RGBAColor rgbacolor;
-                if (pack == 6)
-                {
-                    rgbacolor = RGBAColor.MakeRGBA(0.4, 0.7, 1.0, (double)(radiusAlpha * color.a));
-                }
-                else
-                {
-                    rgbacolor = RGBAColor.MakeRGBA(0.2, 0.5, 0.9, (double)(radiusAlpha * color.a));
-                }
+                RGBAColor rgbacolor = pack == 6
+                    ? RGBAColor.MakeRGBA(0.4, 0.7, 1.0, (double)(radiusAlpha * color.a))
+                    : RGBAColor.MakeRGBA(0.2, 0.5, 0.9, (double)(radiusAlpha * color.a));
                 drawGrabCircle(this, x, y, radius, vertexCount, rgbacolor);
             }
             OpenGL.glColor4f(1.0, 1.0, 1.0, 1.0);

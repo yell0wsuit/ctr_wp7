@@ -158,14 +158,7 @@ namespace ctr_wp7.game
                     }
                 case 3:
                     AndroidAPI.hideBanner();
-                    if (ctrrootController.getLevel() == CTRPreferences.sharewareFreeLevels() - 1 && !CTRPreferences.isSharewareUnlocked())
-                    {
-                        exitCode = 3;
-                    }
-                    else
-                    {
-                        exitCode = 1;
-                    }
+                    exitCode = ctrrootController.getLevel() == CTRPreferences.sharewareFreeLevels() - 1 && !CTRPreferences.isSharewareUnlocked() ? 3 : 1;
                     CTRSoundMgr._stopAll();
                     levelQuit();
                     postLevelEventwithMask("LEVMENU_LEVSELBT_PRESSED", 0, true);
@@ -179,14 +172,7 @@ namespace ctr_wp7.game
                     return;
                 case 5:
                     AndroidAPI.hideBanner();
-                    if (ctrrootController.getLevel() == CTRPreferences.sharewareFreeLevels() - 1 && !CTRPreferences.isSharewareUnlocked())
-                    {
-                        exitCode = 3;
-                    }
-                    else
-                    {
-                        exitCode = 1;
-                    }
+                    exitCode = ctrrootController.getLevel() == CTRPreferences.sharewareFreeLevels() - 1 && !CTRPreferences.isSharewareUnlocked() ? 3 : 1;
                     CTRSoundMgr._stopAll();
                     if (!boxCloseHandled)
                     {

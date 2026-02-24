@@ -57,23 +57,8 @@ namespace ctr_wp7.game
             }
             if (wheel && wheelDirty)
             {
-                float num;
-                if (rope != null)
-                {
-                    num = rope.getLength() * 0.7f;
-                }
-                else
-                {
-                    num = 0f;
-                }
-                if (num == 0f)
-                {
-                    wheelImage2.scaleX = wheelImage2.scaleY = 0f;
-                }
-                else
-                {
-                    wheelImage2.scaleX = wheelImage2.scaleY = (float)Math.Max(0.0, Math.Min(1.2, 1.0 - ((double)num / 700.0)));
-                }
+                float num = rope != null ? rope.getLength() * 0.7f : 0f;
+                wheelImage2.scaleX = num == 0f ? (wheelImage2.scaleY = 0f) : (wheelImage2.scaleY = (float)Math.Max(0.0, Math.Min(1.2, 1.0 - ((double)num / 700.0))));
             }
             if (bee != null)
             {

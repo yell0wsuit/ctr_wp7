@@ -85,15 +85,7 @@ namespace ctr_wp7.game
         // Token: 0x06000278 RID: 632 RVA: 0x00010080 File Offset: 0x0000E280
         public void updateRotation()
         {
-            float num;
-            if (electro)
-            {
-                num = width - 130;
-            }
-            else
-            {
-                num = texture.quadRects[quadToDraw].w;
-            }
+            float num = electro ? width - 130 : texture.quadRects[quadToDraw].w;
             num /= 2f;
             t1.x = x - num;
             t2.x = x + num;

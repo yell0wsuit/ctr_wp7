@@ -265,15 +265,7 @@ namespace ctr_wp7.ios
             HashSet<string> hashSet = [];
             foreach (string text4 in new string[] { text2, "content", "Content" })
             {
-                string[] array;
-                if (text3.Length == 0)
-                {
-                    array = [text];
-                }
-                else
-                {
-                    array = [text3 + "/" + text, text];
-                }
+                string[] array = text3.Length == 0 ? [text] : [text3 + "/" + text, text];
                 foreach (string text5 in array)
                 {
                     string text6 = (text4.TrimEnd('/') + "/" + text5.TrimStart('/')).Replace('\\', '/');

@@ -331,14 +331,7 @@ namespace ctr_wp7.iframework
             {
                 vector.X = s_GLVertexPointer.pointer_[num++];
                 vector.Y = s_GLVertexPointer.pointer_[num++];
-                if (s_GLVertexPointer.size_ == 2)
-                {
-                    vector.Z = 0f;
-                }
-                else
-                {
-                    vector.Z = s_GLVertexPointer.pointer_[num++];
-                }
+                vector.Z = s_GLVertexPointer.size_ == 2 ? 0f : s_GLVertexPointer.pointer_[num++];
                 Color color = s_GLColorPointer[i].toXNA();
                 array[i] = new VertexPositionColor(vector, color);
             }
@@ -359,14 +352,7 @@ namespace ctr_wp7.iframework
             {
                 vector.X = s_GLVertexPointer.pointer_[num++];
                 vector.Y = s_GLVertexPointer.pointer_[num++];
-                if (s_GLVertexPointer.size_ == 2)
-                {
-                    vector.Z = 0f;
-                }
-                else
-                {
-                    vector.Z = s_GLVertexPointer.pointer_[num++];
-                }
+                vector.Z = s_GLVertexPointer.size_ == 2 ? 0f : s_GLVertexPointer.pointer_[num++];
                 array[i] = new VertexPositionColor(vector, s_Color);
             }
             s_GLVertexPointer = null;
@@ -400,14 +386,7 @@ namespace ctr_wp7.iframework
             {
                 vector2.X = s_GLVertexPointer.pointer_[num++];
                 vector2.Y = s_GLVertexPointer.pointer_[num++];
-                if (s_GLVertexPointer.size_ == 2)
-                {
-                    vector2.Z = 0f;
-                }
-                else
-                {
-                    vector2.Z = s_GLVertexPointer.pointer_[num++];
-                }
+                vector2.Z = s_GLVertexPointer.size_ == 2 ? 0f : s_GLVertexPointer.pointer_[num++];
                 Vector2 vector3 = default(Vector2);
                 vector3.X = s_GLTexCoordPointer.pointer_[num2++];
                 vector3.Y = s_GLTexCoordPointer.pointer_[num2++];
@@ -439,14 +418,7 @@ namespace ctr_wp7.iframework
             {
                 vector.X = s_GLVertexPointer.pointer_[num++];
                 vector.Y = s_GLVertexPointer.pointer_[num++];
-                if (s_GLVertexPointer.size_ == 2)
-                {
-                    vector.Z = 0f;
-                }
-                else
-                {
-                    vector.Z = s_GLVertexPointer.pointer_[num++];
-                }
+                vector.Z = s_GLVertexPointer.size_ == 2 ? 0f : s_GLVertexPointer.pointer_[num++];
                 Vector2 vector2 = default(Vector2);
                 vector2.X = s_GLTexCoordPointer.pointer_[num2++];
                 vector2.Y = s_GLTexCoordPointer.pointer_[num2++];

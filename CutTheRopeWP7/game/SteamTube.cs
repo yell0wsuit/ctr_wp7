@@ -263,14 +263,7 @@ namespace ctr_wp7.game
                     _ = baseElement.addChild(animation);
                     baseElement.anchor = baseElement.parentAnchor = 18;
                     baseElement.setEnabled(false);
-                    if (i % 3 == 0)
-                    {
-                        _ = steamBack.addChild(baseElement);
-                    }
-                    else
-                    {
-                        _ = steamFront.addChild(baseElement);
-                    }
+                    _ = i % 3 == 0 ? steamBack.addChild(baseElement) : steamFront.addChild(baseElement);
                 }
             }
         }

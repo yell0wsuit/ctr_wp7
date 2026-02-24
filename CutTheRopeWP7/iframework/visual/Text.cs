@@ -127,14 +127,7 @@ namespace ctr_wp7.iframework.visual
                 float num8;
                 if (align != 1)
                 {
-                    if (align == 2)
-                    {
-                        num8 = (wrapWidth - formattedString.width) / 2f;
-                    }
-                    else
-                    {
-                        num8 = wrapWidth - formattedString.width;
-                    }
+                    num8 = align == 2 ? (wrapWidth - formattedString.width) / 2f : wrapWidth - formattedString.width;
                 }
                 else
                 {
@@ -235,14 +228,7 @@ namespace ctr_wp7.iframework.visual
                 float num10;
                 if (align != 1)
                 {
-                    if (align == 2)
-                    {
-                        num10 = (wrapWidth - formattedString.width) / 2f;
-                    }
-                    else
-                    {
-                        num10 = wrapWidth - formattedString.width;
-                    }
+                    num10 = align == 2 ? (wrapWidth - formattedString.width) / 2f : wrapWidth - formattedString.width;
                 }
                 else
                 {

@@ -847,15 +847,7 @@ namespace ctr_wp7.ctr_original
             MenuView menuView = (MenuView)new MenuView().initFullscreen();
             Image image = createBackgroundWithLogo(false, false);
             _ = NSS("undefined version");
-            string text;
-            if (CTRPreferences.isLiteVersion())
-            {
-                text = " Free";
-            }
-            else
-            {
-                text = "";
-            }
+            string text = CTRPreferences.isLiteVersion() ? " Free" : "";
             VBox vbox = new VBox().initWithOffsetAlignWidth(0f, 2, 310f);
             Image image2 = Image.Image_createWithResIDQuad(69, 5);
             _ = vbox.addChild(image2);

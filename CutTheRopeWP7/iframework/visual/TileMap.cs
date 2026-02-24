@@ -149,27 +149,13 @@ namespace ctr_wp7.iframework.visual
             {
                 float num5 = num4 - num2;
                 int num6 = (int)num5 % tileMapHeight;
-                if (num5 < 0f)
-                {
-                    num4 = num6 + num2;
-                }
-                else
-                {
-                    num4 = num6 - tileMapHeight + num2;
-                }
+                num4 = num5 < 0f ? num6 + num2 : num6 - tileMapHeight + num2;
             }
             if (repeatedHorizontally != Repeat.REPEAT_NONE)
             {
                 float num7 = num3 - num;
                 int num8 = (int)num7 % tileMapWidth;
-                if (num7 < 0f)
-                {
-                    num3 = num8 + num;
-                }
-                else
-                {
-                    num3 = num8 - tileMapWidth + num;
-                }
+                num3 = num7 < 0f ? num8 + num : num8 - tileMapWidth + num;
             }
             if (!rectInRect(num, num2, num + cameraViewWidth, num2 + cameraViewHeight, num3, num4, num3 + tileMapWidth, num4 + tileMapHeight))
             {
