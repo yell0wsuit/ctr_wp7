@@ -5,7 +5,7 @@ using ctr_wp7.iframework.core;
 namespace ctr_wp7.iframework.visual
 {
     // Token: 0x02000060 RID: 96
-    internal class HorizontallyTiledImage : Image
+    internal sealed class HorizontallyTiledImage : Image
     {
         // Token: 0x060002DB RID: 731 RVA: 0x000126DC File Offset: 0x000108DC
         public override Image initWithTexture(Texture2D t)
@@ -48,7 +48,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x060002DD RID: 733 RVA: 0x0001291C File Offset: 0x00010B1C
-        public virtual void setTileHorizontallyLeftCenterRight(int l, int c, int r)
+        public void setTileHorizontallyLeftCenterRight(int l, int c, int r)
         {
             tiles[0] = l;
             tiles[1] = c;

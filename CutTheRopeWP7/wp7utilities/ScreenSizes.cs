@@ -3,7 +3,7 @@
 namespace ctr_wp7.wp7utilities
 {
     // Token: 0x02000076 RID: 118
-    internal class ScreenSizes
+    internal sealed class ScreenSizes
     {
         // Token: 0x1700000D RID: 13
         // (get) Token: 0x06000383 RID: 899 RVA: 0x0001644E File Offset: 0x0001464E

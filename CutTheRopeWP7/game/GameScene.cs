@@ -14,7 +14,7 @@ using ctr_wp7.wp7utilities;
 namespace ctr_wp7.game
 {
     // Token: 0x02000108 RID: 264
-    internal class GameScene : BaseElement, ButtonDelegate, TimelineDelegate
+    internal sealed class GameScene : BaseElement, ButtonDelegate, TimelineDelegate
     {
         // Token: 0x060007FF RID: 2047 RVA: 0x0003F668 File Offset: 0x0003D868
         public static float FBOUND_PI(float a)
@@ -23,7 +23,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000800 RID: 2048 RVA: 0x0003F6A3 File Offset: 0x0003D8A3
-        public virtual void animateLevelRestart()
+        public void animateLevelRestart()
         {
             restartState = 0;
             dimTime = 0.15f;
@@ -80,7 +80,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000802 RID: 2050 RVA: 0x0003F8EC File Offset: 0x0003DAEC
-        public virtual void xmlLoaderFinishedWithfromwithSuccess(XMLNode rootNode, NSString url, bool success)
+        public void xmlLoaderFinishedWithfromwithSuccess(XMLNode rootNode, NSString url, bool success)
         {
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
             ctrrootController.setMap(rootNode);
@@ -803,7 +803,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000804 RID: 2052 RVA: 0x000422E4 File Offset: 0x000404E4
-        public virtual void timelinereachedKeyFramewithIndex(Timeline t, KeyFrame k, int i)
+        public void timelinereachedKeyFramewithIndex(Timeline t, KeyFrame k, int i)
         {
             if (t.element is RotatedCircle && rotatedCircles.IndexOf((RotatedCircle)t.element) >= 0)
             {
@@ -835,7 +835,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000805 RID: 2053 RVA: 0x000423AC File Offset: 0x000405AC
-        public virtual void timelineFinished(Timeline t)
+        public void timelineFinished(Timeline t)
         {
             if (t.element is RotatedCircle && rotatedCircles.IndexOf((RotatedCircle)t.element) >= 0)
             {
@@ -2368,7 +2368,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0600080A RID: 2058 RVA: 0x000461AC File Offset: 0x000443AC
-        public virtual void popBubbleAtXY(float bx, float by)
+        public void popBubbleAtXY(float bx, float by)
         {
             CTRSoundMgr._playSound(22);
             Animation animation = Animation.Animation_createWithResID(121);
@@ -2383,7 +2383,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0600080B RID: 2059 RVA: 0x0004621C File Offset: 0x0004441C
-        public virtual void popCandyBubble(bool left)
+        public void popCandyBubble(bool left)
         {
             if (twoParts == 2)
             {
@@ -2460,7 +2460,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0600080C RID: 2060 RVA: 0x00046468 File Offset: 0x00044668
-        public virtual void loadNextMap()
+        public void loadNextMap()
         {
             dd.cancelAllDispatches();
             initialCameraToStarDistance = -1f;
@@ -2482,7 +2482,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0600080D RID: 2061 RVA: 0x00046540 File Offset: 0x00044740
-        public virtual void reload()
+        public void reload()
         {
             dd.cancelAllDispatches();
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
@@ -2497,7 +2497,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0600080E RID: 2062 RVA: 0x000465DC File Offset: 0x000447DC
-        public virtual bool touchDownXYIndex(float tx, float ty, int ti)
+        public bool touchDownXYIndex(float tx, float ty, int ti)
         {
             if (ignoreTouches)
             {
@@ -2674,7 +2674,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0600080F RID: 2063 RVA: 0x00046DA4 File Offset: 0x00044FA4
-        public virtual bool touchUpXYIndex(float tx, float ty, int ti)
+        public bool touchUpXYIndex(float tx, float ty, int ti)
         {
             if (ignoreTouches)
             {
@@ -2743,7 +2743,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000810 RID: 2064 RVA: 0x00046F88 File Offset: 0x00045188
-        public virtual bool touchMoveXYIndex(float tx, float ty, int ti)
+        public bool touchMoveXYIndex(float tx, float ty, int ti)
         {
             if (ignoreTouches)
             {
@@ -2993,14 +2993,14 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000811 RID: 2065 RVA: 0x00047A5B File Offset: 0x00045C5B
-        public virtual void restart()
+        public void restart()
         {
             hide();
             show();
         }
 
         // Token: 0x06000812 RID: 2066 RVA: 0x00047A6C File Offset: 0x00045C6C
-        public virtual void spiderBusted(Grab g)
+        public void spiderBusted(Grab g)
         {
             int num = Preferences._getIntForKey("PREFS_SPIDERS_BUSTED") + 1;
             Preferences._setIntforKey(num, "PREFS_SPIDERS_BUSTED", false);
@@ -3041,7 +3041,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000813 RID: 2067 RVA: 0x00047CB0 File Offset: 0x00045EB0
-        public virtual void spiderWon(Grab sg)
+        public void spiderWon(Grab sg)
         {
             CTRSoundMgr._playSound(45);
             int count = bungees.Count;
@@ -3104,7 +3104,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000814 RID: 2068 RVA: 0x00047FD8 File Offset: 0x000461D8
-        public virtual void operatePump(Pump p)
+        public void operatePump(Pump p)
         {
             p.playTimeline(0);
             CTRSoundMgr._playSound(RND_RANGE(39, 42));
@@ -3135,7 +3135,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000815 RID: 2069 RVA: 0x00048100 File Offset: 0x00046300
-        public virtual int cutWithRazorOrLine1Line2Immediate(Razor r, Vector v1, Vector v2, bool im)
+        public int cutWithRazorOrLine1Line2Immediate(Razor r, Vector v1, Vector v2, bool im)
         {
             int num = 0;
             for (int i = 0; i < bungees.Count; i++)
@@ -3193,7 +3193,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000816 RID: 2070 RVA: 0x000483C4 File Offset: 0x000465C4
-        public virtual void gameWon()
+        public void gameWon()
         {
             dd.cancelAllDispatches();
             targetIdle.disableAnimations = true;
@@ -3228,7 +3228,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000817 RID: 2071 RVA: 0x000485C8 File Offset: 0x000467C8
-        public virtual void gameLost()
+        public void gameLost()
         {
             dd.cancelAllDispatches();
             targetIdle.disableAnimations = true;
@@ -3239,7 +3239,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000818 RID: 2072 RVA: 0x00048628 File Offset: 0x00046828
-        public virtual void releaseAllRopes(bool left)
+        public void releaseAllRopes(bool left)
         {
             int count = bungees.Count;
             for (int i = 0; i < count; i++)
@@ -3268,7 +3268,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000819 RID: 2073 RVA: 0x000486DC File Offset: 0x000468DC
-        public virtual void calculateScore()
+        public void calculateScore()
         {
             timeBonus = (int)Math.Max(0f, 30f - time) * 100;
             timeBonus /= 10;
@@ -3278,13 +3278,13 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0600081A RID: 2074 RVA: 0x0004874C File Offset: 0x0004694C
-        public virtual void doCandyBlink()
+        public void doCandyBlink()
         {
             candyBlink.playTimeline(0);
         }
 
         // Token: 0x0600081B RID: 2075 RVA: 0x0004875C File Offset: 0x0004695C
-        public virtual void startCamera()
+        public void startCamera()
         {
             if (mapWidth > SCREEN_WIDTH || mapHeight > SCREEN_HEIGHT)
             {
@@ -3332,7 +3332,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0600081C RID: 2076 RVA: 0x00048914 File Offset: 0x00046B14
-        public virtual void drawCuts()
+        public void drawCuts()
         {
             for (int i = 0; i < 5; i++)
             {
@@ -3450,7 +3450,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0600081E RID: 2078 RVA: 0x00048D00 File Offset: 0x00046F00
-        public virtual void createEarthImageWithOffsetXY(float xs, float ys)
+        public void createEarthImageWithOffsetXY(float xs, float ys)
         {
             Image image = Image.Image_createWithResIDQuad(127, 58);
             image.anchor = 18;
@@ -3469,7 +3469,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0600081F RID: 2079 RVA: 0x00048DCB File Offset: 0x00046FCB
-        public virtual void showGreeting()
+        public void showGreeting()
         {
             target.playTimeline(11);
         }
@@ -3494,7 +3494,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000821 RID: 2081 RVA: 0x00048EF0 File Offset: 0x000470F0
-        public virtual void onButtonPressed(int n)
+        public void onButtonPressed(int n)
         {
             if (MaterialPoint.globalGravity.y == 784.0)
             {
@@ -3696,7 +3696,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000823 RID: 2083 RVA: 0x000496BC File Offset: 0x000478BC
-        public virtual void handlePumpFlowPtSkin(Pump p, ConstraintedPoint s, GameObject c)
+        public void handlePumpFlowPtSkin(Pump p, ConstraintedPoint s, GameObject c)
         {
             float num = 200f;
             if (GameObject.rectInObject(p.x - num, p.y - num, p.x + num, p.y + num, c))
@@ -3723,7 +3723,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000824 RID: 2084 RVA: 0x00049878 File Offset: 0x00047A78
-        public virtual void handleBouncePtDelta(Bouncer b, ConstraintedPoint s, float delta)
+        public void handleBouncePtDelta(Bouncer b, ConstraintedPoint s, float delta)
         {
             if (b.skip)
             {
@@ -3746,7 +3746,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000825 RID: 2085 RVA: 0x000499D8 File Offset: 0x00047BD8
-        public virtual bool handleBubbleTouchXY(ConstraintedPoint s, float tx, float ty)
+        public bool handleBubbleTouchXY(ConstraintedPoint s, float tx, float ty)
         {
             if (pointInRect(tx + camera.pos.x, ty + camera.pos.y, s.pos.x - 30f, s.pos.y - 30f, 60f, 60f))
             {
@@ -3767,7 +3767,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000826 RID: 2086 RVA: 0x00049A94 File Offset: 0x00047C94
-        public virtual void teleport()
+        public void teleport()
         {
             if (targetSock == null)
             {
@@ -3789,7 +3789,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000827 RID: 2087 RVA: 0x00049C10 File Offset: 0x00047E10
-        public virtual bool pointOutOfScreen(ConstraintedPoint p)
+        public bool pointOutOfScreen(ConstraintedPoint p)
         {
             if (pack == 10)
             {
@@ -3799,7 +3799,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000828 RID: 2088 RVA: 0x00049C98 File Offset: 0x00047E98
-        public virtual void rotateAllSpikesWithID(int sid)
+        public void rotateAllSpikesWithID(int sid)
         {
             int i = 0;
             int count = spikes.Count;
@@ -3815,7 +3815,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000829 RID: 2089 RVA: 0x00049CD9 File Offset: 0x00047ED9
-        public virtual void drawDrawing()
+        public void drawDrawing()
         {
         }
 
@@ -4375,7 +4375,7 @@ namespace ctr_wp7.game
         private float JugglingTime;
 
         // Token: 0x02000109 RID: 265
-        private class FingerCut : NSObject
+        private sealed class FingerCut : NSObject
         {
             // Token: 0x04000DD9 RID: 3545
             public Vector start;
@@ -4394,7 +4394,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0200010A RID: 266
-        private class CharAnim : GameObject
+        private sealed class CharAnim : GameObject
         {
             // Token: 0x06000838 RID: 2104 RVA: 0x0004A03B File Offset: 0x0004823B
             public static CharAnim CharAnim_create(Texture2D t)
@@ -4453,7 +4453,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0200010B RID: 267
-        private class GameObjectSpecial : CTRGameObject
+        private sealed class GameObjectSpecial : CTRGameObject
         {
             // Token: 0x0600083E RID: 2110 RVA: 0x0004A12B File Offset: 0x0004832B
             public static GameObjectSpecial GameObjectSpecial_create(Texture2D t)
@@ -4480,7 +4480,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0200010C RID: 268
-        private class SCandy : ConstraintedPoint
+        private sealed class SCandy : ConstraintedPoint
         {
             // Token: 0x04000DE1 RID: 3553
             public bool good;
@@ -4496,7 +4496,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0200010D RID: 269
-        private class TutorialText : Text
+        private sealed class TutorialText : Text
         {
             // Token: 0x04000DE5 RID: 3557
             public int special;

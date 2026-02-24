@@ -7,7 +7,7 @@ using ctr_wp7.ios;
 namespace ctr_wp7.game
 {
     // Token: 0x02000012 RID: 18
-    internal class GhostBouncer : Bouncer
+    internal sealed class GhostBouncer : Bouncer
     {
         // Token: 0x06000109 RID: 265 RVA: 0x0000875C File Offset: 0x0000695C
         public override NSObject initWithPosXYWidthAndAngle(float px, float py, int w, double an)

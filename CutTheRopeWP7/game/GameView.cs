@@ -6,7 +6,7 @@ using ctr_wp7.ios;
 namespace ctr_wp7.game
 {
     // Token: 0x020000B8 RID: 184
-    internal class GameView : View
+    internal sealed class GameView : View
     {
         // Token: 0x06000534 RID: 1332 RVA: 0x00026118 File Offset: 0x00024318
         public override NSObject initFullscreen()

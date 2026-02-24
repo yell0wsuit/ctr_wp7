@@ -9,7 +9,7 @@ using ctr_wp7.wp7utilities;
 namespace ctr_wp7.game
 {
     // Token: 0x0200009C RID: 156
-    internal class MapPickerController : ViewController, ButtonDelegate
+    internal sealed class MapPickerController : ViewController, ButtonDelegate
     {
         // Token: 0x06000492 RID: 1170 RVA: 0x00021814 File Offset: 0x0001FA14
         public override NSObject initWithParent(ViewController p)
@@ -43,7 +43,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000494 RID: 1172 RVA: 0x00021914 File Offset: 0x0001FB14
-        public virtual void createPickerView()
+        public void createPickerView()
         {
             View view = (View)new View().initFullscreen();
             RectangleElement rectangleElement = (RectangleElement)new RectangleElement().init();
@@ -80,7 +80,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000496 RID: 1174 RVA: 0x00021A5E File Offset: 0x0001FC5E
-        public virtual void loadList()
+        public void loadList()
         {
         }
 
@@ -91,7 +91,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000498 RID: 1176 RVA: 0x00021A68 File Offset: 0x0001FC68
-        public virtual void xmlLoaderFinishedWithfromwithSuccess(XMLNode rootNode, NSString url, bool success)
+        public void xmlLoaderFinishedWithfromwithSuccess(XMLNode rootNode, NSString url, bool success)
         {
             if (rootNode != null)
             {
@@ -108,7 +108,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000499 RID: 1177 RVA: 0x00021AC8 File Offset: 0x0001FCC8
-        public virtual void setNormalMode()
+        public void setNormalMode()
         {
             autoLoad = false;
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
@@ -116,7 +116,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0600049A RID: 1178 RVA: 0x00021AF0 File Offset: 0x0001FCF0
-        public virtual void setAutoLoadMap(NSString map)
+        public void setAutoLoadMap(NSString map)
         {
             autoLoad = true;
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
@@ -126,7 +126,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0600049B RID: 1179 RVA: 0x00021B34 File Offset: 0x0001FD34
-        public virtual void onButtonPressed(int n)
+        public void onButtonPressed(int n)
         {
             if (n != 0)
             {

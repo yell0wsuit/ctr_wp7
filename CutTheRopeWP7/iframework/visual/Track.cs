@@ -5,7 +5,7 @@ using ctr_wp7.ios;
 namespace ctr_wp7.iframework.visual
 {
     // Token: 0x020000A9 RID: 169
-    internal class Track : NSObject
+    internal sealed class Track : NSObject
     {
         // Token: 0x060004B7 RID: 1207 RVA: 0x000220BE File Offset: 0x000202BE
         public Track()
@@ -16,7 +16,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x060004B8 RID: 1208 RVA: 0x000220E8 File Offset: 0x000202E8
-        public virtual Track initWithTimelineTypeandMaxKeyFrames(Timeline timeline, TrackType trackType, int m)
+        public Track initWithTimelineTypeandMaxKeyFrames(Timeline timeline, TrackType trackType, int m)
         {
             t = timeline;
             type = trackType;
@@ -34,7 +34,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x060004B9 RID: 1209 RVA: 0x0002214C File Offset: 0x0002034C
-        public virtual void initActionKeyFrameandTime(KeyFrame kf, float time)
+        public void initActionKeyFrameandTime(KeyFrame kf, float time)
         {
             keyFrameTimeLeft = time;
             setElementFromKeyFrame(kf);
@@ -46,7 +46,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x060004BA RID: 1210 RVA: 0x00022180 File Offset: 0x00020380
-        public virtual void setKeyFrameAt(KeyFrame k, int i)
+        public void setKeyFrameAt(KeyFrame k, int i)
         {
             keyFrames[i] = k;
             if (i >= keyFramesCount)
@@ -60,7 +60,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x060004BB RID: 1211 RVA: 0x000221CC File Offset: 0x000203CC
-        public virtual float getFrameTime(int f)
+        public float getFrameTime(int f)
         {
             float num = 0f;
             for (int i = 0; i <= f; i++)
@@ -71,7 +71,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x060004BC RID: 1212 RVA: 0x000221FC File Offset: 0x000203FC
-        public virtual void updateRange()
+        public void updateRange()
         {
             startTime = getFrameTime(0);
             endTime = getFrameTime(keyFramesCount - 1);
@@ -199,7 +199,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x060004BE RID: 1214 RVA: 0x00022AF0 File Offset: 0x00020CF0
-        public virtual void setElementFromKeyFrame(KeyFrame kf)
+        public void setElementFromKeyFrame(KeyFrame kf)
         {
             _ = kf.debugBreak;
             switch (type)

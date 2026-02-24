@@ -5,17 +5,17 @@ using ctr_wp7.ios;
 namespace ctr_wp7.iframework.visual
 {
     // Token: 0x020000AC RID: 172
-    internal class Timeline : NSObject
+    internal sealed class Timeline : NSObject
     {
         // Token: 0x060004C2 RID: 1218 RVA: 0x00023B86 File Offset: 0x00021D86
-        public virtual void stopTimeline()
+        public void stopTimeline()
         {
             state = TimelineState.TIMELINE_STOPPED;
             deactivateTracks();
         }
 
         // Token: 0x060004C3 RID: 1219 RVA: 0x00023B98 File Offset: 0x00021D98
-        public virtual void deactivateTracks()
+        public void deactivateTracks()
         {
             for (int i = 0; i < tracks.Length; i++)
             {
@@ -34,7 +34,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x060004C5 RID: 1221 RVA: 0x00023BFC File Offset: 0x00021DFC
-        public virtual void playTimeline()
+        public void playTimeline()
         {
             if (state != TimelineState.TIMELINE_PAUSED)
             {
@@ -58,7 +58,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x060004C6 RID: 1222 RVA: 0x00023C8C File Offset: 0x00021E8C
-        public virtual void pauseTimeline()
+        public void pauseTimeline()
         {
             state = TimelineState.TIMELINE_PAUSED;
         }
@@ -153,7 +153,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x060004C8 RID: 1224 RVA: 0x00023EA0 File Offset: 0x000220A0
-        public virtual Timeline initWithMaxKeyFramesOnTrack(int m)
+        public Timeline initWithMaxKeyFramesOnTrack(int m)
         {
             if (base.init() != null)
             {
@@ -168,14 +168,14 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x060004C9 RID: 1225 RVA: 0x00023EE0 File Offset: 0x000220E0
-        public virtual void addKeyFrame(KeyFrame k)
+        public void addKeyFrame(KeyFrame k)
         {
             int num = (tracks[(int)k.trackType] == null) ? 0 : tracks[(int)k.trackType].keyFramesCount;
             setKeyFrameAt(k, num);
         }
 
         // Token: 0x060004CA RID: 1226 RVA: 0x00023F1C File Offset: 0x0002211C
-        public virtual void setKeyFrameAt(KeyFrame k, int i)
+        public void setKeyFrameAt(KeyFrame k, int i)
         {
             if (tracks[(int)k.trackType] == null)
             {
@@ -185,13 +185,13 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x060004CB RID: 1227 RVA: 0x00023F70 File Offset: 0x00022170
-        public virtual void setTimelineLoopType(LoopType l)
+        public void setTimelineLoopType(LoopType l)
         {
             timelineLoopType = l;
         }
 
         // Token: 0x060004CC RID: 1228 RVA: 0x00023F7C File Offset: 0x0002217C
-        public virtual Track getTrack(Track.TrackType tt)
+        public Track getTrack(Track.TrackType tt)
         {
             return tracks[(int)tt];
         }

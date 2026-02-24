@@ -10,10 +10,10 @@ using ctr_wp7.ios;
 namespace ctr_wp7.game
 {
     // Token: 0x02000095 RID: 149
-    internal class BoxOpenClose : BaseElement, TimelineDelegate
+    internal sealed class BoxOpenClose : BaseElement, TimelineDelegate
     {
         // Token: 0x0600046D RID: 1133 RVA: 0x0001EF08 File Offset: 0x0001D108
-        public virtual NSObject initWithButtonDelegate(ButtonDelegate b)
+        public NSObject initWithButtonDelegate(ButtonDelegate b)
         {
             if (base.init() != null)
             {
@@ -116,7 +116,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0600046E RID: 1134 RVA: 0x0001F452 File Offset: 0x0001D652
-        public virtual void levelFirstStart()
+        public void levelFirstStart()
         {
             boxAnim = 0;
             removeOpenCloseAnims();
@@ -128,7 +128,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0600046F RID: 1135 RVA: 0x0001F480 File Offset: 0x0001D680
-        public virtual void levelStart()
+        public void levelStart()
         {
             boxAnim = 1;
             removeOpenCloseAnims();
@@ -140,7 +140,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000470 RID: 1136 RVA: 0x0001F4B0 File Offset: 0x0001D6B0
-        public virtual void levelWon()
+        public void levelWon()
         {
             boxAnim = 2;
             raState = -1;
@@ -159,7 +159,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000471 RID: 1137 RVA: 0x0001F55B File Offset: 0x0001D75B
-        public virtual void levelLost()
+        public void levelLost()
         {
             boxAnim = 3;
             removeOpenCloseAnims();
@@ -167,7 +167,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000472 RID: 1138 RVA: 0x0001F570 File Offset: 0x0001D770
-        public virtual void levelQuit()
+        public void levelQuit()
         {
             boxAnim = 4;
             result.setEnabled(false);
@@ -176,7 +176,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000473 RID: 1139 RVA: 0x0001F591 File Offset: 0x0001D791
-        public virtual void postBoxClosed()
+        public void postBoxClosed()
         {
             if (delegateboxClosed != null)
             {
@@ -189,19 +189,19 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000474 RID: 1140 RVA: 0x0001F5B4 File Offset: 0x0001D7B4
-        public virtual void showOpenAnim()
+        public void showOpenAnim()
         {
             showOpenCloseAnim(true);
         }
 
         // Token: 0x06000475 RID: 1141 RVA: 0x0001F5BD File Offset: 0x0001D7BD
-        public virtual void showCloseAnim()
+        public void showCloseAnim()
         {
             showOpenCloseAnim(false);
         }
 
         // Token: 0x06000476 RID: 1142 RVA: 0x0001F5C8 File Offset: 0x0001D7C8
-        public virtual BaseElement createConfettiParticleNear(Vector p)
+        public BaseElement createConfettiParticleNear(Vector p)
         {
             Confetti confetti = Confetti.Confetti_createWithResID(95);
             confetti.doRestoreCutTransparency();
@@ -240,7 +240,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000477 RID: 1143 RVA: 0x0001F788 File Offset: 0x0001D988
-        public virtual void removeOpenCloseAnims()
+        public void removeOpenCloseAnims()
         {
             if (getChild(0) != null)
             {
@@ -254,7 +254,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000478 RID: 1144 RVA: 0x0001F824 File Offset: 0x0001DA24
-        public virtual void createOpenCloseAnims()
+        public void createOpenCloseAnims()
         {
             openCloseAnims = (BaseElement)new BaseElement().init();
             _ = addChildwithID(openCloseAnims, 0);
@@ -265,7 +265,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000479 RID: 1145 RVA: 0x0001F89C File Offset: 0x0001DA9C
-        public virtual void showConfetti()
+        public void showConfetti()
         {
             for (int i = 0; i < 70; i++)
             {
@@ -430,7 +430,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0600047B RID: 1147 RVA: 0x0001FF60 File Offset: 0x0001E160
-        public virtual void showOpenCloseAnim(bool open)
+        public void showOpenCloseAnim(bool open)
         {
             createOpenCloseAnims();
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
@@ -586,12 +586,12 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0600047C RID: 1148 RVA: 0x00020AC6 File Offset: 0x0001ECC6
-        public virtual void timelinereachedKeyFramewithIndex(Timeline t, KeyFrame k, int i)
+        public void timelinereachedKeyFramewithIndex(Timeline t, KeyFrame k, int i)
         {
         }
 
         // Token: 0x0600047D RID: 1149 RVA: 0x00020AC8 File Offset: 0x0001ECC8
-        public virtual void timelineFinished(Timeline t)
+        public void timelineFinished(Timeline t)
         {
             switch (boxAnim)
             {

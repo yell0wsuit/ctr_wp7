@@ -6,7 +6,7 @@ using ctr_wp7.iframework.visual;
 namespace ctr_wp7.game
 {
     // Token: 0x02000054 RID: 84
-    internal class Sock : CTRGameObject
+    internal sealed class Sock : CTRGameObject
     {
         // Token: 0x06000288 RID: 648 RVA: 0x00010436 File Offset: 0x0000E636
         public static Sock Sock_create(Texture2D t)

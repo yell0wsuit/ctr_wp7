@@ -3,7 +3,7 @@
 namespace ctr_wp7.iframework.visual
 {
     // Token: 0x0200007D RID: 125
-    internal class RotatableScalableMultiParticles : ScalableMultiParticles
+    internal sealed class RotatableScalableMultiParticles : ScalableMultiParticles
     {
         // Token: 0x060003AB RID: 939 RVA: 0x000179B8 File Offset: 0x00015BB8
         public override void initParticle(ref Particle particle)

@@ -7,7 +7,7 @@ using ctr_wp7.ios;
 namespace ctr_wp7.ctr_original
 {
     // Token: 0x020000B9 RID: 185
-    internal class CTRResourceMgr : ResourceMgr
+    internal sealed class CTRResourceMgr : ResourceMgr
     {
         // Token: 0x0600053C RID: 1340 RVA: 0x0002644D File Offset: 0x0002464D
         public override NSObject init()

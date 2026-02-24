@@ -5,10 +5,10 @@ using Microsoft.Xna.Framework.Graphics;
 namespace ctr_wp7.iframework.visual
 {
     // Token: 0x020000EC RID: 236
-    internal class ImageMultiDrawer : BaseElement
+    internal sealed class ImageMultiDrawer : BaseElement
     {
         // Token: 0x06000712 RID: 1810 RVA: 0x00039004 File Offset: 0x00037204
-        public virtual ImageMultiDrawer initWithImageandCapacity(Image i, int n)
+        public ImageMultiDrawer initWithImageandCapacity(Image i, int n)
         {
             if (base.init() == null)
             {

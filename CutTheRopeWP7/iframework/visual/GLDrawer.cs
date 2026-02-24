@@ -6,7 +6,7 @@ using ctr_wp7.ios;
 namespace ctr_wp7.iframework.visual
 {
     // Token: 0x020000AF RID: 175
-    internal class GLDrawer : NSObject
+    internal sealed class GLDrawer : NSObject
     {
         // Token: 0x060004CE RID: 1230 RVA: 0x00023FA7 File Offset: 0x000221A7
         public static void drawImage(Texture2D image, float x, float y)

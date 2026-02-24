@@ -5,7 +5,7 @@ using ctr_wp7.iframework.visual;
 namespace ctr_wp7.game
 {
     // Token: 0x020000DE RID: 222
-    internal class LoadingView : View
+    internal sealed class LoadingView : View
     {
         // Token: 0x06000679 RID: 1657 RVA: 0x00031A80 File Offset: 0x0002FC80
         public override void draw()

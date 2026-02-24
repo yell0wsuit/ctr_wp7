@@ -4,7 +4,7 @@ using ctr_wp7.iframework.visual;
 namespace ctr_wp7.game
 {
     // Token: 0x02000099 RID: 153
-    internal class CandyInGhostBubbleAnimation : Animation
+    internal sealed class CandyInGhostBubbleAnimation : Animation
     {
         // Token: 0x0600048C RID: 1164 RVA: 0x00020C64 File Offset: 0x0001EE64
         public static CandyInGhostBubbleAnimation CIGBAnimation_createWithResID(int r)
@@ -27,7 +27,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0600048F RID: 1167 RVA: 0x00020CA4 File Offset: 0x0001EEA4
-        public virtual void addSupportingCloudsTimelines()
+        public void addSupportingCloudsTimelines()
         {
             backCloud = Image_createWithResIDQuad(180, 4);
             backCloud.x = x + 28f;

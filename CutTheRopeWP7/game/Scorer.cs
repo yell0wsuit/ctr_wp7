@@ -5,7 +5,7 @@ using ctr_wp7.ios;
 namespace ctr_wp7.game
 {
     // Token: 0x0200008B RID: 139
-    internal class Scorer
+    internal sealed class Scorer
     {
         // Token: 0x06000400 RID: 1024 RVA: 0x0001C974 File Offset: 0x0001AB74
         public static void postLeaderboardResultforLaderboardIdlowestValFirstforGameCenter(int boxScore, int level, bool islowestValFirstforGameCenter)

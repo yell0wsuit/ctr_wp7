@@ -8,7 +8,7 @@ using ctr_wp7.ios;
 namespace ctr_wp7.game
 {
     // Token: 0x02000094 RID: 148
-    internal class CTRMover : Mover
+    internal sealed class CTRMover : Mover
     {
         // Token: 0x0600046B RID: 1131 RVA: 0x0001EDC8 File Offset: 0x0001CFC8
         public override void setPathFromStringandStart(NSString p, Vector s)

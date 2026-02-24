@@ -4,7 +4,7 @@ using ctr_wp7.iframework.visual;
 namespace ctr_wp7.ctr_commons
 {
     // Token: 0x02000117 RID: 279
-    internal class HLiftScrollbar : Image
+    internal sealed class HLiftScrollbar : Image
     {
         // Token: 0x06000871 RID: 2161 RVA: 0x0004BBD8 File Offset: 0x00049DD8
         public static HLiftScrollbar createWithResIDBackQuadLiftQuadLiftQuadPressed(int resID, int bq, int lq, int lqp)
@@ -13,7 +13,7 @@ namespace ctr_wp7.ctr_commons
         }
 
         // Token: 0x06000872 RID: 2162 RVA: 0x0004BBE8 File Offset: 0x00049DE8
-        public virtual HLiftScrollbar initWithResIDBackQuadLiftQuadLiftQuadPressed(int resID, int bq, int lq, int lqp)
+        public HLiftScrollbar initWithResIDBackQuadLiftQuadLiftQuadPressed(int resID, int bq, int lq, int lqp)
         {
             if (base.initWithTexture(Application.getTexture(resID)) != null)
             {
@@ -40,19 +40,19 @@ namespace ctr_wp7.ctr_commons
         }
 
         // Token: 0x06000873 RID: 2163 RVA: 0x0004BD06 File Offset: 0x00049F06
-        public virtual Vector getScrollPoint(int i)
+        public Vector getScrollPoint(int i)
         {
             return spoints[i];
         }
 
         // Token: 0x06000874 RID: 2164 RVA: 0x0004BD19 File Offset: 0x00049F19
-        public virtual int getTotalScrollPoints()
+        public int getTotalScrollPoints()
         {
             return spointsNum;
         }
 
         // Token: 0x06000875 RID: 2165 RVA: 0x0004BD24 File Offset: 0x00049F24
-        public virtual void updateActiveSpoint()
+        public void updateActiveSpoint()
         {
             int i = 0;
             while (i < spointsNum)
@@ -132,7 +132,7 @@ namespace ctr_wp7.ctr_commons
         }
 
         // Token: 0x0600087B RID: 2171 RVA: 0x0004BF2C File Offset: 0x0004A12C
-        public virtual void updateLift()
+        public void updateLift()
         {
             Vector scroll = container.getScroll();
             Vector maxScroll = container.getMaxScroll();
@@ -151,7 +151,7 @@ namespace ctr_wp7.ctr_commons
         }
 
         // Token: 0x0600087C RID: 2172 RVA: 0x0004BFFC File Offset: 0x0004A1FC
-        public virtual void calcScrollPoints()
+        public void calcScrollPoints()
         {
             Vector maxScroll = container.getMaxScroll();
             spointsNum = container.getTotalScrollPoints();
@@ -212,7 +212,7 @@ namespace ctr_wp7.ctr_commons
         }
 
         // Token: 0x0600087D RID: 2173 RVA: 0x0004C2D3 File Offset: 0x0004A4D3
-        public virtual void setContainer(ScrollableContainer c)
+        public void setContainer(ScrollableContainer c)
         {
             container = c;
             if (container != null)

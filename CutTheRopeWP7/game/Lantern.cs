@@ -11,7 +11,7 @@ using ctr_wp7.ios;
 namespace ctr_wp7.game
 {
     // Token: 0x02000112 RID: 274
-    internal class Lantern : CTRGameObject
+    internal sealed class Lantern : CTRGameObject
     {
         // Token: 0x06000853 RID: 2131 RVA: 0x0004A29C File Offset: 0x0004849C
         public Lantern initWithPosition(Vector position)

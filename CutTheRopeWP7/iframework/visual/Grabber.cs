@@ -3,7 +3,7 @@
 namespace ctr_wp7.iframework.visual
 {
     // Token: 0x0200004D RID: 77
-    internal class Grabber : NSObject
+    internal sealed class Grabber : NSObject
     {
         // Token: 0x0600026F RID: 623 RVA: 0x0000FD1A File Offset: 0x0000DF1A
         public override NSObject init()
@@ -19,7 +19,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x06000271 RID: 625 RVA: 0x0000FD2C File Offset: 0x0000DF2C
-        public virtual Texture2D grab()
+        public Texture2D grab()
         {
             return (Texture2D)new Texture2D().initFromPixels(0, 0, (int)REAL_SCREEN_WIDTH, (int)REAL_SCREEN_HEIGHT);
         }

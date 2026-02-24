@@ -12,46 +12,46 @@ using Microsoft.Xna.Framework.GamerServices;
 namespace ctr_wp7.game
 {
     // Token: 0x0200008D RID: 141
-    internal class CTRRootController : RootController
+    internal sealed class CTRRootController : RootController
     {
         // Token: 0x06000421 RID: 1057 RVA: 0x0001D26D File Offset: 0x0001B46D
-        public virtual void setMap(XMLNode map)
+        public void setMap(XMLNode map)
         {
             loadedMap = map;
         }
 
         // Token: 0x06000422 RID: 1058 RVA: 0x0001D276 File Offset: 0x0001B476
-        public virtual XMLNode getMap()
+        public XMLNode getMap()
         {
             return loadedMap;
         }
 
         // Token: 0x06000423 RID: 1059 RVA: 0x0001D27E File Offset: 0x0001B47E
-        public virtual NSString getMapName()
+        public NSString getMapName()
         {
             return mapName;
         }
 
         // Token: 0x06000424 RID: 1060 RVA: 0x0001D286 File Offset: 0x0001B486
-        public virtual void setMapName(NSString map)
+        public void setMapName(NSString map)
         {
             NSREL(mapName);
             mapName = map;
         }
 
         // Token: 0x06000425 RID: 1061 RVA: 0x0001D29A File Offset: 0x0001B49A
-        public virtual void setMapsList(Dictionary<string, XMLNode> l)
+        public void setMapsList(Dictionary<string, XMLNode> l)
         {
         }
 
         // Token: 0x06000426 RID: 1062 RVA: 0x0001D29C File Offset: 0x0001B49C
-        public virtual Dictionary<string, XMLNode> getMapsList()
+        public Dictionary<string, XMLNode> getMapsList()
         {
             throw new NotImplementedException();
         }
 
         // Token: 0x06000427 RID: 1063 RVA: 0x0001D2A3 File Offset: 0x0001B4A3
-        public virtual int getPack()
+        public int getPack()
         {
             return pack;
         }
@@ -88,7 +88,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0600042A RID: 1066 RVA: 0x0001D364 File Offset: 0x0001B564
-        public virtual void deleteMenu()
+        public void deleteMenu()
         {
             ResourceMgr resourceMgr = Application.sharedResourceMgr();
             deleteChild(1);
@@ -97,12 +97,12 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0600042B RID: 1067 RVA: 0x0001D38E File Offset: 0x0001B58E
-        public virtual void disableGameCenter()
+        public void disableGameCenter()
         {
         }
 
         // Token: 0x0600042C RID: 1068 RVA: 0x0001D390 File Offset: 0x0001B590
-        public virtual void enableGameCenter()
+        public void enableGameCenter()
         {
         }
 
@@ -441,43 +441,43 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000437 RID: 1079 RVA: 0x0001DA47 File Offset: 0x0001BC47
-        public virtual void setPack(int p)
+        public void setPack(int p)
         {
             pack = p;
         }
 
         // Token: 0x06000438 RID: 1080 RVA: 0x0001DA50 File Offset: 0x0001BC50
-        public virtual void setLevel(int l)
+        public void setLevel(int l)
         {
             level = l;
         }
 
         // Token: 0x06000439 RID: 1081 RVA: 0x0001DA59 File Offset: 0x0001BC59
-        public virtual int getLevel()
+        public int getLevel()
         {
             return level;
         }
 
         // Token: 0x0600043A RID: 1082 RVA: 0x0001DA61 File Offset: 0x0001BC61
-        public virtual void setPicker(bool p)
+        public void setPicker(bool p)
         {
             picker = p;
         }
 
         // Token: 0x0600043B RID: 1083 RVA: 0x0001DA6A File Offset: 0x0001BC6A
-        public virtual bool isPicker()
+        public bool isPicker()
         {
             return picker;
         }
 
         // Token: 0x0600043C RID: 1084 RVA: 0x0001DA72 File Offset: 0x0001BC72
-        public virtual void setSurvival(bool s)
+        public void setSurvival(bool s)
         {
             survival = s;
         }
 
         // Token: 0x0600043D RID: 1085 RVA: 0x0001DA7B File Offset: 0x0001BC7B
-        public virtual bool isSurvival()
+        public bool isSurvival()
         {
             return survival;
         }

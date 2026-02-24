@@ -8,7 +8,7 @@ using ctr_wp7.iframework.visual;
 using ctr_wp7.ios;
 
 // Token: 0x020000DD RID: 221
-internal class CoppaController : ViewController, ButtonDelegate, TimelineDelegate
+internal sealed class CoppaController : ViewController, ButtonDelegate, TimelineDelegate
 {
     // Token: 0x0600066B RID: 1643 RVA: 0x000312E5 File Offset: 0x0002F4E5
     private new void addViewwithID(View view, int n)

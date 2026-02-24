@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.GamerServices;
 namespace ctr_wp7.Specials
 {
     // Token: 0x0200009E RID: 158
-    internal class UpdatePopup : Popup, ButtonDelegate
+    internal sealed class UpdatePopup : Popup, ButtonDelegate
     {
         // Token: 0x0600049F RID: 1183 RVA: 0x00021B74 File Offset: 0x0001FD74
         public void onButtonPressed(int n)

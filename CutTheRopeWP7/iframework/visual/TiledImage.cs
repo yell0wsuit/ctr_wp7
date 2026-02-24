@@ -3,10 +3,10 @@
 namespace ctr_wp7.iframework.visual
 {
     // Token: 0x02000062 RID: 98
-    internal class TiledImage : Image
+    internal sealed class TiledImage : Image
     {
         // Token: 0x060002E6 RID: 742 RVA: 0x00012DAF File Offset: 0x00010FAF
-        public virtual void setTile(int t)
+        public void setTile(int t)
         {
             q = t;
         }

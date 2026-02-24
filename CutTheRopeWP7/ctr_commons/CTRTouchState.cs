@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Input.Touch;
 namespace ctr_wp7.ctr_commons
 {
     // Token: 0x020000E9 RID: 233
-    internal class CTRTouchState
+    internal sealed class CTRTouchState
     {
         // Token: 0x17000019 RID: 25
         // (get) Token: 0x060006E9 RID: 1769 RVA: 0x000384D9 File Offset: 0x000366D9

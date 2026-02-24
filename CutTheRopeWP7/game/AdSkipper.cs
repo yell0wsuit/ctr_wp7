@@ -6,7 +6,7 @@ using ctr_wp7.ios;
 namespace ctr_wp7.game
 {
     // Token: 0x020000F7 RID: 247
-    internal class AdSkipper : BaseElement, ButtonDelegate
+    internal sealed class AdSkipper : BaseElement, ButtonDelegate
     {
         // Token: 0x0600077F RID: 1919 RVA: 0x0003B8E0 File Offset: 0x00039AE0
         public override NSObject init()
@@ -27,7 +27,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000780 RID: 1920 RVA: 0x0003B972 File Offset: 0x00039B72
-        public virtual void setJskipper(object jskipper)
+        public void setJskipper(object jskipper)
         {
             freeJskipper();
             skipper = jskipper;
@@ -36,7 +36,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000781 RID: 1921 RVA: 0x0003B994 File Offset: 0x00039B94
-        public virtual void freeJskipper()
+        public void freeJskipper()
         {
             if (skipper != null)
             {
@@ -65,7 +65,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000784 RID: 1924 RVA: 0x0003B9F0 File Offset: 0x00039BF0
-        public virtual void onButtonPressed(int n)
+        public void onButtonPressed(int n)
         {
             if (active)
             {

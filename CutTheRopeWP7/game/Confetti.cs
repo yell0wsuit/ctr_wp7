@@ -4,7 +4,7 @@ using ctr_wp7.iframework.visual;
 namespace ctr_wp7.game
 {
     // Token: 0x02000097 RID: 151
-    internal class Confetti : Animation
+    internal sealed class Confetti : Animation
     {
         // Token: 0x06000485 RID: 1157 RVA: 0x00020B86 File Offset: 0x0001ED86
         public static Confetti Confetti_createWithResID(int r)

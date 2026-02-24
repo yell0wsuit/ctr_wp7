@@ -15,7 +15,7 @@ using Microsoft.Xna.Framework;
 namespace ctr_wp7.ios
 {
     // Token: 0x020000F4 RID: 244
-    internal class XMLNode
+    internal sealed class XMLNode
     {
         // Token: 0x06000762 RID: 1890 RVA: 0x0003B173 File Offset: 0x00039373
         public XMLNode()

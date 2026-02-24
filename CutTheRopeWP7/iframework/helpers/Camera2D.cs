@@ -4,10 +4,10 @@ using ctr_wp7.ios;
 namespace ctr_wp7.iframework.helpers
 {
     // Token: 0x0200003B RID: 59
-    internal class Camera2D : NSObject
+    internal sealed class Camera2D : NSObject
     {
         // Token: 0x0600020E RID: 526 RVA: 0x0000DB3C File Offset: 0x0000BD3C
-        public virtual Camera2D initWithSpeedandType(float s, CAMERA_TYPE t)
+        public Camera2D initWithSpeedandType(float s, CAMERA_TYPE t)
         {
             if (base.init() != null)
             {
@@ -18,7 +18,7 @@ namespace ctr_wp7.iframework.helpers
         }
 
         // Token: 0x0600020F RID: 527 RVA: 0x0000DB58 File Offset: 0x0000BD58
-        public virtual void moveToXYImmediate(float x, float y, bool immediate)
+        public void moveToXYImmediate(float x, float y, bool immediate)
         {
             target.x = x;
             target.y = y;
@@ -39,7 +39,7 @@ namespace ctr_wp7.iframework.helpers
         }
 
         // Token: 0x06000210 RID: 528 RVA: 0x0000DBE8 File Offset: 0x0000BDE8
-        public virtual void update(float delta)
+        public void update(float delta)
         {
             if (!vectEqual(pos, target))
             {
@@ -53,13 +53,13 @@ namespace ctr_wp7.iframework.helpers
         }
 
         // Token: 0x06000211 RID: 529 RVA: 0x0000DCB3 File Offset: 0x0000BEB3
-        public virtual void applyCameraTransformation()
+        public void applyCameraTransformation()
         {
             OpenGL.glTranslatef((double)-(double)pos.x, (double)-(double)pos.y, 0.0);
         }
 
         // Token: 0x06000212 RID: 530 RVA: 0x0000DCDD File Offset: 0x0000BEDD
-        public virtual void cancelCameraTransformation()
+        public void cancelCameraTransformation()
         {
             OpenGL.glTranslatef(pos.x, pos.y, 0.0);
         }

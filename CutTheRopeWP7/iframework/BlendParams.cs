@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 namespace ctr_wp7.iframework
 {
     // Token: 0x020000B1 RID: 177
-    internal class BlendParams
+    internal sealed class BlendParams
     {
         // Token: 0x060004E5 RID: 1253 RVA: 0x00024DBC File Offset: 0x00022FBC
         public BlendParams()

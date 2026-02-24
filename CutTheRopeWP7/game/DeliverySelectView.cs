@@ -8,10 +8,10 @@ using ctr_wp7.ios;
 namespace ctr_wp7.game
 {
     // Token: 0x02000069 RID: 105
-    internal class DeliverySelectView : MenuView
+    internal sealed class DeliverySelectView : MenuView
     {
         // Token: 0x06000327 RID: 807 RVA: 0x00014278 File Offset: 0x00012478
-        public virtual NSObject initFullscreenBackgroundDelegate(BaseElement background, ButtonDelegate d)
+        public NSObject initFullscreenBackgroundDelegate(BaseElement background, ButtonDelegate d)
         {
             if (base.initFullscreen() != null)
             {
@@ -64,7 +64,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000328 RID: 808 RVA: 0x000145BC File Offset: 0x000127BC
-        public virtual void checkCartoonsWatched()
+        public void checkCartoonsWatched()
         {
             int num = 0;
             int num2 = 0;

@@ -6,10 +6,10 @@ using ctr_wp7.iframework.visual;
 namespace ctr_wp7.game
 {
     // Token: 0x020000F0 RID: 240
-    internal class BoxFabricOriginal : BoxFabric
+    internal sealed class BoxFabricOriginal : BoxFabric
     {
         // Token: 0x06000738 RID: 1848 RVA: 0x0003A510 File Offset: 0x00038710
-        public virtual BaseElement buildBox(int quad)
+        public BaseElement buildBox(int quad)
         {
             Image image = Image.Image_createWithResIDQuad(399, quad);
             image.doRestoreCutTransparency();
@@ -119,7 +119,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x020000F1 RID: 241
-        public class MonsterSlot : RectangleElement
+        public sealed class MonsterSlot : RectangleElement
         {
             // Token: 0x0600073D RID: 1853 RVA: 0x0003A8DC File Offset: 0x00038ADC
             public static MonsterSlot createMonsterSlot()

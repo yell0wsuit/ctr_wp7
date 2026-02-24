@@ -5,7 +5,7 @@ using ctr_wp7.ios;
 namespace ctr_wp7.iframework.visual
 {
     // Token: 0x02000087 RID: 135
-    internal class TimedButton : BaseElement
+    internal sealed class TimedButton : BaseElement
     {
         // Token: 0x060003E9 RID: 1001 RVA: 0x0001C1DC File Offset: 0x0001A3DC
         public static TimedButton createWithTextureUpDownID(Texture2D up, Texture2D down, int bID)
@@ -16,7 +16,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x060003EA RID: 1002 RVA: 0x0001C204 File Offset: 0x0001A404
-        public virtual TimedButton initWithID(int n)
+        public TimedButton initWithID(int n)
         {
             if (base.init() != null)
             {
@@ -32,7 +32,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x060003EB RID: 1003 RVA: 0x0001C274 File Offset: 0x0001A474
-        public virtual TimedButton initWithUpElementDownElementandID(BaseElement up, BaseElement down, int n)
+        public TimedButton initWithUpElementDownElementandID(BaseElement up, BaseElement down, int n)
         {
             if (initWithID(n) != null)
             {
@@ -62,7 +62,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x060003ED RID: 1005 RVA: 0x0001C3D4 File Offset: 0x0001A5D4
-        public virtual void setTouchIncreaseLeftRightTopBottom(float l, float r, float t, float b)
+        public void setTouchIncreaseLeftRightTopBottom(float l, float r, float t, float b)
         {
             touchLeftInc = l;
             touchRightInc = r;
@@ -71,13 +71,13 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x060003EE RID: 1006 RVA: 0x0001C3F3 File Offset: 0x0001A5F3
-        public virtual void forceTouchRect(Rectangle r)
+        public void forceTouchRect(Rectangle r)
         {
             forcedTouchZone = r;
         }
 
         // Token: 0x060003EF RID: 1007 RVA: 0x0001C3FC File Offset: 0x0001A5FC
-        public virtual bool isInTouchZoneXYforTouchDown(float tx, float ty, bool td)
+        public bool isInTouchZoneXYforTouchDown(float tx, float ty, bool td)
         {
             float num = td ? 0f : 15f;
             if (forcedTouchZone.w != -1f)
@@ -88,7 +88,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x060003F0 RID: 1008 RVA: 0x0001C4E0 File Offset: 0x0001A6E0
-        public virtual void setState(TIMED_BUTTON s)
+        public void setState(TIMED_BUTTON s)
         {
             state = s;
             BaseElement child = getChild(0);
@@ -165,7 +165,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x060003F5 RID: 1013 RVA: 0x0001C64A File Offset: 0x0001A84A
-        public virtual BaseElement createFromXML(XMLNode xml)
+        public BaseElement createFromXML(XMLNode xml)
         {
             throw new NotImplementedException();
         }

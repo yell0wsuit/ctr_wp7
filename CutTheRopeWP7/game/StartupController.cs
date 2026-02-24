@@ -10,7 +10,7 @@ using ctr_wp7.ios;
 namespace ctr_wp7.game
 {
     // Token: 0x020000ED RID: 237
-    internal class StartupController : ViewController, ResourceMgrDelegate, MovieMgrDelegate
+    internal sealed class StartupController : ViewController, ResourceMgrDelegate, MovieMgrDelegate
     {
         // Token: 0x0600071F RID: 1823 RVA: 0x000393FF File Offset: 0x000375FF
         public override NSObject initWithParent(ViewController p)
@@ -20,7 +20,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000720 RID: 1824 RVA: 0x0003940C File Offset: 0x0003760C
-        public virtual void moviePlaybackFinished(NSString url)
+        public void moviePlaybackFinished(NSString url)
         {
             ResourceMgr resourceMgr = Application.sharedResourceMgr();
             resourceMgr.resourcesDelegate = this;
@@ -45,7 +45,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000722 RID: 1826 RVA: 0x000394AA File Offset: 0x000376AA
-        public virtual void onVideoBannerFinished()
+        public void onVideoBannerFinished()
         {
             Application.sharedRootController().setViewTransition(4);
             base.deactivate();
@@ -64,13 +64,13 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000725 RID: 1829 RVA: 0x000394C9 File Offset: 0x000376C9
-        public virtual void resourceLoaded(int resName)
+        public void resourceLoaded(int resName)
         {
             _LOG("res loaded");
         }
 
         // Token: 0x06000726 RID: 1830 RVA: 0x000394D8 File Offset: 0x000376D8
-        public virtual void allResourcesLoaded()
+        public void allResourcesLoaded()
         {
             GC.Collect();
             _LOG("all res loaded");

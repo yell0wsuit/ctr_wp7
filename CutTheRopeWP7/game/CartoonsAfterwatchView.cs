@@ -7,10 +7,10 @@ using ctr_wp7.ios;
 namespace ctr_wp7.game
 {
     // Token: 0x02000090 RID: 144
-    internal class CartoonsAfterwatchView : MenuView
+    internal sealed class CartoonsAfterwatchView : MenuView
     {
         // Token: 0x0600044B RID: 1099 RVA: 0x0001E090 File Offset: 0x0001C290
-        public virtual NSObject initFullscreenBackgroundDelegate(BaseElement background, ButtonDelegate d)
+        public NSObject initFullscreenBackgroundDelegate(BaseElement background, ButtonDelegate d)
         {
             if (base.initFullscreen() != null)
             {
@@ -64,13 +64,13 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0600044C RID: 1100 RVA: 0x0001E3C0 File Offset: 0x0001C5C0
-        public virtual void renumberEpisode(NSString newnumber)
+        public void renumberEpisode(NSString newnumber)
         {
             titletext.setString(Application.getString(1310836).ToString().Replace("%@", newnumber.ToString()));
         }
 
         // Token: 0x0600044D RID: 1101 RVA: 0x0001E3EC File Offset: 0x0001C5EC
-        public virtual void setLast(bool last)
+        public void setLast(bool last)
         {
             isLast = last;
             if (last)

@@ -3,7 +3,7 @@
 namespace ctr_wp7.iframework.visual
 {
     // Token: 0x020000CB RID: 203
-    internal class TouchImage : Image
+    internal sealed class TouchImage : Image
     {
         // Token: 0x060005E9 RID: 1513 RVA: 0x0002CB30 File Offset: 0x0002AD30
         public override bool onTouchDownXY(float tx, float ty)

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace ctr_wp7.ios
 {
     // Token: 0x020000CA RID: 202
-    internal class NSString : NSObject
+    internal sealed class NSString : NSObject
     {
         // Token: 0x060005D4 RID: 1492 RVA: 0x0002C7A6 File Offset: 0x0002A9A6
         public NSString()

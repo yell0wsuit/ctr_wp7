@@ -1,7 +1,7 @@
 ﻿namespace ctr_wp7.ctr_commons
 {
     // Token: 0x020000DB RID: 219
-    internal class SaveMgr
+    internal sealed class SaveMgr
     {
         // Token: 0x0600065C RID: 1628 RVA: 0x00030A78 File Offset: 0x0002EC78
         public static void backup()

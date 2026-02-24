@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework;
 namespace ctr_wp7.wp7utilities
 {
     // Token: 0x02000073 RID: 115
-    internal class TestXNA : BaseElement
+    internal sealed class TestXNA : BaseElement
     {
         // Token: 0x06000376 RID: 886 RVA: 0x00016016 File Offset: 0x00014216
         private void cameraTestMove()
@@ -120,7 +120,7 @@ namespace ctr_wp7.wp7utilities
         private List<BaseElement> objects = [];
 
         // Token: 0x02000074 RID: 116
-        private class TestCameraMove : BaseElement
+        private sealed class TestCameraMove : BaseElement
         {
             // Token: 0x0600037D RID: 893 RVA: 0x00016384 File Offset: 0x00014584
             public TestCameraMove()
@@ -151,7 +151,7 @@ namespace ctr_wp7.wp7utilities
         }
 
         // Token: 0x02000075 RID: 117
-        private class TestRotate(BaseElement testObject) : BaseElement
+        private sealed class TestRotate(BaseElement testObject) : BaseElement
         {
 
             // Token: 0x06000381 RID: 897 RVA: 0x000163E4 File Offset: 0x000145E4

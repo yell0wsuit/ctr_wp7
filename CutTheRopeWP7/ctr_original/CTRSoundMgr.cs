@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Audio;
 namespace ctr_wp7.ctr_original
 {
     // Token: 0x02000029 RID: 41
-    internal class CTRSoundMgr : SoundMgr
+    internal sealed class CTRSoundMgr : SoundMgr
     {
         // Token: 0x06000197 RID: 407 RVA: 0x0000BBF0 File Offset: 0x00009DF0
         public static void _playSound(int s)

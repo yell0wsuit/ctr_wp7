@@ -1,7 +1,7 @@
 ﻿namespace ctr_wp7.iframework.visual
 {
     // Token: 0x020000A4 RID: 164
-    internal class KeyFrameValue
+    internal sealed class KeyFrameValue
     {
         // Token: 0x060004A7 RID: 1191 RVA: 0x00021E30 File Offset: 0x00020030
         public KeyFrameValue()

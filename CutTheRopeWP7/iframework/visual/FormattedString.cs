@@ -3,10 +3,10 @@
 namespace ctr_wp7.iframework.visual
 {
     // Token: 0x020000CC RID: 204
-    internal class FormattedString : NSObject
+    internal sealed class FormattedString : NSObject
     {
         // Token: 0x060005ED RID: 1517 RVA: 0x0002CBC1 File Offset: 0x0002ADC1
-        public virtual FormattedString initWithStringAndWidth(NSString str, float w)
+        public FormattedString initWithStringAndWidth(NSString str, float w)
         {
             if (base.init() != null)
             {

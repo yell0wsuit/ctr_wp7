@@ -4,7 +4,7 @@ using ctr_wp7.iframework.visual;
 namespace ctr_wp7.ctr_original
 {
     // Token: 0x02000103 RID: 259
-    internal class CandyBreak : RotateableMultiParticles
+    internal sealed class CandyBreak : RotateableMultiParticles
     {
         // Token: 0x060007E1 RID: 2017 RVA: 0x0003D930 File Offset: 0x0003BB30
         public override Particles initWithTotalParticlesandImageGrid(int p, Image grid)

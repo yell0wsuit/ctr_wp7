@@ -1,7 +1,7 @@
 ﻿namespace ctr_wp7.iframework.visual
 {
     // Token: 0x020000A0 RID: 160
-    internal class ScaleParams
+    internal sealed class ScaleParams
     {
         // Token: 0x040009DF RID: 2527
         public float scaleX;

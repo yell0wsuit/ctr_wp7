@@ -6,7 +6,7 @@ using ctr_wp7.ios;
 namespace ctr_wp7.ctr_original
 {
     // Token: 0x020000BB RID: 187
-    internal class CTRPreferences : Preferences
+    internal sealed class CTRPreferences : Preferences
     {
         // Token: 0x0600054B RID: 1355 RVA: 0x00029218 File Offset: 0x00027418
         public override NSObject init()

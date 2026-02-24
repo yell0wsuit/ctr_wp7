@@ -17,7 +17,7 @@ using Microsoft.Xna.Framework.Input.Touch;
 namespace ctr_wp7.ctr_commons
 {
     // Token: 0x020000EA RID: 234
-    internal class CtrRenderer : NSObject
+    internal sealed class CtrRenderer : NSObject
     {
         // Token: 0x060006F2 RID: 1778 RVA: 0x00038525 File Offset: 0x00036725
         public static void onSurfaceCreated()

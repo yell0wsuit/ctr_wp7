@@ -10,7 +10,7 @@ using ctr_wp7.ios;
 namespace ctr_wp7.game
 {
     // Token: 0x020000D4 RID: 212
-    internal class PollenDrawer : BaseElement
+    internal sealed class PollenDrawer : BaseElement
     {
         // Token: 0x06000636 RID: 1590 RVA: 0x0002F9F0 File Offset: 0x0002DBF0
         public override NSObject init()
@@ -51,7 +51,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000638 RID: 1592 RVA: 0x0002FAF4 File Offset: 0x0002DCF4
-        public virtual void addPollenAtparentIndex(Vector v, int pi)
+        public void addPollenAtparentIndex(Vector v, int pi)
         {
             float num = 1f;
             float num2 = 1f;
@@ -117,7 +117,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0600063A RID: 1594 RVA: 0x0002FD64 File Offset: 0x0002DF64
-        public virtual void fillWithPolenFromPathIndexToPathIndexGrab(int p1, int p2, Grab g)
+        public void fillWithPolenFromPathIndexToPathIndexGrab(int p1, int p2, Grab g)
         {
             int num = WVGAD(10);
             Vector vector = g.mover.path[p1];

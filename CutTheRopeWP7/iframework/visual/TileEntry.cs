@@ -3,7 +3,7 @@
 namespace ctr_wp7.iframework.visual
 {
     // Token: 0x02000035 RID: 53
-    internal class TileEntry : NSObject
+    internal sealed class TileEntry : NSObject
     {
         // Token: 0x040007F2 RID: 2034
         public int drawerIndex;

@@ -6,7 +6,7 @@ using ctr_wp7.ios;
 namespace ctr_wp7.game
 {
     // Token: 0x02000068 RID: 104
-    internal class Processing : RectangleElement, TimelineDelegate
+    internal sealed class Processing : RectangleElement, TimelineDelegate
     {
         // Token: 0x0600031D RID: 797 RVA: 0x00013E3A File Offset: 0x0001203A
         private static NSObject createWithLoading()
@@ -15,7 +15,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0600031E RID: 798 RVA: 0x00013E48 File Offset: 0x00012048
-        public virtual NSObject initWithLoading(bool loading)
+        public NSObject initWithLoading(bool loading)
         {
             if (base.init() != null)
             {
@@ -55,7 +55,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0600031F RID: 799 RVA: 0x00014030 File Offset: 0x00012230
-        public virtual NSObject initWithTouchesBlocking(bool b)
+        public NSObject initWithTouchesBlocking(bool b)
         {
             if (base.init() != null)
             {

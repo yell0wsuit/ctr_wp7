@@ -8,10 +8,10 @@ using ctr_wp7.ios;
 namespace ctr_wp7.game
 {
     // Token: 0x02000059 RID: 89
-    internal class ButtonBlock : Button
+    internal sealed class ButtonBlock : Button
     {
         // Token: 0x060002A8 RID: 680 RVA: 0x00010CF4 File Offset: 0x0000EEF4
-        public virtual NSObject initWithIDDelegateBlock(int bid, ButtonDelegate d, BlockInterface pBlock)
+        public NSObject initWithIDDelegateBlock(int bid, ButtonDelegate d, BlockInterface pBlock)
         {
             delegateButtonDelegate = d;
             block = pBlock;
@@ -58,7 +58,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x060002AA RID: 682 RVA: 0x00010E5C File Offset: 0x0000F05C
-        protected virtual BaseElement buildAdBlock(Texture2D texture, NSString title)
+        protected BaseElement buildAdBlock(Texture2D texture, NSString title)
         {
             int num = 403;
             int num2 = 10;
@@ -99,7 +99,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x060002AB RID: 683 RVA: 0x00010FCC File Offset: 0x0000F1CC
-        protected virtual BaseElement buildEpisodeBlock(Texture2D texture, NSString title, NSString number, bool processing, bool isNew)
+        protected BaseElement buildEpisodeBlock(Texture2D texture, NSString title, NSString number, bool processing, bool isNew)
         {
             int num = 403;
             int num2 = 2;

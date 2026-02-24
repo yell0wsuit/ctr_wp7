@@ -5,7 +5,7 @@ using ctr_wp7.ios;
 namespace ctr_wp7.game
 {
     // Token: 0x0200008F RID: 143
-    internal class GhostMorphingCloud : MultiParticles
+    internal sealed class GhostMorphingCloud : MultiParticles
     {
         // Token: 0x06000446 RID: 1094 RVA: 0x0001DDC4 File Offset: 0x0001BFC4
         public override NSObject init()
@@ -70,7 +70,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000449 RID: 1097 RVA: 0x0001E07C File Offset: 0x0001C27C
-        public virtual void startSystem()
+        public void startSystem()
         {
             base.startSystem(5);
         }

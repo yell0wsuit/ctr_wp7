@@ -8,7 +8,7 @@ using ctr_wp7.ios;
 namespace ctr_wp7.game
 {
     // Token: 0x020000E0 RID: 224
-    internal class Bungee : ConstraintSystem
+    internal sealed class Bungee : ConstraintSystem
     {
         // Token: 0x06000682 RID: 1666 RVA: 0x00031DF0 File Offset: 0x0002FFF0
         private void drawAntialiasedLineContinued(float x1, float y1, float x2, float y2, float size, RGBAColor color, ref float lx, ref float ly, ref float rx, ref float ry)
@@ -191,7 +191,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000684 RID: 1668 RVA: 0x0003256C File Offset: 0x0003076C
-        public virtual NSObject initWithHeadAtXYTailAtTXTYandLength(ConstraintedPoint h, float hx, float hy, ConstraintedPoint t, float tx, float ty, float len)
+        public NSObject initWithHeadAtXYTailAtTXTYandLength(ConstraintedPoint h, float hx, float hy, ConstraintedPoint t, float tx, float ty, float len)
         {
             if (base.init() != null)
             {
@@ -238,7 +238,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000685 RID: 1669 RVA: 0x000326D4 File Offset: 0x000308D4
-        public virtual int getLength()
+        public int getLength()
         {
             if (this == null)
             {
@@ -260,7 +260,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000686 RID: 1670 RVA: 0x00032734 File Offset: 0x00030934
-        public virtual float rollBack(float amount)
+        public float rollBack(float amount)
         {
             float num = amount;
             ConstraintedPoint constraintedPoint = parts[parts.Count - 2];
@@ -306,13 +306,13 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000687 RID: 1671 RVA: 0x00032887 File Offset: 0x00030A87
-        public virtual void roll(float rollLen)
+        public void roll(float rollLen)
         {
             rollplacingWithOffset(rollLen, vectZero);
         }
 
         // Token: 0x06000688 RID: 1672 RVA: 0x00032898 File Offset: 0x00030A98
-        public virtual void rollplacingWithOffset(float rollLen, Vector off)
+        public void rollplacingWithOffset(float rollLen, Vector off)
         {
             ConstraintedPoint constraintedPoint = parts[parts.Count - 2];
             int num = (int)tail.restLengthFor(constraintedPoint);
@@ -348,7 +348,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000689 RID: 1673 RVA: 0x000329C0 File Offset: 0x00030BC0
-        public virtual void removePart(int part)
+        public void removePart(int part)
         {
             forceWhite = false;
             ConstraintedPoint constraintedPoint = parts[part];
@@ -394,7 +394,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0600068A RID: 1674 RVA: 0x00032ADF File Offset: 0x00030CDF
-        public virtual void setCut(int part)
+        public void setCut(int part)
         {
             cut = part;
             cutTime = 2f;
@@ -402,7 +402,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0600068B RID: 1675 RVA: 0x00032AFC File Offset: 0x00030CFC
-        public virtual void strengthen()
+        public void strengthen()
         {
             int count = parts.Count;
             for (int i = 0; i < count; i++)
@@ -433,7 +433,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0600068D RID: 1677 RVA: 0x00032B88 File Offset: 0x00030D88
-        public virtual void update(float delta, float koeff)
+        public void update(float delta, float koeff)
         {
             if (cutTime > 0.0)
             {

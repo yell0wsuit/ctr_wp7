@@ -6,7 +6,7 @@ using ctr_wp7.iframework.core;
 namespace ctr_wp7.iframework.visual
 {
     // Token: 0x02000036 RID: 54
-    internal class TileMap : BaseElement
+    internal sealed class TileMap : BaseElement
     {
         // Token: 0x060001FD RID: 509 RVA: 0x0000D13C File Offset: 0x0000B33C
         public override void draw()
@@ -31,7 +31,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x060001FF RID: 511 RVA: 0x0000D1AC File Offset: 0x0000B3AC
-        public virtual TileMap initWithRowsColumns(int r, int c)
+        public TileMap initWithRowsColumns(int r, int c)
         {
             if (base.init() != null)
             {
@@ -61,7 +61,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x06000200 RID: 512 RVA: 0x0000D28C File Offset: 0x0000B48C
-        public virtual void addTileQuadwithID(Texture2D t, int q, int ti)
+        public void addTileQuadwithID(Texture2D t, int q, int ti)
         {
             if (q == -1)
             {
@@ -107,7 +107,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x06000201 RID: 513 RVA: 0x0000D3C4 File Offset: 0x0000B5C4
-        public virtual void fillStartAtRowColumnRowsColumnswithTile(int r, int c, int rs, int cs, int ti)
+        public void fillStartAtRowColumnRowsColumnswithTile(int r, int c, int rs, int cs, int ti)
         {
             for (int i = c; i < c + cs; i++)
             {
@@ -119,27 +119,27 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x06000202 RID: 514 RVA: 0x0000D3FD File Offset: 0x0000B5FD
-        public virtual void setParallaxRatio(float r)
+        public void setParallaxRatio(float r)
         {
             parallaxRatio = r;
         }
 
         // Token: 0x06000203 RID: 515 RVA: 0x0000D406 File Offset: 0x0000B606
-        public virtual void setRepeatHorizontally(Repeat r)
+        public void setRepeatHorizontally(Repeat r)
         {
             repeatedHorizontally = r;
             updateVars();
         }
 
         // Token: 0x06000204 RID: 516 RVA: 0x0000D415 File Offset: 0x0000B615
-        public virtual void setRepeatVertically(Repeat r)
+        public void setRepeatVertically(Repeat r)
         {
             repeatedVertically = r;
             updateVars();
         }
 
         // Token: 0x06000205 RID: 517 RVA: 0x0000D424 File Offset: 0x0000B624
-        public virtual void updateWithCameraPos(Vector pos)
+        public void updateWithCameraPos(Vector pos)
         {
             float num = (float)Math.Round((double)(pos.x / parallaxRatio));
             float num2 = (float)Math.Round((double)(pos.y / parallaxRatio));
@@ -273,7 +273,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x06000206 RID: 518 RVA: 0x0000D980 File Offset: 0x0000BB80
-        public virtual void updateVars()
+        public void updateVars()
         {
             maxColsOnScreen = 2 + (int)Math.Floor((double)(cameraViewWidth / (tileWidth + 1)));
             maxRowsOnScreen = 2 + (int)Math.Floor((double)(cameraViewHeight / (tileHeight + 1)));

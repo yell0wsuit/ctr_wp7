@@ -17,7 +17,7 @@ using ctr_wp7.Specials;
 namespace ctr_wp7.ctr_original
 {
     // Token: 0x020000E3 RID: 227
-    internal class MenuController : ViewController, ButtonDelegate, MovieMgrDelegate, ScrollableContainerProtocol, TimelineDelegate, LiftScrollbarDelegate
+    internal sealed class MenuController : ViewController, ButtonDelegate, MovieMgrDelegate, ScrollableContainerProtocol, TimelineDelegate, LiftScrollbarDelegate
     {
         // Token: 0x06000693 RID: 1683 RVA: 0x00032E87 File Offset: 0x00031087
         public void selector_gotoNextBox(NSObject param)
@@ -999,7 +999,7 @@ namespace ctr_wp7.ctr_original
         }
 
         // Token: 0x060006B8 RID: 1720 RVA: 0x00035918 File Offset: 0x00033B18
-        public virtual void scrollableContainerreachedScrollPoint(ScrollableContainer e, int i)
+        public void scrollableContainerreachedScrollPoint(ScrollableContainer e, int i)
         {
             if (i > packSelect.size)
             {
@@ -1055,7 +1055,7 @@ namespace ctr_wp7.ctr_original
         }
 
         // Token: 0x060006B9 RID: 1721 RVA: 0x00035A5F File Offset: 0x00033C5F
-        public virtual void scrollableContainerchangedTargetScrollPoint(ScrollableContainer e, int i)
+        public void scrollableContainerchangedTargetScrollPoint(ScrollableContainer e, int i)
         {
             CTRPreferences.setLastPack(i);
         }
@@ -1308,7 +1308,7 @@ namespace ctr_wp7.ctr_original
         }
 
         // Token: 0x060006C2 RID: 1730 RVA: 0x00036550 File Offset: 0x00034750
-        public virtual void showNextPack()
+        public void showNextPack()
         {
             bool flag = false;
             for (int i = currentPackIndex + 1; i < packSelect.size; i++)
@@ -1344,7 +1344,7 @@ namespace ctr_wp7.ctr_original
         }
 
         // Token: 0x060006C4 RID: 1732 RVA: 0x0003664C File Offset: 0x0003484C
-        public virtual void moviePlaybackFinished(NSString url)
+        public void moviePlaybackFinished(NSString url)
         {
             if (replayingIntroMovie)
             {
@@ -1454,7 +1454,7 @@ namespace ctr_wp7.ctr_original
         }
 
         // Token: 0x060006C7 RID: 1735 RVA: 0x0003685C File Offset: 0x00034A5C
-        public virtual void timelinereachedKeyFramewithIndex(Timeline t, KeyFrame k, int i)
+        public void timelinereachedKeyFramewithIndex(Timeline t, KeyFrame k, int i)
         {
             if (t.element == handAnimation && k.trackType == Track.TrackType.TRACK_SCALE && (i == 2 || i == 5))
             {
@@ -1478,7 +1478,7 @@ namespace ctr_wp7.ctr_original
         }
 
         // Token: 0x060006C8 RID: 1736 RVA: 0x00036900 File Offset: 0x00034B00
-        public virtual void timelineFinished(Timeline t)
+        public void timelineFinished(Timeline t)
         {
             if (t.element != handAnimation)
             {
@@ -1495,7 +1495,7 @@ namespace ctr_wp7.ctr_original
         }
 
         // Token: 0x060006C9 RID: 1737 RVA: 0x00036984 File Offset: 0x00034B84
-        public virtual void onButtonPressed(int n)
+        public void onButtonPressed(int n)
         {
             _ = activeView().onTouchMoveXY(-10000f, -10000f);
             if (n is not -1 and not 14 and not 40)
@@ -2246,7 +2246,7 @@ namespace ctr_wp7.ctr_original
         }
 
         // Token: 0x060006D6 RID: 1750 RVA: 0x00037C90 File Offset: 0x00035E90
-        public virtual void showYesNoPopup(BaseElement parent, NSString statusText, int buttonYes, int buttonNo)
+        public void showYesNoPopup(BaseElement parent, NSString statusText, int buttonYes, int buttonNo)
         {
             Button button = createButtonWithTextIDDelegate(Application.getString(1310748), buttonNo, this);
             button.anchor = button.parentAnchor = 18;
@@ -2270,7 +2270,7 @@ namespace ctr_wp7.ctr_original
         }
 
         // Token: 0x060006D7 RID: 1751 RVA: 0x00037D9C File Offset: 0x00035F9C
-        public virtual void showBuyFullPopup()
+        public void showBuyFullPopup()
         {
             Button button = createButtonWithTextIDDelegate(Application.getString(1310833), 21, this);
             button.anchor = button.parentAnchor = 18;
@@ -2290,13 +2290,13 @@ namespace ctr_wp7.ctr_original
         }
 
         // Token: 0x060006D8 RID: 1752 RVA: 0x00037E7C File Offset: 0x0003607C
-        public virtual void showUnlockShareware()
+        public void showUnlockShareware()
         {
             showYesNoPopup(activeView(), Application.getString(1310802), 29, 21);
         }
 
         // Token: 0x060006D9 RID: 1753 RVA: 0x00037E98 File Offset: 0x00036098
-        public virtual void showCantUnlockPopupForPack(BaseElement parent, int pack)
+        public void showCantUnlockPopupForPack(BaseElement parent, int pack)
         {
             float num = 280f;
             VBox vbox = new VBox().initWithOffsetAlignWidth(-10.0, 2, SCREEN_WIDTH);
@@ -2339,7 +2339,7 @@ namespace ctr_wp7.ctr_original
         }
 
         // Token: 0x060006DB RID: 1755 RVA: 0x00038068 File Offset: 0x00036268
-        public virtual void changedActiveSpointFromTo(int pp, int cp)
+        public void changedActiveSpointFromTo(int pp, int cp)
         {
             _ = liftScrollbar.getTotalScrollPoints();
             TouchImage touchImage = (TouchImage)bulletContainer.getChild(pp);
@@ -2442,7 +2442,7 @@ namespace ctr_wp7.ctr_original
         }
 
         // Token: 0x060006E2 RID: 1762 RVA: 0x000382E4 File Offset: 0x000364E4
-        public virtual void createLeaderboards()
+        public void createLeaderboards()
         {
             LeaderboardsView leaderboardsView = (LeaderboardsView)new LeaderboardsView().init();
             addViewwithID(leaderboardsView, ViewID.VIEW_LEADERBOARDS);
@@ -2740,7 +2740,7 @@ namespace ctr_wp7.ctr_original
         }
 
         // Token: 0x020000E8 RID: 232
-        public class TouchBaseElement : BaseElement
+        public sealed class TouchBaseElement : BaseElement
         {
             // Token: 0x060006E7 RID: 1767 RVA: 0x000383E4 File Offset: 0x000365E4
             public override bool onTouchDownXY(float tx, float ty)

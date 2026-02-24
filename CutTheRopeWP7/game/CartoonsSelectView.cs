@@ -8,10 +8,10 @@ using ctr_wp7.ios;
 namespace ctr_wp7.game
 {
     // Token: 0x02000018 RID: 24
-    internal class CartoonsSelectView : MenuView
+    internal sealed class CartoonsSelectView : MenuView
     {
         // Token: 0x0600011F RID: 287 RVA: 0x00009D08 File Offset: 0x00007F08
-        public virtual NSObject initFullscreenBackgroundDelegate(BaseElement background, ButtonDelegate d)
+        public NSObject initFullscreenBackgroundDelegate(BaseElement background, ButtonDelegate d)
         {
             if (base.initFullscreen() != null)
             {
@@ -75,7 +75,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000120 RID: 288 RVA: 0x00009FC4 File Offset: 0x000081C4
-        public virtual void buildBlocks()
+        public void buildBlocks()
         {
             BaseElement baseElement = (BaseElement)new BaseElement().init();
             _ = box.addChild(baseElement);
@@ -99,7 +99,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000121 RID: 289 RVA: 0x0000A07C File Offset: 0x0000827C
-        public virtual void rebuild()
+        public void rebuild()
         {
             needrebuild = false;
             box.removeAllChilds();
@@ -108,13 +108,13 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000122 RID: 290 RVA: 0x0000A0AA File Offset: 0x000082AA
-        public virtual bool isRebuildNeeded()
+        public bool isRebuildNeeded()
         {
             return needrebuild;
         }
 
         // Token: 0x06000123 RID: 291 RVA: 0x0000A0B4 File Offset: 0x000082B4
-        public virtual void notifyBlockWatched(int blocknum)
+        public void notifyBlockWatched(int blocknum)
         {
             BaseElement child = box.getChild(blocknum + 1);
             if (child != null)
@@ -125,13 +125,13 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000124 RID: 292 RVA: 0x0000A0EE File Offset: 0x000082EE
-        public virtual void openCurtain()
+        public void openCurtain()
         {
             curtain.setEnabled(true);
         }
 
         // Token: 0x06000125 RID: 293 RVA: 0x0000A0FC File Offset: 0x000082FC
-        public virtual void closeCurtain()
+        public void closeCurtain()
         {
             curtain.setEnabled(false);
         }

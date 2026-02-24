@@ -3,7 +3,7 @@
 namespace ctr_wp7.game
 {
     // Token: 0x02000085 RID: 133
-    internal class LevelsList : NSObject
+    internal sealed class LevelsList : NSObject
     {
         // Token: 0x060003E7 RID: 999 RVA: 0x00018DAC File Offset: 0x00016FAC
         // Note: this type is marked as 'beforefieldinit'.

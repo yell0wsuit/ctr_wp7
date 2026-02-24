@@ -205,7 +205,7 @@ namespace ctr_wp7
         private static List<Region> Regions = [];
 
         // Token: 0x0200005F RID: 95
-        private class Region
+        private sealed class Region
         {
             // Token: 0x040008BB RID: 2235
             public char Start;

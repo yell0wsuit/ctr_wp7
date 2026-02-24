@@ -11,10 +11,10 @@ using Microsoft.Xna.Framework.Audio;
 namespace ctr_wp7.game
 {
     // Token: 0x02000050 RID: 80
-    internal class Spikes : CTRGameObject, TimelineDelegate, ButtonDelegate
+    internal sealed class Spikes : CTRGameObject, TimelineDelegate, ButtonDelegate
     {
         // Token: 0x06000277 RID: 631 RVA: 0x0000FE58 File Offset: 0x0000E058
-        public virtual NSObject initWithPosXYWidthAndAngleToggled(float px, float py, int w, double an, int t)
+        public NSObject initWithPosXYWidthAndAngleToggled(float px, float py, int w, double an, int t)
         {
             int num = -1;
             if (t != -1)
@@ -83,7 +83,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000278 RID: 632 RVA: 0x00010080 File Offset: 0x0000E280
-        public virtual void updateRotation()
+        public void updateRotation()
         {
             float num;
             if (electro)
@@ -109,7 +109,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000279 RID: 633 RVA: 0x00010204 File Offset: 0x0000E404
-        public virtual void turnElectroOff()
+        public void turnElectroOff()
         {
             electroOn = false;
             playTimeline(0);
@@ -123,7 +123,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0600027A RID: 634 RVA: 0x00010255 File Offset: 0x0000E455
-        public virtual void turnElectroOn()
+        public void turnElectroOn()
         {
             electroOn = true;
             playTimeline(1);
@@ -132,7 +132,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0600027B RID: 635 RVA: 0x00010280 File Offset: 0x0000E480
-        public virtual void rotateSpikes()
+        public void rotateSpikes()
         {
             spikesNormal = !spikesNormal;
             removeTimeline(2);
@@ -149,13 +149,13 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0600027C RID: 636 RVA: 0x0001033A File Offset: 0x0000E53A
-        public virtual void setToggled(int t)
+        public void setToggled(int t)
         {
             toggled = t;
         }
 
         // Token: 0x0600027D RID: 637 RVA: 0x00010343 File Offset: 0x0000E543
-        public virtual int getToggled()
+        public int getToggled()
         {
             return toggled;
         }
@@ -191,18 +191,18 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0600027F RID: 639 RVA: 0x000103E5 File Offset: 0x0000E5E5
-        public virtual void timelineReachedKeyFramewithIndex(Timeline t, KeyFrame k, int i)
+        public void timelineReachedKeyFramewithIndex(Timeline t, KeyFrame k, int i)
         {
         }
 
         // Token: 0x06000280 RID: 640 RVA: 0x000103E7 File Offset: 0x0000E5E7
-        public virtual void timelineFinished(Timeline t)
+        public void timelineFinished(Timeline t)
         {
             updateRotationFlag = false;
         }
 
         // Token: 0x06000281 RID: 641 RVA: 0x000103F0 File Offset: 0x0000E5F0
-        public virtual void onButtonPressed(int n)
+        public void onButtonPressed(int n)
         {
             if (n != 0)
             {
@@ -218,7 +218,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000282 RID: 642 RVA: 0x0001042C File Offset: 0x0000E62C
-        public virtual void timelinereachedKeyFramewithIndex(Timeline t, KeyFrame k, int i)
+        public void timelinereachedKeyFramewithIndex(Timeline t, KeyFrame k, int i)
         {
         }
 

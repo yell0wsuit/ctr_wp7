@@ -3,7 +3,7 @@
 namespace ctr_wp7.iframework.sfe
 {
     // Token: 0x0200001C RID: 28
-    internal class Constraint : NSObject
+    internal sealed class Constraint : NSObject
     {
         // Token: 0x0400076E RID: 1902
         public ConstraintedPoint cp;

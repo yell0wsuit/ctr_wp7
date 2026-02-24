@@ -5,7 +5,7 @@ using ctr_wp7.ios;
 namespace ctr_wp7.game.remotedata
 {
     // Token: 0x020000DA RID: 218
-    internal class VideoDataManager
+    internal sealed class VideoDataManager
     {
         // Token: 0x06000653 RID: 1619 RVA: 0x00030952 File Offset: 0x0002EB52
         public static void initVideoDataManager()

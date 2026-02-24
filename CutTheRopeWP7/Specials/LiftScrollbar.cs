@@ -6,7 +6,7 @@ using ctr_wp7.ios;
 namespace ctr_wp7.Specials
 {
     // Token: 0x0200005D RID: 93
-    internal class LiftScrollbar : Image
+    internal sealed class LiftScrollbar : Image
     {
         // Token: 0x060002CA RID: 714 RVA: 0x00011FD4 File Offset: 0x000101D4
         public static LiftScrollbar createWithResIDBackQuadLiftQuadLiftQuadPressed(int resID, int bq, int lq, int lqp)
@@ -15,7 +15,7 @@ namespace ctr_wp7.Specials
         }
 
         // Token: 0x060002CB RID: 715 RVA: 0x00011FEC File Offset: 0x000101EC
-        public virtual NSObject initWithResIDBackQuadLiftQuadLiftQuadPressed(int resID, int bq, int lq, int lqp)
+        public NSObject initWithResIDBackQuadLiftQuadLiftQuadPressed(int resID, int bq, int lq, int lqp)
         {
             if (base.initWithTexture(Application.getTexture(resID)) != null)
             {

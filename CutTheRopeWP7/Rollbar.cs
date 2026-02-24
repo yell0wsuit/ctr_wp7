@@ -7,7 +7,7 @@ using ctr_wp7.iframework.visual;
 using ctr_wp7.ios;
 
 // Token: 0x020000DC RID: 220
-internal class Rollbar : BaseElement
+internal sealed class Rollbar : BaseElement
 {
     // Token: 0x06000660 RID: 1632 RVA: 0x00030A87 File Offset: 0x0002EC87
     public int getIndex()

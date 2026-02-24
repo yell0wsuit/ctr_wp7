@@ -4,7 +4,7 @@ using ctr_wp7.iframework.visual;
 namespace ctr_wp7.game
 {
     // Token: 0x02000114 RID: 276
-    internal class GhostBubble : Bubble
+    internal sealed class GhostBubble : Bubble
     {
         // Token: 0x06000861 RID: 2145 RVA: 0x0004AE7A File Offset: 0x0004907A
         public static GhostBubble create(Texture2D t)
@@ -27,7 +27,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000864 RID: 2148 RVA: 0x0004AEC0 File Offset: 0x000490C0
-        public virtual void addSupportingCloudsTimelines()
+        public void addSupportingCloudsTimelines()
         {
             backCloud = Image_createWithResIDQuad(180, 4);
             backCloud.x = x + 28f;

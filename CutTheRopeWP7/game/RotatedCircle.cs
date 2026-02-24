@@ -10,10 +10,10 @@ using ctr_wp7.ios;
 namespace ctr_wp7.game
 {
     // Token: 0x020000EF RID: 239
-    internal class RotatedCircle : BaseElement
+    internal sealed class RotatedCircle : BaseElement
     {
         // Token: 0x06000729 RID: 1833 RVA: 0x0003952C File Offset: 0x0003772C
-        public virtual void setSize(float value)
+        public void setSize(float value)
         {
             size = value;
             float num = size / (vinilTL.width + (vinilTR.width * (1f - vinilTL.scaleX)));
@@ -37,43 +37,43 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0600072A RID: 1834 RVA: 0x0003974E File Offset: 0x0003794E
-        public virtual void setHasOneHandle(bool value)
+        public void setHasOneHandle(bool value)
         {
             vinilControllerL.visible = !value;
         }
 
         // Token: 0x0600072B RID: 1835 RVA: 0x0003975F File Offset: 0x0003795F
-        public virtual bool hasOneHandle()
+        public bool hasOneHandle()
         {
             return !vinilControllerL.visible;
         }
 
         // Token: 0x0600072C RID: 1836 RVA: 0x0003976F File Offset: 0x0003796F
-        public virtual void setIsLeftControllerActive(bool value)
+        public void setIsLeftControllerActive(bool value)
         {
             vinilActiveControllerL.visible = value;
         }
 
         // Token: 0x0600072D RID: 1837 RVA: 0x0003977D File Offset: 0x0003797D
-        public virtual bool isLeftControllerActive()
+        public bool isLeftControllerActive()
         {
             return vinilActiveControllerL.visible;
         }
 
         // Token: 0x0600072E RID: 1838 RVA: 0x0003978A File Offset: 0x0003798A
-        public virtual void setIsRightControllerActive(bool value)
+        public void setIsRightControllerActive(bool value)
         {
             vinilActiveControllerR.visible = value;
         }
 
         // Token: 0x0600072F RID: 1839 RVA: 0x00039798 File Offset: 0x00037998
-        public virtual bool isRightControllerActive()
+        public bool isRightControllerActive()
         {
             return vinilActiveControllerR.visible;
         }
 
         // Token: 0x06000730 RID: 1840 RVA: 0x000397A8 File Offset: 0x000379A8
-        public virtual bool containsSameObjectWithAnotherCircle()
+        public bool containsSameObjectWithAnotherCircle()
         {
             for (int i = 0; i < circlesArray.Count; i++)
             {
@@ -143,7 +143,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000732 RID: 1842 RVA: 0x00039AEC File Offset: 0x00037CEC
-        public virtual NSObject copy()
+        public NSObject copy()
         {
             RotatedCircle rotatedCircle = (RotatedCircle)new RotatedCircle().init();
             rotatedCircle.x = x;
@@ -238,7 +238,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000735 RID: 1845 RVA: 0x0003A068 File Offset: 0x00038268
-        public virtual void updateChildPositions()
+        public void updateChildPositions()
         {
             vinilCenter.x = x;
             vinilCenter.y = y;
@@ -266,7 +266,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000736 RID: 1846 RVA: 0x0003A36C File Offset: 0x0003856C
-        public virtual bool containsSameObjectWithCircle(RotatedCircle anotherCircle)
+        public bool containsSameObjectWithCircle(RotatedCircle anotherCircle)
         {
             if (x == anotherCircle.x && y == anotherCircle.y && size == anotherCircle.size)
             {

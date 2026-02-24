@@ -6,7 +6,7 @@ using ctr_wp7.iframework.helpers;
 namespace ctr_wp7.ios
 {
     // Token: 0x02000046 RID: 70
-    internal class NSTimer : NSObject
+    internal sealed class NSTimer : NSObject
     {
         // Token: 0x06000244 RID: 580 RVA: 0x0000F02F File Offset: 0x0000D22F
         private static void Init()
@@ -80,7 +80,7 @@ namespace ctr_wp7.ios
         private static bool is_init;
 
         // Token: 0x02000047 RID: 71
-        private class Entry
+        private sealed class Entry
         {
             // Token: 0x0400082F RID: 2095
             public DelayedDispatcher.DispatchFunc f;

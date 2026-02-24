@@ -9,10 +9,10 @@ using ctr_wp7.ios;
 namespace ctr_wp7.game
 {
     // Token: 0x020000C0 RID: 192
-    internal class SteamTube : BaseElement, TimelineDelegate
+    internal sealed class SteamTube : BaseElement, TimelineDelegate
     {
         // Token: 0x06000591 RID: 1425 RVA: 0x00029EFF File Offset: 0x000280FF
-        public virtual void timelinereachedKeyFramewithIndex(Timeline t, KeyFrame k, int i)
+        public void timelinereachedKeyFramewithIndex(Timeline t, KeyFrame k, int i)
         {
         }
 
@@ -141,7 +141,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000599 RID: 1433 RVA: 0x0002A2CC File Offset: 0x000284CC
-        public virtual void timelineFinished(Timeline t)
+        public void timelineFinished(Timeline t)
         {
             BaseElement element = t.element;
             element.parent.removeChild(element);

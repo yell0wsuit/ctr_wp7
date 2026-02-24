@@ -3,7 +3,7 @@
 namespace ctr_wp7.iframework.visual
 {
     // Token: 0x02000061 RID: 97
-    internal class VerticallyTiledImage : Image
+    internal sealed class VerticallyTiledImage : Image
     {
         // Token: 0x060002E2 RID: 738 RVA: 0x00012A74 File Offset: 0x00010C74
         public override Image initWithTexture(Texture2D t)
@@ -46,7 +46,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x060002E4 RID: 740 RVA: 0x00012C9C File Offset: 0x00010E9C
-        public virtual void setTileVerticallyTopCenterBottom(int t, int c, int b)
+        public void setTileVerticallyTopCenterBottom(int t, int c, int b)
         {
             tiles[0] = t;
             tiles[1] = c;

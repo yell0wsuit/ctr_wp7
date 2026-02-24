@@ -8,7 +8,7 @@ using ctr_wp7.iframework.helpers;
 namespace ctr_wp7.iframework.visual
 {
     // Token: 0x020000CF RID: 207
-    internal class ScrollableContainer : BaseElement
+    internal sealed class ScrollableContainer : BaseElement
     {
         // Token: 0x06000603 RID: 1539 RVA: 0x0002D8B0 File Offset: 0x0002BAB0
         public void provideScrollPosMaxScrollPosScrollCoeff(ref Vector sp, ref Vector mp, ref Vector sc)
@@ -386,7 +386,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x06000612 RID: 1554 RVA: 0x0002E570 File Offset: 0x0002C770
-        public virtual ScrollableContainer initWithWidthHeightContainer(float w, float h, BaseElement c)
+        public ScrollableContainer initWithWidthHeightContainer(float w, float h, BaseElement c)
         {
             if (base.init() != null)
             {
@@ -429,7 +429,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x06000613 RID: 1555 RVA: 0x0002E6D0 File Offset: 0x0002C8D0
-        public virtual ScrollableContainer initWithWidthHeightContainerWidthHeight(float w, float h, float cw, float ch)
+        public ScrollableContainer initWithWidthHeightContainerWidthHeight(float w, float h, float cw, float ch)
         {
             container = (BaseElement)new BaseElement().init();
             container.width = (int)cw;
@@ -439,7 +439,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x06000614 RID: 1556 RVA: 0x0002E71D File Offset: 0x0002C91D
-        public virtual void turnScrollPointsOnWithCapacity(int n)
+        public void turnScrollPointsOnWithCapacity(int n)
         {
             spointsCapacity = n;
             spoints = new Vector[spointsCapacity];
@@ -447,20 +447,20 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x06000615 RID: 1557 RVA: 0x0002E73E File Offset: 0x0002C93E
-        public virtual int addScrollPointAtXY(double sx, double sy)
+        public int addScrollPointAtXY(double sx, double sy)
         {
             return addScrollPointAtXY((float)sx, (float)sy);
         }
 
         // Token: 0x06000616 RID: 1558 RVA: 0x0002E74A File Offset: 0x0002C94A
-        public virtual int addScrollPointAtXY(float sx, float sy)
+        public int addScrollPointAtXY(float sx, float sy)
         {
             addScrollPointAtXYwithID(sx, sy, spointsNum);
             return spointsNum - 1;
         }
 
         // Token: 0x06000617 RID: 1559 RVA: 0x0002E762 File Offset: 0x0002C962
-        public virtual void addScrollPointAtXYwithID(float sx, float sy, int i)
+        public void addScrollPointAtXYwithID(float sx, float sy, int i)
         {
             spoints[i] = vect(-sx, -sy);
             if (i > spointsNum - 1)
@@ -470,31 +470,31 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x06000618 RID: 1560 RVA: 0x0002E792 File Offset: 0x0002C992
-        public virtual int getTotalScrollPoints()
+        public int getTotalScrollPoints()
         {
             return spointsNum;
         }
 
         // Token: 0x06000619 RID: 1561 RVA: 0x0002E79A File Offset: 0x0002C99A
-        public virtual Vector getScrollPoint(int i)
+        public Vector getScrollPoint(int i)
         {
             return spoints[i];
         }
 
         // Token: 0x0600061A RID: 1562 RVA: 0x0002E7AD File Offset: 0x0002C9AD
-        public virtual Vector getScroll()
+        public Vector getScroll()
         {
             return vect(-container.x, -container.y);
         }
 
         // Token: 0x0600061B RID: 1563 RVA: 0x0002E7CC File Offset: 0x0002C9CC
-        public virtual Vector getMaxScroll()
+        public Vector getMaxScroll()
         {
             return vect(container.width - width, container.height - height);
         }
 
         // Token: 0x0600061C RID: 1564 RVA: 0x0002E7FC File Offset: 0x0002C9FC
-        public virtual void setScroll(Vector s)
+        public void setScroll(Vector s)
         {
             move = vectZero;
             container.x = -s.x;
@@ -505,7 +505,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x0600061D RID: 1565 RVA: 0x0002E850 File Offset: 0x0002CA50
-        public virtual void placeToScrollPoint(int sp)
+        public void placeToScrollPoint(int sp)
         {
             move = vectZero;
             container.x = spoints[sp].x;
@@ -517,13 +517,13 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x0600061E RID: 1566 RVA: 0x0002E8CA File Offset: 0x0002CACA
-        public virtual void moveToScrollPointmoveMultiplier(int sp, double m)
+        public void moveToScrollPointmoveMultiplier(int sp, double m)
         {
             moveToScrollPointmoveMultiplier(sp, (float)m);
         }
 
         // Token: 0x0600061F RID: 1567 RVA: 0x0002E8D5 File Offset: 0x0002CAD5
-        public virtual void moveToScrollPointmoveMultiplier(int sp, float m)
+        public void moveToScrollPointmoveMultiplier(int sp, float m)
         {
             movingToSpoint = true;
             movingByInertion = false;
@@ -533,7 +533,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x06000620 RID: 1568 RVA: 0x0002E900 File Offset: 0x0002CB00
-        public virtual void calculateNearsetScrollPointInDirection(Vector d)
+        public void calculateNearsetScrollPointInDirection(Vector d)
         {
             spointMoveDirection = d;
             int num = -1;
@@ -589,7 +589,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x06000621 RID: 1569 RVA: 0x0002EBB8 File Offset: 0x0002CDB8
-        public virtual Vector moveContainerBy(Vector off)
+        public Vector moveContainerBy(Vector off)
         {
             float num = container.x + off.x;
             float num2 = container.y + off.y;
@@ -608,7 +608,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x06000622 RID: 1570 RVA: 0x0002EC94 File Offset: 0x0002CE94
-        public virtual void moveToPointDeltaSpeed(Vector tsp, float delta, float speed)
+        public void moveToPointDeltaSpeed(Vector tsp, float delta, float speed)
         {
             Vector vector = vectSub(tsp, vect(container.x, container.y));
             vector = vectNormalize(vector);
@@ -620,7 +620,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x06000623 RID: 1571 RVA: 0x0002ED30 File Offset: 0x0002CF30
-        public virtual void startMovingToSpointInDirection(Vector d)
+        public void startMovingToSpointInDirection(Vector d)
         {
             movingToSpoint = true;
             targetSpoint = lastTargetSpoint = -1;

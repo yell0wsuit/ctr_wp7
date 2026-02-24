@@ -5,7 +5,7 @@ using ctr_wp7.iframework.visual;
 namespace ctr_wp7.ctr_commons
 {
     // Token: 0x02000115 RID: 277
-    internal class Lift : Button
+    internal sealed class Lift : Button
     {
         // Token: 0x06000868 RID: 2152 RVA: 0x0004BA4B File Offset: 0x00049C4B
         public override bool onTouchDownXY(float tx, float ty)

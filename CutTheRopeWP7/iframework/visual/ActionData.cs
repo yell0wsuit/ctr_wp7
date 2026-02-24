@@ -1,7 +1,7 @@
 ﻿namespace ctr_wp7.iframework.visual
 {
     // Token: 0x020000A5 RID: 165
-    internal class ActionData
+    internal sealed class ActionData
     {
         // Token: 0x040009E9 RID: 2537
         public string actionName;

@@ -2,7 +2,7 @@ using ctr_wp7.iframework.core;
 
 namespace ctr_wp7.ctr_original
 {
-    internal class AchievementsView : View
+    internal sealed class AchievementsView : View
     {
         public static bool Init;
 

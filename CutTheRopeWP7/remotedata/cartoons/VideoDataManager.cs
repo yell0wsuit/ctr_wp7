@@ -174,7 +174,7 @@ namespace ctr_wp7.remotedata.cartoons
         protected int resolution;
 
         // Token: 0x02000071 RID: 113
-        private class VideoDataSaxHandler(VideoDataManager parrent) : DefaultHandler
+        private sealed class VideoDataSaxHandler(VideoDataManager parrent) : DefaultHandler
         {
 
             // Token: 0x06000369 RID: 873 RVA: 0x000159E4 File Offset: 0x00013BE4

@@ -5,10 +5,10 @@ using ctr_wp7.iframework.visual;
 namespace ctr_wp7.ctr_original
 {
     // Token: 0x02000104 RID: 260
-    internal class PumpDirt : MultiParticles
+    internal sealed class PumpDirt : MultiParticles
     {
         // Token: 0x060007E5 RID: 2021 RVA: 0x0003DC74 File Offset: 0x0003BE74
-        public virtual PumpDirt initWithTotalParticlesAngleandImageGrid(int p, float a, Image grid)
+        public PumpDirt initWithTotalParticlesAngleandImageGrid(int p, float a, Image grid)
         {
             if (base.initWithTotalParticlesandImageGrid(p, grid) == null)
             {

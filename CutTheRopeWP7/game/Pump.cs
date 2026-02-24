@@ -5,7 +5,7 @@ using ctr_wp7.iframework.visual;
 namespace ctr_wp7.game
 {
     // Token: 0x0200000F RID: 15
-    internal class Pump : GameObject
+    internal sealed class Pump : GameObject
     {
         // Token: 0x060000FB RID: 251 RVA: 0x000082F6 File Offset: 0x000064F6
         public static Pump Pump_create(Texture2D t)
@@ -28,7 +28,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x060000FE RID: 254 RVA: 0x0000833C File Offset: 0x0000653C
-        public virtual void updateRotation()
+        public void updateRotation()
         {
             t1.x = x - (bb.w / 2f);
             t2.x = x + (bb.w / 2f);

@@ -6,30 +6,30 @@ using ctr_wp7.ios;
 namespace ctr_wp7.iframework.visual
 {
     // Token: 0x0200000C RID: 12
-    internal class GLCanvas : NSObject
+    internal sealed class GLCanvas : NSObject
     {
         // Token: 0x060000C6 RID: 198 RVA: 0x0000702B File Offset: 0x0000522B
-        public virtual GLCanvas initWithFrame(Rectangle frame)
+        public GLCanvas initWithFrame(Rectangle frame)
         {
             _ = base.init();
             return this;
         }
 
         // Token: 0x060000C7 RID: 199 RVA: 0x00007035 File Offset: 0x00005235
-        public virtual void show()
+        public void show()
         {
             destroyFramebuffer();
             _ = createFramebuffer();
         }
 
         // Token: 0x060000C8 RID: 200 RVA: 0x00007044 File Offset: 0x00005244
-        public virtual void hide()
+        public void hide()
         {
             destroyFramebuffer();
         }
 
         // Token: 0x060000C9 RID: 201 RVA: 0x0000704C File Offset: 0x0000524C
-        public virtual void beforeRender()
+        public void beforeRender()
         {
             setDefaultProjection();
             OpenGL.glDisable(1);
@@ -38,19 +38,19 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x060000CA RID: 202 RVA: 0x00007068 File Offset: 0x00005268
-        public virtual void afterRender()
+        public void afterRender()
         {
         }
 
         // Token: 0x060000CB RID: 203 RVA: 0x0000706A File Offset: 0x0000526A
-        public virtual void initFPSMeterWithFont(FontGeneric font)
+        public void initFPSMeterWithFont(FontGeneric font)
         {
             fpsFont = font;
             fpsText = new Text().initWithFont(fpsFont);
         }
 
         // Token: 0x060000CC RID: 204 RVA: 0x0000708C File Offset: 0x0000528C
-        public virtual void drawFPS(int fps)
+        public void drawFPS(int fps)
         {
             if (fpsText == null || fpsFont == null)
             {
@@ -70,7 +70,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x060000CD RID: 205 RVA: 0x0000711A File Offset: 0x0000531A
-        public virtual bool createFramebuffer()
+        public bool createFramebuffer()
         {
             backingWidth = (int)SCREEN_WIDTH;
             backingHeight = (int)SCREEN_HEIGHT;
@@ -81,7 +81,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x060000CE RID: 206 RVA: 0x0000714C File Offset: 0x0000534C
-        public virtual void setDefaultProjection()
+        public void setDefaultProjection()
         {
             OpenGL.glViewport(0.0, 0.0, REAL_SCREEN_WIDTH, REAL_SCREEN_HEIGHT);
             OpenGL.glMatrixMode(15);
@@ -92,7 +92,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x060000CF RID: 207 RVA: 0x000071D4 File Offset: 0x000053D4
-        public virtual void setDefaultRealProjection()
+        public void setDefaultRealProjection()
         {
             OpenGL.glViewport(0.0, 0.0, REAL_SCREEN_WIDTH, REAL_SCREEN_HEIGHT);
             OpenGL.glMatrixMode(15);
@@ -103,12 +103,12 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x060000D0 RID: 208 RVA: 0x00007251 File Offset: 0x00005451
-        public virtual void destroyFramebuffer()
+        public void destroyFramebuffer()
         {
         }
 
         // Token: 0x060000D1 RID: 209 RVA: 0x00007253 File Offset: 0x00005453
-        public virtual void touchesBeganwithEvent(List<CTRTouchState> touches)
+        public void touchesBeganwithEvent(List<CTRTouchState> touches)
         {
             if (touchDelegate != null)
             {
@@ -117,7 +117,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x060000D2 RID: 210 RVA: 0x0000726A File Offset: 0x0000546A
-        public virtual void touchesMovedwithEvent(List<CTRTouchState> touches)
+        public void touchesMovedwithEvent(List<CTRTouchState> touches)
         {
             if (touchDelegate != null)
             {
@@ -126,7 +126,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x060000D3 RID: 211 RVA: 0x00007281 File Offset: 0x00005481
-        public virtual void touchesEndedwithEvent(List<CTRTouchState> touches)
+        public void touchesEndedwithEvent(List<CTRTouchState> touches)
         {
             if (touchDelegate != null)
             {
@@ -135,7 +135,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x060000D4 RID: 212 RVA: 0x00007298 File Offset: 0x00005498
-        public virtual void touchesCancelledwithEvent(List<CTRTouchState> touches)
+        public void touchesCancelledwithEvent(List<CTRTouchState> touches)
         {
             if (touchDelegate != null)
             {
@@ -144,13 +144,13 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x060000D5 RID: 213 RVA: 0x000072AF File Offset: 0x000054AF
-        public virtual bool backButtonPressed()
+        public bool backButtonPressed()
         {
             return touchDelegate != null && touchDelegate.backButtonPressed();
         }
 
         // Token: 0x060000D6 RID: 214 RVA: 0x000072C6 File Offset: 0x000054C6
-        public virtual bool menuButtonPressed()
+        public bool menuButtonPressed()
         {
             return touchDelegate != null && touchDelegate.menuButtonPressed();
         }

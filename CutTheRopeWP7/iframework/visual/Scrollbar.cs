@@ -5,7 +5,7 @@ using ctr_wp7.iframework.core;
 namespace ctr_wp7.iframework.visual
 {
     // Token: 0x02000089 RID: 137
-    internal class Scrollbar : BaseElement
+    internal sealed class Scrollbar : BaseElement
     {
         // Token: 0x060003F8 RID: 1016 RVA: 0x0001C6B7 File Offset: 0x0001A8B7
         public override void update(float delta)
@@ -66,7 +66,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x060003FA RID: 1018 RVA: 0x0001C8E0 File Offset: 0x0001AAE0
-        public virtual Scrollbar initWithWidthHeightVertical(float w, float h, bool v)
+        public Scrollbar initWithWidthHeightVertical(float w, float h, bool v)
         {
             if (base.init() != null)
             {

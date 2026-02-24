@@ -5,7 +5,7 @@ using ctr_wp7.iframework.visual;
 namespace ctr_wp7.Specials
 {
     // Token: 0x02000045 RID: 69
-    internal class Factory
+    internal sealed class Factory
     {
         // Token: 0x06000241 RID: 577 RVA: 0x0000EFD0 File Offset: 0x0000D1D0
         public static void showProcessingOnViewwithTouchesBlocking(View v, bool b)

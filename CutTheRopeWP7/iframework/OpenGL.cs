@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 namespace ctr_wp7.iframework
 {
     // Token: 0x020000B3 RID: 179
-    internal class OpenGL
+    internal sealed class OpenGL
     {
         // Token: 0x060004ED RID: 1261 RVA: 0x00025093 File Offset: 0x00023293
         public static void glGenTextures(int n, object textures)
@@ -834,7 +834,7 @@ namespace ctr_wp7.iframework
         private static Microsoft.Xna.Framework.Rectangle ScreenRect = new(0, 0, WP7Singletons.GraphicsDevice.Viewport.Width, WP7Singletons.GraphicsDevice.Viewport.Height);
 
         // Token: 0x020000B4 RID: 180
-        private class GLVertexPointer
+        private sealed class GLVertexPointer
         {
             // Token: 0x0600052D RID: 1325 RVA: 0x00025F9A File Offset: 0x0002419A
             public GLVertexPointer(int size, int type, int stride, object pointer)
@@ -865,7 +865,7 @@ namespace ctr_wp7.iframework
         }
 
         // Token: 0x020000B5 RID: 181
-        private class GLTexCoordPointer
+        private sealed class GLTexCoordPointer
         {
             // Token: 0x0600052F RID: 1327 RVA: 0x00025FE0 File Offset: 0x000241E0
             public GLTexCoordPointer(int size, int type, int stride, object pointer)

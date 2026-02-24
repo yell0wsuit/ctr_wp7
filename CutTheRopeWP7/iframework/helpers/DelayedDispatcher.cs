@@ -6,7 +6,7 @@ using ctr_wp7.ios;
 namespace ctr_wp7.iframework.helpers
 {
     // Token: 0x0200007F RID: 127
-    internal class DelayedDispatcher : NSObject
+    internal sealed class DelayedDispatcher : NSObject
     {
         // Token: 0x060003B2 RID: 946 RVA: 0x00017F9E File Offset: 0x0001619E
         public DelayedDispatcher()
@@ -23,20 +23,20 @@ namespace ctr_wp7.iframework.helpers
         }
 
         // Token: 0x060003B4 RID: 948 RVA: 0x00017FCB File Offset: 0x000161CB
-        public virtual void callObjectSelectorParamafterDelay(DispatchFunc s, NSObject p, double d)
+        public void callObjectSelectorParamafterDelay(DispatchFunc s, NSObject p, double d)
         {
             callObjectSelectorParamafterDelay(s, p, (float)d);
         }
 
         // Token: 0x060003B5 RID: 949 RVA: 0x00017FD8 File Offset: 0x000161D8
-        public virtual void callObjectSelectorParamafterDelay(DispatchFunc s, NSObject p, float d)
+        public void callObjectSelectorParamafterDelay(DispatchFunc s, NSObject p, float d)
         {
             Dispatch dispatch = new Dispatch().initWithObjectSelectorParamafterDelay(s, p, d);
             dispatchers.Add(dispatch);
         }
 
         // Token: 0x060003B6 RID: 950 RVA: 0x00018000 File Offset: 0x00016200
-        public virtual void update(float d)
+        public void update(float d)
         {
             int num = dispatchers.Count;
             for (int i = 0; i < num; i++)
@@ -54,13 +54,13 @@ namespace ctr_wp7.iframework.helpers
         }
 
         // Token: 0x060003B7 RID: 951 RVA: 0x0001806D File Offset: 0x0001626D
-        public virtual void cancelAllDispatches()
+        public void cancelAllDispatches()
         {
             dispatchers.Clear();
         }
 
         // Token: 0x060003B8 RID: 952 RVA: 0x0001807A File Offset: 0x0001627A
-        public virtual void cancelDispatchWithObjectSelectorParam(DispatchFunc s, NSObject p)
+        public void cancelDispatchWithObjectSelectorParam(DispatchFunc s, NSObject p)
         {
             throw new NotImplementedException();
         }

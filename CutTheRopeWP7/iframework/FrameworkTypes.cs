@@ -238,7 +238,7 @@ namespace ctr_wp7.iframework
         public static bool IS_QVGA;
 
         // Token: 0x02000006 RID: 6
-        public class FlurryAPI
+        public sealed class FlurryAPI
         {
             // Token: 0x06000062 RID: 98 RVA: 0x00005741 File Offset: 0x00003941
             private static void EnableAnalytics(bool k)
@@ -331,7 +331,7 @@ namespace ctr_wp7.iframework
         }
 
         // Token: 0x02000007 RID: 7
-        public class AndroidAPI
+        public sealed class AndroidAPI
         {
             // Token: 0x0600006A RID: 106 RVA: 0x00005992 File Offset: 0x00003B92
             public static void openUrl(NSString url)

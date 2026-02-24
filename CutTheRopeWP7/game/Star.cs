@@ -7,7 +7,7 @@ using ctr_wp7.ios;
 namespace ctr_wp7.game
 {
     // Token: 0x02000084 RID: 132
-    internal class Star : CTRGameObject
+    internal sealed class Star : CTRGameObject
     {
         // Token: 0x060003DE RID: 990 RVA: 0x00018A01 File Offset: 0x00016C01
         public static Star Star_create(Texture2D t)
@@ -57,7 +57,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x060003E4 RID: 996 RVA: 0x00018AC0 File Offset: 0x00016CC0
-        public virtual void createAnimations()
+        public void createAnimations()
         {
             if (timeout > 0.0)
             {

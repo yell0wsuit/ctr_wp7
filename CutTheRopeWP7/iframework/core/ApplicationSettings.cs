@@ -5,10 +5,10 @@ using ctr_wp7.ios;
 namespace ctr_wp7.iframework.core
 {
     // Token: 0x020000B6 RID: 182
-    internal class ApplicationSettings : NSObject
+    internal sealed class ApplicationSettings : NSObject
     {
         // Token: 0x06000531 RID: 1329 RVA: 0x00026026 File Offset: 0x00024226
-        public virtual int getInt(int s)
+        public int getInt(int s)
         {
             if (s == 5)
             {
@@ -18,7 +18,7 @@ namespace ctr_wp7.iframework.core
         }
 
         // Token: 0x06000532 RID: 1330 RVA: 0x00026034 File Offset: 0x00024234
-        public virtual NSString getString(int s)
+        public NSString getString(int s)
         {
             if (s != 8)
             {

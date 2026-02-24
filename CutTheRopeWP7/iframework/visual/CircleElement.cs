@@ -3,7 +3,7 @@
 namespace ctr_wp7.iframework.visual
 {
     // Token: 0x02000039 RID: 57
-    internal class CircleElement : BaseElement
+    internal sealed class CircleElement : BaseElement
     {
         // Token: 0x0600020B RID: 523 RVA: 0x0000DAE2 File Offset: 0x0000BCE2
         public override NSObject init()

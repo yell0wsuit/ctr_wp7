@@ -8,10 +8,10 @@ using ctr_wp7.iframework.visual;
 namespace ctr_wp7.game
 {
     // Token: 0x02000015 RID: 21
-    internal class Ghost : BaseElement, TimelineDelegate
+    internal sealed class Ghost : BaseElement, TimelineDelegate
     {
         // Token: 0x06000110 RID: 272 RVA: 0x000090F8 File Offset: 0x000072F8
-        public virtual Ghost initWithPositionPossibleStatesMaskGrabRadiusBouncerAngleBubblesBungeesBouncers(Vector position, int possibleStateMask, float grabRadius, float bouncerAngle, List<Bubble> bubbles, List<Grab> bungees, List<Bouncer> bouncers)
+        public Ghost initWithPositionPossibleStatesMaskGrabRadiusBouncerAngleBubblesBungeesBouncers(Vector position, int possibleStateMask, float grabRadius, float bouncerAngle, List<Bubble> bubbles, List<Grab> bungees, List<Bouncer> bouncers)
         {
             if (base.init() != null)
             {
@@ -115,7 +115,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000113 RID: 275 RVA: 0x000095C0 File Offset: 0x000077C0
-        public virtual void resetToState(int newState)
+        public void resetToState(int newState)
         {
             if ((newState & possibleStatesMask) == 0)
             {
@@ -237,7 +237,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000114 RID: 276 RVA: 0x000099AC File Offset: 0x00007BAC
-        public virtual void resetToNextState()
+        public void resetToNextState()
         {
             int num = ghostState;
             do
@@ -265,12 +265,12 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000116 RID: 278 RVA: 0x00009A2D File Offset: 0x00007C2D
-        public virtual void timelinereachedKeyFramewithIndex(Timeline t, KeyFrame k, int i)
+        public void timelinereachedKeyFramewithIndex(Timeline t, KeyFrame k, int i)
         {
         }
 
         // Token: 0x06000117 RID: 279 RVA: 0x00009A30 File Offset: 0x00007C30
-        public virtual void timelineFinished(Timeline t)
+        public void timelineFinished(Timeline t)
         {
             if (t.element == ghostImageFace)
             {

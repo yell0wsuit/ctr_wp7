@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.Graphics;
 namespace ctr_wp7.iframework.visual
 {
     // Token: 0x0200004A RID: 74
-    internal class Texture2D : NSObject
+    internal sealed class Texture2D : NSObject
     {
         // Token: 0x06000252 RID: 594 RVA: 0x0000F2E8 File Offset: 0x0000D4E8
         public static void drawRectAtPoint(Texture2D t, Rectangle rect, Vector point)
@@ -51,7 +51,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x06000255 RID: 597 RVA: 0x0000F428 File Offset: 0x0000D628
-        public virtual void setQuadsCapacity(int n)
+        public void setQuadsCapacity(int n)
         {
             quadsCount = n;
             quads = new Quad2D[quadsCount];
@@ -60,7 +60,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x06000256 RID: 598 RVA: 0x0000F464 File Offset: 0x0000D664
-        public virtual void setQuadAt(Rectangle rect, int n)
+        public void setQuadAt(Rectangle rect, int n)
         {
             quads[n] = GLDrawer.getTextureCoordinates(this, rect);
             quadRects[n] = rect;
@@ -68,13 +68,13 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x06000257 RID: 599 RVA: 0x0000F4B1 File Offset: 0x0000D6B1
-        public virtual void setWvga()
+        public void setWvga()
         {
             _isWvga = true;
         }
 
         // Token: 0x06000258 RID: 600 RVA: 0x0000F4BA File Offset: 0x0000D6BA
-        public virtual void setScale(float scaleX, float scaleY)
+        public void setScale(float scaleX, float scaleY)
         {
             _scaleX = scaleX;
             _scaleY = scaleY;
@@ -134,7 +134,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x0600025B RID: 603 RVA: 0x0000F6A8 File Offset: 0x0000D8A8
-        public virtual void calculateForQuickDrawing()
+        public void calculateForQuickDrawing()
         {
             if (_isWvga)
             {
@@ -161,7 +161,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x0600025E RID: 606 RVA: 0x0000F786 File Offset: 0x0000D986
-        public virtual void reg()
+        public void reg()
         {
             prev = tail;
             if (prev != null)
@@ -176,7 +176,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x0600025F RID: 607 RVA: 0x0000F7B8 File Offset: 0x0000D9B8
-        public virtual void unreg()
+        public void unreg()
         {
             if (prev != null)
             {
@@ -198,7 +198,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x06000260 RID: 608 RVA: 0x0000F824 File Offset: 0x0000DA24
-        public virtual Texture2D initWithPath(string path, bool assets)
+        public Texture2D initWithPath(string path, bool assets)
         {
             if (base.init() == null)
             {
@@ -278,7 +278,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x06000266 RID: 614 RVA: 0x0000FA28 File Offset: 0x0000DC28
-        public virtual void suspend()
+        public void suspend()
         {
         }
 
@@ -301,7 +301,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x06000269 RID: 617 RVA: 0x0000FA7C File Offset: 0x0000DC7C
-        public virtual NSObject initFromPixels(int x, int y, int w, int h)
+        public NSObject initFromPixels(int x, int y, int w, int h)
         {
             if (base.init() == null)
             {
@@ -345,7 +345,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x0600026B RID: 619 RVA: 0x0000FBAC File Offset: 0x0000DDAC
-        public virtual Texture2D initWithTexture(Microsoft.Xna.Framework.Graphics.Texture2D texture)
+        public Texture2D initWithTexture(Microsoft.Xna.Framework.Graphics.Texture2D texture)
         {
             if (base.init() == null)
             {
@@ -367,7 +367,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x0600026C RID: 620 RVA: 0x0000FC20 File Offset: 0x0000DE20
-        public virtual Texture2D initWithImagePath(string path)
+        public Texture2D initWithImagePath(string path)
         {
             if (base.init() == null)
             {

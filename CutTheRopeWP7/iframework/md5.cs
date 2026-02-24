@@ -3,7 +3,7 @@
 namespace ctr_wp7.iframework
 {
     // Token: 0x02000063 RID: 99
-    internal class md5
+    internal sealed class md5
     {
         // Token: 0x060002EC RID: 748 RVA: 0x00012E44 File Offset: 0x00011044
         private static void GET_UINT32(ref uint n, byte[] b, int dataIndex, int i)
@@ -233,7 +233,7 @@ namespace ctr_wp7.iframework
         private static byte[] md5_padding;
 
         // Token: 0x02000064 RID: 100
-        public class md5_context
+        public sealed class md5_context
         {
             // Token: 0x060002FA RID: 762 RVA: 0x0001387B File Offset: 0x00011A7B
             public md5_context()

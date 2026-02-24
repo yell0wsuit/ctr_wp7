@@ -3,7 +3,7 @@
 namespace ctr_wp7.game
 {
     // Token: 0x02000100 RID: 256
-    internal class Razor : GameObject
+    internal sealed class Razor : GameObject
     {
     }
 }

@@ -4,7 +4,7 @@ using ctr_wp7.ios;
 namespace ctr_wp7.game.remotedata
 {
     // Token: 0x020000FD RID: 253
-    internal class BlockHardcode : BlockInterface
+    internal sealed class BlockHardcode : BlockInterface
     {
         // Token: 0x060007A3 RID: 1955 RVA: 0x0003C35A File Offset: 0x0003A55A
         public override int getType()

@@ -1,10 +1,10 @@
 ﻿namespace ctr_wp7.iframework.visual
 {
     // Token: 0x02000048 RID: 72
-    internal class ToggleButton : BaseElement, ButtonDelegate
+    internal sealed class ToggleButton : BaseElement, ButtonDelegate
     {
         // Token: 0x0600024B RID: 587 RVA: 0x0000F164 File Offset: 0x0000D364
-        public virtual void onButtonPressed(int n)
+        public void onButtonPressed(int n)
         {
             switch (n)
             {

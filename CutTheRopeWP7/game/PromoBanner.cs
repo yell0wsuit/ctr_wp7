@@ -12,7 +12,7 @@ using ctr_wp7.ios;
 namespace ctr_wp7.game
 {
     // Token: 0x020000D2 RID: 210
-    internal class PromoBanner : BaseElement, ButtonDelegate, TimelineDelegate
+    internal sealed class PromoBanner : BaseElement, ButtonDelegate, TimelineDelegate
     {
         // Token: 0x06000627 RID: 1575 RVA: 0x0002ED84 File Offset: 0x0002CF84
         public override NSObject init()
@@ -46,7 +46,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000629 RID: 1577 RVA: 0x0002EE40 File Offset: 0x0002D040
-        public virtual BaseElement createBanner()
+        public BaseElement createBanner()
         {
             BaseElement banner = Application.sharedPreferences().remoteDataManager.getBanner();
             if (banner != null)
@@ -64,7 +64,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0600062A RID: 1578 RVA: 0x0002EEA4 File Offset: 0x0002D0A4
-        public virtual BaseElement createMainBanner()
+        public BaseElement createMainBanner()
         {
             int banner_OFFSET = BANNER_OFFSET;
             setName("promoBanner");
@@ -184,7 +184,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0600062B RID: 1579 RVA: 0x0002F5F4 File Offset: 0x0002D7F4
-        public virtual void openMainPromo()
+        public void openMainPromo()
         {
             checkSwitchButtons();
             promoMainHidden = false;
@@ -199,7 +199,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0600062C RID: 1580 RVA: 0x0002F6C8 File Offset: 0x0002D8C8
-        public virtual void closeMainPromo()
+        public void closeMainPromo()
         {
             promoMainHidden = true;
             arrowContainer.setEnabled(true);
@@ -213,7 +213,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0600062D RID: 1581 RVA: 0x0002F770 File Offset: 0x0002D970
-        public virtual void onButtonPressed(int n)
+        public void onButtonPressed(int n)
         {
             switch (n)
             {
@@ -271,19 +271,19 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0600062F RID: 1583 RVA: 0x0002F90A File Offset: 0x0002DB0A
-        public virtual void timelineFinished(Timeline t)
+        public void timelineFinished(Timeline t)
         {
             Application.sharedPreferences().remoteDataManager.nextBanner();
             changeBanner();
         }
 
         // Token: 0x06000630 RID: 1584 RVA: 0x0002F921 File Offset: 0x0002DB21
-        public virtual void timelinereachedKeyFramewithIndex(Timeline t, KeyFrame k, int i)
+        public void timelinereachedKeyFramewithIndex(Timeline t, KeyFrame k, int i)
         {
         }
 
         // Token: 0x06000631 RID: 1585 RVA: 0x0002F924 File Offset: 0x0002DB24
-        public virtual void changeBanner()
+        public void changeBanner()
         {
             BaseElement baseElement = createBanner();
             BaseElement childWithName = getChildWithName("container");
@@ -293,7 +293,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000632 RID: 1586 RVA: 0x0002F960 File Offset: 0x0002DB60
-        public virtual void checkSwitchButtons()
+        public void checkSwitchButtons()
         {
             bool flag = Application.sharedPreferences().remoteDataManager != null && Application.sharedPreferences().remoteDataManager.hasSenseToRotateBanners();
             promoBanner.getChildWithName("promoSwitchLeftButton").setEnabled(flag);

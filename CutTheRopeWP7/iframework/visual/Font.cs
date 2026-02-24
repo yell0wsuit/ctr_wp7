@@ -5,10 +5,10 @@ using ctr_wp7.ios;
 namespace ctr_wp7.iframework.visual
 {
     // Token: 0x020000F6 RID: 246
-    internal class Font : FontGeneric
+    internal sealed class Font : FontGeneric
     {
         // Token: 0x06000773 RID: 1907 RVA: 0x0003B6E8 File Offset: 0x000398E8
-        public virtual Font initWithVariableSizeCharscharMapFileKerning(NSString strParam, Texture2D charmapfile, object k)
+        public Font initWithVariableSizeCharscharMapFileKerning(NSString strParam, Texture2D charmapfile, object k)
         {
             if (base.init() != null)
             {

@@ -3,7 +3,7 @@
 namespace ctr_wp7.iframework.visual
 {
     // Token: 0x020000A6 RID: 166
-    internal class Action : NSObject
+    internal sealed class Action : NSObject
     {
         // Token: 0x060004A9 RID: 1193 RVA: 0x00021E77 File Offset: 0x00020077
         public Action()

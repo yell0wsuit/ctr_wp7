@@ -13,7 +13,7 @@ using Microsoft.Xna.Framework.Input.Touch;
 namespace ctr_wp7.game
 {
     // Token: 0x02000101 RID: 257
-    internal class GameController : ViewController, ButtonDelegate
+    internal sealed class GameController : ViewController, ButtonDelegate
     {
         // Token: 0x17000027 RID: 39
         // (get) Token: 0x060007BC RID: 1980 RVA: 0x0003C5D8 File Offset: 0x0003A7D8
@@ -70,7 +70,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x060007C2 RID: 1986 RVA: 0x0003C68C File Offset: 0x0003A88C
-        public virtual void boxClosed()
+        public void boxClosed()
         {
             _ = Application.sharedPreferences();
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
@@ -108,20 +108,20 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x060007C3 RID: 1987 RVA: 0x0003C766 File Offset: 0x0003A966
-        public virtual void gameWon()
+        public void gameWon()
         {
             postLevelEventwithMask("LEVSCR_LEVEL_WON", 15, true);
             levelWon();
         }
 
         // Token: 0x060007C4 RID: 1988 RVA: 0x0003C77C File Offset: 0x0003A97C
-        public virtual void gameLost()
+        public void gameLost()
         {
             postLevelEventwithMask("LEVSCR_LEVEL_LOST", 6, false);
         }
 
         // Token: 0x060007C5 RID: 1989 RVA: 0x0003C78C File Offset: 0x0003A98C
-        public virtual void onButtonPressed(int n)
+        public void onButtonPressed(int n)
         {
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
             View view = getView(0);
@@ -378,7 +378,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x060007C9 RID: 1993 RVA: 0x0003CD4C File Offset: 0x0003AF4C
-        public virtual void createGameView()
+        public void createGameView()
         {
             for (int i = 0; i < 5; i++)
             {
@@ -445,14 +445,14 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x060007CA RID: 1994 RVA: 0x0003D10D File Offset: 0x0003B30D
-        public virtual void initGameView()
+        public void initGameView()
         {
             setPaused(false);
             levelFirstStart();
         }
 
         // Token: 0x060007CB RID: 1995 RVA: 0x0003D11C File Offset: 0x0003B31C
-        public virtual void levelFirstStart()
+        public void levelFirstStart()
         {
             View view = getView(0);
             ((BoxOpenClose)view.getChild(5)).levelFirstStart();
@@ -463,7 +463,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x060007CC RID: 1996 RVA: 0x0003D170 File Offset: 0x0003B370
-        public virtual void levelStart()
+        public void levelStart()
         {
             View view = getView(0);
             ((BoxOpenClose)view.getChild(5)).levelStart();
@@ -475,7 +475,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x060007CD RID: 1997 RVA: 0x0003D1D4 File Offset: 0x0003B3D4
-        public virtual void levelWon()
+        public void levelWon()
         {
             bool flag = false;
             boxCloseHandled = false;
@@ -543,14 +543,14 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x060007CE RID: 1998 RVA: 0x0003D42C File Offset: 0x0003B62C
-        public virtual void levelLost()
+        public void levelLost()
         {
             View view = getView(0);
             ((BoxOpenClose)view.getChild(5)).levelLost();
         }
 
         // Token: 0x060007CF RID: 1999 RVA: 0x0003D454 File Offset: 0x0003B654
-        public virtual void levelQuit()
+        public void levelQuit()
         {
             View view = getView(0);
             ((BoxOpenClose)view.getChild(5)).levelQuit();
@@ -558,7 +558,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x060007D0 RID: 2000 RVA: 0x0003D488 File Offset: 0x0003B688
-        public virtual void setPaused(bool p)
+        public void setPaused(bool p)
         {
             isGamePaused = p;
             View view = getView(0);
@@ -611,7 +611,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x060007D3 RID: 2003 RVA: 0x0003D620 File Offset: 0x0003B820
-        public virtual bool lastLevelInPack()
+        public bool lastLevelInPack()
         {
             _ = Application.sharedPreferences();
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
@@ -633,7 +633,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x060007D4 RID: 2004 RVA: 0x0003D684 File Offset: 0x0003B884
-        public virtual bool unlockNextLevel()
+        public bool unlockNextLevel()
         {
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
             int pack = ctrrootController.getPack();
@@ -692,7 +692,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x060007D7 RID: 2007 RVA: 0x0003D7A4 File Offset: 0x0003B9A4
-        public virtual void onNextLevel()
+        public void onNextLevel()
         {
             CTRPreferences.gameViewChanged(NSS("game"));
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
@@ -711,13 +711,13 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x060007D8 RID: 2008 RVA: 0x0003D817 File Offset: 0x0003BA17
-        public virtual void onVideoBannerFinished()
+        public void onVideoBannerFinished()
         {
             shouldDoNextLevel = true;
         }
 
         // Token: 0x060007D9 RID: 2009 RVA: 0x0003D820 File Offset: 0x0003BA20
-        public virtual void releaseAllTouches(GameScene gs)
+        public void releaseAllTouches(GameScene gs)
         {
             for (int i = 0; i < 5; i++)
             {
@@ -727,7 +727,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x060007DA RID: 2010 RVA: 0x0003D854 File Offset: 0x0003BA54
-        public virtual void setAdSkipper(object skipper)
+        public void setAdSkipper(object skipper)
         {
             View view = getView(0);
             GameView gameView = (GameView)view;

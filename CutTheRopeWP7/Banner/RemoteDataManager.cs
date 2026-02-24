@@ -8,7 +8,7 @@ using ctr_wp7.ios;
 namespace ctr_wp7.Banner
 {
     // Token: 0x0200002E RID: 46
-    internal class RemoteDataManager : NSObject, ButtonDelegate
+    internal sealed class RemoteDataManager : NSObject, ButtonDelegate
     {
         // Token: 0x060001AE RID: 430 RVA: 0x0000BE68 File Offset: 0x0000A068
         private BannerSize getBannerSize()
@@ -20,7 +20,7 @@ namespace ctr_wp7.Banner
         }
 
         // Token: 0x060001AF RID: 431 RVA: 0x0000BE90 File Offset: 0x0000A090
-        public virtual NSObject acquireInfo(int setID)
+        public NSObject acquireInfo(int setID)
         {
             if (base.init() != null && remoteDataMgr != null)
             {
@@ -39,7 +39,7 @@ namespace ctr_wp7.Banner
         }
 
         // Token: 0x060001B1 RID: 433 RVA: 0x0000BEE4 File Offset: 0x0000A0E4
-        public virtual Image getBanner()
+        public Image getBanner()
         {
             if (remoteDataMgr == null)
             {
@@ -85,7 +85,7 @@ namespace ctr_wp7.Banner
         }
 
         // Token: 0x060001B2 RID: 434 RVA: 0x0000C06F File Offset: 0x0000A26F
-        public virtual void nextBanner()
+        public void nextBanner()
         {
             if (remoteDataMgr == null)
             {
@@ -95,7 +95,7 @@ namespace ctr_wp7.Banner
         }
 
         // Token: 0x060001B3 RID: 435 RVA: 0x0000C083 File Offset: 0x0000A283
-        public virtual void prevBanner()
+        public void prevBanner()
         {
             if (remoteDataMgr == null)
             {
@@ -105,31 +105,31 @@ namespace ctr_wp7.Banner
         }
 
         // Token: 0x060001B4 RID: 436 RVA: 0x0000C097 File Offset: 0x0000A297
-        public virtual bool hasSenseToRotateBanners()
+        public bool hasSenseToRotateBanners()
         {
             return remoteDataMgr != null && remoteDataMgr.hasSenseToRotateBanners();
         }
 
         // Token: 0x060001B5 RID: 437 RVA: 0x0000C0AC File Offset: 0x0000A2AC
-        public virtual bool getHideMainPromo()
+        public bool getHideMainPromo()
         {
             return remoteDataMgr != null && remoteDataMgr.getHideMainPromo();
         }
 
         // Token: 0x060001B6 RID: 438 RVA: 0x0000C0C1 File Offset: 0x0000A2C1
-        public virtual bool getHideSocialNetworks()
+        public bool getHideSocialNetworks()
         {
             return remoteDataMgr != null && remoteDataMgr.getHideSocialNetworks();
         }
 
         // Token: 0x060001B7 RID: 439 RVA: 0x0000C0D6 File Offset: 0x0000A2D6
-        public virtual bool getDefaultInterstitial()
+        public bool getDefaultInterstitial()
         {
             return remoteDataMgr != null && remoteDataMgr.getDefaultInterstitial();
         }
 
         // Token: 0x060001B8 RID: 440 RVA: 0x0000C0EB File Offset: 0x0000A2EB
-        public virtual int getBoxForCrossPromo()
+        public int getBoxForCrossPromo()
         {
             if (remoteDataMgr == null)
             {
@@ -139,7 +139,7 @@ namespace ctr_wp7.Banner
         }
 
         // Token: 0x060001B9 RID: 441 RVA: 0x0000C100 File Offset: 0x0000A300
-        public virtual void onButtonPressed(int n)
+        public void onButtonPressed(int n)
         {
             if (bannerUrl != null)
             {

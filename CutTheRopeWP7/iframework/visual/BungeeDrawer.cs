@@ -7,7 +7,7 @@ using ctr_wp7.iframework.sfe;
 namespace ctr_wp7.iframework.visual
 {
     // Token: 0x020000D7 RID: 215
-    internal class BungeeDrawer : BaseElement
+    internal sealed class BungeeDrawer : BaseElement
     {
         // Token: 0x06000643 RID: 1603 RVA: 0x000302F8 File Offset: 0x0002E4F8
         public override void draw()

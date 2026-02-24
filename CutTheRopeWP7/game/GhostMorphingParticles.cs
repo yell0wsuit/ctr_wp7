@@ -5,7 +5,7 @@ using ctr_wp7.ios;
 namespace ctr_wp7.game
 {
     // Token: 0x0200008E RID: 142
-    internal class GhostMorphingParticles : RotateableMultiParticles
+    internal sealed class GhostMorphingParticles : RotateableMultiParticles
     {
         // Token: 0x06000442 RID: 1090 RVA: 0x0001DAD4 File Offset: 0x0001BCD4
         public override void initParticle(ref Particle particle)
@@ -24,7 +24,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000443 RID: 1091 RVA: 0x0001DBCC File Offset: 0x0001BDCC
-        public new virtual NSObject initWithTotalParticles(int numberOfParticles)
+        public new NSObject initWithTotalParticles(int numberOfParticles)
         {
             if (base.initWithTotalParticlesandImageGrid(numberOfParticles, Image.Image_createWithResID(180)) != null)
             {

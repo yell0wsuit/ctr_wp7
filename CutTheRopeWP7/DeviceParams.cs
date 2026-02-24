@@ -6,7 +6,7 @@ using System.Threading;
 using Microsoft.Xna.Framework.GamerServices;
 
 // Token: 0x020000F2 RID: 242
-internal class DeviceParams
+internal sealed class DeviceParams
 {
     // Token: 0x06000741 RID: 1857 RVA: 0x0003AA5C File Offset: 0x00038C5C
     public bool isEnglishISO(string s)

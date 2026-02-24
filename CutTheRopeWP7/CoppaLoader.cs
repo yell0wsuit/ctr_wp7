@@ -8,7 +8,7 @@ using ctr_wp7.remotedata.cartoons;
 using Microsoft.Xna.Framework.GamerServices;
 
 // Token: 0x02000072 RID: 114
-internal class CoppaLoader
+internal sealed class CoppaLoader
 {
     // Token: 0x0600036C RID: 876 RVA: 0x00015DBF File Offset: 0x00013FBF
     private CoppaLoader()

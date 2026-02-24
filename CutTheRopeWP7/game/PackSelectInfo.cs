@@ -4,10 +4,10 @@ using ctr_wp7.ios;
 namespace ctr_wp7.game
 {
     // Token: 0x02000110 RID: 272
-    internal class PackSelectInfo : NSObject
+    internal sealed class PackSelectInfo : NSObject
     {
         // Token: 0x0600084C RID: 2124 RVA: 0x0004A188 File Offset: 0x00048388
-        public virtual NSObject initWithSize(int pSize)
+        public NSObject initWithSize(int pSize)
         {
             if (base.init() != null)
             {
@@ -21,7 +21,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0600084D RID: 2125 RVA: 0x0004A1D8 File Offset: 0x000483D8
-        public virtual bool isBoxExist(int box)
+        public bool isBoxExist(int box)
         {
             for (int i = 0; i < size; i++)
             {
@@ -34,7 +34,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0600084E RID: 2126 RVA: 0x0004A204 File Offset: 0x00048404
-        public virtual int firstIndexOf(int box)
+        public int firstIndexOf(int box)
         {
             for (int i = 0; i < size; i++)
             {
@@ -47,7 +47,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0600084F RID: 2127 RVA: 0x0004A230 File Offset: 0x00048430
-        public virtual int getFirstGameBox()
+        public int getFirstGameBox()
         {
             for (int i = 0; i < size; i++)
             {
@@ -60,7 +60,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000850 RID: 2128 RVA: 0x0004A260 File Offset: 0x00048460
-        public virtual void add(int box)
+        public void add(int box)
         {
             content[i] = box;
             i++;

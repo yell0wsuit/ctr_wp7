@@ -1,7 +1,7 @@
 ﻿namespace ctr_wp7.iframework.visual
 {
     // Token: 0x02000092 RID: 146
-    internal class HBox : BaseElement
+    internal sealed class HBox : BaseElement
     {
         // Token: 0x06000457 RID: 1111 RVA: 0x0001E7E4 File Offset: 0x0001C9E4
         public override int addChildwithID(BaseElement c, int i)
@@ -26,13 +26,13 @@
         }
 
         // Token: 0x06000458 RID: 1112 RVA: 0x0001E88A File Offset: 0x0001CA8A
-        public virtual HBox initWithOffsetAlignHeight(double of, int a, double h)
+        public HBox initWithOffsetAlignHeight(double of, int a, double h)
         {
             return initWithOffsetAlignHeight((float)of, a, (float)h);
         }
 
         // Token: 0x06000459 RID: 1113 RVA: 0x0001E897 File Offset: 0x0001CA97
-        public virtual HBox initWithOffsetAlignHeight(float of, int a, float h)
+        public HBox initWithOffsetAlignHeight(float of, int a, float h)
         {
             if (base.init() != null)
             {
