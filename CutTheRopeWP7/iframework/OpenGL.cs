@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using ctr_wp7.iframework.visual;
 using ctr_wp7.wp7utilities;
 
 using Microsoft.Xna.Framework;

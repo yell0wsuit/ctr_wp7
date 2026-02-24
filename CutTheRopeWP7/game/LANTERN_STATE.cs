@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ctr_wp7.game
+﻿namespace ctr_wp7.game
 {
     // Token: 0x02000111 RID: 273
     internal enum LANTERN_STATE

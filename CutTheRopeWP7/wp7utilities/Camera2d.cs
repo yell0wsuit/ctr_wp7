@@ -1,6 +1,4 @@
-﻿using System;
-
-using ctr_wp7.iframework.core;
+﻿using ctr_wp7.iframework.core;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;

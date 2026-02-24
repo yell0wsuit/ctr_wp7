@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ctr_wp7.iframework
+﻿namespace ctr_wp7.iframework
 {
     // Token: 0x02000020 RID: 32
     public enum Language

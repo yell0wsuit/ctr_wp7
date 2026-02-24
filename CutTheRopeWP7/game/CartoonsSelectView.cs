@@ -1,6 +1,4 @@
-﻿using System;
-
-using ctr_wp7.ctr_original;
+﻿using ctr_wp7.ctr_original;
 using ctr_wp7.game.remotedata;
 using ctr_wp7.iframework;
 using ctr_wp7.iframework.core;

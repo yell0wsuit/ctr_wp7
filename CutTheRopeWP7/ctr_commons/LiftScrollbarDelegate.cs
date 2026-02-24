@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ctr_wp7.ctr_commons
+﻿namespace ctr_wp7.ctr_commons
 {
     // Token: 0x020000E2 RID: 226
     internal interface LiftScrollbarDelegate

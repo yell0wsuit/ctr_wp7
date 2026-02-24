@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ctr_wp7.game
+﻿namespace ctr_wp7.game
 {
     // Token: 0x0200003E RID: 62
     internal enum SUPPORTED_ELEMENT

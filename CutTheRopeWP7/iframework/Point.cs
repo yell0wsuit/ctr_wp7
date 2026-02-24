@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ctr_wp7.iframework
+﻿namespace ctr_wp7.iframework
 {
     // Token: 0x02000021 RID: 33
     internal struct Point

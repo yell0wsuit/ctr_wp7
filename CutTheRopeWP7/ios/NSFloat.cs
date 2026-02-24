@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ctr_wp7.ios
+﻿namespace ctr_wp7.ios
 {
     // Token: 0x020000BD RID: 189
     internal class NSFloat : NSObject

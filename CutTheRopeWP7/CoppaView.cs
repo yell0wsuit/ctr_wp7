@@ -1,6 +1,4 @@
-﻿using System;
-
-using ctr_wp7.iframework;
+﻿using ctr_wp7.iframework;
 using ctr_wp7.iframework.core;
 
 // Token: 0x02000040 RID: 64

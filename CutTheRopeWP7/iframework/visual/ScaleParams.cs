@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ctr_wp7.iframework.visual
+﻿namespace ctr_wp7.iframework.visual
 {
     // Token: 0x020000A0 RID: 160
     internal class ScaleParams

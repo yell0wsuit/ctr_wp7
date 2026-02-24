@@ -1,6 +1,4 @@
-﻿using System;
-
-using ctr_wp7.ios;
+﻿using ctr_wp7.ios;
 
 namespace ctr_wp7.iframework.media
 {

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ctr_wp7.iframework.visual
+﻿namespace ctr_wp7.iframework.visual
 {
     // Token: 0x02000092 RID: 146
     internal class HBox : BaseElement

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 using ctr_wp7.ctr_original;
 using ctr_wp7.iframework.core;

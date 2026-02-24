@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ctr_wp7.iframework.core
+﻿namespace ctr_wp7.iframework.core
 {
     // Token: 0x0200006C RID: 108
     internal interface ResourceMgrDelegate

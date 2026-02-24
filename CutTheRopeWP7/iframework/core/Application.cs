@@ -1,6 +1,4 @@
-﻿using System;
-
-using ctr_wp7.ctr_original;
+﻿using ctr_wp7.ctr_original;
 using ctr_wp7.game;
 using ctr_wp7.iframework.media;
 using ctr_wp7.iframework.visual;

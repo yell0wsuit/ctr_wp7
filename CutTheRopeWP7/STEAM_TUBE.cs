@@ -1,6 +1,4 @@
-﻿using System;
-
-// Token: 0x020000BF RID: 191
+﻿// Token: 0x020000BF RID: 191
 internal enum STEAM_TUBE
 {
     // Token: 0x04000AE0 RID: 2784

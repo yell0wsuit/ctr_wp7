@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ctr_wp7.ios
+﻿namespace ctr_wp7.ios
 {
     // Token: 0x020000C9 RID: 201
     internal struct NSRange

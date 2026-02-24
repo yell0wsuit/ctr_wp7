@@ -1,6 +1,4 @@
-﻿using System;
-
-using ctr_wp7.wp7utilities;
+﻿using ctr_wp7.wp7utilities;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;

@@ -8,7 +8,6 @@ using ctr_wp7.iframework.media;
 using ctr_wp7.wp7utilities;
 
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Input.Touch;
 

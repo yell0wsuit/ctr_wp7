@@ -1,9 +1,6 @@
-﻿using System;
-
-using ctr_wp7.iframework;
+﻿using ctr_wp7.iframework;
 using ctr_wp7.iframework.core;
 using ctr_wp7.ios;
-using ctr_wp7.remotedata.cartoons;
 
 namespace ctr_wp7.game.remotedata
 {

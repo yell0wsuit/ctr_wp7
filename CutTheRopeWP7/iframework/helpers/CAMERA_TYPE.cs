@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ctr_wp7.iframework.helpers
+﻿namespace ctr_wp7.iframework.helpers
 {
     // Token: 0x0200003A RID: 58
     public enum CAMERA_TYPE

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ctr_wp7.game
+﻿namespace ctr_wp7.game
 {
     // Token: 0x0200009A RID: 154
     internal enum MapPickerControllerViewId

@@ -1,6 +1,4 @@
-﻿using System;
-
-using ctr_wp7.ios;
+﻿using ctr_wp7.ios;
 
 using Microsoft.Xna.Framework.Media;
 

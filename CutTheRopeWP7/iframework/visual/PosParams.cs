@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ctr_wp7.iframework.visual
+﻿namespace ctr_wp7.iframework.visual
 {
     // Token: 0x0200009F RID: 159
     internal class PosParams

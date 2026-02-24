@@ -1,6 +1,4 @@
-﻿using System;
-
-using ctr_wp7.iframework;
+﻿using ctr_wp7.iframework;
 using ctr_wp7.iframework.helpers;
 using ctr_wp7.iframework.visual;
 using ctr_wp7.ios;

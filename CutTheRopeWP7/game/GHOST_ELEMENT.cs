@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ctr_wp7.game
+﻿namespace ctr_wp7.game
 {
     // Token: 0x02000056 RID: 86
     internal enum GHOST_ELEMENT
