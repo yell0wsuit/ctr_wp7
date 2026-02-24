@@ -20,7 +20,7 @@ namespace ctr_wp7.iframework.visual
             float num2 = t._invHeight * rect.y;
             float num3 = num + t._invWidth * rect.w;
             float num4 = num2 + t._invHeight * rect.h;
-            float[] array = new float[] { num, num2, num3, num2, num, num4, num3, num4 };
+            float[] array = [num, num2, num3, num2, num, num4, num3, num4];
             float[] array2 = new float[12];
             array2[0] = point.x;
             array2[1] = point.y;
@@ -105,8 +105,8 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x0600025A RID: 602 RVA: 0x0000F5C4 File Offset: 0x0000D7C4
         public static void drawAtPoint(Texture2D t, Vector point)
         {
-            float[] array = new float[]
-            {
+            float[] array =
+            [
                 default(float),
                 default(float),
                 t._maxS,
@@ -115,7 +115,7 @@ namespace ctr_wp7.iframework.visual
                 t._maxT,
                 t._maxS,
                 t._maxT
-            };
+            ];
             float[] array2 = new float[12];
             array2[0] = point.x;
             array2[1] = point.y;

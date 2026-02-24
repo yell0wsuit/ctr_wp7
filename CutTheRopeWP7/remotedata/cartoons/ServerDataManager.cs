@@ -185,7 +185,7 @@ namespace ctr_wp7.remotedata.cartoons
         // Token: 0x0600035C RID: 860 RVA: 0x000155D0 File Offset: 0x000137D0
         protected static void injectAdditionalParameters(LinkBuilder link)
         {
-            string[] array = SystemInfo.getAppVersion().Split(new char[] { '.' });
+            string[] array = SystemInfo.getAppVersion().Split(['.']);
             string text = "";
             if (array.Length >= 2)
             {

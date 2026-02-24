@@ -606,8 +606,8 @@ namespace ctr_wp7.game
         public bool alternateColors;
 
         // Token: 0x04000C0C RID: 3084
-        private static RGBAColor[] ccolors = new RGBAColor[]
-        {
+        private static RGBAColor[] ccolors =
+        [
             RGBAColor.transparentRGBA,
             RGBAColor.transparentRGBA,
             RGBAColor.transparentRGBA,
@@ -616,7 +616,7 @@ namespace ctr_wp7.game
             RGBAColor.transparentRGBA,
             RGBAColor.transparentRGBA,
             RGBAColor.transparentRGBA
-        };
+        ];
 
         // Token: 0x04000C0D RID: 3085
         private float[] cverts = new float[16];

@@ -7,7 +7,7 @@
         // Token: 0x0600016C RID: 364 RVA: 0x0000B048 File Offset: 0x00009248
         public float[] toFloatArray()
         {
-            return new float[] { tlX, tlY, trX, trY, blX, blY, brX, brY };
+            return [tlX, tlY, trX, trY, blX, blY, brX, brY];
         }
 
         // Token: 0x0600016D RID: 365 RVA: 0x0000B0A8 File Offset: 0x000092A8

@@ -24,7 +24,7 @@ namespace ctr_wp7.wp7utilities
             string text3 = (WP7Singletons.Content != null && !string.IsNullOrWhiteSpace(WP7Singletons.Content.RootDirectory)) ? WP7Singletons.Content.RootDirectory : "content";
             foreach (string text4 in new string[] { text3, "content", "Content" })
             {
-                foreach (string text5 in (text2.Length == 0) ? new string[] { text } : new string[] { text2 + "/" + text, text })
+                foreach (string text5 in (text2.Length == 0) ? new string[] { text } : [text2 + "/" + text, text])
                 {
                     string text6 = (text4.TrimEnd('/') + "/" + text5.TrimStart('/')).Replace('\\', '/');
                     try

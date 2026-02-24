@@ -18,7 +18,7 @@ namespace ctr_wp7.Banner
         {
             string text = Preferences._getStringForKey("lastVersionLaunched");
             string fullName = Assembly.GetExecutingAssembly().FullName;
-            string text2 = fullName.Split(new char[] { '=' })[1].Split(new char[] { ',' })[0];
+            string text2 = fullName.Split(['='])[1].Split([','])[0];
             if (text2 != text)
             {
                 using (IsolatedStorageFile userStoreForApplication = IsolatedStorageFile.GetUserStoreForApplication())

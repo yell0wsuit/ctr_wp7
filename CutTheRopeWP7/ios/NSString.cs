@@ -218,7 +218,7 @@ namespace ctr_wp7.ios
         public List<NSString> componentsSeparatedByString(char ch)
         {
             List<NSString> list = [];
-            char[] array = new char[] { ch };
+            char[] array = [ch];
             string[] array2 = value_.Split(array);
             foreach (string text in array2)
             {

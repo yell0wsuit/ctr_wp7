@@ -71,7 +71,7 @@ namespace ctr_wp7.iframework
         // Token: 0x06000179 RID: 377 RVA: 0x0000B428 File Offset: 0x00009628
         public float[] toFloatArray()
         {
-            return new float[] { r, g, b, a };
+            return [r, g, b, a];
         }
 
         // Token: 0x0600017A RID: 378 RVA: 0x0000B464 File Offset: 0x00009664

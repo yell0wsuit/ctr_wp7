@@ -3936,7 +3936,7 @@ namespace ctr_wp7.game
             Vector vector6 = vectEqual(fls, vectUndefined) ? vectAdd(start, vectMult(vector4, startSize)) : fls;
             Vector vector7 = vectAdd(end, vectMult(vector3, endSize));
             Vector vector8 = vectAdd(end, vectMult(vector4, endSize));
-            float[] array = new float[] { vector6.x, vector6.y, vector5.x, vector5.y, vector7.x, vector7.y, vector8.x, vector8.y };
+            float[] array = [vector6.x, vector6.y, vector5.x, vector5.y, vector7.x, vector7.y, vector8.x, vector8.y];
             GLDrawer.drawSolidPolygonWOBorder(array, 4, c);
             le = vector8;
             re = vector7;
@@ -4150,7 +4150,7 @@ namespace ctr_wp7.game
         private const float GD_SLOWING_FACTOR = 5f;
 
         // Token: 0x04000D77 RID: 3447
-        private static int[] CANDIES = new int[] { 93, 101, 102 };
+        private static int[] CANDIES = [93, 101, 102];
 
         // Token: 0x04000D78 RID: 3448
         private DelayedDispatcher dd;

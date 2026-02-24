@@ -363,8 +363,8 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060004DD RID: 1245 RVA: 0x00024B20 File Offset: 0x00022D20
         public static void drawRect(float x, float y, float w, float h, RGBAColor color)
         {
-            float[] array = new float[]
-            {
+            float[] array =
+            [
                 x,
                 y,
                 x + w,
@@ -373,15 +373,15 @@ namespace ctr_wp7.iframework.visual
                 y + h,
                 x + w,
                 y + h
-            };
+            ];
             drawPolygon(array, 4, color);
         }
 
         // Token: 0x060004DE RID: 1246 RVA: 0x00024B68 File Offset: 0x00022D68
         public static void drawSolidRect(float x, float y, float w, float h, RGBAColor border, RGBAColor fill)
         {
-            float[] array = new float[]
-            {
+            float[] array =
+            [
                 x,
                 y,
                 x + w,
@@ -390,15 +390,15 @@ namespace ctr_wp7.iframework.visual
                 y + h,
                 x + w,
                 y + h
-            };
+            ];
             drawSolidPolygon(array, 4, border, fill);
         }
 
         // Token: 0x060004DF RID: 1247 RVA: 0x00024BB4 File Offset: 0x00022DB4
         public static void drawSolidRectWOBorder(float x, float y, float w, float h, RGBAColor fill)
         {
-            float[] array = new float[]
-            {
+            float[] array =
+            [
                 x,
                 y,
                 x + w,
@@ -407,7 +407,7 @@ namespace ctr_wp7.iframework.visual
                 y + h,
                 x + w,
                 y + h
-            };
+            ];
             OpenGL.glColor4f(fill.r, fill.g, fill.b, fill.a);
             OpenGL.glVertexPointer(2, 5, 0, array);
             OpenGL.glDrawArrays(8, 0, 4);
@@ -443,8 +443,8 @@ namespace ctr_wp7.iframework.visual
         private static Dictionary<int, Vector[]> VectorArray = [];
 
         // Token: 0x04000A26 RID: 2598
-        private static RGBAColor[] colors = new RGBAColor[]
-        {
+        private static RGBAColor[] colors =
+        [
             RGBAColor.transparentRGBA,
             RGBAColor.transparentRGBA,
             RGBAColor.transparentRGBA,
@@ -453,7 +453,7 @@ namespace ctr_wp7.iframework.visual
             RGBAColor.transparentRGBA,
             RGBAColor.transparentRGBA,
             RGBAColor.transparentRGBA
-        };
+        ];
 
         // Token: 0x04000A27 RID: 2599
         private static float[] verts = new float[16];

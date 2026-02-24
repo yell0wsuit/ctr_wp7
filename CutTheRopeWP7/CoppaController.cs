@@ -47,7 +47,7 @@ internal class CoppaController : ViewController, ButtonDelegate, TimelineDelegat
         Image.setElementPositionWithQuadCenter(image2, 409, 5);
         _ = coppaView.addChild(image2);
         string text2 = Application.getString(3276953).ToString();
-        string[] array = text2.Split(new char[] { '\n' });
+        string[] array = text2.Split(['\n']);
         Text[] array2 = new Text[array.Length];
         BaseElement baseElement = (BaseElement)new BaseElement().init();
         image2.y = (float)((double)SCREEN_HEIGHT - 0.75 * (double)SCREEN_HEIGHT) + num;

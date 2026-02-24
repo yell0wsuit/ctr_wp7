@@ -31,8 +31,8 @@ namespace ctr_wp7.iframework.visual
             {
                 return;
             }
-            float[] array = new float[]
-            {
+            float[] array =
+            [
                 default(float),
                 default(float),
                 t._maxS,
@@ -41,7 +41,7 @@ namespace ctr_wp7.iframework.visual
                 t._maxT,
                 t._maxS,
                 t._maxT
-            };
+            ];
             float[] array2 = new float[12];
             array2[0] = (float)x;
             array2[1] = (float)y;

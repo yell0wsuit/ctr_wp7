@@ -280,11 +280,11 @@ namespace ctr_wp7.ios
                 string[] array;
                 if (text3.Length == 0)
                 {
-                    array = new string[] { text };
+                    array = [text];
                 }
                 else
                 {
-                    array = new string[] { text3 + "/" + text, text };
+                    array = [text3 + "/" + text, text];
                 }
                 foreach (string text5 in array)
                 {

@@ -209,8 +209,8 @@ namespace ctr_wp7.iframework.visual
                 num += texture.quadOffsets[n].x;
                 num2 += texture.quadOffsets[n].y;
             }
-            float[] array = new float[]
-            {
+            float[] array =
+            [
                 num,
                 num2,
                 num + w,
@@ -219,7 +219,7 @@ namespace ctr_wp7.iframework.visual
                 num2 + h,
                 num + w,
                 num2 + h
-            };
+            ];
             OpenGL.glEnable(0);
             OpenGL.glBindTexture(texture.name());
             OpenGL.glVertexPointer(2, 5, 0, array);

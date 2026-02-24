@@ -54,11 +54,11 @@
         {
             if (_array == null)
             {
-                _array = new float[]
-                {
+                _array =
+                [
                     blX, blY, blZ, brX, brY, brZ, tlX, tlY, tlZ, trX,
                     trY, trZ
-                };
+                ];
             }
             return _array;
         }

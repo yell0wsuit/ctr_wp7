@@ -859,7 +859,7 @@ namespace ctr_wp7.ctr_original
             Image image2 = Image.Image_createWithResIDQuad(69, 5);
             _ = vbox.addChild(image2);
             string text2 = Application.getString(1310784).ToString();
-            string[] array = new string[] { "%@" };
+            string[] array = ["%@"];
             string[] array2 = text2.Split(array, 0);
             for (int i = 0; i < array2.Length; i++)
             {
@@ -870,7 +870,7 @@ namespace ctr_wp7.ctr_original
                 if (i == 2)
                 {
                     string fullName = Assembly.GetExecutingAssembly().FullName;
-                    text2 += fullName.Split(new char[] { '=' })[1].Split(new char[] { ',' })[0];
+                    text2 += fullName.Split(['='])[1].Split([','])[0];
                     text2 += " ";
                 }
                 text2 += array2[i];
@@ -2402,7 +2402,7 @@ namespace ctr_wp7.ctr_original
                 {
                     FirstTime = false;
                 }
-                string text3 = Assembly.GetExecutingAssembly().FullName.Split(new char[] { '=' })[1].Split(new char[] { ',' })[0];
+                string text3 = Assembly.GetExecutingAssembly().FullName.Split(['='])[1].Split([','])[0];
                 string text4 = "MMENU_SCREEN_SHOWN";
                 List<string> list3 = ["first_time", FirstTime.ToString()];
                 FlurryAPI.logEventwithParams(text4, list3, true, true, false);
