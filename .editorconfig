@@ -36,3 +36,4 @@ dotnet_diagnostic.IDE0052.severity = none   # Unused private member
 dotnet_diagnostic.CA1310.severity = none    # Specify StringComparison
 dotnet_diagnostic.IDE0060.severity = none   # Remove unused parameter
 dotnet_diagnostic.CA1707.severity = none
+dotnet_diagnostic.IDE0051.severity = none
