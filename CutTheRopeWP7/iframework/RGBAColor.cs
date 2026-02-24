@@ -8,7 +8,7 @@ namespace ctr_wp7.iframework
     public struct RGBAColor
     {
         // Token: 0x06000172 RID: 370 RVA: 0x0000B27C File Offset: 0x0000947C
-        public Color toXNA()
+        public readonly Color toXNA()
         {
             Color color = default;
             int num = (int)(r * 255f);
@@ -69,7 +69,7 @@ namespace ctr_wp7.iframework
         }
 
         // Token: 0x06000179 RID: 377 RVA: 0x0000B428 File Offset: 0x00009628
-        public float[] toFloatArray()
+        public readonly float[] toFloatArray()
         {
             return [r, g, b, a];
         }

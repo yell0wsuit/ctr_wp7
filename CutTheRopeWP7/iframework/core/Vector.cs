@@ -27,13 +27,13 @@ namespace ctr_wp7.iframework.core
         }
 
         // Token: 0x060003C0 RID: 960 RVA: 0x000180BF File Offset: 0x000162BF
-        public Vector2 toXNA()
+        public readonly Vector2 toXNA()
         {
             return new Vector2(x, y);
         }
 
         // Token: 0x060003C1 RID: 961 RVA: 0x000180D4 File Offset: 0x000162D4
-        public override string ToString()
+        public override readonly string ToString()
         {
             return string.Concat(new object[] { "Vector(x=", x, ",y=", y, ")" });
         }

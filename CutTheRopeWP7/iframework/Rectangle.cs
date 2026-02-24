@@ -22,7 +22,7 @@
         }
 
         // Token: 0x0600016A RID: 362 RVA: 0x0000AFBD File Offset: 0x000091BD
-        public bool isValid()
+        public readonly bool isValid()
         {
             return x != 0f || y != 0f || w != 0f || h != 0f;
         }
