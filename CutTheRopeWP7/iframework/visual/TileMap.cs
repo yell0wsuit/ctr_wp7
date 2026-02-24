@@ -101,9 +101,11 @@ namespace ctr_wp7.iframework.visual
                 num = drawers.Count;
                 drawers.Add(imageMultiDrawer2);
             }
-            TileEntry tileEntry = new();
-            tileEntry.drawerIndex = num;
-            tileEntry.quad = q;
+            TileEntry tileEntry = new()
+            {
+                drawerIndex = num,
+                quad = q
+            };
             tiles[ti] = tileEntry;
         }
 

@@ -91,10 +91,12 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060005F7 RID: 1527 RVA: 0x0002CD68 File Offset: 0x0002AF68
         public void mapCharAtXYatIndex(char ch, float dx, float dy, int n)
         {
-            FontWP7.CharPosition charPosition = new();
-            charPosition.x = dx;
-            charPosition.y = dy;
-            charPosition.ch = ch;
+            FontWP7.CharPosition charPosition = new()
+            {
+                x = dx,
+                y = dy,
+                ch = ch
+            };
             if (charsToDraw == null || n == 0)
             {
                 charsToDraw = [];

@@ -470,20 +470,26 @@ namespace ctr_wp7.iframework
             InitRasterizerState();
             s_glServerSideFlags[0] = true;
             s_glClientStateFlags[0] = true;
-            s_effectTexture = new BasicEffect(WP7Singletons.GraphicsDevice);
-            s_effectTexture.VertexColorEnabled = false;
-            s_effectTexture.TextureEnabled = true;
-            s_effectTexture.View = Matrix.Identity;
-            s_effectTextureColor = new BasicEffect(WP7Singletons.GraphicsDevice);
-            s_effectTextureColor.VertexColorEnabled = true;
-            s_effectTextureColor.TextureEnabled = true;
-            s_effectTextureColor.View = Matrix.Identity;
-            s_effectColor = new BasicEffect(WP7Singletons.GraphicsDevice);
-            s_effectColor.VertexColorEnabled = true;
-            s_effectColor.TextureEnabled = false;
-            s_effectColor.Alpha = 1f;
-            s_effectColor.Texture = null;
-            s_effectColor.View = Matrix.Identity;
+            s_effectTexture = new BasicEffect(WP7Singletons.GraphicsDevice)
+            {
+                VertexColorEnabled = false,
+                TextureEnabled = true,
+                View = Matrix.Identity
+            };
+            s_effectTextureColor = new BasicEffect(WP7Singletons.GraphicsDevice)
+            {
+                VertexColorEnabled = true,
+                TextureEnabled = true,
+                View = Matrix.Identity
+            };
+            s_effectColor = new BasicEffect(WP7Singletons.GraphicsDevice)
+            {
+                VertexColorEnabled = true,
+                TextureEnabled = false,
+                Alpha = 1f,
+                Texture = null,
+                View = Matrix.Identity
+            };
         }
 
         // Token: 0x0600051D RID: 1309 RVA: 0x000259A0 File Offset: 0x00023BA0
@@ -515,13 +521,17 @@ namespace ctr_wp7.iframework
         // Token: 0x0600051E RID: 1310 RVA: 0x00025A68 File Offset: 0x00023C68
         private static void InitRasterizerState()
         {
-            s_rasterizerStateSolidColor = new RasterizerState();
-            s_rasterizerStateSolidColor.FillMode = FillMode.Solid;
-            s_rasterizerStateSolidColor.CullMode = CullMode.None;
-            s_rasterizerStateSolidColor.ScissorTestEnable = true;
-            s_rasterizerStateTexture = new RasterizerState();
-            s_rasterizerStateTexture.CullMode = CullMode.None;
-            s_rasterizerStateTexture.ScissorTestEnable = true;
+            s_rasterizerStateSolidColor = new RasterizerState
+            {
+                FillMode = FillMode.Solid,
+                CullMode = CullMode.None,
+                ScissorTestEnable = true
+            };
+            s_rasterizerStateTexture = new RasterizerState
+            {
+                CullMode = CullMode.None,
+                ScissorTestEnable = true
+            };
         }
 
         // Token: 0x0600051F RID: 1311 RVA: 0x00025AC0 File Offset: 0x00023CC0

@@ -33,11 +33,13 @@ namespace ctr_wp7.ios
             {
                 Init();
             }
-            Entry entry = new();
-            entry.f = f;
-            entry.p = p;
-            entry.fireTime = 0f;
-            entry.delay = interval;
+            Entry entry = new()
+            {
+                f = f,
+                p = p,
+                fireTime = 0f,
+                delay = interval
+            };
             Timers.Add(entry);
             return Enumerable.Count(Timers) - 1;
         }

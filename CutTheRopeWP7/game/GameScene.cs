@@ -38,11 +38,15 @@ namespace ctr_wp7.game
                 dd = (DelayedDispatcher)new DelayedDispatcher().init();
                 initialCameraToStarDistance = -1f;
                 restartState = -1;
-                aniPool = new AnimationsPool();
-                aniPool.visible = false;
+                aniPool = new AnimationsPool
+                {
+                    visible = false
+                };
                 _ = addChild(aniPool);
-                staticAniPool = new AnimationsPool();
-                staticAniPool.visible = false;
+                staticAniPool = new AnimationsPool
+                {
+                    visible = false
+                };
                 _ = addChild(staticAniPool);
                 camera = new Camera2D().initWithSpeedandType(7f, CAMERA_TYPE.CAMERA_SPEED_DELAY);
                 pack = ctrrootController.getPack();
@@ -2999,12 +3003,14 @@ namespace ctr_wp7.game
                 Vector vector10 = vectAdd(startPos[ti], camera.pos);
                 Vector vector11 = vectAdd(vect(tx, ty), camera.pos);
                 float num9 = vectDistance(vector10, vector11);
-                FingerCut fingerCut = new();
-                fingerCut.start = vector10;
-                fingerCut.end = vector11;
-                fingerCut.startSize = 5f;
-                fingerCut.endSize = 5f;
-                fingerCut.c = RGBAColor.whiteRGBA;
+                FingerCut fingerCut = new()
+                {
+                    start = vector10,
+                    end = vector11,
+                    startSize = 5f,
+                    endSize = 5f,
+                    c = RGBAColor.whiteRGBA
+                };
                 fingerCuts[ti].Add(fingerCut);
                 int num10 = 0;
                 List<FingerCut> list = fingerCuts[ti];

@@ -342,11 +342,13 @@ namespace ctr_wp7.ctr_commons
                                 {
                                     if (!gUseFingerDelta || (ctrtouchState.Moved && touches.Count <= 1))
                                     {
-                                        CTRTouchState ctrtouchState2 = new();
-                                        ctrtouchState2.Id = touchLocation.Id;
-                                        ctrtouchState2.Position = touchLocation.Position;
-                                        ctrtouchState2.State = touchLocation.State;
-                                        ctrtouchState2.Moved = ctrtouchState.Moved;
+                                        CTRTouchState ctrtouchState2 = new()
+                                        {
+                                            Id = touchLocation.Id,
+                                            Position = touchLocation.Position,
+                                            State = touchLocation.State,
+                                            Moved = ctrtouchState.Moved
+                                        };
                                         currentTouches.Add(ctrtouchState2);
                                         prevTouchesTemp.Add(ctrtouchState2);
                                         break;
@@ -355,11 +357,13 @@ namespace ctr_wp7.ctr_commons
                                     float num2 = touchLocation.Position.Y - ctrtouchState.Position.Y;
                                     if ((num != 0f || num2 != 0f) && num * num + num2 * num2 >= 81f)
                                     {
-                                        CTRTouchState ctrtouchState3 = new();
-                                        ctrtouchState3.Id = touchLocation.Id;
-                                        ctrtouchState3.Position = touchLocation.Position;
-                                        ctrtouchState3.State = touchLocation.State;
-                                        ctrtouchState3.Moved = true;
+                                        CTRTouchState ctrtouchState3 = new()
+                                        {
+                                            Id = touchLocation.Id,
+                                            Position = touchLocation.Position,
+                                            State = touchLocation.State,
+                                            Moved = true
+                                        };
                                         currentTouches.Add(ctrtouchState3);
                                         prevTouchesTemp.Add(ctrtouchState3);
                                         break;
@@ -371,11 +375,13 @@ namespace ctr_wp7.ctr_commons
                             continue;
                         }
                     }
-                    CTRTouchState ctrtouchState4 = new();
-                    ctrtouchState4.Id = touchLocation.Id;
-                    ctrtouchState4.Position = touchLocation.Position;
-                    ctrtouchState4.State = touchLocation.State;
-                    ctrtouchState4.Moved = false;
+                    CTRTouchState ctrtouchState4 = new()
+                    {
+                        Id = touchLocation.Id,
+                        Position = touchLocation.Position,
+                        State = touchLocation.State,
+                        Moved = false
+                    };
                     currentTouches.Add(ctrtouchState4);
                     prevTouchesTemp.Add(ctrtouchState4);
                 }

@@ -22,9 +22,11 @@ namespace ctr_wp7
             }
             if (Regions[R1].End >= Regions[R1 + 1].Start)
             {
-                Region region = new();
-                region.Start = Regions[R1].Start;
-                region.End = Regions[R1 + 1].End;
+                Region region = new()
+                {
+                    Start = Regions[R1].Start,
+                    End = Regions[R1 + 1].End
+                };
                 Regions[R1] = region;
                 Regions.RemoveAt(R1 + 1);
             }
@@ -51,9 +53,11 @@ namespace ctr_wp7
                 }
                 if (c < region.Start - '\u0001')
                 {
-                    Region region2 = new();
-                    region2.Start = c;
-                    region2.End = c;
+                    Region region2 = new()
+                    {
+                        Start = c,
+                        End = c
+                    };
                     Regions.Insert(i, region2);
                     return;
                 }
@@ -71,9 +75,11 @@ namespace ctr_wp7
                     return;
                 }
             }
-            Region region5 = new();
-            region5.Start = c;
-            region5.End = c;
+            Region region5 = new()
+            {
+                Start = c,
+                End = c
+            };
             Regions.Add(region5);
         }
 
