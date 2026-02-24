@@ -24,7 +24,7 @@ namespace ctr_wp7.iframework.helpers
                     path = new Vector[pathCapacity];
                     for (int i = 0; i < path.Length; i++)
                     {
-                        path[i] = default(Vector);
+                        path[i] = default;
                     }
                     moveSpeed = new float[pathCapacity];
                     for (int j = 0; j < moveSpeed.Length; j++)

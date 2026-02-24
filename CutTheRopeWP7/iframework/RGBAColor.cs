@@ -10,7 +10,7 @@ namespace ctr_wp7.iframework
         // Token: 0x06000172 RID: 370 RVA: 0x0000B27C File Offset: 0x0000947C
         public Color toXNA()
         {
-            Color color = default(Color);
+            Color color = default;
             int num = (int)(r * 255f);
             int num2 = (int)(g * 255f);
             int num3 = (int)(b * 255f);

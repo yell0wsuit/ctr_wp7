@@ -158,7 +158,7 @@ namespace ctr_wp7.iframework.visual
             {
                 return calc2PointBezier(ref p[0], ref p[1], delta);
             }
-            return default(Vector);
+            return default;
         }
 
         // Token: 0x060004D6 RID: 1238 RVA: 0x0002430C File Offset: 0x0002250C
@@ -176,7 +176,7 @@ namespace ctr_wp7.iframework.visual
             {
                 return calc2PointBezier(ref p[0], ref p[1], delta);
             }
-            return default(Vector);
+            return default;
         }
 
         // Token: 0x060004D7 RID: 1239 RVA: 0x0002437C File Offset: 0x0002257C

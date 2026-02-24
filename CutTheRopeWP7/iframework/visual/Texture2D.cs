@@ -107,11 +107,11 @@ namespace ctr_wp7.iframework.visual
         {
             float[] array =
             [
-                default(float),
-                default(float),
+                default,
+                default,
                 t._maxS,
-                default(float),
-                default(float),
+                default,
+                default,
                 t._maxT,
                 t._maxS,
                 t._maxT

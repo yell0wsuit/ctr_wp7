@@ -171,12 +171,12 @@ namespace ctr_wp7.iframework.visual
             particle.radialAccel = radialAccel + (radialAccelVar * RND_MINUS1_1);
             particle.tangentialAccel = tangentialAccel + (tangentialAccelVar * RND_MINUS1_1);
             particle.life = life + (lifeVar * RND_MINUS1_1);
-            RGBAColor rgbacolor = default(RGBAColor);
+            RGBAColor rgbacolor = default;
             rgbacolor.r = startColor.r + (startColorVar.r * RND_MINUS1_1);
             rgbacolor.g = startColor.g + (startColorVar.g * RND_MINUS1_1);
             rgbacolor.b = startColor.b + (startColorVar.b * RND_MINUS1_1);
             rgbacolor.a = startColor.a + (startColorVar.a * RND_MINUS1_1);
-            RGBAColor rgbacolor2 = default(RGBAColor);
+            RGBAColor rgbacolor2 = default;
             rgbacolor2.r = endColor.r + (endColorVar.r * RND_MINUS1_1);
             rgbacolor2.g = endColor.g + (endColorVar.g * RND_MINUS1_1);
             rgbacolor2.b = endColor.b + (endColorVar.b * RND_MINUS1_1);

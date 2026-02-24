@@ -173,7 +173,7 @@ namespace ctr_wp7.iframework.media
 
         private static bool TryLoadAssetWithFallback<T>(int resId, out T asset) where T : class
         {
-            asset = default(T);
+            asset = default;
             if (_contentManager == null)
             {
                 return false;

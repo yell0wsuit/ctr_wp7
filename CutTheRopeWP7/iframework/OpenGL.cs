@@ -326,7 +326,7 @@ namespace ctr_wp7.iframework
                 VertexPositionColorArray.Add(s_GLVertexPointer.Count, array);
             }
             int num = 0;
-            Vector3 vector = default(Vector3);
+            Vector3 vector = default;
             for (int i = 0; i < array.Length; i++)
             {
                 vector.X = s_GLVertexPointer.pointer_[num++];
@@ -347,7 +347,7 @@ namespace ctr_wp7.iframework
                 VertexPositionColorArray.Add(s_GLVertexPointer.Count, array);
             }
             int num = 0;
-            Vector3 vector = default(Vector3);
+            Vector3 vector = default;
             for (int i = 0; i < array.Length; i++)
             {
                 vector.X = s_GLVertexPointer.pointer_[num++];
@@ -381,13 +381,13 @@ namespace ctr_wp7.iframework
             }
             int num = 0;
             int num2 = 0;
-            Vector3 vector2 = default(Vector3);
+            Vector3 vector2 = default;
             for (int i = 0; i < array.Length; i++)
             {
                 vector2.X = s_GLVertexPointer.pointer_[num++];
                 vector2.Y = s_GLVertexPointer.pointer_[num++];
                 vector2.Z = s_GLVertexPointer.size_ == 2 ? 0f : s_GLVertexPointer.pointer_[num++];
-                Vector2 vector3 = default(Vector2);
+                Vector2 vector3 = default;
                 vector3.X = s_GLTexCoordPointer.pointer_[num2++];
                 vector3.Y = s_GLTexCoordPointer.pointer_[num2++];
                 int j = 2;
@@ -413,13 +413,13 @@ namespace ctr_wp7.iframework
             }
             int num = 0;
             int num2 = 0;
-            Vector3 vector = default(Vector3);
+            Vector3 vector = default;
             for (int i = 0; i < array.Length; i++)
             {
                 vector.X = s_GLVertexPointer.pointer_[num++];
                 vector.Y = s_GLVertexPointer.pointer_[num++];
                 vector.Z = s_GLVertexPointer.size_ == 2 ? 0f : s_GLVertexPointer.pointer_[num++];
-                Vector2 vector2 = default(Vector2);
+                Vector2 vector2 = default;
                 vector2.X = s_GLTexCoordPointer.pointer_[num2++];
                 vector2.Y = s_GLTexCoordPointer.pointer_[num2++];
                 int j = 2;

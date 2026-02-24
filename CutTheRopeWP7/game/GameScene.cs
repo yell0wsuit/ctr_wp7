@@ -3350,7 +3350,7 @@ namespace ctr_wp7.game
                         j++;
                     }
                     List<Vector> list = [];
-                    Vector vector = default(Vector);
+                    Vector vector = default;
                     bool flag = true;
                     for (int k = 0; k < array.Length; k++)
                     {

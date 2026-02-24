@@ -5362,7 +5362,7 @@ namespace ctr_wp7.ctr_original
         // Token: 0x04000678 RID: 1656
         internal static int[] PACK_STARTUP =
         [
-            default(int),
+            default,
             1,
             -1
         ];
