@@ -163,10 +163,7 @@ namespace ctr_wp7.ctr_original
         // (set) Token: 0x06000556 RID: 1366 RVA: 0x0002947F File Offset: 0x0002767F
         public static bool IsTrial
         {
-            set
-            {
-                isTrial = value;
-            }
+            set => isTrial = value;
         }
 
         // Token: 0x06000557 RID: 1367 RVA: 0x00029487 File Offset: 0x00027687

@@ -14,14 +14,7 @@ namespace ctr_wp7.wp7utilities
         // (set) Token: 0x060007B1 RID: 1969 RVA: 0x0003C464 File Offset: 0x0003A664
         public Vector2 Zoom
         {
-            get
-            {
-                return zoom_;
-            }
-            set
-            {
-                zoom_ = value;
-            }
+            get => zoom_; set => zoom_ = value;
         }
 
         // Token: 0x17000023 RID: 35
@@ -29,14 +22,7 @@ namespace ctr_wp7.wp7utilities
         // (set) Token: 0x060007B3 RID: 1971 RVA: 0x0003C475 File Offset: 0x0003A675
         public float Rotation
         {
-            get
-            {
-                return rotation_;
-            }
-            set
-            {
-                rotation_ = value;
-            }
+            get => rotation_; set => rotation_ = value;
         }
 
         // Token: 0x060007B4 RID: 1972 RVA: 0x0003C47E File Offset: 0x0003A67E
@@ -50,10 +36,7 @@ namespace ctr_wp7.wp7utilities
         // (set) Token: 0x060007B6 RID: 1974 RVA: 0x0003C49A File Offset: 0x0003A69A
         public Vector2 Translate
         {
-            get
-            {
-                return translate_;
-            }
+            get => translate_;
             set
             {
                 translate_ = value * -1f;
@@ -66,14 +49,7 @@ namespace ctr_wp7.wp7utilities
         // (set) Token: 0x060007B8 RID: 1976 RVA: 0x0003C4CC File Offset: 0x0003A6CC
         public Vector2 RotationCenter
         {
-            get
-            {
-                return rotationCenter_;
-            }
-            set
-            {
-                rotationCenter_ = value;
-            }
+            get => rotationCenter_; set => rotationCenter_ = value;
         }
 
         // Token: 0x17000026 RID: 38

@@ -10,10 +10,7 @@ namespace ctr_wp7.wp7utilities
         // (set) Token: 0x06000384 RID: 900 RVA: 0x00016455 File Offset: 0x00014655
         public static int Width
         {
-            get
-            {
-                return _width;
-            }
+            get => _width;
             set
             {
                 _width = value;
@@ -27,10 +24,7 @@ namespace ctr_wp7.wp7utilities
         // (set) Token: 0x06000386 RID: 902 RVA: 0x0001647F File Offset: 0x0001467F
         public static int Height
         {
-            get
-            {
-                return _height;
-            }
+            get => _height;
             set
             {
                 _height = value;
