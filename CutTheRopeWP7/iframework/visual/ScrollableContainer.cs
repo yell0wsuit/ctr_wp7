@@ -17,7 +17,7 @@ namespace ctr_wp7.iframework.visual
             mp = getMaxScroll();
             float num = (float)container.width / (float)width;
             float num2 = (float)container.height / (float)height;
-            sc = MathHelper.vect(num, num2);
+            sc = vect(num, num2);
         }
 
         // Token: 0x06000604 RID: 1540 RVA: 0x0002D90C File Offset: 0x0002BB0C
@@ -80,12 +80,12 @@ namespace ctr_wp7.iframework.visual
         {
             if (!passTransformationsToChilds)
             {
-                BaseElement.restoreTransformations(this);
+                restoreTransformations(this);
             }
             container.preDraw();
             if (!container.passTransformationsToChilds)
             {
-                BaseElement.restoreTransformations(container);
+                restoreTransformations(container);
             }
             Dictionary<int, BaseElement> childs = container.getChilds();
             int i = 0;
@@ -95,23 +95,23 @@ namespace ctr_wp7.iframework.visual
                 BaseElement baseElement = childs[i];
                 float drawX = baseElement.drawX;
                 float drawY = baseElement.drawY;
-                if (baseElement != null && baseElement.visible && MathHelper.rectInRect(drawX, drawY, drawX + (float)baseElement.width, drawY + (float)baseElement.height, this.drawX, this.drawY, this.drawX + (float)width, this.drawY + (float)height))
+                if (baseElement != null && baseElement.visible && rectInRect(drawX, drawY, drawX + (float)baseElement.width, drawY + (float)baseElement.height, this.drawX, this.drawY, this.drawX + (float)width, this.drawY + (float)height))
                 {
                     baseElement.draw();
                 }
                 else
                 {
-                    BaseElement.calculateTopLeft(baseElement);
+                    calculateTopLeft(baseElement);
                 }
                 i++;
             }
             if (container.passTransformationsToChilds)
             {
-                BaseElement.restoreTransformations(container);
+                restoreTransformations(container);
             }
             if (passTransformationsToChilds)
             {
-                BaseElement.restoreTransformations(this);
+                restoreTransformations(this);
             }
         }
 
@@ -120,7 +120,7 @@ namespace ctr_wp7.iframework.visual
         {
             base.update(delta);
             delta = fixedDelta;
-            targetPoint = MathHelper.vectZero;
+            targetPoint = vectZero;
             if ((double)touchTimer > 0.0)
             {
                 touchTimer -= delta;
@@ -146,37 +146,37 @@ namespace ctr_wp7.iframework.visual
                     }
                 }
             }
-            if (touchState == ScrollableContainer.TOUCH_STATE.TOUCH_STATE_UP)
+            if (touchState == TOUCH_STATE.TOUCH_STATE_UP)
             {
                 if (shouldBounceHorizontally)
                 {
                     if ((double)container.x > 0.0)
                     {
                         float num = (float)(50.0 + (double)Math.Abs(container.x) * 5.0);
-                        moveToPointDeltaSpeed(MathHelper.vect(0f, container.y), delta, num);
+                        moveToPointDeltaSpeed(vect(0f, container.y), delta, num);
                     }
                     else if (container.x < (float)(-(float)container.width + width) && (double)container.x < 0.0)
                     {
                         float num2 = (float)(50.0 + (double)Math.Abs((float)(-(float)container.width + width) - container.x) * 5.0);
-                        moveToPointDeltaSpeed(MathHelper.vect((float)(-(float)container.width + width), container.y), delta, num2);
+                        moveToPointDeltaSpeed(vect((float)(-(float)container.width + width), container.y), delta, num2);
                     }
                 }
                 if (shouldBounceVertically)
                 {
                     if ((double)container.y > 0.0)
                     {
-                        moveToPointDeltaSpeed(MathHelper.vect(container.x, 0f), delta, (float)(50.0 + (double)Math.Abs(container.y) * 5.0));
+                        moveToPointDeltaSpeed(vect(container.x, 0f), delta, (float)(50.0 + (double)Math.Abs(container.y) * 5.0));
                     }
                     else if (container.y < (float)(-(float)container.height + height) && (double)container.y < 0.0)
                     {
-                        moveToPointDeltaSpeed(MathHelper.vect(container.x, (float)(-(float)container.height + height)), delta, (float)(50.0 + (double)Math.Abs((float)(-(float)container.height + height) - container.y) * 5.0));
+                        moveToPointDeltaSpeed(vect(container.x, (float)(-(float)container.height + height)), delta, (float)(50.0 + (double)Math.Abs((float)(-(float)container.height + height) - container.y) * 5.0));
                     }
                 }
             }
             if (movingToSpoint)
             {
                 Vector vector = spoints[targetSpoint];
-                moveToPointDeltaSpeed(vector, delta, (float)Math.Max(100.0, (double)MathHelper.vectDistance(vector, MathHelper.vect(container.x, container.y)) * 4.0 * (double)spointMoveMultiplier));
+                moveToPointDeltaSpeed(vector, delta, (float)Math.Max(100.0, (double)vectDistance(vector, vect(container.x, container.y)) * 4.0 * (double)spointMoveMultiplier));
                 if (container.x == vector.x && container.y == vector.y)
                 {
                     if (delegateScrollableContainerProtocol != null)
@@ -186,20 +186,20 @@ namespace ctr_wp7.iframework.visual
                     movingToSpoint = false;
                     targetSpoint = -1;
                     lastTargetSpoint = -1;
-                    move = MathHelper.vectZero;
+                    move = vectZero;
                 }
             }
-            else if (canSkipScrollPoints && spointsNum > 0 && !MathHelper.vectEqual(move, MathHelper.vectZero) && (double)MathHelper.vectLength(move) < 150.0 && targetSpoint == -1)
+            else if (canSkipScrollPoints && spointsNum > 0 && !vectEqual(move, vectZero) && (double)vectLength(move) < 150.0 && targetSpoint == -1)
             {
                 startMovingToSpointInDirection(move);
             }
-            if (!MathHelper.vectEqual(move, MathHelper.vectZero))
+            if (!vectEqual(move, vectZero))
             {
-                MathHelper.vectEqual(targetPoint, MathHelper.vectZero);
-                MathHelper.vect(container.x, container.y);
-                Vector vector2 = MathHelper.vectMult(MathHelper.vectNeg(move), 2f);
-                move = MathHelper.vectAdd(move, MathHelper.vectMult(vector2, delta));
-                Vector vector3 = MathHelper.vectMult(move, delta);
+                vectEqual(targetPoint, vectZero);
+                vect(container.x, container.y);
+                Vector vector2 = vectMult(vectNeg(move), 2f);
+                move = vectAdd(move, vectMult(vector2, delta));
+                Vector vector3 = vectMult(move, delta);
                 if ((double)Math.Abs(vector3.x) < 0.2)
                 {
                     vector3.x = 0f;
@@ -224,17 +224,17 @@ namespace ctr_wp7.iframework.visual
             touchTimer = 0f;
             passTouches = false;
             touchReleaseTimer = 0f;
-            move = MathHelper.vectZero;
+            move = vectZero;
             if (resetScrollOnShow)
             {
-                setScroll(MathHelper.vectZero);
+                setScroll(vectZero);
             }
         }
 
         // Token: 0x0600060E RID: 1550 RVA: 0x0002E0B4 File Offset: 0x0002C2B4
         public override bool onTouchDownXY(float tx, float ty)
         {
-            if (!MathHelper.pointInRect(tx, ty, drawX, drawY, (float)width, (float)height))
+            if (!pointInRect(tx, ty, drawX, drawY, (float)width, (float)height))
             {
                 return false;
             }
@@ -249,15 +249,15 @@ namespace ctr_wp7.iframework.visual
             else
             {
                 touchTimer = touchPassTimeout;
-                savedTouch = MathHelper.vect(tx, ty);
-                totalDrag = MathHelper.vectZero;
+                savedTouch = vect(tx, ty);
+                totalDrag = vectZero;
                 passTouches = false;
             }
-            touchState = ScrollableContainer.TOUCH_STATE.TOUCH_STATE_DOWN;
+            touchState = TOUCH_STATE.TOUCH_STATE_DOWN;
             movingByInertion = false;
             movingToSpoint = false;
             targetSpoint = -1;
-            dragStart = MathHelper.vect(tx, ty);
+            dragStart = vect(tx, ty);
             return true;
         }
 
@@ -280,24 +280,24 @@ namespace ctr_wp7.iframework.visual
                     return true;
                 }
             }
-            Vector vector = MathHelper.vect(tx, ty);
-            if (MathHelper.vectEqualApproximately(dragStart, vector, 5f))
+            Vector vector = vect(tx, ty);
+            if (vectEqualApproximately(dragStart, vector, 5f))
             {
                 return false;
             }
-            if (MathHelper.vectEqual(dragStart, ScrollableContainer.impossibleTouch) && !MathHelper.pointInRect(tx, ty, drawX, drawY, (float)width, (float)height))
+            if (vectEqual(dragStart, impossibleTouch) && !pointInRect(tx, ty, drawX, drawY, (float)width, (float)height))
             {
                 return false;
             }
-            touchState = ScrollableContainer.TOUCH_STATE.TOUCH_STATE_MOVING;
-            if (!MathHelper.vectEqual(dragStart, ScrollableContainer.impossibleTouch))
+            touchState = TOUCH_STATE.TOUCH_STATE_MOVING;
+            if (!vectEqual(dragStart, impossibleTouch))
             {
-                Vector vector2 = MathHelper.vectSub(vector, dragStart);
+                Vector vector2 = vectSub(vector, dragStart);
                 dragStart = vector;
-                vector2.x = MathHelper.FIT_TO_BOUNDARIES(vector2.x, -maxTouchMoveLength, maxTouchMoveLength);
-                vector2.y = MathHelper.FIT_TO_BOUNDARIES(vector2.y, -maxTouchMoveLength, maxTouchMoveLength);
-                totalDrag = MathHelper.vectAdd(totalDrag, vector2);
-                if (((double)touchTimer > 0.0 || untouchChildsOnMove) && MathHelper.vectLength(totalDrag) > touchMoveIgnoreLength)
+                vector2.x = FIT_TO_BOUNDARIES(vector2.x, -maxTouchMoveLength, maxTouchMoveLength);
+                vector2.y = FIT_TO_BOUNDARIES(vector2.y, -maxTouchMoveLength, maxTouchMoveLength);
+                totalDrag = vectAdd(totalDrag, vector2);
+                if (((double)touchTimer > 0.0 || untouchChildsOnMove) && vectLength(totalDrag) > touchMoveIgnoreLength)
                 {
                     touchTimer = 0f;
                     passTouches = false;
@@ -320,7 +320,7 @@ namespace ctr_wp7.iframework.visual
                     vector2.y /= 2f;
                 }
                 staticMove = moveContainerBy(vector2);
-                move = MathHelper.vectZero;
+                move = vectZero;
                 inertiaTimeoutLeft = inertiaTimeout;
                 return true;
             }
@@ -348,36 +348,36 @@ namespace ctr_wp7.iframework.visual
                     return true;
                 }
             }
-            if (touchState == ScrollableContainer.TOUCH_STATE.TOUCH_STATE_UP)
+            if (touchState == TOUCH_STATE.TOUCH_STATE_UP)
             {
                 return false;
             }
-            touchState = ScrollableContainer.TOUCH_STATE.TOUCH_STATE_UP;
+            touchState = TOUCH_STATE.TOUCH_STATE_UP;
             if ((double)inertiaTimeoutLeft > 0.0)
             {
                 float num = inertiaTimeoutLeft / inertiaTimeout;
-                move = MathHelper.vectMult(staticMove, (float)((double)num * 50.0));
+                move = vectMult(staticMove, (float)((double)num * 50.0));
                 movingByInertion = true;
             }
             if (spointsNum > 0)
             {
                 if (!canSkipScrollPoints)
                 {
-                    if (minAutoScrollToSpointLength != -1f && MathHelper.vectLength(move) > minAutoScrollToSpointLength)
+                    if (minAutoScrollToSpointLength != -1f && vectLength(move) > minAutoScrollToSpointLength)
                     {
                         startMovingToSpointInDirection(move);
                     }
                     else
                     {
-                        startMovingToSpointInDirection(MathHelper.vectZero);
+                        startMovingToSpointInDirection(vectZero);
                     }
                 }
-                else if (MathHelper.vectEqual(move, MathHelper.vectZero))
+                else if (vectEqual(move, vectZero))
                 {
-                    startMovingToSpointInDirection(MathHelper.vectZero);
+                    startMovingToSpointInDirection(vectZero);
                 }
             }
-            dragStart = ScrollableContainer.impossibleTouch;
+            dragStart = impossibleTouch;
             return true;
         }
 
@@ -418,15 +418,15 @@ namespace ctr_wp7.iframework.visual
                 touchTimer = 0f;
                 passTouches = false;
                 touchReleaseTimer = 0f;
-                move = MathHelper.vectZero;
+                move = vectZero;
                 container = c;
                 width = (int)w;
                 height = (int)h;
                 container.parentAnchor = 9;
                 container.parent = this;
                 childs[0] = container;
-                dragStart = ScrollableContainer.impossibleTouch;
-                touchState = ScrollableContainer.TOUCH_STATE.TOUCH_STATE_UP;
+                dragStart = impossibleTouch;
+                touchState = TOUCH_STATE.TOUCH_STATE_UP;
             }
             return this;
         }
@@ -465,7 +465,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x06000617 RID: 1559 RVA: 0x0002E762 File Offset: 0x0002C962
         public virtual void addScrollPointAtXYwithID(float sx, float sy, int i)
         {
-            spoints[i] = MathHelper.vect(-sx, -sy);
+            spoints[i] = vect(-sx, -sy);
             if (i > spointsNum - 1)
             {
                 spointsNum = i + 1;
@@ -487,19 +487,19 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x0600061A RID: 1562 RVA: 0x0002E7AD File Offset: 0x0002C9AD
         public virtual Vector getScroll()
         {
-            return MathHelper.vect(-container.x, -container.y);
+            return vect(-container.x, -container.y);
         }
 
         // Token: 0x0600061B RID: 1563 RVA: 0x0002E7CC File Offset: 0x0002C9CC
         public virtual Vector getMaxScroll()
         {
-            return MathHelper.vect((float)(container.width - width), (float)(container.height - height));
+            return vect((float)(container.width - width), (float)(container.height - height));
         }
 
         // Token: 0x0600061C RID: 1564 RVA: 0x0002E7FC File Offset: 0x0002C9FC
         public virtual void setScroll(Vector s)
         {
-            move = MathHelper.vectZero;
+            move = vectZero;
             container.x = -s.x;
             container.y = -s.y;
             movingToSpoint = false;
@@ -510,7 +510,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x0600061D RID: 1565 RVA: 0x0002E850 File Offset: 0x0002CA50
         public virtual void placeToScrollPoint(int sp)
         {
-            move = MathHelper.vectZero;
+            move = vectZero;
             container.x = spoints[sp].x;
             container.y = spoints[sp].y;
             movingToSpoint = false;
@@ -544,16 +544,16 @@ namespace ctr_wp7.iframework.visual
             spointMoveDirection = d;
             int num = -1;
             float num2 = 9999999f;
-            float num3 = MathHelper.angleTo0_360(MathHelper.RADIANS_TO_DEGREES(MathHelper.vectAngleNormalized(d)));
-            Vector vector = MathHelper.vect(container.x, container.y);
+            float num3 = angleTo0_360(RADIANS_TO_DEGREES(vectAngleNormalized(d)));
+            Vector vector = vect(container.x, container.y);
             for (int i = 0; i < spointsNum; i++)
             {
                 if ((double)spoints[i].x <= 0.0 && (spoints[i].x >= (float)(-(float)container.width + width) || (double)spoints[i].x >= 0.0) && (double)spoints[i].y <= 0.0 && (spoints[i].y >= (float)(-(float)container.height + height) || (double)spoints[i].y >= 0.0))
                 {
-                    float num4 = MathHelper.vectDistance(spoints[i], vector);
-                    if (!MathHelper.vectEqual(d, MathHelper.vectZero))
+                    float num4 = vectDistance(spoints[i], vector);
+                    if (!vectEqual(d, vectZero))
                     {
-                        float num5 = MathHelper.angleTo0_360(MathHelper.RADIANS_TO_DEGREES(MathHelper.vectAngleNormalized(MathHelper.vectSub(spoints[i], vector))));
+                        float num5 = angleTo0_360(RADIANS_TO_DEGREES(vectAngleNormalized(vectSub(spoints[i], vector))));
                         if (Math.Abs(num5 - num3) > 90f)
                         {
                             goto IL_0187;
@@ -567,9 +567,9 @@ namespace ctr_wp7.iframework.visual
                 }
             IL_0187:;
             }
-            if (num == -1 && !MathHelper.vectEqual(d, MathHelper.vectZero))
+            if (num == -1 && !vectEqual(d, vectZero))
             {
-                calculateNearsetScrollPointInDirection(MathHelper.vectZero);
+                calculateNearsetScrollPointInDirection(vectZero);
                 return;
             }
             targetSpoint = num;
@@ -581,11 +581,11 @@ namespace ctr_wp7.iframework.visual
             {
                 delegateScrollableContainerProtocol.scrollableContainerchangedTargetScrollPoint(this, targetSpoint);
             }
-            float num6 = MathHelper.angleTo0_360(MathHelper.RADIANS_TO_DEGREES(MathHelper.vectAngleNormalized(move)));
-            float num7 = MathHelper.angleTo0_360(MathHelper.RADIANS_TO_DEGREES(MathHelper.vectAngleNormalized(MathHelper.vectSub(spoints[targetSpoint], vector))));
-            if (Math.Abs(MathHelper.angleTo0_360(num6 - num7)) < 90f)
+            float num6 = angleTo0_360(RADIANS_TO_DEGREES(vectAngleNormalized(move)));
+            float num7 = angleTo0_360(RADIANS_TO_DEGREES(vectAngleNormalized(vectSub(spoints[targetSpoint], vector))));
+            if (Math.Abs(angleTo0_360(num6 - num7)) < 90f)
             {
-                spointMoveMultiplier = (float)Math.Max(1.0, (double)MathHelper.vectLength(move) / 500.0);
+                spointMoveMultiplier = (float)Math.Max(1.0, (double)vectLength(move) / 500.0);
             }
             else
             {
@@ -607,7 +607,7 @@ namespace ctr_wp7.iframework.visual
             {
                 num2 = (float)Math.Min((double)Math.Max((float)(-(float)container.height + height), num2), 0.0);
             }
-            Vector vector = MathHelper.vectSub(MathHelper.vect(num, num2), MathHelper.vect(container.x, container.y));
+            Vector vector = vectSub(vect(num, num2), vect(container.x, container.y));
             container.x = num;
             container.y = num2;
             return vector;
@@ -616,13 +616,13 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x06000622 RID: 1570 RVA: 0x0002EC94 File Offset: 0x0002CE94
         public virtual void moveToPointDeltaSpeed(Vector tsp, float delta, float speed)
         {
-            Vector vector = MathHelper.vectSub(tsp, MathHelper.vect(container.x, container.y));
-            vector = MathHelper.vectNormalize(vector);
-            vector = MathHelper.vectMult(vector, speed);
+            Vector vector = vectSub(tsp, vect(container.x, container.y));
+            vector = vectNormalize(vector);
+            vector = vectMult(vector, speed);
             Mover.moveVariableToTarget(ref container.x, tsp.x, Math.Abs(vector.x), delta);
             Mover.moveVariableToTarget(ref container.y, tsp.y, Math.Abs(vector.y), delta);
             targetPoint = tsp;
-            move = MathHelper.vectZero;
+            move = vectZero;
         }
 
         // Token: 0x06000623 RID: 1571 RVA: 0x0002ED30 File Offset: 0x0002CF30

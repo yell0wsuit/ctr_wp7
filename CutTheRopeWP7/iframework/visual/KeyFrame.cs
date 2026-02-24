@@ -20,7 +20,7 @@ namespace ctr_wp7.iframework.visual
             {
                 timeOffset = time,
                 trackType = Track.TrackType.TRACK_ACTION,
-                transitionType = KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR,
+                transitionType = TransitionType.FRAME_TRANSITION_LINEAR,
                 value = keyFrameValue
             };
         }
@@ -28,7 +28,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060004AD RID: 1197 RVA: 0x00021F2A File Offset: 0x0002012A
         public static KeyFrame makeSingleAction(BaseElement target, string action, int p, int sp, double time)
         {
-            return KeyFrame.makeSingleAction(target, action, p, sp, (float)time);
+            return makeSingleAction(target, action, p, sp, (float)time);
         }
 
         // Token: 0x060004AE RID: 1198 RVA: 0x00021F38 File Offset: 0x00020138
@@ -36,13 +36,13 @@ namespace ctr_wp7.iframework.visual
         {
             List<Action> list = new List<Action>();
             list.Add(Action.createAction(target, action, p, sp));
-            return KeyFrame.makeAction(list, time);
+            return makeAction(list, time);
         }
 
         // Token: 0x060004AF RID: 1199 RVA: 0x00021F62 File Offset: 0x00020162
         public static KeyFrame makePos(double x, double y, KeyFrame.TransitionType transition, double time)
         {
-            return KeyFrame.makePos((int)x, (int)y, transition, (float)time);
+            return makePos((int)x, (int)y, transition, (float)time);
         }
 
         // Token: 0x060004B0 RID: 1200 RVA: 0x00021F70 File Offset: 0x00020170
@@ -63,7 +63,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060004B1 RID: 1201 RVA: 0x00021FC0 File Offset: 0x000201C0
         public static KeyFrame makeScale(double x, double y, KeyFrame.TransitionType transition, double time)
         {
-            return KeyFrame.makeScale((float)x, (float)y, transition, (float)time);
+            return makeScale((float)x, (float)y, transition, (float)time);
         }
 
         // Token: 0x060004B2 RID: 1202 RVA: 0x00021FD0 File Offset: 0x000201D0
@@ -84,7 +84,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060004B3 RID: 1203 RVA: 0x0002201E File Offset: 0x0002021E
         public static KeyFrame makeRotation(double r, KeyFrame.TransitionType transition, double time)
         {
-            return KeyFrame.makeRotation((int)r, transition, (float)time);
+            return makeRotation((int)r, transition, (float)time);
         }
 
         // Token: 0x060004B4 RID: 1204 RVA: 0x0002202C File Offset: 0x0002022C
@@ -104,7 +104,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060004B5 RID: 1205 RVA: 0x0002206F File Offset: 0x0002026F
         public static KeyFrame makeColor(RGBAColor c, KeyFrame.TransitionType transition, double time)
         {
-            return KeyFrame.makeColor(c, transition, (float)time);
+            return makeColor(c, transition, (float)time);
         }
 
         // Token: 0x060004B6 RID: 1206 RVA: 0x0002207C File Offset: 0x0002027C

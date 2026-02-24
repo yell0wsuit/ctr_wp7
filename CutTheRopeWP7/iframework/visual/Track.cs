@@ -20,13 +20,13 @@ namespace ctr_wp7.iframework.visual
         {
             t = timeline;
             type = trackType;
-            state = Track.TrackState.TRACK_NOT_ACTIVE;
+            state = TrackState.TRACK_NOT_ACTIVE;
             relative = false;
             nextKeyFrame = -1;
             keyFramesCount = 0;
             keyFramesCapacity = m;
             keyFrames = new KeyFrame[keyFramesCapacity];
-            if (type == Track.TrackType.TRACK_ACTION)
+            if (type == TrackType.TRACK_ACTION)
             {
                 actionSets = new List<List<Action>>();
             }
@@ -40,7 +40,7 @@ namespace ctr_wp7.iframework.visual
             setElementFromKeyFrame(kf);
             if (overrun > 0f)
             {
-                Track.updateActionTrack(this, overrun);
+                updateActionTrack(this, overrun);
                 overrun = 0f;
             }
         }
@@ -53,7 +53,7 @@ namespace ctr_wp7.iframework.visual
             {
                 keyFramesCount = i + 1;
             }
-            if (type == Track.TrackType.TRACK_ACTION)
+            if (type == TrackType.TRACK_ACTION)
             {
                 actionSets.Add(k.value.action.actionSet);
             }
@@ -89,18 +89,18 @@ namespace ctr_wp7.iframework.visual
             setElementFromKeyFrame(src);
             switch (type)
             {
-                case Track.TrackType.TRACK_POSITION:
+                case TrackType.TRACK_POSITION:
                     currentStepPerSecond.value.pos.x = (dst.value.pos.x - src.value.pos.x) / keyFrameTimeLeft;
                     currentStepPerSecond.value.pos.y = (dst.value.pos.y - src.value.pos.y) / keyFrameTimeLeft;
                     break;
-                case Track.TrackType.TRACK_SCALE:
+                case TrackType.TRACK_SCALE:
                     currentStepPerSecond.value.scale.scaleX = (dst.value.scale.scaleX - src.value.scale.scaleX) / keyFrameTimeLeft;
                     currentStepPerSecond.value.scale.scaleY = (dst.value.scale.scaleY - src.value.scale.scaleY) / keyFrameTimeLeft;
                     break;
-                case Track.TrackType.TRACK_ROTATION:
+                case TrackType.TRACK_ROTATION:
                     currentStepPerSecond.value.rotation.angle = (dst.value.rotation.angle - src.value.rotation.angle) / keyFrameTimeLeft;
                     break;
-                case Track.TrackType.TRACK_COLOR:
+                case TrackType.TRACK_COLOR:
                     currentStepPerSecond.value.color.rgba.r = (dst.value.color.rgba.r - src.value.color.rgba.r) / keyFrameTimeLeft;
                     currentStepPerSecond.value.color.rgba.g = (dst.value.color.rgba.g - src.value.color.rgba.g) / keyFrameTimeLeft;
                     currentStepPerSecond.value.color.rgba.b = (dst.value.color.rgba.b - src.value.color.rgba.b) / keyFrameTimeLeft;
@@ -111,7 +111,7 @@ namespace ctr_wp7.iframework.visual
             {
                 switch (type)
                 {
-                    case Track.TrackType.TRACK_POSITION:
+                    case TrackType.TRACK_POSITION:
                         currentStepPerSecond.value.pos.x *= 2f;
                         currentStepPerSecond.value.pos.y *= 2f;
                         currentStepAcceleration.value.pos.x = currentStepPerSecond.value.pos.x / keyFrameTimeLeft;
@@ -127,7 +127,7 @@ namespace ctr_wp7.iframework.visual
                             currentStepAcceleration.value.pos.y *= -1f;
                         }
                         break;
-                    case Track.TrackType.TRACK_SCALE:
+                    case TrackType.TRACK_SCALE:
                         currentStepPerSecond.value.scale.scaleX *= 2f;
                         currentStepPerSecond.value.scale.scaleY *= 2f;
                         currentStepAcceleration.value.scale.scaleX = currentStepPerSecond.value.scale.scaleX / keyFrameTimeLeft;
@@ -143,7 +143,7 @@ namespace ctr_wp7.iframework.visual
                             currentStepAcceleration.value.scale.scaleY *= -1f;
                         }
                         break;
-                    case Track.TrackType.TRACK_ROTATION:
+                    case TrackType.TRACK_ROTATION:
                         currentStepPerSecond.value.rotation.angle *= 2f;
                         currentStepAcceleration.value.rotation.angle = currentStepPerSecond.value.rotation.angle / keyFrameTimeLeft;
                         if (dst.transitionType == KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN)
@@ -155,7 +155,7 @@ namespace ctr_wp7.iframework.visual
                             currentStepAcceleration.value.rotation.angle *= -1f;
                         }
                         break;
-                    case Track.TrackType.TRACK_COLOR:
+                    case TrackType.TRACK_COLOR:
                         {
                             ColorParams color = currentStepPerSecond.value.color;
                             color.rgba.r = color.rgba.r * 2f;
@@ -193,7 +193,7 @@ namespace ctr_wp7.iframework.visual
             }
             if (overrun > 0f)
             {
-                Track.updateTrack(this, overrun);
+                updateTrack(this, overrun);
                 overrun = 0f;
             }
         }
@@ -204,7 +204,7 @@ namespace ctr_wp7.iframework.visual
             bool debugBreak = kf.debugBreak;
             switch (type)
             {
-                case Track.TrackType.TRACK_POSITION:
+                case TrackType.TRACK_POSITION:
                     if (!relative)
                     {
                         t.element.x = kf.value.pos.x;
@@ -214,7 +214,7 @@ namespace ctr_wp7.iframework.visual
                     t.element.x = elementPrevState.value.pos.x + kf.value.pos.x;
                     t.element.y = elementPrevState.value.pos.y + kf.value.pos.y;
                     return;
-                case Track.TrackType.TRACK_SCALE:
+                case TrackType.TRACK_SCALE:
                     if (!relative)
                     {
                         t.element.scaleX = kf.value.scale.scaleX;
@@ -224,7 +224,7 @@ namespace ctr_wp7.iframework.visual
                     t.element.scaleX = elementPrevState.value.scale.scaleX + kf.value.scale.scaleX;
                     t.element.scaleY = elementPrevState.value.scale.scaleY + kf.value.scale.scaleY;
                     return;
-                case Track.TrackType.TRACK_ROTATION:
+                case TrackType.TRACK_ROTATION:
                     if (!relative)
                     {
                         t.element.rotation = kf.value.rotation.angle;
@@ -232,7 +232,7 @@ namespace ctr_wp7.iframework.visual
                     }
                     t.element.rotation = elementPrevState.value.rotation.angle + kf.value.rotation.angle;
                     return;
-                case Track.TrackType.TRACK_COLOR:
+                case TrackType.TRACK_COLOR:
                     if (!relative)
                     {
                         t.element.color = kf.value.color.rgba;
@@ -243,7 +243,7 @@ namespace ctr_wp7.iframework.visual
                     t.element.color.b = elementPrevState.value.color.rgba.b + kf.value.color.rgba.b;
                     t.element.color.a = elementPrevState.value.color.rgba.a + kf.value.color.rgba.a;
                     return;
-                case Track.TrackType.TRACK_ACTION:
+                case TrackType.TRACK_ACTION:
                     {
                         for (int i = 0; i < kf.value.action.actionSet.Count; i++)
                         {
@@ -263,21 +263,21 @@ namespace ctr_wp7.iframework.visual
             bool debugBreak = kf.debugBreak;
             switch (type)
             {
-                case Track.TrackType.TRACK_POSITION:
+                case TrackType.TRACK_POSITION:
                     kf.value.pos.x = t.element.x;
                     kf.value.pos.y = t.element.y;
                     return;
-                case Track.TrackType.TRACK_SCALE:
+                case TrackType.TRACK_SCALE:
                     kf.value.scale.scaleX = t.element.scaleX;
                     kf.value.scale.scaleY = t.element.scaleY;
                     return;
-                case Track.TrackType.TRACK_ROTATION:
+                case TrackType.TRACK_ROTATION:
                     kf.value.rotation.angle = t.element.rotation;
                     return;
-                case Track.TrackType.TRACK_COLOR:
+                case TrackType.TRACK_COLOR:
                     kf.value.color.rgba = t.element.color;
                     break;
-                case Track.TrackType.TRACK_ACTION:
+                case TrackType.TRACK_ACTION:
                     break;
                 default:
                     return;
@@ -291,7 +291,7 @@ namespace ctr_wp7.iframework.visual
             {
                 return;
             }
-            if (thiss.state == Track.TrackState.TRACK_NOT_ACTIVE)
+            if (thiss.state == TrackState.TRACK_NOT_ACTIVE)
             {
                 if (!thiss.t.timelineDirReverse)
                 {
@@ -299,7 +299,7 @@ namespace ctr_wp7.iframework.visual
                     {
                         if (thiss.keyFramesCount > 1)
                         {
-                            thiss.state = Track.TrackState.TRACK_ACTIVE;
+                            thiss.state = TrackState.TRACK_ACTIVE;
                             thiss.nextKeyFrame = 0;
                             thiss.overrun = thiss.t.time - thiss.startTime;
                             thiss.nextKeyFrame++;
@@ -314,7 +314,7 @@ namespace ctr_wp7.iframework.visual
                 {
                     if (thiss.keyFramesCount > 1)
                     {
-                        thiss.state = Track.TrackState.TRACK_ACTIVE;
+                        thiss.state = TrackState.TRACK_ACTIVE;
                         thiss.nextKeyFrame = thiss.keyFramesCount - 1;
                         thiss.overrun = thiss.endTime - thiss.t.time;
                         thiss.nextKeyFrame--;
@@ -336,13 +336,13 @@ namespace ctr_wp7.iframework.visual
                 if (thiss.nextKeyFrame == thiss.keyFramesCount - 1)
                 {
                     thiss.setElementFromKeyFrame(thiss.keyFrames[thiss.nextKeyFrame]);
-                    thiss.state = Track.TrackState.TRACK_NOT_ACTIVE;
+                    thiss.state = TrackState.TRACK_NOT_ACTIVE;
                     return;
                 }
                 if (thiss.nextKeyFrame == 0)
                 {
                     thiss.setElementFromKeyFrame(thiss.keyFrames[thiss.nextKeyFrame]);
-                    thiss.state = Track.TrackState.TRACK_NOT_ACTIVE;
+                    thiss.state = TrackState.TRACK_NOT_ACTIVE;
                     return;
                 }
                 if (!thiss.t.timelineDirReverse)
@@ -360,11 +360,11 @@ namespace ctr_wp7.iframework.visual
         public static void updateTrack(Track thiss, float delta)
         {
             Timeline timeline = thiss.t;
-            if (thiss.state == Track.TrackState.TRACK_NOT_ACTIVE)
+            if (thiss.state == TrackState.TRACK_NOT_ACTIVE)
             {
                 if (timeline.time >= thiss.startTime && timeline.time <= thiss.endTime)
                 {
-                    thiss.state = Track.TrackState.TRACK_ACTIVE;
+                    thiss.state = TrackState.TRACK_ACTIVE;
                     if (!timeline.timelineDirReverse)
                     {
                         thiss.nextKeyFrame = 0;
@@ -387,7 +387,7 @@ namespace ctr_wp7.iframework.visual
                 bool debugBreak = keyFrame.debugBreak;
                 switch (thiss.type)
                 {
-                    case Track.TrackType.TRACK_POSITION:
+                    case TrackType.TRACK_POSITION:
                         {
                             float num = thiss.currentStepAcceleration.value.pos.x * delta;
                             float num2 = thiss.currentStepAcceleration.value.pos.y * delta;
@@ -397,7 +397,7 @@ namespace ctr_wp7.iframework.visual
                             timeline.element.y += (keyFrame.value.pos.y + num2 / 2f) * delta;
                             break;
                         }
-                    case Track.TrackType.TRACK_SCALE:
+                    case TrackType.TRACK_SCALE:
                         {
                             float num3 = thiss.currentStepAcceleration.value.scale.scaleX * delta;
                             float num4 = thiss.currentStepAcceleration.value.scale.scaleY * delta;
@@ -407,14 +407,14 @@ namespace ctr_wp7.iframework.visual
                             timeline.element.scaleY += (keyFrame.value.scale.scaleY + num4 / 2f) * delta;
                             break;
                         }
-                    case Track.TrackType.TRACK_ROTATION:
+                    case TrackType.TRACK_ROTATION:
                         {
                             float num5 = thiss.currentStepAcceleration.value.rotation.angle * delta;
                             thiss.currentStepPerSecond.value.rotation.angle += num5;
                             timeline.element.rotation += (keyFrame.value.rotation.angle + num5 / 2f) * delta;
                             break;
                         }
-                    case Track.TrackType.TRACK_COLOR:
+                    case TrackType.TRACK_COLOR:
                         {
                             ColorParams color = thiss.currentStepPerSecond.value.color;
                             color.rgba.r = color.rgba.r + thiss.currentStepAcceleration.value.color.rgba.r * delta;
@@ -452,18 +452,18 @@ namespace ctr_wp7.iframework.visual
             {
                 switch (thiss.type)
                 {
-                    case Track.TrackType.TRACK_POSITION:
+                    case TrackType.TRACK_POSITION:
                         timeline.element.x += thiss.currentStepPerSecond.value.pos.x * delta;
                         timeline.element.y += thiss.currentStepPerSecond.value.pos.y * delta;
                         break;
-                    case Track.TrackType.TRACK_SCALE:
+                    case TrackType.TRACK_SCALE:
                         timeline.element.scaleX += thiss.currentStepPerSecond.value.scale.scaleX * delta;
                         timeline.element.scaleY += thiss.currentStepPerSecond.value.scale.scaleY * delta;
                         break;
-                    case Track.TrackType.TRACK_ROTATION:
+                    case TrackType.TRACK_ROTATION:
                         timeline.element.rotation += thiss.currentStepPerSecond.value.rotation.angle * delta;
                         break;
-                    case Track.TrackType.TRACK_COLOR:
+                    case TrackType.TRACK_COLOR:
                         {
                             BaseElement element5 = timeline.element;
                             element5.color.r = element5.color.r + thiss.currentStepPerSecond.value.color.rgba.r * delta;
@@ -487,13 +487,13 @@ namespace ctr_wp7.iframework.visual
                 if (thiss.nextKeyFrame == thiss.keyFramesCount - 1)
                 {
                     thiss.setElementFromKeyFrame(thiss.keyFrames[thiss.nextKeyFrame]);
-                    thiss.state = Track.TrackState.TRACK_NOT_ACTIVE;
+                    thiss.state = TrackState.TRACK_NOT_ACTIVE;
                     return;
                 }
                 if (thiss.nextKeyFrame == 0)
                 {
                     thiss.setElementFromKeyFrame(thiss.keyFrames[thiss.nextKeyFrame]);
-                    thiss.state = Track.TrackState.TRACK_NOT_ACTIVE;
+                    thiss.state = TrackState.TRACK_NOT_ACTIVE;
                     return;
                 }
                 if (!timeline.timelineDirReverse)

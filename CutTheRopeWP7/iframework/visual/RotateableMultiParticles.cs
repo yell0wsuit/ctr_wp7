@@ -11,7 +11,7 @@ namespace ctr_wp7.iframework.visual
         {
             base.initParticle(ref particle);
             particle.angle = 0f;
-            particle.deltaAngle = MathHelper.DEGREES_TO_RADIANS(rotateSpeed + rotateSpeedVar * MathHelper.RND_MINUS1_1);
+            particle.deltaAngle = DEGREES_TO_RADIANS(rotateSpeed + rotateSpeedVar * RND_MINUS1_1);
         }
 
         // Token: 0x060003A6 RID: 934 RVA: 0x000173C4 File Offset: 0x000155C4
@@ -19,22 +19,22 @@ namespace ctr_wp7.iframework.visual
         {
             if (p.life > 0f)
             {
-                Vector vector = MathHelper.vectZero;
+                Vector vector = vectZero;
                 if (p.pos.x != 0f || p.pos.y != 0f)
                 {
-                    vector = MathHelper.vectNormalize(p.pos);
+                    vector = vectNormalize(p.pos);
                 }
                 Vector vector2 = vector;
-                vector = MathHelper.vectMult(vector, p.radialAccel);
+                vector = vectMult(vector, p.radialAccel);
                 float x = vector2.x;
                 vector2.x = -vector2.y;
                 vector2.y = x;
-                vector2 = MathHelper.vectMult(vector2, p.tangentialAccel);
-                Vector vector3 = MathHelper.vectAdd(MathHelper.vectAdd(vector, vector2), gravity);
-                vector3 = MathHelper.vectMult(vector3, delta);
-                p.dir = MathHelper.vectAdd(p.dir, vector3);
-                vector3 = MathHelper.vectMult(p.dir, delta);
-                p.pos = MathHelper.vectAdd(p.pos, vector3);
+                vector2 = vectMult(vector2, p.tangentialAccel);
+                Vector vector3 = vectAdd(vectAdd(vector, vector2), gravity);
+                vector3 = vectMult(vector3, delta);
+                p.dir = vectAdd(p.dir, vector3);
+                vector3 = vectMult(p.dir, delta);
+                p.pos = vectAdd(p.pos, vector3);
                 p.color.r = p.color.r + p.deltaColor.r * delta;
                 p.color.g = p.color.g + p.deltaColor.g * delta;
                 p.color.b = p.color.b + p.deltaColor.b * delta;
@@ -50,17 +50,17 @@ namespace ctr_wp7.iframework.visual
                 float num8 = p.pos.y + p.height / 2f;
                 float x2 = p.pos.x;
                 float y = p.pos.y;
-                Vector vector4 = MathHelper.vect(num, num2);
-                Vector vector5 = MathHelper.vect(num3, num4);
-                Vector vector6 = MathHelper.vect(num5, num6);
-                Vector vector7 = MathHelper.vect(num7, num8);
+                Vector vector4 = vect(num, num2);
+                Vector vector5 = vect(num3, num4);
+                Vector vector6 = vect(num5, num6);
+                Vector vector7 = vect(num7, num8);
                 p.angle += p.deltaAngle * delta;
-                float num9 = MathHelper.cosf(p.angle);
-                float num10 = MathHelper.sinf(p.angle);
-                vector4 = Particles.rotatePreCalc(vector4, num9, num10, x2, y);
-                vector5 = Particles.rotatePreCalc(vector5, num9, num10, x2, y);
-                vector6 = Particles.rotatePreCalc(vector6, num9, num10, x2, y);
-                vector7 = Particles.rotatePreCalc(vector7, num9, num10, x2, y);
+                float num9 = cosf(p.angle);
+                float num10 = sinf(p.angle);
+                vector4 = rotatePreCalc(vector4, num9, num10, x2, y);
+                vector5 = rotatePreCalc(vector5, num9, num10, x2, y);
+                vector6 = rotatePreCalc(vector6, num9, num10, x2, y);
+                vector7 = rotatePreCalc(vector7, num9, num10, x2, y);
                 drawer.vertices[particleIdx] = Quad3D.MakeQuad3DEx(vector4.x, vector4.y, vector5.x, vector5.y, vector6.x, vector6.y, vector7.x, vector7.y);
                 for (int i = 0; i < 4; i++)
                 {

@@ -31,7 +31,7 @@ namespace ctr_wp7.game
             base.update(delta);
             if (launcher && rope != null)
             {
-                rope.bungeeAnchor.pos = MathHelper.vect(x, y);
+                rope.bungeeAnchor.pos = vect(x, y);
                 rope.bungeeAnchor.pin = rope.bungeeAnchor.pos;
                 if (launcherIncreaseSpeed)
                 {
@@ -79,7 +79,7 @@ namespace ctr_wp7.game
             {
                 Vector vector = mover.path[mover.targetPoint];
                 Vector pos = mover.pos;
-                Vector vector2 = MathHelper.vectSub(vector, pos);
+                Vector vector2 = vectSub(vector, pos);
                 float num2 = 0f;
                 if (Math.Abs(vector2.x) > 15f)
                 {
@@ -143,7 +143,7 @@ namespace ctr_wp7.game
         // Token: 0x060005A2 RID: 1442 RVA: 0x0002AAB0 File Offset: 0x00028CB0
         public virtual void setRope(Bungee r)
         {
-            NSObject.NSREL(rope);
+            NSREL(rope);
             rope = r;
             radius = -1f;
             if (hasSpider)
@@ -158,11 +158,11 @@ namespace ctr_wp7.game
             radius = r;
             if (radius == -1f)
             {
-                int num = MathHelper.RND_RANGE(125, 126);
-                back = Image.Image_createWithResIDQuad(num, 0);
+                int num = RND_RANGE(125, 126);
+                back = Image_createWithResIDQuad(num, 0);
                 back.doRestoreCutTransparency();
                 back.anchor = (back.parentAnchor = 18);
-                front = Image.Image_createWithResIDQuad(num, 1);
+                front = Image_createWithResIDQuad(num, 1);
                 front.anchor = (front.parentAnchor = 18);
                 addChild(back);
                 addChild(front);
@@ -171,10 +171,10 @@ namespace ctr_wp7.game
             }
             else
             {
-                back = Image.Image_createWithResIDQuad(122, 0);
+                back = Image_createWithResIDQuad(122, 0);
                 back.doRestoreCutTransparency();
                 back.anchor = (back.parentAnchor = 18);
-                front = Image.Image_createWithResIDQuad(122, 1);
+                front = Image_createWithResIDQuad(122, 1);
                 front.anchor = (front.parentAnchor = 18);
                 addChild(back);
                 addChild(front);
@@ -192,16 +192,16 @@ namespace ctr_wp7.game
             }
             if (wheel)
             {
-                wheelImage = Image.Image_createWithResIDQuad(134, 0);
+                wheelImage = Image_createWithResIDQuad(134, 0);
                 wheelImage.anchor = (wheelImage.parentAnchor = 18);
                 addChild(wheelImage);
                 wheelImage.visible = false;
-                wheelImage2 = Image.Image_createWithResIDQuad(134, 1);
+                wheelImage2 = Image_createWithResIDQuad(134, 1);
                 wheelImage2.passTransformationsToChilds = false;
-                wheelHighlight = Image.Image_createWithResIDQuad(134, 2);
+                wheelHighlight = Image_createWithResIDQuad(134, 2);
                 wheelHighlight.anchor = (wheelHighlight.parentAnchor = 18);
                 wheelImage2.addChild(wheelHighlight);
-                wheelImage3 = Image.Image_createWithResIDQuad(134, 3);
+                wheelImage3 = Image_createWithResIDQuad(134, 3);
                 wheelImage3.anchor = (wheelImage3.parentAnchor = (wheelImage2.anchor = (wheelImage2.parentAnchor = 18)));
                 wheelImage2.addChild(wheelImage3);
                 addChild(wheelImage2);
@@ -223,11 +223,11 @@ namespace ctr_wp7.game
                 moveBackground.width = (int)((double)l + 37.0);
                 moveBackground.rotationCenterX = (float)(-(float)Math.Round((double)moveBackground.width / 2.0) + 17.0);
                 moveBackground.x = -17f;
-                grabMoverHighlight = Image.Image_createWithResIDQuad(142, 3);
+                grabMoverHighlight = Image_createWithResIDQuad(142, 3);
                 grabMoverHighlight.visible = false;
                 grabMoverHighlight.anchor = (grabMoverHighlight.parentAnchor = 18);
                 addChild(grabMoverHighlight);
-                grabMover = Image.Image_createWithResIDQuad(142, 4);
+                grabMover = Image_createWithResIDQuad(142, 4);
                 grabMover.visible = false;
                 grabMover.anchor = (grabMover.parentAnchor = 18);
                 addChild(grabMover);
@@ -258,18 +258,18 @@ namespace ctr_wp7.game
         // Token: 0x060005A5 RID: 1445 RVA: 0x0002B034 File Offset: 0x00029234
         public virtual void setBee()
         {
-            bee = Image.Image_createWithResIDQuad(148, 1);
+            bee = Image_createWithResIDQuad(148, 1);
             bee.blendingMode = 1;
             bee.doRestoreCutTransparency();
             bee.parentAnchor = 18;
-            Animation animation = Animation.Animation_createWithResID(148);
+            Animation animation = Animation_createWithResID(148);
             animation.parentAnchor = (animation.anchor = 9);
             animation.doRestoreCutTransparency();
             animation.addAnimationDelayLoopFirstLast(0.03f, Timeline.LoopType.TIMELINE_PING_PONG, 2, 4);
             animation.playTimeline(0);
-            animation.jumpTo(MathHelper.RND_RANGE(0, 2));
+            animation.jumpTo(RND_RANGE(0, 2));
             bee.addChild(animation);
-            Vector quadOffset = Image.getQuadOffset(148, 0);
+            Vector quadOffset = getQuadOffset(148, 0);
             bee.x = -quadOffset.x;
             bee.y = -quadOffset.y;
             bee.rotationCenterX = quadOffset.x - (float)(bee.width / 2);
@@ -284,7 +284,7 @@ namespace ctr_wp7.game
             hasSpider = s;
             shouldActivate = false;
             spiderActive = false;
-            spider = Animation.Animation_createWithResID(94);
+            spider = Animation_createWithResID(94);
             spider.doRestoreCutTransparency();
             spider.anchor = 18;
             spider.x = x;
@@ -304,7 +304,7 @@ namespace ctr_wp7.game
             launcherIncreaseSpeed = true;
             launcherSpeed = 130f;
             Mover mover = new Mover().initWithPathCapacityMoveSpeedRotateSpeed(100, launcherSpeed, 0f);
-            mover.setPathFromStringandStart(new NSString("RC30"), MathHelper.vect(x, y));
+            mover.setPathFromStringandStart(new NSString("RC30"), vect(x, y));
             setMover(mover);
             mover.start();
         }
@@ -312,7 +312,7 @@ namespace ctr_wp7.game
         // Token: 0x060005A8 RID: 1448 RVA: 0x0002B2A4 File Offset: 0x000294A4
         public virtual void destroyRope()
         {
-            NSObject.NSREL(rope);
+            NSREL(rope);
             rope = null;
         }
 
@@ -372,14 +372,14 @@ namespace ctr_wp7.game
                     int i = 0;
                     while (i < rope.drawPtsCount)
                     {
-                        Vector vector = MathHelper.vect(rope.drawPts[i], rope.drawPts[i + 1]);
-                        Vector vector2 = MathHelper.vect(rope.drawPts[i + 2], rope.drawPts[i + 3]);
-                        float num2 = Math.Max(20f, MathHelper.vectDistance(vector, vector2));
+                        Vector vector = vect(rope.drawPts[i], rope.drawPts[i + 1]);
+                        Vector vector2 = vect(rope.drawPts[i + 2], rope.drawPts[i + 3]);
+                        float num2 = Math.Max(20f, vectDistance(vector, vector2));
                         if (spiderPos >= num && (spiderPos < num + num2 || i > rope.drawPtsCount - 3))
                         {
                             float num3 = spiderPos - num;
-                            Vector vector3 = MathHelper.vectSub(vector2, vector);
-                            vector3 = MathHelper.vectMult(vector3, num3 / num2);
+                            Vector vector3 = vectSub(vector2, vector);
+                            vector3 = vectMult(vector3, num3 / num2);
                             spider.x = vector.x + vector3.x;
                             spider.y = vector.y + vector3.y;
                             if (i > rope.drawPtsCount - 3)
@@ -388,7 +388,7 @@ namespace ctr_wp7.game
                             }
                             if (spider.getCurrentTimelineIndex() != 0)
                             {
-                                spider.rotation = MathHelper.RADIANS_TO_DEGREES(MathHelper.vectAngleNormalized(vector3)) + 270f;
+                                spider.rotation = RADIANS_TO_DEGREES(vectAngleNormalized(vector3)) + 270f;
                                 break;
                             }
                             break;
@@ -421,11 +421,11 @@ namespace ctr_wp7.game
                 return;
             }
             CTRSoundMgr._playSound(46);
-            float num = getRotateAngleForStartEndCenter(lastWheelTouch, v, MathHelper.vect(x, y));
+            float num = getRotateAngleForStartEndCenter(lastWheelTouch, v, vect(x, y));
             wheelImage2.rotation += num;
             wheelImage3.rotation += num;
             wheelHighlight.rotation += num;
-            num = ((num > 0f) ? MathHelper.MIN((double)MathHelper.MAX(1.0, (double)num), 2.0) : MathHelper.MAX((double)MathHelper.MIN(-1.0, (double)num), -2.0));
+            num = ((num > 0f) ? MIN((double)MAX(1.0, (double)num), 2.0) : MAX((double)MIN(-1.0, (double)num), -2.0));
             if (rope != null)
             {
                 float num2 = (float)rope.getLength();
@@ -448,10 +448,10 @@ namespace ctr_wp7.game
         // Token: 0x060005AF RID: 1455 RVA: 0x0002B6CC File Offset: 0x000298CC
         public virtual float getRotateAngleForStartEndCenter(Vector v1, Vector v2, Vector c)
         {
-            Vector vector = MathHelper.vectSub(v1, c);
-            Vector vector2 = MathHelper.vectSub(v2, c);
-            float num = MathHelper.vectAngleNormalized(vector2) - MathHelper.vectAngleNormalized(vector);
-            return MathHelper.RADIANS_TO_DEGREES(num);
+            Vector vector = vectSub(v1, c);
+            Vector vector2 = vectSub(v2, c);
+            float num = vectAngleNormalized(vector2) - vectAngleNormalized(vector);
+            return RADIANS_TO_DEGREES(num);
         }
 
         // Token: 0x060005B0 RID: 1456 RVA: 0x0002B700 File Offset: 0x00029900

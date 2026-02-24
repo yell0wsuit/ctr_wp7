@@ -68,13 +68,13 @@ namespace ctr_wp7.iframework.core
                     if (lastTime > transitionTime)
                     {
                         transitionTime = -1f;
-                        NSObject.NSREL(prevScreenImage);
+                        NSREL(prevScreenImage);
                         if (prevScreenImage != null && prevScreenImage.xnaTexture_ != null)
                         {
                             prevScreenImage.xnaTexture_.Dispose();
                         }
                         prevScreenImage = null;
-                        NSObject.NSREL(nextScreenImage);
+                        NSREL(nextScreenImage);
                         if (nextScreenImage != null && nextScreenImage.xnaTexture_ != null)
                         {
                             nextScreenImage.xnaTexture_.Dispose();
@@ -123,7 +123,7 @@ namespace ctr_wp7.iframework.core
                 case 4:
                 case 5:
                     {
-                        float num = MathHelper.MIN(1.0, (double)((transitionDelay - (transitionTime - lastTime)) / transitionDelay));
+                        float num = MIN(1.0, (double)((transitionDelay - (transitionTime - lastTime)) / transitionDelay));
                         if ((double)num < 0.5)
                         {
                             if (prevScreenImage != null)
@@ -133,7 +133,7 @@ namespace ctr_wp7.iframework.core
                                 OpenGL.glDisable(0);
                                 OpenGL.glEnable(1);
                                 OpenGL.glBlendFunc(BlendingFactor.GL_SRC_ALPHA, BlendingFactor.GL_ONE_MINUS_SRC_ALPHA);
-                                GLDrawer.drawSolidRectWOBorder(0f, 0f, FrameworkTypes.REAL_SCREEN_WIDTH, FrameworkTypes.REAL_SCREEN_HEIGHT, rgbacolor);
+                                GLDrawer.drawSolidRectWOBorder(0f, 0f, REAL_SCREEN_WIDTH, REAL_SCREEN_HEIGHT, rgbacolor);
                                 OpenGL.glDisable(1);
                             }
                             else
@@ -156,7 +156,7 @@ namespace ctr_wp7.iframework.core
                             OpenGL.glDisable(0);
                             OpenGL.glEnable(1);
                             OpenGL.glBlendFunc(BlendingFactor.GL_SRC_ALPHA, BlendingFactor.GL_ONE_MINUS_SRC_ALPHA);
-                            GLDrawer.drawSolidRectWOBorder(0f, 0f, FrameworkTypes.REAL_SCREEN_WIDTH, FrameworkTypes.REAL_SCREEN_HEIGHT, rgbacolor2);
+                            GLDrawer.drawSolidRectWOBorder(0f, 0f, REAL_SCREEN_WIDTH, REAL_SCREEN_HEIGHT, rgbacolor2);
                             OpenGL.glDisable(1);
                         }
                         else
@@ -175,7 +175,7 @@ namespace ctr_wp7.iframework.core
                     }
                 case 6:
                     {
-                        float num2 = MathHelper.MIN(1.0, (double)((transitionDelay - (transitionTime - lastTime)) / transitionDelay));
+                        float num2 = MIN(1.0, (double)((transitionDelay - (transitionTime - lastTime)) / transitionDelay));
                         OpenGL.glColor4f(1.0, 1.0, 1.0, 1.0 - (double)num2);
                         Grabber.drawGrabbedImage(prevScreenImage, 0, 0);
                         OpenGL.glColor4f(1.0, 1.0, 1.0, (double)num2);
@@ -240,13 +240,13 @@ namespace ctr_wp7.iframework.core
                 transitionTime = lastTime + transitionDelay;
                 applyLandscape();
                 currentController.activeView().draw();
-                NSObject.NSREL(nextScreenImage);
+                NSREL(nextScreenImage);
                 if (nextScreenImage != null && nextScreenImage.xnaTexture_ != null)
                 {
                     nextScreenImage.xnaTexture_.Dispose();
                 }
                 nextScreenImage = screenGrabber.grab();
-                NSObject.NSRET(nextScreenImage);
+                NSRET(nextScreenImage);
                 OpenGL.glLoadIdentity();
             }
         }
@@ -262,13 +262,13 @@ namespace ctr_wp7.iframework.core
                 OpenGL.glClear(0);
                 applyLandscape();
                 previousView.draw();
-                NSObject.NSREL(prevScreenImage);
+                NSREL(prevScreenImage);
                 if (prevScreenImage != null && prevScreenImage.xnaTexture_ != null)
                 {
                     prevScreenImage.xnaTexture_.Dispose();
                 }
                 prevScreenImage = screenGrabber.grab();
-                NSObject.NSRET(prevScreenImage);
+                NSRET(prevScreenImage);
                 OpenGL.glLoadIdentity();
             }
         }

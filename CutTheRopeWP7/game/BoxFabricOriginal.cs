@@ -37,7 +37,7 @@ namespace ctr_wp7.game
             if (unlockedForPackLevel >= 1)
             {
                 tpack.bid = 2000 + n;
-                BoxFabricOriginal.MonsterSlot monsterSlot = BoxFabricOriginal.MonsterSlot.createMonsterSlot();
+                BoxFabricOriginal.MonsterSlot monsterSlot = MonsterSlot.createMonsterSlot();
                 Image image = Image.Image_createWithResIDQuad(71, 0);
                 monsterSlot.c = c;
                 monsterSlot.anchor = (monsterSlot.parentAnchor = 9);
@@ -110,7 +110,7 @@ namespace ctr_wp7.game
             touchBaseElement.anchor = (touchBaseElement.parentAnchor = 18);
             touchBaseElement.delegateButtonDelegate = buttonDelegate;
             touchBaseElement.bid = 53;
-            touchBaseElement.bbc = FrameworkTypes.MakeRectangle(60.0, 90.0, -60.0, -180.0);
+            touchBaseElement.bbc = MakeRectangle(60.0, 90.0, -60.0, -180.0);
             BaseElement baseElement = MenuController.createButtonCartoons(53, buttonDelegate, false);
             baseElement.anchor = (baseElement.parentAnchor = 18);
             baseElement.x = 26f;
@@ -152,7 +152,7 @@ namespace ctr_wp7.game
                 {
                     OpenGL.glEnable(4);
                     float num = x - (s + e) / 2f;
-                    OpenGL.setScissorRectangle(120.0 - (double)num, 0.0, 100.0, (double)FrameworkTypes.SCREEN_HEIGHT);
+                    OpenGL.setScissorRectangle(120.0 - (double)num, 0.0, 100.0, (double)SCREEN_HEIGHT);
                     postDraw();
                     OpenGL.glDisable(4);
                 }

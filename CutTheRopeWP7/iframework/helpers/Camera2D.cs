@@ -29,23 +29,23 @@ namespace ctr_wp7.iframework.helpers
             }
             if (type == CAMERA_TYPE.CAMERA_SPEED_DELAY)
             {
-                offset = MathHelper.vectMult(MathHelper.vectSub(target, pos), speed);
+                offset = vectMult(vectSub(target, pos), speed);
                 return;
             }
             if (type == CAMERA_TYPE.CAMERA_SPEED_PIXELS)
             {
-                offset = MathHelper.vectMult(MathHelper.vectNormalize(MathHelper.vectSub(target, pos)), speed);
+                offset = vectMult(vectNormalize(vectSub(target, pos)), speed);
             }
         }
 
         // Token: 0x06000210 RID: 528 RVA: 0x0000DBE8 File Offset: 0x0000BDE8
         public virtual void update(float delta)
         {
-            if (!MathHelper.vectEqual(pos, target))
+            if (!vectEqual(pos, target))
             {
-                pos = MathHelper.vectAdd(pos, MathHelper.vectMult(offset, delta));
-                pos = MathHelper.vect(MathHelper.round((double)pos.x), MathHelper.round((double)pos.y));
-                if (!MathHelper.sameSign(offset.x, target.x - pos.x) || !MathHelper.sameSign(offset.y, target.y - pos.y))
+                pos = vectAdd(pos, vectMult(offset, delta));
+                pos = vect(round((double)pos.x), round((double)pos.y));
+                if (!sameSign(offset.x, target.x - pos.x) || !sameSign(offset.y, target.y - pos.y))
                 {
                     pos = target;
                 }

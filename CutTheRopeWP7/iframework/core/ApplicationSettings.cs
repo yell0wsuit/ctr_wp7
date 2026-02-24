@@ -23,34 +23,34 @@ namespace ctr_wp7.iframework.core
         {
             if (s != 8)
             {
-                return NSObject.NSS("");
+                return NSS("");
             }
-            switch (ResDataPhoneFull.LANGUAGE)
+            switch (LANGUAGE)
             {
                 case Language.LANG_EN:
-                    return NSObject.NSS("en");
+                    return NSS("en");
                 case Language.LANG_RU:
-                    return NSObject.NSS("ru");
+                    return NSS("ru");
                 case Language.LANG_DE:
-                    return NSObject.NSS("de");
+                    return NSS("de");
                 case Language.LANG_FR:
-                    return NSObject.NSS("fr");
+                    return NSS("fr");
                 case Language.LANG_ZH:
-                    return NSObject.NSS("zh");
+                    return NSS("zh");
                 case Language.LANG_JA:
-                    return NSObject.NSS("ja");
+                    return NSS("ja");
                 case Language.LANG_KO:
-                    return NSObject.NSS("ko");
+                    return NSS("ko");
                 case Language.LANG_ES:
-                    return NSObject.NSS("es");
+                    return NSS("es");
                 case Language.LANG_IT:
-                    return NSObject.NSS("it");
+                    return NSS("it");
                 case Language.LANG_NL:
-                    return NSObject.NSS("nl");
+                    return NSS("nl");
                 case Language.LANG_BR:
-                    return NSObject.NSS("br");
+                    return NSS("br");
                 default:
-                    return NSObject.NSS("en");
+                    return NSS("en");
             }
         }
 

@@ -13,7 +13,7 @@ namespace ctr_wp7.remotedata.cartoons
         // Token: 0x060001A3 RID: 419 RVA: 0x0000BD00 File Offset: 0x00009F00
         public static void setListener(ImageDownloader.ImageDownloadedListener LImageDownloaded)
         {
-            ImageDownloader.lImageDownloaded = LImageDownloaded;
+            lImageDownloaded = LImageDownloaded;
         }
 
         // Token: 0x060001A4 RID: 420 RVA: 0x0000BDA8 File Offset: 0x00009FA8
@@ -24,7 +24,7 @@ namespace ctr_wp7.remotedata.cartoons
             {
                 try
                 {
-                    ImageDownloader.busy = true;
+                    busy = true;
                     HttpWebRequest httpWebRequest2 = (HttpWebRequest)r.AsyncState;
                     HttpWebResponse httpWebResponse = (HttpWebResponse)httpWebRequest2.EndGetResponse(r);
                     ImageDownloader.ImageDataSaxHandler imageDataSaxHandler = new ImageDownloader.ImageDataSaxHandler(block);
@@ -32,11 +32,11 @@ namespace ctr_wp7.remotedata.cartoons
                     {
                         imageDataSaxHandler.Parse();
                     }
-                    ImageDownloader.busy = false;
+                    busy = false;
                 }
                 catch (Exception)
                 {
-                    ImageDownloader.busy = false;
+                    busy = false;
                 }
             }, httpWebRequest);
         }
@@ -44,7 +44,7 @@ namespace ctr_wp7.remotedata.cartoons
         // Token: 0x060001A5 RID: 421 RVA: 0x0000BDFB File Offset: 0x00009FFB
         public static bool isBusy()
         {
-            return ImageDownloader.busy;
+            return busy;
         }
 
         // Token: 0x040007CD RID: 1997
@@ -72,7 +72,7 @@ namespace ctr_wp7.remotedata.cartoons
                 {
                     string text = null;
                     atts.TryGetValue("data", out text);
-                    ImageDownloader.lImageDownloaded.imageDownloaded(text, block);
+                    lImageDownloaded.imageDownloaded(text, block);
                 }
             }
 

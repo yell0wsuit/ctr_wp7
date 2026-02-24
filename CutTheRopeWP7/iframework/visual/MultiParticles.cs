@@ -15,8 +15,8 @@ namespace ctr_wp7.iframework.visual
             }
             imageGrid = image;
             drawer = new ImageMultiDrawer().initWithImageandCapacity(imageGrid, numberOfParticles);
-            width = (int)FrameworkTypes.SCREEN_WIDTH;
-            height = (int)FrameworkTypes.SCREEN_HEIGHT;
+            width = (int)SCREEN_WIDTH;
+            height = (int)SCREEN_HEIGHT;
             totalParticles = numberOfParticles;
             particles = new Particle[totalParticles];
             colors = new RGBAColor[4 * totalParticles];
@@ -36,7 +36,7 @@ namespace ctr_wp7.iframework.visual
         public override void initParticle(ref Particle particle)
         {
             Image image = imageGrid;
-            int num = MathHelper.RND(image.texture.quadsCount - 1);
+            int num = RND(image.texture.quadsCount - 1);
             Quad2D quad2D = image.texture.quads[num];
             Quad3D quad3D = Quad3D.MakeQuad3D(0f, 0f, 0f, 0f, 0f);
             Rectangle rectangle = image.texture.quadRects[num];
@@ -51,22 +51,22 @@ namespace ctr_wp7.iframework.visual
         {
             if (p.life > 0f)
             {
-                Vector vector = MathHelper.vectZero;
+                Vector vector = vectZero;
                 if (p.pos.x != 0f || p.pos.y != 0f)
                 {
-                    vector = MathHelper.vectNormalize(p.pos);
+                    vector = vectNormalize(p.pos);
                 }
                 Vector vector2 = vector;
-                vector = MathHelper.vectMult(vector, p.radialAccel);
+                vector = vectMult(vector, p.radialAccel);
                 float x = vector2.x;
                 vector2.x = -vector2.y;
                 vector2.y = x;
-                vector2 = MathHelper.vectMult(vector2, p.tangentialAccel);
-                Vector vector3 = MathHelper.vectAdd(MathHelper.vectAdd(vector, vector2), gravity);
-                vector3 = MathHelper.vectMult(vector3, delta);
-                p.dir = MathHelper.vectAdd(p.dir, vector3);
-                vector3 = MathHelper.vectMult(p.dir, delta);
-                p.pos = MathHelper.vectAdd(p.pos, vector3);
+                vector2 = vectMult(vector2, p.tangentialAccel);
+                Vector vector3 = vectAdd(vectAdd(vector, vector2), gravity);
+                vector3 = vectMult(vector3, delta);
+                p.dir = vectAdd(p.dir, vector3);
+                vector3 = vectMult(p.dir, delta);
+                p.pos = vectAdd(p.pos, vector3);
                 p.color.r = p.color.r + p.deltaColor.r * delta;
                 p.color.g = p.color.g + p.deltaColor.g * delta;
                 p.color.b = p.color.b + p.deltaColor.b * delta;
@@ -132,8 +132,8 @@ namespace ctr_wp7.iframework.visual
             }
             OpenGL.glEnable(0);
             OpenGL.glBindTexture(drawer.image.texture.name());
-            OpenGL.glVertexPointer(3, 5, 0, FrameworkTypes.toFloatArray(drawer.vertices));
-            OpenGL.glTexCoordPointer(2, 5, 0, FrameworkTypes.toFloatArray(drawer.texCoordinates));
+            OpenGL.glVertexPointer(3, 5, 0, toFloatArray(drawer.vertices));
+            OpenGL.glTexCoordPointer(2, 5, 0, toFloatArray(drawer.texCoordinates));
             OpenGL.glEnableClientState(13);
             OpenGL.glBindBuffer(2, colorsID);
             OpenGL.glColorPointer(4, 5, 0, colors);

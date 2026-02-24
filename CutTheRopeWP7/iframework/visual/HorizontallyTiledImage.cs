@@ -82,13 +82,13 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060002DF RID: 735 RVA: 0x00012A21 File Offset: 0x00010C21
         public static HorizontallyTiledImage HorizontallyTiledImage_createWithResID(int r)
         {
-            return HorizontallyTiledImage.HorizontallyTiledImage_create(Application.getTexture(r));
+            return HorizontallyTiledImage_create(Application.getTexture(r));
         }
 
         // Token: 0x060002E0 RID: 736 RVA: 0x00012A30 File Offset: 0x00010C30
         public static HorizontallyTiledImage HorizontallyTiledImage_createWithResIDQuad(int r, int q)
         {
-            HorizontallyTiledImage horizontallyTiledImage = HorizontallyTiledImage.HorizontallyTiledImage_create(Application.getTexture(r));
+            HorizontallyTiledImage horizontallyTiledImage = HorizontallyTiledImage_create(Application.getTexture(r));
             horizontallyTiledImage.setDrawQuad(q);
             return horizontallyTiledImage;
         }

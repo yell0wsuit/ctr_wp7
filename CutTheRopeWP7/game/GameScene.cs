@@ -60,8 +60,8 @@ namespace ctr_wp7.game
                     hudStar[i].setPauseAtIndexforAnimation(10, 0);
                     hudStar[i].x = (float)(hudStar[i].width * i);
                     hudStar[i].y = 0f;
-                    hudStar[i].x -= FrameworkTypes.SCREEN_OFFSET_X;
-                    hudStar[i].y -= FrameworkTypes.SCREEN_OFFSET_Y;
+                    hudStar[i].x -= SCREEN_OFFSET_X;
+                    hudStar[i].y -= SCREEN_OFFSET_Y;
                     hudStar[i].x += 0.33f;
                     hudStar[i].y += 0.33f;
                     addChild(hudStar[i]);
@@ -69,7 +69,7 @@ namespace ctr_wp7.game
                 for (int j = 0; j < 5; j++)
                 {
                     fingerCuts[j] = new List<GameScene.FingerCut>();
-                    NSObject.NSRET(fingerCuts[j]);
+                    NSRET(fingerCuts[j]);
                 }
             }
             return this;
@@ -128,19 +128,19 @@ namespace ctr_wp7.game
             starR = (ConstraintedPoint)new ConstraintedPoint().init();
             starR.setWeight(1f);
             int num = Preferences._getIntForKey("PREFS_SELECTED_CANDY");
-            candy = GameObject.GameObject_createWithResIDQuad(GameScene.CANDIES[num], 0);
+            candy = GameObject.GameObject_createWithResIDQuad(CANDIES[num], 0);
             candy.doRestoreCutTransparency();
-            NSObject.NSRET(candy);
+            NSRET(candy);
             candy.anchor = 18;
             candy.bb = new Rectangle(46.0, 49.0, 35.0, 35.0);
             candy.passTransformationsToChilds = false;
             candy.scaleX = (candy.scaleY = 0.71f);
-            candyMain = GameObject.GameObject_createWithResIDQuad(GameScene.CANDIES[num], 1);
+            candyMain = GameObject.GameObject_createWithResIDQuad(CANDIES[num], 1);
             candyMain.doRestoreCutTransparency();
             candyMain.anchor = (candyMain.parentAnchor = 18);
             candy.addChild(candyMain);
             candyMain.scaleX = (candyMain.scaleY = 0.71f);
-            candyTop = GameObject.GameObject_createWithResIDQuad(GameScene.CANDIES[num], 2);
+            candyTop = GameObject.GameObject_createWithResIDQuad(CANDIES[num], 2);
             candyTop.doRestoreCutTransparency();
             candyTop.anchor = (candyTop.parentAnchor = 18);
             candy.addChild(candyTop);
@@ -197,13 +197,13 @@ namespace ctr_wp7.game
                         if (ctrrootController.getPack() == 6)
                         {
                             earthAnims = new List<Image>();
-                            if (mapWidth > FrameworkTypes.SCREEN_WIDTH)
+                            if (mapWidth > SCREEN_WIDTH)
                             {
-                                createEarthImageWithOffsetXY(FrameworkTypes.SCREEN_WIDTH, 0f);
+                                createEarthImageWithOffsetXY(SCREEN_WIDTH, 0f);
                             }
-                            if (mapHeight > FrameworkTypes.SCREEN_HEIGHT)
+                            if (mapHeight > SCREEN_HEIGHT)
                             {
-                                createEarthImageWithOffsetXY(0f, FrameworkTypes.SCREEN_HEIGHT);
+                                createEarthImageWithOffsetXY(0f, SCREEN_HEIGHT);
                             }
                             createEarthImageWithOffsetXY(0f, 0f);
                         }
@@ -212,18 +212,18 @@ namespace ctr_wp7.game
                     {
                         special = xmlnode2["special"].intValue();
                         ropePhysicsSpeed = xmlnode2["ropePhysicsSpeed"].floatValue();
-                        nightLevel = xmlnode2["nightLevel"].isEqualToString(NSObject.NSS("true"));
-                        twoParts = (xmlnode2["twoParts"].isEqualToString(NSObject.NSS("true")) ? 0 : 2);
+                        nightLevel = xmlnode2["nightLevel"].isEqualToString(NSS("true"));
+                        twoParts = (xmlnode2["twoParts"].isEqualToString(NSS("true")) ? 0 : 2);
                     }
                     else if (xmlnode2.Name == "candyL")
                     {
                         starL.pos.x = (float)xmlnode2["x"].intValue() * 1f + 0f;
                         starL.pos.y = (float)xmlnode2["y"].intValue() * 1f + 0f;
-                        candyL = GameObject.GameObject_createWithResIDQuad(GameScene.CANDIES[num], 8);
+                        candyL = GameObject.GameObject_createWithResIDQuad(CANDIES[num], 8);
                         candyL.passTransformationsToChilds = false;
                         candyL.doRestoreCutTransparency();
                         candyL.anchor = 18;
-                        NSObject.NSRET(candyL);
+                        NSRET(candyL);
                         candyL.scaleX = (candyL.scaleY = 0.71f);
                         candyL.x = starL.pos.x;
                         candyL.y = starL.pos.y;
@@ -233,11 +233,11 @@ namespace ctr_wp7.game
                     {
                         starR.pos.x = (float)xmlnode2["x"].intValue() * 1f + 0f;
                         starR.pos.y = (float)xmlnode2["y"].intValue() * 1f + 0f;
-                        candyR = GameObject.GameObject_createWithResIDQuad(GameScene.CANDIES[num], 9);
+                        candyR = GameObject.GameObject_createWithResIDQuad(CANDIES[num], 9);
                         candyR.passTransformationsToChilds = false;
                         candyR.doRestoreCutTransparency();
                         candyR.anchor = 18;
-                        NSObject.NSRET(candyR);
+                        NSRET(candyR);
                         candyR.scaleX = (candyR.scaleY = 0.71f);
                         candyR.x = starR.pos.x;
                         candyR.y = starR.pos.y;
@@ -260,7 +260,7 @@ namespace ctr_wp7.game
                     XMLNode xmlnode4 = xmlnode3.childs()[m];
                     if (xmlnode4.Name == "gravitySwitch")
                     {
-                        gravityButton = GameScene.createGravityButtonWithDelegate(this);
+                        gravityButton = createGravityButtonWithDelegate(this);
                         gravityButton.visible = false;
                         gravityButton.touchable = false;
                         addChild(gravityButton);
@@ -281,7 +281,7 @@ namespace ctr_wp7.game
                     }
                     else if (xmlnode4.Name == "tutorialText")
                     {
-                        if (!GameScene.shouldSkipTutorialElement(xmlnode4))
+                        if (!shouldSkipTutorialElement(xmlnode4))
                         {
                             NSString nsstring = xmlnode4["text"];
                             if (nsstring != null)
@@ -310,11 +310,11 @@ namespace ctr_wp7.game
                     }
                     else if (xmlnode4.Name == "tutorial01" || xmlnode4.Name == "tutorial02" || xmlnode4.Name == "tutorial03" || xmlnode4.Name == "tutorial04" || xmlnode4.Name == "tutorial05" || xmlnode4.Name == "tutorial06" || xmlnode4.Name == "tutorial07" || xmlnode4.Name == "tutorial08" || xmlnode4.Name == "tutorial09" || xmlnode4.Name == "tutorial10")
                     {
-                        if (!GameScene.shouldSkipTutorialElement(xmlnode4))
+                        if (!shouldSkipTutorialElement(xmlnode4))
                         {
                             NSString nsstring2 = new NSString(xmlnode4.Name.Substring(8));
                             int num7 = nsstring2.intValue() - 1;
-                            GameScene.GameObjectSpecial gameObjectSpecial = GameScene.GameObjectSpecial.GameObjectSpecial_createWithResIDQuad(144, num7);
+                            GameScene.GameObjectSpecial gameObjectSpecial = GameObjectSpecial.GameObjectSpecial_createWithResIDQuad(144, num7);
                             gameObjectSpecial.color = RGBAColor.transparentRGBA;
                             gameObjectSpecial.x = (float)xmlnode4["x"].intValue() * 1f + 0f;
                             gameObjectSpecial.y = (float)xmlnode4["y"].intValue() * 1f + 0f;
@@ -355,7 +355,7 @@ namespace ctr_wp7.game
                     }
                     else if (xmlnode4.Name == "bubble")
                     {
-                        int num8 = MathHelper.RND_RANGE(1, 3);
+                        int num8 = RND_RANGE(1, 3);
                         Bubble bubble = Bubble.Bubble_createWithResIDQuad(124, num8);
                         bubble.doRestoreCutTransparency();
                         bubble.bb = new Rectangle(0.0, 0.0, 57.0, 57.0);
@@ -434,7 +434,7 @@ namespace ctr_wp7.game
                         int num16 = -1;
                         if (nsstring3 != null && nsstring3.length() > 0)
                         {
-                            num16 = (nsstring3.isEqualToString(NSObject.NSS("false")) ? (-1) : nsstring3.intValue());
+                            num16 = (nsstring3.isEqualToString(NSS("false")) ? (-1) : nsstring3.intValue());
                         }
                         Spikes spikes = (Spikes)new Spikes().initWithPosXYWidthAndAngleToggled(num12, num13, num14, num15, num16);
                         spikes.parseMover(xmlnode4);
@@ -475,10 +475,10 @@ namespace ctr_wp7.game
                         rotatedCircle.x = num17;
                         rotatedCircle.y = num18;
                         rotatedCircle.rotation = num20;
-                        rotatedCircle.inithanlde1 = (rotatedCircle.handle1 = MathHelper.vect(rotatedCircle.x - num19, rotatedCircle.y));
-                        rotatedCircle.inithanlde2 = (rotatedCircle.handle2 = MathHelper.vect(rotatedCircle.x + num19, rotatedCircle.y));
-                        rotatedCircle.handle1 = MathHelper.vectRotateAround(rotatedCircle.handle1, (double)MathHelper.DEGREES_TO_RADIANS(num20), rotatedCircle.x, rotatedCircle.y);
-                        rotatedCircle.handle2 = MathHelper.vectRotateAround(rotatedCircle.handle2, (double)MathHelper.DEGREES_TO_RADIANS(num20), rotatedCircle.x, rotatedCircle.y);
+                        rotatedCircle.inithanlde1 = (rotatedCircle.handle1 = vect(rotatedCircle.x - num19, rotatedCircle.y));
+                        rotatedCircle.inithanlde2 = (rotatedCircle.handle2 = vect(rotatedCircle.x + num19, rotatedCircle.y));
+                        rotatedCircle.handle1 = vectRotateAround(rotatedCircle.handle1, (double)DEGREES_TO_RADIANS(num20), rotatedCircle.x, rotatedCircle.y);
+                        rotatedCircle.handle2 = vectRotateAround(rotatedCircle.handle2, (double)DEGREES_TO_RADIANS(num20), rotatedCircle.x, rotatedCircle.y);
                         rotatedCircle.setSize(num19);
                         rotatedCircle.setHasOneHandle(flag);
                         rotatedCircles.Add(rotatedCircle);
@@ -492,7 +492,7 @@ namespace ctr_wp7.game
                         bool flag2 = xmlnode4["grab"].boolValue();
                         bool flag3 = xmlnode4["bubble"].boolValue();
                         int num25 = (xmlnode4["bouncer"].boolValue() ? 8 : 0) | (flag3 ? 2 : 0) | (flag2 ? 4 : 0);
-                        Ghost ghost = new Ghost().initWithPositionPossibleStatesMaskGrabRadiusBouncerAngleBubblesBungeesBouncers(MathHelper.vect(num21, num22), num25, num23, num24, bubbles, bungees, bouncers);
+                        Ghost ghost = new Ghost().initWithPositionPossibleStatesMaskGrabRadiusBouncerAngleBubblesBungeesBouncers(vect(num21, num22), num25, num23, num24, bubbles, bungees, bouncers);
                         ghosts.Add(ghost);
                         if (!isCandyInGhostBubbleAnimationLoaded)
                         {
@@ -547,13 +547,13 @@ namespace ctr_wp7.game
                         float num31 = (float)xmlnode4["y"].intValue() * 1f + 0f;
                         float num32 = (float)xmlnode4["length"].intValue() * 1f;
                         float num33 = xmlnode4["radius"].floatValue();
-                        bool flag4 = xmlnode4["wheel"].isEqualToString(NSObject.NSS("true"));
+                        bool flag4 = xmlnode4["wheel"].isEqualToString(NSS("true"));
                         float num34 = xmlnode4["moveLength"].floatValue() * 1f;
-                        bool flag5 = xmlnode4["moveVertical"].isEqualToString(NSObject.NSS("true"));
+                        bool flag5 = xmlnode4["moveVertical"].isEqualToString(NSS("true"));
                         float num35 = xmlnode4["moveOffset"].floatValue() * 1f;
-                        bool flag6 = xmlnode4["spider"].isEqualToString(NSObject.NSS("true"));
-                        bool flag7 = xmlnode4["part"].isEqualToString(NSObject.NSS("L"));
-                        bool flag8 = xmlnode4["hidePath"].isEqualToString(NSObject.NSS("true"));
+                        bool flag6 = xmlnode4["spider"].isEqualToString(NSS("true"));
+                        bool flag7 = xmlnode4["part"].isEqualToString(NSS("L"));
+                        bool flag8 = xmlnode4["hidePath"].isEqualToString(NSS("true"));
                         Grab grab = (Grab)new Grab().init();
                         grab.initial_x = (grab.x = num30);
                         grab.initial_y = (grab.y = num31);
@@ -567,7 +567,7 @@ namespace ctr_wp7.game
                             if (!flag8)
                             {
                                 int num36 = 2;
-                                bool flag9 = xmlnode4["path"].hasPrefix(NSObject.NSS("R"));
+                                bool flag9 = xmlnode4["path"].hasPrefix(NSS("R"));
                                 for (int n = 0; n < grab.mover.pathLen - 1; n++)
                                 {
                                     if (!flag9 || n % num36 == 0)
@@ -602,10 +602,10 @@ namespace ctr_wp7.game
                     }
                     else if (xmlnode4.Name == "target")
                     {
-                        target = GameScene.CharAnim.CharAnim_createWithResID(132);
+                        target = CharAnim.CharAnim_createWithResID(132);
                         target.doRestoreCutTransparency();
                         target.bb = new Rectangle(90.0, 110.0, 25.0, 1.0);
-                        targetIdle = GameScene.CharAnim.CharAnim_createWithResID(133);
+                        targetIdle = CharAnim.CharAnim_createWithResID(133);
                         targetIdle.doRestoreCutTransparency();
                         target.o = targetIdle;
                         targetIdle.o = target;
@@ -666,8 +666,8 @@ namespace ctr_wp7.game
                         targetIdle.switchToAnimationatEndOfAnimationDelay(0, 3, 0.05f);
                         target.switchToAnimationatEndOfAnimationDelay(0, 4, 0.05f);
                         target.switchToAnimationatEndOfAnimationDelay(0, 5, 0.05f);
-                        NSObject.NSRET(target);
-                        NSObject.NSRET(targetIdle);
+                        NSRET(target);
+                        NSRET(targetIdle);
                         if (CTRRootController.isShowGreeting())
                         {
                             dd.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(selector_showGreeting), null, 1.3f);
@@ -699,7 +699,7 @@ namespace ctr_wp7.game
                         CTRRootController ctrrootController2 = (CTRRootController)Application.sharedRootController();
                         int num45 = 189 + ctrrootController2.getPack() * 2;
                         support = Image.Image_createWithResID(num45);
-                        NSObject.NSRET(support);
+                        NSRET(support);
                         support.doRestoreCutTransparency();
                         support.anchor = 18;
                         NSString nsstring4 = xmlnode4["x"];
@@ -708,14 +708,14 @@ namespace ctr_wp7.game
                         NSString nsstring5 = xmlnode4["y"];
                         float num47 = (float)(1 - nsstring5.intValue() % 2) * 0.33f;
                         targetIdle.y = (target.y = (support.y = (float)nsstring5.intValue() * 1f + 0f + num47));
-                        idlesTimer = MathHelper.RND_RANGE(5, 20);
+                        idlesTimer = RND_RANGE(5, 20);
                     }
                     else if (xmlnode4.Name == "steamTube")
                     {
                         float num48 = (float)xmlnode4["x"].intValue() * 1f + 0f;
                         float num49 = (float)xmlnode4["y"].intValue() * 1f + 0f;
                         double num50 = (double)xmlnode4["angle"].intValue();
-                        SteamTube steamTube = new SteamTube().initWithPositionAngle(MathHelper.vect(num48, num49), (float)num50);
+                        SteamTube steamTube = new SteamTube().initWithPositionAngle(vect(num48, num49), (float)num50);
                         tubes.Add(steamTube);
                     }
                     else if (xmlnode4.Name == "lantern")
@@ -723,7 +723,7 @@ namespace ctr_wp7.game
                         float num51 = (float)xmlnode4["x"].intValue() * 1f + 0f;
                         float num52 = (float)xmlnode4["y"].intValue() * 1f + 0f;
                         bool flag10 = xmlnode4["candyCaptured"].boolValue();
-                        Lantern lantern = new Lantern().initWithPosition(MathHelper.vect(num51, num52));
+                        Lantern lantern = new Lantern().initWithPosition(vect(num51, num52));
                         lantern.parseMover(xmlnode4);
                         if (flag10)
                         {
@@ -772,22 +772,22 @@ namespace ctr_wp7.game
             time = 0f;
             score = 0;
             gravityNormal = true;
-            MaterialPoint.globalGravity = MathHelper.vect(0f, 784f);
+            MaterialPoint.globalGravity = vect(0f, 784f);
             dimTime = 0f;
             ropesCutAtOnce = 0;
             ropeAtOnceTimer = 0f;
             dd.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(selector_doCandyBlink), null, 1f);
-            Text text = Text.createWithFontandString(5, NSObject.NSS((ctrrootController.getPack() + 1).ToString() + " - " + (ctrrootController.getLevel() + 1).ToString()));
+            Text text = Text.createWithFontandString(5, NSS((ctrrootController.getPack() + 1).ToString() + " - " + (ctrrootController.getLevel() + 1).ToString()));
             text.anchor = 33;
             Text text2 = Text.createWithFontandString(5, Application.getString(1310741));
             text2.anchor = 33;
             text2.parentAnchor = 9;
             text.x = 5f;
-            text.y = FrameworkTypes.SCREEN_HEIGHT + 10f;
+            text.y = SCREEN_HEIGHT + 10f;
             text2.y = 30f;
             text2.rotationCenterX -= (float)text2.width / 2f;
             text2.scaleX = (text2.scaleY = 0.7f);
-            if (ResDataPhoneFull.LANGUAGE == Language.LANG_ZH || ResDataPhoneFull.LANGUAGE == Language.LANG_KO || ResDataPhoneFull.LANGUAGE == Language.LANG_JA)
+            if (LANGUAGE == Language.LANG_ZH || LANGUAGE == Language.LANG_KO || LANGUAGE == Language.LANG_JA)
             {
                 text2.y -= 7f;
             }
@@ -802,8 +802,8 @@ namespace ctr_wp7.game
             text.playTimeline(0);
             timeline6.delegateTimelineDelegate = staticAniPool;
             staticAniPool.addChild(text);
-            text.y += FrameworkTypes.SCREEN_OFFSET_Y;
-            text.x -= FrameworkTypes.SCREEN_OFFSET_X;
+            text.y += SCREEN_OFFSET_Y;
+            text.x -= SCREEN_OFFSET_X;
             int attemptsForPackLevel = CTRPreferences.getAttemptsForPackLevel(ctrrootController.getPack(), ctrrootController.getLevel());
             CTRPreferences.setAttemptsForPackLevel(attemptsForPackLevel + 1, ctrrootController.getPack(), ctrrootController.getLevel());
             ropesCutFromLevelStart = 0;
@@ -828,7 +828,7 @@ namespace ctr_wp7.game
                 idlesTimer--;
                 if (idlesTimer == 0)
                 {
-                    if (MathHelper.RND_RANGE(0, 1) == 1)
+                    if (RND_RANGE(0, 1) == 1)
                     {
                         targetIdle.playTimeline(1);
                     }
@@ -836,7 +836,7 @@ namespace ctr_wp7.game
                     {
                         targetIdle.playTimeline(3);
                     }
-                    idlesTimer = MathHelper.RND_RANGE(5, 20);
+                    idlesTimer = RND_RANGE(5, 20);
                 }
             }
         }
@@ -910,7 +910,7 @@ namespace ctr_wp7.game
                 JugglingTime += delta;
                 if (JugglingTime >= 30f)
                 {
-                    CTRRootController.postAchievementName(NSObject.NSS("acCandyJuggler"));
+                    CTRRootController.postAchievementName(NSS("acCandyJuggler"));
                 }
             }
             for (int j = 0; j < 5; j++)
@@ -940,10 +940,10 @@ namespace ctr_wp7.game
             }
             Mover.moveVariableToTarget(ref ropeAtOnceTimer, 0f, 1f, delta);
             ConstraintedPoint constraintedPoint = ((twoParts != 2) ? starL : star);
-            float num2 = constraintedPoint.pos.x - FrameworkTypes.SCREEN_WIDTH / 2f;
-            float num3 = constraintedPoint.pos.y - FrameworkTypes.SCREEN_HEIGHT / 2f;
-            float num4 = MathHelper.FIT_TO_BOUNDARIES(num2, 0f, mapWidth - FrameworkTypes.SCREEN_WIDTH);
-            float num5 = MathHelper.FIT_TO_BOUNDARIES(num3, 0f, mapHeight - FrameworkTypes.SCREEN_HEIGHT);
+            float num2 = constraintedPoint.pos.x - SCREEN_WIDTH / 2f;
+            float num3 = constraintedPoint.pos.y - SCREEN_HEIGHT / 2f;
+            float num4 = FIT_TO_BOUNDARIES(num2, 0f, mapWidth - SCREEN_WIDTH);
+            float num5 = FIT_TO_BOUNDARIES(num3, 0f, mapHeight - SCREEN_HEIGHT);
             camera.moveToXYImmediate(num4, num5, false);
             if (!freezeCamera || camera.type != CAMERA_TYPE.CAMERA_SPEED_DELAY)
             {
@@ -951,7 +951,7 @@ namespace ctr_wp7.game
             }
             if (camera.type == CAMERA_TYPE.CAMERA_SPEED_PIXELS)
             {
-                float num6 = MathHelper.vectDistance(camera.pos, MathHelper.vect(num4, num5));
+                float num6 = vectDistance(camera.pos, vect(num4, num5));
                 if (num6 < 50f)
                 {
                     ignoreTouches = false;
@@ -999,7 +999,7 @@ namespace ctr_wp7.game
                     {
                         if (grab.rope != null)
                         {
-                            grab.rope.bungeeAnchor.pos = MathHelper.vect(grab.x, grab.y);
+                            grab.rope.bungeeAnchor.pos = vect(grab.x, grab.y);
                             grab.rope.bungeeAnchor.pin = grab.rope.bungeeAnchor.pos;
                         }
                         if (grab.radius != -1f)
@@ -1042,7 +1042,7 @@ namespace ctr_wp7.game
                         {
                             if (!noCandyL)
                             {
-                                float num7 = MathHelper.vectDistance(MathHelper.vect(grab.x, grab.y), starL.pos);
+                                float num7 = vectDistance(vect(grab.x, grab.y), starL.pos);
                                 if (num7 <= grab.radius + 15f)
                                 {
                                     Bungee bungee = (Bungee)new Bungee().initWithHeadAtXYTailAtTXTYandLength(null, grab.x, grab.y, starL, starL.pos.x, starL.pos.y, grab.radius + 15f);
@@ -1058,7 +1058,7 @@ namespace ctr_wp7.game
                             }
                             if (!noCandyR && grab.rope == null)
                             {
-                                float num8 = MathHelper.vectDistance(MathHelper.vect(grab.x, grab.y), starR.pos);
+                                float num8 = vectDistance(vect(grab.x, grab.y), starR.pos);
                                 if (num8 <= grab.radius + 15f)
                                 {
                                     Bungee bungee2 = (Bungee)new Bungee().initWithHeadAtXYTailAtTXTYandLength(null, grab.x, grab.y, starR, starR.pos.x, starR.pos.y, grab.radius + 15f);
@@ -1075,7 +1075,7 @@ namespace ctr_wp7.game
                         }
                         else
                         {
-                            float num9 = MathHelper.vectDistance(MathHelper.vect(grab.x, grab.y), star.pos);
+                            float num9 = vectDistance(vect(grab.x, grab.y), star.pos);
                             if (num9 <= grab.radius + 15f)
                             {
                                 Bungee bungee3 = (Bungee)new Bungee().initWithHeadAtXYTailAtTXTYandLength(null, grab.x, grab.y, star, star.pos.x, star.pos.y, grab.radius + 15f);
@@ -1096,7 +1096,7 @@ namespace ctr_wp7.game
                     }
                     ConstraintedPoint bungeeAnchor = rope.bungeeAnchor;
                     ConstraintedPoint constraintedPoint2 = rope.parts[rope.parts.Count - 1];
-                    Vector vector = MathHelper.vectSub(bungeeAnchor.pos, constraintedPoint2.pos);
+                    Vector vector = vectSub(bungeeAnchor.pos, constraintedPoint2.pos);
                     bool flag5 = false;
                     if (twoParts != 2)
                     {
@@ -1115,7 +1115,7 @@ namespace ctr_wp7.game
                     }
                     if (rope.relaxed != 0 && rope.cut == -1 && flag5)
                     {
-                        float num10 = MathHelper.RADIANS_TO_DEGREES(MathHelper.vectAngleNormalized(vector));
+                        float num10 = RADIANS_TO_DEGREES(vectAngleNormalized(vector));
                         if (twoParts != 2)
                         {
                             GameObject gameObject = ((constraintedPoint2 == starL) ? candyL : candyR);
@@ -1176,7 +1176,7 @@ namespace ctr_wp7.game
                 candy.x = star.pos.x;
                 candy.y = star.pos.y;
                 candy.update(delta);
-                BaseElement.calculateTopLeft(candy);
+                calculateTopLeft(candy);
             }
             if (twoParts != 2)
             {
@@ -1205,7 +1205,7 @@ namespace ctr_wp7.game
                         Preferences._setIntforKey(num11, "PREFS_CANDIES_UNITED", false);
                         if (num11 >= 100)
                         {
-                            CTRRootController.postAchievementName(NSObject.NSS("acRomanticSoul"));
+                            CTRRootController.postAchievementName(NSS("acRomanticSoul"));
                         }
                         bool flag6 = false;
                         bool flag7 = false;
@@ -1273,11 +1273,11 @@ namespace ctr_wp7.game
                         star.pos.y = starL.pos.y;
                         candy.x = star.pos.x;
                         candy.y = star.pos.y;
-                        BaseElement.calculateTopLeft(candy);
-                        Vector vector2 = MathHelper.vectSub(starL.pos, starL.prevPos);
-                        Vector vector3 = MathHelper.vectSub(starR.pos, starR.prevPos);
-                        Vector vector4 = MathHelper.vect((vector2.x + vector3.x) / 2f, (vector2.y + vector3.y) / 2f);
-                        star.prevPos = MathHelper.vectSub(star.pos, vector4);
+                        calculateTopLeft(candy);
+                        Vector vector2 = vectSub(starL.pos, starL.prevPos);
+                        Vector vector3 = vectSub(starR.pos, starR.prevPos);
+                        Vector vector4 = vect((vector2.x + vector3.x) / 2f, (vector2.y + vector3.y) / 2f);
+                        star.prevPos = vectSub(star.pos, vector4);
                         int count2 = bungees.Count;
                         for (int num12 = 0; num12 < count2; num12++)
                         {
@@ -1313,7 +1313,7 @@ namespace ctr_wp7.game
                 if (!noCandyL && !noCandyR && GameObject.objectsIntersect(candyL, candyR) && twoParts == 0)
                 {
                     twoParts = 1;
-                    partsDist = MathHelper.vectDistance(starL.pos, starR.pos);
+                    partsDist = vectDistance(starL.pos, starR.pos);
                     starL.addConstraintwithRestLengthofType(starR, partsDist, Constraint.CONSTRAINT.CONSTRAINT_NOT_MORE_THAN);
                     starR.addConstraintwithRestLengthofType(starL, partsDist, Constraint.CONSTRAINT.CONSTRAINT_NOT_MORE_THAN);
                 }
@@ -1382,7 +1382,7 @@ namespace ctr_wp7.game
                     bubble.update(delta);
                     if (twoParts != 2)
                     {
-                        if (!noCandyL && !bubble.popped && MathHelper.pointInRect(candyL.x, candyL.y, bubble.x - 30f, bubble.y - 30f, 60f, 60f))
+                        if (!noCandyL && !bubble.popped && pointInRect(candyL.x, candyL.y, bubble.x - 30f, bubble.y - 30f, 60f, 60f))
                         {
                             if (candyBubbleL != null)
                             {
@@ -1433,7 +1433,7 @@ namespace ctr_wp7.game
                             bubble.removeChildWithID(0);
                             break;
                         }
-                        if (!noCandyR && !bubble.popped && MathHelper.pointInRect(candyR.x, candyR.y, bubble.x - 30f, bubble.y - 30f, 60f, 60f))
+                        if (!noCandyR && !bubble.popped && pointInRect(candyR.x, candyR.y, bubble.x - 30f, bubble.y - 30f, 60f, 60f))
                         {
                             if (candyBubbleR != null)
                             {
@@ -1485,7 +1485,7 @@ namespace ctr_wp7.game
                             break;
                         }
                     }
-                    else if (!noCandy && !bubble.popped && MathHelper.pointInRect(candy.x, candy.y, bubble.x - 30f, bubble.y - 30f, 60f, 60f))
+                    else if (!noCandy && !bubble.popped && pointInRect(candy.x, candy.y, bubble.x - 30f, bubble.y - 30f, 60f, 60f))
                     {
                         if (candyBubble != null)
                         {
@@ -1541,7 +1541,7 @@ namespace ctr_wp7.game
                         for (int num18 = 0; num18 < rotatedCircles.Count; num18++)
                         {
                             RotatedCircle rotatedCircle = rotatedCircles[num18];
-                            float num19 = MathHelper.vectDistance(MathHelper.vect(bubble.x, bubble.y), MathHelper.vect(rotatedCircle.x, rotatedCircle.y));
+                            float num19 = vectDistance(vect(bubble.x, bubble.y), vect(rotatedCircle.x, rotatedCircle.y));
                             if (num19 < rotatedCircle.sizeInPixels)
                             {
                                 bubble.withoutShadow = true;
@@ -1609,7 +1609,7 @@ namespace ctr_wp7.game
             foreach (Lantern lantern in allLanterns)
             {
                 lantern.update(delta);
-                if (!isCandyInLantern && lantern.lanternState == 0 && MathHelper.vectDistance(star.pos, MathHelper.vect(lantern.x, lantern.y)) < 32f)
+                if (!isCandyInLantern && lantern.lanternState == 0 && vectDistance(star.pos, vect(lantern.x, lantern.y)) < 32f)
                 {
                     isCandyInLantern = true;
                     candy.passTransformationsToChilds = true;
@@ -1669,7 +1669,7 @@ namespace ctr_wp7.game
                 for (int num24 = 0; num24 < bungees.Count; num24++)
                 {
                     Grab grab3 = bungees[num24];
-                    if (MathHelper.vectDistance(MathHelper.vect(grab3.x, grab3.y), MathHelper.vect(rotatedCircle3.x, rotatedCircle3.y)) <= rotatedCircle3.sizeInPixels + 5f)
+                    if (vectDistance(vect(grab3.x, grab3.y), vect(rotatedCircle3.x, rotatedCircle3.y)) <= rotatedCircle3.sizeInPixels + 5f)
                     {
                         if (rotatedCircle3.containedObjects.IndexOf(grab3) < 0)
                         {
@@ -1684,7 +1684,7 @@ namespace ctr_wp7.game
                 for (int num25 = 0; num25 < bubbles.Count; num25++)
                 {
                     Bubble bubble2 = bubbles[num25];
-                    if (MathHelper.vectDistance(MathHelper.vect(bubble2.x, bubble2.y), MathHelper.vect(rotatedCircle3.x, rotatedCircle3.y)) <= rotatedCircle3.sizeInPixels + 10f)
+                    if (vectDistance(vect(bubble2.x, bubble2.y), vect(rotatedCircle3.x, rotatedCircle3.y)) <= rotatedCircle3.sizeInPixels + 10f)
                     {
                         if (rotatedCircle3.containedObjects.IndexOf(bubble2) < 0)
                         {
@@ -1699,7 +1699,7 @@ namespace ctr_wp7.game
                 for (int num26 = 0; num26 < pumps.Count; num26++)
                 {
                     Pump pump2 = pumps[num26];
-                    if (MathHelper.vectDistance(MathHelper.vect(pump2.x, pump2.y), MathHelper.vect(rotatedCircle3.x, rotatedCircle3.y)) <= rotatedCircle3.sizeInPixels + 10f)
+                    if (vectDistance(vect(pump2.x, pump2.y), vect(rotatedCircle3.x, rotatedCircle3.y)) <= rotatedCircle3.sizeInPixels + 10f)
                     {
                         if (rotatedCircle3.containedObjects.IndexOf(pump2) < 0)
                         {
@@ -1733,10 +1733,10 @@ namespace ctr_wp7.game
                 float rotation = sock.rotation;
                 sock.rotation = 0f;
                 sock.updateRotation();
-                Vector vector5 = MathHelper.vectRotate(star.posDelta, (double)MathHelper.DEGREES_TO_RADIANS(-rotation));
+                Vector vector5 = vectRotate(star.posDelta, (double)DEGREES_TO_RADIANS(-rotation));
                 sock.rotation = rotation;
                 sock.updateRotation();
-                if ((double)vector5.y >= 0.0 && (MathHelper.lineInRect(sock.t1.x, sock.t1.y, sock.t2.x, sock.t2.y, star.pos.x - 10f, star.pos.y - 10f, 20f, 20f) || MathHelper.lineInRect(sock.b1.x, sock.b1.y, sock.b2.x, sock.b2.y, star.pos.x - 10f, star.pos.y - 10f, 20f, 20f)))
+                if ((double)vector5.y >= 0.0 && (lineInRect(sock.t1.x, sock.t1.y, sock.t2.x, sock.t2.y, star.pos.x - 10f, star.pos.y - 10f, 20f, 20f) || lineInRect(sock.b1.x, sock.b1.y, sock.b2.x, sock.b2.y, star.pos.x - 10f, star.pos.y - 10f, 20f, 20f)))
                 {
                     if (sock.state == Sock.SOCK_IDLE)
                     {
@@ -1752,9 +1752,9 @@ namespace ctr_wp7.game
                                 Preferences._setIntforKey(num29, "PREFS_SOCKS_USED", false);
                                 if (num29 >= 200)
                                 {
-                                    CTRRootController.postAchievementName(NSObject.NSS("acMagician"));
+                                    CTRRootController.postAchievementName(NSS("acMagician"));
                                 }
-                                savedSockSpeed = 0.9f * MathHelper.vectLength(star.v);
+                                savedSockSpeed = 0.9f * vectLength(star.v);
                                 targetSock = sock2;
                                 sock.light.playTimeline(0);
                                 sock.light.visible = true;
@@ -1778,7 +1778,7 @@ namespace ctr_wp7.game
                 if (razor != null)
                 {
                     razor.update(delta);
-                    cutWithRazorOrLine1Line2Immediate(razor, MathHelper.vectZero, MathHelper.vectZero, false);
+                    cutWithRazorOrLine1Line2Immediate(razor, vectZero, vectZero, false);
                 }
             }
             num = spikes.Count;
@@ -1797,7 +1797,7 @@ namespace ctr_wp7.game
                         bool flag13;
                         if (twoParts != 2)
                         {
-                            flag13 = MathHelper.lineInRect(spikes2.t1.x, spikes2.t1.y, spikes2.t2.x, spikes2.t2.y, starL.pos.x - 5f, starL.pos.y - 5f, 10f, 10f) || MathHelper.lineInRect(spikes2.b1.x, spikes2.b1.y, spikes2.b2.x, spikes2.b2.y, starL.pos.x - 5f, starL.pos.y - 5f, 10f, 10f);
+                            flag13 = lineInRect(spikes2.t1.x, spikes2.t1.y, spikes2.t2.x, spikes2.t2.y, starL.pos.x - 5f, starL.pos.y - 5f, 10f, 10f) || lineInRect(spikes2.b1.x, spikes2.b1.y, spikes2.b2.x, spikes2.b2.y, starL.pos.x - 5f, starL.pos.y - 5f, 10f, 10f);
                             flag13 = flag13 && !noCandyL;
                             if (flag13)
                             {
@@ -1805,13 +1805,13 @@ namespace ctr_wp7.game
                             }
                             else
                             {
-                                flag13 = MathHelper.lineInRect(spikes2.t1.x, spikes2.t1.y, spikes2.t2.x, spikes2.t2.y, starR.pos.x - 5f, starR.pos.y - 5f, 10f, 10f) || MathHelper.lineInRect(spikes2.b1.x, spikes2.b1.y, spikes2.b2.x, spikes2.b2.y, starR.pos.x - 5f, starR.pos.y - 5f, 10f, 10f);
+                                flag13 = lineInRect(spikes2.t1.x, spikes2.t1.y, spikes2.t2.x, spikes2.t2.y, starR.pos.x - 5f, starR.pos.y - 5f, 10f, 10f) || lineInRect(spikes2.b1.x, spikes2.b1.y, spikes2.b2.x, spikes2.b2.y, starR.pos.x - 5f, starR.pos.y - 5f, 10f, 10f);
                                 flag13 = flag13 && !noCandyR;
                             }
                         }
                         else
                         {
-                            flag13 = MathHelper.lineInRect(spikes2.t1.x, spikes2.t1.y, spikes2.t2.x, spikes2.t2.y, star.pos.x - 5f, star.pos.y - 5f, 10f, 10f) || MathHelper.lineInRect(spikes2.b1.x, spikes2.b1.y, spikes2.b2.x, spikes2.b2.y, star.pos.x - 5f, star.pos.y - 5f, 10f, 10f);
+                            flag13 = lineInRect(spikes2.t1.x, spikes2.t1.y, spikes2.t2.x, spikes2.t2.y, star.pos.x - 5f, star.pos.y - 5f, 10f, 10f) || lineInRect(spikes2.b1.x, spikes2.b1.y, spikes2.b2.x, spikes2.b2.y, star.pos.x - 5f, star.pos.y - 5f, 10f, 10f);
                             flag13 = flag13 && !noCandy;
                         }
                         if (flag13)
@@ -1836,7 +1836,7 @@ namespace ctr_wp7.game
                             }
                             CTRPreferences ctrpreferences = Application.sharedPreferences();
                             int intForKey = ctrpreferences.getIntForKey("PREFS_SELECTED_CANDY");
-                            Image image2 = Image.Image_createWithResID(GameScene.CANDIES[intForKey]);
+                            Image image2 = Image.Image_createWithResID(CANDIES[intForKey]);
                             image2.doRestoreCutTransparency();
                             CandyBreak candyBreak = (CandyBreak)new CandyBreak().initWithTotalParticlesandImageGrid(5, image2);
                             if (gravityButton != null && !gravityNormal)
@@ -1900,7 +1900,7 @@ namespace ctr_wp7.game
                     bool flag15;
                     if (twoParts != 2)
                     {
-                        flag15 = MathHelper.lineInRect(bouncer.t1.x, bouncer.t1.y, bouncer.t2.x, bouncer.t2.y, starL.pos.x - 20f, starL.pos.y - 20f, 40f, 40f) || MathHelper.lineInRect(bouncer.b1.x, bouncer.b1.y, bouncer.b2.x, bouncer.b2.y, starL.pos.x - 20f, starL.pos.y - 20f, 40f, 40f);
+                        flag15 = lineInRect(bouncer.t1.x, bouncer.t1.y, bouncer.t2.x, bouncer.t2.y, starL.pos.x - 20f, starL.pos.y - 20f, 40f, 40f) || lineInRect(bouncer.b1.x, bouncer.b1.y, bouncer.b2.x, bouncer.b2.y, starL.pos.x - 20f, starL.pos.y - 20f, 40f, 40f);
                         flag15 = flag15 && !noCandyL;
                         if (flag15)
                         {
@@ -1908,13 +1908,13 @@ namespace ctr_wp7.game
                         }
                         else
                         {
-                            flag15 = MathHelper.lineInRect(bouncer.t1.x, bouncer.t1.y, bouncer.t2.x, bouncer.t2.y, starR.pos.x - 20f, starR.pos.y - 20f, 40f, 40f) || MathHelper.lineInRect(bouncer.b1.x, bouncer.b1.y, bouncer.b2.x, bouncer.b2.y, starR.pos.x - 20f, starR.pos.y - 20f, 40f, 40f);
+                            flag15 = lineInRect(bouncer.t1.x, bouncer.t1.y, bouncer.t2.x, bouncer.t2.y, starR.pos.x - 20f, starR.pos.y - 20f, 40f, 40f) || lineInRect(bouncer.b1.x, bouncer.b1.y, bouncer.b2.x, bouncer.b2.y, starR.pos.x - 20f, starR.pos.y - 20f, 40f, 40f);
                             flag15 = flag15 && !noCandyR;
                         }
                     }
                     else
                     {
-                        flag15 = MathHelper.lineInRect(bouncer.t1.x, bouncer.t1.y, bouncer.t2.x, bouncer.t2.y, star.pos.x - 20f, star.pos.y - 20f, 40f, 40f) || MathHelper.lineInRect(bouncer.b1.x, bouncer.b1.y, bouncer.b2.x, bouncer.b2.y, star.pos.x - 20f, star.pos.y - 20f, 40f, 40f);
+                        flag15 = lineInRect(bouncer.t1.x, bouncer.t1.y, bouncer.t2.x, bouncer.t2.y, star.pos.x - 20f, star.pos.y - 20f, 40f, 40f) || lineInRect(bouncer.b1.x, bouncer.b1.y, bouncer.b2.x, bouncer.b2.y, star.pos.x - 20f, star.pos.y - 20f, 40f, 40f);
                         flag15 = flag15 && !noCandy;
                     }
                     if (flag15)
@@ -1949,22 +1949,22 @@ namespace ctr_wp7.game
                 {
                     if (gravityButton != null && !gravityNormal)
                     {
-                        starL.applyImpulseDelta(MathHelper.vect(-starL.v.x / num34, -starL.v.y / num34 - num33), delta);
+                        starL.applyImpulseDelta(vect(-starL.v.x / num34, -starL.v.y / num34 - num33), delta);
                     }
                     else
                     {
-                        starL.applyImpulseDelta(MathHelper.vect(-starL.v.x / num34, -starL.v.y / num34 + num33), delta);
+                        starL.applyImpulseDelta(vect(-starL.v.x / num34, -starL.v.y / num34 + num33), delta);
                     }
                 }
                 if (candyBubbleR != null)
                 {
                     if (gravityButton != null && !gravityNormal)
                     {
-                        starR.applyImpulseDelta(MathHelper.vect(-starR.v.x / num34, -starR.v.y / num34 - num33), delta);
+                        starR.applyImpulseDelta(vect(-starR.v.x / num34, -starR.v.y / num34 - num33), delta);
                     }
                     else
                     {
-                        starR.applyImpulseDelta(MathHelper.vect(-starR.v.x / num34, -starR.v.y / num34 + num33), delta);
+                        starR.applyImpulseDelta(vect(-starR.v.x / num34, -starR.v.y / num34 + num33), delta);
                     }
                 }
             }
@@ -1974,13 +1974,13 @@ namespace ctr_wp7.game
                 {
                     if (gravityButton != null && !gravityNormal)
                     {
-                        starL.applyImpulseDelta(MathHelper.vect(-starL.v.x / num34, -starL.v.y / num34 - num33), delta);
-                        starR.applyImpulseDelta(MathHelper.vect(-starR.v.x / num34, -starR.v.y / num34 - num33), delta);
+                        starL.applyImpulseDelta(vect(-starL.v.x / num34, -starL.v.y / num34 - num33), delta);
+                        starR.applyImpulseDelta(vect(-starR.v.x / num34, -starR.v.y / num34 - num33), delta);
                     }
                     else
                     {
-                        starL.applyImpulseDelta(MathHelper.vect(-starL.v.x / num34, -starL.v.y / num34 + num33), delta);
-                        starR.applyImpulseDelta(MathHelper.vect(-starR.v.x / num34, -starR.v.y / num34 + num33), delta);
+                        starL.applyImpulseDelta(vect(-starL.v.x / num34, -starL.v.y / num34 + num33), delta);
+                        starR.applyImpulseDelta(vect(-starR.v.x / num34, -starR.v.y / num34 + num33), delta);
                     }
                 }
             }
@@ -1988,18 +1988,18 @@ namespace ctr_wp7.game
             {
                 if (gravityButton != null && !gravityNormal)
                 {
-                    star.applyImpulseDelta(MathHelper.vect(-star.v.x / num34, -star.v.y / num34 - num33), delta);
+                    star.applyImpulseDelta(vect(-star.v.x / num34, -star.v.y / num34 - num33), delta);
                 }
                 else
                 {
-                    star.applyImpulseDelta(MathHelper.vect(-star.v.x / num34, -star.v.y / num34 + num33), delta);
+                    star.applyImpulseDelta(vect(-star.v.x / num34, -star.v.y / num34 + num33), delta);
                 }
             }
             if (!noCandy)
             {
                 if (!mouthOpen)
                 {
-                    if (!isCandyInLantern && MathHelper.vectDistance(star.pos, MathHelper.vect(target.x, target.y)) < 100f)
+                    if (!isCandyInLantern && vectDistance(star.pos, vect(target.x, target.y)) < 100f)
                     {
                         mouthOpen = true;
                         target.playTimeline(8);
@@ -2012,7 +2012,7 @@ namespace ctr_wp7.game
                     Mover.moveVariableToTarget(ref mouthCloseTimer, 0f, 1f, delta);
                     if ((double)mouthCloseTimer <= 0.0)
                     {
-                        if (isCandyInLantern || MathHelper.vectDistance(star.pos, MathHelper.vect(target.x, target.y)) > 100f)
+                        if (isCandyInLantern || vectDistance(star.pos, vect(target.x, target.y)) > 100f)
                         {
                             mouthOpen = false;
                             target.playTimeline(9);
@@ -2020,7 +2020,7 @@ namespace ctr_wp7.game
                             tummyTeasers++;
                             if (tummyTeasers >= 10)
                             {
-                                CTRRootController.postAchievementName(NSObject.NSS("acTummyTeaser"));
+                                CTRRootController.postAchievementName(NSS("acTummyTeaser"));
                             }
                         }
                         else
@@ -2068,11 +2068,11 @@ namespace ctr_wp7.game
                     Preferences._setIntforKey(num35, "PREFS_CANDIES_LOST", false);
                     if (num35 >= 50)
                     {
-                        CTRRootController.postAchievementName(NSObject.NSS("acWeightLoser"));
+                        CTRRootController.postAchievementName(NSS("acWeightLoser"));
                     }
                     if (num35 >= 200)
                     {
-                        CTRRootController.postAchievementName(NSObject.NSS("acCalorieMinimizer"));
+                        CTRRootController.postAchievementName(NSS("acCalorieMinimizer"));
                     }
                     if (!flag19)
                     {
@@ -2122,16 +2122,16 @@ namespace ctr_wp7.game
         {
             base.preDraw();
             OpenGL.glPushMatrix();
-            OpenGL.glTranslatef(-FrameworkTypes.SCREEN_OFFSET_X, -FrameworkTypes.SCREEN_OFFSET_Y, 0f);
-            float num = FrameworkTypes.SCREEN_BG_SCALE_X;
-            float num2 = FrameworkTypes.SCREEN_BG_SCALE_Y;
-            if (mapHeight > FrameworkTypes.SCREEN_HEIGHT)
+            OpenGL.glTranslatef(-SCREEN_OFFSET_X, -SCREEN_OFFSET_Y, 0f);
+            float num = SCREEN_BG_SCALE_X;
+            float num2 = SCREEN_BG_SCALE_Y;
+            if (mapHeight > SCREEN_HEIGHT)
             {
-                num2 = (FrameworkTypes.SCREEN_HEIGHT_EXPANDED - FrameworkTypes.SCREEN_OFFSET_Y) / FrameworkTypes.SCREEN_HEIGHT;
+                num2 = (SCREEN_HEIGHT_EXPANDED - SCREEN_OFFSET_Y) / SCREEN_HEIGHT;
             }
-            if (mapWidth > FrameworkTypes.SCREEN_WIDTH)
+            if (mapWidth > SCREEN_WIDTH)
             {
-                num = (FrameworkTypes.SCREEN_WIDTH_EXPANDED - FrameworkTypes.SCREEN_OFFSET_X) / FrameworkTypes.SCREEN_WIDTH;
+                num = (SCREEN_WIDTH_EXPANDED - SCREEN_OFFSET_X) / SCREEN_WIDTH;
             }
             OpenGL.glScalef(num, num2, 1f);
             OpenGL.glEnable(0);
@@ -2144,7 +2144,7 @@ namespace ctr_wp7.game
             back.draw();
             OpenGL.glEnable(1);
             OpenGL.glBlendFunc(BlendingFactor.GL_ONE, BlendingFactor.GL_ONE_MINUS_SRC_ALPHA);
-            if (mapHeight > FrameworkTypes.SCREEN_HEIGHT)
+            if (mapHeight > SCREEN_HEIGHT)
             {
                 float num3 = 2f;
                 CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
@@ -2157,7 +2157,7 @@ namespace ctr_wp7.game
                 rectangle.h -= num3 * 2f;
                 GLDrawer.drawImagePart(texture, rectangle, 0f, y + num3);
             }
-            if (mapWidth > FrameworkTypes.SCREEN_WIDTH)
+            if (mapWidth > SCREEN_WIDTH)
             {
                 float num6 = 2f;
                 CTRRootController ctrrootController2 = (CTRRootController)Application.sharedRootController();
@@ -2434,9 +2434,9 @@ namespace ctr_wp7.game
             {
                 fingerCuts[i].Clear();
             }
-            NSObject.NSREL(dd);
-            NSObject.NSREL(camera);
-            NSObject.NSREL(back);
+            NSREL(dd);
+            NSREL(camera);
+            NSREL(back);
             base.dealloc();
         }
 
@@ -2541,7 +2541,7 @@ namespace ctr_wp7.game
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
             if (ctrrootController.isPicker())
             {
-                xmlLoaderFinishedWithfromwithSuccess(XMLNode.parseXML("mappicker://next"), NSObject.NSS("mappicker://next"), true);
+                xmlLoaderFinishedWithfromwithSuccess(XMLNode.parseXML("mappicker://next"), NSS("mappicker://next"), true);
                 return;
             }
             int num = ctrrootController.getPack();
@@ -2550,7 +2550,7 @@ namespace ctr_wp7.game
             {
                 ctrrootController.setLevel(++num2);
                 ctrrootController.setMapName(LevelsList.LEVEL_NAMES[num, num2]);
-                xmlLoaderFinishedWithfromwithSuccess(XMLNode.parseXML("maps/" + LevelsList.LEVEL_NAMES[num, num2].ToString()), NSObject.NSS("maps/" + LevelsList.LEVEL_NAMES[num, num2].ToString()), true);
+                xmlLoaderFinishedWithfromwithSuccess(XMLNode.parseXML("maps/" + LevelsList.LEVEL_NAMES[num, num2].ToString()), NSS("maps/" + LevelsList.LEVEL_NAMES[num, num2].ToString()), true);
             }
         }
 
@@ -2561,12 +2561,12 @@ namespace ctr_wp7.game
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
             if (ctrrootController.isPicker())
             {
-                xmlLoaderFinishedWithfromwithSuccess(XMLNode.parseXML("mappicker://reload"), NSObject.NSS("mappicker://reload"), true);
+                xmlLoaderFinishedWithfromwithSuccess(XMLNode.parseXML("mappicker://reload"), NSS("mappicker://reload"), true);
                 return;
             }
             int num = ctrrootController.getPack();
             int level = ctrrootController.getLevel();
-            xmlLoaderFinishedWithfromwithSuccess(XMLNode.parseXML("maps/" + LevelsList.LEVEL_NAMES[num, level].ToString()), NSObject.NSS("maps/" + LevelsList.LEVEL_NAMES[num, level].ToString()), true);
+            xmlLoaderFinishedWithfromwithSuccess(XMLNode.parseXML("maps/" + LevelsList.LEVEL_NAMES[num, level].ToString()), NSS("maps/" + LevelsList.LEVEL_NAMES[num, level].ToString()), true);
         }
 
         // Token: 0x0600080E RID: 2062 RVA: 0x000465DC File Offset: 0x000447DC
@@ -2592,7 +2592,7 @@ namespace ctr_wp7.game
                     gravityTouchDown = ti;
                 }
             }
-            Vector vector = MathHelper.vect(tx, ty);
+            Vector vector = vect(tx, ty);
             prevStartPos[ti] = (startPos[ti] = vector);
             if (candyBubble != null && handleBubbleTouchXY(star, tx, ty))
             {
@@ -2626,7 +2626,7 @@ namespace ctr_wp7.game
             for (int j = 0; j < count2; j++)
             {
                 Pump pump = pumps[j];
-                if (GameObject.pointInObject(MathHelper.vect(tx + camera.pos.x, ty + camera.pos.y), pump))
+                if (GameObject.pointInObject(vect(tx + camera.pos.x, ty + camera.pos.y), pump))
                 {
                     pump.pumpTouchTimer = 0.05f;
                     pump.pumpTouch = ti;
@@ -2648,8 +2648,8 @@ namespace ctr_wp7.game
             for (int k = 0; k < rotatedCircles.Count; k++)
             {
                 RotatedCircle rotatedCircle2 = rotatedCircles[k];
-                float num = MathHelper.vectDistance(MathHelper.vect(tx + camera.pos.x, ty + camera.pos.y), rotatedCircle2.handle1);
-                float num2 = MathHelper.vectDistance(MathHelper.vect(tx + camera.pos.x, ty + camera.pos.y), rotatedCircle2.handle2);
+                float num = vectDistance(vect(tx + camera.pos.x, ty + camera.pos.y), rotatedCircle2.handle1);
+                float num2 = vectDistance(vect(tx + camera.pos.x, ty + camera.pos.y), rotatedCircle2.handle2);
                 if ((num < 30f && !rotatedCircle2.hasOneHandle()) || num2 < 30f)
                 {
                     for (int l = 0; l < rotatedCircles.Count; l++)
@@ -2657,7 +2657,7 @@ namespace ctr_wp7.game
                         RotatedCircle rotatedCircle3 = rotatedCircles[l];
                         if (rotatedCircles.IndexOf(rotatedCircle3) > rotatedCircles.IndexOf(rotatedCircle2))
                         {
-                            float num3 = MathHelper.vectDistance(MathHelper.vect(rotatedCircle3.x, rotatedCircle3.y), MathHelper.vect(rotatedCircle2.x, rotatedCircle2.y));
+                            float num3 = vectDistance(vect(rotatedCircle3.x, rotatedCircle3.y), vect(rotatedCircle2.x, rotatedCircle2.y));
                             if (num3 + rotatedCircle3.sizeInPixels <= rotatedCircle2.sizeInPixels)
                             {
                                 flag2 = true;
@@ -2668,7 +2668,7 @@ namespace ctr_wp7.game
                             }
                         }
                     }
-                    rotatedCircle2.lastTouch = MathHelper.vect(tx + camera.pos.x, ty + camera.pos.y);
+                    rotatedCircle2.lastTouch = vect(tx + camera.pos.x, ty + camera.pos.y);
                     rotatedCircle2.operating = ti;
                     if (num < 30f)
                     {
@@ -2703,12 +2703,12 @@ namespace ctr_wp7.game
                 for (int m = 0; m < bungees.Count; m++)
                 {
                     Grab grab = bungees[m];
-                    if (grab != null && grab.wheel && MathHelper.pointInRect(tx + camera.pos.x, ty + camera.pos.y, grab.x - 45f, grab.y - 45f, 90f, 90f))
+                    if (grab != null && grab.wheel && pointInRect(tx + camera.pos.x, ty + camera.pos.y, grab.x - 45f, grab.y - 45f, 90f, 90f))
                     {
-                        grab.handleWheelTouch(MathHelper.vect(tx + camera.pos.x, ty + camera.pos.y));
+                        grab.handleWheelTouch(vect(tx + camera.pos.x, ty + camera.pos.y));
                         grab.wheelOperating = ti;
                     }
-                    if ((double)grab.moveLength > 0.0 && MathHelper.pointInRect(tx + camera.pos.x, ty + camera.pos.y, grab.x - 40f, grab.y - 40f, 80f, 80f))
+                    if ((double)grab.moveLength > 0.0 && pointInRect(tx + camera.pos.x, ty + camera.pos.y, grab.x - 40f, grab.y - 40f, 80f, 80f))
                     {
                         grab.moverDragging = ti;
                     }
@@ -2822,7 +2822,7 @@ namespace ctr_wp7.game
             {
                 return true;
             }
-            Vector vector = MathHelper.vect(tx, ty);
+            Vector vector = vect(tx, ty);
             if (ti >= 5)
             {
                 return true;
@@ -2848,7 +2848,7 @@ namespace ctr_wp7.game
                 for (int j = 0; j < pumps.Count; j++)
                 {
                     Pump pump = pumps[j];
-                    if (pump != null && pump.pumpTouch == ti && (double)pump.pumpTouchTimer != 0.0 && (double)MathHelper.vectDistance(startPos[ti], vector) > 10.0)
+                    if (pump != null && pump.pumpTouch == ti && (double)pump.pumpTouchTimer != 0.0 && (double)vectDistance(startPos[ti], vector) > 10.0)
                     {
                         pump.pumpTouchTimer = 0f;
                     }
@@ -2861,17 +2861,17 @@ namespace ctr_wp7.game
                     RotatedCircle rotatedCircle = rotatedCircles[k];
                     if (rotatedCircle != null && rotatedCircle.operating == ti)
                     {
-                        Vector vector2 = MathHelper.vect(rotatedCircle.x, rotatedCircle.y);
-                        Vector vector3 = MathHelper.vect(tx + camera.pos.x, ty + camera.pos.y);
-                        Vector vector4 = MathHelper.vectSub(rotatedCircle.lastTouch, vector2);
-                        Vector vector5 = MathHelper.vectSub(vector3, vector2);
-                        float num = MathHelper.vectAngleNormalized(vector5) - MathHelper.vectAngleNormalized(vector4);
-                        float num2 = MathHelper.DEGREES_TO_RADIANS(rotatedCircle.rotation);
-                        rotatedCircle.rotation += MathHelper.RADIANS_TO_DEGREES(num);
-                        float num3 = MathHelper.DEGREES_TO_RADIANS(rotatedCircle.rotation);
-                        num3 = GameScene.FBOUND_PI(num3);
-                        rotatedCircle.handle1 = MathHelper.vectRotateAround(rotatedCircle.inithanlde1, (double)num3, rotatedCircle.x, rotatedCircle.y);
-                        rotatedCircle.handle2 = MathHelper.vectRotateAround(rotatedCircle.inithanlde2, (double)num3, rotatedCircle.x, rotatedCircle.y);
+                        Vector vector2 = vect(rotatedCircle.x, rotatedCircle.y);
+                        Vector vector3 = vect(tx + camera.pos.x, ty + camera.pos.y);
+                        Vector vector4 = vectSub(rotatedCircle.lastTouch, vector2);
+                        Vector vector5 = vectSub(vector3, vector2);
+                        float num = vectAngleNormalized(vector5) - vectAngleNormalized(vector4);
+                        float num2 = DEGREES_TO_RADIANS(rotatedCircle.rotation);
+                        rotatedCircle.rotation += RADIANS_TO_DEGREES(num);
+                        float num3 = DEGREES_TO_RADIANS(rotatedCircle.rotation);
+                        num3 = FBOUND_PI(num3);
+                        rotatedCircle.handle1 = vectRotateAround(rotatedCircle.inithanlde1, (double)num3, rotatedCircle.x, rotatedCircle.y);
+                        rotatedCircle.handle2 = vectRotateAround(rotatedCircle.inithanlde2, (double)num3, rotatedCircle.x, rotatedCircle.y);
                         int num4 = ((num > 0f) ? 56 : 57);
                         if ((double)Math.Abs(num) < 0.07)
                         {
@@ -2885,7 +2885,7 @@ namespace ctr_wp7.game
                         for (int l = 0; l < bungees.Count; l++)
                         {
                             Grab grab = bungees[l];
-                            if (MathHelper.vectDistance(MathHelper.vect(grab.x, grab.y), MathHelper.vect(rotatedCircle.x, rotatedCircle.y)) <= rotatedCircle.sizeInPixels + 5f)
+                            if (vectDistance(vect(grab.x, grab.y), vect(rotatedCircle.x, rotatedCircle.y)) <= rotatedCircle.sizeInPixels + 5f)
                             {
                                 if (grab.initial_rotatedCircle != rotatedCircle)
                                 {
@@ -2894,14 +2894,14 @@ namespace ctr_wp7.game
                                     grab.initial_rotatedCircle = rotatedCircle;
                                     grab.initial_rotation = num2;
                                 }
-                                float num5 = MathHelper.DEGREES_TO_RADIANS(rotatedCircle.rotation) - grab.initial_rotation;
-                                num5 = GameScene.FBOUND_PI(num5);
-                                Vector vector6 = MathHelper.vectRotateAround(MathHelper.vect(grab.initial_x, grab.initial_y), (double)num5, rotatedCircle.x, rotatedCircle.y);
+                                float num5 = DEGREES_TO_RADIANS(rotatedCircle.rotation) - grab.initial_rotation;
+                                num5 = FBOUND_PI(num5);
+                                Vector vector6 = vectRotateAround(vect(grab.initial_x, grab.initial_y), (double)num5, rotatedCircle.x, rotatedCircle.y);
                                 grab.x = vector6.x;
                                 grab.y = vector6.y;
                                 if (grab.rope != null)
                                 {
-                                    grab.rope.bungeeAnchor.pos = MathHelper.vect(grab.x, grab.y);
+                                    grab.rope.bungeeAnchor.pos = vect(grab.x, grab.y);
                                     grab.rope.bungeeAnchor.pin = grab.rope.bungeeAnchor.pos;
                                 }
                                 if (grab.radius != -1f)
@@ -2913,7 +2913,7 @@ namespace ctr_wp7.game
                         for (int m = 0; m < pumps.Count; m++)
                         {
                             Pump pump2 = pumps[m];
-                            if (MathHelper.vectDistance(MathHelper.vect(pump2.x, pump2.y), MathHelper.vect(rotatedCircle.x, rotatedCircle.y)) <= rotatedCircle.sizeInPixels + 5f)
+                            if (vectDistance(vect(pump2.x, pump2.y), vect(rotatedCircle.x, rotatedCircle.y)) <= rotatedCircle.sizeInPixels + 5f)
                             {
                                 if (pump2.initial_rotatedCircle != rotatedCircle)
                                 {
@@ -2922,19 +2922,19 @@ namespace ctr_wp7.game
                                     pump2.initial_rotatedCircle = rotatedCircle;
                                     pump2.initial_rotation = num2;
                                 }
-                                float num6 = MathHelper.DEGREES_TO_RADIANS(rotatedCircle.rotation) - pump2.initial_rotation;
-                                num6 = GameScene.FBOUND_PI(num6);
-                                Vector vector7 = MathHelper.vectRotateAround(MathHelper.vect(pump2.initial_x, pump2.initial_y), (double)num6, rotatedCircle.x, rotatedCircle.y);
+                                float num6 = DEGREES_TO_RADIANS(rotatedCircle.rotation) - pump2.initial_rotation;
+                                num6 = FBOUND_PI(num6);
+                                Vector vector7 = vectRotateAround(vect(pump2.initial_x, pump2.initial_y), (double)num6, rotatedCircle.x, rotatedCircle.y);
                                 pump2.x = vector7.x;
                                 pump2.y = vector7.y;
-                                pump2.rotation += MathHelper.RADIANS_TO_DEGREES(num);
+                                pump2.rotation += RADIANS_TO_DEGREES(num);
                                 pump2.updateRotation();
                             }
                         }
                         for (int n = 0; n < bubbles.Count; n++)
                         {
                             Bubble bubble = bubbles[n];
-                            if (MathHelper.vectDistance(MathHelper.vect(bubble.x, bubble.y), MathHelper.vect(rotatedCircle.x, rotatedCircle.y)) <= rotatedCircle.sizeInPixels + 10f && bubble != candyBubble && bubble != candyBubbleR && bubble != candyBubbleL)
+                            if (vectDistance(vect(bubble.x, bubble.y), vect(rotatedCircle.x, rotatedCircle.y)) <= rotatedCircle.sizeInPixels + 10f && bubble != candyBubble && bubble != candyBubbleR && bubble != candyBubbleL)
                             {
                                 if (bubble.initial_rotatedCircle != rotatedCircle)
                                 {
@@ -2943,16 +2943,16 @@ namespace ctr_wp7.game
                                     bubble.initial_rotatedCircle = rotatedCircle;
                                     bubble.initial_rotation = num2;
                                 }
-                                float num7 = MathHelper.DEGREES_TO_RADIANS(rotatedCircle.rotation) - bubble.initial_rotation;
-                                num7 = GameScene.FBOUND_PI(num7);
-                                Vector vector8 = MathHelper.vectRotateAround(MathHelper.vect(bubble.initial_x, bubble.initial_y), (double)num7, rotatedCircle.x, rotatedCircle.y);
+                                float num7 = DEGREES_TO_RADIANS(rotatedCircle.rotation) - bubble.initial_rotation;
+                                num7 = FBOUND_PI(num7);
+                                Vector vector8 = vectRotateAround(vect(bubble.initial_x, bubble.initial_y), (double)num7, rotatedCircle.x, rotatedCircle.y);
                                 bubble.x = vector8.x;
                                 bubble.y = vector8.y;
                             }
                         }
-                        if (MathHelper.pointInRect(target.x, target.y, rotatedCircle.x - rotatedCircle.size, rotatedCircle.y - rotatedCircle.size, 2f * rotatedCircle.size, 2f * rotatedCircle.size))
+                        if (pointInRect(target.x, target.y, rotatedCircle.x - rotatedCircle.size, rotatedCircle.y - rotatedCircle.size, 2f * rotatedCircle.size, 2f * rotatedCircle.size))
                         {
-                            Vector vector9 = MathHelper.vectRotateAround(MathHelper.vect(target.x, target.y), (double)num, rotatedCircle.x, rotatedCircle.y);
+                            Vector vector9 = vectRotateAround(vect(target.x, target.y), (double)num, rotatedCircle.x, rotatedCircle.y);
                             target.x = vector9.x;
                             target.y = vector9.y;
                         }
@@ -2969,22 +2969,22 @@ namespace ctr_wp7.game
                 {
                     if (grab2.wheel && grab2.wheelOperating == ti)
                     {
-                        grab2.handleWheelRotate(MathHelper.vect(tx + camera.pos.x, ty + camera.pos.y));
+                        grab2.handleWheelRotate(vect(tx + camera.pos.x, ty + camera.pos.y));
                         return true;
                     }
                     if ((double)grab2.moveLength > 0.0 && grab2.moverDragging == ti)
                     {
                         if (grab2.moveVertical)
                         {
-                            grab2.y = MathHelper.FIT_TO_BOUNDARIES(ty + camera.pos.y, grab2.minMoveValue, grab2.maxMoveValue);
+                            grab2.y = FIT_TO_BOUNDARIES(ty + camera.pos.y, grab2.minMoveValue, grab2.maxMoveValue);
                         }
                         else
                         {
-                            grab2.x = MathHelper.FIT_TO_BOUNDARIES(tx + camera.pos.x, grab2.minMoveValue, grab2.maxMoveValue);
+                            grab2.x = FIT_TO_BOUNDARIES(tx + camera.pos.x, grab2.minMoveValue, grab2.maxMoveValue);
                         }
                         if (grab2.rope != null)
                         {
-                            grab2.rope.bungeeAnchor.pos = MathHelper.vect(grab2.x, grab2.y);
+                            grab2.rope.bungeeAnchor.pos = vect(grab2.x, grab2.y);
                             grab2.rope.bungeeAnchor.pin = grab2.rope.bungeeAnchor.pos;
                         }
                         if (grab2.radius != -1f)
@@ -2997,10 +2997,10 @@ namespace ctr_wp7.game
             }
             if (dragging[ti])
             {
-                MathHelper.vectAdd(prevStartPos[ti], camera.pos);
-                Vector vector10 = MathHelper.vectAdd(startPos[ti], camera.pos);
-                Vector vector11 = MathHelper.vectAdd(MathHelper.vect(tx, ty), camera.pos);
-                float num9 = MathHelper.vectDistance(vector10, vector11);
+                vectAdd(prevStartPos[ti], camera.pos);
+                Vector vector10 = vectAdd(startPos[ti], camera.pos);
+                Vector vector11 = vectAdd(vect(tx, ty), camera.pos);
+                float num9 = vectDistance(vector10, vector11);
                 GameScene.FingerCut fingerCut = new GameScene.FingerCut();
                 fingerCut.start = vector10;
                 fingerCut.end = vector11;
@@ -3038,23 +3038,23 @@ namespace ctr_wp7.game
                     Preferences._setIntforKey(num12, "PREFS_ROPES_CUT", false);
                     if (num12 >= 100)
                     {
-                        CTRRootController.postAchievementName(NSObject.NSS("acRopeCutter"));
+                        CTRRootController.postAchievementName(NSS("acRopeCutter"));
                     }
                     if (ropesCutAtOnce >= 3 && ropesCutAtOnce < 5)
                     {
-                        CTRRootController.postAchievementName(NSObject.NSS("acQuickFinger"));
+                        CTRRootController.postAchievementName(NSS("acQuickFinger"));
                     }
                     else if (ropesCutAtOnce >= 5)
                     {
-                        CTRRootController.postAchievementName(NSObject.NSS("acMasterFinger"));
+                        CTRRootController.postAchievementName(NSS("acMasterFinger"));
                     }
                     if (num12 >= 800)
                     {
-                        CTRRootController.postAchievementName(NSObject.NSS("acRopeCutterManiac"));
+                        CTRRootController.postAchievementName(NSS("acRopeCutterManiac"));
                     }
                     if (num12 >= 2000)
                     {
-                        CTRRootController.postAchievementName(NSObject.NSS("acUltimateRopeCutter"));
+                        CTRRootController.postAchievementName(NSS("acUltimateRopeCutter"));
                     }
                 }
                 prevStartPos[ti] = startPos[ti];
@@ -3077,11 +3077,11 @@ namespace ctr_wp7.game
             Preferences._setIntforKey(num, "PREFS_SPIDERS_BUSTED", false);
             if (num >= 40)
             {
-                CTRRootController.postAchievementName(NSObject.NSS("acSpiderBuster"));
+                CTRRootController.postAchievementName(NSS("acSpiderBuster"));
             }
             if (num >= 200)
             {
-                CTRRootController.postAchievementName(NSObject.NSS("acSpiderTamer"));
+                CTRRootController.postAchievementName(NSS("acSpiderTamer"));
             }
             CTRSoundMgr._playSound(44);
             g.hasSpider = false;
@@ -3092,16 +3092,16 @@ namespace ctr_wp7.game
             {
                 timeline.addKeyFrame(KeyFrame.makePos((double)g.spider.x, (double)g.spider.y, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.0));
                 timeline.addKeyFrame(KeyFrame.makePos((double)g.spider.x, (double)g.spider.y + 50.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.3));
-                timeline.addKeyFrame(KeyFrame.makePos((double)g.spider.x, (double)(g.spider.y - FrameworkTypes.SCREEN_HEIGHT), KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 1.0));
+                timeline.addKeyFrame(KeyFrame.makePos((double)g.spider.x, (double)(g.spider.y - SCREEN_HEIGHT), KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 1.0));
             }
             else
             {
                 timeline.addKeyFrame(KeyFrame.makePos((double)g.spider.x, (double)g.spider.y, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.0));
                 timeline.addKeyFrame(KeyFrame.makePos((double)g.spider.x, (double)g.spider.y - 50.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.3));
-                timeline.addKeyFrame(KeyFrame.makePos((double)g.spider.x, (double)(g.spider.y + FrameworkTypes.SCREEN_HEIGHT), KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 1.0));
+                timeline.addKeyFrame(KeyFrame.makePos((double)g.spider.x, (double)(g.spider.y + SCREEN_HEIGHT), KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 1.0));
             }
             timeline.addKeyFrame(KeyFrame.makeRotation(0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0f));
-            timeline.addKeyFrame(KeyFrame.makeRotation(MathHelper.RND_RANGE(-120, 120), KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 1f));
+            timeline.addKeyFrame(KeyFrame.makeRotation(RND_RANGE(-120, 120), KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 1f));
             image.addTimelinewithID(timeline, 0);
             image.playTimeline(0);
             image.x = g.spider.x;
@@ -3137,7 +3137,7 @@ namespace ctr_wp7.game
             Preferences._setIntforKey(num, "PREFS_SPIDERS_WON", false);
             if (num >= 100)
             {
-                CTRRootController.postAchievementName(NSObject.NSS("acSpiderLover"));
+                CTRRootController.postAchievementName(NSS("acSpiderLover"));
             }
             sg.hasSpider = false;
             spiderTookCandy = true;
@@ -3153,13 +3153,13 @@ namespace ctr_wp7.game
             {
                 timeline.addKeyFrame(KeyFrame.makePos((double)sg.spider.x, (double)sg.spider.y - 10.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.0));
                 timeline.addKeyFrame(KeyFrame.makePos((double)sg.spider.x, (double)sg.spider.y + 70.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.3));
-                timeline.addKeyFrame(KeyFrame.makePos((double)sg.spider.x, (double)(sg.spider.y - FrameworkTypes.SCREEN_HEIGHT), KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 1.0));
+                timeline.addKeyFrame(KeyFrame.makePos((double)sg.spider.x, (double)(sg.spider.y - SCREEN_HEIGHT), KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 1.0));
             }
             else
             {
                 timeline.addKeyFrame(KeyFrame.makePos((double)sg.spider.x, (double)sg.spider.y - 10.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.0));
                 timeline.addKeyFrame(KeyFrame.makePos((double)sg.spider.x, (double)sg.spider.y - 70.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.3));
-                timeline.addKeyFrame(KeyFrame.makePos((double)sg.spider.x, (double)(sg.spider.y + FrameworkTypes.SCREEN_HEIGHT), KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 1.0));
+                timeline.addKeyFrame(KeyFrame.makePos((double)sg.spider.x, (double)(sg.spider.y + SCREEN_HEIGHT), KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 1.0));
             }
             image.addTimelinewithID(timeline, 0);
             image.playTimeline(0);
@@ -3178,12 +3178,12 @@ namespace ctr_wp7.game
         public virtual void operatePump(Pump p)
         {
             p.playTimeline(0);
-            CTRSoundMgr._playSound(MathHelper.RND_RANGE(39, 42));
+            CTRSoundMgr._playSound(RND_RANGE(39, 42));
             Image image = Image.Image_createWithResID(143);
-            PumpDirt pumpDirt = new PumpDirt().initWithTotalParticlesAngleandImageGrid(5, MathHelper.RADIANS_TO_DEGREES((float)p.angle) - 90f, image);
+            PumpDirt pumpDirt = new PumpDirt().initWithTotalParticlesAngleandImageGrid(5, RADIANS_TO_DEGREES((float)p.angle) - 90f, image);
             pumpDirt.particlesDelegate = new Particles.ParticlesFinished(aniPool.particlesFinished);
-            Vector vector = MathHelper.vect(p.x + 25f, p.y);
-            vector = MathHelper.vectRotateAround(vector, p.angle - 1.5707963267948966, p.x, p.y);
+            Vector vector = vect(p.x + 25f, p.y);
+            vector = vectRotateAround(vector, p.angle - 1.5707963267948966, p.x, p.y);
             pumpDirt.x = vector.x;
             pumpDirt.y = vector.y;
             pumpDirt.startSystem(5);
@@ -3229,12 +3229,12 @@ namespace ctr_wp7.game
                                 float num3 = minOf4(constraintedPoint.pos.y, constraintedPoint.prevPos.y, constraintedPoint2.pos.y, constraintedPoint2.prevPos.y);
                                 float num4 = maxOf4(constraintedPoint.pos.x, constraintedPoint.prevPos.x, constraintedPoint2.pos.x, constraintedPoint2.prevPos.x);
                                 float num5 = maxOf4(constraintedPoint.pos.y, constraintedPoint.prevPos.y, constraintedPoint2.pos.y, constraintedPoint2.prevPos.y);
-                                flag = MathHelper.rectInRect(num2, num3, num4, num5, r.drawX, r.drawY, r.drawX + (float)r.width, r.drawY + (float)r.height);
+                                flag = rectInRect(num2, num3, num4, num5, r.drawX, r.drawY, r.drawX + (float)r.width, r.drawY + (float)r.height);
                             }
                         }
                         else
                         {
-                            flag = (!grab.wheel || !MathHelper.lineInRect(v1.x, v1.y, v2.x, v2.y, grab.x - 30f, grab.y - 30f, 60f, 60f)) && base.lineInLine(v1.x, v1.y, v2.x, v2.y, constraintedPoint.pos.x, constraintedPoint.pos.y, constraintedPoint2.pos.x, constraintedPoint2.pos.y);
+                            flag = (!grab.wheel || !lineInRect(v1.x, v1.y, v2.x, v2.y, grab.x - 30f, grab.y - 30f, 60f, 60f)) && lineInLine(v1.x, v1.y, v2.x, v2.y, constraintedPoint.pos.x, constraintedPoint.pos.y, constraintedPoint2.pos.x, constraintedPoint2.pos.y);
                         }
                         if (flag)
                         {
@@ -3357,7 +3357,7 @@ namespace ctr_wp7.game
         // Token: 0x0600081B RID: 2075 RVA: 0x0004875C File Offset: 0x0004695C
         public virtual void startCamera()
         {
-            if (mapWidth > FrameworkTypes.SCREEN_WIDTH || mapHeight > FrameworkTypes.SCREEN_HEIGHT)
+            if (mapWidth > SCREEN_WIDTH || mapHeight > SCREEN_HEIGHT)
             {
                 ignoreTouches = true;
                 fastenCamera = false;
@@ -3367,7 +3367,7 @@ namespace ctr_wp7.game
                 ConstraintedPoint constraintedPoint = ((twoParts != 2) ? starL : star);
                 float num;
                 float num2;
-                if (mapWidth > FrameworkTypes.SCREEN_WIDTH)
+                if (mapWidth > SCREEN_WIDTH)
                 {
                     if ((double)star.pos.x > (double)mapWidth / 2.0)
                     {
@@ -3376,7 +3376,7 @@ namespace ctr_wp7.game
                     }
                     else
                     {
-                        num = mapWidth - FrameworkTypes.SCREEN_WIDTH;
+                        num = mapWidth - SCREEN_WIDTH;
                         num2 = 0f;
                     }
                 }
@@ -3388,14 +3388,14 @@ namespace ctr_wp7.game
                 else
                 {
                     num = 0f;
-                    num2 = mapHeight - FrameworkTypes.SCREEN_HEIGHT;
+                    num2 = mapHeight - SCREEN_HEIGHT;
                 }
-                float num3 = constraintedPoint.pos.x - FrameworkTypes.SCREEN_WIDTH / 2f;
-                float num4 = constraintedPoint.pos.y - FrameworkTypes.SCREEN_HEIGHT / 2f;
-                float num5 = MathHelper.FIT_TO_BOUNDARIES(num3, 0f, mapWidth - FrameworkTypes.SCREEN_WIDTH);
-                float num6 = MathHelper.FIT_TO_BOUNDARIES(num4, 0f, mapHeight - FrameworkTypes.SCREEN_HEIGHT);
+                float num3 = constraintedPoint.pos.x - SCREEN_WIDTH / 2f;
+                float num4 = constraintedPoint.pos.y - SCREEN_HEIGHT / 2f;
+                float num5 = FIT_TO_BOUNDARIES(num3, 0f, mapWidth - SCREEN_WIDTH);
+                float num6 = FIT_TO_BOUNDARIES(num4, 0f, mapHeight - SCREEN_HEIGHT);
                 camera.moveToXYImmediate(num, num2, true);
-                initialCameraToStarDistance = MathHelper.vectDistance(camera.pos, MathHelper.vect(num5, num6));
+                initialCameraToStarDistance = vectDistance(camera.pos, vect(num5, num6));
                 return;
             }
             ignoreTouches = false;
@@ -3476,23 +3476,23 @@ namespace ctr_wp7.game
                         {
                             float num11 = num3;
                             float num12 = ((l == num6 - 2) ? 1f : (num3 + num10));
-                            Vector vector3 = MathHelper.vect(array2[l * 2], array2[l * 2 + 1]);
-                            Vector vector4 = MathHelper.vect(array2[(l + 1) * 2], array2[(l + 1) * 2 + 1]);
-                            Vector vector5 = MathHelper.vectSub(vector4, vector3);
-                            Vector vector6 = MathHelper.vectNormalize(vector5);
-                            Vector vector7 = MathHelper.vectRperp(vector6);
-                            Vector vector8 = MathHelper.vectPerp(vector6);
+                            Vector vector3 = vect(array2[l * 2], array2[l * 2 + 1]);
+                            Vector vector4 = vect(array2[(l + 1) * 2], array2[(l + 1) * 2 + 1]);
+                            Vector vector5 = vectSub(vector4, vector3);
+                            Vector vector6 = vectNormalize(vector5);
+                            Vector vector7 = vectRperp(vector6);
+                            Vector vector8 = vectPerp(vector6);
                             if (num4 == 0)
                             {
-                                Vector vector9 = MathHelper.vectAdd(vector3, MathHelper.vectMult(vector7, num11));
-                                Vector vector10 = MathHelper.vectAdd(vector3, MathHelper.vectMult(vector8, num11));
+                                Vector vector9 = vectAdd(vector3, vectMult(vector7, num11));
+                                Vector vector10 = vectAdd(vector3, vectMult(vector8, num11));
                                 array3[num4++] = vector10.x;
                                 array3[num4++] = vector10.y;
                                 array3[num4++] = vector9.x;
                                 array3[num4++] = vector9.y;
                             }
-                            Vector vector11 = MathHelper.vectAdd(vector4, MathHelper.vectMult(vector7, num12));
-                            Vector vector12 = MathHelper.vectAdd(vector4, MathHelper.vectMult(vector8, num12));
+                            Vector vector11 = vectAdd(vector4, vectMult(vector7, num12));
+                            Vector vector12 = vectAdd(vector4, vectMult(vector8, num12));
                             array3[num4++] = vector12.x;
                             array3[num4++] = vector12.y;
                             array3[num4++] = vector11.x;
@@ -3550,14 +3550,14 @@ namespace ctr_wp7.game
         {
             NSString @string = Application.sharedAppSettings().getString(8);
             NSString nsstring = c["locale"];
-            if (@string.isEqualToString(NSObject.NSS("en")) || @string.isEqualToString(NSObject.NSS("ru")) || @string.isEqualToString(NSObject.NSS("de")) || @string.isEqualToString(NSObject.NSS("fr")) || @string.isEqualToString(NSObject.NSS("zh")) || @string.isEqualToString(NSObject.NSS("ja")) || @string.isEqualToString(NSObject.NSS("ko")) || @string.isEqualToString(NSObject.NSS("es")) || @string.isEqualToString(NSObject.NSS("it")) || @string.isEqualToString(NSObject.NSS("br")) || @string.isEqualToString(NSObject.NSS("nl")))
+            if (@string.isEqualToString(NSS("en")) || @string.isEqualToString(NSS("ru")) || @string.isEqualToString(NSS("de")) || @string.isEqualToString(NSS("fr")) || @string.isEqualToString(NSS("zh")) || @string.isEqualToString(NSS("ja")) || @string.isEqualToString(NSS("ko")) || @string.isEqualToString(NSS("es")) || @string.isEqualToString(NSS("it")) || @string.isEqualToString(NSS("br")) || @string.isEqualToString(NSS("nl")))
             {
                 if (!nsstring.isEqualToString(@string))
                 {
                     return true;
                 }
             }
-            else if (!nsstring.isEqualToString(NSObject.NSS("en")))
+            else if (!nsstring.isEqualToString(NSS("en")))
             {
                 return true;
             }
@@ -3603,20 +3603,20 @@ namespace ctr_wp7.game
         private void operateSteamTube(SteamTube tube)
         {
             float num = 5f;
-            float num2 = MathHelper.DEGREES_TO_RADIANS(tube.rotation);
+            float num2 = DEGREES_TO_RADIANS(tube.rotation);
             float num3 = 10f;
             float currentHeightModulated = tube.getCurrentHeightModulated();
             float num4 = 1f;
             float num5 = 17.5f;
-            Vector vector = MathHelper.vect(tube.x - num3 / 2f, tube.y - currentHeightModulated - num4);
-            Vector vector2 = MathHelper.vect(tube.x + num3 / 2f, tube.y - num5);
+            Vector vector = vect(tube.x - num3 / 2f, tube.y - currentHeightModulated - num4);
+            Vector vector2 = vect(tube.x + num3 / 2f, tube.y - num5);
             if (twoParts == 2)
             {
-                Vector vector3 = MathHelper.vect(star.pos.x, star.pos.y);
-                Vector vector4 = MathHelper.vect(star.v.x, star.v.y);
-                vector3 = MathHelper.vectRotateAround(vector3, (double)(-(double)num2), tube.x, tube.y);
-                vector4 = MathHelper.vectRotate(vector4, (double)(-(double)num2));
-                if (MathHelper.rectInRect(vector3.x - num5, vector3.y - num5 / 2f, vector3.x + num5, vector3.y + num5, vector.x, vector.y, vector2.x, vector2.y))
+                Vector vector3 = vect(star.pos.x, star.pos.y);
+                Vector vector4 = vect(star.v.x, star.v.y);
+                vector3 = vectRotateAround(vector3, (double)(-(double)num2), tube.x, tube.y);
+                vector4 = vectRotate(vector4, (double)(-(double)num2));
+                if (rectInRect(vector3.x - num5, vector3.y - num5 / 2f, vector3.x + num5, vector3.y + num5, vector.x, vector.y, vector2.x, vector2.y))
                 {
                     foreach (Bouncer bouncer in bouncers)
                     {
@@ -3652,24 +3652,24 @@ namespace ctr_wp7.game
                             num8 /= 4f;
                         }
                     }
-                    Vector vector5 = MathHelper.vect(num6, -vector4.y / num + num8);
+                    Vector vector5 = vect(num6, -vector4.y / num + num8);
                     float num9 = tube.y - vector3.y;
                     if (num9 > currentHeightModulated + num5)
                     {
-                        vector5 = MathHelper.vectMult(vector5, Math.Exp((double)(-2f * (num9 - (currentHeightModulated + num5)))));
+                        vector5 = vectMult(vector5, Math.Exp((double)(-2f * (num9 - (currentHeightModulated + num5)))));
                     }
-                    vector5 = MathHelper.vectRotate(vector5, (double)num2);
+                    vector5 = vectRotate(vector5, (double)num2);
                     star.applyImpulseDelta(vector5, 0.016f);
                     return;
                 }
             }
             else
             {
-                Vector vector6 = MathHelper.vect(starL.pos.x, starL.pos.y);
-                Vector vector7 = MathHelper.vect(starL.v.x, starL.v.y);
-                vector6 = MathHelper.vectRotateAround(vector6, (double)(-(double)num2), tube.x, tube.y);
-                vector7 = MathHelper.vectRotate(vector7, (double)(-(double)num2));
-                if (MathHelper.rectInRect(vector6.x - num5, vector6.y - num5 / 2f, vector6.x + num5, vector6.y + num5, vector.x, vector.y, vector2.x, vector2.y))
+                Vector vector6 = vect(starL.pos.x, starL.pos.y);
+                Vector vector7 = vect(starL.v.x, starL.v.y);
+                vector6 = vectRotateAround(vector6, (double)(-(double)num2), tube.x, tube.y);
+                vector7 = vectRotate(vector7, (double)(-(double)num2));
+                if (rectInRect(vector6.x - num5, vector6.y - num5 / 2f, vector6.x + num5, vector6.y + num5, vector.x, vector.y, vector2.x, vector2.y))
                 {
                     foreach (Bouncer bouncer2 in bouncers)
                     {
@@ -3705,20 +3705,20 @@ namespace ctr_wp7.game
                             num12 /= 4f;
                         }
                     }
-                    Vector vector8 = MathHelper.vect(num10, -vector7.y / num + num12);
+                    Vector vector8 = vect(num10, -vector7.y / num + num12);
                     float num13 = tube.y - vector6.y;
                     if (num13 > currentHeightModulated + num5)
                     {
-                        vector8 = MathHelper.vectMult(vector8, Math.Exp((double)(-2f * (num13 - (currentHeightModulated + num5)))));
+                        vector8 = vectMult(vector8, Math.Exp((double)(-2f * (num13 - (currentHeightModulated + num5)))));
                     }
-                    vector8 = MathHelper.vectRotate(vector8, (double)num2);
+                    vector8 = vectRotate(vector8, (double)num2);
                     starL.applyImpulseDelta(vector8, 0.016f);
                 }
-                vector6 = MathHelper.vect(starR.pos.x, starR.pos.y);
-                vector7 = MathHelper.vect(starR.v.x, starR.v.y);
-                vector6 = MathHelper.vectRotateAround(vector6, (double)(-(double)num2), tube.x, tube.y);
-                vector7 = MathHelper.vectRotate(vector7, (double)(-(double)num2));
-                if (MathHelper.rectInRect(vector6.x - num5, vector6.y - num5 / 2f, vector6.x + num5, vector6.y + num5, vector.x, vector.y, vector2.x, vector2.y))
+                vector6 = vect(starR.pos.x, starR.pos.y);
+                vector7 = vect(starR.v.x, starR.v.y);
+                vector6 = vectRotateAround(vector6, (double)(-(double)num2), tube.x, tube.y);
+                vector7 = vectRotate(vector7, (double)(-(double)num2));
+                if (rectInRect(vector6.x - num5, vector6.y - num5 / 2f, vector6.x + num5, vector6.y + num5, vector.x, vector.y, vector2.x, vector2.y))
                 {
                     foreach (Bouncer bouncer3 in bouncers)
                     {
@@ -3754,13 +3754,13 @@ namespace ctr_wp7.game
                             num16 /= 4f;
                         }
                     }
-                    Vector vector9 = MathHelper.vect(num14, -vector7.y / num + num16);
+                    Vector vector9 = vect(num14, -vector7.y / num + num16);
                     float num17 = tube.y - vector6.y;
                     if (num17 > currentHeightModulated + num5)
                     {
-                        vector9 = MathHelper.vectMult(vector9, Math.Exp((double)(-2f * (num17 - (currentHeightModulated + num5)))));
+                        vector9 = vectMult(vector9, Math.Exp((double)(-2f * (num17 - (currentHeightModulated + num5)))));
                     }
-                    vector9 = MathHelper.vectRotate(vector9, (double)num2);
+                    vector9 = vectRotate(vector9, (double)num2);
                     starR.applyImpulseDelta(vector9, 0.016f);
                 }
             }
@@ -3772,7 +3772,7 @@ namespace ctr_wp7.game
             float num = 200f;
             if (GameObject.rectInObject(p.x - num, p.y - num, p.x + num, p.y + num, c))
             {
-                Vector vector = MathHelper.vect(c.x, c.y);
+                Vector vector = vect(c.x, c.y);
                 Vector vector2;
                 vector2.x = p.x - p.bb.w / 2f;
                 Vector vector3;
@@ -3780,14 +3780,14 @@ namespace ctr_wp7.game
                 vector2.y = (vector3.y = p.y);
                 if (p.angle != 0.0)
                 {
-                    vector = MathHelper.vectRotateAround(vector, -p.angle, p.x, p.y);
+                    vector = vectRotateAround(vector, -p.angle, p.x, p.y);
                 }
-                if (vector.y < vector2.y && MathHelper.rectInRect(vector.x - c.bb.w / 2f, vector.y - c.bb.h / 2f, vector.x + c.bb.w / 2f, vector.y + c.bb.h / 2f, vector2.x, vector2.y - num, vector3.x, vector3.y))
+                if (vector.y < vector2.y && rectInRect(vector.x - c.bb.w / 2f, vector.y - c.bb.h / 2f, vector.x + c.bb.w / 2f, vector.y + c.bb.h / 2f, vector2.x, vector2.y - num, vector3.x, vector3.y))
                 {
                     float num2 = num * 2f;
                     float num3 = num2 * (num - (vector2.y - vector.y)) / num;
-                    Vector vector4 = MathHelper.vect(0f, -num3);
-                    vector4 = MathHelper.vectRotate(vector4, p.angle);
+                    Vector vector4 = vect(0f, -num3);
+                    vector4 = vectRotate(vector4, p.angle);
                     s.applyImpulseDelta(vector4, 0.016f);
                 }
             }
@@ -3801,16 +3801,16 @@ namespace ctr_wp7.game
                 return;
             }
             b.skip = true;
-            Vector vector = MathHelper.vectSub(s.prevPos, s.pos);
-            int num = ((MathHelper.vectRotateAround(s.prevPos, (double)(-(double)b.angle), b.x, b.y).y < b.y) ? (-1) : 1);
-            float num2 = Math.Max(MathHelper.vectLength(vector) * 40f, 300f) * (float)num;
-            Vector vector2 = MathHelper.vectForAngle(b.angle);
-            Vector vector3 = MathHelper.vectMult(MathHelper.vectPerp(vector2), num2);
-            s.pos = MathHelper.vectRotateAround(s.pos, (double)(-(double)b.angle), b.x, b.y);
-            s.prevPos = MathHelper.vectRotateAround(s.prevPos, (double)(-(double)b.angle), b.x, b.y);
+            Vector vector = vectSub(s.prevPos, s.pos);
+            int num = ((vectRotateAround(s.prevPos, (double)(-(double)b.angle), b.x, b.y).y < b.y) ? (-1) : 1);
+            float num2 = Math.Max(vectLength(vector) * 40f, 300f) * (float)num;
+            Vector vector2 = vectForAngle(b.angle);
+            Vector vector3 = vectMult(vectPerp(vector2), num2);
+            s.pos = vectRotateAround(s.pos, (double)(-(double)b.angle), b.x, b.y);
+            s.prevPos = vectRotateAround(s.prevPos, (double)(-(double)b.angle), b.x, b.y);
             s.prevPos.y = s.pos.y;
-            s.pos = MathHelper.vectRotateAround(s.pos, (double)b.angle, b.x, b.y);
-            s.prevPos = MathHelper.vectRotateAround(s.prevPos, (double)b.angle, b.x, b.y);
+            s.pos = vectRotateAround(s.pos, (double)b.angle, b.x, b.y);
+            s.prevPos = vectRotateAround(s.prevPos, (double)b.angle, b.x, b.y);
             s.applyImpulseDelta(vector3, delta);
             b.playTimeline(0);
             CTRSoundMgr._playSound(52);
@@ -3819,18 +3819,18 @@ namespace ctr_wp7.game
         // Token: 0x06000825 RID: 2085 RVA: 0x000499D8 File Offset: 0x00047BD8
         public virtual bool handleBubbleTouchXY(ConstraintedPoint s, float tx, float ty)
         {
-            if (MathHelper.pointInRect(tx + camera.pos.x, ty + camera.pos.y, s.pos.x - 30f, s.pos.y - 30f, 60f, 60f))
+            if (pointInRect(tx + camera.pos.x, ty + camera.pos.y, s.pos.x - 30f, s.pos.y - 30f, 60f, 60f))
             {
                 popCandyBubble(s == starL);
                 int num = Preferences._getIntForKey("PREFS_BUBBLES_POPPED") + 1;
                 Preferences._setIntforKey(num, "PREFS_BUBBLES_POPPED", false);
                 if (num >= 50)
                 {
-                    CTRRootController.postAchievementName(NSObject.NSS("acBubblePopper"));
+                    CTRRootController.postAchievementName(NSS("acBubblePopper"));
                 }
                 if (num >= 300)
                 {
-                    CTRRootController.postAchievementName(NSObject.NSS("acBubbleMaster"));
+                    CTRRootController.postAchievementName(NSS("acBubbleMaster"));
                 }
                 return true;
             }
@@ -3846,16 +3846,16 @@ namespace ctr_wp7.game
             }
             targetSock.light.playTimeline(0);
             targetSock.light.visible = true;
-            Vector vector = MathHelper.vect(0f, -8f);
-            vector = MathHelper.vectRotate(vector, (double)MathHelper.DEGREES_TO_RADIANS(targetSock.rotation));
+            Vector vector = vect(0f, -8f);
+            vector = vectRotate(vector, (double)DEGREES_TO_RADIANS(targetSock.rotation));
             star.pos.x = targetSock.x;
             star.pos.y = targetSock.y;
-            star.pos = MathHelper.vectAdd(star.pos, vector);
+            star.pos = vectAdd(star.pos, vector);
             star.prevPos.x = star.pos.x;
             star.prevPos.y = star.pos.y;
-            star.v = MathHelper.vectMult(MathHelper.vectRotate(MathHelper.vect(0f, -1f), (double)MathHelper.DEGREES_TO_RADIANS(targetSock.rotation)), savedSockSpeed);
-            star.posDelta = MathHelper.vectDiv(star.v, 60f);
-            star.prevPos = MathHelper.vectSub(star.pos, star.posDelta);
+            star.v = vectMult(vectRotate(vect(0f, -1f), (double)DEGREES_TO_RADIANS(targetSock.rotation)), savedSockSpeed);
+            star.posDelta = vectDiv(star.v, 60f);
+            star.prevPos = vectSub(star.pos, star.posDelta);
             targetSock = null;
         }
 
@@ -3930,14 +3930,14 @@ namespace ctr_wp7.game
         // Token: 0x06000830 RID: 2096 RVA: 0x00049D18 File Offset: 0x00047F18
         private void drawCut(Vector fls, Vector frs, Vector start, Vector end, float startSize, float endSize, RGBAColor c, ref Vector le, ref Vector re)
         {
-            Vector vector = MathHelper.vectSub(end, start);
-            Vector vector2 = MathHelper.vectNormalize(vector);
-            Vector vector3 = MathHelper.vectRperp(vector2);
-            Vector vector4 = MathHelper.vectPerp(vector2);
-            Vector vector5 = (MathHelper.vectEqual(frs, MathHelper.vectUndefined) ? MathHelper.vectAdd(start, MathHelper.vectMult(vector3, startSize)) : frs);
-            Vector vector6 = (MathHelper.vectEqual(fls, MathHelper.vectUndefined) ? MathHelper.vectAdd(start, MathHelper.vectMult(vector4, startSize)) : fls);
-            Vector vector7 = MathHelper.vectAdd(end, MathHelper.vectMult(vector3, endSize));
-            Vector vector8 = MathHelper.vectAdd(end, MathHelper.vectMult(vector4, endSize));
+            Vector vector = vectSub(end, start);
+            Vector vector2 = vectNormalize(vector);
+            Vector vector3 = vectRperp(vector2);
+            Vector vector4 = vectPerp(vector2);
+            Vector vector5 = (vectEqual(frs, vectUndefined) ? vectAdd(start, vectMult(vector3, startSize)) : frs);
+            Vector vector6 = (vectEqual(fls, vectUndefined) ? vectAdd(start, vectMult(vector4, startSize)) : fls);
+            Vector vector7 = vectAdd(end, vectMult(vector3, endSize));
+            Vector vector8 = vectAdd(end, vectMult(vector4, endSize));
             float[] array = new float[] { vector6.x, vector6.y, vector5.x, vector5.y, vector7.x, vector7.y, vector8.x, vector8.y };
             GLDrawer.drawSolidPolygonWOBorder(array, 4, c);
             le = vector8;
@@ -4010,7 +4010,7 @@ namespace ctr_wp7.game
                 dict = new Dictionary<string, string>();
             }
             dict["level"] = num.ToString() + "-" + level.ToString();
-            FrameworkTypes.FlurryAPI.logEventwithParams(_string, dict, true, mixpanel, false);
+            FlurryAPI.logEventwithParams(_string, dict, true, mixpanel, false);
         }
 
         // Token: 0x04000D49 RID: 3401
@@ -4476,13 +4476,13 @@ namespace ctr_wp7.game
             // Token: 0x06000839 RID: 2105 RVA: 0x0004A04D File Offset: 0x0004824D
             public static GameScene.CharAnim CharAnim_createWithResID(int r)
             {
-                return GameScene.CharAnim.CharAnim_create(Application.getTexture(r));
+                return CharAnim_create(Application.getTexture(r));
             }
 
             // Token: 0x0600083A RID: 2106 RVA: 0x0004A05C File Offset: 0x0004825C
             public static GameScene.CharAnim CharAnim_createWithResIDQuad(int r, int q)
             {
-                GameScene.CharAnim charAnim = GameScene.CharAnim.CharAnim_create(Application.getTexture(r));
+                GameScene.CharAnim charAnim = CharAnim_create(Application.getTexture(r));
                 charAnim.setDrawQuad(q);
                 return charAnim;
             }
@@ -4513,7 +4513,7 @@ namespace ctr_wp7.game
             {
                 Timeline timeline = getTimeline(a1);
                 List<ctr_wp7.iframework.visual.Action> list = new List<ctr_wp7.iframework.visual.Action>();
-                list.Add(ctr_wp7.iframework.visual.Action.createAction(this, "ACTION_PLAY_TIMELINE", 0, a2));
+                list.Add(iframework.visual.Action.createAction(this, "ACTION_PLAY_TIMELINE", 0, a2));
                 timeline.addKeyFrame(KeyFrame.makeAction(list, d));
             }
 
@@ -4536,13 +4536,13 @@ namespace ctr_wp7.game
             // Token: 0x0600083F RID: 2111 RVA: 0x0004A13D File Offset: 0x0004833D
             public static GameScene.GameObjectSpecial GameObjectSpecial_createWithResID(int r)
             {
-                return GameScene.GameObjectSpecial.GameObjectSpecial_create(Application.getTexture(r));
+                return GameObjectSpecial_create(Application.getTexture(r));
             }
 
             // Token: 0x06000840 RID: 2112 RVA: 0x0004A14C File Offset: 0x0004834C
             public static GameScene.GameObjectSpecial GameObjectSpecial_createWithResIDQuad(int r, int q)
             {
-                GameScene.GameObjectSpecial gameObjectSpecial = GameScene.GameObjectSpecial.GameObjectSpecial_create(Application.getTexture(r));
+                GameScene.GameObjectSpecial gameObjectSpecial = GameObjectSpecial_create(Application.getTexture(r));
                 gameObjectSpecial.setDrawQuad(q);
                 return gameObjectSpecial;
             }

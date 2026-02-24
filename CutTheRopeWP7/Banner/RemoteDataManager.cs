@@ -24,12 +24,12 @@ namespace ctr_wp7.Banner
         // Token: 0x060001AF RID: 431 RVA: 0x0000BE90 File Offset: 0x0000A090
         public virtual NSObject acquireInfo(int setID)
         {
-            if (base.init() != null && RemoteDataManager.remoteDataMgr != null)
+            if (base.init() != null && remoteDataMgr != null)
             {
                 RemoteDataManager.BannerSize bannerSize = getBannerSize();
                 string text = "ctr";
                 string text2 = "winphone";
-                RemoteDataManager.remoteDataMgr.initWith(text, text2, setID, bannerSize.width, bannerSize.height);
+                remoteDataMgr.initWith(text, text2, setID, bannerSize.width, bannerSize.height);
             }
             return this;
         }
@@ -37,34 +37,34 @@ namespace ctr_wp7.Banner
         // Token: 0x060001B0 RID: 432 RVA: 0x0000BEDB File Offset: 0x0000A0DB
         public static void initRemoteDataMgr(RemoteDataManager_Java pRemoteDataMgr)
         {
-            RemoteDataManager.remoteDataMgr = pRemoteDataMgr;
+            remoteDataMgr = pRemoteDataMgr;
         }
 
         // Token: 0x060001B1 RID: 433 RVA: 0x0000BEE4 File Offset: 0x0000A0E4
         public virtual Image getBanner()
         {
-            if (RemoteDataManager.remoteDataMgr == null)
+            if (remoteDataMgr == null)
             {
                 return null;
             }
             RemoteDataManager.BannerSize bannerSize = getBannerSize();
-            RemoteDataManager.currentBanner = RemoteDataManager.remoteDataMgr.getBanner();
-            if (RemoteDataManager.currentBanner != null)
+            currentBanner = remoteDataMgr.getBanner();
+            if (currentBanner != null)
             {
-                string name = RemoteDataManager.currentBanner.getName();
-                string url = RemoteDataManager.currentBanner.getUrl();
-                RemoteDataManager.bannerUrl = NSObject.NSS(url);
-                string @string = RemoteDataManager.currentBanner.getString();
-                NSString nsstring = NSObject.NSS(@string);
+                string name = currentBanner.getName();
+                string url = currentBanner.getUrl();
+                bannerUrl = NSS(url);
+                string @string = currentBanner.getString();
+                NSString nsstring = NSS(@string);
                 Texture2D.setAntiAliasTexParameters();
                 Texture2D texture2D = new Texture2D().initWithImagePath(name);
-                if (FrameworkTypes.IS_WVGA)
+                if (IS_WVGA)
                 {
                     texture2D.setWvga();
                 }
-                texture2D.setScale((float)bannerSize.width / 321f, (float)bannerSize.height / FrameworkTypes.CHOOSE3(200.0, 200.0, 160.0));
+                texture2D.setScale((float)bannerSize.width / 321f, (float)bannerSize.height / CHOOSE3(200.0, 200.0, 160.0));
                 Image image = Image.Image_create(texture2D);
-                if (nsstring.ToString() != "#" && RemoteDataManager.bannerUrl.ToString() != "#")
+                if (nsstring.ToString() != "#" && bannerUrl.ToString() != "#")
                 {
                     Button button = MenuController.createButtonWithTextIDDelegate(nsstring, 0, this);
                     button.setTouchIncreaseLeftRightTopBottom(0f, 0f, 15f, 15f);
@@ -72,16 +72,16 @@ namespace ctr_wp7.Banner
                     button.anchor = 18;
                     Vector vector = Image.getQuadOffset(77, 7);
                     Vector quadOffset = Image.getQuadOffset(78, 0);
-                    vector = MathHelper.vectSub(vector, quadOffset);
+                    vector = vectSub(vector, quadOffset);
                     button.x = vector.x;
                     button.y = vector.y;
                     image.addChild(button);
                 }
                 return image;
             }
-            if (RemoteDataManager.bannerUrl != null)
+            if (bannerUrl != null)
             {
-                RemoteDataManager.bannerUrl = null;
+                bannerUrl = null;
             }
             return null;
         }
@@ -89,72 +89,72 @@ namespace ctr_wp7.Banner
         // Token: 0x060001B2 RID: 434 RVA: 0x0000C06F File Offset: 0x0000A26F
         public virtual void nextBanner()
         {
-            if (RemoteDataManager.remoteDataMgr == null)
+            if (remoteDataMgr == null)
             {
                 return;
             }
-            RemoteDataManager.remoteDataMgr.nextBanner();
+            remoteDataMgr.nextBanner();
         }
 
         // Token: 0x060001B3 RID: 435 RVA: 0x0000C083 File Offset: 0x0000A283
         public virtual void prevBanner()
         {
-            if (RemoteDataManager.remoteDataMgr == null)
+            if (remoteDataMgr == null)
             {
                 return;
             }
-            RemoteDataManager.remoteDataMgr.prevBanner();
+            remoteDataMgr.prevBanner();
         }
 
         // Token: 0x060001B4 RID: 436 RVA: 0x0000C097 File Offset: 0x0000A297
         public virtual bool hasSenseToRotateBanners()
         {
-            return RemoteDataManager.remoteDataMgr != null && RemoteDataManager.remoteDataMgr.hasSenseToRotateBanners();
+            return remoteDataMgr != null && remoteDataMgr.hasSenseToRotateBanners();
         }
 
         // Token: 0x060001B5 RID: 437 RVA: 0x0000C0AC File Offset: 0x0000A2AC
         public virtual bool getHideMainPromo()
         {
-            return RemoteDataManager.remoteDataMgr != null && RemoteDataManager.remoteDataMgr.getHideMainPromo();
+            return remoteDataMgr != null && remoteDataMgr.getHideMainPromo();
         }
 
         // Token: 0x060001B6 RID: 438 RVA: 0x0000C0C1 File Offset: 0x0000A2C1
         public virtual bool getHideSocialNetworks()
         {
-            return RemoteDataManager.remoteDataMgr != null && RemoteDataManager.remoteDataMgr.getHideSocialNetworks();
+            return remoteDataMgr != null && remoteDataMgr.getHideSocialNetworks();
         }
 
         // Token: 0x060001B7 RID: 439 RVA: 0x0000C0D6 File Offset: 0x0000A2D6
         public virtual bool getDefaultInterstitial()
         {
-            return RemoteDataManager.remoteDataMgr != null && RemoteDataManager.remoteDataMgr.getDefaultInterstitial();
+            return remoteDataMgr != null && remoteDataMgr.getDefaultInterstitial();
         }
 
         // Token: 0x060001B8 RID: 440 RVA: 0x0000C0EB File Offset: 0x0000A2EB
         public virtual int getBoxForCrossPromo()
         {
-            if (RemoteDataManager.remoteDataMgr == null)
+            if (remoteDataMgr == null)
             {
                 return -1;
             }
-            return RemoteDataManager.remoteDataMgr.getBoxForCrossPromo();
+            return remoteDataMgr.getBoxForCrossPromo();
         }
 
         // Token: 0x060001B9 RID: 441 RVA: 0x0000C100 File Offset: 0x0000A300
         public virtual void onButtonPressed(int n)
         {
-            if (RemoteDataManager.bannerUrl != null)
+            if (bannerUrl != null)
             {
                 string text = "MMENU_BANNER_PRESSED";
                 List<string> list = new List<string>();
                 list.Add("banner_id");
-                list.Add(RemoteDataManager.currentBanner.id.ToString());
+                list.Add(currentBanner.id.ToString());
                 list.Add("language");
                 list.Add(Application.sharedAppSettings().getString(8).ToString());
                 list.Add("game_unlocked");
                 list.Add(CTRPreferences.isLiteVersion() ? "0" : "1");
-                FrameworkTypes.FlurryAPI.logEvent(text, list);
-                FrameworkTypes.AndroidAPI.openUrl(RemoteDataManager.bannerUrl);
+                FlurryAPI.logEvent(text, list);
+                AndroidAPI.openUrl(bannerUrl);
             }
         }
 

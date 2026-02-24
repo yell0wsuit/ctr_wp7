@@ -21,8 +21,8 @@ namespace ctr_wp7.Specials
             if (base.initWithTexture(Application.getTexture(resID)) != null)
             {
                 setDrawQuad(bq);
-                Image image = Image.Image_createWithResIDQuad(resID, lq);
-                Image image2 = Image.Image_createWithResIDQuad(resID, lqp);
+                Image image = Image_createWithResIDQuad(resID, lq);
+                Image image2 = Image_createWithResIDQuad(resID, lqp);
                 lift = (Lift)new Lift().initWithUpElementDownElementandID(image, image2, 0);
                 lift.parentAnchor = 10;
                 lift.anchor = 18;
@@ -37,7 +37,7 @@ namespace ctr_wp7.Specials
         public void percentXY(float px, float py)
         {
             Vector maxScroll = container.getMaxScroll();
-            container.setScroll(MathHelper.vect(maxScroll.x * px, maxScroll.y * py));
+            container.setScroll(vect(maxScroll.x * px, maxScroll.y * py));
         }
 
         // Token: 0x060002CD RID: 717 RVA: 0x000120C8 File Offset: 0x000102C8
@@ -71,7 +71,7 @@ namespace ctr_wp7.Specials
         public override bool onTouchUpXY(float tx, float ty)
         {
             bool flag = base.onTouchUpXY(tx, ty);
-            container.startMovingToSpointInDirection(MathHelper.vectZero);
+            container.startMovingToSpointInDirection(vectZero);
             return flag;
         }
 

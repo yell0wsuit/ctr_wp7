@@ -21,17 +21,17 @@ namespace ctr_wp7.game.remotedata
         // Token: 0x060007A5 RID: 1957 RVA: 0x0003C360 File Offset: 0x0003A560
         public override NSString getId()
         {
-            return NSObject.NSS("HARDCODED_EPISODE");
+            return NSS("HARDCODED_EPISODE");
         }
 
         // Token: 0x060007A6 RID: 1958 RVA: 0x0003C36C File Offset: 0x0003A56C
         public override NSString getUrl()
         {
-            if (!Application.sharedAppSettings().getString(8).isEqualToString(NSObject.NSS("zh")))
+            if (!Application.sharedAppSettings().getString(8).isEqualToString(NSS("zh")))
             {
-                return NSObject.NSS("vnd.youtube:bj3cbCE56wQ?vndapp=youtube_mobile");
+                return NSS("vnd.youtube:bj3cbCE56wQ?vndapp=youtube_mobile");
             }
-            return NSObject.NSS("http://v.youku.com/v_show/id_XNDIwMTM4Mjcy.html");
+            return NSS("http://v.youku.com/v_show/id_XNDIwMTM4Mjcy.html");
         }
 
         // Token: 0x060007A7 RID: 1959 RVA: 0x0003C3AC File Offset: 0x0003A5AC
@@ -43,7 +43,7 @@ namespace ctr_wp7.game.remotedata
         // Token: 0x060007A8 RID: 1960 RVA: 0x0003C3AF File Offset: 0x0003A5AF
         public override NSString getNumber()
         {
-            return NSObject.NSS("1");
+            return NSS("1");
         }
 
         // Token: 0x060007A9 RID: 1961 RVA: 0x0003C3BB File Offset: 0x0003A5BB

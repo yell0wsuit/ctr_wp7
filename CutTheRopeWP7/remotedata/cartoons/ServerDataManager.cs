@@ -22,7 +22,7 @@ namespace ctr_wp7.remotedata.cartoons
                 {
                     try
                     {
-                        using (IsolatedStorageFileStream isolatedStorageFileStream = userStoreForApplication.OpenFile(file, System.IO.FileMode.Open))
+                        using (IsolatedStorageFileStream isolatedStorageFileStream = userStoreForApplication.OpenFile(file, FileMode.Open))
                         {
                             DataContractSerializer dataContractSerializer = new DataContractSerializer(serializedObjectType);
                             obj = dataContractSerializer.ReadObject(isolatedStorageFileStream);
@@ -203,7 +203,7 @@ namespace ctr_wp7.remotedata.cartoons
         // Token: 0x0600035D RID: 861 RVA: 0x0001568F File Offset: 0x0001388F
         public static void public_InjectParameters(LinkBuilder link)
         {
-            ServerDataManager.injectAdditionalParameters(link);
+            injectAdditionalParameters(link);
         }
 
         // Token: 0x040008EC RID: 2284

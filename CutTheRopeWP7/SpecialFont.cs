@@ -16,17 +16,17 @@ namespace ctr_wp7
         // Token: 0x060002D1 RID: 721 RVA: 0x000121DC File Offset: 0x000103DC
         private static void CheckCollison(int R1)
         {
-            if (R1 > SpecialFont.Regions.Count - 2)
+            if (R1 > Regions.Count - 2)
             {
                 return;
             }
-            if (SpecialFont.Regions[R1].End >= SpecialFont.Regions[R1 + 1].Start)
+            if (Regions[R1].End >= Regions[R1 + 1].Start)
             {
                 SpecialFont.Region region = new SpecialFont.Region();
-                region.Start = SpecialFont.Regions[R1].Start;
-                region.End = SpecialFont.Regions[R1 + 1].End;
-                SpecialFont.Regions[R1] = region;
-                SpecialFont.Regions.RemoveAt(R1 + 1);
+                region.Start = Regions[R1].Start;
+                region.End = Regions[R1 + 1].End;
+                Regions[R1] = region;
+                Regions.RemoveAt(R1 + 1);
             }
         }
 
@@ -35,16 +35,16 @@ namespace ctr_wp7
         {
             for (int i = 0; i < s.Length; i++)
             {
-                SpecialFont.AddCharacter(s[i]);
+                AddCharacter(s[i]);
             }
         }
 
         // Token: 0x060002D3 RID: 723 RVA: 0x00012298 File Offset: 0x00010498
         private static void AddCharacter(char c)
         {
-            for (int i = 0; i < SpecialFont.Regions.Count; i++)
+            for (int i = 0; i < Regions.Count; i++)
             {
-                SpecialFont.Region region = SpecialFont.Regions[i];
+                SpecialFont.Region region = Regions[i];
                 if (c >= region.Start && c <= region.End)
                 {
                     return;
@@ -54,7 +54,7 @@ namespace ctr_wp7
                     SpecialFont.Region region2 = new SpecialFont.Region();
                     region2.Start = c;
                     region2.End = c;
-                    SpecialFont.Regions.Insert(i, region2);
+                    Regions.Insert(i, region2);
                     return;
                 }
                 if (c == region.Start - '\u0001')
@@ -67,14 +67,14 @@ namespace ctr_wp7
                 {
                     SpecialFont.Region region4 = region;
                     region4.End += '\u0001';
-                    SpecialFont.CheckCollison(i);
+                    CheckCollison(i);
                     return;
                 }
             }
             SpecialFont.Region region5 = new SpecialFont.Region();
             region5.Start = c;
             region5.End = c;
-            SpecialFont.Regions.Add(region5);
+            Regions.Add(region5);
         }
 
         // Token: 0x060002D4 RID: 724 RVA: 0x00012368 File Offset: 0x00010568
@@ -103,11 +103,11 @@ namespace ctr_wp7
                     streamWriter.WriteLine("<Style>Regular</Style>");
                     streamWriter.WriteLine("<CharacterRegions>");
                     streamWriter.WriteLine("</CharacterRegions>");
-                    for (int i = 0; i < SpecialFont.Regions.Count; i++)
+                    for (int i = 0; i < Regions.Count; i++)
                     {
                         streamWriter.WriteLine("<CharacterRegion>");
-                        streamWriter.WriteLine("<Start>&#" + (int)SpecialFont.Regions[i].Start + "</Start>");
-                        streamWriter.WriteLine("<End>&#" + (int)SpecialFont.Regions[i].End + "</End>");
+                        streamWriter.WriteLine("<Start>&#" + (int)Regions[i].Start + "</Start>");
+                        streamWriter.WriteLine("<End>&#" + (int)Regions[i].End + "</End>");
                         streamWriter.WriteLine("</CharacterRegion>");
                     }
                     streamWriter.WriteLine("</Asset>");
@@ -156,7 +156,7 @@ namespace ctr_wp7
             foreach (XMLNode xmlnode in xmlStrings.childs())
             {
                 XMLNode xmlnode2 = xmlnode.findChildWithTagNameRecursively(text, false);
-                SpecialFont.AddString(xmlnode2.data.ToString());
+                AddString(xmlnode2.data.ToString());
             }
         }
 
@@ -174,7 +174,7 @@ namespace ctr_wp7
                     if (xmlnode2.Name == "tutorialText" && !GameScene.shouldSkipTutorialElement(xmlnode2))
                     {
                         NSString nsstring = xmlnode2["text"];
-                        SpecialFont.AddString(nsstring.ToString());
+                        AddString(nsstring.ToString());
                     }
                 }
             }
@@ -190,7 +190,7 @@ namespace ctr_wp7
                 for (int j = 0; j < levelsInPackCount; j++)
                 {
                     XMLNode xmlnode = XMLNode.parseXML("maps/" + LevelsList.LEVEL_NAMES[i, j].ToString());
-                    SpecialFont.ProcessLevel(xmlnode);
+                    ProcessLevel(xmlnode);
                 }
             }
         }

@@ -40,7 +40,7 @@ internal class Rollbar : BaseElement
         addChild(scrollTop);
         scrollTop.visible = false;
         centralCellTL = Image.getRelativeQuadOffset(409, 0, 3);
-        Text text = Text.createWithFontandString(5, NSObject.NSS(" "));
+        Text text = Text.createWithFontandString(5, NSS(" "));
         text.visible = false;
         text.anchor = (text.parentAnchor = 18);
         elements.Add(text);
@@ -82,10 +82,10 @@ internal class Rollbar : BaseElement
         double num = (double)scrollTop.height / 2.0 / (double)centralCellHeight;
         halfVisibleCount = (int)Math.Ceiling(num);
         offsetY = (double)(-24f * centralCellHeight);
-        lastTouchY = (double)(-(double)FrameworkTypes.SCREEN_HEIGHT_EXPANDED);
+        lastTouchY = (double)(-(double)SCREEN_HEIGHT_EXPANDED);
         BaseElement baseElement2 = (BaseElement)new BaseElement().init();
         Image.setElementPositionWithQuadCenter(baseElement2, 409, 1);
-        scissorTL = MathHelper.vect(baseElement2.x - 20f, baseElement2.y - 80f);
+        scissorTL = vect(baseElement2.x - 20f, baseElement2.y - 80f);
         scissorWH = Image.getQuadSize(409, 1);
         return this;
     }
@@ -107,7 +107,7 @@ internal class Rollbar : BaseElement
     // Token: 0x06000663 RID: 1635 RVA: 0x00030F80 File Offset: 0x0002F180
     public override bool onTouchMoveXY(float x, float y)
     {
-        if (lastTouchY > (double)(-(double)FrameworkTypes.SCREEN_HEIGHT_EXPANDED))
+        if (lastTouchY > (double)(-(double)SCREEN_HEIGHT_EXPANDED))
         {
             preLastTouchY = lastTouchY;
             float num = (float)((double)y - lastTouchY);
@@ -125,7 +125,7 @@ internal class Rollbar : BaseElement
     public override bool onTouchUpXY(float x, float y)
     {
         manualMode = false;
-        if (lastTouchY <= (double)(-(double)FrameworkTypes.SCREEN_HEIGHT_EXPANDED))
+        if (lastTouchY <= (double)(-(double)SCREEN_HEIGHT_EXPANDED))
         {
             return false;
         }
@@ -134,7 +134,7 @@ internal class Rollbar : BaseElement
             lastMoveSpeed = 0.0;
         }
         speedY = lastMoveSpeed * 2.0;
-        lastTouchY = (double)(-(double)FrameworkTypes.SCREEN_HEIGHT_EXPANDED);
+        lastTouchY = (double)(-(double)SCREEN_HEIGHT_EXPANDED);
         return true;
     }
 
@@ -198,7 +198,7 @@ internal class Rollbar : BaseElement
         {
             speedY -= (double)(num / 3f);
         }
-        speedY *= (double)MathHelper.MAX(0.7f, 1f - delta * 5f);
+        speedY *= (double)MAX(0.7f, 1f - delta * 5f);
         float num2 = (float)(offsetY + (double)((float)halfVisibleCount * centralCellHeight));
         if (num2 > 0f && !manualMode)
         {

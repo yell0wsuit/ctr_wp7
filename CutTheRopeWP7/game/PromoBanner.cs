@@ -20,10 +20,10 @@ namespace ctr_wp7.game
         {
             if (base.init() != null)
             {
-                width = (int)FrameworkTypes.SCREEN_WIDTH_EXPANDED;
-                height = (int)FrameworkTypes.SCREEN_HEIGHT_EXPANDED;
-                scaleX = FrameworkTypes.SCREEN_WIDTH_EXPANDED / FrameworkTypes.SCREEN_WIDTH;
-                x = FrameworkTypes.SCREEN_OFFSET_X;
+                width = (int)SCREEN_WIDTH_EXPANDED;
+                height = (int)SCREEN_HEIGHT_EXPANDED;
+                scaleX = SCREEN_WIDTH_EXPANDED / SCREEN_WIDTH;
+                x = SCREEN_OFFSET_X;
                 parentAnchor = 18;
                 anchor = 18;
                 fadeElement = (Processing)new Processing().initWithLoading(false);
@@ -67,15 +67,15 @@ namespace ctr_wp7.game
         // Token: 0x0600062A RID: 1578 RVA: 0x0002EEA4 File Offset: 0x0002D0A4
         public virtual BaseElement createMainBanner()
         {
-            int banner_OFFSET = PromoBanner.BANNER_OFFSET;
-            base.setName("promoBanner");
+            int banner_OFFSET = BANNER_OFFSET;
+            setName("promoBanner");
             BaseElement baseElement = (BaseElement)new BaseElement().init();
             baseElement.setName("container");
             baseElement.parentAnchor = (baseElement.anchor = 10);
             BaseElement baseElement2 = createBanner();
             baseElement.addChild(baseElement2);
             RectangleElement rectangleElement = (RectangleElement)new RectangleElement().init();
-            rectangleElement.width = (int)FrameworkTypes.SCREEN_WIDTH_EXPANDED;
+            rectangleElement.width = (int)SCREEN_WIDTH_EXPANDED;
             rectangleElement.height = 100;
             rectangleElement.parentAnchor = 10;
             rectangleElement.anchor = 34;
@@ -145,7 +145,7 @@ namespace ctr_wp7.game
             hookButton.y = hook.pos.y - 5f;
             hookButton.rotationCenterY = (float)(-(float)hookButton.height / 2 + 5);
             promoMainHidden = true;
-            baseElement.width = (int)FrameworkTypes.SCREEN_WIDTH_EXPANDED;
+            baseElement.width = (int)SCREEN_WIDTH_EXPANDED;
             baseElement.height = image.height + baseElement2.height + image2.height;
             Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(3);
             timeline.addKeyFrame(KeyFrame.makePos(0, banner_OFFSET, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0f));
@@ -207,7 +207,7 @@ namespace ctr_wp7.game
             promoBanner.removeTimeline(1);
             Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(2);
             timeline.addKeyFrame(KeyFrame.makePos(0.0, (double)promoBanner.y, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
-            timeline.addKeyFrame(KeyFrame.makePos(0.0, (double)PromoBanner.BANNER_OFFSET, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.3));
+            timeline.addKeyFrame(KeyFrame.makePos(0.0, (double)BANNER_OFFSET, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.3));
             timeline.delegateTimelineDelegate = this;
             promoBanner.addTimelinewithID(timeline, 1);
             promoBanner.playTimeline(1);
@@ -228,8 +228,8 @@ namespace ctr_wp7.game
                         list.Add(Application.sharedAppSettings().getString(8).ToString());
                         list.Add("game_unlocked");
                         list.Add(CTRPreferences.isLiteVersion() ? "0" : "1");
-                        FrameworkTypes.FlurryAPI.logEvent(text, list);
-                        FrameworkTypes.AndroidAPI.openUrl("http://www.windowsphone.com/en-us/store/app/cut-the-rope-exp/d9f1608e-138a-4278-802f-25e32e44c068");
+                        FlurryAPI.logEvent(text, list);
+                        AndroidAPI.openUrl("http://www.windowsphone.com/en-us/store/app/cut-the-rope-exp/d9f1608e-138a-4278-802f-25e32e44c068");
                         return;
                     }
                 case 1:
@@ -263,8 +263,8 @@ namespace ctr_wp7.game
                 hookButton.y = hook.pos.y - 5f;
                 ConstraintedPoint bungeeAnchor = bungee.bungeeAnchor;
                 ConstraintedPoint constraintedPoint = bungee.parts[Enumerable.Count<ConstraintedPoint>(bungee.parts) - 1];
-                Vector vector = MathHelper.vectSub(bungeeAnchor.pos, constraintedPoint.pos);
-                float num = MathHelper.RADIANS_TO_DEGREES(MathHelper.vectAngleNormalized(vector)) + 90f;
+                Vector vector = vectSub(bungeeAnchor.pos, constraintedPoint.pos);
+                float num = RADIANS_TO_DEGREES(vectAngleNormalized(vector)) + 90f;
                 hookButton.rotation = num;
             }
         }
@@ -285,7 +285,7 @@ namespace ctr_wp7.game
         public virtual void changeBanner()
         {
             BaseElement baseElement = createBanner();
-            BaseElement childWithName = base.getChildWithName("container");
+            BaseElement childWithName = getChildWithName("container");
             BaseElement childWithName2 = childWithName.getChildWithName("banner");
             childWithName.removeChild(childWithName2);
             childWithName.addChild(baseElement);

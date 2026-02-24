@@ -22,7 +22,7 @@ namespace ctr_wp7.iframework.visual
             if (base.init() != null)
             {
                 buttonID = n;
-                state = Button.BUTTON_STATE.BUTTON_UP;
+                state = BUTTON_STATE.BUTTON_UP;
                 touchLeftInc = 0f;
                 touchRightInc = 0f;
                 touchTopInc = 0f;
@@ -40,7 +40,7 @@ namespace ctr_wp7.iframework.visual
                 up.parentAnchor = (down.parentAnchor = 9);
                 addChildwithID(up, 0);
                 addChildwithID(down, 1);
-                setState(Button.BUTTON_STATE.BUTTON_UP);
+                setState(BUTTON_STATE.BUTTON_UP);
             }
             return this;
         }
@@ -72,9 +72,9 @@ namespace ctr_wp7.iframework.visual
             float num = (td ? 0f : 15f);
             if (forcedTouchZone.w != -1f)
             {
-                return MathHelper.pointInRect(tx, ty, drawX + forcedTouchZone.x - num - touchLeftInc, drawY + forcedTouchZone.y - num - touchTopInc, forcedTouchZone.w + num * 2f + (touchLeftInc + touchRightInc), forcedTouchZone.h + (touchTopInc + touchBottomInc) + num * 2f);
+                return pointInRect(tx, ty, drawX + forcedTouchZone.x - num - touchLeftInc, drawY + forcedTouchZone.y - num - touchTopInc, forcedTouchZone.w + num * 2f + (touchLeftInc + touchRightInc), forcedTouchZone.h + (touchTopInc + touchBottomInc) + num * 2f);
             }
-            return MathHelper.pointInRect(tx, ty, drawX - touchLeftInc - num, drawY - touchTopInc - num, (float)width + (touchLeftInc + touchRightInc) + num * 2f, (float)height + (touchTopInc + touchBottomInc) + num * 2f);
+            return pointInRect(tx, ty, drawX - touchLeftInc - num, drawY - touchTopInc - num, (float)width + (touchLeftInc + touchRightInc) + num * 2f, (float)height + (touchTopInc + touchBottomInc) + num * 2f);
         }
 
         // Token: 0x060002A1 RID: 673 RVA: 0x00010BC8 File Offset: 0x0000EDC8
@@ -83,17 +83,17 @@ namespace ctr_wp7.iframework.visual
             state = s;
             BaseElement child = getChild(0);
             BaseElement child2 = getChild(1);
-            child.setEnabled(s == Button.BUTTON_STATE.BUTTON_UP);
-            child2.setEnabled(s == Button.BUTTON_STATE.BUTTON_DOWN);
+            child.setEnabled(s == BUTTON_STATE.BUTTON_UP);
+            child2.setEnabled(s == BUTTON_STATE.BUTTON_DOWN);
         }
 
         // Token: 0x060002A2 RID: 674 RVA: 0x00010C00 File Offset: 0x0000EE00
         public override bool onTouchDownXY(float tx, float ty)
         {
             base.onTouchDownXY(tx, ty);
-            if (state == Button.BUTTON_STATE.BUTTON_UP && isInTouchZoneXYforTouchDown(tx, ty, true))
+            if (state == BUTTON_STATE.BUTTON_UP && isInTouchZoneXYforTouchDown(tx, ty, true))
             {
-                setState(Button.BUTTON_STATE.BUTTON_DOWN);
+                setState(BUTTON_STATE.BUTTON_DOWN);
                 return true;
             }
             return false;
@@ -103,9 +103,9 @@ namespace ctr_wp7.iframework.visual
         public override bool onTouchUpXY(float tx, float ty)
         {
             base.onTouchUpXY(tx, ty);
-            if (state == Button.BUTTON_STATE.BUTTON_DOWN)
+            if (state == BUTTON_STATE.BUTTON_DOWN)
             {
-                setState(Button.BUTTON_STATE.BUTTON_UP);
+                setState(BUTTON_STATE.BUTTON_UP);
                 if (isInTouchZoneXYforTouchDown(tx, ty, false))
                 {
                     if (delegateButtonDelegate != null)
@@ -122,13 +122,13 @@ namespace ctr_wp7.iframework.visual
         public override bool onTouchMoveXY(float tx, float ty)
         {
             base.onTouchMoveXY(tx, ty);
-            if (state == Button.BUTTON_STATE.BUTTON_DOWN)
+            if (state == BUTTON_STATE.BUTTON_DOWN)
             {
                 if (isInTouchZoneXYforTouchDown(tx, ty, false))
                 {
                     return true;
                 }
-                setState(Button.BUTTON_STATE.BUTTON_UP);
+                setState(BUTTON_STATE.BUTTON_UP);
             }
             return false;
         }
@@ -142,7 +142,7 @@ namespace ctr_wp7.iframework.visual
             {
                 width = c.width;
                 height = c.height;
-                setState(Button.BUTTON_STATE.BUTTON_UP);
+                setState(BUTTON_STATE.BUTTON_UP);
             }
             return num;
         }

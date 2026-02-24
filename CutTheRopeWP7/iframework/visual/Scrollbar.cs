@@ -22,7 +22,7 @@ namespace ctr_wp7.iframework.visual
         public override void draw()
         {
             base.preDraw();
-            if (MathHelper.vectEqual(sp, MathHelper.vectUndefined) && delegateProvider != null)
+            if (vectEqual(sp, vectUndefined) && delegateProvider != null)
             {
                 delegateProvider(ref sp, ref mp, ref sc);
             }
@@ -74,9 +74,9 @@ namespace ctr_wp7.iframework.visual
                 width = (int)w;
                 height = (int)h;
                 vertical = v;
-                sp = MathHelper.vectUndefined;
-                mp = MathHelper.vectUndefined;
-                sc = MathHelper.vectUndefined;
+                sp = vectUndefined;
+                mp = vectUndefined;
+                sc = vectUndefined;
                 backColor = RGBAColor.MakeRGBA(1f, 1f, 1f, 0.5f);
                 scrollerColor = RGBAColor.MakeRGBA(0f, 0f, 0f, 0.5f);
             }

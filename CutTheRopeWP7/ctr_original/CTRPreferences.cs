@@ -15,15 +15,15 @@ namespace ctr_wp7.ctr_original
             if (base.init() != null)
             {
                 remoteDataManager = (RemoteDataManager)new RemoteDataManager().acquireInfo(0);
-                if (!CTRPreferences.isTrial)
+                if (!isTrial)
                 {
-                    int levelsInPackCount = CTRPreferences.getLevelsInPackCount(true);
-                    int packsCount = CTRPreferences.getPacksCount(true);
+                    int levelsInPackCount = getLevelsInPackCount(true);
+                    int packsCount = getPacksCount(true);
                     for (int i = 0; i < packsCount; i++)
                     {
-                        if (CTRPreferences.getWinsForPackLevel(i, levelsInPackCount - 1) > 0)
+                        if (getWinsForPackLevel(i, levelsInPackCount - 1) > 0)
                         {
-                            CTRPreferences.setUnlockedForPackLevel(UNLOCKED_STATE.UNLOCKED_STATE_JUST_UNLOCKED, i, levelsInPackCount);
+                            setUnlockedForPackLevel(UNLOCKED_STATE.UNLOCKED_STATE_JUST_UNLOCKED, i, levelsInPackCount);
                         }
                     }
                 }
@@ -34,7 +34,7 @@ namespace ctr_wp7.ctr_original
                     setIntforKey(0, "PREFS_GAME_STARTS", false);
                     setIntforKey(0, "PREFS_LEVELS_WON", false);
                     resetToDefaults();
-                    Preferences._setIntforKey(0, "GAME_SESSIONS_COUNT_", true);
+                    _setIntforKey(0, "GAME_SESSIONS_COUNT_", true);
                     resetMusicSound();
                     firstLaunch = true;
                     showPromoBanner = false;
@@ -47,15 +47,15 @@ namespace ctr_wp7.ctr_original
                     {
                         getTotalScore();
                         int j = 0;
-                        int packsCount2 = CTRPreferences.getPacksCount();
+                        int packsCount2 = getPacksCount();
                         while (j < packsCount2)
                         {
                             int num = 0;
                             int k = 0;
-                            int levelsInPackCount2 = CTRPreferences.getLevelsInPackCount();
+                            int levelsInPackCount2 = getLevelsInPackCount();
                             while (k < levelsInPackCount2)
                             {
-                                int intForKey2 = getIntForKey(CTRPreferences.getPackLevelKey("SCORE_", j, k));
+                                int intForKey2 = getIntForKey(getPackLevelKey("SCORE_", j, k));
                                 if (intForKey2 > 5999)
                                 {
                                     num = 150000;
@@ -156,8 +156,8 @@ namespace ctr_wp7.ctr_original
         // Token: 0x06000555 RID: 1365 RVA: 0x00029458 File Offset: 0x00027658
         public static bool isSharewareUnlocked()
         {
-            bool flag = CTRPreferences.isShareware();
-            return !flag || (flag && Preferences._getBooleanForKey("IAP_SHAREWARE"));
+            bool flag = isShareware();
+            return !flag || (flag && _getBooleanForKey("IAP_SHAREWARE"));
         }
 
         // Token: 0x17000014 RID: 20
@@ -166,14 +166,14 @@ namespace ctr_wp7.ctr_original
         {
             set
             {
-                CTRPreferences.isTrial = value;
+                isTrial = value;
             }
         }
 
         // Token: 0x06000557 RID: 1367 RVA: 0x00029487 File Offset: 0x00027687
         public static bool isLiteVersion()
         {
-            return CTRPreferences.isTrial;
+            return isTrial;
         }
 
         // Token: 0x06000558 RID: 1368 RVA: 0x0002948E File Offset: 0x0002768E
@@ -185,31 +185,31 @@ namespace ctr_wp7.ctr_original
         // Token: 0x06000559 RID: 1369 RVA: 0x00029491 File Offset: 0x00027691
         public static int getStarsForPackLevel(int p, int l)
         {
-            return Preferences._getIntForKey(CTRPreferences.getPackLevelKey("STARS_", p, l));
+            return _getIntForKey(getPackLevelKey("STARS_", p, l));
         }
 
         // Token: 0x0600055A RID: 1370 RVA: 0x000294A4 File Offset: 0x000276A4
         public static UNLOCKED_STATE getUnlockedForPackLevel(int p, int l)
         {
-            return (UNLOCKED_STATE)Preferences._getIntForKey(CTRPreferences.getPackLevelKey("UNLOCKED_", p, l));
+            return (UNLOCKED_STATE)_getIntForKey(getPackLevelKey("UNLOCKED_", p, l));
         }
 
         // Token: 0x0600055B RID: 1371 RVA: 0x000294B7 File Offset: 0x000276B7
         public static int getAttemptsForPackLevel(int p, int l)
         {
-            return Preferences._getIntForKey("ATTEMPTS_" + p.ToString() + l.ToString());
+            return _getIntForKey("ATTEMPTS_" + p.ToString() + l.ToString());
         }
 
         // Token: 0x0600055C RID: 1372 RVA: 0x000294D6 File Offset: 0x000276D6
         public static void setAttemptsForPackLevel(int a, int p, int l)
         {
-            Preferences._setIntforKey(a, "ATTEMPTS_" + p.ToString() + l.ToString(), true);
+            _setIntforKey(a, "ATTEMPTS_" + p.ToString() + l.ToString(), true);
         }
 
         // Token: 0x0600055D RID: 1373 RVA: 0x000294F7 File Offset: 0x000276F7
         public static int getPacksCount()
         {
-            return CTRPreferences.getPacksCount(CTRPreferences.isLiteVersion());
+            return getPacksCount(isLiteVersion());
         }
 
         // Token: 0x0600055E RID: 1374 RVA: 0x00029503 File Offset: 0x00027703
@@ -225,7 +225,7 @@ namespace ctr_wp7.ctr_original
         // Token: 0x0600055F RID: 1375 RVA: 0x0002950C File Offset: 0x0002770C
         public static int getLevelsInPackCount()
         {
-            return CTRPreferences.getLevelsInPackCount(CTRPreferences.isLiteVersion());
+            return getLevelsInPackCount(isLiteVersion());
         }
 
         // Token: 0x06000560 RID: 1376 RVA: 0x00029518 File Offset: 0x00027718
@@ -243,14 +243,14 @@ namespace ctr_wp7.ctr_original
         {
             int num = 0;
             int i = 0;
-            int packsCount = CTRPreferences.getPacksCount();
+            int packsCount = getPacksCount();
             while (i < packsCount)
             {
                 int j = 0;
-                int levelsInPackCount = CTRPreferences.getLevelsInPackCount();
+                int levelsInPackCount = getLevelsInPackCount();
                 while (j < levelsInPackCount)
                 {
-                    num += CTRPreferences.getStarsForPackLevel(i, j);
+                    num += getStarsForPackLevel(i, j);
                     j++;
                 }
                 i++;
@@ -262,13 +262,13 @@ namespace ctr_wp7.ctr_original
         public static int getTotalStarsInDelivery(int delivery = -1)
         {
             int num = 0;
-            PackSelectInfo packSelectInfo = CTRPreferences.getPackSelectInfo(false, delivery);
+            PackSelectInfo packSelectInfo = getPackSelectInfo(false, delivery);
             for (int i = 0; i < packSelectInfo.size; i++)
             {
                 int saveIndex = BoxFabric.getSaveIndex(packSelectInfo.content[i]);
                 if (saveIndex != -1)
                 {
-                    num += CTRPreferences.getTotalStarsInPack(saveIndex);
+                    num += getTotalStarsInPack(saveIndex);
                 }
             }
             return num;
@@ -277,11 +277,11 @@ namespace ctr_wp7.ctr_original
         // Token: 0x06000563 RID: 1379 RVA: 0x000295A8 File Offset: 0x000277A8
         public static int packUnlockStars(int n)
         {
-            if (!CTRPreferences.isLiteVersion())
+            if (!isLiteVersion())
             {
-                return CTRPreferences.PACK_UNLOCK_STARS[n];
+                return PACK_UNLOCK_STARS[n];
             }
-            return CTRPreferences.PACK_UNLOCK_STARS_LITE[n];
+            return PACK_UNLOCK_STARS_LITE[n];
         }
 
         // Token: 0x06000564 RID: 1380 RVA: 0x000295C0 File Offset: 0x000277C0
@@ -293,7 +293,7 @@ namespace ctr_wp7.ctr_original
         // Token: 0x06000565 RID: 1381 RVA: 0x000295DB File Offset: 0x000277DB
         public static void setUnlockedForPackLevel(UNLOCKED_STATE s, int p, int l)
         {
-            Preferences._setIntforKey((int)s, CTRPreferences.getPackLevelKey("UNLOCKED_", p, l), true);
+            _setIntforKey((int)s, getPackLevelKey("UNLOCKED_", p, l), true);
         }
 
         // Token: 0x06000566 RID: 1382 RVA: 0x000295F0 File Offset: 0x000277F0
@@ -311,48 +311,48 @@ namespace ctr_wp7.ctr_original
         // Token: 0x06000568 RID: 1384 RVA: 0x000295F8 File Offset: 0x000277F8
         public static void setLastPack(int p)
         {
-            Preferences._setIntforKey(p, "PREFS_LAST_PACK" + CTRPreferences.getLastDelivery().ToString(), false);
+            _setIntforKey(p, "PREFS_LAST_PACK" + getLastDelivery().ToString(), false);
         }
 
         // Token: 0x06000569 RID: 1385 RVA: 0x00029624 File Offset: 0x00027824
         public static int getLastDelivery()
         {
-            int num = Preferences._getIntForKey("PREFS_LAST_DELIVERY");
-            return MathHelper.MIN(MathHelper.MAX(0, num), 2);
+            int num = _getIntForKey("PREFS_LAST_DELIVERY");
+            return MIN(MAX(0, num), 2);
         }
 
         // Token: 0x0600056A RID: 1386 RVA: 0x00029649 File Offset: 0x00027849
         public static bool isInLastDelivery()
         {
-            return CTRPreferences.getLastDelivery() == 2;
+            return getLastDelivery() == 2;
         }
 
         // Token: 0x0600056B RID: 1387 RVA: 0x00029653 File Offset: 0x00027853
         public static void setLastDelivery(int d)
         {
-            Preferences._setIntforKey(d, "PREFS_LAST_DELIVERY", true);
+            _setIntforKey(d, "PREFS_LAST_DELIVERY", true);
         }
 
         // Token: 0x0600056C RID: 1388 RVA: 0x00029661 File Offset: 0x00027861
         public static int getGameSessionsCount()
         {
-            return Preferences._getIntForKey("GAME_SESSIONS_COUNT_");
+            return _getIntForKey("GAME_SESSIONS_COUNT_");
         }
 
         // Token: 0x0600056D RID: 1389 RVA: 0x0002966D File Offset: 0x0002786D
         public static void setGameSessionsCount(int c)
         {
-            Preferences._setIntforKey(c, "GAME_SESSIONS_COUNT_", true);
+            _setIntforKey(c, "GAME_SESSIONS_COUNT_", true);
         }
 
         // Token: 0x0600056E RID: 1390 RVA: 0x0002967C File Offset: 0x0002787C
         public static bool isPackPerfect(int p)
         {
             int i = 0;
-            int levelsInPackCount = CTRPreferences.getLevelsInPackCount();
+            int levelsInPackCount = getLevelsInPackCount();
             while (i < levelsInPackCount)
             {
-                if (CTRPreferences.getStarsForPackLevel(p, i) < 3)
+                if (getStarsForPackLevel(p, i) < 3)
                 {
                     return false;
                 }
@@ -364,7 +364,7 @@ namespace ctr_wp7.ctr_original
         // Token: 0x0600056F RID: 1391 RVA: 0x000296A8 File Offset: 0x000278A8
         public static int getLastPack()
         {
-            return Preferences._getIntForKey("PREFS_LAST_PACK" + CTRPreferences.getLastDelivery().ToString());
+            return _getIntForKey("PREFS_LAST_PACK" + getLastDelivery().ToString());
         }
 
         // Token: 0x06000570 RID: 1392 RVA: 0x000296D3 File Offset: 0x000278D3
@@ -375,19 +375,19 @@ namespace ctr_wp7.ctr_original
         // Token: 0x06000571 RID: 1393 RVA: 0x000296D8 File Offset: 0x000278D8
         public static int getScoreForPackLevel(int p, int l)
         {
-            return Preferences._getIntForKey(string.Concat(new object[] { "SCORE_", p, "_", l }));
+            return _getIntForKey(string.Concat(new object[] { "SCORE_", p, "_", l }));
         }
 
         // Token: 0x06000572 RID: 1394 RVA: 0x0002971C File Offset: 0x0002791C
         public static void setScoreForPackLevel(int s, int p, int l)
         {
-            Preferences._setIntforKey(s, string.Concat(new object[] { "SCORE_", p, "_", l }), false);
+            _setIntforKey(s, string.Concat(new object[] { "SCORE_", p, "_", l }), false);
         }
 
         // Token: 0x06000573 RID: 1395 RVA: 0x00029760 File Offset: 0x00027960
         public static void setStarsForPackLevel(int s, int p, int l)
         {
-            Preferences._setIntforKey(s, string.Concat(new object[] { "STARS_", p, "_", l }), false);
+            _setIntforKey(s, string.Concat(new object[] { "STARS_", p, "_", l }), false);
         }
 
         // Token: 0x06000574 RID: 1396 RVA: 0x000297A4 File Offset: 0x000279A4
@@ -395,10 +395,10 @@ namespace ctr_wp7.ctr_original
         {
             int num = 0;
             int i = 0;
-            int levelsInPackCount = CTRPreferences.getLevelsInPackCount();
+            int levelsInPackCount = getLevelsInPackCount();
             while (i < levelsInPackCount)
             {
-                num += CTRPreferences.getStarsForPackLevel(p, i);
+                num += getStarsForPackLevel(p, i);
                 i++;
             }
             return num;
@@ -436,17 +436,17 @@ namespace ctr_wp7.ctr_original
         public void resetToDefaults()
         {
             int i = 0;
-            int packsCount = CTRPreferences.getPacksCount();
+            int packsCount = getPacksCount();
             while (i < packsCount)
             {
                 int j = 0;
-                int levelsInPackCount = CTRPreferences.getLevelsInPackCount();
+                int levelsInPackCount = getLevelsInPackCount();
                 while (j < levelsInPackCount)
                 {
-                    int num = (((CTRPreferences.packUnlockStars(i) == 0 || (CTRPreferences.isShareware() && i < CTRPreferences.sharewareFreePacks())) && j == 0) ? 1 : 0);
-                    setIntforKey(0, CTRPreferences.getPackLevelKey("SCORE_", i, j), false);
-                    setIntforKey(0, CTRPreferences.getPackLevelKey("STARS_", i, j), false);
-                    setIntforKey(num, CTRPreferences.getPackLevelKey("UNLOCKED_", i, j), false);
+                    int num = (((packUnlockStars(i) == 0 || (isShareware() && i < sharewareFreePacks())) && j == 0) ? 1 : 0);
+                    setIntforKey(0, getPackLevelKey("SCORE_", i, j), false);
+                    setIntforKey(0, getPackLevelKey("STARS_", i, j), false);
+                    setIntforKey(num, getPackLevelKey("UNLOCKED_", i, j), false);
                     setIntforKey(0, "ATTEMPTS_" + i.ToString() + j.ToString(), false);
                     setIntforKey(0, "WINS_" + i.ToString() + "_" + j.ToString(), false);
                     j++;
@@ -465,12 +465,12 @@ namespace ctr_wp7.ctr_original
             setBooleanforKey(false, "PREFS_CANDY_WAS_CHANGED", false);
             setBooleanforKey(true, "PREFS_GAME_CENTER_ENABLED", false);
             setIntforKey(0, "PREFS_NEW_DRAWINGS_COUNTER", false);
-            base._deleteKey("PREFS_LAST_DELIVERY", false);
+            _deleteKey("PREFS_LAST_DELIVERY", false);
             for (int k = 0; k < 3; k++)
             {
-                base._deleteKey("PREFS_LAST_PACK" + k.ToString(), false);
+                _deleteKey("PREFS_LAST_PACK" + k.ToString(), false);
             }
-            base._deleteKeysStartWith("PREFS_CARTOON_WATCHED_", false);
+            _deleteKeysStartWith("PREFS_CARTOON_WATCHED_", false);
             checkForUnlockIAP();
             savePreferences();
             setScoreHash();
@@ -482,12 +482,12 @@ namespace ctr_wp7.ctr_original
             if (getBooleanForKey("IAP_UNLOCK"))
             {
                 int i = 0;
-                int packsCount = CTRPreferences.getPacksCount();
+                int packsCount = getPacksCount();
                 while (i < packsCount)
                 {
-                    if (CTRPreferences.getUnlockedForPackLevel(i, 0) == UNLOCKED_STATE.UNLOCKED_STATE_LOCKED)
+                    if (getUnlockedForPackLevel(i, 0) == UNLOCKED_STATE.UNLOCKED_STATE_LOCKED)
                     {
-                        CTRPreferences.setUnlockedForPackLevel(UNLOCKED_STATE.UNLOCKED_STATE_JUST_UNLOCKED, i, 0);
+                        setUnlockedForPackLevel(UNLOCKED_STATE.UNLOCKED_STATE_JUST_UNLOCKED, i, 0);
                     }
                     i++;
                 }
@@ -498,11 +498,11 @@ namespace ctr_wp7.ctr_original
         private int getTotalScore()
         {
             int num = 0;
-            for (int i = 0; i < CTRPreferences.getPacksCount(); i++)
+            for (int i = 0; i < getPacksCount(); i++)
             {
-                for (int j = 0; j < CTRPreferences.getLevelsInPackCount(); j++)
+                for (int j = 0; j < getLevelsInPackCount(); j++)
                 {
-                    num += getIntForKey(CTRPreferences.getPackLevelKey("SCORE_", i, j));
+                    num += getIntForKey(getPackLevelKey("SCORE_", i, j));
                 }
             }
             return num;
@@ -511,17 +511,17 @@ namespace ctr_wp7.ctr_original
         // Token: 0x0600057C RID: 1404 RVA: 0x00029A98 File Offset: 0x00027C98
         public void setScoreHash()
         {
-            NSString nsstring = NSObject.NSS(getTotalScore().ToString());
-            NSString md5Str = MathHelper.getMD5Str(nsstring);
+            NSString nsstring = NSS(getTotalScore().ToString());
+            NSString md5Str = getMD5Str(nsstring);
             setStringforKey(md5Str.ToString(), "PREFS_SCORE_HASH", true);
         }
 
         // Token: 0x0600057D RID: 1405 RVA: 0x00029AD4 File Offset: 0x00027CD4
         public bool isScoreHashValid()
         {
-            NSString nsstring = NSObject.NSS(getTotalScore().ToString());
-            NSString md5Str = MathHelper.getMD5Str(nsstring);
-            NSString nsstring2 = NSObject.NSS(getStringForKey("PREFS_SCORE_HASH"));
+            NSString nsstring = NSS(getTotalScore().ToString());
+            NSString md5Str = getMD5Str(nsstring);
+            NSString nsstring2 = NSS(getStringForKey("PREFS_SCORE_HASH"));
             return md5Str.isEqualToString(nsstring2);
         }
 
@@ -535,28 +535,28 @@ namespace ctr_wp7.ctr_original
         // Token: 0x0600057F RID: 1407 RVA: 0x00029B2D File Offset: 0x00027D2D
         public static void setCartoonWatched(NSString url)
         {
-            Preferences._setIntforKey(1, "PREFS_CARTOON_WATCHED_" + url.ToString(), true);
+            _setIntforKey(1, "PREFS_CARTOON_WATCHED_" + url.ToString(), true);
         }
 
         // Token: 0x06000580 RID: 1408 RVA: 0x00029B46 File Offset: 0x00027D46
         public static bool getCartoonWatched(NSString url)
         {
-            return Preferences._getIntForKey("PREFS_CARTOON_WATCHED_" + url.ToString()) != 0;
+            return _getIntForKey("PREFS_CARTOON_WATCHED_" + url.ToString()) != 0;
         }
 
         // Token: 0x06000581 RID: 1409 RVA: 0x00029B64 File Offset: 0x00027D64
         public void unlockAllLevels(int stars)
         {
             int i = 0;
-            int packsCount = CTRPreferences.getPacksCount();
+            int packsCount = getPacksCount();
             while (i < packsCount)
             {
                 int j = 0;
-                int levelsInPackCount = CTRPreferences.getLevelsInPackCount();
+                int levelsInPackCount = getLevelsInPackCount();
                 while (j < levelsInPackCount)
                 {
-                    setIntforKey(1, CTRPreferences.getPackLevelKey("UNLOCKED_", i, j), false);
-                    setIntforKey(stars, CTRPreferences.getPackLevelKey("STARS_", i, j), false);
+                    setIntforKey(1, getPackLevelKey("UNLOCKED_", i, j), false);
+                    setIntforKey(stars, getPackLevelKey("STARS_", i, j), false);
                     j++;
                 }
                 i++;
@@ -569,13 +569,13 @@ namespace ctr_wp7.ctr_original
         {
             if (delivery == -1)
             {
-                delivery = CTRPreferences.getLastDelivery();
+                delivery = getLastDelivery();
             }
             PackSelectInfo packSelectInfo = new PackSelectInfo();
             switch (delivery)
             {
                 case 0:
-                    if (CTRPreferences.isLiteVersion())
+                    if (isLiteVersion())
                     {
                         packSelectInfo = (PackSelectInfo)packSelectInfo.initWithSize(5 + (zerobox ? 1 : 0));
                         if (zerobox)
@@ -637,14 +637,14 @@ namespace ctr_wp7.ctr_original
         {
             int num = 0;
             int i = 0;
-            int packsCount = CTRPreferences.getPacksCount();
+            int packsCount = getPacksCount();
             while (i < packsCount)
             {
                 int j = 0;
-                int levelsInPackCount = CTRPreferences.getLevelsInPackCount();
+                int levelsInPackCount = getLevelsInPackCount();
                 while (j < levelsInPackCount)
                 {
-                    if (CTRPreferences.getWinsForPackLevel(i, j) > 0)
+                    if (getWinsForPackLevel(i, j) > 0)
                     {
                         num++;
                     }
@@ -658,13 +658,13 @@ namespace ctr_wp7.ctr_original
         // Token: 0x06000584 RID: 1412 RVA: 0x00029D78 File Offset: 0x00027F78
         public static int getWinsForPackLevel(int p, int l)
         {
-            return Preferences._getIntForKey("WINS_" + p.ToString() + "_" + l.ToString());
+            return _getIntForKey("WINS_" + p.ToString() + "_" + l.ToString());
         }
 
         // Token: 0x06000585 RID: 1413 RVA: 0x00029D9C File Offset: 0x00027F9C
         public static void setWinsForPackLevel(int a, int p, int l)
         {
-            Preferences._setIntforKey(a, "WINS_" + p.ToString() + "_" + l.ToString(), false);
+            _setIntforKey(a, "WINS_" + p.ToString() + "_" + l.ToString(), false);
         }
 
         // Token: 0x04000A91 RID: 2705

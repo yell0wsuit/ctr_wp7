@@ -19,9 +19,9 @@ namespace ctr_wp7.game
             Texture2D texture = Application.getTexture(186);
             if (base.initWithTexture(texture) != null)
             {
-                Lantern.sharedCandyPoint = null;
-                Lantern.getAllLanterns().Add(this);
-                NSObject.NSREL(this);
+                sharedCandyPoint = null;
+                getAllLanterns().Add(this);
+                NSREL(this);
                 x = position.x;
                 y = position.y;
                 lanternState = 0;
@@ -29,7 +29,7 @@ namespace ctr_wp7.game
                 {
                     delayedDispatcher = (DelayedDispatcher)new DelayedDispatcher().init();
                 }
-                fire = Image.Image_createWithResIDQuad(186, 1);
+                fire = Image_createWithResIDQuad(186, 1);
                 fire.anchor = (fire.parentAnchor = 18);
                 fire.color = RGBAColor.transparentRGBA;
                 fire.doRestoreCutTransparency();
@@ -41,7 +41,7 @@ namespace ctr_wp7.game
                 timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.solidOpaqueRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.5));
                 timeline.setTimelineLoopType(Timeline.LoopType.TIMELINE_PING_PONG);
                 fire.addTimelinewithID(timeline, 2);
-                idleForm = Image.Image_createWithResIDQuad(186, 0);
+                idleForm = Image_createWithResIDQuad(186, 0);
                 idleForm.anchor = (idleForm.parentAnchor = 18);
                 idleForm.doRestoreCutTransparency();
                 addChild(idleForm);
@@ -53,7 +53,7 @@ namespace ctr_wp7.game
                 timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
                 timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.solidOpaqueRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.3));
                 idleForm.addTimelinewithID(timeline, 1);
-                activeForm = Image.Image_createWithResIDQuad(186, 2);
+                activeForm = Image_createWithResIDQuad(186, 2);
                 activeForm.anchor = (activeForm.parentAnchor = 18);
                 activeForm.color = RGBAColor.transparentRGBA;
                 activeForm.y = 1f;
@@ -71,7 +71,7 @@ namespace ctr_wp7.game
                 CTRPreferences ctrpreferences = Application.sharedPreferences();
                 int intForKey = ctrpreferences.getIntForKey("PREFS_SELECTED_CANDY");
                 num += intForKey;
-                innerCandy = Image.Image_createWithResIDQuad(186, num);
+                innerCandy = Image_createWithResIDQuad(186, num);
                 innerCandy.anchor = (innerCandy.parentAnchor = 18);
                 innerCandy.color = RGBAColor.transparentRGBA;
                 innerCandy.y = -4f;
@@ -121,10 +121,10 @@ namespace ctr_wp7.game
         public void captureCandy(ConstraintedPoint candyPoint)
         {
             CTRSoundMgr._playSound(64);
-            Lantern.sharedCandyPoint = candyPoint;
+            sharedCandyPoint = candyPoint;
             candyPoint.disableGravity = true;
-            candyPoint.pos = (candyPoint.prevPos = MathHelper.vect(x, y));
-            List<Lantern> list = Lantern.getAllLanterns();
+            candyPoint.pos = (candyPoint.prevPos = vect(x, y));
+            List<Lantern> list = getAllLanterns();
             foreach (Lantern lantern in list)
             {
                 lantern.lanternState = 1;
@@ -135,36 +135,36 @@ namespace ctr_wp7.game
                 lantern.fire.scaleY = 1f;
                 lantern.fire.color = RGBAColor.MakeRGBA(0.7, 0.7, 0.7, 0.7);
                 lantern.delayedDispatcher.cancelAllDispatches();
-                lantern.delayedDispatcher.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(lantern.fire._playTimeline), NSInt.intWithInt(2), 0.4 * (double)MathHelper.RND_0_1);
-                lantern.delayedDispatcher.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(lantern.innerCandy._playTimeline), NSInt.intWithInt(2), 0.2 + 0.2 * (double)MathHelper.RND_0_1);
+                lantern.delayedDispatcher.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(lantern.fire._playTimeline), NSInt.intWithInt(2), 0.4 * (double)RND_0_1);
+                lantern.delayedDispatcher.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(lantern.innerCandy._playTimeline), NSInt.intWithInt(2), 0.2 + 0.2 * (double)RND_0_1);
             }
         }
 
         // Token: 0x06000856 RID: 2134 RVA: 0x0004ABE8 File Offset: 0x00048DE8
         public static List<Lantern> getAllLanterns()
         {
-            if (Lantern.allLanterns == null)
+            if (allLanterns == null)
             {
-                Lantern.allLanterns = new List<Lantern>();
+                allLanterns = new List<Lantern>();
             }
-            return Lantern.allLanterns;
+            return allLanterns;
         }
 
         // Token: 0x06000857 RID: 2135 RVA: 0x0004AC00 File Offset: 0x00048E00
         public static void removeAllLanterns()
         {
-            Lantern.getAllLanterns().Clear();
+            getAllLanterns().Clear();
         }
 
         // Token: 0x06000858 RID: 2136 RVA: 0x0004AC0C File Offset: 0x00048E0C
         public override void update(float delta)
         {
-            prevPos = MathHelper.vect(x, y);
+            prevPos = vect(x, y);
             base.update(delta);
             delayedDispatcher.update(delta);
-            if (Lantern.sharedCandyPoint != null)
+            if (sharedCandyPoint != null)
             {
-                Lantern.sharedCandyPoint.pos = (Lantern.sharedCandyPoint.prevPos = MathHelper.vect(x, y));
+                sharedCandyPoint.pos = (sharedCandyPoint.prevPos = vect(x, y));
                 if (lanternState != 1)
                 {
                     lanternState = 1;
@@ -175,8 +175,8 @@ namespace ctr_wp7.game
         // Token: 0x06000859 RID: 2137 RVA: 0x0004AC84 File Offset: 0x00048E84
         public override bool onTouchDownXY(float tx, float ty)
         {
-            float num = MathHelper.vectDistance(MathHelper.vect(tx, ty), MathHelper.vect(x, y));
-            if (lanternState == 1 && num < Lantern.LANTERN_TOUCH_RADIUS && Lantern.sharedCandyPoint != null)
+            float num = vectDistance(vect(tx, ty), vect(x, y));
+            if (lanternState == 1 && num < LANTERN_TOUCH_RADIUS && sharedCandyPoint != null)
             {
                 initiateReleasingCandy();
                 return true;
@@ -205,10 +205,10 @@ namespace ctr_wp7.game
         // Token: 0x0600085C RID: 2140 RVA: 0x0004AD09 File Offset: 0x00048F09
         private void releaseCandy(NSObject obj)
         {
-            Lantern.sharedCandyPoint.disableGravity = false;
-            Lantern.sharedCandyPoint.pos = MathHelper.vect(x, y);
-            Lantern.sharedCandyPoint.prevPos = prevPos;
-            Lantern.sharedCandyPoint = null;
+            sharedCandyPoint.disableGravity = false;
+            sharedCandyPoint.pos = vect(x, y);
+            sharedCandyPoint.prevPos = prevPos;
+            sharedCandyPoint = null;
         }
 
         // Token: 0x0600085D RID: 2141 RVA: 0x0004AD47 File Offset: 0x00048F47
@@ -221,7 +221,7 @@ namespace ctr_wp7.game
         private void initiateReleasingCandy()
         {
             CTRSoundMgr._playSound(65);
-            List<Lantern> list = Lantern.getAllLanterns();
+            List<Lantern> list = getAllLanterns();
             foreach (Lantern lantern in list)
             {
                 lantern.idleForm.playTimeline(1);
@@ -233,7 +233,7 @@ namespace ctr_wp7.game
                 }
                 lantern.fire.color = RGBAColor.transparentRGBA;
                 lantern.delayedDispatcher.cancelAllDispatches();
-                lantern.delayedDispatcher.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(becomeCandyAware), lantern, Lantern.LANTERN_INACTIVE_DELAY + 0.1f);
+                lantern.delayedDispatcher.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(becomeCandyAware), lantern, LANTERN_INACTIVE_DELAY + 0.1f);
             }
             delayedDispatcher.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(releaseCandy), null, 0.01f);
         }

@@ -17,42 +17,42 @@ namespace ctr_wp7.iframework.core
             {
                 return null;
             }
-            Preferences._loadPreferences();
-            Preferences.initialised = true;
+            _loadPreferences();
+            initialised = true;
             return this;
         }
 
         // Token: 0x060003C5 RID: 965 RVA: 0x00018152 File Offset: 0x00016352
         public static void ResetPreferences()
         {
-            Preferences.data_ = null;
-            Preferences.dataStrings_ = null;
-            Preferences.data_ = new Dictionary<string, int>();
-            Preferences.dataStrings_ = new Dictionary<string, string>();
+            data_ = null;
+            dataStrings_ = null;
+            data_ = new Dictionary<string, int>();
+            dataStrings_ = new Dictionary<string, string>();
         }
 
         // Token: 0x060003C6 RID: 966 RVA: 0x00018174 File Offset: 0x00016374
         public virtual void setIntforKey(int v, string k, bool comit)
         {
-            Preferences._setIntforKey(v, k, comit);
+            _setIntforKey(v, k, comit);
         }
 
         // Token: 0x060003C7 RID: 967 RVA: 0x0001817E File Offset: 0x0001637E
         public virtual void setBooleanforKey(bool v, string k, bool comit)
         {
-            Preferences._setBooleanforKey(v, k, comit);
+            _setBooleanforKey(v, k, comit);
         }
 
         // Token: 0x060003C8 RID: 968 RVA: 0x00018188 File Offset: 0x00016388
         public virtual void setStringforKey(string v, string k, bool comit)
         {
-            Preferences._setStringforKey(v, k, comit);
+            _setStringforKey(v, k, comit);
         }
 
         // Token: 0x060003C9 RID: 969 RVA: 0x00018192 File Offset: 0x00016392
         public virtual int getIntForKey(string k)
         {
-            return Preferences._getIntForKey(k);
+            return _getIntForKey(k);
         }
 
         // Token: 0x060003CA RID: 970 RVA: 0x0001819A File Offset: 0x0001639A
@@ -64,30 +64,30 @@ namespace ctr_wp7.iframework.core
         // Token: 0x060003CB RID: 971 RVA: 0x000181A1 File Offset: 0x000163A1
         public virtual bool getBooleanForKey(string k)
         {
-            return Preferences._getBooleanForKey(k);
+            return _getBooleanForKey(k);
         }
 
         // Token: 0x060003CC RID: 972 RVA: 0x000181A9 File Offset: 0x000163A9
         public virtual string getStringForKey(string k)
         {
-            return Preferences._getStringForKey(k);
+            return _getStringForKey(k);
         }
 
         // Token: 0x060003CD RID: 973 RVA: 0x000181B4 File Offset: 0x000163B4
         public static void _setIntforKey(int v, string key, bool comit)
         {
             int num;
-            if (Preferences.data_.TryGetValue(key, out num))
+            if (data_.TryGetValue(key, out num))
             {
-                Preferences.data_[key] = v;
+                data_[key] = v;
             }
             else
             {
-                Preferences.data_.Add(key, v);
+                data_.Add(key, v);
             }
             if (comit)
             {
-                Preferences._savePreferences();
+                _savePreferences();
             }
         }
 
@@ -95,17 +95,17 @@ namespace ctr_wp7.iframework.core
         public static void _setStringforKey(string v, string k, bool comit)
         {
             string text;
-            if (Preferences.dataStrings_.TryGetValue(k, out text))
+            if (dataStrings_.TryGetValue(k, out text))
             {
-                Preferences.dataStrings_[k] = v;
+                dataStrings_[k] = v;
             }
             else
             {
-                Preferences.dataStrings_.Add(k, v);
+                dataStrings_.Add(k, v);
             }
             if (comit)
             {
-                Preferences._savePreferences();
+                _savePreferences();
             }
         }
 
@@ -113,7 +113,7 @@ namespace ctr_wp7.iframework.core
         public static int _getIntForKey(string k)
         {
             int num;
-            if (Preferences.data_.TryGetValue(k, out num))
+            if (data_.TryGetValue(k, out num))
             {
                 return num;
             }
@@ -129,21 +129,21 @@ namespace ctr_wp7.iframework.core
         // Token: 0x060003D1 RID: 977 RVA: 0x0001825C File Offset: 0x0001645C
         public static bool _getBooleanForKey(string k)
         {
-            int num = Preferences._getIntForKey(k);
+            int num = _getIntForKey(k);
             return num != 0;
         }
 
         // Token: 0x060003D2 RID: 978 RVA: 0x00018277 File Offset: 0x00016477
         public static void _setBooleanforKey(bool v, string k, bool comit)
         {
-            Preferences._setIntforKey(v ? 1 : 0, k, comit);
+            _setIntforKey(v ? 1 : 0, k, comit);
         }
 
         // Token: 0x060003D3 RID: 979 RVA: 0x00018288 File Offset: 0x00016488
         public static string _getStringForKey(string k)
         {
             string text;
-            if (Preferences.dataStrings_.TryGetValue(k, out text))
+            if (dataStrings_.TryGetValue(k, out text))
             {
                 return text;
             }
@@ -154,18 +154,18 @@ namespace ctr_wp7.iframework.core
         public void _deleteKey(string k, bool comit)
         {
             string text;
-            if (Preferences.dataStrings_.TryGetValue(k, out text))
+            if (dataStrings_.TryGetValue(k, out text))
             {
-                Preferences.dataStrings_.Remove(k);
+                dataStrings_.Remove(k);
             }
             int num;
-            if (Preferences.data_.TryGetValue(k, out num))
+            if (data_.TryGetValue(k, out num))
             {
-                Preferences.data_.Remove(k);
+                data_.Remove(k);
             }
             if (comit)
             {
-                Preferences._savePreferences();
+                _savePreferences();
             }
         }
 
@@ -173,7 +173,7 @@ namespace ctr_wp7.iframework.core
         public void _deleteKeysStartWith(string ks, bool comit)
         {
             List<string> list = new List<string>();
-            foreach (KeyValuePair<string, string> keyValuePair in Preferences.dataStrings_)
+            foreach (KeyValuePair<string, string> keyValuePair in dataStrings_)
             {
                 string key = keyValuePair.Key;
                 if (key.StartsWith(ks))
@@ -183,10 +183,10 @@ namespace ctr_wp7.iframework.core
             }
             foreach (string text in list)
             {
-                Preferences.dataStrings_.Remove(text);
+                dataStrings_.Remove(text);
             }
             list.Clear();
-            foreach (KeyValuePair<string, int> keyValuePair2 in Preferences.data_)
+            foreach (KeyValuePair<string, int> keyValuePair2 in data_)
             {
                 string key2 = keyValuePair2.Key;
                 if (key2.StartsWith(ks))
@@ -196,24 +196,24 @@ namespace ctr_wp7.iframework.core
             }
             foreach (string text2 in list)
             {
-                Preferences.data_.Remove(text2);
+                data_.Remove(text2);
             }
             if (comit)
             {
-                Preferences._savePreferences();
+                _savePreferences();
             }
         }
 
         // Token: 0x060003D6 RID: 982 RVA: 0x00018450 File Offset: 0x00016650
         public static bool isSaveFinished()
         {
-            return !Preferences.saveInProcess;
+            return !saveInProcess;
         }
 
         // Token: 0x060003D7 RID: 983 RVA: 0x0001845A File Offset: 0x0001665A
         public virtual void savePreferences()
         {
-            Preferences._savePreferences();
+            _savePreferences();
         }
 
         // Token: 0x060003D8 RID: 984 RVA: 0x00018464 File Offset: 0x00016664
@@ -227,25 +227,25 @@ namespace ctr_wp7.iframework.core
                 {
                     try
                     {
-                        userStoreForApplication.DeleteFile(Preferences.saveBakFileName_);
-                        userStoreForApplication.MoveFile(Preferences.saveFileName_, Preferences.saveBakFileName_);
+                        userStoreForApplication.DeleteFile(saveBakFileName_);
+                        userStoreForApplication.MoveFile(saveFileName_, saveBakFileName_);
                         flag = true;
                     }
                     catch (Exception ex)
                     {
-                        FrameworkTypes._LOG("Error: cannot save, " + ex.ToString());
+                        _LOG("Error: cannot save, " + ex.ToString());
                     }
-                    using (IsolatedStorageFileStream isolatedStorageFileStream = userStoreForApplication.CreateFile(Preferences.saveFileName_))
+                    using (IsolatedStorageFileStream isolatedStorageFileStream = userStoreForApplication.CreateFile(saveFileName_))
                     {
                         BinaryWriter binaryWriter = new BinaryWriter(isolatedStorageFileStream);
-                        binaryWriter.Write(Preferences.data_.Count);
-                        foreach (KeyValuePair<string, int> keyValuePair in Preferences.data_)
+                        binaryWriter.Write(data_.Count);
+                        foreach (KeyValuePair<string, int> keyValuePair in data_)
                         {
                             binaryWriter.Write(keyValuePair.Key);
                             binaryWriter.Write(keyValuePair.Value);
                         }
-                        binaryWriter.Write(Preferences.dataStrings_.Count);
-                        foreach (KeyValuePair<string, string> keyValuePair2 in Preferences.dataStrings_)
+                        binaryWriter.Write(dataStrings_.Count);
+                        foreach (KeyValuePair<string, string> keyValuePair2 in dataStrings_)
                         {
                             binaryWriter.Write(keyValuePair2.Key);
                             binaryWriter.Write(keyValuePair2.Value);
@@ -257,7 +257,7 @@ namespace ctr_wp7.iframework.core
             }
             catch (Exception ex2)
             {
-                FrameworkTypes._LOG("Error: cannot save, " + ex2.ToString());
+                _LOG("Error: cannot save, " + ex2.ToString());
             }
             if (!flag2 && flag)
             {
@@ -265,12 +265,12 @@ namespace ctr_wp7.iframework.core
                 {
                     try
                     {
-                        userStoreForApplication2.DeleteFile(Preferences.saveFileName_);
-                        userStoreForApplication2.MoveFile(Preferences.saveBakFileName_, Preferences.saveFileName_);
+                        userStoreForApplication2.DeleteFile(saveFileName_);
+                        userStoreForApplication2.MoveFile(saveBakFileName_, saveFileName_);
                     }
                     catch (Exception ex3)
                     {
-                        FrameworkTypes._LOG("Error: cannot save, " + ex3.ToString());
+                        _LOG("Error: cannot save, " + ex3.ToString());
                     }
                     return;
                 }
@@ -279,8 +279,8 @@ namespace ctr_wp7.iframework.core
             {
                 using (IsolatedStorageFile userStoreForApplication3 = IsolatedStorageFile.GetUserStoreForApplication())
                 {
-                    userStoreForApplication3.DeleteFile(Preferences.saveBakFileName_);
-                    userStoreForApplication3.CopyFile(Preferences.saveFileName_, Preferences.saveBakFileName_);
+                    userStoreForApplication3.DeleteFile(saveBakFileName_);
+                    userStoreForApplication3.CopyFile(saveFileName_, saveBakFileName_);
                 }
             }
         }
@@ -288,34 +288,34 @@ namespace ctr_wp7.iframework.core
         // Token: 0x060003D9 RID: 985 RVA: 0x00018728 File Offset: 0x00016928
         public static void loadFromFile(IsolatedStorageFile isf, string fname)
         {
-            using (IsolatedStorageFileStream isolatedStorageFileStream = isf.OpenFile(fname, System.IO.FileMode.Open))
+            using (IsolatedStorageFileStream isolatedStorageFileStream = isf.OpenFile(fname, FileMode.Open))
             {
                 BinaryReader binaryReader = new BinaryReader(isolatedStorageFileStream);
                 try
                 {
-                    Preferences.save_check = 'N';
+                    save_check = 'N';
                     int num = binaryReader.ReadInt32();
                     for (int i = 0; i < num; i++)
                     {
                         string text = binaryReader.ReadString();
                         int num2 = binaryReader.ReadInt32();
-                        Preferences.data_.Add(text, num2);
+                        data_.Add(text, num2);
                     }
                     num = binaryReader.ReadInt32();
                     for (int j = 0; j < num; j++)
                     {
                         string text2 = binaryReader.ReadString();
                         string text3 = binaryReader.ReadString();
-                        Preferences.dataStrings_.Add(text2, text3);
+                        dataStrings_.Add(text2, text3);
                     }
-                    Preferences.firstStart = false;
+                    firstStart = false;
                     binaryReader.Close();
                 }
                 catch (Exception ex)
                 {
-                    FrameworkTypes._LOG("Error:" + ex.ToString());
-                    FrameworkTypes._LOG("Error:" + fname + "corrupted");
-                    Preferences.save_check = 'C';
+                    _LOG("Error:" + ex.ToString());
+                    _LOG("Error:" + fname + "corrupted");
+                    save_check = 'C';
                     binaryReader.Close();
                 }
             }
@@ -324,7 +324,7 @@ namespace ctr_wp7.iframework.core
         // Token: 0x060003DA RID: 986 RVA: 0x00018824 File Offset: 0x00016A24
         public virtual bool loadPreferences()
         {
-            return Preferences._loadPreferences();
+            return _loadPreferences();
         }
 
         // Token: 0x060003DB RID: 987 RVA: 0x0001882C File Offset: 0x00016A2C
@@ -333,66 +333,66 @@ namespace ctr_wp7.iframework.core
             bool flag;
             using (IsolatedStorageFile userStoreForApplication = IsolatedStorageFile.GetUserStoreForApplication())
             {
-                if (userStoreForApplication.FileExists(Preferences.saveFileName_))
+                if (userStoreForApplication.FileExists(saveFileName_))
                 {
-                    Preferences.save_check = 'C';
-                    Preferences.loadFromFile(userStoreForApplication, Preferences.saveFileName_);
-                    if (Preferences.save_check == 'N')
+                    save_check = 'C';
+                    loadFromFile(userStoreForApplication, saveFileName_);
+                    if (save_check == 'N')
                     {
-                        if (userStoreForApplication.FileExists(Preferences.saveBakFileName_))
+                        if (userStoreForApplication.FileExists(saveBakFileName_))
                         {
-                            userStoreForApplication.DeleteFile(Preferences.saveBakFileName_);
+                            userStoreForApplication.DeleteFile(saveBakFileName_);
                         }
-                        userStoreForApplication.CopyFile(Preferences.saveFileName_, Preferences.saveBakFileName_);
-                        flag = !Preferences.firstStart;
+                        userStoreForApplication.CopyFile(saveFileName_, saveBakFileName_);
+                        flag = !firstStart;
                     }
                     else
                     {
-                        FrameworkTypes._LOG("Error:" + Preferences.saveFileName_ + "corrupted");
-                        userStoreForApplication.DeleteFile(Preferences.saveFileName_);
-                        Preferences.ResetPreferences();
-                        if (userStoreForApplication.FileExists(Preferences.saveBakFileName_))
+                        _LOG("Error:" + saveFileName_ + "corrupted");
+                        userStoreForApplication.DeleteFile(saveFileName_);
+                        ResetPreferences();
+                        if (userStoreForApplication.FileExists(saveBakFileName_))
                         {
-                            Preferences.save_check = 'C';
-                            Preferences.loadFromFile(userStoreForApplication, Preferences.saveBakFileName_);
-                            if (Preferences.save_check == 'N')
+                            save_check = 'C';
+                            loadFromFile(userStoreForApplication, saveBakFileName_);
+                            if (save_check == 'N')
                             {
-                                flag = !Preferences.firstStart;
+                                flag = !firstStart;
                             }
                             else
                             {
-                                Preferences.ResetPreferences();
-                                flag = !Preferences.firstStart;
+                                ResetPreferences();
+                                flag = !firstStart;
                             }
                         }
                         else
                         {
-                            Preferences.ResetPreferences();
-                            flag = !Preferences.firstStart;
+                            ResetPreferences();
+                            flag = !firstStart;
                         }
                     }
                 }
                 else
                 {
-                    FrameworkTypes._LOG("Info: nothing to load - trying to load .bak");
-                    if (userStoreForApplication.FileExists(Preferences.saveBakFileName_))
+                    _LOG("Info: nothing to load - trying to load .bak");
+                    if (userStoreForApplication.FileExists(saveBakFileName_))
                     {
-                        Preferences.save_check = 'C';
-                        Preferences.loadFromFile(userStoreForApplication, Preferences.saveBakFileName_);
-                        if (Preferences.save_check == 'N')
+                        save_check = 'C';
+                        loadFromFile(userStoreForApplication, saveBakFileName_);
+                        if (save_check == 'N')
                         {
-                            flag = !Preferences.firstStart;
+                            flag = !firstStart;
                         }
                         else
                         {
-                            userStoreForApplication.DeleteFile(Preferences.saveBakFileName_);
-                            Preferences.ResetPreferences();
-                            flag = !Preferences.firstStart;
+                            userStoreForApplication.DeleteFile(saveBakFileName_);
+                            ResetPreferences();
+                            flag = !firstStart;
                         }
                     }
                     else
                     {
-                        flag = !Preferences.firstStart;
+                        flag = !firstStart;
                     }
                 }
             }

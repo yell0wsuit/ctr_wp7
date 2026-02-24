@@ -20,11 +20,11 @@ namespace ctr_wp7.game
                 addViewwithID(loadingView, 0);
                 Text text = new Text().initWithFont(Application.getFont(5));
                 text.setAlignment(2);
-                if (ResDataPhoneFull.LANGUAGE == Language.LANG_KO)
+                if (LANGUAGE == Language.LANG_KO)
                 {
                     text.setStringandWidth(Application.getString(1310752), 200.0);
                 }
-                else if (ResDataPhoneFull.LANGUAGE == Language.LANG_IT)
+                else if (LANGUAGE == Language.LANG_IT)
                 {
                     text.setStringandWidth(Application.getString(1310752), 320.0);
                 }
@@ -41,7 +41,7 @@ namespace ctr_wp7.game
         // Token: 0x0600063F RID: 1599 RVA: 0x00030278 File Offset: 0x0002E478
         public override void activate()
         {
-            FrameworkTypes.AndroidAPI.showBanner();
+            AndroidAPI.showBanner();
             base.activate();
             LoadingView loadingView = (LoadingView)getView(0);
             loadingView.game = nextController == 0;
@@ -63,7 +63,7 @@ namespace ctr_wp7.game
                 MusicToLoad = -1;
             }
             GC.Collect();
-            FrameworkTypes.AndroidAPI.hideBanner();
+            AndroidAPI.hideBanner();
             base.deactivate();
         }
 

@@ -23,25 +23,25 @@ namespace ctr_wp7.ctr_commons
         // Token: 0x060006F2 RID: 1778 RVA: 0x00038525 File Offset: 0x00036725
         public static void onSurfaceCreated()
         {
-            if (CtrRenderer.state == 0)
+            if (state == 0)
             {
-                CtrRenderer.state = 1;
+                state = 1;
             }
         }
 
         // Token: 0x060006F3 RID: 1779 RVA: 0x00038534 File Offset: 0x00036734
         public static void onSurfaceChanged(int width, int height)
         {
-            CtrRenderer.Java_com_zeptolab_ctr_CtrRenderer_nativeResize(width, height, false);
+            Java_com_zeptolab_ctr_CtrRenderer_nativeResize(width, height, false);
         }
 
         // Token: 0x060006F4 RID: 1780 RVA: 0x0003853E File Offset: 0x0003673E
         public static void onPause()
         {
-            if (CtrRenderer.state == 2 || CtrRenderer.state == 5)
+            if (state == 2 || state == 5)
             {
-                CtrRenderer.Java_com_zeptolab_ctr_CtrRenderer_nativePause();
-                CtrRenderer.state = 3;
+                Java_com_zeptolab_ctr_CtrRenderer_nativePause();
+                state = 3;
             }
         }
 
@@ -53,106 +53,106 @@ namespace ctr_wp7.ctr_commons
         // Token: 0x060006F6 RID: 1782 RVA: 0x0003855D File Offset: 0x0003675D
         public static void onPlaybackStarted()
         {
-            CtrRenderer.state = 5;
+            state = 5;
         }
 
         // Token: 0x060006F7 RID: 1783 RVA: 0x00038565 File Offset: 0x00036765
         public static void onResume()
         {
-            if (CtrRenderer.state == 3)
+            if (state == 3)
             {
-                CtrRenderer.state = 4;
-                CtrRenderer.onResumeTimeStamp = DateTimeJavaHelper.currentTimeMillis();
-                CtrRenderer.DRAW_NOTHING = false;
+                state = 4;
+                onResumeTimeStamp = DateTimeJavaHelper.currentTimeMillis();
+                DRAW_NOTHING = false;
             }
         }
 
         // Token: 0x060006F8 RID: 1784 RVA: 0x00038585 File Offset: 0x00036785
         public static void onDestroy()
         {
-            if (CtrRenderer.state == 1)
+            if (state == 1)
             {
                 return;
             }
-            CtrRenderer.Java_com_zeptolab_ctr_CtrRenderer_nativeDestroy();
-            CtrRenderer.state = 1;
+            Java_com_zeptolab_ctr_CtrRenderer_nativeDestroy();
+            state = 1;
         }
 
         // Token: 0x060006F9 RID: 1785 RVA: 0x0003859C File Offset: 0x0003679C
         public static void update(float gameTime, IList<TouchLocation> touches)
         {
-            CtrRenderer.Java_com_zeptolab_ctr_CtrRenderer_nativeTouchProcess(touches);
-            CtrRenderer.Java_com_zeptolab_ctr_CtrRenderer_nativeTick(16f);
+            Java_com_zeptolab_ctr_CtrRenderer_nativeTouchProcess(touches);
+            Java_com_zeptolab_ctr_CtrRenderer_nativeTick(16f);
         }
 
         // Token: 0x060006FA RID: 1786 RVA: 0x000385D4 File Offset: 0x000367D4
         public static void onDrawFrame()
         {
             bool flag = false;
-            if (!CtrRenderer.DRAW_NOTHING && CtrRenderer.state != 0)
+            if (!DRAW_NOTHING && state != 0)
             {
-                if (CtrRenderer.state == 1)
+                if (state == 1)
                 {
-                    CtrRenderer.state = 2;
+                    state = 2;
                 }
-                if (CtrRenderer.state != 3)
+                if (state != 3)
                 {
-                    if (CtrRenderer.state == 4)
+                    if (state == 4)
                     {
                         long num = DateTimeJavaHelper.currentTimeMillis();
-                        if (num - CtrRenderer.onResumeTimeStamp >= 500L)
+                        if (num - onResumeTimeStamp >= 500L)
                         {
-                            CtrRenderer.Java_com_zeptolab_ctr_CtrRenderer_nativeResume();
-                            CtrRenderer.Java_com_zeptolab_ctr_CtrRenderer_nativeRender();
+                            Java_com_zeptolab_ctr_CtrRenderer_nativeResume();
+                            Java_com_zeptolab_ctr_CtrRenderer_nativeRender();
                             flag = true;
-                            CtrRenderer.state = 2;
+                            state = 2;
                         }
                     }
-                    else if (CtrRenderer.state == 2)
+                    else if (state == 2)
                     {
                         long num2 = 1000000000L * Stopwatch.GetTimestamp() / Stopwatch.Frequency;
-                        long num3 = num2 - CtrRenderer.prevTick;
-                        CtrRenderer.prevTick = num2;
+                        long num3 = num2 - prevTick;
+                        prevTick = num2;
                         if (num3 < 1L)
                         {
                             num3 = 1L;
                         }
-                        CtrRenderer.fpsDeltas[CtrRenderer.fpsDeltasPos++] = num3;
-                        int num4 = CtrRenderer.fpsDeltas.Length;
-                        if (CtrRenderer.fpsDeltasPos >= num4)
+                        fpsDeltas[fpsDeltasPos++] = num3;
+                        int num4 = fpsDeltas.Length;
+                        if (fpsDeltasPos >= num4)
                         {
-                            CtrRenderer.fpsDeltasPos = 0;
+                            fpsDeltasPos = 0;
                         }
                         long num5 = 0L;
                         for (int i = 0; i < num4; i++)
                         {
-                            num5 += CtrRenderer.fpsDeltas[i];
+                            num5 += fpsDeltas[i];
                         }
                         if (num5 < 1L)
                         {
                             num5 = 1L;
                         }
                         int num6 = (int)(1000000000L * (long)num4 / num5);
-                        CtrRenderer.playedTicks += CtrRenderer.DELTA_NANOS;
-                        if (num2 - CtrRenderer.playedTicks < CtrRenderer.DELTA_NANOS_THRES)
+                        playedTicks += DELTA_NANOS;
+                        if (num2 - playedTicks < DELTA_NANOS_THRES)
                         {
-                            if (CtrRenderer.playedTicks < num2)
+                            if (playedTicks < num2)
                             {
-                                CtrRenderer.playedTicks = num2;
+                                playedTicks = num2;
                             }
                         }
-                        else if (CtrRenderer.state == 2)
+                        else if (state == 2)
                         {
-                            CtrRenderer.playedTicks += CtrRenderer.DELTA_NANOS;
-                            if (num2 - CtrRenderer.playedTicks > CtrRenderer.DELTA_NANOS_THRES)
+                            playedTicks += DELTA_NANOS;
+                            if (num2 - playedTicks > DELTA_NANOS_THRES)
                             {
-                                CtrRenderer.playedTicks = num2 - CtrRenderer.DELTA_NANOS_THRES;
+                                playedTicks = num2 - DELTA_NANOS_THRES;
                             }
                         }
-                        if (CtrRenderer.state == 2)
+                        if (state == 2)
                         {
-                            CtrRenderer.Java_com_zeptolab_ctr_CtrRenderer_nativeRender();
-                            CtrRenderer.Java_com_zeptolab_ctr_CtrRenderer_nativeDrawFps(num6);
+                            Java_com_zeptolab_ctr_CtrRenderer_nativeRender();
+                            Java_com_zeptolab_ctr_CtrRenderer_nativeDrawFps(num6);
                             flag = true;
                         }
                     }
@@ -174,18 +174,18 @@ namespace ctr_wp7.ctr_commons
         // Token: 0x060006FB RID: 1787 RVA: 0x000387AC File Offset: 0x000369AC
         public static void Java_com_zeptolab_ctr_CtrRenderer_nativeInit(Language language)
         {
-            if (CtrRenderer.gApp != null)
+            if (gApp != null)
             {
-                FrameworkTypes._LOG("Application already created");
+                _LOG("Application already created");
                 return;
             }
-            ResDataPhoneFull.LANGUAGE = language;
-            MathHelper.fmInit();
+            LANGUAGE = language;
+            fmInit();
             RemoteDataManager.initRemoteDataMgr(new RemoteDataManager_Java());
             VideoDataManager.initVideoDataManager();
-            CtrRenderer.gApp = new CTRApp();
-            CtrRenderer.gApp.init();
-            CtrRenderer.gApp.applicationDidFinishLaunching(null);
+            gApp = new CTRApp();
+            gApp.init();
+            gApp.applicationDidFinishLaunching(null);
             new Texture2D().initWithPath("ctr/ctr_live_tile_0", true);
             new Texture2D().initWithPath("ctr/ctr_live_tile_star", true);
         }
@@ -193,27 +193,27 @@ namespace ctr_wp7.ctr_commons
         // Token: 0x060006FC RID: 1788 RVA: 0x00038822 File Offset: 0x00036A22
         public static void Java_com_zeptolab_ctr_CtrRenderer_nativeDestroy()
         {
-            if (CtrRenderer.gApp == null)
+            if (gApp == null)
             {
-                FrameworkTypes._LOG("Application already destroyed");
+                _LOG("Application already destroyed");
                 return;
             }
             Application.sharedSoundMgr().stopAllSounds();
             Application.sharedPreferences().savePreferences();
-            NSObject.NSREL(CtrRenderer.gApp);
-            CtrRenderer.gApp = null;
-            CtrRenderer.gPaused = false;
+            NSREL(gApp);
+            gApp = null;
+            gPaused = false;
         }
 
         // Token: 0x060006FD RID: 1789 RVA: 0x00038860 File Offset: 0x00036A60
         public static void Java_com_zeptolab_ctr_CtrRenderer_nativePause()
         {
-            if (!CtrRenderer.gPaused)
+            if (!gPaused)
             {
-                CtrRenderer.gPaused = true;
-                if (CtrRenderer.gApp != null)
+                gPaused = true;
+                if (gApp != null)
                 {
-                    CtrRenderer.gApp.applicationWillResignActive(null);
+                    gApp.applicationWillResignActive(null);
                 }
                 CTRSoundMgr._pause();
                 Texture2D.suspendAll();
@@ -223,11 +223,11 @@ namespace ctr_wp7.ctr_commons
         // Token: 0x060006FE RID: 1790 RVA: 0x0003888C File Offset: 0x00036A8C
         public static void Java_com_zeptolab_ctr_CtrRenderer_nativeResume()
         {
-            if (CtrRenderer.gPaused)
+            if (gPaused)
             {
                 Texture2D.suspendAll();
                 Texture2D.resumeAll();
-                CtrRenderer.gPaused = false;
+                gPaused = false;
                 int activeChildID = Application.sharedRootController().activeChildID;
                 if (activeChildID == 3)
                 {
@@ -235,9 +235,9 @@ namespace ctr_wp7.ctr_commons
                     if (!gameController.isGamePaused)
                     {
                         gameController.setPaused(true);
-                        if (CtrRenderer.gApp != null)
+                        if (gApp != null)
                         {
-                            CtrRenderer.gApp.applicationDidBecomeActive(null);
+                            gApp.applicationDidBecomeActive(null);
                         }
                         return;
                     }
@@ -255,9 +255,9 @@ namespace ctr_wp7.ctr_commons
                     }
                 }
                 CTRSoundMgr._unpause();
-                if (CtrRenderer.gApp != null)
+                if (gApp != null)
                 {
-                    CtrRenderer.gApp.applicationDidBecomeActive(null);
+                    gApp.applicationDidBecomeActive(null);
                 }
             }
         }
@@ -265,38 +265,38 @@ namespace ctr_wp7.ctr_commons
         // Token: 0x060006FF RID: 1791 RVA: 0x00038944 File Offset: 0x00036B44
         public static void Java_com_zeptolab_ctr_CtrRenderer_nativeResize(int width, int height, bool isLowMem)
         {
-            FrameworkTypes.REAL_SCREEN_WIDTH = (float)width;
-            FrameworkTypes.REAL_SCREEN_HEIGHT = (float)height;
-            FrameworkTypes.SCREEN_RATIO = FrameworkTypes.REAL_SCREEN_HEIGHT / FrameworkTypes.REAL_SCREEN_WIDTH;
-            FrameworkTypes.IS_WVGA = (width > 500 || height > 500);
-            FrameworkTypes.IS_QVGA = width < 280 || height < 280;
+            REAL_SCREEN_WIDTH = (float)width;
+            REAL_SCREEN_HEIGHT = (float)height;
+            SCREEN_RATIO = REAL_SCREEN_HEIGHT / REAL_SCREEN_WIDTH;
+            IS_WVGA = (width > 500 || height > 500);
+            IS_QVGA = width < 280 || height < 280;
             if (isLowMem)
             {
-                FrameworkTypes.IS_WVGA = false;
+                IS_WVGA = false;
             }
-            FrameworkTypes.VIEW_SCREEN_WIDTH = FrameworkTypes.REAL_SCREEN_WIDTH;
-            FrameworkTypes.VIEW_SCREEN_HEIGHT = FrameworkTypes.SCREEN_HEIGHT * FrameworkTypes.REAL_SCREEN_WIDTH / FrameworkTypes.SCREEN_WIDTH;
-            if (FrameworkTypes.VIEW_SCREEN_HEIGHT > FrameworkTypes.REAL_SCREEN_HEIGHT)
+            VIEW_SCREEN_WIDTH = REAL_SCREEN_WIDTH;
+            VIEW_SCREEN_HEIGHT = SCREEN_HEIGHT * REAL_SCREEN_WIDTH / SCREEN_WIDTH;
+            if (VIEW_SCREEN_HEIGHT > REAL_SCREEN_HEIGHT)
             {
-                FrameworkTypes.VIEW_SCREEN_HEIGHT = FrameworkTypes.REAL_SCREEN_HEIGHT;
-                FrameworkTypes.VIEW_SCREEN_WIDTH = FrameworkTypes.SCREEN_WIDTH * FrameworkTypes.REAL_SCREEN_HEIGHT / FrameworkTypes.SCREEN_HEIGHT;
+                VIEW_SCREEN_HEIGHT = REAL_SCREEN_HEIGHT;
+                VIEW_SCREEN_WIDTH = SCREEN_WIDTH * REAL_SCREEN_HEIGHT / SCREEN_HEIGHT;
             }
-            FrameworkTypes.VIEW_OFFSET_X = ((float)width - FrameworkTypes.VIEW_SCREEN_WIDTH) / 2f;
-            FrameworkTypes.VIEW_OFFSET_Y = ((float)height - FrameworkTypes.VIEW_SCREEN_HEIGHT) / 2f;
-            FrameworkTypes.SCREEN_HEIGHT_EXPANDED = FrameworkTypes.SCREEN_HEIGHT * FrameworkTypes.REAL_SCREEN_HEIGHT / FrameworkTypes.VIEW_SCREEN_HEIGHT;
-            FrameworkTypes.SCREEN_WIDTH_EXPANDED = FrameworkTypes.SCREEN_WIDTH * FrameworkTypes.REAL_SCREEN_WIDTH / FrameworkTypes.VIEW_SCREEN_WIDTH;
-            FrameworkTypes.SCREEN_OFFSET_Y = (FrameworkTypes.SCREEN_HEIGHT_EXPANDED - FrameworkTypes.SCREEN_HEIGHT) / 2f;
-            FrameworkTypes.SCREEN_OFFSET_X = (FrameworkTypes.SCREEN_WIDTH_EXPANDED - FrameworkTypes.SCREEN_WIDTH) / 2f;
-            FrameworkTypes.SCREEN_BG_SCALE_Y = FrameworkTypes.SCREEN_HEIGHT_EXPANDED / FrameworkTypes.SCREEN_HEIGHT;
-            FrameworkTypes.SCREEN_BG_SCALE_X = FrameworkTypes.SCREEN_WIDTH_EXPANDED / FrameworkTypes.SCREEN_WIDTH;
-            if (FrameworkTypes.IS_WVGA)
+            VIEW_OFFSET_X = ((float)width - VIEW_SCREEN_WIDTH) / 2f;
+            VIEW_OFFSET_Y = ((float)height - VIEW_SCREEN_HEIGHT) / 2f;
+            SCREEN_HEIGHT_EXPANDED = SCREEN_HEIGHT * REAL_SCREEN_HEIGHT / VIEW_SCREEN_HEIGHT;
+            SCREEN_WIDTH_EXPANDED = SCREEN_WIDTH * REAL_SCREEN_WIDTH / VIEW_SCREEN_WIDTH;
+            SCREEN_OFFSET_Y = (SCREEN_HEIGHT_EXPANDED - SCREEN_HEIGHT) / 2f;
+            SCREEN_OFFSET_X = (SCREEN_WIDTH_EXPANDED - SCREEN_WIDTH) / 2f;
+            SCREEN_BG_SCALE_Y = SCREEN_HEIGHT_EXPANDED / SCREEN_HEIGHT;
+            SCREEN_BG_SCALE_X = SCREEN_WIDTH_EXPANDED / SCREEN_WIDTH;
+            if (IS_WVGA)
             {
-                FrameworkTypes.SCREEN_WIDE_BG_SCALE_Y = (float)((double)FrameworkTypes.SCREEN_HEIGHT_EXPANDED * 1.5 / 800.0);
-                FrameworkTypes.SCREEN_WIDE_BG_SCALE_X = FrameworkTypes.SCREEN_BG_SCALE_X;
+                SCREEN_WIDE_BG_SCALE_Y = (float)((double)SCREEN_HEIGHT_EXPANDED * 1.5 / 800.0);
+                SCREEN_WIDE_BG_SCALE_X = SCREEN_BG_SCALE_X;
                 return;
             }
-            FrameworkTypes.SCREEN_WIDE_BG_SCALE_Y = FrameworkTypes.SCREEN_BG_SCALE_Y;
-            FrameworkTypes.SCREEN_WIDE_BG_SCALE_X = FrameworkTypes.SCREEN_BG_SCALE_X;
+            SCREEN_WIDE_BG_SCALE_Y = SCREEN_BG_SCALE_Y;
+            SCREEN_WIDE_BG_SCALE_X = SCREEN_BG_SCALE_X;
         }
 
         // Token: 0x06000700 RID: 1792 RVA: 0x00038AD8 File Offset: 0x00036CD8
@@ -304,7 +304,7 @@ namespace ctr_wp7.ctr_commons
         {
             OpenGL.glClearColor(0.0, 0.0, 0.0, 1.0);
             OpenGL.glClear(0);
-            if (CtrRenderer.gApp == null || CtrRenderer.gPaused)
+            if (gApp == null || gPaused)
             {
                 return;
             }
@@ -314,13 +314,13 @@ namespace ctr_wp7.ctr_commons
         // Token: 0x06000701 RID: 1793 RVA: 0x00038B2D File Offset: 0x00036D2D
         public static float transformX(float x)
         {
-            return (x - FrameworkTypes.VIEW_OFFSET_X) * FrameworkTypes.SCREEN_WIDTH / FrameworkTypes.VIEW_SCREEN_WIDTH;
+            return (x - VIEW_OFFSET_X) * SCREEN_WIDTH / VIEW_SCREEN_WIDTH;
         }
 
         // Token: 0x06000702 RID: 1794 RVA: 0x00038B42 File Offset: 0x00036D42
         public static float transformY(float y)
         {
-            return (y - FrameworkTypes.VIEW_OFFSET_Y) * FrameworkTypes.SCREEN_HEIGHT / FrameworkTypes.VIEW_SCREEN_HEIGHT;
+            return (y - VIEW_OFFSET_Y) * SCREEN_HEIGHT / VIEW_SCREEN_HEIGHT;
         }
 
         // Token: 0x06000703 RID: 1795 RVA: 0x00038B58 File Offset: 0x00036D58
@@ -328,28 +328,28 @@ namespace ctr_wp7.ctr_commons
         {
             if (touches.Count > 0)
             {
-                CtrRenderer.currentTouches.Clear();
-                CtrRenderer.prevTouchesTemp.Clear();
+                currentTouches.Clear();
+                prevTouchesTemp.Clear();
                 foreach (TouchLocation touchLocation in touches)
                 {
                     if (touchLocation.State == TouchLocationState.Moved)
                     {
-                        using (List<CTRTouchState>.Enumerator enumerator2 = CtrRenderer.prevTouches.GetEnumerator())
+                        using (List<CTRTouchState>.Enumerator enumerator2 = prevTouches.GetEnumerator())
                         {
                             while (enumerator2.MoveNext())
                             {
                                 CTRTouchState ctrtouchState = enumerator2.Current;
                                 if (ctrtouchState.Id == touchLocation.Id)
                                 {
-                                    if (!CtrRenderer.gUseFingerDelta || (ctrtouchState.Moved && touches.Count <= 1))
+                                    if (!gUseFingerDelta || (ctrtouchState.Moved && touches.Count <= 1))
                                     {
                                         CTRTouchState ctrtouchState2 = new CTRTouchState();
                                         ctrtouchState2.Id = touchLocation.Id;
                                         ctrtouchState2.Position = touchLocation.Position;
                                         ctrtouchState2.State = touchLocation.State;
                                         ctrtouchState2.Moved = ctrtouchState.Moved;
-                                        CtrRenderer.currentTouches.Add(ctrtouchState2);
-                                        CtrRenderer.prevTouchesTemp.Add(ctrtouchState2);
+                                        currentTouches.Add(ctrtouchState2);
+                                        prevTouchesTemp.Add(ctrtouchState2);
                                         break;
                                     }
                                     float num = touchLocation.Position.X - ctrtouchState.Position.X;
@@ -361,11 +361,11 @@ namespace ctr_wp7.ctr_commons
                                         ctrtouchState3.Position = touchLocation.Position;
                                         ctrtouchState3.State = touchLocation.State;
                                         ctrtouchState3.Moved = true;
-                                        CtrRenderer.currentTouches.Add(ctrtouchState3);
-                                        CtrRenderer.prevTouchesTemp.Add(ctrtouchState3);
+                                        currentTouches.Add(ctrtouchState3);
+                                        prevTouchesTemp.Add(ctrtouchState3);
                                         break;
                                     }
-                                    CtrRenderer.prevTouchesTemp.Add(ctrtouchState);
+                                    prevTouchesTemp.Add(ctrtouchState);
                                     break;
                                 }
                             }
@@ -377,17 +377,17 @@ namespace ctr_wp7.ctr_commons
                     ctrtouchState4.Position = touchLocation.Position;
                     ctrtouchState4.State = touchLocation.State;
                     ctrtouchState4.Moved = false;
-                    CtrRenderer.currentTouches.Add(ctrtouchState4);
-                    CtrRenderer.prevTouchesTemp.Add(ctrtouchState4);
+                    currentTouches.Add(ctrtouchState4);
+                    prevTouchesTemp.Add(ctrtouchState4);
                 }
-                Application.sharedCanvas().touchesEndedwithEvent(CtrRenderer.currentTouches);
-                Application.sharedCanvas().touchesBeganwithEvent(CtrRenderer.currentTouches);
-                Application.sharedCanvas().touchesMovedwithEvent(CtrRenderer.currentTouches);
+                Application.sharedCanvas().touchesEndedwithEvent(currentTouches);
+                Application.sharedCanvas().touchesBeganwithEvent(currentTouches);
+                Application.sharedCanvas().touchesMovedwithEvent(currentTouches);
             }
-            CtrRenderer.prevTouches.Clear();
-            List<CTRTouchState> list = CtrRenderer.prevTouchesTemp;
-            CtrRenderer.prevTouchesTemp = CtrRenderer.prevTouches;
-            CtrRenderer.prevTouches = list;
+            prevTouches.Clear();
+            List<CTRTouchState> list = prevTouchesTemp;
+            prevTouchesTemp = prevTouches;
+            prevTouches = list;
         }
 
         // Token: 0x06000704 RID: 1796 RVA: 0x00038E08 File Offset: 0x00037008
@@ -417,7 +417,7 @@ namespace ctr_wp7.ctr_commons
         // Token: 0x06000707 RID: 1799 RVA: 0x00038E68 File Offset: 0x00037068
         public static void Java_com_zeptolab_ctr_CtrRenderer_nativeTick(float delta)
         {
-            if (CtrRenderer.gApp == null || CtrRenderer.gPaused)
+            if (gApp == null || gPaused)
             {
                 return;
             }
@@ -432,7 +432,7 @@ namespace ctr_wp7.ctr_commons
         {
             get
             {
-                return CtrRenderer.gPaused;
+                return gPaused;
             }
         }
 
@@ -442,7 +442,7 @@ namespace ctr_wp7.ctr_commons
         {
             get
             {
-                return CtrRenderer.gApp != null;
+                return gApp != null;
             }
         }
 
@@ -495,7 +495,7 @@ namespace ctr_wp7.ctr_commons
         private static long DELTA_NANOS = 18181818L;
 
         // Token: 0x04000C97 RID: 3223
-        private static long DELTA_NANOS_THRES = (long)((double)CtrRenderer.DELTA_NANOS * 0.35);
+        private static long DELTA_NANOS_THRES = (long)((double)DELTA_NANOS * 0.35);
 
         // Token: 0x04000C98 RID: 3224
         private static bool DRAW_NOTHING = false;

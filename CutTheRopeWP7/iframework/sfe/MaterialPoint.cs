@@ -24,7 +24,7 @@ namespace ctr_wp7.iframework.sfe
         {
             weight = w;
             invWeight = (float)(1.0 / (double)weight);
-            gravity = MathHelper.vect(0f, 784f * weight);
+            gravity = vect(0f, 784f * weight);
         }
 
         // Token: 0x0600014A RID: 330 RVA: 0x0000A4EB File Offset: 0x000086EB
@@ -45,11 +45,11 @@ namespace ctr_wp7.iframework.sfe
         public virtual void resetAll()
         {
             resetForces();
-            v = MathHelper.vectZero;
-            a = MathHelper.vectZero;
-            pos = MathHelper.vectZero;
-            posDelta = MathHelper.vectZero;
-            totalForce = MathHelper.vectZero;
+            v = vectZero;
+            a = vectZero;
+            pos = vectZero;
+            posDelta = vectZero;
+            totalForce = vectZero;
         }
 
         // Token: 0x0600014D RID: 333 RVA: 0x0000A54F File Offset: 0x0000874F
@@ -65,7 +65,7 @@ namespace ctr_wp7.iframework.sfe
         // Token: 0x0600014E RID: 334 RVA: 0x0000A573 File Offset: 0x00008773
         public virtual void deleteForce(int n)
         {
-            forces[n] = MathHelper.vectZero;
+            forces[n] = vectZero;
         }
 
         // Token: 0x0600014F RID: 335 RVA: 0x0000A58B File Offset: 0x0000878B
@@ -77,10 +77,10 @@ namespace ctr_wp7.iframework.sfe
         // Token: 0x06000150 RID: 336 RVA: 0x0000A5A0 File Offset: 0x000087A0
         public virtual void applyImpulseDelta(Vector impulse, float delta)
         {
-            if (!MathHelper.vectEqual(impulse, MathHelper.vectZero))
+            if (!vectEqual(impulse, vectZero))
             {
-                Vector vector = MathHelper.vectMult(impulse, (float)((double)delta / 1.0));
-                pos = MathHelper.vectAdd(pos, vector);
+                Vector vector = vectMult(impulse, (float)((double)delta / 1.0));
+                pos = vectAdd(pos, vector);
             }
         }
 
@@ -101,30 +101,30 @@ namespace ctr_wp7.iframework.sfe
         // Token: 0x06000152 RID: 338 RVA: 0x0000A610 File Offset: 0x00008810
         public virtual void update(float delta)
         {
-            totalForce = MathHelper.vectZero;
+            totalForce = vectZero;
             if (!disableGravity)
             {
-                if (!MathHelper.vectEqual(MaterialPoint.globalGravity, MathHelper.vectZero))
+                if (!vectEqual(globalGravity, vectZero))
                 {
-                    totalForce = MathHelper.vectAdd(totalForce, MathHelper.vectMult(MaterialPoint.globalGravity, weight));
+                    totalForce = vectAdd(totalForce, vectMult(globalGravity, weight));
                 }
                 else
                 {
-                    totalForce = MathHelper.vectAdd(totalForce, gravity);
+                    totalForce = vectAdd(totalForce, gravity);
                 }
             }
             if (highestForceIndex != -1)
             {
                 for (int i = 0; i <= highestForceIndex; i++)
                 {
-                    totalForce = MathHelper.vectAdd(totalForce, forces[i]);
+                    totalForce = vectAdd(totalForce, forces[i]);
                 }
             }
-            totalForce = MathHelper.vectMult(totalForce, invWeight);
-            a = MathHelper.vectMult(totalForce, (float)((double)delta / 1.0));
-            v = MathHelper.vectAdd(v, a);
-            posDelta = MathHelper.vectMult(v, (float)((double)delta / 1.0));
-            pos = MathHelper.vectAdd(pos, posDelta);
+            totalForce = vectMult(totalForce, invWeight);
+            a = vectMult(totalForce, (float)((double)delta / 1.0));
+            v = vectAdd(v, a);
+            posDelta = vectMult(v, (float)((double)delta / 1.0));
+            pos = vectAdd(pos, posDelta);
         }
 
         // Token: 0x06000153 RID: 339 RVA: 0x0000A738 File Offset: 0x00008938

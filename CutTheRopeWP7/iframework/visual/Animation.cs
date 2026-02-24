@@ -16,13 +16,13 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060000DA RID: 218 RVA: 0x00007315 File Offset: 0x00005515
         public static Animation Animation_createWithResID(int r)
         {
-            return Animation.Animation_create(Application.getTexture(r));
+            return Animation_create(Application.getTexture(r));
         }
 
         // Token: 0x060000DB RID: 219 RVA: 0x00007324 File Offset: 0x00005524
         public static Animation Animation_createWithResIDQuad(int r, int q)
         {
-            Animation animation = Animation.Animation_createWithResID(r);
+            Animation animation = Animation_createWithResID(r);
             if (animation != null)
             {
                 animation.setDrawQuad(q);

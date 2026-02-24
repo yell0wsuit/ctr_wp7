@@ -151,7 +151,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x06000080 RID: 128 RVA: 0x00005E00 File Offset: 0x00004000
         public virtual void preDraw()
         {
-            BaseElement.calculateTopLeft(this);
+            calculateTopLeft(this);
             bool flag = (double)scaleX != 1.0 || (double)scaleY != 1.0;
             bool flag2 = (double)rotation != 0.0;
             bool flag3 = (double)translateX != 0.0 || (double)translateY != 0.0;
@@ -214,11 +214,11 @@ namespace ctr_wp7.iframework.visual
         {
             if (!passTransformationsToChilds)
             {
-                BaseElement.restoreTransformations(this);
+                restoreTransformations(this);
             }
             if (!passColorToChilds)
             {
-                BaseElement.restoreColor(this);
+                restoreColor(this);
             }
             int i = 0;
             int num = 0;
@@ -238,11 +238,11 @@ namespace ctr_wp7.iframework.visual
             }
             if (passTransformationsToChilds)
             {
-                BaseElement.restoreTransformations(this);
+                restoreTransformations(this);
             }
             if (passColorToChilds)
             {
-                BaseElement.restoreColor(this);
+                restoreColor(this);
             }
         }
 
@@ -302,7 +302,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x06000086 RID: 134 RVA: 0x00006140 File Offset: 0x00004340
         public void setSizeToChildsBounds()
         {
-            BaseElement.calculateTopLeft(this);
+            calculateTopLeft(this);
             float num = drawX;
             float num2 = drawY;
             float num3 = drawX + (float)width;
@@ -312,7 +312,7 @@ namespace ctr_wp7.iframework.visual
                 BaseElement value = keyValuePair.Value;
                 if (value != null)
                 {
-                    BaseElement.calculateTopLeft(value);
+                    calculateTopLeft(value);
                     if (value.drawX < num)
                     {
                         num = value.drawX;
@@ -687,14 +687,14 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060000A3 RID: 163 RVA: 0x0000692D File Offset: 0x00004B2D
         public void setName(string n)
         {
-            NSObject.NSREL(name);
+            NSREL(name);
             name = new NSString(n);
         }
 
         // Token: 0x060000A4 RID: 164 RVA: 0x00006946 File Offset: 0x00004B46
         public void setName(NSString n)
         {
-            NSObject.NSREL(name);
+            NSREL(name);
             name = n;
         }
 
@@ -731,7 +731,7 @@ namespace ctr_wp7.iframework.visual
             childs = null;
             timelines.Clear();
             timelines = null;
-            NSObject.NSREL(name);
+            NSREL(name);
             base.dealloc();
         }
 

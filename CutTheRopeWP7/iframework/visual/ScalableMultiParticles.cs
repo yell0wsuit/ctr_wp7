@@ -9,7 +9,7 @@ namespace ctr_wp7.iframework.visual
         public override void initParticle(ref Particle particle)
         {
             Image imageGrid = this.imageGrid;
-            int num = MathHelper.RND(imageGrid.texture.quadsCount - 1);
+            int num = RND(imageGrid.texture.quadsCount - 1);
             Quad2D quad2D = imageGrid.texture.quads[num];
             Quad3D quad3D = Quad3D.MakeQuad3D(0f, 0f, 0f, 0f, 0f);
             Rectangle rectangle = imageGrid.texture.quadRects[num];

@@ -19,7 +19,7 @@ namespace ctr_wp7.game
             videoAdLoading = false;
             loadingText = new Text().initWithFont(Application.getFont(5));
             loadingText.setAlignment(2);
-            if (ResDataPhoneFull.LANGUAGE == Language.LANG_KO)
+            if (LANGUAGE == Language.LANG_KO)
             {
                 loadingText.setStringandWidth(Application.getString(1310752), 200.0);
             }
@@ -62,7 +62,7 @@ namespace ctr_wp7.game
                         OpenGL.glDisable(0);
                         OpenGL.glEnable(1);
                         OpenGL.glBlendFunc(BlendingFactor.GL_SRC_ALPHA, BlendingFactor.GL_ONE_MINUS_SRC_ALPHA);
-                        GLDrawer.drawSolidRectWOBorder(-FrameworkTypes.SCREEN_OFFSET_X, -FrameworkTypes.SCREEN_OFFSET_Y, FrameworkTypes.SCREEN_WIDTH_EXPANDED, FrameworkTypes.SCREEN_HEIGHT_EXPANDED, RGBAColor.MakeRGBA(0.1, 0.1, 0.1, 0.5));
+                        GLDrawer.drawSolidRectWOBorder(-SCREEN_OFFSET_X, -SCREEN_OFFSET_Y, SCREEN_WIDTH_EXPANDED, SCREEN_HEIGHT_EXPANDED, RGBAColor.MakeRGBA(0.1, 0.1, 0.1, 0.5));
                         OpenGL.SetWhiteColor();
                         OpenGL.glEnable(0);
                     }
@@ -74,7 +74,7 @@ namespace ctr_wp7.game
                 OpenGL.glDisable(0);
                 OpenGL.glEnable(1);
                 OpenGL.glBlendFunc(BlendingFactor.GL_ONE, BlendingFactor.GL_ONE_MINUS_SRC_ALPHA);
-                GLDrawer.drawSolidRectWOBorder(-FrameworkTypes.SCREEN_OFFSET_X, -FrameworkTypes.SCREEN_OFFSET_Y, FrameworkTypes.SCREEN_WIDTH_EXPANDED, FrameworkTypes.SCREEN_HEIGHT_EXPANDED, RGBAColor.MakeRGBA(0.0, 0.0, 0.0, 0.5));
+                GLDrawer.drawSolidRectWOBorder(-SCREEN_OFFSET_X, -SCREEN_OFFSET_Y, SCREEN_WIDTH_EXPANDED, SCREEN_HEIGHT_EXPANDED, RGBAColor.MakeRGBA(0.0, 0.0, 0.0, 0.5));
                 OpenGL.SetWhiteColor();
                 OpenGL.glEnable(0);
                 if (videoAdLoading)
@@ -97,7 +97,7 @@ namespace ctr_wp7.game
                 OpenGL.glDisable(0);
                 OpenGL.glEnable(1);
                 OpenGL.glBlendFunc(BlendingFactor.GL_SRC_ALPHA, BlendingFactor.GL_ONE_MINUS_SRC_ALPHA);
-                GLDrawer.drawSolidRectWOBorder(-FrameworkTypes.SCREEN_OFFSET_X, -FrameworkTypes.SCREEN_OFFSET_Y, FrameworkTypes.SCREEN_WIDTH_EXPANDED, FrameworkTypes.SCREEN_HEIGHT_EXPANDED, RGBAColor.MakeRGBA(1.0, 1.0, 1.0, (double)num3));
+                GLDrawer.drawSolidRectWOBorder(-SCREEN_OFFSET_X, -SCREEN_OFFSET_Y, SCREEN_WIDTH_EXPANDED, SCREEN_HEIGHT_EXPANDED, RGBAColor.MakeRGBA(1.0, 1.0, 1.0, (double)num3));
                 OpenGL.SetWhiteColor();
                 OpenGL.glEnable(0);
             }

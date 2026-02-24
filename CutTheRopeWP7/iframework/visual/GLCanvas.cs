@@ -56,7 +56,7 @@ namespace ctr_wp7.iframework.visual
             {
                 return;
             }
-            NSString nsstring = NSObject.NSS(fps.ToString());
+            NSString nsstring = NSS(fps.ToString());
             fpsText.setString(nsstring);
             OpenGL.SetWhiteColor();
             OpenGL.glEnable(0);
@@ -72,8 +72,8 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060000CD RID: 205 RVA: 0x0000711A File Offset: 0x0000531A
         public virtual bool createFramebuffer()
         {
-            backingWidth = (int)FrameworkTypes.SCREEN_WIDTH;
-            backingHeight = (int)FrameworkTypes.SCREEN_HEIGHT;
+            backingWidth = (int)SCREEN_WIDTH;
+            backingHeight = (int)SCREEN_HEIGHT;
             setDefaultProjection();
             OpenGL.glEnableClientState(11);
             OpenGL.glEnableClientState(12);
@@ -83,10 +83,10 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060000CE RID: 206 RVA: 0x0000714C File Offset: 0x0000534C
         public virtual void setDefaultProjection()
         {
-            OpenGL.glViewport(0.0, 0.0, (double)FrameworkTypes.REAL_SCREEN_WIDTH, (double)FrameworkTypes.REAL_SCREEN_HEIGHT);
+            OpenGL.glViewport(0.0, 0.0, (double)REAL_SCREEN_WIDTH, (double)REAL_SCREEN_HEIGHT);
             OpenGL.glMatrixMode(15);
             OpenGL.glLoadIdentity();
-            OpenGL.glOrthof((double)(-(double)FrameworkTypes.SCREEN_OFFSET_X), (double)(FrameworkTypes.SCREEN_WIDTH + FrameworkTypes.SCREEN_OFFSET_X), (double)(FrameworkTypes.SCREEN_HEIGHT + FrameworkTypes.SCREEN_OFFSET_Y), (double)(-(double)FrameworkTypes.SCREEN_OFFSET_Y), -1.0, 1.0);
+            OpenGL.glOrthof((double)(-(double)SCREEN_OFFSET_X), (double)(SCREEN_WIDTH + SCREEN_OFFSET_X), (double)(SCREEN_HEIGHT + SCREEN_OFFSET_Y), (double)(-(double)SCREEN_OFFSET_Y), -1.0, 1.0);
             OpenGL.glMatrixMode(14);
             OpenGL.glLoadIdentity();
         }
@@ -94,10 +94,10 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060000CF RID: 207 RVA: 0x000071D4 File Offset: 0x000053D4
         public virtual void setDefaultRealProjection()
         {
-            OpenGL.glViewport(0.0, 0.0, (double)FrameworkTypes.REAL_SCREEN_WIDTH, (double)FrameworkTypes.REAL_SCREEN_HEIGHT);
+            OpenGL.glViewport(0.0, 0.0, (double)REAL_SCREEN_WIDTH, (double)REAL_SCREEN_HEIGHT);
             OpenGL.glMatrixMode(15);
             OpenGL.glLoadIdentity();
-            OpenGL.glOrthof(0.0, (double)FrameworkTypes.REAL_SCREEN_WIDTH, (double)FrameworkTypes.REAL_SCREEN_HEIGHT, 0.0, -1.0, 1.0);
+            OpenGL.glOrthof(0.0, (double)REAL_SCREEN_WIDTH, (double)REAL_SCREEN_HEIGHT, 0.0, -1.0, 1.0);
             OpenGL.glMatrixMode(14);
             OpenGL.glLoadIdentity();
         }
@@ -158,8 +158,8 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060000D7 RID: 215 RVA: 0x000072DD File Offset: 0x000054DD
         public override void dealloc()
         {
-            NSObject.NSREL(fpsFont);
-            NSObject.NSREL(fpsText);
+            NSREL(fpsFont);
+            NSREL(fpsText);
             hide();
         }
 

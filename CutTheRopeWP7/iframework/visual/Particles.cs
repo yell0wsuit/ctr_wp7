@@ -24,22 +24,22 @@ namespace ctr_wp7.iframework.visual
         {
             if (p.life > 0f)
             {
-                Vector vector = MathHelper.vectZero;
+                Vector vector = vectZero;
                 if (p.pos.x != 0f || p.pos.y != 0f)
                 {
-                    vector = MathHelper.vectNormalize(p.pos);
+                    vector = vectNormalize(p.pos);
                 }
                 Vector vector2 = vector;
-                vector = MathHelper.vectMult(vector, p.radialAccel);
+                vector = vectMult(vector, p.radialAccel);
                 float x = vector2.x;
                 vector2.x = -vector2.y;
                 vector2.y = x;
-                vector2 = MathHelper.vectMult(vector2, p.tangentialAccel);
-                Vector vector3 = MathHelper.vectAdd(MathHelper.vectAdd(vector, vector2), gravity);
-                vector3 = MathHelper.vectMult(vector3, delta);
-                p.dir = MathHelper.vectAdd(p.dir, vector3);
-                vector3 = MathHelper.vectMult(p.dir, delta);
-                p.pos = MathHelper.vectAdd(p.pos, vector3);
+                vector2 = vectMult(vector2, p.tangentialAccel);
+                Vector vector3 = vectAdd(vectAdd(vector, vector2), gravity);
+                vector3 = vectMult(vector3, delta);
+                p.dir = vectAdd(p.dir, vector3);
+                vector3 = vectMult(p.dir, delta);
+                p.pos = vectAdd(p.pos, vector3);
                 p.color.r = p.color.r + p.deltaColor.r * delta;
                 p.color.g = p.color.g + p.deltaColor.g * delta;
                 p.color.b = p.color.b + p.deltaColor.b * delta;
@@ -125,8 +125,8 @@ namespace ctr_wp7.iframework.visual
             {
                 return null;
             }
-            width = (int)FrameworkTypes.SCREEN_WIDTH;
-            height = (int)FrameworkTypes.SCREEN_HEIGHT;
+            width = (int)SCREEN_WIDTH;
+            height = (int)SCREEN_HEIGHT;
             totalParticles = numberOfParticles;
             particles = new Particle[totalParticles];
             vertices = new PointSprite[totalParticles];
@@ -160,34 +160,34 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x06000393 RID: 915 RVA: 0x000169EC File Offset: 0x00014BEC
         public virtual void initParticle(ref Particle particle)
         {
-            particle.pos.x = x + posVar.x * MathHelper.RND_MINUS1_1;
-            particle.pos.y = y + posVar.y * MathHelper.RND_MINUS1_1;
+            particle.pos.x = x + posVar.x * RND_MINUS1_1;
+            particle.pos.y = y + posVar.y * RND_MINUS1_1;
             particle.startPos = particle.pos;
-            float num = MathHelper.DEGREES_TO_RADIANS(angle + angleVar * MathHelper.RND_MINUS1_1);
+            float num = DEGREES_TO_RADIANS(angle + angleVar * RND_MINUS1_1);
             Vector vector;
-            vector.y = MathHelper.sinf(num);
-            vector.x = MathHelper.cosf(num);
-            float num2 = speed + speedVar * MathHelper.RND_MINUS1_1;
-            particle.dir = MathHelper.vectMult(vector, num2);
-            particle.radialAccel = radialAccel + radialAccelVar * MathHelper.RND_MINUS1_1;
-            particle.tangentialAccel = tangentialAccel + tangentialAccelVar * MathHelper.RND_MINUS1_1;
-            particle.life = life + lifeVar * MathHelper.RND_MINUS1_1;
+            vector.y = sinf(num);
+            vector.x = cosf(num);
+            float num2 = speed + speedVar * RND_MINUS1_1;
+            particle.dir = vectMult(vector, num2);
+            particle.radialAccel = radialAccel + radialAccelVar * RND_MINUS1_1;
+            particle.tangentialAccel = tangentialAccel + tangentialAccelVar * RND_MINUS1_1;
+            particle.life = life + lifeVar * RND_MINUS1_1;
             RGBAColor rgbacolor = default(RGBAColor);
-            rgbacolor.r = startColor.r + startColorVar.r * MathHelper.RND_MINUS1_1;
-            rgbacolor.g = startColor.g + startColorVar.g * MathHelper.RND_MINUS1_1;
-            rgbacolor.b = startColor.b + startColorVar.b * MathHelper.RND_MINUS1_1;
-            rgbacolor.a = startColor.a + startColorVar.a * MathHelper.RND_MINUS1_1;
+            rgbacolor.r = startColor.r + startColorVar.r * RND_MINUS1_1;
+            rgbacolor.g = startColor.g + startColorVar.g * RND_MINUS1_1;
+            rgbacolor.b = startColor.b + startColorVar.b * RND_MINUS1_1;
+            rgbacolor.a = startColor.a + startColorVar.a * RND_MINUS1_1;
             RGBAColor rgbacolor2 = default(RGBAColor);
-            rgbacolor2.r = endColor.r + endColorVar.r * MathHelper.RND_MINUS1_1;
-            rgbacolor2.g = endColor.g + endColorVar.g * MathHelper.RND_MINUS1_1;
-            rgbacolor2.b = endColor.b + endColorVar.b * MathHelper.RND_MINUS1_1;
-            rgbacolor2.a = endColor.a + endColorVar.a * MathHelper.RND_MINUS1_1;
+            rgbacolor2.r = endColor.r + endColorVar.r * RND_MINUS1_1;
+            rgbacolor2.g = endColor.g + endColorVar.g * RND_MINUS1_1;
+            rgbacolor2.b = endColor.b + endColorVar.b * RND_MINUS1_1;
+            rgbacolor2.a = endColor.a + endColorVar.a * RND_MINUS1_1;
             particle.color = rgbacolor;
             particle.deltaColor.r = (rgbacolor2.r - rgbacolor.r) / particle.life;
             particle.deltaColor.g = (rgbacolor2.g - rgbacolor.g) / particle.life;
             particle.deltaColor.b = (rgbacolor2.b - rgbacolor.b) / particle.life;
             particle.deltaColor.a = (rgbacolor2.a - rgbacolor.a) / particle.life;
-            particle.size = size + sizeVar * MathHelper.RND_MINUS1_1;
+            particle.size = size + sizeVar * RND_MINUS1_1;
         }
 
         // Token: 0x06000394 RID: 916 RVA: 0x00016CBF File Offset: 0x00014EBF

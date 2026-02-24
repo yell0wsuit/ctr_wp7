@@ -28,13 +28,13 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060002E9 RID: 745 RVA: 0x00012E04 File Offset: 0x00011004
         private static TiledImage TiledImage_createWithResID(int r)
         {
-            return TiledImage.TiledImage_create(Application.getTexture(r));
+            return TiledImage_create(Application.getTexture(r));
         }
 
         // Token: 0x060002EA RID: 746 RVA: 0x00012E20 File Offset: 0x00011020
         private static TiledImage TiledImage_createWithResIDQuad(int r, int q)
         {
-            TiledImage tiledImage = TiledImage.TiledImage_createWithResID(r);
+            TiledImage tiledImage = TiledImage_createWithResID(r);
             tiledImage.setDrawQuad(q);
             return tiledImage;
         }

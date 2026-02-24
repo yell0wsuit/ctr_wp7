@@ -18,11 +18,11 @@ namespace ctr_wp7.game
                 buttonDelegate = d;
                 float num = 20f;
                 float num2 = 30f;
-                sheight = FrameworkTypes.SCREEN_HEIGHT_EXPANDED - 60f - 2f * num;
+                sheight = SCREEN_HEIGHT_EXPANDED - 60f - 2f * num;
                 BaseElement baseElement = (BaseElement)new BaseElement().init();
-                baseElement.x = -FrameworkTypes.SCREEN_OFFSET_X;
-                baseElement.y = num - FrameworkTypes.SCREEN_OFFSET_Y;
-                baseElement.width = (int)FrameworkTypes.SCREEN_WIDTH_EXPANDED;
+                baseElement.x = -SCREEN_OFFSET_X;
+                baseElement.y = num - SCREEN_OFFSET_Y;
+                baseElement.width = (int)SCREEN_WIDTH_EXPANDED;
                 baseElement.height = (int)sheight;
                 Image image = Image.Image_createWithResIDQuad(403, 11);
                 image.anchor = 18;
@@ -33,7 +33,7 @@ namespace ctr_wp7.game
                 image2.anchor = 18;
                 image2.parentAnchor = 34;
                 baseElement.addChild(image2);
-                box = new VBox().initWithOffsetAlignWidth(num2, 2, FrameworkTypes.SCREEN_WIDTH);
+                box = new VBox().initWithOffsetAlignWidth(num2, 2, SCREEN_WIDTH);
                 buildBlocks();
                 float num3 = 3f;
                 ScrollableContainer scrollableContainer = new ScrollableContainer().initWithWidthHeightContainer((float)box.width, sheight + num3 * 2f, box);
@@ -55,7 +55,7 @@ namespace ctr_wp7.game
                 int num4 = 48;
                 Button button = MenuController.createBackButtonWithDelegateID(buttonDelegate, num4);
                 background.addChild(button);
-                if (ResDataPhoneFull.LANGUAGE != Language.LANG_ZH)
+                if (LANGUAGE != Language.LANG_ZH)
                 {
                     Application.sharedPreferences().remoteDataManager.getHideSocialNetworks();
                 }
@@ -63,10 +63,10 @@ namespace ctr_wp7.game
                 addChild(background);
                 curtain = (RectangleElement)new RectangleElement().init();
                 curtain.anchor = (curtain.parentAnchor = 9);
-                curtain.x = -FrameworkTypes.SCREEN_OFFSET_X;
-                curtain.y = -FrameworkTypes.SCREEN_OFFSET_Y;
-                curtain.width = (int)FrameworkTypes.SCREEN_WIDTH_EXPANDED;
-                curtain.height = (int)FrameworkTypes.SCREEN_HEIGHT_EXPANDED;
+                curtain.x = -SCREEN_OFFSET_X;
+                curtain.y = -SCREEN_OFFSET_Y;
+                curtain.width = (int)SCREEN_WIDTH_EXPANDED;
+                curtain.height = (int)SCREEN_HEIGHT_EXPANDED;
                 curtain.color = RGBAColor.blackRGBA;
                 curtain.setEnabled(false);
                 addChild(curtain);
@@ -101,7 +101,7 @@ namespace ctr_wp7.game
         // Token: 0x06000121 RID: 289 RVA: 0x0000A07C File Offset: 0x0000827C
         public virtual void rebuild()
         {
-            CartoonsSelectView.needrebuild = false;
+            needrebuild = false;
             box.removeAllChilds();
             ((VBox)box).nextElementY = 0f;
             buildBlocks();
@@ -110,7 +110,7 @@ namespace ctr_wp7.game
         // Token: 0x06000122 RID: 290 RVA: 0x0000A0AA File Offset: 0x000082AA
         public virtual bool isRebuildNeeded()
         {
-            return CartoonsSelectView.needrebuild;
+            return needrebuild;
         }
 
         // Token: 0x06000123 RID: 291 RVA: 0x0000A0B4 File Offset: 0x000082B4
@@ -119,7 +119,7 @@ namespace ctr_wp7.game
             BaseElement child = box.getChild(blocknum + 1);
             if (child != null)
             {
-                BaseElement childWithName = child.getChildWithName(NSObject.NSS("nimbus"));
+                BaseElement childWithName = child.getChildWithName(NSS("nimbus"));
                 if (childWithName != null)
                 {
                     childWithName.setEnabled(false);
@@ -142,7 +142,7 @@ namespace ctr_wp7.game
         // Token: 0x06000126 RID: 294 RVA: 0x0000A10A File Offset: 0x0000830A
         public override void update(float delta)
         {
-            if (CartoonsSelectView.needrebuild)
+            if (needrebuild)
             {
                 rebuild();
             }

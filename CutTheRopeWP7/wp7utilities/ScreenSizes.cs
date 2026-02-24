@@ -12,13 +12,13 @@ namespace ctr_wp7.wp7utilities
         {
             get
             {
-                return ScreenSizes._width;
+                return _width;
             }
             set
             {
-                ScreenSizes._width = value;
-                ScreenSizes._width2 = ScreenSizes._width / 2;
-                ScreenSizes._rectangle.Width = ScreenSizes._width;
+                _width = value;
+                _width2 = _width / 2;
+                _rectangle.Width = _width;
             }
         }
 
@@ -29,13 +29,13 @@ namespace ctr_wp7.wp7utilities
         {
             get
             {
-                return ScreenSizes._height;
+                return _height;
             }
             set
             {
-                ScreenSizes._height = value;
-                ScreenSizes._height2 = ScreenSizes._height / 2;
-                ScreenSizes._rectangle.Height = ScreenSizes._height;
+                _height = value;
+                _height2 = _height / 2;
+                _rectangle.Height = _height;
             }
         }
 
@@ -45,7 +45,7 @@ namespace ctr_wp7.wp7utilities
         {
             get
             {
-                return ScreenSizes._width2;
+                return _width2;
             }
         }
 
@@ -55,7 +55,7 @@ namespace ctr_wp7.wp7utilities
         {
             get
             {
-                return ScreenSizes._height2;
+                return _height2;
             }
         }
 
@@ -65,7 +65,7 @@ namespace ctr_wp7.wp7utilities
         {
             get
             {
-                return ScreenSizes._rectangle;
+                return _rectangle;
             }
         }
 

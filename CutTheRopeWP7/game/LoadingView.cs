@@ -20,8 +20,8 @@ namespace ctr_wp7.game
             Texture2D texture = Application.getTexture(num);
             OpenGL.glColor4f(0.85, 0.85, 0.85, 1.0);
             OpenGL.glPushMatrix();
-            OpenGL.glTranslatef(-FrameworkTypes.SCREEN_OFFSET_X, -FrameworkTypes.SCREEN_OFFSET_Y, 0f);
-            OpenGL.glScalef(FrameworkTypes.SCREEN_BG_SCALE_X, FrameworkTypes.SCREEN_BG_SCALE_Y, 1f);
+            OpenGL.glTranslatef(-SCREEN_OFFSET_X, -SCREEN_OFFSET_Y, 0f);
+            OpenGL.glScalef(SCREEN_BG_SCALE_X, SCREEN_BG_SCALE_Y, 1f);
             GLDrawer.drawImageQuad(texture, 0, 0.33, 0.0);
             OpenGL.glPushMatrix();
             OpenGL.glTranslatef(240.0, 240.0, 0.0);
@@ -33,7 +33,7 @@ namespace ctr_wp7.game
             if (!game)
             {
                 OpenGL.glEnable(4);
-                OpenGL.setScissorRectangle(0.0, (double)(-(double)FrameworkTypes.SCREEN_OFFSET_Y), (double)FrameworkTypes.SCREEN_WIDTH, (double)FrameworkTypes.SCREEN_BG_SCALE_Y * 500.0 * (double)num2 / 100.0);
+                OpenGL.setScissorRectangle(0.0, (double)(-(double)SCREEN_OFFSET_Y), (double)SCREEN_WIDTH, (double)SCREEN_BG_SCALE_Y * 500.0 * (double)num2 / 100.0);
             }
             OpenGL.SetWhiteColor();
             if (game || num2 > 0f)

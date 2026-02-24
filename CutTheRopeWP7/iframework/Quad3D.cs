@@ -6,7 +6,7 @@
         // Token: 0x0600016E RID: 366 RVA: 0x0000B0C1 File Offset: 0x000092C1
         public static Quad3D MakeQuad3D(double x, double y, double z, double w, double h)
         {
-            return Quad3D.MakeQuad3D((float)x, (float)y, (float)z, (float)w, (float)h);
+            return MakeQuad3D((float)x, (float)y, (float)z, (float)w, (float)h);
         }
 
         // Token: 0x0600016F RID: 367 RVA: 0x0000B0D4 File Offset: 0x000092D4

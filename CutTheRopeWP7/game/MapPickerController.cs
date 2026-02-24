@@ -22,12 +22,12 @@ namespace ctr_wp7.game
                 View view = (View)new View().initFullscreen();
                 RectangleElement rectangleElement = (RectangleElement)new RectangleElement().init();
                 rectangleElement.color = RGBAColor.whiteRGBA;
-                rectangleElement.width = (int)FrameworkTypes.SCREEN_WIDTH;
-                rectangleElement.height = (int)FrameworkTypes.SCREEN_HEIGHT;
+                rectangleElement.width = (int)SCREEN_WIDTH;
+                rectangleElement.height = (int)SCREEN_HEIGHT;
                 view.addChild(rectangleElement);
                 FontGeneric font = Application.getFont(6);
                 Text text = new Text().initWithFont(font);
-                text.setString(NSObject.NSS("Loading..."));
+                text.setString(NSS("Loading..."));
                 text.anchor = (text.parentAnchor = 18);
                 view.addChild(text);
                 addViewwithID(view, 1);
@@ -39,7 +39,7 @@ namespace ctr_wp7.game
         // Token: 0x06000493 RID: 1171 RVA: 0x000218DC File Offset: 0x0001FADC
         public static NSString getLevelNameForPackLevel(int pack, int level)
         {
-            return NSObject.NSS((pack + 1).ToString() + "_" + (level + 1).ToString() + ".xml");
+            return NSS((pack + 1).ToString() + "_" + (level + 1).ToString() + ".xml");
         }
 
         // Token: 0x06000494 RID: 1172 RVA: 0x00021914 File Offset: 0x0001FB14
@@ -48,14 +48,14 @@ namespace ctr_wp7.game
             View view = (View)new View().initFullscreen();
             RectangleElement rectangleElement = (RectangleElement)new RectangleElement().init();
             rectangleElement.color = RGBAColor.whiteRGBA;
-            rectangleElement.width = (int)FrameworkTypes.SCREEN_WIDTH;
-            rectangleElement.height = (int)FrameworkTypes.SCREEN_HEIGHT;
+            rectangleElement.width = (int)SCREEN_WIDTH;
+            rectangleElement.height = (int)SCREEN_HEIGHT;
             view.addChild(rectangleElement);
             FontGeneric font = Application.getFont(6);
             Text text = new Text().initWithFont(font);
-            text.setString(NSObject.NSS("START"));
+            text.setString(NSS("START"));
             Text text2 = new Text().initWithFont(font);
-            text2.setString(NSObject.NSS("START"));
+            text2.setString(NSS("START"));
             text2.scaleX = (text2.scaleY = 1.2f);
             Button button = new Button().initWithUpElementDownElementandID(text, text2, 0);
             button.anchor = (button.parentAnchor = 34);
@@ -70,7 +70,7 @@ namespace ctr_wp7.game
             base.activate();
             if (autoLoad)
             {
-                NSString nsstring = NSObject.NSS("maps/" + selectedMap);
+                NSString nsstring = NSS("maps/" + selectedMap);
                 XMLNode xmlnode = XMLNode.parseXML(nsstring.ToString());
                 xmlLoaderFinishedWithfromwithSuccess(xmlnode, nsstring, xmlnode != null);
                 return;
@@ -121,8 +121,8 @@ namespace ctr_wp7.game
             autoLoad = true;
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
             ctrrootController.setPicker(false);
-            NSObject.NSREL(selectedMap);
-            selectedMap = (NSString)NSObject.NSRET(map);
+            NSREL(selectedMap);
+            selectedMap = (NSString)NSRET(map);
         }
 
         // Token: 0x0600049B RID: 1179 RVA: 0x00021B34 File Offset: 0x0001FD34
@@ -138,7 +138,7 @@ namespace ctr_wp7.game
         // Token: 0x0600049C RID: 1180 RVA: 0x00021B4E File Offset: 0x0001FD4E
         public override void dealloc()
         {
-            NSObject.NSREL(selectedMap);
+            NSREL(selectedMap);
             base.dealloc();
         }
 

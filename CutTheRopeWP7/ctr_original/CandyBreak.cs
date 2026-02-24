@@ -58,7 +58,7 @@ namespace ctr_wp7.ctr_original
         public override void initParticle(ref Particle particle)
         {
             base.initParticle(ref particle);
-            int num = MathHelper.RND_RANGE(3, 7);
+            int num = RND_RANGE(3, 7);
             Quad2D quad2D = imageGrid.texture.quads[num];
             Quad3D quad3D = Quad3D.MakeQuad3D(0f, 0f, 0f, 0f, 0f);
             drawer.setTextureQuadatVertexQuadatIndex(quad2D, quad3D, particleCount);
@@ -73,8 +73,8 @@ namespace ctr_wp7.ctr_original
             OpenGL.glBlendFunc(BlendingFactor.GL_ONE, BlendingFactor.GL_ONE_MINUS_SRC_ALPHA);
             OpenGL.glEnable(0);
             OpenGL.glBindTexture(drawer.image.texture.name());
-            OpenGL.glVertexPointer(3, 5, 0, FrameworkTypes.toFloatArray(drawer.vertices));
-            OpenGL.glTexCoordPointer(2, 5, 0, FrameworkTypes.toFloatArray(drawer.texCoordinates));
+            OpenGL.glVertexPointer(3, 5, 0, toFloatArray(drawer.vertices));
+            OpenGL.glTexCoordPointer(2, 5, 0, toFloatArray(drawer.texCoordinates));
             OpenGL.glBindBuffer(2, colorsID);
             OpenGL.glDrawElements(7, particleIdx * 6, drawer.indices);
             OpenGL.glBindBuffer(2, 0U);

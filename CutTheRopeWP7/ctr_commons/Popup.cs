@@ -22,8 +22,8 @@ namespace ctr_wp7.ctr_commons
                 timeline = new Timeline().initWithMaxKeyFramesOnTrack(2);
                 timeline.addKeyFrame(KeyFrame.makeScale(1.0, 1.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
                 timeline.addKeyFrame(KeyFrame.makeScale(0.0, 0.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.3));
-                width = (int)FrameworkTypes.SCREEN_WIDTH;
-                height = (int)FrameworkTypes.SCREEN_HEIGHT;
+                width = (int)SCREEN_WIDTH;
+                height = (int)SCREEN_HEIGHT;
                 addTimeline(timeline);
                 timeline.delegateTimelineDelegate = this;
             }
@@ -36,7 +36,7 @@ namespace ctr_wp7.ctr_commons
             OpenGL.glEnable(1);
             OpenGL.glDisable(0);
             OpenGL.glBlendFunc(BlendingFactor.GL_ONE, BlendingFactor.GL_ONE_MINUS_SRC_ALPHA);
-            GLDrawer.drawSolidRectWOBorder(-FrameworkTypes.SCREEN_OFFSET_X, -FrameworkTypes.SCREEN_OFFSET_Y, FrameworkTypes.SCREEN_WIDTH_EXPANDED, FrameworkTypes.SCREEN_HEIGHT_EXPANDED, RGBAColor.MakeRGBA(0.0, 0.0, 0.0, 0.5));
+            GLDrawer.drawSolidRectWOBorder(-SCREEN_OFFSET_X, -SCREEN_OFFSET_Y, SCREEN_WIDTH_EXPANDED, SCREEN_HEIGHT_EXPANDED, RGBAColor.MakeRGBA(0.0, 0.0, 0.0, 0.5));
             OpenGL.glEnable(0);
             OpenGL.SetWhiteColor();
             base.preDraw();

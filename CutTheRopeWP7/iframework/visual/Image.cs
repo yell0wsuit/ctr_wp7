@@ -27,7 +27,7 @@ namespace ctr_wp7.iframework.visual
         public static Vector getQuadSize(int textureID, int quad)
         {
             Texture2D texture2D = Application.getTexture(textureID);
-            return MathHelper.vect(texture2D.quadRects[quad].w, texture2D.quadRects[quad].h);
+            return vect(texture2D.quadRects[quad].w, texture2D.quadRects[quad].h);
         }
 
         // Token: 0x060000AB RID: 171 RVA: 0x00006AC4 File Offset: 0x00004CC4
@@ -41,21 +41,21 @@ namespace ctr_wp7.iframework.visual
         public static Vector getQuadCenter(int textureID, int quad)
         {
             Texture2D texture2D = Application.getTexture(textureID);
-            return MathHelper.vectAdd(texture2D.quadOffsets[quad], MathHelper.vect(MathHelper.ceil((double)texture2D.quadRects[quad].w / 2.0), MathHelper.ceil((double)texture2D.quadRects[quad].h / 2.0)));
+            return vectAdd(texture2D.quadOffsets[quad], vect(ceil((double)texture2D.quadRects[quad].w / 2.0), ceil((double)texture2D.quadRects[quad].h / 2.0)));
         }
 
         // Token: 0x060000AD RID: 173 RVA: 0x00006B60 File Offset: 0x00004D60
         public static Vector getRelativeQuadOffset(int textureID, int quadToCountFrom, int quad)
         {
-            Vector quadOffset = Image.getQuadOffset(textureID, quadToCountFrom);
-            Vector quadOffset2 = Image.getQuadOffset(textureID, quad);
-            return MathHelper.vectSub(quadOffset2, quadOffset);
+            Vector quadOffset = getQuadOffset(textureID, quadToCountFrom);
+            Vector quadOffset2 = getQuadOffset(textureID, quad);
+            return vectSub(quadOffset2, quadOffset);
         }
 
         // Token: 0x060000AE RID: 174 RVA: 0x00006B84 File Offset: 0x00004D84
         public static void setElementPositionWithQuadCenter(BaseElement e, int textureID, int quad)
         {
-            Vector quadCenter = Image.getQuadCenter(textureID, quad);
+            Vector quadCenter = getQuadCenter(textureID, quad);
             e.x = quadCenter.x;
             e.y = quadCenter.y;
             e.anchor = 18;
@@ -64,7 +64,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060000AF RID: 175 RVA: 0x00006BBC File Offset: 0x00004DBC
         public static void setElementPositionWithQuadOffset(BaseElement e, int textureID, int quad)
         {
-            Vector quadOffset = Image.getQuadOffset(textureID, quad);
+            Vector quadOffset = getQuadOffset(textureID, quad);
             e.x = quadOffset.x;
             e.y = quadOffset.y;
         }
@@ -72,7 +72,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060000B0 RID: 176 RVA: 0x00006BEC File Offset: 0x00004DEC
         public static void setElementPositionWithRelativeQuadOffset(BaseElement e, int textureID, int quadToCountFrom, int quad)
         {
-            Vector relativeQuadOffset = Image.getRelativeQuadOffset(textureID, quadToCountFrom, quad);
+            Vector relativeQuadOffset = getRelativeQuadOffset(textureID, quadToCountFrom, quad);
             e.x = relativeQuadOffset.x;
             e.y = relativeQuadOffset.y;
         }
@@ -81,10 +81,10 @@ namespace ctr_wp7.iframework.visual
         public static BaseElement createElementWithLeftPart(int textureID, int quad)
         {
             BaseElement baseElement = (BaseElement)new BaseElement().init();
-            Image image = Image.Image_createWithResIDQuad(textureID, quad);
+            Image image = Image_createWithResIDQuad(textureID, quad);
             image.parentAnchor = 10;
             image.anchor = 12;
-            Image image2 = Image.Image_createWithResIDQuad(textureID, quad);
+            Image image2 = Image_createWithResIDQuad(textureID, quad);
             image2.parentAnchor = 10;
             image2.anchor = 9;
             image2.scaleX = -1f;
@@ -99,11 +99,11 @@ namespace ctr_wp7.iframework.visual
         public static BaseElement createElementWithBottomPart(int textureID, int quad)
         {
             BaseElement baseElement = (BaseElement)new BaseElement().init();
-            Image image = Image.Image_createWithResIDQuad(textureID, quad);
+            Image image = Image_createWithResIDQuad(textureID, quad);
             image.parentAnchor = 10;
             image.anchor = 10;
             image.scaleY = -1f;
-            Image image2 = Image.Image_createWithResIDQuad(textureID, quad);
+            Image image2 = Image_createWithResIDQuad(textureID, quad);
             image2.parentAnchor = 34;
             image2.anchor = 34;
             baseElement.width = image.width;
@@ -122,13 +122,13 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060000B4 RID: 180 RVA: 0x00006D36 File Offset: 0x00004F36
         public static Image Image_createWithResID(int r)
         {
-            return Image.Image_create(Application.getTexture(r));
+            return Image_create(Application.getTexture(r));
         }
 
         // Token: 0x060000B5 RID: 181 RVA: 0x00006D44 File Offset: 0x00004F44
         public static Image Image_createWithResIDQuad(int r, int q)
         {
-            Image image = Image.Image_create(Application.getTexture(r));
+            Image image = Image_create(Application.getTexture(r));
             image.setDrawQuad(q);
             return image;
         }
@@ -139,7 +139,7 @@ namespace ctr_wp7.iframework.visual
             if (base.init() != null)
             {
                 texture = t;
-                NSObject.NSRET(texture);
+                NSRET(texture);
                 restoreCutTransparency = false;
                 if (texture.quadsCount > 0)
                 {
@@ -175,7 +175,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060000B9 RID: 185 RVA: 0x00006E38 File Offset: 0x00005038
         public virtual void doRestoreCutTransparency()
         {
-            if (texture.preCutSize.x != MathHelper.vectUndefined.x)
+            if (texture.preCutSize.x != vectUndefined.x)
             {
                 restoreCutTransparency = true;
                 width = (int)texture.preCutSize.x;
@@ -252,7 +252,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060000BE RID: 190 RVA: 0x00007010 File Offset: 0x00005210
         public override void dealloc()
         {
-            NSObject.NSREL(texture);
+            NSREL(texture);
             base.dealloc();
         }
 

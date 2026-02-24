@@ -12,19 +12,19 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060004CE RID: 1230 RVA: 0x00023FA7 File Offset: 0x000221A7
         public static void drawImage(Texture2D image, float x, float y)
         {
-            Texture2D.drawAtPoint(image, MathHelper.vect(x, y));
+            Texture2D.drawAtPoint(image, vect(x, y));
         }
 
         // Token: 0x060004CF RID: 1231 RVA: 0x00023FB6 File Offset: 0x000221B6
         public static void drawImagePart(Texture2D image, Rectangle r, float x, float y)
         {
-            Texture2D.drawRectAtPoint(image, r, MathHelper.vect(x, y));
+            Texture2D.drawRectAtPoint(image, r, vect(x, y));
         }
 
         // Token: 0x060004D0 RID: 1232 RVA: 0x00023FC6 File Offset: 0x000221C6
         public static void drawImageQuad(Texture2D image, int q, double x, double y)
         {
-            GLDrawer.drawImageQuad(image, q, (float)x, (float)y);
+            drawImageQuad(image, q, (float)x, (float)y);
         }
 
         // Token: 0x060004D1 RID: 1233 RVA: 0x00023FD3 File Offset: 0x000221D3
@@ -32,10 +32,10 @@ namespace ctr_wp7.iframework.visual
         {
             if (q == -1)
             {
-                GLDrawer.drawImage(image, x, y);
+                drawImage(image, x, y);
                 return;
             }
-            Texture2D.drawQuadAtPoint(image, q, MathHelper.vect(x, y));
+            Texture2D.drawQuadAtPoint(image, q, vect(x, y));
         }
 
         // Token: 0x060004D2 RID: 1234 RVA: 0x00023FF0 File Offset: 0x000221F0
@@ -71,8 +71,8 @@ namespace ctr_wp7.iframework.visual
                     {
                         num8 = num4;
                     }
-                    Rectangle rectangle = FrameworkTypes.MakeRectangle(num, num2, num7, num8);
-                    GLDrawer.drawImagePart(image, rectangle, x + num6, y + num5);
+                    Rectangle rectangle = MakeRectangle(num, num2, num7, num8);
+                    drawImagePart(image, rectangle, x + num6, y + num5);
                 }
             }
         }
@@ -80,9 +80,9 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060004D3 RID: 1235 RVA: 0x000240CC File Offset: 0x000222CC
         public static void drawImageTiled(Texture2D image, int q, float x, float y, float width, float height)
         {
-            if (FrameworkTypes.IS_WVGA)
+            if (IS_WVGA)
             {
-                GLDrawer.drawImageTiledCool(image, q, x, y, width, height);
+                drawImageTiledCool(image, q, x, y, width, height);
                 return;
             }
             float num = 0f;
@@ -103,11 +103,11 @@ namespace ctr_wp7.iframework.visual
             }
             if (width == num3 && height == num4)
             {
-                GLDrawer.drawImageQuad(image, q, x, y);
+                drawImageQuad(image, q, x, y);
                 return;
             }
-            int num5 = (int)MathHelper.ceil((double)(width / num3));
-            int num6 = (int)MathHelper.ceil((double)(height / num4));
+            int num5 = (int)ceil((double)(width / num3));
+            int num6 = (int)ceil((double)(height / num4));
             int num7 = (int)width % (int)num3;
             int num8 = (int)height % (int)num4;
             int num9 = (int)((num7 == 0) ? num3 : ((float)num7));
@@ -121,12 +121,12 @@ namespace ctr_wp7.iframework.visual
                 {
                     if (j == 0 || i == 0)
                     {
-                        Rectangle rectangle = FrameworkTypes.MakeRectangle(num, num2, (j == 0) ? ((float)num9) : num3, (i == 0) ? ((float)num10) : num4);
-                        GLDrawer.drawImagePart(image, rectangle, (float)num11, (float)num12);
+                        Rectangle rectangle = MakeRectangle(num, num2, (j == 0) ? ((float)num9) : num3, (i == 0) ? ((float)num10) : num4);
+                        drawImagePart(image, rectangle, (float)num11, (float)num12);
                     }
                     else
                     {
-                        GLDrawer.drawImageQuad(image, q, (float)num11, (float)num12);
+                        drawImageQuad(image, q, (float)num11, (float)num12);
                     }
                     num11 += (int)num3;
                 }
@@ -146,20 +146,20 @@ namespace ctr_wp7.iframework.visual
             if (count > 2)
             {
                 Vector[] array;
-                if (!GLDrawer.VectorArray.TryGetValue(count - 1, out array))
+                if (!VectorArray.TryGetValue(count - 1, out array))
                 {
                     array = new Vector[count - 1];
-                    GLDrawer.VectorArray.Add(count - 1, array);
+                    VectorArray.Add(count - 1, array);
                 }
                 for (int i = 0; i < count - 1; i++)
                 {
-                    array[i] = GLDrawer.calc2PointBezier(ref p[i], ref p[i + 1], delta);
+                    array[i] = calc2PointBezier(ref p[i], ref p[i + 1], delta);
                 }
-                return GLDrawer.calcPathBezier_2(array, count - 1, delta);
+                return calcPathBezier_2(array, count - 1, delta);
             }
             if (count == 2)
             {
-                return GLDrawer.calc2PointBezier(ref p[0], ref p[1], delta);
+                return calc2PointBezier(ref p[0], ref p[1], delta);
             }
             return default(Vector);
         }
@@ -171,13 +171,13 @@ namespace ctr_wp7.iframework.visual
             {
                 for (int i = 0; i < count - 1; i++)
                 {
-                    p[i] = GLDrawer.calc2PointBezier(ref p[i], ref p[i + 1], delta);
+                    p[i] = calc2PointBezier(ref p[i], ref p[i + 1], delta);
                 }
-                return GLDrawer.calcPathBezier_2(p, count - 1, delta);
+                return calcPathBezier_2(p, count - 1, delta);
             }
             if (count == 2)
             {
-                return GLDrawer.calc2PointBezier(ref p[0], ref p[1], delta);
+                return calc2PointBezier(ref p[0], ref p[1], delta);
             }
             return default(Vector);
         }
@@ -199,8 +199,8 @@ namespace ctr_wp7.iframework.visual
             float num2 = 0f;
             for (int i = 0; i < vertexCount; i++)
             {
-                glVertices[i * 2] = x + radius * MathHelper.cosf(num2);
-                glVertices[i * 2 + 1] = y + radius * MathHelper.sinf(num2);
+                glVertices[i * 2] = x + radius * cosf(num2);
+                glVertices[i * 2 + 1] = y + radius * sinf(num2);
                 num2 += num;
             }
         }
@@ -208,15 +208,15 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060004D9 RID: 1241 RVA: 0x00024418 File Offset: 0x00022618
         public static void drawCircleIntersection(float cx1, float cy1, float radius1, float cx2, float cy2, float radius2, int vertexCount, float width, RGBAColor fill)
         {
-            float num = MathHelper.vectDistance(MathHelper.vect(cx1, cy1), MathHelper.vect(cx2, cy2));
+            float num = vectDistance(vect(cx1, cy1), vect(cx2, cy2));
             if (num >= radius1 + radius2 || radius1 >= num + radius2)
             {
                 return;
             }
             float num2 = (radius1 * radius1 - radius2 * radius2 + num * num) / (2f * num);
             float num3 = num - num2;
-            float num4 = MathHelper.acosf(num3 / radius2);
-            float num5 = MathHelper.vectAngle(MathHelper.vectSub(MathHelper.vect(cx1, cy1), MathHelper.vect(cx2, cy2)));
+            float num4 = acosf(num3 / radius2);
+            float num5 = vectAngle(vectSub(vect(cx1, cy1), vect(cx2, cy2)));
             float num6 = num5 - num4;
             float num7 = num5 + num4;
             if (cx2 > cx1)
@@ -224,7 +224,7 @@ namespace ctr_wp7.iframework.visual
                 num6 += 3.1415927f;
                 num7 += 3.1415927f;
             }
-            GLDrawer.drawAntialiasedCurve2(cx2, cy2, radius2, num6, num7, vertexCount, width, 1f, fill);
+            drawAntialiasedCurve2(cx2, cy2, radius2, num6, num7, vertexCount, width, 1f, fill);
         }
 
         // Token: 0x060004DA RID: 1242 RVA: 0x000244C8 File Offset: 0x000226C8
@@ -236,10 +236,10 @@ namespace ctr_wp7.iframework.visual
             float[] array4 = new float[vertexCount * 2];
             float[] array5 = new float[vertexCount * 2];
             RGBAColor[] array6 = new RGBAColor[(vertexCount - 1) * 6 + 2];
-            GLDrawer.calcCurve(cx, cy, radius + fadeWidth, startAngle, endAngle, vertexCount, array2);
-            GLDrawer.calcCurve(cx, cy, radius, startAngle, endAngle, vertexCount, array3);
-            GLDrawer.calcCurve(cx, cy, radius - width, startAngle, endAngle, vertexCount, array4);
-            GLDrawer.calcCurve(cx, cy, radius - width - fadeWidth, startAngle, endAngle, vertexCount, array5);
+            calcCurve(cx, cy, radius + fadeWidth, startAngle, endAngle, vertexCount, array2);
+            calcCurve(cx, cy, radius, startAngle, endAngle, vertexCount, array3);
+            calcCurve(cx, cy, radius - width, startAngle, endAngle, vertexCount, array4);
+            calcCurve(cx, cy, radius - width - fadeWidth, startAngle, endAngle, vertexCount, array5);
             array[0] = array2[0];
             array[1] = array2[1];
             array6[0] = RGBAColor.transparentRGBA;
@@ -298,10 +298,10 @@ namespace ctr_wp7.iframework.visual
         private static void calcCurve(float cx, float cy, float radius, float startAngle, float endAngle, int vertexCount, float[] glVertices)
         {
             float num = (endAngle - startAngle) / (float)(vertexCount - 1);
-            float num2 = MathHelper.tanf(num);
-            float num3 = MathHelper.cosf(num);
-            float num4 = radius * MathHelper.cosf(startAngle);
-            float num5 = radius * MathHelper.sinf(startAngle);
+            float num2 = tanf(num);
+            float num3 = cosf(num);
+            float num4 = radius * cosf(startAngle);
+            float num5 = radius * sinf(startAngle);
             for (int i = 0; i < vertexCount; i++)
             {
                 glVertices[i * 2] = num4 + cx;
@@ -318,49 +318,49 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060004DC RID: 1244 RVA: 0x00024924 File Offset: 0x00022B24
         public static void drawAntialiasedLine(float x1, float y1, float x2, float y2, float size, RGBAColor color)
         {
-            Vector vector = MathHelper.vect(x1, y1);
-            Vector vector2 = MathHelper.vect(x2, y2);
-            Vector vector3 = MathHelper.vectSub(vector2, vector);
-            Vector vector4 = MathHelper.vectPerp(vector3);
-            Vector vector5 = MathHelper.vectNormalize(vector4);
-            vector4 = MathHelper.vectMult(vector5, size);
-            Vector vector6 = MathHelper.vectNeg(vector4);
-            Vector vector7 = MathHelper.vectAdd(vector4, vector3);
-            Vector vector8 = MathHelper.vectAdd(MathHelper.vectNeg(vector4), vector3);
-            MathHelper.vectAdd2(ref vector4, vector);
-            MathHelper.vectAdd2(ref vector6, vector);
-            MathHelper.vectAdd2(ref vector7, vector);
-            MathHelper.vectAdd2(ref vector8, vector);
-            Vector vector9 = MathHelper.vectSub(vector4, vector5);
-            Vector vector10 = MathHelper.vectSub(vector7, vector5);
-            Vector vector11 = MathHelper.vectAdd(vector6, vector5);
-            Vector vector12 = MathHelper.vectAdd(vector8, vector5);
-            GLDrawer.verts[0] = vector4.x;
-            GLDrawer.verts[1] = vector4.y;
-            GLDrawer.verts[2] = vector7.x;
-            GLDrawer.verts[3] = vector7.y;
-            GLDrawer.verts[4] = vector9.x;
-            GLDrawer.verts[5] = vector9.y;
-            GLDrawer.verts[6] = vector10.x;
-            GLDrawer.verts[7] = vector10.y;
-            GLDrawer.verts[8] = vector11.x;
-            GLDrawer.verts[9] = vector11.y;
-            GLDrawer.verts[10] = vector12.x;
-            GLDrawer.verts[11] = vector12.y;
-            GLDrawer.verts[12] = vector6.x;
-            GLDrawer.verts[13] = vector6.y;
-            GLDrawer.verts[14] = vector8.x;
-            GLDrawer.verts[15] = vector8.y;
-            RGBAColor[] array = GLDrawer.colors;
+            Vector vector = vect(x1, y1);
+            Vector vector2 = vect(x2, y2);
+            Vector vector3 = vectSub(vector2, vector);
+            Vector vector4 = vectPerp(vector3);
+            Vector vector5 = vectNormalize(vector4);
+            vector4 = vectMult(vector5, size);
+            Vector vector6 = vectNeg(vector4);
+            Vector vector7 = vectAdd(vector4, vector3);
+            Vector vector8 = vectAdd(vectNeg(vector4), vector3);
+            vectAdd2(ref vector4, vector);
+            vectAdd2(ref vector6, vector);
+            vectAdd2(ref vector7, vector);
+            vectAdd2(ref vector8, vector);
+            Vector vector9 = vectSub(vector4, vector5);
+            Vector vector10 = vectSub(vector7, vector5);
+            Vector vector11 = vectAdd(vector6, vector5);
+            Vector vector12 = vectAdd(vector8, vector5);
+            verts[0] = vector4.x;
+            verts[1] = vector4.y;
+            verts[2] = vector7.x;
+            verts[3] = vector7.y;
+            verts[4] = vector9.x;
+            verts[5] = vector9.y;
+            verts[6] = vector10.x;
+            verts[7] = vector10.y;
+            verts[8] = vector11.x;
+            verts[9] = vector11.y;
+            verts[10] = vector12.x;
+            verts[11] = vector12.y;
+            verts[12] = vector6.x;
+            verts[13] = vector6.y;
+            verts[14] = vector8.x;
+            verts[15] = vector8.y;
+            RGBAColor[] array = colors;
             int num = 2;
-            RGBAColor[] array2 = GLDrawer.colors;
+            RGBAColor[] array2 = colors;
             int num2 = 3;
-            RGBAColor[] array3 = GLDrawer.colors;
+            RGBAColor[] array3 = colors;
             int num3 = 4;
-            GLDrawer.colors[5] = color;
+            colors[5] = color;
             array[num] = (array2[num2] = (array3[num3] = color));
-            OpenGL.glColorPointer_add(4, 5, 0, GLDrawer.colors);
-            OpenGL.glVertexPointer_add(2, 5, 0, GLDrawer.verts);
+            OpenGL.glColorPointer_add(4, 5, 0, colors);
+            OpenGL.glVertexPointer_add(2, 5, 0, verts);
         }
 
         // Token: 0x060004DD RID: 1245 RVA: 0x00024B20 File Offset: 0x00022D20
@@ -377,7 +377,7 @@ namespace ctr_wp7.iframework.visual
                 x + w,
                 y + h
             };
-            GLDrawer.drawPolygon(array, 4, color);
+            drawPolygon(array, 4, color);
         }
 
         // Token: 0x060004DE RID: 1246 RVA: 0x00024B68 File Offset: 0x00022D68
@@ -394,7 +394,7 @@ namespace ctr_wp7.iframework.visual
                 x + w,
                 y + h
             };
-            GLDrawer.drawSolidPolygon(array, 4, border, fill);
+            drawSolidPolygon(array, 4, border, fill);
         }
 
         // Token: 0x060004DF RID: 1247 RVA: 0x00024BB4 File Offset: 0x00022DB4

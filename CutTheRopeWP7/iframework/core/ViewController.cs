@@ -23,7 +23,7 @@ namespace ctr_wp7.iframework.core
         {
             if (base.init() != null)
             {
-                controllerState = ViewController.ControllerState.CONTROLLER_DEACTIVE;
+                controllerState = ControllerState.CONTROLLER_DEACTIVE;
                 views = new Dictionary<int, View>();
                 childs = new Dictionary<int, ViewController>();
                 activeViewID = -1;
@@ -37,7 +37,7 @@ namespace ctr_wp7.iframework.core
         // Token: 0x06000301 RID: 769 RVA: 0x0001390B File Offset: 0x00011B0B
         public virtual void activate()
         {
-            controllerState = ViewController.ControllerState.CONTROLLER_ACTIVE;
+            controllerState = ControllerState.CONTROLLER_ACTIVE;
             Application.sharedRootController().onControllerActivated(this);
         }
 
@@ -50,7 +50,7 @@ namespace ctr_wp7.iframework.core
         // Token: 0x06000303 RID: 771 RVA: 0x0001392C File Offset: 0x00011B2C
         public virtual void deactivateImmediately()
         {
-            controllerState = ViewController.ControllerState.CONTROLLER_DEACTIVE;
+            controllerState = ControllerState.CONTROLLER_DEACTIVE;
             if (activeViewID != -1)
             {
                 hideActiveView();
@@ -62,7 +62,7 @@ namespace ctr_wp7.iframework.core
         // Token: 0x06000304 RID: 772 RVA: 0x00013965 File Offset: 0x00011B65
         public virtual void pause()
         {
-            controllerState = ViewController.ControllerState.CONTROLLER_PAUSED;
+            controllerState = ControllerState.CONTROLLER_PAUSED;
             Application.sharedRootController().onControllerPaused(this);
             if (activeViewID != -1)
             {
@@ -74,7 +74,7 @@ namespace ctr_wp7.iframework.core
         // Token: 0x06000305 RID: 773 RVA: 0x00013994 File Offset: 0x00011B94
         public virtual void unpause()
         {
-            controllerState = ViewController.ControllerState.CONTROLLER_ACTIVE;
+            controllerState = ControllerState.CONTROLLER_ACTIVE;
             if (activeChildID != -1)
             {
                 activeChildID = -1;
@@ -217,7 +217,7 @@ namespace ctr_wp7.iframework.core
             foreach (KeyValuePair<int, ViewController> keyValuePair in childs)
             {
                 ViewController value = keyValuePair.Value;
-                if (value != null && value.controllerState != ViewController.ControllerState.CONTROLLER_DEACTIVE)
+                if (value != null && value.controllerState != ControllerState.CONTROLLER_DEACTIVE)
                 {
                     return false;
                 }

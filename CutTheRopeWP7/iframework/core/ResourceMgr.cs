@@ -34,7 +34,7 @@ namespace ctr_wp7.iframework.core
             {
                 return nsobject;
             }
-            string text = ((resType != ResourceMgr.ResourceType.STRINGS) ? CTRResourceMgr.XNA_ResName(resID) : "");
+            string text = ((resType != ResourceType.STRINGS) ? CTRResourceMgr.XNA_ResName(resID) : "");
             bool flag = isWvgaResource(resID);
             float num = getNormalScaleX(resID);
             float num2 = getNormalScaleY(resID);
@@ -45,21 +45,21 @@ namespace ctr_wp7.iframework.core
             }
             switch (resType)
             {
-                case ResourceMgr.ResourceType.IMAGE:
+                case ResourceType.IMAGE:
                     nsobject = loadTextureImageInfo(text, null, flag, num, num2);
                     break;
-                case ResourceMgr.ResourceType.FONT:
+                case ResourceType.FONT:
                     nsobject = loadVariableFontInfo(text, resID, flag);
                     s_Resources.Remove(resID);
                     break;
-                case ResourceMgr.ResourceType.SOUND:
+                case ResourceType.SOUND:
                     nsobject = loadSoundInfo(text);
                     break;
-                case ResourceMgr.ResourceType.STRINGS:
+                case ResourceType.STRINGS:
                     {
                         nsobject = loadStringsInfo(resID);
                         string text2 = nsobject.ToString();
-                        nsobject = NSObject.NSS(text2.Replace('\u00a0', ' '));
+                        nsobject = NSS(text2.Replace('\u00a0', ' '));
                         break;
                     }
             }
@@ -88,43 +88,43 @@ namespace ctr_wp7.iframework.core
             if (xmlnode != null)
             {
                 string text = "en";
-                if (ResDataPhoneFull.LANGUAGE == Language.LANG_RU)
+                if (LANGUAGE == Language.LANG_RU)
                 {
                     text = "ru";
                 }
-                if (ResDataPhoneFull.LANGUAGE == Language.LANG_FR)
+                if (LANGUAGE == Language.LANG_FR)
                 {
                     text = "fr";
                 }
-                if (ResDataPhoneFull.LANGUAGE == Language.LANG_DE)
+                if (LANGUAGE == Language.LANG_DE)
                 {
                     text = "de";
                 }
-                if (ResDataPhoneFull.LANGUAGE == Language.LANG_IT)
+                if (LANGUAGE == Language.LANG_IT)
                 {
                     text = "it";
                 }
-                if (ResDataPhoneFull.LANGUAGE == Language.LANG_NL)
+                if (LANGUAGE == Language.LANG_NL)
                 {
                     text = "nl";
                 }
-                if (ResDataPhoneFull.LANGUAGE == Language.LANG_BR)
+                if (LANGUAGE == Language.LANG_BR)
                 {
                     text = "br";
                 }
-                if (ResDataPhoneFull.LANGUAGE == Language.LANG_ES)
+                if (LANGUAGE == Language.LANG_ES)
                 {
                     text = "es";
                 }
-                if (ResDataPhoneFull.LANGUAGE == Language.LANG_ZH)
+                if (LANGUAGE == Language.LANG_ZH)
                 {
                     text = "zh";
                 }
-                if (ResDataPhoneFull.LANGUAGE == Language.LANG_KO)
+                if (LANGUAGE == Language.LANG_KO)
                 {
                     text = "ko";
                 }
-                if (ResDataPhoneFull.LANGUAGE == Language.LANG_JA)
+                if (LANGUAGE == Language.LANG_JA)
                 {
                     text = "ja";
                 }
@@ -148,7 +148,7 @@ namespace ctr_wp7.iframework.core
             {
                 NSString data2 = xmlnode3.data;
             }
-            FontGeneric fontGeneric = new Font().initWithVariableSizeCharscharMapFileKerning(data, (Texture2D)loadResource(resID, ResourceMgr.ResourceType.IMAGE), null);
+            FontGeneric fontGeneric = new Font().initWithVariableSizeCharscharMapFileKerning(data, (Texture2D)loadResource(resID, ResourceType.IMAGE), null);
             fontGeneric.setCharOffsetLineOffsetSpaceWidth((float)num, (float)num2, (float)num3);
             return fontGeneric;
         }
@@ -167,7 +167,7 @@ namespace ctr_wp7.iframework.core
             int num = i["filter"].intValue();
             bool flag = (num & 1) == 1;
             int num2 = i["format"].intValue();
-            string text = ResourceMgr.fullPathFromRelativePath(path);
+            string text = fullPathFromRelativePath(path);
             Texture2D texture2D = tryLoadTextureAsset(text, flag, num2);
             if (texture2D == null && isWvga && path.EndsWith("_hd", StringComparison.OrdinalIgnoreCase))
             {
@@ -180,7 +180,7 @@ namespace ctr_wp7.iframework.core
                     num = i["filter"].intValue();
                     flag = (num & 1) == 1;
                     num2 = i["format"].intValue();
-                    text = ResourceMgr.fullPathFromRelativePath(path);
+                    text = fullPathFromRelativePath(path);
                     isWvga = false;
                     scaleX = 1f;
                     scaleY = 1f;
@@ -221,7 +221,7 @@ namespace ctr_wp7.iframework.core
         {
             Texture2D.setAntiAliasTexParameters();
             Texture2D texture2D = new Texture2D().initWithPath(path, false);
-            if (FrameworkTypes.IS_WVGA)
+            if (IS_WVGA)
             {
                 texture2D.setWvga();
             }
@@ -232,7 +232,7 @@ namespace ctr_wp7.iframework.core
         // Token: 0x0600033E RID: 830 RVA: 0x00014C80 File Offset: 0x00012E80
         public virtual void setTextureInfo(Texture2D t, XMLNode i, bool isWvga, float scaleX, float scaleY)
         {
-            t.preCutSize = MathHelper.vectUndefined;
+            t.preCutSize = vectUndefined;
             XMLNode xmlnode = i.findChildWithTagNameRecursively("quads", false);
             if (xmlnode != null)
             {
@@ -259,11 +259,11 @@ namespace ctr_wp7.iframework.core
                         array2[k] = list2[k].floatValue();
                     }
                     setOffsetsInfo(t, array2, list2.Count, scaleX, scaleY);
-                    XMLNode xmlnode3 = i.findChildWithTagNameRecursively(NSObject.NSS("preCutWidth"), false);
-                    XMLNode xmlnode4 = i.findChildWithTagNameRecursively(NSObject.NSS("preCutHeight"), false);
+                    XMLNode xmlnode3 = i.findChildWithTagNameRecursively(NSS("preCutWidth"), false);
+                    XMLNode xmlnode4 = i.findChildWithTagNameRecursively(NSS("preCutHeight"), false);
                     if (xmlnode3 != null && xmlnode4 != null)
                     {
-                        t.preCutSize = MathHelper.vect((float)xmlnode3.data.intValue(), (float)xmlnode4.data.intValue());
+                        t.preCutSize = vect((float)xmlnode3.data.intValue(), (float)xmlnode4.data.intValue());
                         if (isWvga)
                         {
                             t.preCutSize.x = t.preCutSize.x / 1.5f;
@@ -277,7 +277,7 @@ namespace ctr_wp7.iframework.core
         // Token: 0x0600033F RID: 831 RVA: 0x00014E08 File Offset: 0x00013008
         private static string fullPathFromRelativePath(string relPath)
         {
-            return ResDataPhoneFull.ContentFolder + relPath;
+            return ContentFolder + relPath;
         }
 
         // Token: 0x06000340 RID: 832 RVA: 0x00014E18 File Offset: 0x00013018
@@ -289,10 +289,10 @@ namespace ctr_wp7.iframework.core
             for (int i = 0; i < num; i++)
             {
                 int num3 = i * 4;
-                Rectangle rectangle = FrameworkTypes.MakeRectangle(data[num3], data[num3 + 1], data[num3 + 2], data[num3 + 3]);
+                Rectangle rectangle = MakeRectangle(data[num3], data[num3 + 1], data[num3 + 2], data[num3 + 3]);
                 if ((float)num2 < rectangle.h + rectangle.y)
                 {
-                    num2 = (int)MathHelper.ceil((double)(rectangle.h + rectangle.y));
+                    num2 = (int)ceil((double)(rectangle.h + rectangle.y));
                 }
                 rectangle.x /= scaleX;
                 rectangle.y /= scaleY;
@@ -412,7 +412,7 @@ namespace ctr_wp7.iframework.core
         {
             if (resourcesDelegate != null)
             {
-                Timer = NSTimer.schedule(new DelayedDispatcher.DispatchFunc(ResourceMgr.rmgr_internalUpdate), this, 0.022222223f);
+                Timer = NSTimer.schedule(new DelayedDispatcher.DispatchFunc(rmgr_internalUpdate), this, 0.022222223f);
             }
             bUseFake = loadQueue.Count < 100;
         }
@@ -476,12 +476,12 @@ namespace ctr_wp7.iframework.core
                     Application.sharedSoundMgr().LoadMusic(resId);
                     return;
                 }
-                if (ResDataPhoneFull.isSound(resId))
+                if (isSound(resId))
                 {
                     Application.sharedSoundMgr().getSound(resId);
                     return;
                 }
-                if (ResDataPhoneFull.isFont(resId))
+                if (isFont(resId))
                 {
                     Application.getFont(resId);
                     return;
@@ -502,7 +502,7 @@ namespace ctr_wp7.iframework.core
                 xmlStrings = null;
                 return;
             }
-            if (ResDataPhoneFull.isSound(resId))
+            if (isSound(resId))
             {
                 Application.sharedSoundMgr().freeSound(resId);
                 return;

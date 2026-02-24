@@ -18,7 +18,7 @@ namespace ctr_wp7.remotedata.cartoons
             ImageDownloader.setListener(this);
             protocolVersion = 2;
             serverUrl = "http://vps.zeptolab.com/feeder/episodes?";
-            object obj = base.readObject("BlockConfig", typeof(BlockConfig));
+            object obj = readObject("BlockConfig", typeof(BlockConfig));
             if (obj == null)
             {
                 blockConfig = new BlockConfig();
@@ -48,7 +48,7 @@ namespace ctr_wp7.remotedata.cartoons
                     linkBuilder.put("hash", blockConfig.hash);
                 }
                 injectSizes(linkBuilder, resolution);
-                ServerDataManager.injectAdditionalParameters(linkBuilder);
+                injectAdditionalParameters(linkBuilder);
                 string text = linkBuilder.ToString();
                 HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(new Uri(text));
                 httpWebRequest.BeginGetResponse(delegate (IAsyncResult r)
@@ -85,7 +85,7 @@ namespace ctr_wp7.remotedata.cartoons
         {
             if (!execution && !ImageDownloader.isBusy())
             {
-                base.removeObject("BlockConfig");
+                removeObject("BlockConfig");
                 blockConfig = new BlockConfig();
                 success = false;
             }
@@ -131,7 +131,7 @@ namespace ctr_wp7.remotedata.cartoons
             bool flag = false;
             try
             {
-                flag = base.saveBytes(Convert.FromBase64String(data), block.getName());
+                flag = saveBytes(Convert.FromBase64String(data), block.getName());
             }
             catch (Exception)
             {
@@ -146,7 +146,7 @@ namespace ctr_wp7.remotedata.cartoons
         // Token: 0x06000364 RID: 868 RVA: 0x000159B0 File Offset: 0x00013BB0
         protected void saveBlockConfig()
         {
-            base.saveObject(blockConfig, "BlockConfig");
+            saveObject(blockConfig, "BlockConfig");
         }
 
         // Token: 0x06000365 RID: 869 RVA: 0x000159C4 File Offset: 0x00013BC4

@@ -65,7 +65,7 @@ namespace ctr_wp7.iframework.visual
         {
             quads[n] = GLDrawer.getTextureCoordinates(this, rect);
             quadRects[n] = rect;
-            quadOffsets[n] = MathHelper.vectZero;
+            quadOffsets[n] = vectZero;
         }
 
         // Token: 0x06000257 RID: 599 RVA: 0x0000F4B1 File Offset: 0x0000D6B1
@@ -164,16 +164,16 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x0600025E RID: 606 RVA: 0x0000F786 File Offset: 0x0000D986
         public virtual void reg()
         {
-            prev = Texture2D.tail;
+            prev = tail;
             if (prev != null)
             {
                 prev.next = this;
             }
             else
             {
-                Texture2D.root = this;
+                root = this;
             }
-            Texture2D.tail = this;
+            tail = this;
         }
 
         // Token: 0x0600025F RID: 607 RVA: 0x0000F7B8 File Offset: 0x0000D9B8
@@ -185,7 +185,7 @@ namespace ctr_wp7.iframework.visual
             }
             else
             {
-                Texture2D.root = next;
+                root = next;
             }
             if (next != null)
             {
@@ -193,7 +193,7 @@ namespace ctr_wp7.iframework.visual
             }
             else
             {
-                Texture2D.tail = prev;
+                tail = prev;
             }
             next = (prev = null);
         }
@@ -207,7 +207,7 @@ namespace ctr_wp7.iframework.visual
             }
             _resName = path;
             _name = 65536U;
-            _localTexParams = Texture2D._texParams;
+            _localTexParams = _texParams;
             reg();
             if (assets)
             {
@@ -251,12 +251,12 @@ namespace ctr_wp7.iframework.visual
         private void imageLoaded(int w, int h)
         {
             _lowypoint = h;
-            int num = Texture2D.calcRealSize(w);
-            int num2 = Texture2D.calcRealSize(h);
+            int num = calcRealSize(w);
+            int num2 = calcRealSize(h);
             _size = new Vector((float)num, (float)num2);
             _width = (uint)num;
             _height = (uint)num2;
-            _format = Texture2D._defaultAlphaPixelFormat;
+            _format = _defaultAlphaPixelFormat;
             _maxS = (float)w / (float)num;
             _maxT = (float)h / (float)num2;
             _hasPremultipliedAlpha = true;
@@ -270,7 +270,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x06000264 RID: 612 RVA: 0x0000FA15 File Offset: 0x0000DC15
         public static void setDefaultAlphaPixelFormat(Texture2D.Texture2DPixelFormat format)
         {
-            Texture2D._defaultAlphaPixelFormat = format;
+            _defaultAlphaPixelFormat = format;
         }
 
         // Token: 0x06000265 RID: 613 RVA: 0x0000FA1D File Offset: 0x0000DC1D
@@ -287,7 +287,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x06000267 RID: 615 RVA: 0x0000FA2C File Offset: 0x0000DC2C
         public static void suspendAll()
         {
-            for (Texture2D texture2D = Texture2D.root; texture2D != null; texture2D = texture2D.next)
+            for (Texture2D texture2D = root; texture2D != null; texture2D = texture2D.next)
             {
                 texture2D.suspend();
             }
@@ -296,7 +296,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x06000268 RID: 616 RVA: 0x0000FA54 File Offset: 0x0000DC54
         public static void resumeAll()
         {
-            for (Texture2D texture2D = Texture2D.root; texture2D != null; texture2D = texture2D.next)
+            for (Texture2D texture2D = root; texture2D != null; texture2D = texture2D.next)
             {
                 texture2D.resume();
             }
@@ -311,10 +311,10 @@ namespace ctr_wp7.iframework.visual
             }
             _name = 65536U;
             _lowypoint = -1;
-            _localTexParams = Texture2D._defaultTexParams;
+            _localTexParams = _defaultTexParams;
             reg();
-            int num = Texture2D.calcRealSize(w);
-            int num2 = Texture2D.calcRealSize(h);
+            int num = calcRealSize(w);
+            int num2 = calcRealSize(h);
             RenderTarget2D renderTarget2D = new RenderTarget2D(WP7Singletons.GraphicsDevice, WP7Singletons.GraphicsDevice.PresentationParameters.BackBufferWidth, WP7Singletons.GraphicsDevice.PresentationParameters.BackBufferHeight, false, SurfaceFormat.Color, DepthFormat.None);
             float transitionTime = Application.sharedRootController().transitionTime;
             Application.sharedRootController().transitionTime = -1f;
@@ -323,7 +323,7 @@ namespace ctr_wp7.iframework.visual
             WP7Singletons.GraphicsDevice.SetRenderTarget(null);
             Application.sharedRootController().transitionTime = transitionTime;
             xnaTexture_ = renderTarget2D;
-            _format = Texture2D.Texture2DPixelFormat.kTexture2DPixelFormat_RGBA8888;
+            _format = Texture2DPixelFormat.kTexture2DPixelFormat_RGBA8888;
             _size = new Vector((float)num, (float)num2);
             _width = (uint)num;
             _height = (uint)num2;
@@ -354,7 +354,7 @@ namespace ctr_wp7.iframework.visual
                 return null;
             }
             _name = 65536U;
-            _localTexParams = Texture2D._texParams;
+            _localTexParams = _texParams;
             reg();
             xnaTexture_ = texture;
             if (xnaTexture_ == null)
@@ -377,7 +377,7 @@ namespace ctr_wp7.iframework.visual
             }
             _resName = path;
             _name = 65536U;
-            _localTexParams = Texture2D._texParams;
+            _localTexParams = _texParams;
             reg();
             xnaTexture_ = null;
             try
@@ -501,10 +501,10 @@ namespace ctr_wp7.iframework.visual
         private Texture2D prev;
 
         // Token: 0x0400085A RID: 2138
-        public static Texture2D.Texture2DPixelFormat kTexture2DPixelFormat_Default = Texture2D.Texture2DPixelFormat.kTexture2DPixelFormat_RGBA8888;
+        public static Texture2D.Texture2DPixelFormat kTexture2DPixelFormat_Default = Texture2DPixelFormat.kTexture2DPixelFormat_RGBA8888;
 
         // Token: 0x0400085B RID: 2139
-        private static Texture2D.Texture2DPixelFormat _defaultAlphaPixelFormat = Texture2D.kTexture2DPixelFormat_Default;
+        private static Texture2D.Texture2DPixelFormat _defaultAlphaPixelFormat = kTexture2DPixelFormat_Default;
 
         // Token: 0x0200004B RID: 75
         public enum Texture2DPixelFormat

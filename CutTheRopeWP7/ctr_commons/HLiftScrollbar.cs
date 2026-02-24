@@ -19,9 +19,9 @@ namespace ctr_wp7.ctr_commons
             if (base.initWithTexture(Application.getTexture(resID)) != null)
             {
                 setDrawQuad(bq);
-                Image image = Image.Image_createWithResIDQuad(resID, lq);
-                Image image2 = Image.Image_createWithResIDQuad(resID, lqp);
-                Vector relativeQuadOffset = Image.getRelativeQuadOffset(resID, lq, lqp);
+                Image image = Image_createWithResIDQuad(resID, lq);
+                Image image2 = Image_createWithResIDQuad(resID, lqp);
+                Vector relativeQuadOffset = getRelativeQuadOffset(resID, lq, lqp);
                 image2.x += relativeQuadOffset.x;
                 image2.y += relativeQuadOffset.y;
                 lift = (Lift)new Lift().initWithUpElementDownElementandID(image, image2, 0);
@@ -127,7 +127,7 @@ namespace ctr_wp7.ctr_commons
         public override bool onTouchUpXY(float tx, float ty)
         {
             bool flag = base.onTouchUpXY(tx, ty);
-            container.startMovingToSpointInDirection(MathHelper.vectZero);
+            container.startMovingToSpointInDirection(vectZero);
             return flag;
         }
 
@@ -135,7 +135,7 @@ namespace ctr_wp7.ctr_commons
         public void percentXY(float px, float py)
         {
             Vector maxScroll = container.getMaxScroll();
-            container.setScroll(MathHelper.vect(maxScroll.x * px, maxScroll.y * py));
+            container.setScroll(vect(maxScroll.x * px, maxScroll.y * py));
         }
 
         // Token: 0x0600087B RID: 2171 RVA: 0x0004BF2C File Offset: 0x0004A12C
@@ -170,7 +170,7 @@ namespace ctr_wp7.ctr_commons
             limitPoints = new int[spointsNum];
             for (int i = 0; i < spointsNum; i++)
             {
-                Vector vector = MathHelper.vectNeg(container.getScrollPoint(i));
+                Vector vector = vectNeg(container.getScrollPoint(i));
                 float num = 0f;
                 float num2 = 0f;
                 if (maxScroll.x != 0f)
@@ -183,7 +183,7 @@ namespace ctr_wp7.ctr_commons
                 }
                 float num3 = (lift.maxX - lift.minX) * num + lift.minX;
                 float num4 = (lift.maxY - lift.minY) * num2 + lift.minY;
-                spoints[i] = MathHelper.vect(num3, num4);
+                spoints[i] = vect(num3, num4);
             }
             for (int j = 0; j < spointsNum; j++)
             {

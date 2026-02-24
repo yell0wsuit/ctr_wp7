@@ -36,7 +36,7 @@ namespace ctr_wp7.game
         // Token: 0x06000424 RID: 1060 RVA: 0x0001D286 File Offset: 0x0001B486
         public virtual void setMapName(NSString map)
         {
-            NSObject.NSREL(mapName);
+            NSREL(mapName);
             mapName = map;
         }
 
@@ -66,11 +66,11 @@ namespace ctr_wp7.game
                 loadedMap = null;
                 ResourceMgr resourceMgr = Application.sharedResourceMgr();
                 resourceMgr.initLoading();
-                resourceMgr.loadPack(ResDataPhoneFull.PACK_STARTUP);
+                resourceMgr.loadPack(PACK_STARTUP);
                 resourceMgr.loadImmediately();
                 StartupController startupController = (StartupController)new StartupController().initWithParent(this);
                 addChildwithID(startupController, 0);
-                NSObject.NSREL(startupController);
+                NSREL(startupController);
                 viewTransition = -1;
             }
             return this;
@@ -93,7 +93,7 @@ namespace ctr_wp7.game
         {
             ResourceMgr resourceMgr = Application.sharedResourceMgr();
             deleteChild(1);
-            resourceMgr.freePack(ResDataPhoneFull.PACK_MENU);
+            resourceMgr.freePack(PACK_MENU);
             GC.Collect();
         }
 
@@ -126,20 +126,20 @@ namespace ctr_wp7.game
         // Token: 0x0600042F RID: 1071 RVA: 0x0001D3B0 File Offset: 0x0001B5B0
         private void initMenu(ResourceMgr rm)
         {
-            FrameworkTypes._LOG("start deactivating");
-            if (FrameworkTypes.IS_WVGA)
+            _LOG("start deactivating");
+            if (IS_WVGA)
             {
                 setViewTransition(4);
             }
             LoadingController loadingController = (LoadingController)new LoadingController().initWithParent(this);
             addChildwithID(loadingController, 2);
-            FrameworkTypes._LOG("start deactivating2");
-            FrameworkTypes._LOG("start deactivating3");
+            _LOG("start deactivating2");
+            _LOG("start deactivating3");
             MenuController menuController = (MenuController)new MenuController().initWithParent(this);
             addChildwithID(menuController, 1);
-            FrameworkTypes._LOG("start deactivating4");
+            _LOG("start deactivating4");
             deleteChild(0);
-            rm.freePack(ResDataPhoneFull.PACK_STARTUP);
+            rm.freePack(PACK_STARTUP);
             menuController.viewToShow = MenuController.ViewID.VIEW_MAIN_MENU;
             if (Preferences._getBooleanForKey("PREFS_GAME_CENTER_ENABLED"))
             {
@@ -151,9 +151,9 @@ namespace ctr_wp7.game
             }
             if (Preferences._getBooleanForKey("IAP_BANNERS"))
             {
-                FrameworkTypes.AndroidAPI.disableBanners();
+                AndroidAPI.disableBanners();
             }
-            FrameworkTypes._LOG("activate child menu");
+            _LOG("activate child menu");
             activateChild(1);
             if (CTRPreferences.isFirstLaunch() && SaveMgr.isSaveAvailable())
             {
@@ -173,7 +173,7 @@ namespace ctr_wp7.game
                         bool flag = false;
                         if (flag)
                         {
-                            if (FrameworkTypes.IS_WVGA)
+                            if (IS_WVGA)
                             {
                                 setViewTransition(4);
                             }
@@ -193,51 +193,51 @@ namespace ctr_wp7.game
                         switch (pack)
                         {
                             case 0:
-                                array = ResDataPhoneFull.PACK_GAME_01;
+                                array = PACK_GAME_01;
                                 break;
                             case 1:
-                                array = ResDataPhoneFull.PACK_GAME_02;
+                                array = PACK_GAME_02;
                                 break;
                             case 2:
-                                array = ResDataPhoneFull.PACK_GAME_03;
+                                array = PACK_GAME_03;
                                 break;
                             case 3:
-                                array = ResDataPhoneFull.PACK_GAME_04;
+                                array = PACK_GAME_04;
                                 break;
                             case 4:
-                                array = ResDataPhoneFull.PACK_GAME_05;
+                                array = PACK_GAME_05;
                                 break;
                             case 5:
-                                array = ResDataPhoneFull.PACK_GAME_06;
+                                array = PACK_GAME_06;
                                 break;
                             case 6:
-                                array = ResDataPhoneFull.PACK_GAME_07;
+                                array = PACK_GAME_07;
                                 break;
                             case 7:
-                                array = ResDataPhoneFull.PACK_GAME_08;
+                                array = PACK_GAME_08;
                                 break;
                             case 8:
-                                array = ResDataPhoneFull.PACK_GAME_09;
+                                array = PACK_GAME_09;
                                 break;
                             case 9:
-                                array = ResDataPhoneFull.PACK_GAME_10;
+                                array = PACK_GAME_10;
                                 break;
                             case 10:
-                                array = ResDataPhoneFull.PACK_GAME_11;
+                                array = PACK_GAME_11;
                                 break;
                             case 11:
-                                array = ResDataPhoneFull.PACK_GAME_12;
+                                array = PACK_GAME_12;
                                 break;
                             case 12:
-                                array = ResDataPhoneFull.PACK_GAME_13;
+                                array = PACK_GAME_13;
                                 break;
                             case 13:
-                                array = ResDataPhoneFull.PACK_GAME_14;
+                                array = PACK_GAME_14;
                                 break;
                         }
                         resourceMgr.initLoading();
-                        resourceMgr.loadPack(ResDataPhoneFull.PACK_GAME);
-                        resourceMgr.loadPack(ResDataPhoneFull.PACK_GAME_NORMAL);
+                        resourceMgr.loadPack(PACK_GAME);
+                        resourceMgr.loadPack(PACK_GAME_NORMAL);
                         resourceMgr.loadPack(array);
                         resourceMgr.startLoading();
                         LoadingController loadingController = (LoadingController)getChild(2);
@@ -254,7 +254,7 @@ namespace ctr_wp7.game
                         {
                             case 0:
                                 {
-                                    CTRRootController.setShowGreeting(true);
+                                    setShowGreeting(true);
                                     GameController gameController = (GameController)new GameController().initWithParent(this);
                                     addChildwithID(gameController, 3);
                                     activateChild(3);
@@ -267,24 +267,24 @@ namespace ctr_wp7.game
                                 {
                                     MenuController menuController = (MenuController)new MenuController().initWithParent(this);
                                     addChildwithID(menuController, 1);
-                                    resourceMgr.freePack(ResDataPhoneFull.PACK_GAME_COVER_01);
-                                    resourceMgr.freePack(ResDataPhoneFull.PACK_GAME_COVER_02);
+                                    resourceMgr.freePack(PACK_GAME_COVER_01);
+                                    resourceMgr.freePack(PACK_GAME_COVER_02);
                                     if (!CTRPreferences.isLiteVersion())
                                     {
-                                        resourceMgr.freePack(ResDataPhoneFull.PACK_GAME_COVER_03);
-                                        resourceMgr.freePack(ResDataPhoneFull.PACK_GAME_COVER_04);
-                                        resourceMgr.freePack(ResDataPhoneFull.PACK_GAME_COVER_05);
-                                        resourceMgr.freePack(ResDataPhoneFull.PACK_GAME_COVER_06);
-                                        resourceMgr.freePack(ResDataPhoneFull.PACK_GAME_COVER_07);
-                                        resourceMgr.freePack(ResDataPhoneFull.PACK_GAME_COVER_08);
-                                        resourceMgr.freePack(ResDataPhoneFull.PACK_GAME_COVER_09);
-                                        resourceMgr.freePack(ResDataPhoneFull.PACK_GAME_COVER_10);
-                                        resourceMgr.freePack(ResDataPhoneFull.PACK_GAME_COVER_11);
-                                        resourceMgr.freePack(ResDataPhoneFull.PACK_GAME_COVER_12);
-                                        resourceMgr.freePack(ResDataPhoneFull.PACK_GAME_COVER_13);
-                                        resourceMgr.freePack(ResDataPhoneFull.PACK_GAME_COVER_14);
+                                        resourceMgr.freePack(PACK_GAME_COVER_03);
+                                        resourceMgr.freePack(PACK_GAME_COVER_04);
+                                        resourceMgr.freePack(PACK_GAME_COVER_05);
+                                        resourceMgr.freePack(PACK_GAME_COVER_06);
+                                        resourceMgr.freePack(PACK_GAME_COVER_07);
+                                        resourceMgr.freePack(PACK_GAME_COVER_08);
+                                        resourceMgr.freePack(PACK_GAME_COVER_09);
+                                        resourceMgr.freePack(PACK_GAME_COVER_10);
+                                        resourceMgr.freePack(PACK_GAME_COVER_11);
+                                        resourceMgr.freePack(PACK_GAME_COVER_12);
+                                        resourceMgr.freePack(PACK_GAME_COVER_13);
+                                        resourceMgr.freePack(PACK_GAME_COVER_14);
                                     }
-                                    if (FrameworkTypes.IS_WVGA)
+                                    if (IS_WVGA)
                                     {
                                         setViewTransition(4);
                                     }
@@ -331,28 +331,28 @@ namespace ctr_wp7.game
                             case 3:
                                 {
                                     deleteChild(3);
-                                    resourceMgr.freePack(ResDataPhoneFull.PACK_GAME);
-                                    resourceMgr.freePack(ResDataPhoneFull.PACK_GAME_NORMAL);
-                                    resourceMgr.freePack(ResDataPhoneFull.PACK_GAME_01);
-                                    resourceMgr.freePack(ResDataPhoneFull.PACK_GAME_02);
+                                    resourceMgr.freePack(PACK_GAME);
+                                    resourceMgr.freePack(PACK_GAME_NORMAL);
+                                    resourceMgr.freePack(PACK_GAME_01);
+                                    resourceMgr.freePack(PACK_GAME_02);
                                     if (!CTRPreferences.isLiteVersion())
                                     {
-                                        resourceMgr.freePack(ResDataPhoneFull.PACK_GAME_03);
-                                        resourceMgr.freePack(ResDataPhoneFull.PACK_GAME_04);
-                                        resourceMgr.freePack(ResDataPhoneFull.PACK_GAME_05);
-                                        resourceMgr.freePack(ResDataPhoneFull.PACK_GAME_06);
-                                        resourceMgr.freePack(ResDataPhoneFull.PACK_GAME_07);
-                                        resourceMgr.freePack(ResDataPhoneFull.PACK_GAME_08);
-                                        resourceMgr.freePack(ResDataPhoneFull.PACK_GAME_09);
-                                        resourceMgr.freePack(ResDataPhoneFull.PACK_GAME_10);
-                                        resourceMgr.freePack(ResDataPhoneFull.PACK_GAME_11);
-                                        resourceMgr.freePack(ResDataPhoneFull.PACK_GAME_12);
-                                        resourceMgr.freePack(ResDataPhoneFull.PACK_GAME_13);
-                                        resourceMgr.freePack(ResDataPhoneFull.PACK_GAME_14);
+                                        resourceMgr.freePack(PACK_GAME_03);
+                                        resourceMgr.freePack(PACK_GAME_04);
+                                        resourceMgr.freePack(PACK_GAME_05);
+                                        resourceMgr.freePack(PACK_GAME_06);
+                                        resourceMgr.freePack(PACK_GAME_07);
+                                        resourceMgr.freePack(PACK_GAME_08);
+                                        resourceMgr.freePack(PACK_GAME_09);
+                                        resourceMgr.freePack(PACK_GAME_10);
+                                        resourceMgr.freePack(PACK_GAME_11);
+                                        resourceMgr.freePack(PACK_GAME_12);
+                                        resourceMgr.freePack(PACK_GAME_13);
+                                        resourceMgr.freePack(PACK_GAME_14);
                                     }
                                     resourceMgr.resourcesDelegate = (LoadingController)getChild(2);
                                     resourceMgr.initLoading();
-                                    resourceMgr.loadPack(ResDataPhoneFull.PACK_MENU);
+                                    resourceMgr.loadPack(PACK_MENU);
                                     resourceMgr.startLoading();
                                     LoadingController loadingController3 = (LoadingController)getChild(2);
                                     if (exitCode == 0)
@@ -402,16 +402,16 @@ namespace ctr_wp7.game
         public static void checkMapIsValid(char[] data)
         {
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
-            NSString md = ctr_wp7.iframework.helpers.MathHelper.getMD5(data);
+            NSString md = getMD5(data);
             int num = ctrrootController.getPack();
             int num2 = ctrrootController.getLevel();
             if (!md.isEqualToString(LevelsList.LEVEL_HASHES[num, num2]))
             {
-                CTRRootController.setHacked();
-                FrameworkTypes._LOG("Map is hacked");
+                setHacked();
+                _LOG("Map is hacked");
                 return;
             }
-            FrameworkTypes._LOG("Map is not hacked");
+            _LOG("Map is not hacked");
         }
 
         // Token: 0x06000433 RID: 1075 RVA: 0x0001D9E0 File Offset: 0x0001BBE0

@@ -41,8 +41,8 @@ namespace ctr_wp7.iframework.visual
             {
                 rows = r;
                 columns = c;
-                cameraViewWidth = (int)FrameworkTypes.SCREEN_WIDTH_EXPANDED;
-                cameraViewHeight = (int)FrameworkTypes.SCREEN_HEIGHT_EXPANDED;
+                cameraViewWidth = (int)SCREEN_WIDTH_EXPANDED;
+                cameraViewHeight = (int)SCREEN_HEIGHT_EXPANDED;
                 parallaxRatio = 1f;
                 drawers = new List<ImageMultiDrawer>();
                 tiles = new Dictionary<int, TileEntry>();
@@ -54,12 +54,12 @@ namespace ctr_wp7.iframework.visual
                         matrix[i, j] = -1;
                     }
                 }
-                repeatedVertically = TileMap.Repeat.REPEAT_NONE;
-                repeatedHorizontally = TileMap.Repeat.REPEAT_NONE;
+                repeatedVertically = Repeat.REPEAT_NONE;
+                repeatedHorizontally = Repeat.REPEAT_NONE;
                 horizontalRandom = false;
                 verticalRandom = false;
                 restoreTileTransparency = true;
-                randomSeed = MathHelper.RND_RANGE(1000, 2000);
+                randomSeed = RND_RANGE(1000, 2000);
             }
             return this;
         }
@@ -148,7 +148,7 @@ namespace ctr_wp7.iframework.visual
             float num2 = (float)Math.Round((double)(pos.y / parallaxRatio));
             float num3 = x;
             float num4 = y;
-            if (repeatedVertically != TileMap.Repeat.REPEAT_NONE)
+            if (repeatedVertically != Repeat.REPEAT_NONE)
             {
                 float num5 = num4 - num2;
                 int num6 = (int)num5 % tileMapHeight;
@@ -161,7 +161,7 @@ namespace ctr_wp7.iframework.visual
                     num4 = (float)(num6 - tileMapHeight) + num2;
                 }
             }
-            if (repeatedHorizontally != TileMap.Repeat.REPEAT_NONE)
+            if (repeatedHorizontally != Repeat.REPEAT_NONE)
             {
                 float num7 = num3 - num;
                 int num8 = (int)num7 % tileMapWidth;
@@ -174,15 +174,15 @@ namespace ctr_wp7.iframework.visual
                     num3 = (float)(num8 - tileMapWidth) + num;
                 }
             }
-            if (!MathHelper.rectInRect(num, num2, num + (float)cameraViewWidth, num2 + (float)cameraViewHeight, num3, num4, num3 + (float)tileMapWidth, num4 + (float)tileMapHeight))
+            if (!rectInRect(num, num2, num + (float)cameraViewWidth, num2 + (float)cameraViewHeight, num3, num4, num3 + (float)tileMapWidth, num4 + (float)tileMapHeight))
             {
                 return;
             }
-            Rectangle rectangle = MathHelper.rectInRectIntersection(new Rectangle(num3, num4, (float)tileMapWidth, (float)tileMapHeight), new Rectangle(num, num2, (float)cameraViewWidth, (float)cameraViewHeight));
-            Vector vector = MathHelper.vect(Math.Max(0f, rectangle.x), Math.Max(0f, rectangle.y));
-            Vector vector2 = MathHelper.vect((float)((int)vector.x / tileWidth), (float)((int)vector.y / tileHeight));
+            Rectangle rectangle = rectInRectIntersection(new Rectangle(num3, num4, (float)tileMapWidth, (float)tileMapHeight), new Rectangle(num, num2, (float)cameraViewWidth, (float)cameraViewHeight));
+            Vector vector = vect(Math.Max(0f, rectangle.x), Math.Max(0f, rectangle.y));
+            Vector vector2 = vect((float)((int)vector.x / tileWidth), (float)((int)vector.y / tileHeight));
             float num9 = num4 + vector2.y * (float)tileHeight;
-            Vector vector3 = MathHelper.vect(num3 + vector2.x * (float)tileWidth, num9);
+            Vector vector3 = vect(num3 + vector2.x * (float)tileWidth, num9);
             int count = drawers.Count;
             for (int i = 0; i < count; i++)
             {
@@ -194,11 +194,11 @@ namespace ctr_wp7.iframework.visual
             }
             int num10 = (int)(vector2.x + (float)maxColsOnScreen - 1f);
             int num11 = (int)(vector2.y + (float)maxRowsOnScreen - 1f);
-            if (repeatedVertically == TileMap.Repeat.REPEAT_NONE)
+            if (repeatedVertically == Repeat.REPEAT_NONE)
             {
                 num11 = Math.Min(rows - 1, num11);
             }
-            if (repeatedHorizontally == TileMap.Repeat.REPEAT_NONE)
+            if (repeatedHorizontally == Repeat.REPEAT_NONE)
             {
                 num10 = Math.Min(columns - 1, num10);
             }
@@ -208,11 +208,11 @@ namespace ctr_wp7.iframework.visual
                 int num12 = (int)vector2.y;
                 while (num12 <= num11 && vector3.y < num2 + (float)cameraViewHeight)
                 {
-                    Rectangle rectangle2 = MathHelper.rectInRectIntersection(new Rectangle(num, num2, (float)cameraViewWidth, (float)cameraViewHeight), new Rectangle(vector3.x, vector3.y, (float)tileWidth, (float)tileHeight));
+                    Rectangle rectangle2 = rectInRectIntersection(new Rectangle(num, num2, (float)cameraViewWidth, (float)cameraViewHeight), new Rectangle(vector3.x, vector3.y, (float)tileWidth, (float)tileHeight));
                     Rectangle rectangle3 = new Rectangle(num - vector3.x + rectangle2.x, num2 - vector3.y + rectangle2.y, rectangle2.w, rectangle2.h);
                     int num13 = j;
                     int num14 = num12;
-                    if (repeatedVertically == TileMap.Repeat.REPEAT_EDGES)
+                    if (repeatedVertically == Repeat.REPEAT_EDGES)
                     {
                         if (vector3.y < y)
                         {
@@ -223,7 +223,7 @@ namespace ctr_wp7.iframework.visual
                             num14 = rows - 1;
                         }
                     }
-                    if (repeatedHorizontally == TileMap.Repeat.REPEAT_EDGES)
+                    if (repeatedHorizontally == Repeat.REPEAT_EDGES)
                     {
                         if (vector3.x < x)
                         {
@@ -236,12 +236,12 @@ namespace ctr_wp7.iframework.visual
                     }
                     if (horizontalRandom)
                     {
-                        float num15 = MathHelper.fmSin(vector3.x) * (float)randomSeed;
+                        float num15 = fmSin(vector3.x) * (float)randomSeed;
                         num13 = Math.Abs((int)num15 % columns);
                     }
                     if (verticalRandom)
                     {
-                        float num16 = MathHelper.fmSin(vector3.y) * (float)randomSeed;
+                        float num16 = fmSin(vector3.y) * (float)randomSeed;
                         num14 = Math.Abs((int)num16 % rows);
                     }
                     if (num13 >= columns)
@@ -283,11 +283,11 @@ namespace ctr_wp7.iframework.visual
         {
             maxColsOnScreen = 2 + (int)Math.Floor((double)(cameraViewWidth / (tileWidth + 1)));
             maxRowsOnScreen = 2 + (int)Math.Floor((double)(cameraViewHeight / (tileHeight + 1)));
-            if (repeatedVertically == TileMap.Repeat.REPEAT_NONE)
+            if (repeatedVertically == Repeat.REPEAT_NONE)
             {
                 maxRowsOnScreen = Math.Min(maxRowsOnScreen, rows);
             }
-            if (repeatedHorizontally == TileMap.Repeat.REPEAT_NONE)
+            if (repeatedHorizontally == Repeat.REPEAT_NONE)
             {
                 maxColsOnScreen = Math.Min(maxColsOnScreen, columns);
             }

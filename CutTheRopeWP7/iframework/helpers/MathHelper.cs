@@ -48,19 +48,19 @@ namespace ctr_wp7.iframework.helpers
         // Token: 0x06000011 RID: 17 RVA: 0x00004730 File Offset: 0x00002930
         public static int RND(int n)
         {
-            return MathHelper.RND_RANGE(0, n);
+            return RND_RANGE(0, n);
         }
 
         // Token: 0x06000012 RID: 18 RVA: 0x00004739 File Offset: 0x00002939
         public static int RND_RANGE(int n, int m)
         {
-            return MathHelper.random_.Next(n, m + 1);
+            return random_.Next(n, m + 1);
         }
 
         // Token: 0x06000013 RID: 19 RVA: 0x00004749 File Offset: 0x00002949
         public static uint arc4random()
         {
-            return (uint)MathHelper.random_.Next(int.MinValue, int.MaxValue);
+            return (uint)random_.Next(int.MinValue, int.MaxValue);
         }
 
         // Token: 0x17000001 RID: 1
@@ -69,7 +69,7 @@ namespace ctr_wp7.iframework.helpers
         {
             get
             {
-                return (float)(MathHelper.arc4random() / (double)MathHelper.ARC4RANDOM_MAX * 2.0 - 1.0);
+                return (float)(arc4random() / (double)ARC4RANDOM_MAX * 2.0 - 1.0);
             }
         }
 
@@ -79,14 +79,14 @@ namespace ctr_wp7.iframework.helpers
         {
             get
             {
-                return (float)(MathHelper.arc4random() / (double)MathHelper.ARC4RANDOM_MAX);
+                return (float)(arc4random() / (double)ARC4RANDOM_MAX);
             }
         }
 
         // Token: 0x06000016 RID: 22 RVA: 0x00004795 File Offset: 0x00002995
         public static float FIT_TO_BOUNDARIES(double V, double MINV, double MAXV)
         {
-            return MathHelper.FIT_TO_BOUNDARIES((float)V, (float)MINV, (float)MAXV);
+            return FIT_TO_BOUNDARIES((float)V, (float)MINV, (float)MAXV);
         }
 
         // Token: 0x06000017 RID: 23 RVA: 0x000047A2 File Offset: 0x000029A2
@@ -134,20 +134,20 @@ namespace ctr_wp7.iframework.helpers
         // Token: 0x0600001E RID: 30 RVA: 0x000047EC File Offset: 0x000029EC
         public static void fmInit()
         {
-            if (MathHelper.fmSins == null)
+            if (fmSins == null)
             {
-                MathHelper.fmSins = new float[1024];
+                fmSins = new float[1024];
                 for (int i = 0; i < 1024; i++)
                 {
-                    MathHelper.fmSins[i] = (float)Math.Sin((double)(i * 2) * 3.141592653589793 / 1024.0);
+                    fmSins[i] = (float)Math.Sin((double)(i * 2) * 3.141592653589793 / 1024.0);
                 }
             }
-            if (MathHelper.fmCoss == null)
+            if (fmCoss == null)
             {
-                MathHelper.fmCoss = new float[1024];
+                fmCoss = new float[1024];
                 for (int j = 0; j < 1024; j++)
                 {
-                    MathHelper.fmCoss[j] = (float)Math.Cos((double)(j * 2) * 3.141592653589793 / 1024.0);
+                    fmCoss[j] = (float)Math.Cos((double)(j * 2) * 3.141592653589793 / 1024.0);
                 }
             }
         }
@@ -157,7 +157,7 @@ namespace ctr_wp7.iframework.helpers
         {
             int num = (int)((double)(angle * 1024f) / 3.141592653589793 / 2.0);
             num &= 1023;
-            return MathHelper.fmSins[num];
+            return fmSins[num];
         }
 
         // Token: 0x06000020 RID: 32 RVA: 0x000048CC File Offset: 0x00002ACC
@@ -165,7 +165,7 @@ namespace ctr_wp7.iframework.helpers
         {
             int num = (int)((double)(angle * 1024f) / 3.141592653589793 / 2.0);
             num &= 1023;
-            return MathHelper.fmCoss[num];
+            return fmCoss[num];
         }
 
         // Token: 0x06000021 RID: 33 RVA: 0x00004906 File Offset: 0x00002B06
@@ -199,7 +199,7 @@ namespace ctr_wp7.iframework.helpers
             array2[1] = tr2;
             array2[2] = br2;
             array2[3] = bl2;
-            return MathHelper.overlaps1Way(array, array2) && MathHelper.overlaps1Way(array2, array);
+            return overlaps1Way(array, array2) && overlaps1Way(array2, array);
         }
 
         // Token: 0x06000025 RID: 37 RVA: 0x000049FD File Offset: 0x00002BFD
@@ -219,21 +219,21 @@ namespace ctr_wp7.iframework.helpers
         {
             Vector[] array = new Vector[2];
             float[] array2 = new float[2];
-            array[0] = MathHelper.vectSub(corner[1], corner[0]);
-            array[1] = MathHelper.vectSub(corner[3], corner[0]);
+            array[0] = vectSub(corner[1], corner[0]);
+            array[1] = vectSub(corner[3], corner[0]);
             for (int i = 0; i < 2; i++)
             {
-                array[i] = MathHelper.vectDiv(array[i], MathHelper.vectLengthsq(array[i]));
-                array2[i] = MathHelper.vectDot(corner[0], array[i]);
+                array[i] = vectDiv(array[i], vectLengthsq(array[i]));
+                array2[i] = vectDot(corner[0], array[i]);
             }
             for (int j = 0; j < 2; j++)
             {
-                float num = MathHelper.vectDot(other[0], array[j]);
+                float num = vectDot(other[0], array[j]);
                 float num2 = num;
                 float num3 = num;
                 for (int k = 1; k < 4; k++)
                 {
-                    num = MathHelper.vectDot(other[k], array[j]);
+                    num = vectDot(other[k], array[j]);
                     if (num < num2)
                     {
                         num2 = num;
@@ -296,7 +296,7 @@ namespace ctr_wp7.iframework.helpers
         // Token: 0x0600002A RID: 42 RVA: 0x00004CCA File Offset: 0x00002ECA
         public static Vector vect(double x, double y)
         {
-            return MathHelper.vect((float)x, (float)y);
+            return vect((float)x, (float)y);
         }
 
         // Token: 0x0600002B RID: 43 RVA: 0x00004CD5 File Offset: 0x00002ED5
@@ -320,7 +320,7 @@ namespace ctr_wp7.iframework.helpers
         // Token: 0x0600002E RID: 46 RVA: 0x00004D37 File Offset: 0x00002F37
         public static Vector vectAdd(Vector v1, Vector v2)
         {
-            return MathHelper.vect(v1.x + v2.x, v1.y + v2.y);
+            return vect(v1.x + v2.x, v1.y + v2.y);
         }
 
         // Token: 0x0600002F RID: 47 RVA: 0x00004D5C File Offset: 0x00002F5C
@@ -333,13 +333,13 @@ namespace ctr_wp7.iframework.helpers
         // Token: 0x06000030 RID: 48 RVA: 0x00004D86 File Offset: 0x00002F86
         public static Vector vectNeg(Vector v)
         {
-            return MathHelper.vect(-v.x, -v.y);
+            return vect(-v.x, -v.y);
         }
 
         // Token: 0x06000031 RID: 49 RVA: 0x00004D9D File Offset: 0x00002F9D
         public static Vector vectSub(Vector v1, Vector v2)
         {
-            return MathHelper.vect(v1.x - v2.x, v1.y - v2.y);
+            return vect(v1.x - v2.x, v1.y - v2.y);
         }
 
         // Token: 0x06000032 RID: 50 RVA: 0x00004DC2 File Offset: 0x00002FC2
@@ -352,19 +352,19 @@ namespace ctr_wp7.iframework.helpers
         // Token: 0x06000033 RID: 51 RVA: 0x00004DEC File Offset: 0x00002FEC
         public static Vector vectMult(Vector v, double s)
         {
-            return MathHelper.vectMult(v, (float)s);
+            return vectMult(v, (float)s);
         }
 
         // Token: 0x06000034 RID: 52 RVA: 0x00004DF6 File Offset: 0x00002FF6
         public static Vector vectMult(Vector v, float s)
         {
-            return MathHelper.vect(v.x * s, v.y * s);
+            return vect(v.x * s, v.y * s);
         }
 
         // Token: 0x06000035 RID: 53 RVA: 0x00004E0F File Offset: 0x0000300F
         public static Vector vectDiv(Vector v, float s)
         {
-            return MathHelper.vect(v.x / s, v.y / s);
+            return vect(v.x / s, v.y / s);
         }
 
         // Token: 0x06000036 RID: 54 RVA: 0x00004E28 File Offset: 0x00003028
@@ -382,31 +382,31 @@ namespace ctr_wp7.iframework.helpers
         // Token: 0x06000038 RID: 56 RVA: 0x00004E6A File Offset: 0x0000306A
         public static Vector vectPerp(Vector v)
         {
-            return MathHelper.vect(-v.y, v.x);
+            return vect(-v.y, v.x);
         }
 
         // Token: 0x06000039 RID: 57 RVA: 0x00004E80 File Offset: 0x00003080
         public static Vector vectRperp(Vector v)
         {
-            return MathHelper.vect(v.y, -v.x);
+            return vect(v.y, -v.x);
         }
 
         // Token: 0x0600003A RID: 58 RVA: 0x00004E96 File Offset: 0x00003096
         private static Vector vectProject(Vector v1, Vector v2)
         {
-            return MathHelper.vectMult(v2, MathHelper.vectDot(v1, v2) / MathHelper.vectDot(v2, v2));
+            return vectMult(v2, vectDot(v1, v2) / vectDot(v2, v2));
         }
 
         // Token: 0x0600003B RID: 59 RVA: 0x00004EB0 File Offset: 0x000030B0
         private static Vector vectRotateByVector(Vector v1, Vector v2)
         {
-            return MathHelper.vect(v1.x * v2.x - v1.y * v2.y, v1.x * v2.y + v1.y * v2.x);
+            return vect(v1.x * v2.x - v1.y * v2.y, v1.x * v2.y + v1.y * v2.x);
         }
 
         // Token: 0x0600003C RID: 60 RVA: 0x00004F00 File Offset: 0x00003100
         private static Vector vectUnrotateByVector(Vector v1, Vector v2)
         {
-            return MathHelper.vect(v1.x * v2.x + v1.y * v2.y, v1.y * v2.x - v1.x * v2.y);
+            return vect(v1.x * v2.x + v1.y * v2.y, v1.y * v2.x - v1.x * v2.y);
         }
 
         // Token: 0x0600003D RID: 61 RVA: 0x00004F50 File Offset: 0x00003150
@@ -424,25 +424,25 @@ namespace ctr_wp7.iframework.helpers
         // Token: 0x0600003F RID: 63 RVA: 0x00004F80 File Offset: 0x00003180
         public static float vectLength(Vector v)
         {
-            return (float)Math.Sqrt((double)MathHelper.vectDot(v, v));
+            return (float)Math.Sqrt((double)vectDot(v, v));
         }
 
         // Token: 0x06000040 RID: 64 RVA: 0x00004F90 File Offset: 0x00003190
         public static float vectLengthsq(Vector v)
         {
-            return MathHelper.vectDot(v, v);
+            return vectDot(v, v);
         }
 
         // Token: 0x06000041 RID: 65 RVA: 0x00004F99 File Offset: 0x00003199
         public static Vector vectNormalize(Vector v)
         {
-            return MathHelper.vectMult(v, 1f / MathHelper.vectLength(v));
+            return vectMult(v, 1f / vectLength(v));
         }
 
         // Token: 0x06000042 RID: 66 RVA: 0x00004FAD File Offset: 0x000031AD
         public static Vector vectForAngle(float a)
         {
-            return MathHelper.vect(MathHelper.fmCos(a), MathHelper.fmSin(a));
+            return vect(fmCos(a), fmSin(a));
         }
 
         // Token: 0x06000043 RID: 67 RVA: 0x00004FC0 File Offset: 0x000031C0
@@ -454,18 +454,18 @@ namespace ctr_wp7.iframework.helpers
         // Token: 0x06000044 RID: 68 RVA: 0x00004FD8 File Offset: 0x000031D8
         public static float vectDistance(Vector v1, Vector v2)
         {
-            Vector vector = MathHelper.vectSub(v1, v2);
-            return MathHelper.vectLength(vector);
+            Vector vector = vectSub(v1, v2);
+            return vectLength(vector);
         }
 
         // Token: 0x06000045 RID: 69 RVA: 0x00004FF4 File Offset: 0x000031F4
         public static Vector vectRotate(Vector v, double rad)
         {
-            float num = MathHelper.fmCos((float)rad);
-            float num2 = MathHelper.fmSin((float)rad);
+            float num = fmCos((float)rad);
+            float num2 = fmSin((float)rad);
             float num3 = v.x * num - v.y * num2;
             float num4 = v.x * num2 + v.y * num;
-            return MathHelper.vect(num3, num4);
+            return vect(num3, num4);
         }
 
         // Token: 0x06000046 RID: 70 RVA: 0x00005040 File Offset: 0x00003240
@@ -474,7 +474,7 @@ namespace ctr_wp7.iframework.helpers
             Vector vector = v;
             vector.x -= cx;
             vector.y -= cy;
-            vector = MathHelper.vectRotate(vector, rad);
+            vector = vectRotate(vector, rad);
             vector.x += cx;
             vector.y += cy;
             return vector;
@@ -483,8 +483,8 @@ namespace ctr_wp7.iframework.helpers
         // Token: 0x06000047 RID: 71 RVA: 0x00005094 File Offset: 0x00003294
         private static Vector vectSidePerp(Vector v1, Vector v2)
         {
-            Vector vector = MathHelper.vectRperp(MathHelper.vectSub(v2, v1));
-            return MathHelper.vectNormalize(vector);
+            Vector vector = vectRperp(vectSub(v2, v1));
+            return vectNormalize(vector);
         }
 
         // Token: 0x06000048 RID: 72 RVA: 0x000050B4 File Offset: 0x000032B4
@@ -496,12 +496,12 @@ namespace ctr_wp7.iframework.helpers
         // Token: 0x06000049 RID: 73 RVA: 0x000050F4 File Offset: 0x000032F4
         public static bool lineInRect(float x1, float y1, float x2, float y2, float rx, float ry, float w, float h)
         {
-            VectorClass vectorClass = new VectorClass(MathHelper.vect(x1, y1));
-            VectorClass vectorClass2 = new VectorClass(MathHelper.vect(x2, y2));
+            VectorClass vectorClass = new VectorClass(vect(x1, y1));
+            VectorClass vectorClass2 = new VectorClass(vect(x2, y2));
             float num = rx + w;
             float num2 = ry + h;
-            int num3 = MathHelper.vcode(rx, ry, num, num2, vectorClass.v);
-            int num4 = MathHelper.vcode(rx, ry, num, num2, vectorClass2.v);
+            int num3 = vcode(rx, ry, num, num2, vectorClass.v);
+            int num4 = vcode(rx, ry, num, num2, vectorClass2.v);
             while (num3 != 0 || num4 != 0)
             {
                 if ((num3 & num4) != 0)
@@ -546,11 +546,11 @@ namespace ctr_wp7.iframework.helpers
                 }
                 if (num5 == num3)
                 {
-                    num3 = MathHelper.vcode(rx, ry, num, num2, vectorClass.v);
+                    num3 = vcode(rx, ry, num, num2, vectorClass.v);
                 }
                 else
                 {
-                    num4 = MathHelper.vcode(rx, ry, num, num2, vectorClass2.v);
+                    num4 = vcode(rx, ry, num, num2, vectorClass2.v);
                 }
             }
             return true;
@@ -577,13 +577,13 @@ namespace ctr_wp7.iframework.helpers
         // Token: 0x0600004B RID: 75 RVA: 0x0000538C File Offset: 0x0000358C
         public static float FLOAT_RND_RANGE(int S, int F)
         {
-            return (float)MathHelper.RND_RANGE(S * 1000, F * 1000) / 1000f;
+            return (float)RND_RANGE(S * 1000, F * 1000) / 1000f;
         }
 
         // Token: 0x0600004C RID: 76 RVA: 0x000053A8 File Offset: 0x000035A8
         public static NSString getMD5Str(NSString input)
         {
-            return MathHelper.getMD5(input.getCharacters());
+            return getMD5(input.getCharacters());
         }
 
         // Token: 0x0600004D RID: 77 RVA: 0x000053B8 File Offset: 0x000035B8

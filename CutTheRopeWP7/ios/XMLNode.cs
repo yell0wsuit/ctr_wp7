@@ -180,7 +180,7 @@ namespace ctr_wp7.ios
                 goto IL_00A5;
             }
         IL_009D:
-            XMLNode.ReadNode(textReader, xmlnode);
+            ReadNode(textReader, xmlnode);
         IL_00A5:
             if ((!flag && !textReader.Read()) || textReader.Depth <= xmlnode.depth)
             {
@@ -192,13 +192,13 @@ namespace ctr_wp7.ios
         // Token: 0x0600076D RID: 1901 RVA: 0x0003B488 File Offset: 0x00039688
         public static XMLNode parseXML(string fileName)
         {
-            return XMLNode.ParseLINQ(fileName);
+            return ParseLINQ(fileName);
         }
 
         // Token: 0x0600076E RID: 1902 RVA: 0x0003B490 File Offset: 0x00039690
         public static void parseXML_URL(string URL, RemoteDataManager_Java MGR)
         {
-            XMLNode.ParseLINQ_URL(URL, MGR);
+            ParseLINQ_URL(URL, MGR);
         }
 
         // Token: 0x0600076F RID: 1903 RVA: 0x0003B49C File Offset: 0x0003969C
@@ -224,7 +224,7 @@ namespace ctr_wp7.ios
             IEnumerable<XElement> enumerable2 = nodeLinq.Elements();
             foreach (XElement xelement in enumerable2)
             {
-                XMLNode.ReadNodeLINQ(xelement, xmlnode);
+                ReadNodeLINQ(xelement, xmlnode);
             }
             return xmlnode;
         }
@@ -235,11 +235,11 @@ namespace ctr_wp7.ios
             XDocument xdocument = null;
             if (fileName.EndsWith(".xml", StringComparison.OrdinalIgnoreCase))
             {
-                xdocument = XMLNode.TryLoadXmlFromContent(fileName);
+                xdocument = TryLoadXmlFromContent(fileName);
             }
             if (xdocument == null)
             {
-                string text = XMLNode.TryGetFallbackXml(fileName);
+                string text = TryGetFallbackXml(fileName);
                 if (!string.IsNullOrWhiteSpace(text))
                 {
                     xdocument = XDocument.Parse(text);
@@ -250,12 +250,12 @@ namespace ctr_wp7.ios
                 throw new InvalidOperationException("Unable to load XML resource '" + fileName + "'.");
             }
             IEnumerable<XElement> enumerable = xdocument.Elements();
-            return XMLNode.ReadNodeLINQ(Enumerable.First<XElement>(enumerable), null);
+            return ReadNodeLINQ(Enumerable.First<XElement>(enumerable), null);
         }
 
         private static XDocument TryLoadXmlFromContent(string fileName)
         {
-            foreach (string text in XMLNode.GetContentXmlCandidatePaths(fileName))
+            foreach (string text in GetContentXmlCandidatePaths(fileName))
             {
                 try
                 {
@@ -319,9 +319,9 @@ namespace ctr_wp7.ios
         // Token: 0x06000771 RID: 1905 RVA: 0x0003B638 File Offset: 0x00039838
         private static void ParseLINQ_URL(string URL, RemoteDataManager_Java MGR)
         {
-            XMLNode.MGR_STORED = MGR;
+            MGR_STORED = MGR;
             WebRequest webRequest = WebRequest.Create(URL);
-            webRequest.BeginGetResponse(new AsyncCallback(XMLNode.Response_Completed), webRequest);
+            webRequest.BeginGetResponse(new AsyncCallback(Response_Completed), webRequest);
         }
 
         // Token: 0x06000772 RID: 1906 RVA: 0x0003B668 File Offset: 0x00039868
@@ -336,7 +336,7 @@ namespace ctr_wp7.ios
                 xdocument = XDocument.Load(responseStream);
                 responseStream.Dispose();
                 IEnumerable<XElement> enumerable = xdocument.Elements();
-                XMLNode.MGR_STORED.XMLDownloadFinished(XMLNode.ReadNodeLINQ(Enumerable.First<XElement>(enumerable), null));
+                MGR_STORED.XMLDownloadFinished(ReadNodeLINQ(Enumerable.First<XElement>(enumerable), null));
             }
             catch (WebException)
             {

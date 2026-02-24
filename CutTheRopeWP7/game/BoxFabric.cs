@@ -13,20 +13,20 @@ namespace ctr_wp7.game
         public virtual BaseElement createPackElementforContainer(int i, int pbox, ScrollableContainer c, ButtonDelegate d)
         {
             buttonDelegate = d;
-            int saveIndex = BoxFabric.getSaveIndex(pbox);
+            int saveIndex = getSaveIndex(pbox);
             Application.sharedPreferences();
             BaseElement baseElement = (BaseElement)new BaseElement().init();
-            baseElement.setName(NSObject.NSS("boxContainer"));
+            baseElement.setName(NSS("boxContainer"));
             baseElement.anchor = (baseElement.parentAnchor = 9);
             BaseElement baseElement2 = null;
             BaseElement baseElement3 = null;
-            if (BoxFabric.isGameBox(pbox))
+            if (isGameBox(pbox))
             {
                 MenuController.TouchBaseElement touchBaseElement = (MenuController.TouchBaseElement)new MenuController.TouchBaseElement().init();
                 baseElement2 = touchBaseElement;
                 touchBaseElement.bid = -1;
                 touchBaseElement.delegateButtonDelegate = buttonDelegate;
-                touchBaseElement.bbc = FrameworkTypes.MakeRectangle(70.0, 0.0, -70.0, 0.0);
+                touchBaseElement.bbc = MakeRectangle(70.0, 0.0, -70.0, 0.0);
                 int totalStarsInDelivery = CTRPreferences.getTotalStarsInDelivery(-1);
                 if (CTRPreferences.getUnlockedForPackLevel(saveIndex, 0) == UNLOCKED_STATE.UNLOCKED_STATE_LOCKED && totalStarsInDelivery >= CTRPreferences.packUnlockStars(saveIndex))
                 {
@@ -71,7 +71,7 @@ namespace ctr_wp7.game
             {
                 baseElement.addChild(baseElement3);
             }
-            if (BoxFabric.isGameBox(pbox) || pbox == 18 || pbox == 19)
+            if (isGameBox(pbox) || pbox == 18 || pbox == 19)
             {
                 baseElement.height = (baseElement2.height = 300);
                 baseElement.width = (baseElement2.width = 300);
@@ -92,7 +92,7 @@ namespace ctr_wp7.game
         // Token: 0x060005B7 RID: 1463 RVA: 0x0002C29D File Offset: 0x0002A49D
         public static int getSaveIndex(int box)
         {
-            if (BoxFabric.isGameBox(box))
+            if (isGameBox(box))
             {
                 return box - 2 - 1;
             }
@@ -171,10 +171,10 @@ namespace ctr_wp7.game
             switch (type)
             {
                 case 0:
-                    FrameworkTypes.AndroidAPI.openUrl("http://www.amazon.com/gp/mas/dl/android?p=com.zeptolab.ctrexperiments.hd.amazon.paid");
+                    AndroidAPI.openUrl("http://www.amazon.com/gp/mas/dl/android?p=com.zeptolab.ctrexperiments.hd.amazon.paid");
                     return;
                 case 1:
-                    FrameworkTypes.AndroidAPI.openUrl("http://www.facebook.com/cuttherope");
+                    AndroidAPI.openUrl("http://www.facebook.com/cuttherope");
                     break;
                 case 2:
                     break;
@@ -209,7 +209,7 @@ namespace ctr_wp7.game
         protected virtual BaseElement buildLock()
         {
             Image image = Image.Image_createWithResIDQuad(71, 1);
-            image.setName(NSObject.NSS("lockHideMe"));
+            image.setName(NSS("lockHideMe"));
             image.doRestoreCutTransparency();
             image.anchor = (image.parentAnchor = 9);
             Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(2);
@@ -289,7 +289,7 @@ namespace ctr_wp7.game
             float num = 25f;
             float num2 = 0f;
             Application.sharedAppSettings().getString(8).isEqualToString("zh");
-            VBox vbox = new VBox().initWithOffsetAlignWidth(30.0, 2, (double)num2 + (double)(FrameworkTypes.SCREEN_WIDTH_EXPANDED - num2) / 2.0 + (double)num);
+            VBox vbox = new VBox().initWithOffsetAlignWidth(30.0, 2, (double)num2 + (double)(SCREEN_WIDTH_EXPANDED - num2) / 2.0 + (double)num);
             vbox.x = num;
             vbox.parentAnchor = (vbox.anchor = 10);
             if (baseElement != null)

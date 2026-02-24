@@ -31,35 +31,35 @@ namespace ctr_wp7.game.remotedata
         public override NSString getName()
         {
             string name = jblock.getName();
-            return (name == null) ? null : NSObject.NSS(name);
+            return (name == null) ? null : NSS(name);
         }
 
         // Token: 0x0600079B RID: 1947 RVA: 0x0003C284 File Offset: 0x0003A484
         public override NSString getId()
         {
             string id = jblock.getId();
-            return NSObject.NSS(id);
+            return NSS(id);
         }
 
         // Token: 0x0600079C RID: 1948 RVA: 0x0003C2A8 File Offset: 0x0003A4A8
         public override NSString getUrl()
         {
             string url = jblock.getUrl();
-            return NSObject.NSS(url);
+            return NSS(url);
         }
 
         // Token: 0x0600079D RID: 1949 RVA: 0x0003C2CC File Offset: 0x0003A4CC
         public override NSString getText()
         {
             string text = jblock.getText();
-            return NSObject.NSS(text);
+            return NSS(text);
         }
 
         // Token: 0x0600079E RID: 1950 RVA: 0x0003C2F0 File Offset: 0x0003A4F0
         public override NSString getNumber()
         {
             string number = jblock.getNumber();
-            return NSObject.NSS(number);
+            return NSS(number);
         }
 
         // Token: 0x0600079F RID: 1951 RVA: 0x0003C314 File Offset: 0x0003A514

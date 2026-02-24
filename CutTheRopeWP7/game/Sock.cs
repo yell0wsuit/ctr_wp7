@@ -18,13 +18,13 @@ namespace ctr_wp7.game
         // Token: 0x06000289 RID: 649 RVA: 0x00010448 File Offset: 0x0000E648
         public static Sock Sock_createWithResID(int r)
         {
-            return Sock.Sock_create(Application.getTexture(r));
+            return Sock_create(Application.getTexture(r));
         }
 
         // Token: 0x0600028A RID: 650 RVA: 0x00010458 File Offset: 0x0000E658
         public static Sock Sock_createWithResIDQuad(int r, int q)
         {
-            Sock sock = Sock.Sock_create(Application.getTexture(r));
+            Sock sock = Sock_create(Application.getTexture(r));
             sock.setDrawQuad(q);
             return sock;
         }
@@ -53,7 +53,7 @@ namespace ctr_wp7.game
         // Token: 0x0600028D RID: 653 RVA: 0x000104C8 File Offset: 0x0000E6C8
         public void createAnimations()
         {
-            light = Animation.Animation_createWithResID(145);
+            light = Animation_createWithResID(145);
             light.anchor = 34;
             light.parentAnchor = 10;
             light.y = 90f;
@@ -83,11 +83,11 @@ namespace ctr_wp7.game
             b1.x = t1.x;
             b2.x = t2.x;
             b1.y = (b2.y = y + 1f);
-            angle = (double)MathHelper.DEGREES_TO_RADIANS(rotation);
-            t1 = MathHelper.vectRotateAround(t1, angle, x, y);
-            t2 = MathHelper.vectRotateAround(t2, angle, x, y);
-            b1 = MathHelper.vectRotateAround(b1, angle, x, y);
-            b2 = MathHelper.vectRotateAround(b2, angle, x, y);
+            angle = (double)DEGREES_TO_RADIANS(rotation);
+            t1 = vectRotateAround(t1, angle, x, y);
+            t2 = vectRotateAround(t2, angle, x, y);
+            b1 = vectRotateAround(b1, angle, x, y);
+            b2 = vectRotateAround(b2, angle, x, y);
         }
 
         // Token: 0x04000884 RID: 2180

@@ -15,13 +15,13 @@ namespace ctr_wp7.game
         // Token: 0x06000862 RID: 2146 RVA: 0x0004AE8C File Offset: 0x0004908C
         public static GhostBubble createWithResID(int r)
         {
-            return GhostBubble.create(Application.getTexture(r));
+            return create(Application.getTexture(r));
         }
 
         // Token: 0x06000863 RID: 2147 RVA: 0x0004AE9C File Offset: 0x0004909C
         public static GhostBubble createWithResIDQuad(int r, int q)
         {
-            GhostBubble ghostBubble = GhostBubble.create(Application.getTexture(r));
+            GhostBubble ghostBubble = create(Application.getTexture(r));
             ghostBubble.setDrawQuad(q);
             return ghostBubble;
         }
@@ -29,7 +29,7 @@ namespace ctr_wp7.game
         // Token: 0x06000864 RID: 2148 RVA: 0x0004AEC0 File Offset: 0x000490C0
         public virtual void addSupportingCloudsTimelines()
         {
-            backCloud = Image.Image_createWithResIDQuad(180, 4);
+            backCloud = Image_createWithResIDQuad(180, 4);
             backCloud.x = x + 28f;
             backCloud.y = y + 8f;
             backCloud.anchor = 18;
@@ -48,7 +48,7 @@ namespace ctr_wp7.game
             timeline.addKeyFrame(KeyFrame.makePos((double)(backCloud.x + 1f), (double)(backCloud.y + 1f), KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.47999998927116394));
             backCloud.addTimelinewithID(timeline, 0);
             backCloud.playTimeline(0);
-            backCloud2 = Image.Image_createWithResIDQuad(180, 3);
+            backCloud2 = Image_createWithResIDQuad(180, 3);
             backCloud2.x = x + 22f;
             backCloud2.y = y + 16f;
             backCloud2.anchor = 18;
@@ -67,7 +67,7 @@ namespace ctr_wp7.game
             timeline2.addKeyFrame(KeyFrame.makePos((double)(backCloud2.x + 1f), (double)(backCloud2.y + 1f), KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.4000000059604645));
             backCloud2.addTimelinewithID(timeline2, 0);
             backCloud2.playTimeline(0);
-            backCloud3 = Image.Image_createWithResIDQuad(180, 3);
+            backCloud3 = Image_createWithResIDQuad(180, 3);
             backCloud3.x = x - 28f;
             backCloud3.y = y + 5f;
             backCloud3.anchor = 18;
@@ -86,7 +86,7 @@ namespace ctr_wp7.game
             timeline3.addKeyFrame(KeyFrame.makePos((double)(backCloud3.x + 1f), (double)(backCloud3.y + 1f), KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.4300000071525574));
             backCloud3.addTimelinewithID(timeline3, 0);
             backCloud3.playTimeline(0);
-            Image image = Image.Image_createWithResIDQuad(180, 4);
+            Image image = Image_createWithResIDQuad(180, 4);
             image.x = x - 23f;
             image.y = y + 16f;
             image.anchor = 18;
@@ -106,7 +106,7 @@ namespace ctr_wp7.game
             timeline4.addKeyFrame(KeyFrame.makePos((double)(image.x - 1f), (double)(image.y + 1f), KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.41999998688697815));
             image.addTimelinewithID(timeline4, 0);
             image.playTimeline(0);
-            Image image2 = Image.Image_createWithResIDQuad(180, 0);
+            Image image2 = Image_createWithResIDQuad(180, 0);
             image2.x = x - 5f;
             image2.y = y + 25f;
             image2.anchor = 18;
@@ -152,7 +152,7 @@ namespace ctr_wp7.game
                 base.postDraw();
                 return;
             }
-            BaseElement.restoreColor(this);
+            restoreColor(this);
         }
 
         // Token: 0x06000866 RID: 2150 RVA: 0x0004BA26 File Offset: 0x00049C26

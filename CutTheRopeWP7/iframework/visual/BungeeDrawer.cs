@@ -29,10 +29,10 @@ namespace ctr_wp7.iframework.visual
             base.update(delta);
             float num = 0.025f;
             Vector quadCenter = Image.getQuadCenter(77, 8);
-            bungee.bungeeAnchor.pos = MathHelper.vectAdd(MathHelper.vect(parent.drawX, parent.drawY), quadCenter);
+            bungee.bungeeAnchor.pos = vectAdd(vect(parent.drawX, parent.drawY), quadCenter);
             bungee.bungeeAnchor.pin = bungee.bungeeAnchor.pos;
             float num2 = 25f;
-            bungee.tail.applyImpulseDelta(MathHelper.vect(-bungee.tail.v.x / num2, -bungee.tail.v.y / num2), num);
+            bungee.tail.applyImpulseDelta(vect(-bungee.tail.v.x / num2, -bungee.tail.v.y / num2), num);
             bungee.update(num);
             bungee.tail.update(num);
             float num3 = 1f - parent.y / (float)PromoBanner.BANNER_OFFSET;
@@ -45,8 +45,8 @@ namespace ctr_wp7.iframework.visual
                 {
                     ConstraintedPoint constraintedPoint = bungee.parts[0];
                     ConstraintedPoint constraintedPoint2 = bungee.parts[1];
-                    float num4 = MathHelper.vectDistance(constraintedPoint.pos, constraintedPoint2.pos);
-                    Vector vector = MathHelper.vectSub(bungee.tail.pos, bungee.bungeeAnchor.pos);
+                    float num4 = vectDistance(constraintedPoint.pos, constraintedPoint2.pos);
+                    Vector vector = vectSub(bungee.tail.pos, bungee.bungeeAnchor.pos);
                     float num5 = 1f;
                     float num6 = (num4 - 30f) * num5;
                     if ((double)Math.Abs(vector.y) > 20.0)
@@ -59,7 +59,7 @@ namespace ctr_wp7.iframework.visual
                         {
                             parent.y -= num6;
                         }
-                        parent.y = MathHelper.FIT_TO_BOUNDARIES(parent.y, (float)PromoBanner.BANNER_OFFSET, 100f);
+                        parent.y = FIT_TO_BOUNDARIES(parent.y, (float)PromoBanner.BANNER_OFFSET, 100f);
                         return;
                     }
                     if ((double)num4 > 45.0)
@@ -78,11 +78,11 @@ namespace ctr_wp7.iframework.visual
         public override bool onTouchDownXY(float tx, float ty)
         {
             bool flag = base.onTouchDownXY(tx, ty);
-            if (MathHelper.pointInRect(tx, ty, bungee.tail.pos.x - 35f, bungee.tail.pos.y - 15f, 70f, 70f))
+            if (pointInRect(tx, ty, bungee.tail.pos.x - 35f, bungee.tail.pos.y - 15f, 70f, 70f))
             {
                 fadeElement.setEnabled(true);
                 down = true;
-                dragStart = MathHelper.vect(tx, ty);
+                dragStart = vect(tx, ty);
                 tailStart = bungee.tail.pos;
                 onTouchMoveXY(tx, ty);
                 return true;
@@ -113,14 +113,14 @@ namespace ctr_wp7.iframework.visual
             if (down)
             {
                 float num = 1f;
-                if (ty > FrameworkTypes.SCREEN_HEIGHT / 2f)
+                if (ty > SCREEN_HEIGHT / 2f)
                 {
                     num /= 1.5f;
                 }
-                Vector vector = MathHelper.vectSub(MathHelper.vect(tx, ty), dragStart);
-                vector = MathHelper.vectMult(vector, num);
-                tailPos = MathHelper.vectAdd(tailStart, vector);
-                dragStart = MathHelper.vect(tx, ty);
+                Vector vector = vectSub(vect(tx, ty), dragStart);
+                vector = vectMult(vector, num);
+                tailPos = vectAdd(tailStart, vector);
+                dragStart = vect(tx, ty);
                 tailStart = tailPos;
             }
             return flag;

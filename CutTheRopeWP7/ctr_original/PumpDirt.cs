@@ -57,7 +57,7 @@ namespace ctr_wp7.ctr_original
         public override void initParticle(ref Particle particle)
         {
             base.initParticle(ref particle);
-            int num = MathHelper.RND_RANGE(6, 8);
+            int num = RND_RANGE(6, 8);
             Quad2D quad2D = imageGrid.texture.quads[num];
             Quad3D quad3D = Quad3D.MakeQuad3D(0f, 0f, 0f, 0f, 0f);
             drawer.setTextureQuadatVertexQuadatIndex(quad2D, quad3D, particleCount);
@@ -70,10 +70,10 @@ namespace ctr_wp7.ctr_original
         {
             if (p.life > 0f)
             {
-                p.dir = MathHelper.vectMult(p.dir, 0.9);
-                Vector vector = MathHelper.vectMult(p.dir, delta);
-                vector = MathHelper.vectAdd(vector, gravity);
-                p.pos = MathHelper.vectAdd(p.pos, vector);
+                p.dir = vectMult(p.dir, 0.9);
+                Vector vector = vectMult(p.dir, delta);
+                vector = vectAdd(vector, gravity);
+                p.pos = vectAdd(p.pos, vector);
                 p.color.r = p.color.r + p.deltaColor.r * delta;
                 p.color.g = p.color.g + p.deltaColor.g * delta;
                 p.color.b = p.color.b + p.deltaColor.b * delta;

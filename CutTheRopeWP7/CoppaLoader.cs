@@ -13,8 +13,8 @@ internal class CoppaLoader
     // Token: 0x0600036C RID: 876 RVA: 0x00015DBF File Offset: 0x00013FBF
     private CoppaLoader()
     {
-        CoppaLoader.hideCoppaPopupIsExplicit = false;
-        CoppaLoader.hideCoppaPopup = false;
+        hideCoppaPopupIsExplicit = false;
+        hideCoppaPopup = false;
         fetchXml();
     }
 
@@ -26,25 +26,25 @@ internal class CoppaLoader
     // Token: 0x0600036E RID: 878 RVA: 0x00015DDB File Offset: 0x00013FDB
     public static bool getHideCoppaPopupIsExplicit()
     {
-        return CoppaLoader.hideCoppaPopupIsExplicit;
+        return hideCoppaPopupIsExplicit;
     }
 
     // Token: 0x0600036F RID: 879 RVA: 0x00015DE2 File Offset: 0x00013FE2
     public static bool getHideCoppaPopup()
     {
-        return CoppaLoader.hideCoppaPopup;
+        return hideCoppaPopup;
     }
 
     // Token: 0x06000370 RID: 880 RVA: 0x00015DE9 File Offset: 0x00013FE9
     public static void setHideCoppaPopupIsExplicit(bool a)
     {
-        CoppaLoader.hideCoppaPopupIsExplicit = a;
+        hideCoppaPopupIsExplicit = a;
     }
 
     // Token: 0x06000371 RID: 881 RVA: 0x00015DF1 File Offset: 0x00013FF1
     public static void setHideCoppaPopup(bool a)
     {
-        CoppaLoader.hideCoppaPopup = a;
+        hideCoppaPopup = a;
     }
 
     // Token: 0x06000372 RID: 882 RVA: 0x00015E40 File Offset: 0x00014040
@@ -87,7 +87,7 @@ internal class CoppaLoader
     public static void ShowMessageBox()
     {
         string text = "some";
-        string text2 = CoppaLoader.GetCollectedParameters().ToString();
+        string text2 = GetCollectedParameters().ToString();
         List<string> list = new List<string>();
         list.Add("Ok");
         list.Add("Cancel");
@@ -95,7 +95,7 @@ internal class CoppaLoader
         {
             Guide.EndShowMessageBox(asyncResult);
         }, null);
-        FrameworkTypes.AndroidAPI.openUrl(CoppaLoader.GetCollectedParameters().ToString());
+        FrameworkTypes.AndroidAPI.openUrl(GetCollectedParameters().ToString());
     }
 
     // Token: 0x040008F9 RID: 2297

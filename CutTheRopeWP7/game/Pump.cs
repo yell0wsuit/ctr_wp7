@@ -16,13 +16,13 @@ namespace ctr_wp7.game
         // Token: 0x060000FC RID: 252 RVA: 0x00008308 File Offset: 0x00006508
         public static Pump Pump_createWithResID(int r)
         {
-            return Pump.Pump_create(Application.getTexture(r));
+            return Pump_create(Application.getTexture(r));
         }
 
         // Token: 0x060000FD RID: 253 RVA: 0x00008318 File Offset: 0x00006518
         public static Pump Pump_createWithResIDQuad(int r, int q)
         {
-            Pump pump = Pump.Pump_create(Application.getTexture(r));
+            Pump pump = Pump_create(Application.getTexture(r));
             pump.setDrawQuad(q);
             return pump;
         }
@@ -33,9 +33,9 @@ namespace ctr_wp7.game
             t1.x = x - bb.w / 2f;
             t2.x = x + bb.w / 2f;
             t1.y = (t2.y = y);
-            angle = (double)MathHelper.DEGREES_TO_RADIANS(rotation);
-            t1 = MathHelper.vectRotateAround(t1, angle, x, y);
-            t2 = MathHelper.vectRotateAround(t2, angle, x, y);
+            angle = (double)DEGREES_TO_RADIANS(rotation);
+            t1 = vectRotateAround(t1, angle, x, y);
+            t2 = vectRotateAround(t2, angle, x, y);
         }
 
         // Token: 0x04000732 RID: 1842

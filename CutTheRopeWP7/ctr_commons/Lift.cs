@@ -30,7 +30,7 @@ namespace ctr_wp7.ctr_commons
             {
                 return false;
             }
-            if (state == Button.BUTTON_STATE.BUTTON_DOWN)
+            if (state == BUTTON_STATE.BUTTON_DOWN)
             {
                 x = Math.Max(Math.Min(tx - startX, maxX), minX);
                 y = Math.Max(Math.Min(ty - startY, maxY), minY);

@@ -13,7 +13,7 @@ namespace ctr_wp7.game
         {
             if (base.initWithTotalParticlesandImageGrid(5, Image.Image_createWithResID(180)) != null)
             {
-                angle = (float)MathHelper.RND_RANGE(0, 360);
+                angle = (float)RND_RANGE(0, 360);
                 size = 1.6f;
                 angleVar = 360f;
                 life = 0.5f;
@@ -30,7 +30,7 @@ namespace ctr_wp7.game
         {
             angle += 360f / (float)totalParticles;
             base.initParticle(ref particle);
-            int num = MathHelper.RND_RANGE(2, 4);
+            int num = RND_RANGE(2, 4);
             Quad2D quad2D = imageGrid.texture.quads[num];
             Quad3D quad3D = Quad3D.MakeQuad3D(0f, 0f, 0f, 0f, 0f);
             drawer.setTextureQuadatVertexQuadatIndex(quad2D, quad3D, particleCount);

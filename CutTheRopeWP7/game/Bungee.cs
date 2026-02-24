@@ -13,40 +13,40 @@ namespace ctr_wp7.game
         // Token: 0x06000682 RID: 1666 RVA: 0x00031DF0 File Offset: 0x0002FFF0
         private void drawAntialiasedLineContinued(float x1, float y1, float x2, float y2, float size, RGBAColor color, ref float lx, ref float ly, ref float rx, ref float ry)
         {
-            Vector vector = MathHelper.vect(x1, y1);
-            Vector vector2 = MathHelper.vect(x2, y2);
-            Vector vector3 = MathHelper.vectSub(vector2, vector);
-            Vector vector4 = MathHelper.vectMult(vector3, ((double)color.a == 1.0) ? 1.02f : 1f);
-            Vector vector5 = MathHelper.vectPerp(vector3);
-            Vector vector6 = MathHelper.vectNormalize(vector5);
-            vector5 = MathHelper.vectMult(vector6, size);
-            Vector vector7 = MathHelper.vectNeg(vector5);
-            Vector vector8 = MathHelper.vectAdd(vector5, vector3);
-            Vector vector9 = MathHelper.vectAdd(vector7, vector3);
-            MathHelper.vectAdd2(ref vector8, vector);
-            MathHelper.vectAdd2(ref vector9, vector);
-            Vector vector10 = MathHelper.vectAdd(vector5, vector4);
-            Vector vector11 = MathHelper.vectAdd(vector7, vector4);
+            Vector vector = vect(x1, y1);
+            Vector vector2 = vect(x2, y2);
+            Vector vector3 = vectSub(vector2, vector);
+            Vector vector4 = vectMult(vector3, ((double)color.a == 1.0) ? 1.02f : 1f);
+            Vector vector5 = vectPerp(vector3);
+            Vector vector6 = vectNormalize(vector5);
+            vector5 = vectMult(vector6, size);
+            Vector vector7 = vectNeg(vector5);
+            Vector vector8 = vectAdd(vector5, vector3);
+            Vector vector9 = vectAdd(vector7, vector3);
+            vectAdd2(ref vector8, vector);
+            vectAdd2(ref vector9, vector);
+            Vector vector10 = vectAdd(vector5, vector4);
+            Vector vector11 = vectAdd(vector7, vector4);
             if (lx == -1f)
             {
-                MathHelper.vectAdd2(ref vector5, vector);
-                MathHelper.vectAdd2(ref vector7, vector);
+                vectAdd2(ref vector5, vector);
+                vectAdd2(ref vector7, vector);
             }
             else
             {
-                vector5 = MathHelper.vect(lx, ly);
-                vector7 = MathHelper.vect(rx, ry);
+                vector5 = vect(lx, ly);
+                vector7 = vect(rx, ry);
             }
-            MathHelper.vectAdd2(ref vector10, vector);
-            MathHelper.vectAdd2(ref vector11, vector);
+            vectAdd2(ref vector10, vector);
+            vectAdd2(ref vector11, vector);
             lx = vector8.x;
             ly = vector8.y;
             rx = vector9.x;
             ry = vector9.y;
-            Vector vector12 = MathHelper.vectSub(vector5, vector6);
-            Vector vector13 = MathHelper.vectSub(vector10, vector6);
-            Vector vector14 = MathHelper.vectAdd(vector7, vector6);
-            Vector vector15 = MathHelper.vectAdd(vector11, vector6);
+            Vector vector12 = vectSub(vector5, vector6);
+            Vector vector13 = vectSub(vector10, vector6);
+            Vector vector14 = vectAdd(vector7, vector6);
+            Vector vector15 = vectAdd(vector11, vector6);
             cverts[0] = vector5.x;
             cverts[1] = vector5.y;
             cverts[2] = vector10.x;
@@ -63,8 +63,8 @@ namespace ctr_wp7.game
             cverts[13] = vector7.y;
             cverts[14] = vector11.x;
             cverts[15] = vector11.y;
-            Bungee.ccolors[2] = (Bungee.ccolors[3] = (Bungee.ccolors[4] = (Bungee.ccolors[5] = color)));
-            OpenGL.glColorPointer_add(4, 5, 0, Bungee.ccolors);
+            ccolors[2] = (ccolors[3] = (ccolors[4] = (ccolors[5] = color)));
+            OpenGL.glColorPointer_add(4, 5, 0, ccolors);
             OpenGL.glVertexPointer_add(2, 5, 0, cverts);
         }
 
@@ -83,7 +83,7 @@ namespace ctr_wp7.game
             RGBAColor rgbacolor5 = RGBAColor.MakeRGBA(0.19, 0.122, 0.074, (double)num);
             RGBAColor rgbacolor6 = (b.alternateColors ? rgbacolor : rgbacolor2);
             RGBAColor rgbacolor7 = (b.alternateColors ? rgbacolor : rgbacolor3);
-            float num2 = MathHelper.vectDistance(MathHelper.vect(pts[0].x, pts[0].y), MathHelper.vect(pts[1].x, pts[1].y));
+            float num2 = vectDistance(vect(pts[0].x, pts[0].y), vect(pts[1].x, pts[1].y));
             if ((double)num2 <= 30.3)
             {
                 b.relaxed = 0;
@@ -217,15 +217,15 @@ namespace ctr_wp7.game
                     tail = (ConstraintedPoint)new ConstraintedPoint().init();
                 }
                 bungeeAnchor.setWeight(0.02f);
-                bungeeAnchor.pos = MathHelper.vect(hx, hy);
-                tail.pos = MathHelper.vect(tx, ty);
+                bungeeAnchor.pos = vect(hx, hy);
+                tail.pos = vect(tx, ty);
                 tail.setWeight(1f);
                 addPart(bungeeAnchor);
                 addPart(tail);
                 tail.addConstraintwithRestLengthofType(bungeeAnchor, 30f, Constraint.CONSTRAINT.CONSTRAINT_DISTANCE);
-                Vector vector = MathHelper.vectSub(tail.pos, bungeeAnchor.pos);
+                Vector vector = vectSub(tail.pos, bungeeAnchor.pos);
                 int num = (int)(len / 30f + 2f);
-                vector = MathHelper.vectDiv(vector, (float)num);
+                vector = vectDiv(vector, (float)num);
                 rollplacingWithOffset(len, vector);
                 forceWhite = false;
                 initialCandleAngle = -1f;
@@ -245,14 +245,14 @@ namespace ctr_wp7.game
                 return 0;
             }
             int num = 0;
-            Vector vector = MathHelper.vectZero;
+            Vector vector = vectZero;
             int count = parts.Count;
             for (int i = 0; i < count; i++)
             {
                 ConstraintedPoint constraintedPoint = parts[i];
                 if (i > 0)
                 {
-                    num += (int)MathHelper.vectDistance(vector, constraintedPoint.pos);
+                    num += (int)vectDistance(vector, constraintedPoint.pos);
                 }
                 vector = constraintedPoint.pos;
             }
@@ -308,7 +308,7 @@ namespace ctr_wp7.game
         // Token: 0x06000687 RID: 1671 RVA: 0x00032887 File Offset: 0x00030A87
         public virtual void roll(float rollLen)
         {
-            rollplacingWithOffset(rollLen, MathHelper.vectZero);
+            rollplacingWithOffset(rollLen, vectZero);
         }
 
         // Token: 0x06000688 RID: 1672 RVA: 0x00032898 File Offset: 0x00030A98
@@ -323,7 +323,7 @@ namespace ctr_wp7.game
                     ConstraintedPoint constraintedPoint2 = parts[parts.Count - 2];
                     ConstraintedPoint constraintedPoint3 = (ConstraintedPoint)new ConstraintedPoint().init();
                     constraintedPoint3.setWeight(0.02f);
-                    constraintedPoint3.pos = MathHelper.vectAdd(constraintedPoint2.pos, off);
+                    constraintedPoint3.pos = vectAdd(constraintedPoint2.pos, off);
                     addPartAt(constraintedPoint3, parts.Count - 1);
                     tail.changeConstraintFromTowithRestLength(constraintedPoint2, constraintedPoint3, (float)num);
                     constraintedPoint3.addConstraintwithRestLengthofType(constraintedPoint2, 30f, Constraint.CONSTRAINT.CONSTRAINT_DISTANCE);

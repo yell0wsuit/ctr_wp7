@@ -20,10 +20,10 @@ namespace ctr_wp7.game
         {
             if (base.init() != null)
             {
-                width = (int)FrameworkTypes.SCREEN_WIDTH_EXPANDED;
-                height = (int)FrameworkTypes.SCREEN_HEIGHT_EXPANDED + 1;
-                x = -FrameworkTypes.SCREEN_OFFSET_X;
-                y = -FrameworkTypes.SCREEN_OFFSET_Y;
+                width = (int)SCREEN_WIDTH_EXPANDED;
+                height = (int)SCREEN_HEIGHT_EXPANDED + 1;
+                x = -SCREEN_OFFSET_X;
+                y = -SCREEN_OFFSET_Y;
                 blendingMode = 0;
                 if (loading)
                 {
@@ -60,8 +60,8 @@ namespace ctr_wp7.game
         {
             if (base.init() != null)
             {
-                width = (int)FrameworkTypes.SCREEN_WIDTH;
-                height = (int)FrameworkTypes.SCREEN_HEIGHT;
+                width = (int)SCREEN_WIDTH;
+                height = (int)SCREEN_HEIGHT;
                 blendingMode = 0;
                 Image image = Image.Image_createWithResIDQuad(76, 0);
                 Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(2);
@@ -75,7 +75,7 @@ namespace ctr_wp7.game
                 hbox.parentAnchor = (hbox.anchor = 18);
                 addChild(hbox);
                 hbox.addChild(image);
-                if (ResDataPhoneFull.LANGUAGE == Language.LANG_IT)
+                if (LANGUAGE == Language.LANG_IT)
                 {
                     text = new Text().initWithFont(Application.getFont(5));
                     text.setStringandWidth(Application.getString(1310752), 120f);
@@ -122,7 +122,7 @@ namespace ctr_wp7.game
         {
             if (t == 0)
             {
-                base.setEnabled(true);
+                setEnabled(true);
             }
             base.playTimeline(t);
         }
@@ -130,7 +130,7 @@ namespace ctr_wp7.game
         // Token: 0x06000324 RID: 804 RVA: 0x0001425C File Offset: 0x0001245C
         public void timelineFinished(Timeline t)
         {
-            base.setEnabled(false);
+            setEnabled(false);
         }
 
         // Token: 0x06000325 RID: 805 RVA: 0x00014265 File Offset: 0x00012465

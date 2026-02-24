@@ -21,17 +21,17 @@ namespace ctr_wp7.ctr_original
         // Token: 0x06000198 RID: 408 RVA: 0x0000BC09 File Offset: 0x00009E09
         public static void EnableLoopedSounds(bool bEnable)
         {
-            CTRSoundMgr.s_EnableLoopedSounds = bEnable;
-            if (!CTRSoundMgr.s_EnableLoopedSounds)
+            s_EnableLoopedSounds = bEnable;
+            if (!s_EnableLoopedSounds)
             {
-                CTRSoundMgr._stopLoopedSounds();
+                _stopLoopedSounds();
             }
         }
 
         // Token: 0x06000199 RID: 409 RVA: 0x0000BC1D File Offset: 0x00009E1D
         public static SoundEffectInstance _playSoundLooped(int s)
         {
-            if (CTRSoundMgr.s_EnableLoopedSounds && Preferences._getBooleanForKey("SOUND_ON"))
+            if (s_EnableLoopedSounds && Preferences._getBooleanForKey("SOUND_ON"))
             {
                 return Application.sharedSoundMgr().playSoundLooped(s);
             }
@@ -41,7 +41,7 @@ namespace ctr_wp7.ctr_original
         // Token: 0x0600019A RID: 410 RVA: 0x0000BC3F File Offset: 0x00009E3F
         public static void _playMusic(int f)
         {
-            SoundMgr.currentMusicId = f;
+            currentMusicId = f;
             if (Preferences._getBooleanForKey("MUSIC_ON"))
             {
                 Application.sharedSoundMgr().playMusic(f);
@@ -63,8 +63,8 @@ namespace ctr_wp7.ctr_original
         // Token: 0x0600019D RID: 413 RVA: 0x0000BC76 File Offset: 0x00009E76
         public static void _stopAll()
         {
-            CTRSoundMgr._stopSounds();
-            CTRSoundMgr._stopMusic();
+            _stopSounds();
+            _stopMusic();
         }
 
         // Token: 0x0600019E RID: 414 RVA: 0x0000BC82 File Offset: 0x00009E82

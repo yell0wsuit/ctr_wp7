@@ -15,7 +15,7 @@ namespace ctr_wp7.game
             {
                 x = px;
                 y = py;
-                Image image = Image.Image_createWithResIDQuad(180, 3);
+                Image image = Image_createWithResIDQuad(180, 3);
                 image.x = x - 20f;
                 image.y = y + 2f;
                 image.anchor = 18;
@@ -35,7 +35,7 @@ namespace ctr_wp7.game
                 timeline.addKeyFrame(KeyFrame.makePos((double)(image.x - 1f), (double)(image.y + 1f), KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.6499999761581421));
                 image.addTimelinewithID(timeline, 0);
                 image.playTimeline(0);
-                Image image2 = Image.Image_createWithResIDQuad(180, 2);
+                Image image2 = Image_createWithResIDQuad(180, 2);
                 image2.x = x + 18f;
                 image2.y = y + 8f;
                 image2.anchor = 18;
@@ -55,7 +55,7 @@ namespace ctr_wp7.game
                 timeline2.addKeyFrame(KeyFrame.makePos((double)(image2.x + 1f), (double)(image2.y + 1f), KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.44999998807907104));
                 image2.addTimelinewithID(timeline2, 0);
                 image2.playTimeline(0);
-                Image image3 = Image.Image_createWithResIDQuad(180, 0);
+                Image image3 = Image_createWithResIDQuad(180, 0);
                 image3.x = x - 5f;
                 image3.y = y + 15f;
                 image3.anchor = 18;
@@ -109,7 +109,7 @@ namespace ctr_wp7.game
                 {
                     rgbacolor = RGBAColor.MakeRGBA(0.2, 0.5, 0.9, (double)(radiusAlpha * color.a));
                 }
-                base.drawGrabCircle(this, x, y, radius, vertexCount, rgbacolor);
+                drawGrabCircle(this, x, y, radius, vertexCount, rgbacolor);
             }
             OpenGL.glColor4f(1.0, 1.0, 1.0, 1.0);
             OpenGL.glEnable(0);

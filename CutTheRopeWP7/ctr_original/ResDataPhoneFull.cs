@@ -22,7 +22,7 @@ namespace ctr_wp7.ctr_original
         // Token: 0x06000008 RID: 8 RVA: 0x000021B4 File Offset: 0x000003B4
         public static string GetXml(string resName)
         {
-            if (ResDataPhoneFull.xmls_ == null)
+            if (xmls_ == null)
             {
                 Dictionary<string, string> dictionary = new Dictionary<string, string>();
                 dictionary.Add("zeptolab", "<info format='0' fileFormat='0' filter='1'/>");
@@ -389,10 +389,10 @@ namespace ctr_wp7.ctr_original
                 dictionary.Add("menu_agepopup_bgr_hd", "<info format='0' fileFormat='1' filter='1' scale='0'><quads>1,1,480,800,</quads><offsets>0,0,</offsets><preCutWidth>480</preCutWidth><preCutHeight>800</preCutHeight></info>");
                 dictionary.Add("menu_agepopup_hd", "<info format='0' fileFormat='2' filter='1' scale='0'><quads>2,2,88,232,0,0,123,171,93,1,21,25,0,0,123,53,93,28,143,196,1,237,214,104,1,343,129,66,1,411,144,81,0,0,158,64,0,0,174,50,0,0,332,70,</quads><offsets>152,297,178,327,230,453,178,386,168,314,136,190,18,700,11,691,161,563,158,204,76,43,</offsets><preCutWidth>480</preCutWidth><preCutHeight>800</preCutHeight></info>");
                 dictionary.Add("menu_agepopup", "<info format='0' fileFormat='2' filter='1' scale='0'><quads>2,2,59,155,0,0,83,115,64,1,15,19,0,0,83,36,81,1,96,131,1,160,143,69,146,160,85,44,1,231,96,54,0,0,106,42,0,0,116,33,0,0,221,47,</quads><offsets>101,171,118,191,152,275,118,231,112,183,91,101,13,420,7,414,107,349,105,110,51,23,</offsets><preCutWidth>320</preCutWidth><preCutHeight>480</preCutHeight></info>");
-                ResDataPhoneFull.xmls_ = dictionary;
+                xmls_ = dictionary;
             }
             string text;
-            ResDataPhoneFull.xmls_.TryGetValue(resName, out text);
+            xmls_.TryGetValue(resName, out text);
             return text;
         }
 

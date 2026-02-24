@@ -51,7 +51,7 @@ namespace ctr_wp7.Specials
             }
             App.NeedsUpdate = false;
             UpdatePopup updatePopup = (UpdatePopup)new UpdatePopup().init();
-            updatePopup.setName(NSObject.NSS("popup"));
+            updatePopup.setName(NSS("popup"));
             Button button = MenuController.createButtonWithTextIDDelegate(Application.getString(1310748), 0, updatePopup);
             button.anchor = (button.parentAnchor = 18);
             button.setTouchIncreaseLeftRightTopBottom(15f, 15f, 0f, 0f);
@@ -62,7 +62,7 @@ namespace ctr_wp7.Specials
             button.addChild(button2);
             FontGeneric font = Application.getFont(5);
             float num = 300f;
-            if (ResDataPhoneFull.LANGUAGE == Language.LANG_KO)
+            if (LANGUAGE == Language.LANG_KO)
             {
                 num /= 0.85f;
             }
@@ -71,7 +71,7 @@ namespace ctr_wp7.Specials
             text.setStringandWidth(Application.getString(1310828), num);
             text.y = -34f;
             text.scaleX = (text.scaleY = 0.8f);
-            if (ResDataPhoneFull.LANGUAGE == Language.LANG_KO)
+            if (LANGUAGE == Language.LANG_KO)
             {
                 text.scaleX *= 0.85f;
                 text.scaleY *= 0.85f;

@@ -22,7 +22,7 @@ namespace ctr_wp7.iframework.visual
             if (base.init() != null)
             {
                 buttonID = n;
-                state = TimedButton.TIMED_BUTTON.TIMED_BUTTON_UP;
+                state = TIMED_BUTTON.TIMED_BUTTON_UP;
                 touchLeftInc = 0f;
                 touchRightInc = 0f;
                 touchTopInc = 0f;
@@ -40,7 +40,7 @@ namespace ctr_wp7.iframework.visual
                 up.parentAnchor = (down.parentAnchor = 9);
                 addChildwithID(up, 0);
                 addChildwithID(down, 1);
-                setState(TimedButton.TIMED_BUTTON.TIMED_BUTTON_UP);
+                setState(TIMED_BUTTON.TIMED_BUTTON_UP);
                 Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(8);
                 timeline.addKeyFrame(KeyFrame.makeSingleAction(getChild(0), "ACTION_SET_VISIBLE", 1, 1, 0f));
                 timeline.addKeyFrame(KeyFrame.makeSingleAction(getChild(1), "ACTION_SET_VISIBLE", 0, 0, 0f));
@@ -83,9 +83,9 @@ namespace ctr_wp7.iframework.visual
             float num = (td ? 0f : 15f);
             if (forcedTouchZone.w != -1f)
             {
-                return MathHelper.pointInRect(tx, ty, drawX + forcedTouchZone.x - num, drawY + forcedTouchZone.y - num, forcedTouchZone.w + num * 2f, forcedTouchZone.h + num * 2f);
+                return pointInRect(tx, ty, drawX + forcedTouchZone.x - num, drawY + forcedTouchZone.y - num, forcedTouchZone.w + num * 2f, forcedTouchZone.h + num * 2f);
             }
-            return MathHelper.pointInRect(tx, ty, drawX - touchLeftInc - num, drawY - touchTopInc - num, (float)width + (touchLeftInc + touchRightInc) + num * 2f, (float)height + (touchTopInc + touchBottomInc) + num * 2f);
+            return pointInRect(tx, ty, drawX - touchLeftInc - num, drawY - touchTopInc - num, (float)width + (touchLeftInc + touchRightInc) + num * 2f, (float)height + (touchTopInc + touchBottomInc) + num * 2f);
         }
 
         // Token: 0x060003F0 RID: 1008 RVA: 0x0001C4E0 File Offset: 0x0001A6E0
@@ -94,17 +94,17 @@ namespace ctr_wp7.iframework.visual
             state = s;
             BaseElement child = getChild(0);
             BaseElement child2 = getChild(1);
-            child.setEnabled(s == TimedButton.TIMED_BUTTON.TIMED_BUTTON_UP);
-            child2.setEnabled(s == TimedButton.TIMED_BUTTON.TIMED_BUTTON_DOWN);
+            child.setEnabled(s == TIMED_BUTTON.TIMED_BUTTON_UP);
+            child2.setEnabled(s == TIMED_BUTTON.TIMED_BUTTON_DOWN);
         }
 
         // Token: 0x060003F1 RID: 1009 RVA: 0x0001C518 File Offset: 0x0001A718
         public override bool onTouchDownXY(float tx, float ty)
         {
             base.onTouchDownXY(tx, ty);
-            if (state == TimedButton.TIMED_BUTTON.TIMED_BUTTON_UP && isInTouchZoneXYforTouchDown(tx, ty, true))
+            if (state == TIMED_BUTTON.TIMED_BUTTON_UP && isInTouchZoneXYforTouchDown(tx, ty, true))
             {
-                setState(TimedButton.TIMED_BUTTON.TIMED_BUTTON_DOWN);
+                setState(TIMED_BUTTON.TIMED_BUTTON_DOWN);
                 time = timer;
                 timelinePlayed = false;
                 return true;
@@ -116,9 +116,9 @@ namespace ctr_wp7.iframework.visual
         public override bool onTouchUpXY(float tx, float ty)
         {
             base.onTouchUpXY(tx, ty);
-            if (state == TimedButton.TIMED_BUTTON.TIMED_BUTTON_DOWN)
+            if (state == TIMED_BUTTON.TIMED_BUTTON_DOWN)
             {
-                setState(TimedButton.TIMED_BUTTON.TIMED_BUTTON_UP);
+                setState(TIMED_BUTTON.TIMED_BUTTON_UP);
                 timelinePlayed = false;
                 if (isInTouchZoneXYforTouchDown(tx, ty, false) && time <= 0f)
                 {
@@ -143,13 +143,13 @@ namespace ctr_wp7.iframework.visual
         public override bool onTouchMoveXY(float tx, float ty)
         {
             base.onTouchMoveXY(tx, ty);
-            if (state == TimedButton.TIMED_BUTTON.TIMED_BUTTON_DOWN)
+            if (state == TIMED_BUTTON.TIMED_BUTTON_DOWN)
             {
                 if (isInTouchZoneXYforTouchDown(tx, ty, false))
                 {
                     return true;
                 }
-                setState(TimedButton.TIMED_BUTTON.TIMED_BUTTON_UP);
+                setState(TIMED_BUTTON.TIMED_BUTTON_UP);
             }
             return false;
         }
@@ -163,7 +163,7 @@ namespace ctr_wp7.iframework.visual
             {
                 width = c.width;
                 height = c.height;
-                setState(TimedButton.TIMED_BUTTON.TIMED_BUTTON_UP);
+                setState(TIMED_BUTTON.TIMED_BUTTON_UP);
             }
             return num;
         }
@@ -178,7 +178,7 @@ namespace ctr_wp7.iframework.visual
         public override void update(float delta)
         {
             base.update(delta);
-            if (time > 0f && state == TimedButton.TIMED_BUTTON.TIMED_BUTTON_DOWN)
+            if (time > 0f && state == TIMED_BUTTON.TIMED_BUTTON_DOWN)
             {
                 time -= delta;
                 if (time <= 0f && !timelinePlayed)

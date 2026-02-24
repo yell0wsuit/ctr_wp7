@@ -9,7 +9,7 @@ namespace ctr_wp7.game
         // Token: 0x0600048C RID: 1164 RVA: 0x00020C64 File Offset: 0x0001EE64
         public static CandyInGhostBubbleAnimation CIGBAnimation_createWithResID(int r)
         {
-            return CandyInGhostBubbleAnimation.CIGBAnimation_create(Application.getTexture(r));
+            return CIGBAnimation_create(Application.getTexture(r));
         }
 
         // Token: 0x0600048D RID: 1165 RVA: 0x00020C71 File Offset: 0x0001EE71
@@ -21,7 +21,7 @@ namespace ctr_wp7.game
         // Token: 0x0600048E RID: 1166 RVA: 0x00020C84 File Offset: 0x0001EE84
         public static CandyInGhostBubbleAnimation CIGBAnimation_createWithResIDQuad(int r, int q)
         {
-            CandyInGhostBubbleAnimation candyInGhostBubbleAnimation = CandyInGhostBubbleAnimation.CIGBAnimation_createWithResID(r);
+            CandyInGhostBubbleAnimation candyInGhostBubbleAnimation = CIGBAnimation_createWithResID(r);
             if (candyInGhostBubbleAnimation != null)
             {
                 candyInGhostBubbleAnimation.setDrawQuad(q);
@@ -32,7 +32,7 @@ namespace ctr_wp7.game
         // Token: 0x0600048F RID: 1167 RVA: 0x00020CA4 File Offset: 0x0001EEA4
         public virtual void addSupportingCloudsTimelines()
         {
-            backCloud = Image.Image_createWithResIDQuad(180, 4);
+            backCloud = Image_createWithResIDQuad(180, 4);
             backCloud.x = x + 28f;
             backCloud.y = y + 8f;
             backCloud.anchor = (backCloud.parentAnchor = 18);
@@ -51,7 +51,7 @@ namespace ctr_wp7.game
             timeline.addKeyFrame(KeyFrame.makePos((double)(backCloud.x + 1f), (double)(backCloud.y + 1f), KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.47999998927116394));
             backCloud.addTimelinewithID(timeline, 0);
             backCloud.playTimeline(0);
-            backCloud2 = Image.Image_createWithResIDQuad(180, 3);
+            backCloud2 = Image_createWithResIDQuad(180, 3);
             backCloud2.x = x + 22f;
             backCloud2.y = y + 16f;
             backCloud2.anchor = (backCloud2.parentAnchor = 18);
@@ -70,7 +70,7 @@ namespace ctr_wp7.game
             timeline2.addKeyFrame(KeyFrame.makePos((double)(backCloud2.x + 1f), (double)(backCloud2.y + 1f), KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.4000000059604645));
             backCloud2.addTimelinewithID(timeline2, 0);
             backCloud2.playTimeline(0);
-            backCloud3 = Image.Image_createWithResIDQuad(180, 3);
+            backCloud3 = Image_createWithResIDQuad(180, 3);
             backCloud3.x = x - 28f;
             backCloud3.y = y + 5f;
             backCloud3.anchor = (backCloud3.parentAnchor = 18);
@@ -89,7 +89,7 @@ namespace ctr_wp7.game
             timeline3.addKeyFrame(KeyFrame.makePos((double)(backCloud3.x + 1f), (double)(backCloud3.y + 1f), KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.4300000071525574));
             backCloud3.addTimelinewithID(timeline3, 0);
             backCloud3.playTimeline(0);
-            Image image = Image.Image_createWithResIDQuad(180, 4);
+            Image image = Image_createWithResIDQuad(180, 4);
             image.x = x - 23f;
             image.y = y + 16f;
             image.anchor = (image.parentAnchor = 18);
@@ -109,7 +109,7 @@ namespace ctr_wp7.game
             timeline4.addKeyFrame(KeyFrame.makePos((double)(image.x - 1f), (double)(image.y + 1f), KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.41999998688697815));
             image.addTimelinewithID(timeline4, 0);
             image.playTimeline(0);
-            Image image2 = Image.Image_createWithResIDQuad(180, 0);
+            Image image2 = Image_createWithResIDQuad(180, 0);
             image2.x = x - 5f;
             image2.y = y + 25f;
             image2.anchor = (image2.parentAnchor = 18);

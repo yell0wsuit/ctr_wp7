@@ -31,7 +31,7 @@ namespace ctr_wp7.iframework.visual
         {
             if (base.init() != null)
             {
-                font = (FontGeneric)NSObject.NSRET(i);
+                font = (FontGeneric)NSRET(i);
                 formattedStrings = new List<FormattedString>();
                 width = -1;
                 height = -1;
@@ -47,7 +47,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060005F3 RID: 1523 RVA: 0x0002CCBC File Offset: 0x0002AEBC
         public virtual void setString(string newString)
         {
-            setString(NSObject.NSS(newString));
+            setString(NSS(newString));
         }
 
         // Token: 0x060005F4 RID: 1524 RVA: 0x0002CCCA File Offset: 0x0002AECA
@@ -112,10 +112,10 @@ namespace ctr_wp7.iframework.visual
             float num = 0f;
             int num2 = (int)font.fontHeight();
             int num3 = 0;
-            NSString nsstring = NSObject.NSS("..");
+            NSString nsstring = NSS("..");
             char[] characters = nsstring.getCharacters();
             int num4 = (int)font.getCharOffset(characters, 0, 2);
-            int num5 = (int)((maxHeight == -1f) ? ((float)formattedStrings.Count) : MathHelper.MIN((float)formattedStrings.Count, maxHeight / ((float)num2 + font.getLineOffset())));
+            int num5 = (int)((maxHeight == -1f) ? ((float)formattedStrings.Count) : MIN((float)formattedStrings.Count, maxHeight / ((float)num2 + font.getLineOffset())));
             bool flag = num5 != formattedStrings.Count;
             int num6 = 0;
             for (int i = 0; i < num5; i++)
@@ -183,7 +183,7 @@ namespace ctr_wp7.iframework.visual
             }
             if (maxHeight != -1f)
             {
-                height = (int)MathHelper.MIN((float)height, maxHeight);
+                height = (int)MIN((float)height, maxHeight);
             }
         }
 
@@ -220,10 +220,10 @@ namespace ctr_wp7.iframework.visual
             float num4 = 0f;
             int num5 = (int)font.fontHeight();
             int num6 = 0;
-            NSString nsstring = NSObject.NSS("..");
+            NSString nsstring = NSS("..");
             char[] characters2 = nsstring.getCharacters();
             int num7 = (int)font.getCharOffset(characters2, 0, 2);
-            int num8 = (int)((maxHeight == -1f) ? ((float)formattedStrings.Count) : MathHelper.MIN((float)formattedStrings.Count, maxHeight / ((float)num5 + font.getLineOffset())));
+            int num8 = (int)((maxHeight == -1f) ? ((float)formattedStrings.Count) : MIN((float)formattedStrings.Count, maxHeight / ((float)num5 + font.getLineOffset())));
             bool flag = num8 != formattedStrings.Count;
             int[] array2 = new int[num];
             for (int k = 0; k < num8; k++)
@@ -297,7 +297,7 @@ namespace ctr_wp7.iframework.visual
             }
             if (maxHeight != -1f)
             {
-                height = (int)MathHelper.MIN((float)height, maxHeight);
+                height = (int)MIN((float)height, maxHeight);
             }
         }
 

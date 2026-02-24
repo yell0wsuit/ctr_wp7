@@ -13,12 +13,12 @@ namespace ctr_wp7.game
         {
             base.initParticle(ref particle);
             angle += (float)(360 / totalParticles);
-            int num = MathHelper.RND_RANGE(2, 4);
+            int num = RND_RANGE(2, 4);
             Quad2D quad2D = imageGrid.texture.quads[num];
             Quad3D quad3D = Quad3D.MakeQuad3D(0f, 0f, 0f, 0f, 0f);
             drawer.setTextureQuadatVertexQuadatIndex(quad2D, quad3D, particleCount);
             Rectangle rectangle = imageGrid.texture.quadRects[num];
-            float num2 = size + MathHelper.FLOAT_RND_RANGE(-1, 1) * sizeVar;
+            float num2 = size + FLOAT_RND_RANGE(-1, 1) * sizeVar;
             particle.width = rectangle.w * num2;
             particle.height = rectangle.h * num2;
             particle.deltaColor = RGBAColor.MakeRGBA(0f, 0f, 0f, 0f);
@@ -31,7 +31,7 @@ namespace ctr_wp7.game
             {
                 size = 0.6f;
                 sizeVar = 0.2f;
-                angle = (float)MathHelper.RND_RANGE(0, 360);
+                angle = (float)RND_RANGE(0, 360);
                 angleVar = 15f;
                 rotateSpeedVar = 30f;
                 life = 0.4f;
@@ -62,7 +62,7 @@ namespace ctr_wp7.game
                         particle.deltaColor.b = (endColor.b - startColor.b) / num;
                         particle.deltaColor.a = (endColor.a - startColor.a) / num;
                     }
-                    particle.dir = MathHelper.vectMult(particle.dir, 0.83);
+                    particle.dir = vectMult(particle.dir, 0.83);
                     particle.width *= 1.015f;
                     particle.height *= 1.015f;
                 }

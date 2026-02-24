@@ -50,7 +50,7 @@ namespace ctr_wp7.game
         // Token: 0x060007BF RID: 1983 RVA: 0x0003C608 File Offset: 0x0003A808
         public override void activate()
         {
-            CTRPreferences.gameViewChanged(NSObject.NSS("game"));
+            CTRPreferences.gameViewChanged(NSS("game"));
             Application.sharedRootController().setViewTransition(-1);
             base.activate();
             CTRSoundMgr._stopMusic();
@@ -89,19 +89,19 @@ namespace ctr_wp7.game
             int pack = ctrrootController.getPack();
             int level = ctrrootController.getLevel();
             int num = CTRPreferences.getLevelsInPackCount() - 1;
-            GameController.checkForBoxPerfect(pack);
+            checkForBoxPerfect(pack);
             int totalStars = CTRPreferences.getTotalStars();
             if (totalStars >= 50)
             {
-                CTRRootController.postAchievementName(NSObject.NSS("acBronzeScissors"));
+                CTRRootController.postAchievementName(NSS("acBronzeScissors"));
             }
             if (totalStars >= 150)
             {
-                CTRRootController.postAchievementName(NSObject.NSS("acSilverScissors"));
+                CTRRootController.postAchievementName(NSS("acSilverScissors"));
             }
             if (totalStars >= 300)
             {
-                CTRRootController.postAchievementName(NSObject.NSS("acGoldenScissors"));
+                CTRRootController.postAchievementName(NSS("acGoldenScissors"));
             }
             Preferences._savePreferences();
             int num2 = 0;
@@ -143,8 +143,8 @@ namespace ctr_wp7.game
             {
                 case 0:
                     {
-                        FrameworkTypes.AndroidAPI.hideBanner();
-                        FrameworkTypes.FlurryAPI.logEvent("LEVMENU_CONTBT_PRESSED", null);
+                        AndroidAPI.hideBanner();
+                        FlurryAPI.logEvent("LEVMENU_CONTBT_PRESSED", null);
                         GameScene gameScene = (GameScene)view.getChild(0);
                         gameScene.dimTime = tmpDimTime;
                         tmpDimTime = 0f;
@@ -155,7 +155,7 @@ namespace ctr_wp7.game
                     break;
                 case 2:
                     {
-                        FrameworkTypes.AndroidAPI.hideBanner();
+                        AndroidAPI.hideBanner();
                         postLevelEventwithMask("LEVMENU_SKIPBT_PRESSED", 0, true);
                         if (lastLevelInPack() && !ctrrootController.isPicker())
                         {
@@ -169,7 +169,7 @@ namespace ctr_wp7.game
                         return;
                     }
                 case 3:
-                    FrameworkTypes.AndroidAPI.hideBanner();
+                    AndroidAPI.hideBanner();
                     if (ctrrootController.getLevel() == CTRPreferences.sharewareFreeLevels() - 1 && !CTRPreferences.isSharewareUnlocked())
                     {
                         exitCode = 3;
@@ -183,14 +183,14 @@ namespace ctr_wp7.game
                     postLevelEventwithMask("LEVMENU_LEVSELBT_PRESSED", 0, true);
                     return;
                 case 4:
-                    FrameworkTypes.AndroidAPI.hideBanner();
+                    AndroidAPI.hideBanner();
                     exitCode = 0;
                     CTRSoundMgr._stopAll();
                     levelQuit();
-                    FrameworkTypes.FlurryAPI.logEvent("LEVMENU_MMENUBT_PRESSED", null);
+                    FlurryAPI.logEvent("LEVMENU_MMENUBT_PRESSED", null);
                     return;
                 case 5:
-                    FrameworkTypes.AndroidAPI.hideBanner();
+                    AndroidAPI.hideBanner();
                     if (ctrrootController.getLevel() == CTRPreferences.sharewareFreeLevels() - 1 && !CTRPreferences.isSharewareUnlocked())
                     {
                         exitCode = 3;
@@ -209,7 +209,7 @@ namespace ctr_wp7.game
                     return;
                 case 6:
                     {
-                        FrameworkTypes.AndroidAPI.showBanner();
+                        AndroidAPI.showBanner();
                         GameScene gameScene3 = (GameScene)view.getChild(0);
                         tmpDimTime = gameScene3.dimTime;
                         releaseAllTouches(gameScene3);
@@ -219,7 +219,7 @@ namespace ctr_wp7.game
                         return;
                     }
                 case 7:
-                    FrameworkTypes.AndroidAPI.hideBanner();
+                    AndroidAPI.hideBanner();
                     onNextLevel();
                     return;
                 case 8:
@@ -233,7 +233,7 @@ namespace ctr_wp7.game
                     {
                         GameScene gameScene4 = (GameScene)view.getChild(0);
                         releaseAllTouches(gameScene4);
-                        FrameworkTypes.AndroidAPI.hideBanner();
+                        AndroidAPI.hideBanner();
                         CTRSoundMgr._stopLoopedSounds();
                         if (!boxCloseHandled)
                         {
@@ -246,7 +246,7 @@ namespace ctr_wp7.game
                         {
                             GameView gameView = (GameView)view;
                             gameView.videoAdLoading = true;
-                            FrameworkTypes.AndroidAPI.showVideoBanner();
+                            AndroidAPI.showVideoBanner();
                             return;
                         }
                         onNextLevel();
@@ -255,7 +255,7 @@ namespace ctr_wp7.game
                 default:
                     return;
             }
-            FrameworkTypes.AndroidAPI.hideBanner();
+            AndroidAPI.hideBanner();
             GameScene gameScene5 = (GameScene)view.getChild(0);
             if (!gameScene5.isEnabled())
             {
@@ -403,41 +403,41 @@ namespace ctr_wp7.game
             gameView.addChildwithID(gameScene, 0);
             Button button = MenuController.createButtonWithImageQuad1Quad2IDDelegate(100, 0, 1, 6, this);
             button.setTouchIncreaseLeftRightTopBottom(2f, 6f, 6f, 6f);
-            button.y -= FrameworkTypes.SCREEN_OFFSET_Y;
-            button.x += FrameworkTypes.SCREEN_OFFSET_X;
+            button.y -= SCREEN_OFFSET_Y;
+            button.x += SCREEN_OFFSET_X;
             button.x += 0.33f;
             button.y += 0.33f;
             gameView.addChildwithID(button, 1);
             Button button2 = MenuController.createButtonWithImageQuad1Quad2IDDelegate(92, 0, 1, 1, this);
             button2.setTouchIncreaseLeftRightTopBottom(6f, 2f, 6f, 6f);
-            button2.y -= FrameworkTypes.SCREEN_OFFSET_Y;
-            button2.x += FrameworkTypes.SCREEN_OFFSET_X;
+            button2.y -= SCREEN_OFFSET_Y;
+            button2.x += SCREEN_OFFSET_X;
             button2.x += 0.33f;
             button2.y += 0.33f;
             Button button3 = MenuController.createButtonWithImageQuad1Quad2IDDelegate(92, 0, 1, 7, this);
             button3.color = RGBAColor.redRGBA;
             button3.x = -40f;
             button3.setEnabled(false);
-            button3.y -= FrameworkTypes.SCREEN_OFFSET_Y;
-            button3.x += FrameworkTypes.SCREEN_OFFSET_X;
+            button3.y -= SCREEN_OFFSET_Y;
+            button3.x += SCREEN_OFFSET_X;
             gameView.addChildwithID(button2, 2);
             gameView.addChildwithID(button3, 3);
             Image image = Image.Image_createWithResIDQuad(96, 0);
             image.anchor = (image.parentAnchor = 10);
             image.passTransformationsToChilds = false;
-            image.y = -FrameworkTypes.SCREEN_OFFSET_Y;
-            image.scaleX = FrameworkTypes.SCREEN_BG_SCALE_X;
+            image.y = -SCREEN_OFFSET_Y;
+            image.scaleX = SCREEN_BG_SCALE_X;
             mapNameLabel = new Text().initWithFont(Application.getFont(6));
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
             int scoreForPackLevel = CTRPreferences.getScoreForPackLevel(ctrrootController.getPack(), ctrrootController.getLevel());
-            mapNameLabel.setString(NSObject.NSS(Application.getString(1310745) + ",  %d" + scoreForPackLevel));
+            mapNameLabel.setString(NSS(Application.getString(1310745) + ",  %d" + scoreForPackLevel));
             mapNameLabel.parentAnchor = 12;
             mapNameLabel.anchor = 20;
             mapNameLabel.x = -10f;
             mapNameLabel.y = 20f;
-            mapNameLabel.x += FrameworkTypes.SCREEN_OFFSET_X;
+            mapNameLabel.x += SCREEN_OFFSET_X;
             image.addChild(mapNameLabel);
-            VBox vbox = new VBox().initWithOffsetAlignWidth(5.0, 2, (double)FrameworkTypes.SCREEN_WIDTH);
+            VBox vbox = new VBox().initWithOffsetAlignWidth(5.0, 2, (double)SCREEN_WIDTH);
             Button button4 = MenuController.createButtonWithTextIDDelegate(Application.getString(1310762), 0, this);
             vbox.addChild(button4);
             Button button5 = MenuController.createButtonWithTextIDDelegate(Application.getString(1310763), 2, this);
@@ -540,7 +540,7 @@ namespace ctr_wp7.game
                 }
             }
             boxOpenClose.shouldShowConfetti = gameScene.starsCollected == 3;
-            CTRPreferences.gameViewChanged(NSObject.NSS("menu"));
+            CTRPreferences.gameViewChanged(NSS("menu"));
             CTRPreferences.setWinsForPackLevel(winsForPackLevel + 1, pack, level);
             boxOpenClose.levelWon();
             postLevelEventwithMask("LEVWONSCR_SCREEN_SHOWN", 9, false);
@@ -581,20 +581,20 @@ namespace ctr_wp7.game
             view.getChild(0).updateable = !p;
             if (!isGamePaused)
             {
-                CTRPreferences.gameViewChanged(NSObject.NSS("game"));
+                CTRPreferences.gameViewChanged(NSS("game"));
                 CTRSoundMgr._unpause();
                 return;
             }
-            CTRPreferences.gameViewChanged(NSObject.NSS("menu"));
+            CTRPreferences.gameViewChanged(NSS("menu"));
             CTRSoundMgr._pause();
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
             if (ctrrootController.isPicker())
             {
-                mapNameLabel.setString(NSObject.NSS(""));
+                mapNameLabel.setString(NSS(""));
                 return;
             }
             int scoreForPackLevel = CTRPreferences.getScoreForPackLevel(ctrrootController.getPack(), ctrrootController.getLevel());
-            mapNameLabel.setString(NSObject.NSS(Application.getString(1310745) + ": " + scoreForPackLevel));
+            mapNameLabel.setString(NSS(Application.getString(1310745) + ": " + scoreForPackLevel));
         }
 
         // Token: 0x060007D1 RID: 2001 RVA: 0x0003D587 File Offset: 0x0003B787
@@ -617,7 +617,7 @@ namespace ctr_wp7.game
             {
                 dictionary["stars"] = gameScene.starsCollected.ToString();
             }
-            FrameworkTypes.FlurryAPI.logEventwithParams(s, dictionary, true, mixpanel, false);
+            FlurryAPI.logEventwithParams(s, dictionary, true, mixpanel, false);
         }
 
         // Token: 0x060007D3 RID: 2003 RVA: 0x0003D620 File Offset: 0x0003B820
@@ -704,7 +704,7 @@ namespace ctr_wp7.game
         // Token: 0x060007D7 RID: 2007 RVA: 0x0003D7A4 File Offset: 0x0003B9A4
         public virtual void onNextLevel()
         {
-            CTRPreferences.gameViewChanged(NSObject.NSS("game"));
+            CTRPreferences.gameViewChanged(NSS("game"));
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
             View view = getView(0);
             GameView gameView = (GameView)view;

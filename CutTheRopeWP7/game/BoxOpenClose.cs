@@ -69,7 +69,7 @@ namespace ctr_wp7.game
                 Button button = MenuController.createShortButtonWithTextIDDelegate(Application.getString(1310749), 8, b);
                 button.anchor = 18;
                 button.setName("buttonWinRestart");
-                if (ResDataPhoneFull.LANGUAGE == Language.LANG_KO)
+                if (LANGUAGE == Language.LANG_KO)
                 {
                     button.getChild(0).getChild(0).scaleX = 0.9f;
                     button.getChild(0).getChild(0).scaleY = 0.9f;
@@ -97,7 +97,7 @@ namespace ctr_wp7.game
                 text3.setName("dataValue");
                 text3.anchor = 18;
                 Image.setElementPositionWithQuadOffset(text3, 97, 6);
-                if (ResDataPhoneFull.LANGUAGE == Language.LANG_ES)
+                if (LANGUAGE == Language.LANG_ES)
                 {
                     text3.x += 20f;
                 }
@@ -205,7 +205,7 @@ namespace ctr_wp7.game
         {
             Confetti confetti = Confetti.Confetti_createWithResID(95);
             confetti.doRestoreCutTransparency();
-            int num = MathHelper.RND_RANGE(0, 2);
+            int num = RND_RANGE(0, 2);
             int num2 = 0;
             int num3 = 8;
             if (num == 1)
@@ -218,22 +218,22 @@ namespace ctr_wp7.game
                 num2 = 18;
                 num3 = 26;
             }
-            float num4 = (float)MathHelper.RND_RANGE(-100, (int)FrameworkTypes.SCREEN_WIDTH);
-            float num5 = (float)MathHelper.RND_RANGE(-20, 50);
-            float num6 = MathHelper.FLOAT_RND_RANGE(2, 5);
+            float num4 = (float)RND_RANGE(-100, (int)SCREEN_WIDTH);
+            float num5 = (float)RND_RANGE(-20, 50);
+            float num6 = FLOAT_RND_RANGE(2, 5);
             int num7 = confetti.addAnimationDelayLoopFirstLast(0.05f, Timeline.LoopType.TIMELINE_REPLAY, num2, num3);
             confetti.ani = confetti.getTimeline(num7);
             confetti.ani.playTimeline();
-            confetti.ani.jumpToTrackKeyFrame(4, MathHelper.RND_RANGE(0, num3 - num2 - 1));
+            confetti.ani.jumpToTrackKeyFrame(4, RND_RANGE(0, num3 - num2 - 1));
             Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(2);
             timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.solidOpaqueRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
             timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, num6));
             timeline.addKeyFrame(KeyFrame.makePos((double)num4, (double)num5, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
-            timeline.addKeyFrame(KeyFrame.makePos((double)num4, (double)(num5 + MathHelper.FLOAT_RND_RANGE(150, 250)), KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, (double)num6));
+            timeline.addKeyFrame(KeyFrame.makePos((double)num4, (double)(num5 + FLOAT_RND_RANGE(150, 250)), KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, (double)num6));
             timeline.addKeyFrame(KeyFrame.makeScale(0.0, 0.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
             timeline.addKeyFrame(KeyFrame.makeScale(1.0, 1.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.3));
-            timeline.addKeyFrame(KeyFrame.makeRotation(MathHelper.RND_RANGE(-360, 360), KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0f));
-            timeline.addKeyFrame(KeyFrame.makeRotation(MathHelper.RND_RANGE(-360, 360), KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, num6));
+            timeline.addKeyFrame(KeyFrame.makeRotation(RND_RANGE(-360, 360), KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0f));
+            timeline.addKeyFrame(KeyFrame.makeRotation(RND_RANGE(-360, 360), KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, num6));
             confetti.addTimeline(timeline);
             confetti.playTimeline(1);
             return confetti;
@@ -259,8 +259,8 @@ namespace ctr_wp7.game
             openCloseAnims = (BaseElement)new BaseElement().init();
             addChildwithID(openCloseAnims, 0);
             openCloseAnims.parentAnchor = (openCloseAnims.anchor = 18);
-            openCloseAnims.scaleY = FrameworkTypes.SCREEN_BG_SCALE_Y;
-            openCloseAnims.scaleX = FrameworkTypes.SCREEN_BG_SCALE_X;
+            openCloseAnims.scaleY = SCREEN_BG_SCALE_Y;
+            openCloseAnims.scaleX = SCREEN_BG_SCALE_X;
             openCloseAnims.passTransformationsToChilds = true;
         }
 
@@ -269,7 +269,7 @@ namespace ctr_wp7.game
         {
             for (int i = 0; i < 70; i++)
             {
-                confettiAnims.addChild(createConfettiParticleNear(MathHelper.vectZero));
+                confettiAnims.addChild(createConfettiParticleNear(vectZero));
             }
         }
 
@@ -288,12 +288,12 @@ namespace ctr_wp7.game
                             ctime = time;
                             cstarBonus = starBonus;
                             Text text = (Text)result.getChildWithName("scoreValue");
-                            text.setString(NSObject.NSS(string.Concat(cscore)));
+                            text.setString(NSS(string.Concat(cscore)));
                             Text text2 = (Text)result.getChildWithName("dataTitle");
                             Image.setElementPositionWithQuadOffset(text2, 97, 5);
                             text2.setString(Application.getString(1310743));
                             Text text3 = (Text)result.getChildWithName("dataValue");
-                            text3.setString(NSObject.NSS(string.Concat(cstarBonus)));
+                            text3.setString(NSS(string.Concat(cstarBonus)));
                             raState = 1;
                             raDelay = 1f;
                             return;
@@ -327,10 +327,10 @@ namespace ctr_wp7.game
                             cstarBonus = (int)((float)starBonus * raDelay);
                             cscore = (int)((1.0 - (double)raDelay) * (double)starBonus);
                             Text text7 = (Text)result.getChildWithName("dataValue");
-                            text7.setString(NSObject.NSS(string.Concat(cstarBonus)));
+                            text7.setString(NSS(string.Concat(cstarBonus)));
                             Text text8 = (Text)result.getChildWithName("scoreValue");
                             text8.setEnabled(true);
-                            text8.setString(NSObject.NSS(string.Concat(cscore)));
+                            text8.setString(NSS(string.Concat(cscore)));
                             if (flag)
                             {
                                 raState = 3;
@@ -353,7 +353,7 @@ namespace ctr_wp7.game
                                 Text text11 = (Text)result.getChildWithName("dataTitle");
                                 text11.setString(Application.getString(1310742));
                                 Text text12 = (Text)result.getChildWithName("dataValue");
-                                text12.setString(NSObject.NSS(num + ":" + num2.ToString("D2")));
+                                text12.setString(NSS(num + ":" + num2.ToString("D2")));
                                 return;
                             }
                             break;
@@ -378,9 +378,9 @@ namespace ctr_wp7.game
                             int num3 = (int)Math.Floor(Math.Round((double)ctime) / 60.0);
                             int num4 = (int)(Math.Round((double)ctime) - (double)num3 * 60.0);
                             Text text15 = (Text)result.getChildWithName("dataValue");
-                            text15.setString(NSObject.NSS(num3 + ":" + num4.ToString("D2")));
+                            text15.setString(NSS(num3 + ":" + num4.ToString("D2")));
                             Text text16 = (Text)result.getChildWithName("scoreValue");
-                            text16.setString(NSObject.NSS(string.Concat(cscore)));
+                            text16.setString(NSS(string.Concat(cscore)));
                             if (flag)
                             {
                                 raState = 6;
@@ -402,7 +402,7 @@ namespace ctr_wp7.game
                                 Image.setElementPositionWithQuadOffset(text19, 97, 7);
                                 text19.setString(Application.getString(1310744));
                                 Text text20 = (Text)result.getChildWithName("dataValue");
-                                text20.setString(NSObject.NSS(""));
+                                text20.setString(NSS(""));
                                 return;
                             }
                             break;
@@ -459,7 +459,7 @@ namespace ctr_wp7.game
             image3.rotationCenterX = image2.rotationCenterX;
             image3.y = -0.5f;
             image3.rotation = 180f;
-            image3.x = FrameworkTypes.SCREEN_WIDTH;
+            image3.x = SCREEN_WIDTH;
             timeline = new Timeline().initWithMaxKeyFramesOnTrack(2);
             if (open)
             {
@@ -517,15 +517,15 @@ namespace ctr_wp7.game
             timeline = new Timeline().initWithMaxKeyFramesOnTrack(2);
             if (open)
             {
-                timeline.addKeyFrame(KeyFrame.makePos((double)(FrameworkTypes.SCREEN_WIDTH - (float)image2.width + 3f), 25.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
-                timeline.addKeyFrame(KeyFrame.makePos((double)(FrameworkTypes.SCREEN_WIDTH + 6f), 25.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.56));
+                timeline.addKeyFrame(KeyFrame.makePos((double)(SCREEN_WIDTH - (float)image2.width + 3f), 25.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
+                timeline.addKeyFrame(KeyFrame.makePos((double)(SCREEN_WIDTH + 6f), 25.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.56));
                 timeline.addKeyFrame(KeyFrame.makeScale(1.0, 1.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
                 timeline.addKeyFrame(KeyFrame.makeScale(0.0, 1.3, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.53));
             }
             else
             {
-                timeline.addKeyFrame(KeyFrame.makePos((double)FrameworkTypes.SCREEN_WIDTH - 9.0, 25.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
-                timeline.addKeyFrame(KeyFrame.makePos((double)(FrameworkTypes.SCREEN_WIDTH - (float)image2.width + 4f), 25.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.48));
+                timeline.addKeyFrame(KeyFrame.makePos((double)SCREEN_WIDTH - 9.0, 25.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
+                timeline.addKeyFrame(KeyFrame.makePos((double)(SCREEN_WIDTH - (float)image2.width + 4f), 25.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.48));
                 timeline.addKeyFrame(KeyFrame.makeScale(0.0, 1.3, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
                 timeline.addKeyFrame(KeyFrame.makeScale(1.0, 1.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.53));
             }
@@ -561,15 +561,15 @@ namespace ctr_wp7.game
             timeline = new Timeline().initWithMaxKeyFramesOnTrack(2);
             if (open)
             {
-                timeline.addKeyFrame(KeyFrame.makePos((double)(FrameworkTypes.SCREEN_WIDTH - (float)image2.width) + 3.0, 0.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
-                timeline.addKeyFrame(KeyFrame.makePos((double)FrameworkTypes.SCREEN_WIDTH, 0.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.56));
+                timeline.addKeyFrame(KeyFrame.makePos((double)(SCREEN_WIDTH - (float)image2.width) + 3.0, 0.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
+                timeline.addKeyFrame(KeyFrame.makePos((double)SCREEN_WIDTH, 0.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.56));
                 timeline.addKeyFrame(KeyFrame.makeScale(0.0, 1.3, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
                 timeline.addKeyFrame(KeyFrame.makeScale(1.0, 1.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.53));
             }
             else
             {
-                timeline.addKeyFrame(KeyFrame.makePos((double)(FrameworkTypes.SCREEN_WIDTH - num4), 0.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
-                timeline.addKeyFrame(KeyFrame.makePos((double)(FrameworkTypes.SCREEN_WIDTH - (float)image2.width + num6), 0.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.48));
+                timeline.addKeyFrame(KeyFrame.makePos((double)(SCREEN_WIDTH - num4), 0.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
+                timeline.addKeyFrame(KeyFrame.makePos((double)(SCREEN_WIDTH - (float)image2.width + num6), 0.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.48));
                 timeline.addKeyFrame(KeyFrame.makeScale(1.0, 1.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
                 timeline.addKeyFrame(KeyFrame.makeScale(0.0, 1.3, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.53));
             }
@@ -597,7 +597,7 @@ namespace ctr_wp7.game
             {
                 case 0:
                 case 1:
-                    NSTimer.registerDelayedObjectCall(new DelayedDispatcher.DispatchFunc(BoxOpenClose.selector_removeOpenCloseAnims), this, 0.001);
+                    NSTimer.registerDelayedObjectCall(new DelayedDispatcher.DispatchFunc(selector_removeOpenCloseAnims), this, 0.001);
                     if (result.isEnabled())
                     {
                         confettiAnims.removeAllChilds();
@@ -606,7 +606,7 @@ namespace ctr_wp7.game
                     }
                     break;
                 case 2:
-                    NSTimer.registerDelayedObjectCall(new DelayedDispatcher.DispatchFunc(BoxOpenClose.selector_postBoxClosed), this, 0.001);
+                    NSTimer.registerDelayedObjectCall(new DelayedDispatcher.DispatchFunc(selector_postBoxClosed), this, 0.001);
                     break;
                 case 3:
                     break;

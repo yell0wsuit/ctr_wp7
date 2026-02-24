@@ -18,7 +18,7 @@ namespace ctr_wp7.game
             OpenGL.glClear(0);
             float num = (float)Application.sharedResourceMgr().getPercentLoaded();
             Texture2D texture = Application.getTexture(0);
-            Rectangle rectangle = FrameworkTypes.MakeRectangle(1.33f, 1.33f, (float)(texture._realWidth - 2), (float)(texture._realHeight - 2));
+            Rectangle rectangle = MakeRectangle(1.33f, 1.33f, (float)(texture._realWidth - 2), (float)(texture._realHeight - 2));
             if (texture.isWvga())
             {
                 GLDrawer.drawImagePart(texture, rectangle, 1f, -25f);
@@ -28,7 +28,7 @@ namespace ctr_wp7.game
                 GLDrawer.drawImagePart(texture, rectangle, 1f, 1f);
             }
             Texture2D texture2 = Application.getTexture(1);
-            Rectangle rectangle2 = FrameworkTypes.MakeRectangle(0.0, 0.0, 223.3 * (double)num / 100.0, 15.0);
+            Rectangle rectangle2 = MakeRectangle(0.0, 0.0, 223.3 * (double)num / 100.0, 15.0);
             GLDrawer.drawImagePart(texture2, rectangle2, 45f, 449f);
             postDraw();
             OpenGL.glDisable(0);

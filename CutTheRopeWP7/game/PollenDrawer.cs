@@ -57,15 +57,15 @@ namespace ctr_wp7.game
             float num2 = 1f;
             float[] array = new float[] { 0.3f, 0.3f, 0.5f, 0.5f, 0.6f };
             int num3 = Enumerable.Count<float>(array);
-            float num4 = array[MathHelper.RND_RANGE(0, num3 - 1)];
+            float num4 = array[RND_RANGE(0, num3 - 1)];
             float num5 = num4;
-            if (MathHelper.RND(1) == 1)
+            if (RND(1) == 1)
             {
-                num4 *= 1f + (float)MathHelper.RND(1) / 10f;
+                num4 *= 1f + (float)RND(1) / 10f;
             }
             else
             {
-                num5 *= 1f + (float)MathHelper.RND(1) / 10f;
+                num5 *= 1f + (float)RND(1) / 10f;
             }
             num *= num4;
             num2 *= num5;
@@ -79,7 +79,7 @@ namespace ctr_wp7.game
             pollen.y = v.y;
             float num8 = 1f;
             float num9 = Math.Min(num8 - num, num8 - num2);
-            float rnd_0_ = MathHelper.RND_0_1;
+            float rnd_0_ = RND_0_1;
             pollen.startScaleX = num9 + num;
             pollen.startScaleY = num9 + num2;
             pollen.scaleX = pollen.startScaleX * rnd_0_;
@@ -109,7 +109,7 @@ namespace ctr_wp7.game
         // Token: 0x06000639 RID: 1593 RVA: 0x0002FD53 File Offset: 0x0002DF53
         private int WVGAD(int V)
         {
-            if (!FrameworkTypes.IS_WVGA)
+            if (!IS_WVGA)
             {
                 return V;
             }
@@ -122,15 +122,15 @@ namespace ctr_wp7.game
             int num = WVGAD(10);
             Vector vector = g.mover.path[p1];
             Vector vector2 = g.mover.path[p2];
-            Vector vector3 = MathHelper.vectSub(vector2, vector);
-            float num2 = MathHelper.vectLength(vector3);
+            Vector vector3 = vectSub(vector2, vector);
+            float num2 = vectLength(vector3);
             int num3 = (int)(num2 / (float)num);
-            Vector vector4 = MathHelper.vectNormalize(vector3);
+            Vector vector4 = vectNormalize(vector3);
             for (int i = 0; i <= num3; i++)
             {
-                Vector vector5 = MathHelper.vectAdd(vector, MathHelper.vectMult(vector4, (float)(i * num)));
-                vector5.x += (float)MathHelper.RND_RANGE(WVGAD(-2), WVGAD(2));
-                vector5.y += (float)MathHelper.RND_RANGE(WVGAD(-2), WVGAD(2));
+                Vector vector5 = vectAdd(vector, vectMult(vector4, (float)(i * num)));
+                vector5.x += (float)RND_RANGE(WVGAD(-2), WVGAD(2));
+                vector5.y += (float)RND_RANGE(WVGAD(-2), WVGAD(2));
                 addPollenAtparentIndex(vector5, p1);
             }
         }
@@ -185,8 +185,8 @@ namespace ctr_wp7.game
             OpenGL.glBlendFunc(BlendingFactor.GL_SRC_ALPHA, BlendingFactor.GL_ONE);
             OpenGL.glEnable(0);
             OpenGL.glBindTexture(drawer.image.texture.name());
-            OpenGL.glVertexPointer(3, 5, 0, FrameworkTypes.toFloatArray(drawer.vertices));
-            OpenGL.glTexCoordPointer(2, 5, 0, FrameworkTypes.toFloatArray(drawer.texCoordinates));
+            OpenGL.glVertexPointer(3, 5, 0, toFloatArray(drawer.vertices));
+            OpenGL.glTexCoordPointer(2, 5, 0, toFloatArray(drawer.texCoordinates));
             OpenGL.glEnableClientState(13);
             OpenGL.glBindBuffer(2, colorsID);
             OpenGL.glBufferData(2, colors, 3);

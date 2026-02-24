@@ -10,7 +10,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060004C2 RID: 1218 RVA: 0x00023B86 File Offset: 0x00021D86
         public virtual void stopTimeline()
         {
-            state = Timeline.TimelineState.TIMELINE_STOPPED;
+            state = TimelineState.TIMELINE_STOPPED;
             deactivateTracks();
         }
 
@@ -29,17 +29,17 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060004C4 RID: 1220 RVA: 0x00023BD0 File Offset: 0x00021DD0
         public void jumpToTrackKeyFrame(int t, int k)
         {
-            if (state == Timeline.TimelineState.TIMELINE_STOPPED)
+            if (state == TimelineState.TIMELINE_STOPPED)
             {
-                state = Timeline.TimelineState.TIMELINE_PAUSED;
+                state = TimelineState.TIMELINE_PAUSED;
             }
-            Timeline.updateTimeline(this, tracks[t].getFrameTime(k) - time);
+            updateTimeline(this, tracks[t].getFrameTime(k) - time);
         }
 
         // Token: 0x060004C5 RID: 1221 RVA: 0x00023BFC File Offset: 0x00021DFC
         public virtual void playTimeline()
         {
-            if (state != Timeline.TimelineState.TIMELINE_PAUSED)
+            if (state != TimelineState.TIMELINE_PAUSED)
             {
                 time = 0f;
                 timelineDirReverse = false;
@@ -56,20 +56,20 @@ namespace ctr_wp7.iframework.visual
                     }
                 }
             }
-            state = Timeline.TimelineState.TIMELINE_PLAYING;
-            Timeline.updateTimeline(this, 0f);
+            state = TimelineState.TIMELINE_PLAYING;
+            updateTimeline(this, 0f);
         }
 
         // Token: 0x060004C6 RID: 1222 RVA: 0x00023C8C File Offset: 0x00021E8C
         public virtual void pauseTimeline()
         {
-            state = Timeline.TimelineState.TIMELINE_PAUSED;
+            state = TimelineState.TIMELINE_PAUSED;
         }
 
         // Token: 0x060004C7 RID: 1223 RVA: 0x00023C98 File Offset: 0x00021E98
         public static void updateTimeline(Timeline thiss, float delta)
         {
-            if (thiss.state != Timeline.TimelineState.TIMELINE_PLAYING)
+            if (thiss.state != TimelineState.TIMELINE_PLAYING)
             {
                 return;
             }
@@ -97,7 +97,7 @@ namespace ctr_wp7.iframework.visual
             }
             switch (thiss.timelineLoopType)
             {
-                case Timeline.LoopType.TIMELINE_NO_LOOP:
+                case LoopType.TIMELINE_NO_LOOP:
                     if (thiss.time >= thiss.length - 1E-06f)
                     {
                         thiss.stopTimeline();
@@ -107,7 +107,7 @@ namespace ctr_wp7.iframework.visual
                         }
                     }
                     break;
-                case Timeline.LoopType.TIMELINE_REPLAY:
+                case LoopType.TIMELINE_REPLAY:
                     if (thiss.time >= thiss.length - 1E-06f)
                     {
                         if (thiss.loopsLimit > 0)
@@ -126,7 +126,7 @@ namespace ctr_wp7.iframework.visual
                         return;
                     }
                     break;
-                case Timeline.LoopType.TIMELINE_PING_PONG:
+                case LoopType.TIMELINE_PING_PONG:
                     {
                         bool flag = !thiss.timelineDirReverse && thiss.time >= thiss.length - 1E-06f;
                         bool flag2 = thiss.timelineDirReverse && thiss.time <= 1E-06f;
@@ -169,9 +169,9 @@ namespace ctr_wp7.iframework.visual
                 maxKeyFrames = m;
                 time = 0f;
                 length = 0f;
-                state = Timeline.TimelineState.TIMELINE_STOPPED;
+                state = TimelineState.TIMELINE_STOPPED;
                 loopsLimit = -1;
-                timelineLoopType = Timeline.LoopType.TIMELINE_NO_LOOP;
+                timelineLoopType = LoopType.TIMELINE_NO_LOOP;
             }
             return this;
         }

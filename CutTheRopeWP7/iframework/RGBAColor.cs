@@ -25,7 +25,7 @@ namespace ctr_wp7.iframework
         // Token: 0x06000173 RID: 371 RVA: 0x0000B34A File Offset: 0x0000954A
         public static RGBAColor MakeRGBA(double r, double g, double b, double a)
         {
-            return RGBAColor.MakeRGBA((float)r, (float)g, (float)b, (float)a);
+            return MakeRGBA((float)r, (float)g, (float)b, (float)a);
         }
 
         // Token: 0x06000174 RID: 372 RVA: 0x0000B35C File Offset: 0x0000955C

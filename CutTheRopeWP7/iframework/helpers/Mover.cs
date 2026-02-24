@@ -65,7 +65,7 @@ namespace ctr_wp7.iframework.helpers
                 {
                     float num5 = s.x + (float)num * (float)Math.Cos((double)num4);
                     float num6 = s.y + (float)num * (float)Math.Sin((double)num4);
-                    addPathPoint(MathHelper.vect(num5, num6));
+                    addPathPoint(vect(num5, num6));
                     num4 += num3;
                 }
                 return;
@@ -80,7 +80,7 @@ namespace ctr_wp7.iframework.helpers
             {
                 NSString nsstring2 = list[j];
                 NSString nsstring3 = list[j + 1];
-                addPathPoint(MathHelper.vect(s.x + nsstring2.floatValue(), s.y + nsstring3.floatValue()));
+                addPathPoint(vect(s.x + nsstring2.floatValue(), s.y + nsstring3.floatValue()));
             }
         }
 
@@ -131,7 +131,7 @@ namespace ctr_wp7.iframework.helpers
         public virtual void calculateOffset()
         {
             Vector vector = path[targetPoint];
-            offset = MathHelper.vectMult(MathHelper.vectNormalize(MathHelper.vectSub(vector, pos)), moveSpeed[targetPoint]);
+            offset = vectMult(vectNormalize(vectSub(vector, pos)), moveSpeed[targetPoint]);
         }
 
         // Token: 0x06000465 RID: 1125 RVA: 0x0001EBC9 File Offset: 0x0001CDC9
@@ -157,7 +157,7 @@ namespace ctr_wp7.iframework.helpers
             {
                 Vector vector = path[targetPoint];
                 bool flag = false;
-                if (!MathHelper.vectEqual(pos, vector))
+                if (!vectEqual(pos, vector))
                 {
                     float num = delta;
                     if (overrun != 0f)
@@ -165,11 +165,11 @@ namespace ctr_wp7.iframework.helpers
                         num += overrun;
                         overrun = 0f;
                     }
-                    pos = MathHelper.vectAdd(pos, MathHelper.vectMult(offset, num));
-                    if (!MathHelper.sameSign(offset.x, vector.x - pos.x) || !MathHelper.sameSign(offset.y, vector.y - pos.y))
+                    pos = vectAdd(pos, vectMult(offset, num));
+                    if (!sameSign(offset.x, vector.x - pos.x) || !sameSign(offset.y, vector.y - pos.y))
                     {
-                        overrun = MathHelper.vectLength(MathHelper.vectSub(pos, vector));
-                        float num2 = MathHelper.vectLength(offset);
+                        overrun = vectLength(vectSub(pos, vector));
+                        float num2 = vectLength(offset);
                         overrun /= num2;
                         pos = vector;
                         flag = true;

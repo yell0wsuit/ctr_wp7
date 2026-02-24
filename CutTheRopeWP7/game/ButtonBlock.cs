@@ -17,7 +17,7 @@ namespace ctr_wp7.game
             delegateButtonDelegate = d;
             block = pBlock;
             recheckneeded = false;
-            check = MathHelper.RND_0_1 * 3f + 1f;
+            check = RND_0_1 * 3f + 1f;
             transition = 0.5f;
             NSString text = block.getText();
             NSString name = block.getName();
@@ -81,7 +81,7 @@ namespace ctr_wp7.game
                 baseElement.addChild(image2);
                 BaseElement baseElement2 = (BaseElement)new BaseElement().init();
                 baseElement2.anchor = (baseElement2.parentAnchor = 18);
-                baseElement2.setName(NSObject.NSS("dummy"));
+                baseElement2.setName(NSS("dummy"));
                 baseElement2.width = baseElement.width;
                 baseElement2.height = baseElement.height;
                 baseElement.addChild(baseElement2);
@@ -113,7 +113,7 @@ namespace ctr_wp7.game
                 baseElement = Image.Image_createWithResIDQuad(num, num4);
                 BaseElement baseElement2 = (BaseElement)new BaseElement().init();
                 baseElement2.anchor = (baseElement2.parentAnchor = 18);
-                baseElement2.setName(NSObject.NSS("dummy"));
+                baseElement2.setName(NSS("dummy"));
                 baseElement2.width = baseElement.width;
                 baseElement2.height = baseElement.height;
                 baseElement.addChild(baseElement2);
@@ -134,7 +134,7 @@ namespace ctr_wp7.game
                     image.addTimeline(timeline2);
                     image.playTimeline(0);
                     image.anchor = (image.parentAnchor = 18);
-                    image.setName(NSObject.NSS("progressbar"));
+                    image.setName(NSS("progressbar"));
                     baseElement.addChild(image);
                 }
             }
@@ -202,7 +202,7 @@ namespace ctr_wp7.game
                     baseElement4.width = image2.width;
                     baseElement4.height = image2.height;
                     baseElement4.anchor = (baseElement4.parentAnchor = 9);
-                    baseElement4.setName(NSObject.NSS("nimbus"));
+                    baseElement4.setName(NSS("nimbus"));
                     image2.addChild(baseElement4);
                     baseElement4.addChild(image3);
                     baseElement4.addChild(image4);
@@ -229,7 +229,7 @@ namespace ctr_wp7.game
                     {
                         recheckneeded = false;
                         Texture2D texture2D = Application.sharedResourceMgr().loadTextureImageInfo(block.getName().ToString());
-                        BaseElement childWithName = getChild(0).getChildWithName(NSObject.NSS("dummy"));
+                        BaseElement childWithName = getChild(0).getChildWithName(NSS("dummy"));
                         Image image = Image.Image_create(texture2D);
                         Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(4);
                         timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0f));
@@ -240,16 +240,16 @@ namespace ctr_wp7.game
                         image.playTimeline(0);
                         image.anchor = (image.parentAnchor = 18);
                         childWithName.addChild(image);
-                        BaseElement childWithName2 = getChild(0).getChildWithName(NSObject.NSS("progressbar"));
+                        BaseElement childWithName2 = getChild(0).getChildWithName(NSS("progressbar"));
                         if (childWithName2 != null)
                         {
                             childWithName2.playTimeline(1);
                         }
-                        BaseElement childWithName3 = getChild(1).getChildWithName(NSObject.NSS("dummy"));
+                        BaseElement childWithName3 = getChild(1).getChildWithName(NSS("dummy"));
                         Image image2 = Image.Image_create(texture2D);
                         image2.anchor = (image2.parentAnchor = 18);
                         childWithName3.addChild(image2);
-                        BaseElement childWithName4 = getChild(1).getChildWithName(NSObject.NSS("progressbar"));
+                        BaseElement childWithName4 = getChild(1).getChildWithName(NSS("progressbar"));
                         if (childWithName4 != null)
                         {
                             getChild(1).removeChild(childWithName4);
@@ -258,7 +258,7 @@ namespace ctr_wp7.game
                     }
                     else
                     {
-                        check = MathHelper.RND_0_1 * 5f + 1f;
+                        check = RND_0_1 * 5f + 1f;
                     }
                 }
             }

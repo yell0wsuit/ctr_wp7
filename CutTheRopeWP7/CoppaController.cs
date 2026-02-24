@@ -21,20 +21,20 @@ internal class CoppaController : ViewController, ButtonDelegate, TimelineDelegat
     public override NSObject initWithParent(ViewController p)
     {
         base.initWithParent(p);
-        float num = FrameworkTypes.SCREEN_HEIGHT * 0.03f;
+        float num = SCREEN_HEIGHT * 0.03f;
         CoppaView coppaView = (CoppaView)new CoppaView().initFullscreen();
-        addViewwithID(coppaView, CoppaController.COPPA_VIEW_MAIN);
+        addViewwithID(coppaView, COPPA_VIEW_MAIN);
         coppaView.blendingMode = 1;
         Image image = Image.Image_createWithResIDQuad(407, 0);
         image.parentAnchor = (image.anchor = 18);
         image.passTransformationsToChilds = false;
-        image.scaleY = FrameworkTypes.SCREEN_BG_SCALE_Y;
-        image.scaleX = FrameworkTypes.SCREEN_BG_SCALE_X;
+        image.scaleY = SCREEN_BG_SCALE_Y;
+        image.scaleX = SCREEN_BG_SCALE_X;
         coppaView.addChild(image);
-        okb = MenuController.createShortButtonWithTextIDDelegate(Application.getString(1310754), CoppaController.COPPA_BUTTON_OK, this);
+        okb = MenuController.createShortButtonWithTextIDDelegate(Application.getString(1310754), COPPA_BUTTON_OK, this);
         Image.setElementPositionWithQuadCenter(okb, 409, 8);
         coppaView.addChild(okb);
-        Vector vector = MathHelper.vectMult(Image.getQuadSize(409, 10), 0.2f);
+        Vector vector = vectMult(Image.getQuadSize(409, 10), 0.2f);
         Text text = Text.createWithFontandString(5, Application.getString(3276952));
         text.setAlignment(2);
         text.scaleX /= 2.2f;
@@ -51,7 +51,7 @@ internal class CoppaController : ViewController, ButtonDelegate, TimelineDelegat
         string[] array = text2.Split(new char[] { '\n' });
         Text[] array2 = new Text[array.Length];
         BaseElement baseElement = (BaseElement)new BaseElement().init();
-        image2.y = (float)((double)FrameworkTypes.SCREEN_HEIGHT - 0.75 * (double)FrameworkTypes.SCREEN_HEIGHT) + num;
+        image2.y = (float)((double)SCREEN_HEIGHT - 0.75 * (double)SCREEN_HEIGHT) + num;
         for (int i = 0; i < array.Length; i++)
         {
             array[i] = array[i].Replace('\n', ' ');
@@ -66,7 +66,7 @@ internal class CoppaController : ViewController, ButtonDelegate, TimelineDelegat
             array2[i].scaleY /= 1.5f;
             baseElement.addChild(array2[i]);
         }
-        baseElement.setName(NSObject.NSS("baloonText"));
+        baseElement.setName(NSS("baloonText"));
         coppaView.addChild(baseElement);
         Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(7);
         timeline.addKeyFrame(KeyFrame.makePos((double)image2.x, (double)image2.y, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
@@ -80,14 +80,14 @@ internal class CoppaController : ViewController, ButtonDelegate, TimelineDelegat
         roll = new Rollbar().Create();
         roll.setName("agePicker");
         Image.setElementPositionWithQuadOffset(roll, 409, 0);
-        roll.x -= FrameworkTypes.SCREEN_OFFSET_X;
-        roll.y -= FrameworkTypes.SCREEN_OFFSET_Y;
+        roll.x -= SCREEN_OFFSET_X;
+        roll.y -= SCREEN_OFFSET_Y;
         roll.scrollWithSpeed(-16300f);
         coppaView.addChild(roll);
-        okb.x = FrameworkTypes.SCREEN_WIDTH / 2f;
-        Button button = new Button().initWithUpElementDownElementandID(Image.Image_createWithResIDQuad(409, 6), Image.Image_createWithResIDQuad(409, 7), CoppaController.COPPA_BUTTON_PRIVACY);
+        okb.x = SCREEN_WIDTH / 2f;
+        Button button = new Button().initWithUpElementDownElementandID(Image.Image_createWithResIDQuad(409, 6), Image.Image_createWithResIDQuad(409, 7), COPPA_BUTTON_PRIVACY);
         button.delegateButtonDelegate = this;
-        button.y = FrameworkTypes.SCREEN_HEIGHT - 40f;
+        button.y = SCREEN_HEIGHT - 40f;
         button.x += 20f;
         coppaView.addChild(button);
         return this;
@@ -97,12 +97,12 @@ internal class CoppaController : ViewController, ButtonDelegate, TimelineDelegat
     public void onButtonPressed(int a)
     {
         CTRSoundMgr._playSound(21);
-        if (a != CoppaController.COPPA_BUTTON_OK)
+        if (a != COPPA_BUTTON_OK)
         {
-            if (a == CoppaController.COPPA_BUTTON_PRIVACY)
+            if (a == COPPA_BUTTON_PRIVACY)
             {
-                FrameworkTypes.FlurryAPI.logEvent("COPSCR_PRIVACY_PRESSED", null);
-                FrameworkTypes.AndroidAPI.openUrl(Application.getString(1310823));
+                FlurryAPI.logEvent("COPSCR_PRIVACY_PRESSED", null);
+                AndroidAPI.openUrl(Application.getString(1310823));
             }
             return;
         }
@@ -114,7 +114,7 @@ internal class CoppaController : ViewController, ButtonDelegate, TimelineDelegat
             ctrpreferences.setCoppaRestricted(num < 13);
             if (num < 13)
             {
-                FrameworkTypes.FlurryAPI.enabled = false;
+                FlurryAPI.enabled = false;
                 num = -1;
             }
             trackCoppaParams(num);
@@ -122,9 +122,9 @@ internal class CoppaController : ViewController, ButtonDelegate, TimelineDelegat
             deactivate();
             return;
         }
-        BaseElement childWithName = activeView().getChildWithName(NSObject.NSS("baloon"));
-        BaseElement childWithName2 = activeView().getChildWithName(NSObject.NSS("baloonText"));
-        Rollbar rollbar = (Rollbar)activeView().getChildWithName(NSObject.NSS("agePicker"));
+        BaseElement childWithName = activeView().getChildWithName(NSS("baloon"));
+        BaseElement childWithName2 = activeView().getChildWithName(NSS("baloonText"));
+        Rollbar rollbar = (Rollbar)activeView().getChildWithName(NSS("agePicker"));
         if (Math.Abs(rollbar.getOffsetY()) > 1f)
         {
             return;
@@ -153,7 +153,7 @@ internal class CoppaController : ViewController, ButtonDelegate, TimelineDelegat
     // Token: 0x06000671 RID: 1649 RVA: 0x00031929 File Offset: 0x0002FB29
     private bool ageValid()
     {
-        return getSelectedAge() >= CoppaController.minAge && getSelectedAge() <= CoppaController.maxAge;
+        return getSelectedAge() >= minAge && getSelectedAge() <= maxAge;
     }
 
     // Token: 0x06000672 RID: 1650 RVA: 0x0003194A File Offset: 0x0002FB4A
@@ -166,7 +166,7 @@ internal class CoppaController : ViewController, ButtonDelegate, TimelineDelegat
     public override void activate()
     {
         base.activate();
-        showView(CoppaController.COPPA_VIEW_MAIN);
+        showView(COPPA_VIEW_MAIN);
     }
 
     // Token: 0x06000674 RID: 1652 RVA: 0x0003196C File Offset: 0x0002FB6C
@@ -179,14 +179,14 @@ internal class CoppaController : ViewController, ButtonDelegate, TimelineDelegat
     // Token: 0x06000675 RID: 1653 RVA: 0x000319AC File Offset: 0x0002FBAC
     public void trackCoppaParams(int age)
     {
-        string text = string.Format("{0}age={1}&app={2}", CoppaController.COPPA_URL, age, getAppName());
+        string text = string.Format("{0}age={1}&app={2}", COPPA_URL, age, getAppName());
         WebRequest.Create(text);
     }
 
     // Token: 0x06000676 RID: 1654 RVA: 0x000319DC File Offset: 0x0002FBDC
     public NSString getAppName()
     {
-        return NSObject.NSS("ctr");
+        return NSS("ctr");
     }
 
     // Token: 0x04000BDF RID: 3039
@@ -214,7 +214,7 @@ internal class CoppaController : ViewController, ButtonDelegate, TimelineDelegat
     private static int maxAge = 99;
 
     // Token: 0x04000BE7 RID: 3047
-    private static int defaultIdx = CoppaController.maxAge / 4;
+    private static int defaultIdx = maxAge / 4;
 
     // Token: 0x04000BE8 RID: 3048
     private static float friction = 5f;

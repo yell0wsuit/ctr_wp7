@@ -83,13 +83,13 @@ namespace ctr_wp7.remotedata.cartoons
         // Token: 0x06000651 RID: 1617 RVA: 0x00030937 File Offset: 0x0002EB37
         public bool isImageExists()
         {
-            return loadState != Block.LoadState.NO_IMAGE;
+            return loadState != LoadState.NO_IMAGE;
         }
 
         // Token: 0x06000652 RID: 1618 RVA: 0x00030944 File Offset: 0x0002EB44
         public bool isImageReady()
         {
-            return loadState == Block.LoadState.DONE;
+            return loadState == LoadState.DONE;
         }
 
         // Token: 0x04000BB4 RID: 2996

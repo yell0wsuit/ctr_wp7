@@ -10,7 +10,7 @@ namespace ctr_wp7.iframework.visual
         public override bool onTouchDownXY(float tx, float ty)
         {
             base.onTouchDownXY(tx, ty);
-            if (MathHelper.pointInRect(tx, ty, drawX, drawY, (float)width, (float)height))
+            if (pointInRect(tx, ty, drawX, drawY, (float)width, (float)height))
             {
                 if (delegateButtonDelegate != null)
                 {
@@ -30,7 +30,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060005EB RID: 1515 RVA: 0x0002CB98 File Offset: 0x0002AD98
         public static TouchImage TouchImage_createWithResIDQuad(int r, int q)
         {
-            TouchImage touchImage = TouchImage.TouchImage_create(Application.getTexture(r));
+            TouchImage touchImage = TouchImage_create(Application.getTexture(r));
             touchImage.setDrawQuad(q);
             return touchImage;
         }

@@ -9,7 +9,7 @@ namespace ctr_wp7.game
         // Token: 0x06000485 RID: 1157 RVA: 0x00020B86 File Offset: 0x0001ED86
         public static Confetti Confetti_createWithResID(int r)
         {
-            return Confetti.Confetti_create(Application.getTexture(r));
+            return Confetti_create(Application.getTexture(r));
         }
 
         // Token: 0x06000486 RID: 1158 RVA: 0x00020B93 File Offset: 0x0001ED93

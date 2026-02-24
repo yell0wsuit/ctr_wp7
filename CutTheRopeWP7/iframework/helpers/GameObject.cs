@@ -13,7 +13,7 @@ namespace ctr_wp7.iframework.helpers
         // Token: 0x060000E8 RID: 232 RVA: 0x00007628 File Offset: 0x00005828
         public static GameObject GameObject_createWithResID(int r)
         {
-            return GameObject.GameObject_create(Application.getTexture(r));
+            return GameObject_create(Application.getTexture(r));
         }
 
         // Token: 0x060000E9 RID: 233 RVA: 0x00007638 File Offset: 0x00005838
@@ -27,7 +27,7 @@ namespace ctr_wp7.iframework.helpers
         // Token: 0x060000EA RID: 234 RVA: 0x00007654 File Offset: 0x00005854
         public static GameObject GameObject_createWithResIDQuad(int r, int q)
         {
-            GameObject gameObject = GameObject.GameObject_create(Application.getTexture(r));
+            GameObject gameObject = GameObject_create(Application.getTexture(r));
             gameObject.setDrawQuad(q);
             return gameObject;
         }
@@ -52,7 +52,7 @@ namespace ctr_wp7.iframework.helpers
             base.update(delta);
             if (!topLeftCalculated)
             {
-                BaseElement.calculateTopLeft(this);
+                calculateTopLeft(this);
                 topLeftCalculated = true;
             }
             if (mover != null)
@@ -82,7 +82,7 @@ namespace ctr_wp7.iframework.helpers
         // Token: 0x060000EE RID: 238 RVA: 0x000077AC File Offset: 0x000059AC
         public override void dealloc()
         {
-            NSObject.NSREL(mover);
+            NSREL(mover);
             base.dealloc();
         }
 
@@ -130,7 +130,7 @@ namespace ctr_wp7.iframework.helpers
                 float num4 = xml["rotateSpeed"].floatValue();
                 Mover mover = new Mover().initWithPathCapacityMoveSpeedRotateSpeed(num, num3, num4);
                 mover.angle = (double)rotation;
-                mover.setPathFromStringandStart(nsstring, MathHelper.vect(x, y));
+                mover.setPathFromStringandStart(nsstring, vect(x, y));
                 setMover(mover);
                 mover.start();
             }
@@ -157,14 +157,14 @@ namespace ctr_wp7.iframework.helpers
                 rotatedBB = true;
             }
             rotation = a;
-            Vector vector = MathHelper.vect(bb.x, bb.y);
-            Vector vector2 = MathHelper.vect(bb.x + bb.w, bb.y);
-            Vector vector3 = MathHelper.vect(bb.x + bb.w, bb.y + bb.h);
-            Vector vector4 = MathHelper.vect(bb.x, bb.y + bb.h);
-            vector = MathHelper.vectRotateAround(vector, (double)MathHelper.DEGREES_TO_RADIANS(a), (float)((double)width / 2.0 + (double)rotationCenterX), (float)((double)height / 2.0 + (double)rotationCenterY));
-            vector2 = MathHelper.vectRotateAround(vector2, (double)MathHelper.DEGREES_TO_RADIANS(a), (float)((double)width / 2.0 + (double)rotationCenterX), (float)((double)height / 2.0 + (double)rotationCenterY));
-            vector3 = MathHelper.vectRotateAround(vector3, (double)MathHelper.DEGREES_TO_RADIANS(a), (float)((double)width / 2.0 + (double)rotationCenterX), (float)((double)height / 2.0 + (double)rotationCenterY));
-            vector4 = MathHelper.vectRotateAround(vector4, (double)MathHelper.DEGREES_TO_RADIANS(a), (float)((double)width / 2.0 + (double)rotationCenterX), (float)((double)height / 2.0 + (double)rotationCenterY));
+            Vector vector = vect(bb.x, bb.y);
+            Vector vector2 = vect(bb.x + bb.w, bb.y);
+            Vector vector3 = vect(bb.x + bb.w, bb.y + bb.h);
+            Vector vector4 = vect(bb.x, bb.y + bb.h);
+            vector = vectRotateAround(vector, (double)DEGREES_TO_RADIANS(a), (float)((double)width / 2.0 + (double)rotationCenterX), (float)((double)height / 2.0 + (double)rotationCenterY));
+            vector2 = vectRotateAround(vector2, (double)DEGREES_TO_RADIANS(a), (float)((double)width / 2.0 + (double)rotationCenterX), (float)((double)height / 2.0 + (double)rotationCenterY));
+            vector3 = vectRotateAround(vector3, (double)DEGREES_TO_RADIANS(a), (float)((double)width / 2.0 + (double)rotationCenterX), (float)((double)height / 2.0 + (double)rotationCenterY));
+            vector4 = vectRotateAround(vector4, (double)DEGREES_TO_RADIANS(a), (float)((double)width / 2.0 + (double)rotationCenterX), (float)((double)height / 2.0 + (double)rotationCenterY));
             rbb.tlX = vector.x;
             rbb.tlY = vector.y;
             rbb.trX = vector2.x;
@@ -201,35 +201,35 @@ namespace ctr_wp7.iframework.helpers
             float num2 = o1.drawY + o1.bb.y;
             float num3 = o2.drawX + o2.bb.x;
             float num4 = o2.drawY + o2.bb.y;
-            return MathHelper.rectInRect(num, num2, num + o1.bb.w, num2 + o1.bb.h, num3, num4, num3 + o2.bb.w, num4 + o2.bb.h);
+            return rectInRect(num, num2, num + o1.bb.w, num2 + o1.bb.h, num3, num4, num3 + o2.bb.w, num4 + o2.bb.h);
         }
 
         // Token: 0x060000F6 RID: 246 RVA: 0x00007F18 File Offset: 0x00006118
         private static bool objectsIntersectRotated(GameObject o1, GameObject o2)
         {
-            Vector vector = MathHelper.vect(o1.drawX + o1.rbb.tlX, o1.drawY + o1.rbb.tlY);
-            Vector vector2 = MathHelper.vect(o1.drawX + o1.rbb.trX, o1.drawY + o1.rbb.trY);
-            Vector vector3 = MathHelper.vect(o1.drawX + o1.rbb.brX, o1.drawY + o1.rbb.brY);
-            Vector vector4 = MathHelper.vect(o1.drawX + o1.rbb.blX, o1.drawY + o1.rbb.blY);
-            Vector vector5 = MathHelper.vect(o2.drawX + o2.rbb.tlX, o2.drawY + o2.rbb.tlY);
-            Vector vector6 = MathHelper.vect(o2.drawX + o2.rbb.trX, o2.drawY + o2.rbb.trY);
-            Vector vector7 = MathHelper.vect(o2.drawX + o2.rbb.brX, o2.drawY + o2.rbb.brY);
-            Vector vector8 = MathHelper.vect(o2.drawX + o2.rbb.blX, o2.drawY + o2.rbb.blY);
-            return MathHelper.obbInOBB(vector, vector2, vector3, vector4, vector5, vector6, vector7, vector8);
+            Vector vector = vect(o1.drawX + o1.rbb.tlX, o1.drawY + o1.rbb.tlY);
+            Vector vector2 = vect(o1.drawX + o1.rbb.trX, o1.drawY + o1.rbb.trY);
+            Vector vector3 = vect(o1.drawX + o1.rbb.brX, o1.drawY + o1.rbb.brY);
+            Vector vector4 = vect(o1.drawX + o1.rbb.blX, o1.drawY + o1.rbb.blY);
+            Vector vector5 = vect(o2.drawX + o2.rbb.tlX, o2.drawY + o2.rbb.tlY);
+            Vector vector6 = vect(o2.drawX + o2.rbb.trX, o2.drawY + o2.rbb.trY);
+            Vector vector7 = vect(o2.drawX + o2.rbb.brX, o2.drawY + o2.rbb.brY);
+            Vector vector8 = vect(o2.drawX + o2.rbb.blX, o2.drawY + o2.rbb.blY);
+            return obbInOBB(vector, vector2, vector3, vector4, vector5, vector6, vector7, vector8);
         }
 
         // Token: 0x060000F7 RID: 247 RVA: 0x0000808C File Offset: 0x0000628C
         private static bool objectsIntersectRotatedWithUnrotated(GameObject o1, GameObject o2)
         {
-            Vector vector = MathHelper.vect(o1.drawX + o1.rbb.tlX, o1.drawY + o1.rbb.tlY);
-            Vector vector2 = MathHelper.vect(o1.drawX + o1.rbb.trX, o1.drawY + o1.rbb.trY);
-            Vector vector3 = MathHelper.vect(o1.drawX + o1.rbb.brX, o1.drawY + o1.rbb.brY);
-            Vector vector4 = MathHelper.vect(o1.drawX + o1.rbb.blX, o1.drawY + o1.rbb.blY);
-            Vector vector5 = MathHelper.vect(o2.drawX + o2.bb.x, o2.drawY + o2.bb.y);
-            Vector vector6 = MathHelper.vect(o2.drawX + o2.bb.x + o2.bb.w, o2.drawY + o2.bb.y);
-            Vector vector7 = MathHelper.vect(o2.drawX + o2.bb.x + o2.bb.w, o2.drawY + o2.bb.y + o2.bb.h);
-            Vector vector8 = MathHelper.vect(o2.drawX + o2.bb.x, o2.drawY + o2.bb.y + o2.bb.h);
-            return MathHelper.obbInOBB(vector, vector2, vector3, vector4, vector5, vector6, vector7, vector8);
+            Vector vector = vect(o1.drawX + o1.rbb.tlX, o1.drawY + o1.rbb.tlY);
+            Vector vector2 = vect(o1.drawX + o1.rbb.trX, o1.drawY + o1.rbb.trY);
+            Vector vector3 = vect(o1.drawX + o1.rbb.brX, o1.drawY + o1.rbb.brY);
+            Vector vector4 = vect(o1.drawX + o1.rbb.blX, o1.drawY + o1.rbb.blY);
+            Vector vector5 = vect(o2.drawX + o2.bb.x, o2.drawY + o2.bb.y);
+            Vector vector6 = vect(o2.drawX + o2.bb.x + o2.bb.w, o2.drawY + o2.bb.y);
+            Vector vector7 = vect(o2.drawX + o2.bb.x + o2.bb.w, o2.drawY + o2.bb.y + o2.bb.h);
+            Vector vector8 = vect(o2.drawX + o2.bb.x, o2.drawY + o2.bb.y + o2.bb.h);
+            return obbInOBB(vector, vector2, vector3, vector4, vector5, vector6, vector7, vector8);
         }
 
         // Token: 0x060000F8 RID: 248 RVA: 0x00008230 File Offset: 0x00006430
@@ -237,7 +237,7 @@ namespace ctr_wp7.iframework.helpers
         {
             float num = o.drawX + o.bb.x;
             float num2 = o.drawY + o.bb.y;
-            return MathHelper.pointInRect(p.x, p.y, num, num2, o.bb.w, o.bb.h);
+            return pointInRect(p.x, p.y, num, num2, o.bb.w, o.bb.h);
         }
 
         // Token: 0x060000F9 RID: 249 RVA: 0x00008290 File Offset: 0x00006490
@@ -245,7 +245,7 @@ namespace ctr_wp7.iframework.helpers
         {
             float num = o.drawX + o.bb.x;
             float num2 = o.drawY + o.bb.y;
-            return MathHelper.rectInRect(r1x, r1y, r2x, r2y, num, num2, num + o.bb.w, num2 + o.bb.h);
+            return rectInRect(r1x, r1y, r2x, r2y, num, num2, num + o.bb.w, num2 + o.bb.h);
         }
 
         // Token: 0x04000729 RID: 1833

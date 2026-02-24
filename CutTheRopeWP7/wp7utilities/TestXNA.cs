@@ -48,8 +48,8 @@ namespace ctr_wp7.wp7utilities
         {
             int num = 1310721;
             Button button = MenuController.createButtonWithTextIDDelegate(Application.getString(num), 0, null);
-            float num2 = (FrameworkTypes.SCREEN_WIDTH - (float)button.width) / 2f;
-            float num3 = (FrameworkTypes.SCREEN_HEIGHT - (float)button.height) / 2f;
+            float num2 = (SCREEN_WIDTH - (float)button.width) / 2f;
+            float num3 = (SCREEN_HEIGHT - (float)button.height) / 2f;
             button.x = num2;
             button.y = num3;
             objects.Add(button);
@@ -70,8 +70,8 @@ namespace ctr_wp7.wp7utilities
         {
             int num = 1310748;
             Button button = MenuController.createButtonWithTextIDDelegate(Application.getString(num), 0, null);
-            float num2 = FrameworkTypes.SCREEN_WIDTH - (float)button.width;
-            float num3 = FrameworkTypes.SCREEN_HEIGHT - (float)button.height;
+            float num2 = SCREEN_WIDTH - (float)button.width;
+            float num3 = SCREEN_HEIGHT - (float)button.height;
             button.x = num2;
             button.y = num3;
             objects.Add(button);

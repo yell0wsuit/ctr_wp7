@@ -67,7 +67,7 @@ namespace ctr_wp7.game
             tube.draw();
             valve.draw();
             steamBack.draw();
-            BaseElement.restoreTransformations(this);
+            restoreTransformations(this);
         }
 
         // Token: 0x06000594 RID: 1428 RVA: 0x0002A132 File Offset: 0x00028332
@@ -75,14 +75,14 @@ namespace ctr_wp7.game
         {
             preDraw();
             steamFront.draw();
-            BaseElement.restoreTransformations(this);
+            restoreTransformations(this);
         }
 
         // Token: 0x06000595 RID: 1429 RVA: 0x0002A14C File Offset: 0x0002834C
         public float getCurrentHeightModulated()
         {
             float currentHeight = getCurrentHeight();
-            return currentHeight + 1f * MathHelper.sinf(6f * phase);
+            return currentHeight + 1f * sinf(6f * phase);
         }
 
         // Token: 0x06000596 RID: 1430 RVA: 0x0002A17B File Offset: 0x0002837B
@@ -107,8 +107,8 @@ namespace ctr_wp7.game
         // Token: 0x06000598 RID: 1432 RVA: 0x0002A1CC File Offset: 0x000283CC
         public override bool onTouchDownXY(float tx, float ty)
         {
-            Vector vector = MathHelper.vectAdd(MathHelper.vect(x, y), MathHelper.vectRotate(MathHelper.vect(0f, 28f), (double)MathHelper.DEGREES_TO_RADIANS(rotation)));
-            float num = MathHelper.vectLength(MathHelper.vectSub(MathHelper.vect(tx, ty), vector));
+            Vector vector = vectAdd(vect(x, y), vectRotate(vect(0f, 28f), (double)DEGREES_TO_RADIANS(rotation)));
+            float num = vectLength(vectSub(vect(tx, ty), vector));
             if (num < 30f)
             {
                 int num2 = 0;
@@ -229,7 +229,7 @@ namespace ctr_wp7.game
                     float num4 = 0.6f;
                     float num5 = num4 / (float)(num3 - num2 + 1);
                     float num6 = -getCurrentHeight();
-                    num6 *= 1f + 0.1f * MathHelper.RND_MINUS1_1;
+                    num6 *= 1f + 0.1f * RND_MINUS1_1;
                     if (steamState == 1 && (i % 3 == 1 || i % 3 == 2))
                     {
                         num6 *= 0.95f;

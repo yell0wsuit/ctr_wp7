@@ -17,13 +17,13 @@ namespace ctr_wp7.game
         // Token: 0x06000103 RID: 259 RVA: 0x00008513 File Offset: 0x00006713
         private static Bouncer Bouncer_createWithResID(int r)
         {
-            return Bouncer.Bouncer_create(Application.getTexture(r));
+            return Bouncer_create(Application.getTexture(r));
         }
 
         // Token: 0x06000104 RID: 260 RVA: 0x00008520 File Offset: 0x00006720
         private static Bouncer Bouncer_createWithResIDQuad(int r, int q)
         {
-            Bouncer bouncer = Bouncer.Bouncer_create(Application.getTexture(r));
+            Bouncer bouncer = Bouncer_create(Application.getTexture(r));
             bouncer.setDrawQuad(q);
             return bouncer;
         }
@@ -49,7 +49,7 @@ namespace ctr_wp7.game
             x = px;
             y = py;
             updateRotation();
-            int num2 = base.addAnimationDelayLoopFirstLast(0.04f, Timeline.LoopType.TIMELINE_NO_LOOP, 0, 4);
+            int num2 = addAnimationDelayLoopFirstLast(0.04f, Timeline.LoopType.TIMELINE_NO_LOOP, 0, 4);
             Timeline timeline = getTimeline(num2);
             timeline.addKeyFrame(KeyFrame.makeSingleAction(this, "ACTION_SET_DRAWQUAD", 0, 0, 0.04f));
             return this;
@@ -74,11 +74,11 @@ namespace ctr_wp7.game
             b1.x = t1.x;
             b2.x = t2.x;
             b1.y = (b2.y = (float)((double)y + 5.0));
-            angle = MathHelper.DEGREES_TO_RADIANS(rotation);
-            t1 = MathHelper.vectRotateAround(t1, (double)angle, x, y);
-            t2 = MathHelper.vectRotateAround(t2, (double)angle, x, y);
-            b1 = MathHelper.vectRotateAround(b1, (double)angle, x, y);
-            b2 = MathHelper.vectRotateAround(b2, (double)angle, x, y);
+            angle = DEGREES_TO_RADIANS(rotation);
+            t1 = vectRotateAround(t1, (double)angle, x, y);
+            t2 = vectRotateAround(t2, (double)angle, x, y);
+            b1 = vectRotateAround(b1, (double)angle, x, y);
+            b2 = vectRotateAround(b2, (double)angle, x, y);
         }
 
         // Token: 0x0400073B RID: 1851

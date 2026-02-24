@@ -26,10 +26,10 @@ namespace ctr_wp7.game
             ResourceMgr resourceMgr = Application.sharedResourceMgr();
             resourceMgr.resourcesDelegate = this;
             resourceMgr.initLoading();
-            resourceMgr.loadPack(ResDataPhoneFull.PACK_COMMON);
-            resourceMgr.loadPack(ResDataPhoneFull.PACK_COMMON_IMAGES);
-            resourceMgr.loadPack(ResDataPhoneFull.PACK_MENU);
-            resourceMgr.loadPack(ResDataPhoneFull.PACK_MUSIC);
+            resourceMgr.loadPack(PACK_COMMON);
+            resourceMgr.loadPack(PACK_COMMON_IMAGES);
+            resourceMgr.loadPack(PACK_MENU);
+            resourceMgr.loadPack(PACK_MUSIC);
             resourceMgr.startLoading();
             showView(0);
         }
@@ -37,11 +37,11 @@ namespace ctr_wp7.game
         // Token: 0x06000721 RID: 1825 RVA: 0x00039468 File Offset: 0x00037668
         public override void activate()
         {
-            FrameworkTypes._LOG("!!!!!!!!!!!!! activate");
+            _LOG("!!!!!!!!!!!!! activate");
             base.activate();
             StartupView startupView = (StartupView)new StartupView().initFullscreen();
             addViewwithID(startupView, 0);
-            NSObject.NSREL(startupView);
+            NSREL(startupView);
             moviePlaybackFinished(null);
         }
 
@@ -67,19 +67,19 @@ namespace ctr_wp7.game
         // Token: 0x06000725 RID: 1829 RVA: 0x000394C9 File Offset: 0x000376C9
         public virtual void resourceLoaded(int resName)
         {
-            FrameworkTypes._LOG("res loaded");
+            _LOG("res loaded");
         }
 
         // Token: 0x06000726 RID: 1830 RVA: 0x000394D8 File Offset: 0x000376D8
         public virtual void allResourcesLoaded()
         {
             GC.Collect();
-            FrameworkTypes._LOG("all res loaded");
+            _LOG("all res loaded");
             int num = Preferences._getIntForKey("PREFS_GAME_STARTS");
             Preferences._setIntforKey(num + 1, "PREFS_GAME_STARTS", false);
             if (CTRPreferences.isBannersMustBeShown())
             {
-                FrameworkTypes.AndroidAPI.showVideoBanner();
+                AndroidAPI.showVideoBanner();
                 return;
             }
             onVideoBannerFinished();

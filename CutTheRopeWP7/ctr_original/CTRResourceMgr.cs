@@ -19,7 +19,7 @@ namespace ctr_wp7.ctr_original
         // Token: 0x0600053D RID: 1341 RVA: 0x00026457 File Offset: 0x00024657
         public static int handleResource(int r)
         {
-            return CTRResourceMgr.handleLocalizedResource(CTRResourceMgr.handleWvgaResource(r));
+            return handleLocalizedResource(handleWvgaResource(r));
         }
 
         // Token: 0x0600053E RID: 1342 RVA: 0x00026464 File Offset: 0x00024664
@@ -108,7 +108,7 @@ namespace ctr_wp7.ctr_original
         // Token: 0x06000542 RID: 1346 RVA: 0x00026560 File Offset: 0x00024760
         public override bool isWvgaResource(int r)
         {
-            if (!FrameworkTypes.IS_WVGA)
+            if (!IS_WVGA)
             {
                 return false;
             }
@@ -482,7 +482,7 @@ namespace ctr_wp7.ctr_original
         // Token: 0x06000543 RID: 1347 RVA: 0x00026B08 File Offset: 0x00024D08
         public static int handleWvgaResource(int r)
         {
-            if (!FrameworkTypes.IS_WVGA)
+            if (!IS_WVGA)
             {
                 return r;
             }
@@ -1020,43 +1020,43 @@ namespace ctr_wp7.ctr_original
                 {
                     if (r == 86)
                     {
-                        if (ResDataPhoneFull.LANGUAGE == Language.LANG_RU)
+                        if (LANGUAGE == Language.LANG_RU)
                         {
                             return 288;
                         }
-                        if (ResDataPhoneFull.LANGUAGE == Language.LANG_DE)
+                        if (LANGUAGE == Language.LANG_DE)
                         {
                             return 287;
                         }
-                        if (ResDataPhoneFull.LANGUAGE == Language.LANG_FR)
+                        if (LANGUAGE == Language.LANG_FR)
                         {
                             return 286;
                         }
-                        if (ResDataPhoneFull.LANGUAGE == Language.LANG_ZH)
+                        if (LANGUAGE == Language.LANG_ZH)
                         {
                             return 289;
                         }
-                        if (ResDataPhoneFull.LANGUAGE == Language.LANG_JA)
+                        if (LANGUAGE == Language.LANG_JA)
                         {
                             return 290;
                         }
-                        if (ResDataPhoneFull.LANGUAGE == Language.LANG_KO)
+                        if (LANGUAGE == Language.LANG_KO)
                         {
                             return 376;
                         }
-                        if (ResDataPhoneFull.LANGUAGE == Language.LANG_ES)
+                        if (LANGUAGE == Language.LANG_ES)
                         {
                             return 377;
                         }
-                        if (ResDataPhoneFull.LANGUAGE == Language.LANG_IT)
+                        if (LANGUAGE == Language.LANG_IT)
                         {
                             return 378;
                         }
-                        if (ResDataPhoneFull.LANGUAGE == Language.LANG_NL)
+                        if (LANGUAGE == Language.LANG_NL)
                         {
                             return 379;
                         }
-                        if (ResDataPhoneFull.LANGUAGE == Language.LANG_BR)
+                        if (LANGUAGE == Language.LANG_BR)
                         {
                             return 380;
                         }
@@ -1064,43 +1064,43 @@ namespace ctr_wp7.ctr_original
                 }
                 else
                 {
-                    if (ResDataPhoneFull.LANGUAGE == Language.LANG_RU)
+                    if (LANGUAGE == Language.LANG_RU)
                     {
                         return 272;
                     }
-                    if (ResDataPhoneFull.LANGUAGE == Language.LANG_DE)
+                    if (LANGUAGE == Language.LANG_DE)
                     {
                         return 273;
                     }
-                    if (ResDataPhoneFull.LANGUAGE == Language.LANG_FR)
+                    if (LANGUAGE == Language.LANG_FR)
                     {
                         return 274;
                     }
-                    if (ResDataPhoneFull.LANGUAGE == Language.LANG_ZH)
+                    if (LANGUAGE == Language.LANG_ZH)
                     {
                         return 275;
                     }
-                    if (ResDataPhoneFull.LANGUAGE == Language.LANG_JA)
+                    if (LANGUAGE == Language.LANG_JA)
                     {
                         return 276;
                     }
-                    if (ResDataPhoneFull.LANGUAGE == Language.LANG_KO)
+                    if (LANGUAGE == Language.LANG_KO)
                     {
                         return 364;
                     }
-                    if (ResDataPhoneFull.LANGUAGE == Language.LANG_ES)
+                    if (LANGUAGE == Language.LANG_ES)
                     {
                         return 365;
                     }
-                    if (ResDataPhoneFull.LANGUAGE == Language.LANG_IT)
+                    if (LANGUAGE == Language.LANG_IT)
                     {
                         return 366;
                     }
-                    if (ResDataPhoneFull.LANGUAGE == Language.LANG_NL)
+                    if (LANGUAGE == Language.LANG_NL)
                     {
                         return 367;
                     }
-                    if (ResDataPhoneFull.LANGUAGE == Language.LANG_BR)
+                    if (LANGUAGE == Language.LANG_BR)
                     {
                         return 368;
                     }
@@ -1111,85 +1111,85 @@ namespace ctr_wp7.ctr_original
                 switch (r)
                 {
                     case 99:
-                        if (ResDataPhoneFull.LANGUAGE == Language.LANG_RU)
+                        if (LANGUAGE == Language.LANG_RU)
                         {
                             return 277;
                         }
-                        if (ResDataPhoneFull.LANGUAGE == Language.LANG_DE)
+                        if (LANGUAGE == Language.LANG_DE)
                         {
                             return 278;
                         }
-                        if (ResDataPhoneFull.LANGUAGE == Language.LANG_FR)
+                        if (LANGUAGE == Language.LANG_FR)
                         {
                             return 279;
                         }
-                        if (ResDataPhoneFull.LANGUAGE == Language.LANG_ZH)
+                        if (LANGUAGE == Language.LANG_ZH)
                         {
                             return 280;
                         }
-                        if (ResDataPhoneFull.LANGUAGE == Language.LANG_JA)
+                        if (LANGUAGE == Language.LANG_JA)
                         {
                             return 281;
                         }
-                        if (ResDataPhoneFull.LANGUAGE == Language.LANG_KO)
+                        if (LANGUAGE == Language.LANG_KO)
                         {
                             return 371;
                         }
-                        if (ResDataPhoneFull.LANGUAGE == Language.LANG_ES)
+                        if (LANGUAGE == Language.LANG_ES)
                         {
                             return 372;
                         }
-                        if (ResDataPhoneFull.LANGUAGE == Language.LANG_IT)
+                        if (LANGUAGE == Language.LANG_IT)
                         {
                             return 373;
                         }
-                        if (ResDataPhoneFull.LANGUAGE == Language.LANG_NL)
+                        if (LANGUAGE == Language.LANG_NL)
                         {
                             return 374;
                         }
-                        if (ResDataPhoneFull.LANGUAGE == Language.LANG_BR)
+                        if (LANGUAGE == Language.LANG_BR)
                         {
                             return 375;
                         }
                         break;
                     case 100:
-                        if (ResDataPhoneFull.LANGUAGE == Language.LANG_RU)
+                        if (LANGUAGE == Language.LANG_RU)
                         {
                             return 282;
                         }
-                        if (ResDataPhoneFull.LANGUAGE == Language.LANG_DE)
+                        if (LANGUAGE == Language.LANG_DE)
                         {
                             return 283;
                         }
-                        if (ResDataPhoneFull.LANGUAGE == Language.LANG_FR)
+                        if (LANGUAGE == Language.LANG_FR)
                         {
                             return 100;
                         }
-                        if (ResDataPhoneFull.LANGUAGE == Language.LANG_ZH)
+                        if (LANGUAGE == Language.LANG_ZH)
                         {
                             return 284;
                         }
-                        if (ResDataPhoneFull.LANGUAGE == Language.LANG_JA)
+                        if (LANGUAGE == Language.LANG_JA)
                         {
                             return 285;
                         }
-                        if (ResDataPhoneFull.LANGUAGE == Language.LANG_KO)
+                        if (LANGUAGE == Language.LANG_KO)
                         {
                             return 369;
                         }
-                        if (ResDataPhoneFull.LANGUAGE == Language.LANG_ES)
+                        if (LANGUAGE == Language.LANG_ES)
                         {
                             return 370;
                         }
-                        if (ResDataPhoneFull.LANGUAGE == Language.LANG_IT)
+                        if (LANGUAGE == Language.LANG_IT)
                         {
                             return 100;
                         }
-                        if (ResDataPhoneFull.LANGUAGE == Language.LANG_NL)
+                        if (LANGUAGE == Language.LANG_NL)
                         {
                             return 100;
                         }
-                        if (ResDataPhoneFull.LANGUAGE == Language.LANG_BR)
+                        if (LANGUAGE == Language.LANG_BR)
                         {
                             return 100;
                         }
@@ -1198,85 +1198,85 @@ namespace ctr_wp7.ctr_original
                         switch (r)
                         {
                             case 113:
-                                if (ResDataPhoneFull.LANGUAGE == Language.LANG_RU)
+                                if (LANGUAGE == Language.LANG_RU)
                                 {
                                     return 292;
                                 }
-                                if (ResDataPhoneFull.LANGUAGE == Language.LANG_DE)
+                                if (LANGUAGE == Language.LANG_DE)
                                 {
                                     return 291;
                                 }
-                                if (ResDataPhoneFull.LANGUAGE == Language.LANG_FR)
+                                if (LANGUAGE == Language.LANG_FR)
                                 {
                                     return 113;
                                 }
-                                if (ResDataPhoneFull.LANGUAGE == Language.LANG_ZH)
+                                if (LANGUAGE == Language.LANG_ZH)
                                 {
                                     return 293;
                                 }
-                                if (ResDataPhoneFull.LANGUAGE == Language.LANG_JA)
+                                if (LANGUAGE == Language.LANG_JA)
                                 {
                                     return 294;
                                 }
-                                if (ResDataPhoneFull.LANGUAGE == Language.LANG_KO)
+                                if (LANGUAGE == Language.LANG_KO)
                                 {
                                     return 381;
                                 }
-                                if (ResDataPhoneFull.LANGUAGE == Language.LANG_ES)
+                                if (LANGUAGE == Language.LANG_ES)
                                 {
                                     return 382;
                                 }
-                                if (ResDataPhoneFull.LANGUAGE == Language.LANG_IT)
+                                if (LANGUAGE == Language.LANG_IT)
                                 {
                                     return 113;
                                 }
-                                if (ResDataPhoneFull.LANGUAGE == Language.LANG_NL)
+                                if (LANGUAGE == Language.LANG_NL)
                                 {
                                     return 113;
                                 }
-                                if (ResDataPhoneFull.LANGUAGE == Language.LANG_BR)
+                                if (LANGUAGE == Language.LANG_BR)
                                 {
                                     return 113;
                                 }
                                 break;
                             case 114:
-                                if (ResDataPhoneFull.LANGUAGE == Language.LANG_RU)
+                                if (LANGUAGE == Language.LANG_RU)
                                 {
                                     return 297;
                                 }
-                                if (ResDataPhoneFull.LANGUAGE == Language.LANG_DE)
+                                if (LANGUAGE == Language.LANG_DE)
                                 {
                                     return 296;
                                 }
-                                if (ResDataPhoneFull.LANGUAGE == Language.LANG_FR)
+                                if (LANGUAGE == Language.LANG_FR)
                                 {
                                     return 295;
                                 }
-                                if (ResDataPhoneFull.LANGUAGE == Language.LANG_ZH)
+                                if (LANGUAGE == Language.LANG_ZH)
                                 {
                                     return 298;
                                 }
-                                if (ResDataPhoneFull.LANGUAGE == Language.LANG_JA)
+                                if (LANGUAGE == Language.LANG_JA)
                                 {
                                     return 299;
                                 }
-                                if (ResDataPhoneFull.LANGUAGE == Language.LANG_KO)
+                                if (LANGUAGE == Language.LANG_KO)
                                 {
                                     return 383;
                                 }
-                                if (ResDataPhoneFull.LANGUAGE == Language.LANG_ES)
+                                if (LANGUAGE == Language.LANG_ES)
                                 {
                                     return 384;
                                 }
-                                if (ResDataPhoneFull.LANGUAGE == Language.LANG_IT)
+                                if (LANGUAGE == Language.LANG_IT)
                                 {
                                     return 385;
                                 }
-                                if (ResDataPhoneFull.LANGUAGE == Language.LANG_NL)
+                                if (LANGUAGE == Language.LANG_NL)
                                 {
                                     return 386;
                                 }
-                                if (ResDataPhoneFull.LANGUAGE == Language.LANG_BR)
+                                if (LANGUAGE == Language.LANG_BR)
                                 {
                                     return 387;
                                 }
@@ -1291,7 +1291,7 @@ namespace ctr_wp7.ctr_original
         // Token: 0x06000545 RID: 1349 RVA: 0x000277D4 File Offset: 0x000259D4
         public static string XNA_ResName(int resId)
         {
-            if (CTRResourceMgr.resNames_ == null)
+            if (resNames_ == null)
             {
                 Dictionary<int, string> dictionary = new Dictionary<int, string>();
                 dictionary.Add(0, "zeptolab");
@@ -1704,29 +1704,29 @@ namespace ctr_wp7.ctr_original
                 dictionary.Add(408, "menu_agepopup_bgr_hd");
                 dictionary.Add(409, "menu_agepopup");
                 dictionary.Add(410, "menu_agepopup_hd");
-                CTRResourceMgr.resNames_ = dictionary;
+                resNames_ = dictionary;
             }
             string text = null;
-            CTRResourceMgr.resNames_.TryGetValue(CTRResourceMgr.handleLocalizedResource(CTRResourceMgr.handleWvgaResource(resId)), out text);
+            resNames_.TryGetValue(handleLocalizedResource(handleWvgaResource(resId)), out text);
             return text;
         }
 
         // Token: 0x06000546 RID: 1350 RVA: 0x00029027 File Offset: 0x00027227
         public override NSObject loadResource(int resID, ResourceMgr.ResourceType resType)
         {
-            return base.loadResource(CTRResourceMgr.handleLocalizedResource(CTRResourceMgr.handleWvgaResource(resID)), resType);
+            return base.loadResource(handleLocalizedResource(handleWvgaResource(resID)), resType);
         }
 
         // Token: 0x06000547 RID: 1351 RVA: 0x0002903B File Offset: 0x0002723B
         public override void freeResource(int resID)
         {
-            base.freeResource(CTRResourceMgr.handleLocalizedResource(CTRResourceMgr.handleWvgaResource(resID)));
+            base.freeResource(handleLocalizedResource(handleWvgaResource(resID)));
         }
 
         // Token: 0x06000548 RID: 1352 RVA: 0x0002904E File Offset: 0x0002724E
         public override float getScaleX(int r)
         {
-            return FrameworkTypes.CHOOSE3(1.0, 1.5, 2.5);
+            return CHOOSE3(1.0, 1.5, 2.5);
         }
 
         // Token: 0x06000549 RID: 1353 RVA: 0x00029070 File Offset: 0x00027270
@@ -1826,9 +1826,9 @@ namespace ctr_wp7.ctr_original
                         break;
                 }
             }
-            return FrameworkTypes.CHOOSE3(1.0, 1.649999976158142, 2.6500000953674316);
+            return CHOOSE3(1.0, 1.649999976158142, 2.6500000953674316);
         IL_0173:
-            return FrameworkTypes.CHOOSE3(1.0, 1.5, 2.5);
+            return CHOOSE3(1.0, 1.5, 2.5);
         }
 
         // Token: 0x04000A8A RID: 2698

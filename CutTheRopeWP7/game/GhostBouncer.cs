@@ -15,10 +15,10 @@ namespace ctr_wp7.game
         {
             if (base.initWithPosXYWidthAndAngle(px, py, w, an) != null)
             {
-                backCloud2 = Image.Image_createWithResIDQuad(180, 2);
+                backCloud2 = Image_createWithResIDQuad(180, 2);
                 float num = (float)Math.Sqrt(925.0);
-                backCloud2.x = x + num * (float)Math.Cos((double)MathHelper.DEGREES_TO_RADIANS((float)(170.0 + an)));
-                backCloud2.y = y + num * (float)Math.Sin((double)MathHelper.DEGREES_TO_RADIANS((float)(170.0 + an)));
+                backCloud2.x = x + num * (float)Math.Cos((double)DEGREES_TO_RADIANS((float)(170.0 + an)));
+                backCloud2.y = y + num * (float)Math.Sin((double)DEGREES_TO_RADIANS((float)(170.0 + an)));
                 backCloud2.anchor = 18;
                 backCloud2.visible = false;
                 addChild(backCloud2);
@@ -36,10 +36,10 @@ namespace ctr_wp7.game
                 timeline.addKeyFrame(KeyFrame.makePos((double)(backCloud2.x + 1f), (double)(backCloud2.y + 1f), KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.3499999940395355));
                 backCloud2.addTimelinewithID(timeline, 0);
                 backCloud2.playTimeline(0);
-                backCloud = Image.Image_createWithResIDQuad(180, 2);
+                backCloud = Image_createWithResIDQuad(180, 2);
                 float num2 = (float)Math.Sqrt(925.0);
-                backCloud.x = x + num2 * (float)Math.Cos((double)MathHelper.DEGREES_TO_RADIANS((float)(10.0 + an)));
-                backCloud.y = y + num2 * (float)Math.Sin((double)MathHelper.DEGREES_TO_RADIANS((float)(10.0 + an)));
+                backCloud.x = x + num2 * (float)Math.Cos((double)DEGREES_TO_RADIANS((float)(10.0 + an)));
+                backCloud.y = y + num2 * (float)Math.Sin((double)DEGREES_TO_RADIANS((float)(10.0 + an)));
                 backCloud.anchor = 18;
                 backCloud.visible = false;
                 addChild(backCloud);
@@ -57,7 +57,7 @@ namespace ctr_wp7.game
                 timeline2.addKeyFrame(KeyFrame.makePos((double)(backCloud.x + 1f), (double)(backCloud.y + 1f), KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.38999998569488525));
                 backCloud.addTimelinewithID(timeline2, 0);
                 backCloud.playTimeline(0);
-                Image image = Image.Image_createWithResIDQuad(180, 1);
+                Image image = Image_createWithResIDQuad(180, 1);
                 image.x = x + 20f;
                 image.y = y + 20f;
                 image.anchor = 18;
@@ -77,7 +77,7 @@ namespace ctr_wp7.game
                 timeline3.addKeyFrame(KeyFrame.makePos((double)(image.x + 1f), (double)(image.y + 1f), KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.44999998807907104));
                 image.addTimelinewithID(timeline3, 0);
                 image.playTimeline(0);
-                Image image2 = Image.Image_createWithResIDQuad(180, 0);
+                Image image2 = Image_createWithResIDQuad(180, 0);
                 image2.x = x - 15f;
                 image2.y = y + 20f;
                 image2.anchor = 18;
@@ -104,11 +104,11 @@ namespace ctr_wp7.game
         // Token: 0x0600010A RID: 266 RVA: 0x0000907E File Offset: 0x0000727E
         public override void playTimeline(int t)
         {
-            if (base.getCurrentTimelineIndex() == 11)
+            if (getCurrentTimelineIndex() == 11)
             {
                 return;
             }
-            if (t != 11 && base.getCurrentTimelineIndex() == 10 && getCurrentTimeline().state != Timeline.TimelineState.TIMELINE_STOPPED)
+            if (t != 11 && getCurrentTimelineIndex() == 10 && getCurrentTimeline().state != Timeline.TimelineState.TIMELINE_STOPPED)
             {
                 color = RGBAColor.solidOpaqueRGBA;
             }

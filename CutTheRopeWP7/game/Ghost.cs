@@ -46,7 +46,7 @@ namespace ctr_wp7.game
                 ghostImageBody.anchor = 18;
                 ghostImageBody.doRestoreCutTransparency();
                 ghostImage.addChild(ghostImageBody);
-                float rnd_0_ = MathHelper.RND_0_1;
+                float rnd_0_ = RND_0_1;
                 Timeline timeline3 = new Timeline().initWithMaxKeyFramesOnTrack(2);
                 timeline3.addKeyFrame(KeyFrame.makePos((double)x, (double)y, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
                 timeline3.addKeyFrame(KeyFrame.makePos((double)x, (double)y - 3.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, (double)rnd_0_));
@@ -193,9 +193,9 @@ namespace ctr_wp7.game
                     break;
                 case 2:
                     {
-                        GhostBubble ghostBubble = GhostBubble.createWithResIDQuad(124, MathHelper.RND_RANGE(1, 3));
+                        GhostBubble ghostBubble = GhostBubble.createWithResIDQuad(124, RND_RANGE(1, 3));
                         ghostBubble.doRestoreCutTransparency();
-                        ghostBubble.bb = FrameworkTypes.MakeRectangle(0.0, 0.0, 57.0, 57.0);
+                        ghostBubble.bb = MakeRectangle(0.0, 0.0, 57.0, 57.0);
                         ghostBubble.x = x;
                         ghostBubble.y = y;
                         ghostBubble.anchor = 18;
@@ -256,7 +256,7 @@ namespace ctr_wp7.game
         // Token: 0x06000115 RID: 277 RVA: 0x000099DC File Offset: 0x00007BDC
         public override bool onTouchDownXY(float tx, float ty)
         {
-            float num = MathHelper.vectLength(MathHelper.vectSub(MathHelper.vect(tx, ty), MathHelper.vect(x, y)));
+            float num = vectLength(vectSub(vect(tx, ty), vect(x, y)));
             if (cyclingEnabled && !candyBreak && num < 40f)
             {
                 resetToNextState();

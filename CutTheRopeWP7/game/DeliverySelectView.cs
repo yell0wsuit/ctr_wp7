@@ -16,7 +16,7 @@ namespace ctr_wp7.game
             if (base.initFullscreen() != null)
             {
                 buttonDelegate = d;
-                box = new VBox().initWithOffsetAlignWidth(6f, 2, FrameworkTypes.SCREEN_WIDTH_EXPANDED);
+                box = new VBox().initWithOffsetAlignWidth(6f, 2, SCREEN_WIDTH_EXPANDED);
                 BaseElement baseElement = (BaseElement)new BaseElement().init();
                 baseElement.height = 18;
                 box.addChild(baseElement);
@@ -50,11 +50,11 @@ namespace ctr_wp7.game
                 BaseElement baseElement6 = (BaseElement)new BaseElement().init();
                 baseElement6.height = 60;
                 box.addChild(baseElement6);
-                ScrollableContainer scrollableContainer = new ScrollableContainer().initWithWidthHeightContainer((float)box.width, FrameworkTypes.SCREEN_HEIGHT_EXPANDED + 3f, box);
+                ScrollableContainer scrollableContainer = new ScrollableContainer().initWithWidthHeightContainer((float)box.width, SCREEN_HEIGHT_EXPANDED + 3f, box);
                 scrollableContainer.shouldBounceVertically = true;
                 scrollableContainer.resetScrollOnShow = false;
                 scrollableContainer.anchor = (scrollableContainer.parentAnchor = 10);
-                scrollableContainer.y -= FrameworkTypes.SCREEN_OFFSET_Y;
+                scrollableContainer.y -= SCREEN_OFFSET_Y;
                 background.addChild(scrollableContainer);
                 Button button2 = MenuController.createBackButtonWithDelegateID(buttonDelegate, 9);
                 background.addChild(button2);
@@ -91,7 +91,7 @@ namespace ctr_wp7.game
                 }
                 flag = num2 != num;
             }
-            cartoonsButton.getChildWithName(NSObject.NSS("newCartoonsLabel")).setEnabled(flag);
+            cartoonsButton.getChildWithName(NSS("newCartoonsLabel")).setEnabled(flag);
         }
 
         // Token: 0x040008D5 RID: 2261

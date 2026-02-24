@@ -16,13 +16,13 @@ namespace ctr_wp7.game
         // Token: 0x060007DD RID: 2013 RVA: 0x0003D8A4 File Offset: 0x0003BAA4
         public static Bubble Bubble_createWithResID(int r)
         {
-            return Bubble.Bubble_create(Application.getTexture(r));
+            return Bubble_create(Application.getTexture(r));
         }
 
         // Token: 0x060007DE RID: 2014 RVA: 0x0003D8B4 File Offset: 0x0003BAB4
         public static Bubble Bubble_createWithResIDQuad(int r, int q)
         {
-            Bubble bubble = Bubble.Bubble_create(Application.getTexture(r));
+            Bubble bubble = Bubble_create(Application.getTexture(r));
             bubble.setDrawQuad(q);
             return bubble;
         }

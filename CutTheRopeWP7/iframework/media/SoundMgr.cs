@@ -28,7 +28,7 @@ namespace ctr_wp7.iframework.media
         // Token: 0x06000182 RID: 386 RVA: 0x0000B676 File Offset: 0x00009876
         public static void SetContentManager(ContentManager contentManager)
         {
-            SoundMgr._contentManager = contentManager;
+            _contentManager = contentManager;
         }
 
         // Token: 0x06000183 RID: 387 RVA: 0x0000B67E File Offset: 0x0000987E
@@ -49,7 +49,7 @@ namespace ctr_wp7.iframework.media
             {
                 return soundEffect;
             }
-            SoundMgr.TryLoadAssetWithFallback<SoundEffect>(resId, out soundEffect);
+            TryLoadAssetWithFallback(resId, out soundEffect);
             if (soundEffect != null)
             {
                 LoadedSounds.Add(resId, soundEffect);
@@ -133,7 +133,7 @@ namespace ctr_wp7.iframework.media
                 {
                     if (!AllSongs.TryGetValue(sid, out song))
                     {
-                        SoundMgr.TryLoadAssetWithFallback<Song>(sid, out song);
+                        TryLoadAssetWithFallback(sid, out song);
                         if (song == null)
                         {
                             return;
@@ -150,7 +150,7 @@ namespace ctr_wp7.iframework.media
                     {
                         MediaPlayer.Resume();
                     }
-                    SoundMgr.gamePlayingMusic = true;
+                    gamePlayingMusic = true;
                 }
             }
             catch (Exception)
@@ -163,7 +163,7 @@ namespace ctr_wp7.iframework.media
         {
             if (!AllSongs.TryGetValue(sid, out song))
             {
-                SoundMgr.TryLoadAssetWithFallback<Song>(sid, out song);
+                TryLoadAssetWithFallback(sid, out song);
                 if (song != null)
                 {
                     AllSongs.Add(sid, song);
@@ -175,7 +175,7 @@ namespace ctr_wp7.iframework.media
         private static bool TryLoadAssetWithFallback<T>(int resId, out T asset) where T : class
         {
             asset = default(T);
-            if (SoundMgr._contentManager == null)
+            if (_contentManager == null)
             {
                 return false;
             }
@@ -184,7 +184,7 @@ namespace ctr_wp7.iframework.media
             {
                 try
                 {
-                    asset = SoundMgr._contentManager.Load<T>(text2);
+                    asset = _contentManager.Load<T>(text2);
                     if (asset != null)
                     {
                         return true;
@@ -200,7 +200,7 @@ namespace ctr_wp7.iframework.media
         // Token: 0x0600018B RID: 395 RVA: 0x0000B9BE File Offset: 0x00009BBE
         public virtual void stopLoopedSounds()
         {
-            SoundMgr.stopList(activeLoopedSounds);
+            stopList(activeLoopedSounds);
             activeLoopedSounds.Clear();
             activeLoopedSoundsIds.Clear();
         }
@@ -214,7 +214,7 @@ namespace ctr_wp7.iframework.media
         // Token: 0x0600018D RID: 397 RVA: 0x0000B9EC File Offset: 0x00009BEC
         public virtual void stopMusic()
         {
-            SoundMgr.gamePlayingMusic = false;
+            gamePlayingMusic = false;
             try
             {
                 if (MediaPlayer.GameHasControl)
@@ -242,7 +242,7 @@ namespace ctr_wp7.iframework.media
         {
             try
             {
-                SoundMgr.changeListState(activeLoopedSounds, SoundState.Playing, SoundState.Paused);
+                changeListState(activeLoopedSounds, SoundState.Playing, SoundState.Paused);
                 if (MediaPlayer.GameHasControl && MediaPlayer.State == MediaState.Playing)
                 {
                     MediaPlayer.Pause();
@@ -258,10 +258,10 @@ namespace ctr_wp7.iframework.media
         {
             try
             {
-                SoundMgr.changeListState(activeLoopedSounds, SoundState.Paused, SoundState.Playing);
-                if (Preferences._getBooleanForKey("MUSIC_ON") && SoundMgr.currentMusicId != -1 && (SoundMgr.gamePlayingMusic || MediaPlayer.GameHasControl))
+                changeListState(activeLoopedSounds, SoundState.Paused, SoundState.Playing);
+                if (Preferences._getBooleanForKey("MUSIC_ON") && currentMusicId != -1 && (gamePlayingMusic || MediaPlayer.GameHasControl))
                 {
-                    playMusic(SoundMgr.currentMusicId);
+                    playMusic(currentMusicId);
                 }
             }
             catch (Exception)

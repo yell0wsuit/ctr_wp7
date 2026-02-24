@@ -72,7 +72,7 @@ namespace ctr_wp7.Banner
                 byte[] array = Convert.FromBase64String(base64);
                 using (IsolatedStorageFile userStoreForApplication = IsolatedStorageFile.GetUserStoreForApplication())
                 {
-                    using (IsolatedStorageFileStream isolatedStorageFileStream = new IsolatedStorageFileStream(name, System.IO.FileMode.Create, userStoreForApplication))
+                    using (IsolatedStorageFileStream isolatedStorageFileStream = new IsolatedStorageFileStream(name, FileMode.Create, userStoreForApplication))
                     {
                         BinaryWriter binaryWriter = new BinaryWriter(isolatedStorageFileStream);
                         binaryWriter.Write(array);

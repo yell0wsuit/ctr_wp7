@@ -57,7 +57,7 @@ namespace ctr_wp7.game
                 Button button2 = MenuController.createBackButtonWithDelegateID(d, 52);
                 background.addChild(button2);
                 addChild(background);
-                renumberEpisode(NSObject.NSS(""));
+                renumberEpisode(NSS(""));
                 setLast(false);
             }
             return this;
