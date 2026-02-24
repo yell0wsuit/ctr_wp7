@@ -18,7 +18,7 @@ namespace ctr_wp7.utils
 
         public static string getAppName()
         {
-            return "Cut The Rope";
+            return "Cut The Rope: Windows Phone edition";
         }
 
         public static string getAppMarket()
