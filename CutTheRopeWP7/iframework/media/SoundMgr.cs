@@ -179,7 +179,7 @@ namespace ctr_wp7.iframework.media
                 return false;
             }
             string text = CTRResourceMgr.XNA_ResName(resId);
-            foreach (string text2 in new string[] { "ctr/sounds/" + text, "sounds/" + text })
+            foreach (string text2 in new string[] { "sounds/" + text })
             {
                 try
                 {
@@ -214,6 +214,7 @@ namespace ctr_wp7.iframework.media
         public virtual void stopMusic()
         {
             gamePlayingMusic = false;
+            LastID = -1;
             try
             {
                 if (MediaPlayer.GameHasControl)

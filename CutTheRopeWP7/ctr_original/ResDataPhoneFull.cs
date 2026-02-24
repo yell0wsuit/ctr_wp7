@@ -5357,7 +5357,7 @@ namespace ctr_wp7.ctr_original
         internal const int IMG_MENU_AUDIO_ICONS_cross = 4;
 
         // Token: 0x04000677 RID: 1655
-        internal static string ContentFolder = "ctr/";
+        internal static string ContentFolder = "";
 
         // Token: 0x04000678 RID: 1656
         internal static int[] PACK_STARTUP =
