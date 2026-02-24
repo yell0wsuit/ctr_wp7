@@ -231,7 +231,7 @@ internal class CoppaController : ViewController, ButtonDelegate, TimelineDelegat
     private static int COPPA_VIEW_MAIN = 300;
 
     // Token: 0x04000BED RID: 3053
-    private static int COPPA_BUTTON_OK = 0;
+    private static int COPPA_BUTTON_OK;
 
     // Token: 0x04000BEE RID: 3054
     private static int COPPA_BUTTON_PRIVACY = 1;

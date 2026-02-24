@@ -409,13 +409,13 @@ namespace ctr_wp7.iframework.core
         private static string saveBakFileName_ = "ctr.sav.bak";
 
         // Token: 0x0400094A RID: 2378
-        private static bool initialised = false;
+        private static bool initialised;
 
         // Token: 0x0400094B RID: 2379
-        private static bool saveInProcess = false;
+        private static bool saveInProcess;
 
         // Token: 0x0400094C RID: 2380
-        private static byte[] saveArray = null;
+        private static byte[] saveArray;
 
         // Token: 0x0400094D RID: 2381
         public static bool firstStart = true;

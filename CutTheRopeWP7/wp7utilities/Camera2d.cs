@@ -103,13 +103,13 @@ namespace ctr_wp7.wp7utilities
         private Vector2 translate_ = position;
 
         // Token: 0x04000D0A RID: 3338
-        private Vector2 move_ = default(Vector2);
+        private Vector2 move_;
 
         // Token: 0x04000D0B RID: 3339
         private Vector2 positionZero_ = position;
 
         // Token: 0x04000D0C RID: 3340
-        private float rotation_ = 0f;
+        private float rotation_;
 
         // Token: 0x04000D0D RID: 3341
         private Vector2 rotationCenter_ = position;

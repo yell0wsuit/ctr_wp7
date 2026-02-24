@@ -4,7 +4,7 @@ namespace ctr_wp7.ctr_original
 {
     internal class AchievementsView : View
     {
-        public static bool Init = false;
+        public static bool Init;
 
         public static void InitAllAchievements(object achievements)
         {

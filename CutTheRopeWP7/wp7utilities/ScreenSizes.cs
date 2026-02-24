@@ -70,7 +70,7 @@ namespace ctr_wp7.wp7utilities
         }
 
         // Token: 0x04000900 RID: 2304
-        private static Rectangle _rectangle = default(Rectangle);
+        private static Rectangle _rectangle;
 
         // Token: 0x04000901 RID: 2305
         private static int _width;

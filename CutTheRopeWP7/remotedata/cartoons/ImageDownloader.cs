@@ -51,7 +51,7 @@ namespace ctr_wp7.remotedata.cartoons
         protected const string serverUrl = "http://vps.zeptolab.com/feeder/images?ids=";
 
         // Token: 0x040007CE RID: 1998
-        protected static volatile bool busy = false;
+        protected static volatile bool busy;
 
         // Token: 0x040007CF RID: 1999
         protected static ImageDownloadedListener lImageDownloaded;

@@ -347,6 +347,6 @@ namespace ctr_wp7.iframework.media
         protected static int currentMusicId = -1;
 
         // Token: 0x040007CB RID: 1995
-        public static bool gamePlayingMusic = false;
+        public static bool gamePlayingMusic;
     }
 }

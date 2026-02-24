@@ -93,7 +93,7 @@ namespace ctr_wp7.game
         public const float SOCK_IDLE_TIMOUT = 0.8f;
 
         // Token: 0x04000885 RID: 2181
-        public static int SOCK_RECEIVING = 0;
+        public static int SOCK_RECEIVING;
 
         // Token: 0x04000886 RID: 2182
         public static int SOCK_THROWING = 1;

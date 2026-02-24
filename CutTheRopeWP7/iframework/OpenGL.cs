@@ -743,7 +743,7 @@ namespace ctr_wp7.iframework
         private static Dictionary<int, bool> s_glClientStateFlags = new Dictionary<int, bool>();
 
         // Token: 0x04000A54 RID: 2644
-        private static Viewport s_Viewport = default(Viewport);
+        private static Viewport s_Viewport;
 
         // Token: 0x04000A55 RID: 2645
         private static int s_glMatrixMode;
@@ -818,7 +818,7 @@ namespace ctr_wp7.iframework
         private static RasterizerState s_rasterizerStateTexture;
 
         // Token: 0x04000A6D RID: 2669
-        private static VertexPositionNormalTexture[] s_LastVertices_PositionNormalTexture = null;
+        private static VertexPositionNormalTexture[] s_LastVertices_PositionNormalTexture;
 
         // Token: 0x04000A6E RID: 2670
         private static Microsoft.Xna.Framework.Rectangle ScreenRect = new Microsoft.Xna.Framework.Rectangle(0, 0, WP7Singletons.GraphicsDevice.Viewport.Width, WP7Singletons.GraphicsDevice.Viewport.Height);

@@ -242,7 +242,7 @@ namespace ctr_wp7.game
         public const float LANTERN_CANDY_REVEAL_TIME = 0.1f;
 
         // Token: 0x04000DEF RID: 3567
-        private static ConstraintedPoint sharedCandyPoint = null;
+        private static ConstraintedPoint sharedCandyPoint;
 
         // Token: 0x04000DF0 RID: 3568
         private static float LANTERN_TOUCH_RADIUS = 35f;
@@ -254,7 +254,7 @@ namespace ctr_wp7.game
         public int lanternState;
 
         // Token: 0x04000DF3 RID: 3571
-        private static List<Lantern> allLanterns = null;
+        private static List<Lantern> allLanterns;
 
         // Token: 0x04000DF4 RID: 3572
         public Vector prevPos;

@@ -282,16 +282,16 @@ namespace ctr_wp7.iframework.visual
         public float lifeVar;
 
         // Token: 0x04000925 RID: 2341
-        public RGBAColor startColor = default(RGBAColor);
+        public RGBAColor startColor;
 
         // Token: 0x04000926 RID: 2342
-        public RGBAColor startColorVar = default(RGBAColor);
+        public RGBAColor startColorVar;
 
         // Token: 0x04000927 RID: 2343
-        public RGBAColor endColor = default(RGBAColor);
+        public RGBAColor endColor;
 
         // Token: 0x04000928 RID: 2344
-        public RGBAColor endColorVar = default(RGBAColor);
+        public RGBAColor endColorVar;
 
         // Token: 0x04000929 RID: 2345
         public Particle[] particles;

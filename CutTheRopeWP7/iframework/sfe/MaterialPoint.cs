@@ -144,7 +144,7 @@ namespace ctr_wp7.iframework.sfe
         private const int MAX_FORCES = 10;
 
         // Token: 0x04000779 RID: 1913
-        public static Vector globalGravity = default(Vector);
+        public static Vector globalGravity;
 
         // Token: 0x0400077A RID: 1914
         public Vector pos;

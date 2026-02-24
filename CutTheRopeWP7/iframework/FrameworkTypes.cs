@@ -181,10 +181,10 @@ namespace ctr_wp7.iframework
         public static float REAL_SCREEN_HEIGHT = 800f;
 
         // Token: 0x040006E4 RID: 1764
-        public static float SCREEN_OFFSET_Y = 0f;
+        public static float SCREEN_OFFSET_Y;
 
         // Token: 0x040006E5 RID: 1765
-        public static float SCREEN_OFFSET_X = 0f;
+        public static float SCREEN_OFFSET_X;
 
         // Token: 0x040006E6 RID: 1766
         public static float SCREEN_BG_SCALE_Y = 1f;
@@ -211,10 +211,10 @@ namespace ctr_wp7.iframework
         public static float VIEW_SCREEN_HEIGHT = 800f;
 
         // Token: 0x040006EE RID: 1774
-        public static float VIEW_OFFSET_X = 0f;
+        public static float VIEW_OFFSET_X;
 
         // Token: 0x040006EF RID: 1775
-        public static float VIEW_OFFSET_Y = 0f;
+        public static float VIEW_OFFSET_Y;
 
         // Token: 0x040006F0 RID: 1776
         public static float SCREEN_RATIO;
@@ -226,16 +226,16 @@ namespace ctr_wp7.iframework
         private static float PORTRAIT_SCREEN_HEIGHT = 320f;
 
         // Token: 0x040006F3 RID: 1779
-        public static bool IS_IPAD = false;
+        public static bool IS_IPAD;
 
         // Token: 0x040006F4 RID: 1780
-        public static bool IS_RETINA = false;
+        public static bool IS_RETINA;
 
         // Token: 0x040006F5 RID: 1781
-        public static bool IS_WVGA = false;
+        public static bool IS_WVGA;
 
         // Token: 0x040006F6 RID: 1782
-        public static bool IS_QVGA = false;
+        public static bool IS_QVGA;
 
         // Token: 0x02000006 RID: 6
         public class FlurryAPI

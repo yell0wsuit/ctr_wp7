@@ -77,6 +77,6 @@ namespace ctr_wp7.game.remotedata
         protected static int lastActivated = -1;
 
         // Token: 0x04000BC5 RID: 3013
-        protected static ctr_wp7.remotedata.cartoons.VideoDataManager videoDataMgr = null;
+        protected static ctr_wp7.remotedata.cartoons.VideoDataManager videoDataMgr;
     }
 }

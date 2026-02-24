@@ -479,16 +479,16 @@ namespace ctr_wp7.ctr_commons
         private const float MAX_FINGERS_DELTA_SQ = 81f;
 
         // Token: 0x04000C92 RID: 3218
-        private static int state = 0;
+        private static int state;
 
         // Token: 0x04000C93 RID: 3219
-        private static long onResumeTimeStamp = 0L;
+        private static long onResumeTimeStamp;
 
         // Token: 0x04000C94 RID: 3220
-        private static long playedTicks = 0L;
+        private static long playedTicks;
 
         // Token: 0x04000C95 RID: 3221
-        private static long prevTick = 0L;
+        private static long prevTick;
 
         // Token: 0x04000C96 RID: 3222
         private static long DELTA_NANOS = 18181818L;
@@ -497,19 +497,19 @@ namespace ctr_wp7.ctr_commons
         private static long DELTA_NANOS_THRES = (long)((double)DELTA_NANOS * 0.35);
 
         // Token: 0x04000C98 RID: 3224
-        private static bool DRAW_NOTHING = false;
+        private static bool DRAW_NOTHING;
 
         // Token: 0x04000C99 RID: 3225
         private static CTRApp gApp;
 
         // Token: 0x04000C9A RID: 3226
-        private static bool gPaused = false;
+        private static bool gPaused;
 
         // Token: 0x04000C9B RID: 3227
         private static long[] fpsDeltas = new long[10];
 
         // Token: 0x04000C9C RID: 3228
-        private static int fpsDeltasPos = 0;
+        private static int fpsDeltasPos;
 
         // Token: 0x04000C9D RID: 3229
         public static bool gUseFingerDelta = true;
