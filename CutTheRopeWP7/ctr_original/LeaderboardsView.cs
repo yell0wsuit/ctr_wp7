@@ -2,9 +2,9 @@ using ctr_wp7.iframework.core;
 
 namespace ctr_wp7.ctr_original
 {
-    internal class LeaderboardsView : View
+    internal sealed class LeaderboardsView : View
     {
-        public void resetScroll()
+        public static void resetScroll()
         {
         }
     }

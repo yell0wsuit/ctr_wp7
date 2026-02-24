@@ -1,0 +1,40 @@
+# Remove the line below if you want to inherit .editorconfig settings from higher directories
+root = true
+
+[*]
+
+#### Core EditorConfig Options ####
+
+# Set default charset
+charset = utf-8
+
+# Indentation and spacing
+indent_size = 4
+indent_style = space
+tab_width = 4
+
+# New line preferences
+end_of_line = lf
+insert_final_newline = true
+
+[*.{md,json,yml,props,csproj}]
+indent_size = 4
+tab_width = 4
+
+[*.cs]
+
+#### .NET Coding Conventions ####
+
+# Organize usings
+dotnet_separate_import_directive_groups = true
+dotnet_sort_system_directives_first = true
+dotnet_analyzer_diagnostic.category-Style.severity = warning
+
+# Suppress warnings
+dotnet_diagnostic.IDE1006.severity = none   # Naming style
+dotnet_diagnostic.IDE0052.severity = none   # Unused private member
+dotnet_diagnostic.CA1310.severity = none    # Specify StringComparison
+dotnet_diagnostic.IDE0060.severity = none   # Remove unused parameter
+dotnet_diagnostic.CA1707.severity = none
+dotnet_diagnostic.IDE0051.severity = none
+dotnet_diagnostic.CA1305.severity = none
