@@ -65,23 +65,11 @@ namespace ctr_wp7.iframework.helpers
 
         // Token: 0x17000001 RID: 1
         // (get) Token: 0x06000014 RID: 20 RVA: 0x0000475F File Offset: 0x0000295F
-        public static float RND_MINUS1_1
-        {
-            get
-            {
-                return (float)(arc4random() / (double)ARC4RANDOM_MAX * 2.0 - 1.0);
-            }
-        }
+        public static float RND_MINUS1_1 => (float)(arc4random() / (double)ARC4RANDOM_MAX * 2.0 - 1.0);
 
         // Token: 0x17000002 RID: 2
         // (get) Token: 0x06000015 RID: 21 RVA: 0x00004784 File Offset: 0x00002984
-        public static float RND_0_1
-        {
-            get
-            {
-                return (float)(arc4random() / (double)ARC4RANDOM_MAX);
-            }
-        }
+        public static float RND_0_1 => (float)(arc4random() / (double)ARC4RANDOM_MAX);
 
         // Token: 0x06000016 RID: 22 RVA: 0x00004795 File Offset: 0x00002995
         public static float FIT_TO_BOUNDARIES(double V, double MINV, double MAXV)

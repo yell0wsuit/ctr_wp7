@@ -41,33 +41,15 @@ namespace ctr_wp7.wp7utilities
 
         // Token: 0x1700000F RID: 15
         // (get) Token: 0x06000387 RID: 903 RVA: 0x000164A2 File Offset: 0x000146A2
-        public static int Width2
-        {
-            get
-            {
-                return _width2;
-            }
-        }
+        public static int Width2 => _width2;
 
         // Token: 0x17000010 RID: 16
         // (get) Token: 0x06000388 RID: 904 RVA: 0x000164A9 File Offset: 0x000146A9
-        public static int Height2
-        {
-            get
-            {
-                return _height2;
-            }
-        }
+        public static int Height2 => _height2;
 
         // Token: 0x17000011 RID: 17
         // (get) Token: 0x06000389 RID: 905 RVA: 0x000164B0 File Offset: 0x000146B0
-        public static Rectangle FullScreen
-        {
-            get
-            {
-                return _rectangle;
-            }
-        }
+        public static Rectangle FullScreen => _rectangle;
 
         // Token: 0x04000900 RID: 2304
         private static Rectangle _rectangle;

@@ -27,23 +27,11 @@ namespace ctr_wp7.ios
 
         // Token: 0x1700001F RID: 31
         // (get) Token: 0x06000763 RID: 1891 RVA: 0x0003B198 File Offset: 0x00039398
-        public string Name
-        {
-            get
-            {
-                return name;
-            }
-        }
+        public string Name => name;
 
         // Token: 0x17000020 RID: 32
         // (get) Token: 0x06000764 RID: 1892 RVA: 0x0003B1A0 File Offset: 0x000393A0
-        public NSString data
-        {
-            get
-            {
-                return value;
-            }
-        }
+        public NSString data => value;
 
         // Token: 0x06000765 RID: 1893 RVA: 0x0003B1A8 File Offset: 0x000393A8
         public bool attributes()

@@ -22,13 +22,7 @@ namespace ctr_wp7.iframework.visual
 
         // Token: 0x17000003 RID: 3
         // (get) Token: 0x0600007B RID: 123 RVA: 0x00005A72 File Offset: 0x00003C72
-        public bool HasParent
-        {
-            get
-            {
-                return parent != null;
-            }
-        }
+        public bool HasParent => parent != null;
 
         // Token: 0x0600007C RID: 124 RVA: 0x00005A80 File Offset: 0x00003C80
         public static void calculateTopLeft(BaseElement e)

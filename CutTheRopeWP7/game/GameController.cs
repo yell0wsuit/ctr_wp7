@@ -17,23 +17,11 @@ namespace ctr_wp7.game
     {
         // Token: 0x17000027 RID: 39
         // (get) Token: 0x060007BC RID: 1980 RVA: 0x0003C5D8 File Offset: 0x0003A7D8
-        public bool BoxCloseHandled
-        {
-            get
-            {
-                return boxCloseHandled;
-            }
-        }
+        public bool BoxCloseHandled => boxCloseHandled;
 
         // Token: 0x17000028 RID: 40
         // (get) Token: 0x060007BD RID: 1981 RVA: 0x0003C5E0 File Offset: 0x0003A7E0
-        public bool BoxLevelWonClosing
-        {
-            get
-            {
-                return boxLevelWonClosing;
-            }
-        }
+        public bool BoxLevelWonClosing => boxLevelWonClosing;
 
         // Token: 0x060007BE RID: 1982 RVA: 0x0003C5E8 File Offset: 0x0003A7E8
         public override NSObject initWithParent(ViewController p)

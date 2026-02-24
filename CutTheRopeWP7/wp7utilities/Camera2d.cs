@@ -78,13 +78,7 @@ namespace ctr_wp7.wp7utilities
 
         // Token: 0x17000026 RID: 38
         // (get) Token: 0x060007B9 RID: 1977 RVA: 0x0003C4D5 File Offset: 0x0003A6D5
-        public Vector Center
-        {
-            get
-            {
-                return new Vector(ScreenSizes.Width2 - move_.X, ScreenSizes.Height2 - move_.Y);
-            }
-        }
+        public Vector Center => new Vector(ScreenSizes.Width2 - move_.X, ScreenSizes.Height2 - move_.Y);
 
         // Token: 0x060007BA RID: 1978 RVA: 0x0003C500 File Offset: 0x0003A700
         public Matrix getTransformation(GraphicsDevice graphicsDevice)

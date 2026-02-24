@@ -427,23 +427,11 @@ namespace ctr_wp7.ctr_commons
 
         // Token: 0x1700001D RID: 29
         // (get) Token: 0x06000708 RID: 1800 RVA: 0x00038E9E File Offset: 0x0003709E
-        public static bool IsPaused
-        {
-            get
-            {
-                return gPaused;
-            }
-        }
+        public static bool IsPaused => gPaused;
 
         // Token: 0x1700001E RID: 30
         // (get) Token: 0x06000709 RID: 1801 RVA: 0x00038EA5 File Offset: 0x000370A5
-        public static bool IsInit
-        {
-            get
-            {
-                return gApp != null;
-            }
-        }
+        public static bool IsInit => gApp != null;
 
         // Token: 0x04000C87 RID: 3207
         private const int UNKNOWN = 0;
