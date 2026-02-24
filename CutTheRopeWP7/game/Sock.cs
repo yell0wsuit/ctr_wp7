@@ -63,10 +63,7 @@ namespace ctr_wp7.game
             Timeline.LoopType loopType = Timeline.LoopType.TIMELINE_NO_LOOP;
             int num3 = 4;
             int num4 = 2;
-            List<int> list = new List<int>();
-            list.Add(3);
-            list.Add(4);
-            list.Add(4);
+            List<int> list = [3, 4, 4];
             animation.addAnimationWithIDDelayLoopCountSequence(num, num2, loopType, num3, num4, list);
             light.doRestoreCutTransparency();
             light.visible = false;

@@ -15,7 +15,7 @@ namespace ctr_wp7.iframework.core
         // Token: 0x060002FF RID: 767 RVA: 0x000138A8 File Offset: 0x00011AA8
         public ViewController()
         {
-            views = new Dictionary<int, View>();
+            views = [];
         }
 
         // Token: 0x06000300 RID: 768 RVA: 0x000138BC File Offset: 0x00011ABC
@@ -24,8 +24,8 @@ namespace ctr_wp7.iframework.core
             if (base.init() != null)
             {
                 controllerState = ControllerState.CONTROLLER_DEACTIVE;
-                views = new Dictionary<int, View>();
-                childs = new Dictionary<int, ViewController>();
+                views = [];
+                childs = [];
                 activeViewID = -1;
                 activeChildID = -1;
                 pausedViewID = -1;

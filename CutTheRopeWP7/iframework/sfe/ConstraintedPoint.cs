@@ -23,7 +23,7 @@ namespace ctr_wp7.iframework.sfe
             {
                 prevPos = vect(2.1474836E+09f, 2.1474836E+09f);
                 pin = vect(-1f, -1f);
-                constraints = new List<Constraint>();
+                constraints = [];
             }
             return this;
         }
@@ -56,7 +56,7 @@ namespace ctr_wp7.iframework.sfe
         // Token: 0x0600015A RID: 346 RVA: 0x0000A822 File Offset: 0x00008A22
         public virtual void removeConstraints()
         {
-            constraints = new List<Constraint>();
+            constraints = [];
         }
 
         // Token: 0x0600015B RID: 347 RVA: 0x0000A830 File Offset: 0x00008A30

@@ -440,7 +440,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x04000A25 RID: 2597
-        private static Dictionary<int, Vector[]> VectorArray = new Dictionary<int, Vector[]>();
+        private static Dictionary<int, Vector[]> VectorArray = [];
 
         // Token: 0x04000A26 RID: 2598
         private static RGBAColor[] colors = new RGBAColor[]

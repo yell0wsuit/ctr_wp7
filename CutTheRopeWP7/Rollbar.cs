@@ -19,7 +19,7 @@ internal class Rollbar : BaseElement
     public Rollbar Create()
     {
         _ = base.init();
-        elements = new List<BaseElement>();
+        elements = [];
         BaseElement baseElement = (BaseElement)new BaseElement().init();
         baseElement.anchor = 9;
         baseElement.parentAnchor = 9;

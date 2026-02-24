@@ -45,14 +45,14 @@ namespace ctr_wp7.Banner
             boxForCrossPromo = file.ReadInt32();
             videoBannersCount = file.ReadInt32();
             int num = file.ReadInt32();
-            bannersList = new List<int>();
+            bannersList = [];
             for (int i = 0; i < num; i++)
             {
                 int num2 = file.ReadInt32();
                 bannersList.Add(num2);
             }
             num = file.ReadInt32();
-            bannersWeights = new List<int>();
+            bannersWeights = [];
             for (int j = 0; j < num; j++)
             {
                 int num3 = file.ReadInt32();
@@ -63,8 +63,8 @@ namespace ctr_wp7.Banner
         // Token: 0x0600074B RID: 1867 RVA: 0x0003ADB0 File Offset: 0x00038FB0
         public RemoteConfig(string pList, string pWeight)
         {
-            bannersList = ((pList.Length > 0) ? convertArray(pList.Split(new char[] { ',' })) : new List<int>());
-            bannersWeights = ((pWeight.Length > 0) ? convertArray(pWeight.Split(new char[] { ',' })) : new List<int>());
+            bannersList = ((pList.Length > 0) ? convertArray(pList.Split(new char[] { ',' })) : []);
+            bannersWeights = ((pWeight.Length > 0) ? convertArray(pWeight.Split(new char[] { ',' })) : []);
             currentBanner = 0;
             currentWeight = 0;
             hideMainPromo = false;
@@ -158,7 +158,7 @@ namespace ctr_wp7.Banner
         // Token: 0x0600075A RID: 1882 RVA: 0x0003AEDC File Offset: 0x000390DC
         protected List<int> convertArray(string[] arr)
         {
-            List<int> list = new List<int>(arr.Length);
+            List<int> list = [with(arr.Length)];
             int num = 0;
             foreach (string text in arr)
             {

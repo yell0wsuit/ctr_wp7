@@ -18,7 +18,7 @@ namespace ctr_wp7.utils
                     {
                         case XmlNodeType.Element:
                             {
-                                Dictionary<string, string> dictionary = new Dictionary<string, string>();
+                                Dictionary<string, string> dictionary = [];
                                 string baseURI = xmlReader.BaseURI;
                                 string localName = xmlReader.LocalName;
                                 string name = xmlReader.Name;

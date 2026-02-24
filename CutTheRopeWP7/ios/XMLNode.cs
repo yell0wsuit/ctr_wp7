@@ -21,8 +21,8 @@ namespace ctr_wp7.ios
         public XMLNode()
         {
             parent = null;
-            childs_ = new List<XMLNode>();
-            attributes_ = new Dictionary<string, string>();
+            childs_ = [];
+            attributes_ = [];
         }
 
         // Token: 0x1700001F RID: 31
@@ -129,7 +129,7 @@ namespace ctr_wp7.ios
         // Token: 0x0600076B RID: 1899 RVA: 0x0003B340 File Offset: 0x00039540
         public List<XMLNode> getElementsByTagName(string tag)
         {
-            List<XMLNode> list = new List<XMLNode>();
+            List<XMLNode> list = [];
             foreach (XMLNode xmlnode in childs_)
             {
                 if (xmlnode.name == tag)
@@ -274,7 +274,7 @@ namespace ctr_wp7.ios
             string text = fileName.Replace('\\', '/').TrimStart('/');
             string text2 = (WP7Singletons.Content != null && !string.IsNullOrWhiteSpace(WP7Singletons.Content.RootDirectory)) ? WP7Singletons.Content.RootDirectory : "content";
             string text3 = (ResDataPhoneFull.ContentFolder ?? "").Replace('\\', '/').Trim('/');
-            HashSet<string> hashSet = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            HashSet<string> hashSet = [with(StringComparer.OrdinalIgnoreCase)];
             foreach (string text4 in new string[] { text2, "content", "Content" })
             {
                 string[] array;
@@ -299,7 +299,7 @@ namespace ctr_wp7.ios
 
         private static string TryGetFallbackXml(string fileName)
         {
-            HashSet<string> hashSet = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            HashSet<string> hashSet = [with(StringComparer.OrdinalIgnoreCase)];
             foreach (string text in new string[] { fileName, Path.GetFileName(fileName), Path.GetFileNameWithoutExtension(fileName) })
             {
                 if (!string.IsNullOrWhiteSpace(text) && hashSet.Add(text))

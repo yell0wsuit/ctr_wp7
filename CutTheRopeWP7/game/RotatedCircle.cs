@@ -92,7 +92,7 @@ namespace ctr_wp7.game
             if (base.init() != null)
             {
                 circlesArray = null;
-                containedObjects = new List<BaseElement>();
+                containedObjects = [];
                 soundPlaying = -1;
                 vinilStickerL = Image.Image_createWithResIDQuad(141, 2);
                 vinilStickerL.anchor = 20;

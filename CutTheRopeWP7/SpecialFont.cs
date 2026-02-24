@@ -196,7 +196,7 @@ namespace ctr_wp7
         }
 
         // Token: 0x040008BA RID: 2234
-        private static List<Region> Regions = new List<Region>();
+        private static List<Region> Regions = [];
 
         // Token: 0x0200005F RID: 95
         private class Region

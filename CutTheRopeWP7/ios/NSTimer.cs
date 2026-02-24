@@ -11,7 +11,7 @@ namespace ctr_wp7.ios
         // Token: 0x06000244 RID: 580 RVA: 0x0000F02F File Offset: 0x0000D22F
         private static void Init()
         {
-            Timers = new List<Entry>();
+            Timers = [];
             dd = new DelayedDispatcher();
             is_init = true;
         }

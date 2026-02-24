@@ -88,9 +88,7 @@ internal class CoppaLoader
     {
         string text = "some";
         string text2 = GetCollectedParameters().ToString();
-        List<string> list = new List<string>();
-        list.Add("Ok");
-        list.Add("Cancel");
+        List<string> list = ["Ok", "Cancel"];
         _ = Guide.BeginShowMessageBox(text, text2, list, 0, MessageBoxIcon.Error, delegate (IAsyncResult asyncResult)
         {
             _ = Guide.EndShowMessageBox(asyncResult);

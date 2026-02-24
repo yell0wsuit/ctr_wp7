@@ -737,10 +737,10 @@ namespace ctr_wp7.iframework
         public const int GL_COLOR = 17;
 
         // Token: 0x04000A52 RID: 2642
-        private static Dictionary<int, bool> s_glServerSideFlags = new Dictionary<int, bool>();
+        private static Dictionary<int, bool> s_glServerSideFlags = [];
 
         // Token: 0x04000A53 RID: 2643
-        private static Dictionary<int, bool> s_glClientStateFlags = new Dictionary<int, bool>();
+        private static Dictionary<int, bool> s_glClientStateFlags = [];
 
         // Token: 0x04000A54 RID: 2644
         private static Viewport s_Viewport;
@@ -749,7 +749,7 @@ namespace ctr_wp7.iframework
         private static int s_glMatrixMode;
 
         // Token: 0x04000A56 RID: 2646
-        private static List<Matrix> s_matrixModelViewStack = new List<Matrix>();
+        private static List<Matrix> s_matrixModelViewStack = [];
 
         // Token: 0x04000A57 RID: 2647
         private static Matrix s_matrixModelView = Matrix.Identity;
@@ -776,7 +776,7 @@ namespace ctr_wp7.iframework
         private static RGBAColor[] s_GLColorPointer;
 
         // Token: 0x04000A5F RID: 2655
-        private static Dictionary<int, RGBAColor[]> RGBAColorArray = new Dictionary<int, RGBAColor[]>();
+        private static Dictionary<int, RGBAColor[]> RGBAColorArray = [];
 
         // Token: 0x04000A60 RID: 2656
         private static int s_GLColorPointer_additive_position;
@@ -785,7 +785,7 @@ namespace ctr_wp7.iframework
         private static int s_GLVertexPointer_additive_position;
 
         // Token: 0x04000A62 RID: 2658
-        private static Dictionary<int, float[]> FloatArray = new Dictionary<int, float[]>();
+        private static Dictionary<int, float[]> FloatArray = [];
 
         // Token: 0x04000A63 RID: 2659
         private static GLVertexPointer s_GLVertexPointer;
@@ -794,13 +794,13 @@ namespace ctr_wp7.iframework
         private static GLTexCoordPointer s_GLTexCoordPointer;
 
         // Token: 0x04000A65 RID: 2661
-        private static Dictionary<int, VertexPositionColor[]> VertexPositionColorArray = new Dictionary<int, VertexPositionColor[]>();
+        private static Dictionary<int, VertexPositionColor[]> VertexPositionColorArray = [];
 
         // Token: 0x04000A66 RID: 2662
-        private static Dictionary<int, VertexPositionNormalTexture[]> VertexPositionNormalTextureArray = new Dictionary<int, VertexPositionNormalTexture[]>();
+        private static Dictionary<int, VertexPositionNormalTexture[]> VertexPositionNormalTextureArray = [];
 
         // Token: 0x04000A67 RID: 2663
-        private static Dictionary<int, VertexPositionColorTexture[]> VertexPositionColorTextureArray = new Dictionary<int, VertexPositionColorTexture[]>();
+        private static Dictionary<int, VertexPositionColorTexture[]> VertexPositionColorTextureArray = [];
 
         // Token: 0x04000A68 RID: 2664
         private static BasicEffect s_effectTexture;

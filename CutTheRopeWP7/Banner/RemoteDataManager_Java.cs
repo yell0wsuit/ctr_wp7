@@ -53,7 +53,7 @@ namespace ctr_wp7.Banner
             {
                 config = new RemoteConfig("", "");
             }
-            List<int> list = new List<int>();
+            List<int> list = [];
             foreach (KeyValuePair<int, Banner> keyValuePair in banners)
             {
                 if (isValid(keyValuePair.Value))
@@ -264,7 +264,7 @@ namespace ctr_wp7.Banner
                         {
                             BinaryReader binaryReader = new BinaryReader(isolatedStorageFileStream);
                             int num = binaryReader.ReadInt32();
-                            Dictionary<int, Banner> dictionary = new Dictionary<int, Banner>();
+                            Dictionary<int, Banner> dictionary = [];
                             for (int i = 0; i < num; i++)
                             {
                                 int num2 = binaryReader.ReadInt32();
@@ -280,7 +280,7 @@ namespace ctr_wp7.Banner
             catch (Exception)
             {
             }
-            return new Dictionary<int, Banner>();
+            return [];
         }
 
         // Token: 0x06000229 RID: 553 RVA: 0x0000EC10 File Offset: 0x0000CE10

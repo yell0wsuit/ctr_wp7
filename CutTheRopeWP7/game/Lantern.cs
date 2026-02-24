@@ -145,7 +145,7 @@ namespace ctr_wp7.game
         {
             if (allLanterns == null)
             {
-                allLanterns = new List<Lantern>();
+                allLanterns = [];
             }
             return allLanterns;
         }

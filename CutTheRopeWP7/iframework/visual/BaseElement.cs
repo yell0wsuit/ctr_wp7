@@ -137,8 +137,8 @@ namespace ctr_wp7.iframework.visual
             parentAnchor = -1;
             parent = null;
             anchor = 9;
-            childs = new Dictionary<int, BaseElement>();
-            timelines = new Dictionary<int, Timeline>();
+            childs = [];
+            timelines = [];
             currentTimeline = null;
             currentTimelineIndex = -1;
             passTransformationsToChilds = true;

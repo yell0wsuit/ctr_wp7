@@ -31,11 +31,11 @@ namespace ctr_wp7.iframework.visual
             if (base.init() != null)
             {
                 font = (FontGeneric)NSRET(i);
-                formattedStrings = new List<FormattedString>();
+                formattedStrings = [];
                 width = -1;
                 height = -1;
                 align = 1;
-                multiDrawers = new List<ImageMultiDrawer>();
+                multiDrawers = [];
                 wrapLongWords = false;
                 maxHeight = -1f;
             }
@@ -97,7 +97,7 @@ namespace ctr_wp7.iframework.visual
             charPosition.ch = ch;
             if (charsToDraw == null || n == 0)
             {
-                charsToDraw = new List<FontWP7.CharPosition>();
+                charsToDraw = [];
             }
             charsToDraw.Add(charPosition);
         }
@@ -105,7 +105,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060005F8 RID: 1528 RVA: 0x0002CDB4 File Offset: 0x0002AFB4
         private void updateSystemFontDrawerValues()
         {
-            charsToDraw = new List<FontWP7.CharPosition>();
+            charsToDraw = [];
             _ = string_.length();
             _ = string_.getCharacters();
             float num = 0f;

@@ -19,7 +19,7 @@ namespace ctr_wp7.Banner
             string text = xmlBanner.findChildWithTagNameRecursively(NSObject.NSS("data"), false).data.ToString();
             saved = saveImage(text);
             url = xmlBanner.findChildWithTagNameRecursively(NSObject.NSS("url"), false).data.ToString();
-            langs = new Dictionary<string, string>();
+            langs = [];
             List<XMLNode> list = xmlBanner.findChildWithTagNameRecursively(NSObject.NSS("text"), false).childs();
             int i = 0;
             int count = list.Count;
@@ -39,7 +39,7 @@ namespace ctr_wp7.Banner
             id = file.ReadInt32();
             url = file.ReadString();
             int num = file.ReadInt32();
-            langs = new Dictionary<string, string>();
+            langs = [];
             for (int i = 0; i < num; i++)
             {
                 string text = file.ReadString();

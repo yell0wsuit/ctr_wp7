@@ -611,8 +611,10 @@ namespace ctr_wp7.game
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
             int pack = ctrrootController.getPack();
             int level = ctrrootController.getLevel();
-            Dictionary<string, string> dictionary = new Dictionary<string, string>();
-            dictionary["Level"] = pack.ToString() + "-" + level.ToString();
+            Dictionary<string, string> dictionary = new Dictionary<string, string>
+            {
+                ["Level"] = pack.ToString() + "-" + level.ToString()
+            };
             if ((mask & 1) == 1)
             {
                 dictionary["stars"] = gameScene.starsCollected.ToString();

@@ -117,7 +117,7 @@ namespace ctr_wp7.wp7utilities
         }
 
         // Token: 0x040008FC RID: 2300
-        private List<BaseElement> objects = new List<BaseElement>();
+        private List<BaseElement> objects = [];
 
         // Token: 0x02000074 RID: 116
         private class TestCameraMove : BaseElement

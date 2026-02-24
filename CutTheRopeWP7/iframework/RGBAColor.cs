@@ -77,7 +77,7 @@ namespace ctr_wp7.iframework
         // Token: 0x0600017A RID: 378 RVA: 0x0000B464 File Offset: 0x00009664
         public static float[] toFloatArray(RGBAColor[] colors)
         {
-            List<float> list = new List<float>();
+            List<float> list = [];
             for (int i = 0; i < colors.Length; i++)
             {
                 list.AddRange(colors[i].toFloatArray());

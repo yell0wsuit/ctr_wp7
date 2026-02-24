@@ -220,13 +220,15 @@ namespace ctr_wp7.game
                 case 0:
                     {
                         string text = "MMENU_BANNER_PRESSED";
-                        List<string> list = new List<string>();
-                        list.Add("banner_id");
-                        list.Add("basic");
-                        list.Add("language");
-                        list.Add(Application.sharedAppSettings().getString(8).ToString());
-                        list.Add("game_unlocked");
-                        list.Add(CTRPreferences.isLiteVersion() ? "0" : "1");
+                        List<string> list =
+                        [
+                            "banner_id",
+                            "basic",
+                            "language",
+                            Application.sharedAppSettings().getString(8).ToString(),
+                            "game_unlocked",
+                            CTRPreferences.isLiteVersion() ? "0" : "1",
+                        ];
                         FlurryAPI.logEvent(text, list);
                         AndroidAPI.openUrl("http://www.windowsphone.com/en-us/store/app/cut-the-rope-exp/d9f1608e-138a-4278-802f-25e32e44c068");
                         return;

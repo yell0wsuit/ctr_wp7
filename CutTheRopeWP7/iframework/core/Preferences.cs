@@ -27,8 +27,8 @@ namespace ctr_wp7.iframework.core
         {
             data_ = null;
             dataStrings_ = null;
-            data_ = new Dictionary<string, int>();
-            dataStrings_ = new Dictionary<string, string>();
+            data_ = [];
+            dataStrings_ = [];
         }
 
         // Token: 0x060003C6 RID: 966 RVA: 0x00018174 File Offset: 0x00016374
@@ -166,7 +166,7 @@ namespace ctr_wp7.iframework.core
         // Token: 0x060003D5 RID: 981 RVA: 0x000182F8 File Offset: 0x000164F8
         public void _deleteKeysStartWith(string ks, bool comit)
         {
-            List<string> list = new List<string>();
+            List<string> list = [];
             foreach (KeyValuePair<string, string> keyValuePair in dataStrings_)
             {
                 string key = keyValuePair.Key;
@@ -394,10 +394,10 @@ namespace ctr_wp7.iframework.core
         }
 
         // Token: 0x04000945 RID: 2373
-        private static Dictionary<string, int> data_ = new Dictionary<string, int>();
+        private static Dictionary<string, int> data_ = [];
 
         // Token: 0x04000946 RID: 2374
-        private static Dictionary<string, string> dataStrings_ = new Dictionary<string, string>();
+        private static Dictionary<string, string> dataStrings_ = [];
 
         // Token: 0x04000947 RID: 2375
         private static char save_check;

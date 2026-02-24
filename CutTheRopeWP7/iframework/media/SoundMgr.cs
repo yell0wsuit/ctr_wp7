@@ -17,11 +17,11 @@ namespace ctr_wp7.iframework.media
         // Token: 0x06000181 RID: 385 RVA: 0x0000B63C File Offset: 0x0000983C
         public new SoundMgr init()
         {
-            LoadedSounds = new Dictionary<int, SoundEffect>();
-            activeSounds = new List<SoundEffectInstance>();
-            activeLoopedSounds = new List<SoundEffectInstance>();
-            activeSoundsIds = new List<int>();
-            activeLoopedSoundsIds = new List<int>();
+            LoadedSounds = [];
+            activeSounds = [];
+            activeLoopedSounds = [];
+            activeSoundsIds = [];
+            activeLoopedSoundsIds = [];
             return this;
         }
 
@@ -59,8 +59,8 @@ namespace ctr_wp7.iframework.media
         // Token: 0x06000185 RID: 389 RVA: 0x0000B6FC File Offset: 0x000098FC
         private void ClearStopped()
         {
-            List<SoundEffectInstance> list = new List<SoundEffectInstance>();
-            List<int> list2 = new List<int>();
+            List<SoundEffectInstance> list = [];
+            List<int> list2 = [];
             int num = 0;
             foreach (SoundEffectInstance soundEffectInstance in activeSounds)
             {
@@ -341,7 +341,7 @@ namespace ctr_wp7.iframework.media
         private int LastID = -1;
 
         // Token: 0x040007C9 RID: 1993
-        private Dictionary<int, Song> AllSongs = new Dictionary<int, Song>();
+        private Dictionary<int, Song> AllSongs = [];
 
         // Token: 0x040007CA RID: 1994
         protected static int currentMusicId = -1;

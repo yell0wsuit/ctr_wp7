@@ -30,7 +30,7 @@ namespace ctr_wp7.remotedata.cartoons
         // Token: 0x0600064A RID: 1610 RVA: 0x000308A8 File Offset: 0x0002EAA8
         public Block()
         {
-            langs = new Dictionary<string, string>();
+            langs = [];
             updatehash = 0;
         }
 

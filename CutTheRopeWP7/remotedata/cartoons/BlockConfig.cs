@@ -30,7 +30,7 @@ namespace ctr_wp7.remotedata.cartoons
         // Token: 0x06000292 RID: 658 RVA: 0x00010788 File Offset: 0x0000E988
         public BlockConfig()
         {
-            blocks = new Dictionary<string, Block>();
+            blocks = [];
         }
 
         // Token: 0x06000293 RID: 659 RVA: 0x0001079C File Offset: 0x0000E99C
@@ -48,8 +48,8 @@ namespace ctr_wp7.remotedata.cartoons
         // Token: 0x06000294 RID: 660 RVA: 0x000107E0 File Offset: 0x0000E9E0
         public List<Block> removeOldFiles(int newhash)
         {
-            List<string> list = new List<string>();
-            List<Block> list2 = new List<Block>();
+            List<string> list = [];
+            List<Block> list2 = [];
             foreach (KeyValuePair<string, Block> keyValuePair in blocks)
             {
                 Block value = keyValuePair.Value;
@@ -76,7 +76,7 @@ namespace ctr_wp7.remotedata.cartoons
         // Token: 0x06000296 RID: 662 RVA: 0x000108BC File Offset: 0x0000EABC
         public List<Block> getBlocksWaitingForDownload()
         {
-            List<Block> list = new List<Block>();
+            List<Block> list = [];
             foreach (KeyValuePair<string, Block> keyValuePair in blocks)
             {
                 Block value = keyValuePair.Value;

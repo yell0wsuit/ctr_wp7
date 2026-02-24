@@ -1293,417 +1293,419 @@ namespace ctr_wp7.ctr_original
         {
             if (resNames_ == null)
             {
-                Dictionary<int, string> dictionary = new Dictionary<int, string>();
-                dictionary.Add(0, "zeptolab");
-                dictionary.Add(1, "loaderbar_full");
-                dictionary.Add(2, "zeptolab_hd");
-                dictionary.Add(3, "loaderbar_full_hd");
-                dictionary.Add(4, "menu_button_default");
-                dictionary.Add(5, "big_font");
-                dictionary.Add(6, "small_font");
-                dictionary.Add(7, "menu_loading");
-                dictionary.Add(8, "drawing_canvas");
-                dictionary.Add(9, "menu_drawings_bigpage_markers");
-                dictionary.Add(10, "menu_button_short");
-                dictionary.Add(11, "drawings_particles");
-                dictionary.Add(12, "menu_button_default_hd");
-                dictionary.Add(13, "big_font_hd");
-                dictionary.Add(14, "small_font_hd");
-                dictionary.Add(15, "menu_loading_hd");
-                dictionary.Add(16, "drawing_canvas_hd");
-                dictionary.Add(17, "menu_drawings_bigpage_markers_hd");
-                dictionary.Add(18, "menu_button_short_hd");
-                dictionary.Add(19, "drawings_particles_hd");
-                dictionary.Add(20, "menu_strings");
-                dictionary.Add(21, "tap");
-                dictionary.Add(22, "bubble_break");
-                dictionary.Add(23, "bubble");
-                dictionary.Add(24, "candy_break");
-                dictionary.Add(25, "monster_chewing");
-                dictionary.Add(26, "monster_close");
-                dictionary.Add(27, "monster_open");
-                dictionary.Add(28, "monster_sad");
-                dictionary.Add(29, "rope_bleak_1");
-                dictionary.Add(30, "rope_bleak_2");
-                dictionary.Add(31, "rope_bleak_3");
-                dictionary.Add(32, "rope_bleak_4");
-                dictionary.Add(33, "rope_get");
-                dictionary.Add(34, "scrape");
-                dictionary.Add(35, "star_1");
-                dictionary.Add(36, "star_2");
-                dictionary.Add(37, "star_3");
-                dictionary.Add(38, "electric");
-                dictionary.Add(39, "pump_1");
-                dictionary.Add(40, "pump_2");
-                dictionary.Add(41, "pump_3");
-                dictionary.Add(42, "pump_4");
-                dictionary.Add(60, "ghost_puff");
-                dictionary.Add(61, "steam_start");
-                dictionary.Add(62, "steam_start_2");
-                dictionary.Add(63, "steam_end");
-                dictionary.Add(43, "spider_activate");
-                dictionary.Add(44, "spider_fall");
-                dictionary.Add(45, "spider_win");
-                dictionary.Add(46, "wheel");
-                dictionary.Add(47, "win");
-                dictionary.Add(48, "gravity_off");
-                dictionary.Add(49, "gravity_on");
-                dictionary.Add(50, "candy_link");
-                dictionary.Add(51, "teleport");
-                dictionary.Add(52, "bouncer");
-                dictionary.Add(53, "spike_rotate_in");
-                dictionary.Add(54, "spike_rotate_out");
-                dictionary.Add(55, "buzz");
-                dictionary.Add(56, "scratch_in");
-                dictionary.Add(57, "scratch_out");
-                dictionary.Add(64, "lantern_teleport_in");
-                dictionary.Add(65, "lantern_teleport_out");
-                dictionary.Add(66, "menu_bgr");
-                dictionary.Add(67, "menu_button_crystal");
-                dictionary.Add(68, "menu_popup");
-                dictionary.Add(69, "menu_logo");
-                dictionary.Add(70, "menu_level_selection");
-                dictionary.Add(71, "menu_pack_selection");
-                dictionary.Add(399, "menu_pack_selection_boxes");
-                dictionary.Add(401, "menu_content_screen");
-                dictionary.Add(402, "menu_player_afterplay");
-                dictionary.Add(403, "menu_player");
-                dictionary.Add(72, "menu_extra_buttons");
-                dictionary.Add(73, "menu_extra_buttons_en");
-                dictionary.Add(74, "menu_shadow");
-                dictionary.Add(75, "candy_select_fx_demo");
-                dictionary.Add(76, "menu_processing");
-                dictionary.Add(77, "menu_promo");
-                dictionary.Add(78, "menu_promo_banner");
-                dictionary.Add(79, "menu_bgr_hd");
-                dictionary.Add(80, "menu_button_crystal_hd");
-                dictionary.Add(81, "menu_popup_hd");
-                dictionary.Add(82, "menu_logo_hd");
-                dictionary.Add(83, "menu_level_selection_hd");
-                dictionary.Add(84, "menu_pack_selection_hd");
-                dictionary.Add(400, "menu_pack_selection_boxes_hd");
-                dictionary.Add(404, "menu_content_screen_hd");
-                dictionary.Add(405, "menu_player_afterplay_hd");
-                dictionary.Add(406, "menu_player_hd");
-                dictionary.Add(85, "menu_extra_buttons_hd");
-                dictionary.Add(86, "menu_extra_buttons_en_hd");
-                dictionary.Add(87, "menu_shadow_hd");
-                dictionary.Add(88, "candy_select_fx_demo_hd");
-                dictionary.Add(89, "menu_processing_hd");
-                dictionary.Add(90, "menu_promo_hd");
-                dictionary.Add(91, "menu_promo_banner_hd");
-                dictionary.Add(92, "hud_buttons");
-                dictionary.Add(93, "obj_candy_01");
-                dictionary.Add(94, "obj_spider");
-                dictionary.Add(95, "confetti_particles");
-                dictionary.Add(96, "menu_pause");
-                dictionary.Add(97, "menu_result");
-                dictionary.Add(98, "font_numbers_big");
-                dictionary.Add(99, "menu_result_en");
-                dictionary.Add(100, "hud_buttons_en");
-                dictionary.Add(101, "obj_candy_02");
-                dictionary.Add(102, "obj_candy_03");
-                dictionary.Add(103, "obj_candy_fx");
-                dictionary.Add(104, "drawing_hidden");
-                dictionary.Add(105, "hud_buttons_hd");
-                dictionary.Add(106, "menu_pause_hd");
-                dictionary.Add(107, "menu_result_hd");
-                dictionary.Add(108, "obj_candy_01_hd");
-                dictionary.Add(109, "obj_spider_hd");
-                dictionary.Add(110, "obj_vinil_hd");
-                dictionary.Add(111, "confetti_particles_hd");
-                dictionary.Add(112, "font_numbers_big_hd");
-                dictionary.Add(113, "hud_buttons_en_hd");
-                dictionary.Add(114, "menu_result_en_hd");
-                dictionary.Add(115, "obj_candy_02_hd");
-                dictionary.Add(116, "obj_candy_03_hd");
-                dictionary.Add(117, "obj_candy_fx_hd");
-                dictionary.Add(118, "drawing_hidden_hd");
-                dictionary.Add(119, "obj_star_disappear");
-                dictionary.Add(120, "obj_bubble_flight");
-                dictionary.Add(121, "obj_bubble_pop");
-                dictionary.Add(122, "obj_hook_auto");
-                dictionary.Add(123, "obj_spikes_04");
-                dictionary.Add(124, "obj_bubble_attached");
-                dictionary.Add(125, "obj_hook_01");
-                dictionary.Add(126, "obj_hook_02");
-                dictionary.Add(127, "obj_star_idle");
-                dictionary.Add(128, "hud_star");
-                dictionary.Add(129, "obj_spikes_03");
-                dictionary.Add(130, "obj_spikes_02");
-                dictionary.Add(131, "obj_spikes_01");
-                dictionary.Add(132, "char_animations");
-                dictionary.Add(133, "char_animations_idle");
-                dictionary.Add(134, "obj_hook_regulated");
-                dictionary.Add(135, "obj_electrodes");
-                dictionary.Add(136, "obj_rotatable_spikes_01");
-                dictionary.Add(137, "obj_rotatable_spikes_02");
-                dictionary.Add(138, "obj_rotatable_spikes_03");
-                dictionary.Add(139, "obj_rotatable_spikes_04");
-                dictionary.Add(140, "obj_rotatable_spikes_button");
-                dictionary.Add(141, "obj_vinil");
-                dictionary.Add(142, "obj_hook_movable");
-                dictionary.Add(143, "obj_pump");
-                dictionary.Add(144, "tutorial_signs");
-                dictionary.Add(145, "obj_hat");
-                dictionary.Add(146, "obj_bouncer_01");
-                dictionary.Add(147, "obj_bouncer_02");
-                dictionary.Add(148, "obj_bee");
-                dictionary.Add(149, "obj_pollen");
-                dictionary.Add(150, "char_animations_hd");
-                dictionary.Add(151, "char_animations_idle_hd");
-                dictionary.Add(152, "hud_star_hd");
-                dictionary.Add(153, "obj_bubble_attached_hd");
-                dictionary.Add(154, "obj_bubble_flight_hd");
-                dictionary.Add(155, "obj_bubble_pop_hd");
-                dictionary.Add(156, "obj_electrodes_hd");
-                dictionary.Add(157, "obj_rotatable_spikes_01_hd");
-                dictionary.Add(158, "obj_rotatable_spikes_02_hd");
-                dictionary.Add(159, "obj_rotatable_spikes_03_hd");
-                dictionary.Add(160, "obj_rotatable_spikes_04_hd");
-                dictionary.Add(161, "obj_rotatable_spikes_button_hd");
-                dictionary.Add(162, "obj_hook_01_hd");
-                dictionary.Add(163, "obj_hook_02_hd");
-                dictionary.Add(164, "obj_hook_auto_hd");
-                dictionary.Add(165, "obj_hook_movable_hd");
-                dictionary.Add(166, "obj_hook_regulated_hd");
-                dictionary.Add(167, "obj_pump_hd");
-                dictionary.Add(168, "obj_spikes_01_hd");
-                dictionary.Add(169, "obj_spikes_02_hd");
-                dictionary.Add(170, "obj_spikes_03_hd");
-                dictionary.Add(171, "obj_spikes_04_hd");
-                dictionary.Add(172, "obj_star_disappear_hd");
-                dictionary.Add(173, "obj_star_idle_hd");
-                dictionary.Add(174, "tutorial_signs_hd");
-                dictionary.Add(175, "obj_hat_hd");
-                dictionary.Add(176, "obj_bouncer_01_hd");
-                dictionary.Add(177, "obj_bouncer_02_hd");
-                dictionary.Add(178, "obj_bee_hd");
-                dictionary.Add(179, "obj_pollen_hd");
-                dictionary.Add(188, "bgr_01");
-                dictionary.Add(189, "char_support_01");
-                dictionary.Add(190, "bgr_02");
-                dictionary.Add(191, "char_support_02");
-                dictionary.Add(192, "bgr_03");
-                dictionary.Add(193, "char_support_03");
-                dictionary.Add(194, "bgr_04");
-                dictionary.Add(195, "char_support_04");
-                dictionary.Add(196, "bgr_05");
-                dictionary.Add(197, "char_support_05");
-                dictionary.Add(198, "bgr_06");
-                dictionary.Add(199, "char_support_06");
-                dictionary.Add(200, "bgr_07");
-                dictionary.Add(201, "char_support_07");
-                dictionary.Add(202, "bgr_08");
-                dictionary.Add(203, "char_support_08");
-                dictionary.Add(204, "bgr_09");
-                dictionary.Add(205, "char_support_09");
-                dictionary.Add(206, "bgr_10");
-                dictionary.Add(207, "char_support_10");
-                dictionary.Add(208, "bgr_11");
-                dictionary.Add(209, "char_support_11");
-                dictionary.Add(210, "bgr_12");
-                dictionary.Add(211, "char_support_12");
-                dictionary.Add(212, "bgr_13");
-                dictionary.Add(213, "char_support_13");
-                dictionary.Add(214, "bgr_14");
-                dictionary.Add(215, "char_support_14");
-                dictionary.Add(216, "bgr_01_cover");
-                dictionary.Add(217, "bgr_02_cover");
-                dictionary.Add(218, "bgr_03_cover");
-                dictionary.Add(219, "bgr_04_cover");
-                dictionary.Add(220, "bgr_05_cover");
-                dictionary.Add(221, "bgr_06_cover");
-                dictionary.Add(222, "bgr_07_cover");
-                dictionary.Add(223, "bgr_08_cover");
-                dictionary.Add(224, "bgr_09_cover");
-                dictionary.Add(225, "bgr_10_cover");
-                dictionary.Add(226, "bgr_11_cover");
-                dictionary.Add(227, "bgr_12_cover");
-                dictionary.Add(228, "bgr_13_cover");
-                dictionary.Add(229, "bgr_14_cover");
-                dictionary.Add(230, "bgr_01_hd");
-                dictionary.Add(231, "char_support_01_hd");
-                dictionary.Add(232, "bgr_02_hd");
-                dictionary.Add(233, "char_support_02_hd");
-                dictionary.Add(234, "bgr_03_hd");
-                dictionary.Add(235, "char_support_03_hd");
-                dictionary.Add(236, "bgr_04_hd");
-                dictionary.Add(237, "char_support_04_hd");
-                dictionary.Add(238, "bgr_05_hd");
-                dictionary.Add(239, "char_support_05_hd");
-                dictionary.Add(240, "bgr_06_hd");
-                dictionary.Add(241, "char_support_06_hd");
-                dictionary.Add(242, "bgr_07_hd");
-                dictionary.Add(243, "char_support_07_hd");
-                dictionary.Add(244, "bgr_08_hd");
-                dictionary.Add(245, "char_support_08_hd");
-                dictionary.Add(246, "bgr_09_hd");
-                dictionary.Add(247, "char_support_09_hd");
-                dictionary.Add(248, "bgr_10_hd");
-                dictionary.Add(249, "char_support_10_hd");
-                dictionary.Add(250, "bgr_11_hd");
-                dictionary.Add(251, "char_support_11_hd");
-                dictionary.Add(252, "bgr_12_hd");
-                dictionary.Add(253, "char_support_12_hd");
-                dictionary.Add(254, "bgr_13_hd");
-                dictionary.Add(255, "char_support_13_hd");
-                dictionary.Add(256, "bgr_14_hd");
-                dictionary.Add(257, "char_support_14_hd");
-                dictionary.Add(258, "bgr_01_cover_hd");
-                dictionary.Add(259, "bgr_02_cover_hd");
-                dictionary.Add(260, "bgr_03_cover_hd");
-                dictionary.Add(261, "bgr_04_cover_hd");
-                dictionary.Add(262, "bgr_05_cover_hd");
-                dictionary.Add(263, "bgr_06_cover_hd");
-                dictionary.Add(264, "bgr_07_cover_hd");
-                dictionary.Add(265, "bgr_08_cover_hd");
-                dictionary.Add(266, "bgr_09_cover_hd");
-                dictionary.Add(267, "bgr_10_cover_hd");
-                dictionary.Add(268, "bgr_11_cover_hd");
-                dictionary.Add(269, "bgr_12_cover_hd");
-                dictionary.Add(270, "bgr_13_cover_hd");
-                dictionary.Add(271, "bgr_14_cover_hd");
-                dictionary.Add(58, "menu_music");
-                dictionary.Add(59, "game_music");
-                dictionary.Add(272, "menu_extra_buttons_ru");
-                dictionary.Add(273, "menu_extra_buttons_gr");
-                dictionary.Add(274, "menu_extra_buttons_fr");
-                dictionary.Add(275, "menu_extra_buttons_zh");
-                dictionary.Add(276, "menu_extra_buttons_ja");
-                dictionary.Add(364, "menu_extra_buttons_ko");
-                dictionary.Add(365, "menu_extra_buttons_es");
-                dictionary.Add(366, "menu_extra_buttons_it");
-                dictionary.Add(367, "menu_extra_buttons_nl");
-                dictionary.Add(368, "menu_extra_buttons_br");
-                dictionary.Add(277, "menu_result_ru");
-                dictionary.Add(278, "menu_result_gr");
-                dictionary.Add(279, "menu_result_fr");
-                dictionary.Add(280, "menu_result_zh");
-                dictionary.Add(281, "menu_result_ja");
-                dictionary.Add(371, "menu_result_ko");
-                dictionary.Add(372, "menu_result_es");
-                dictionary.Add(373, "menu_result_it");
-                dictionary.Add(374, "menu_result_nl");
-                dictionary.Add(375, "menu_result_br");
-                dictionary.Add(282, "hud_buttons_ru");
-                dictionary.Add(283, "hud_buttons_gr");
-                dictionary.Add(284, "hud_buttons_zh");
-                dictionary.Add(285, "hud_buttons_ja");
-                dictionary.Add(369, "hud_buttons_ko");
-                dictionary.Add(370, "hud_buttons_es");
-                dictionary.Add(286, "menu_extra_buttons_fr_hd");
-                dictionary.Add(287, "menu_extra_buttons_gr_hd");
-                dictionary.Add(288, "menu_extra_buttons_ru_hd");
-                dictionary.Add(289, "menu_extra_buttons_zh_hd");
-                dictionary.Add(290, "menu_extra_buttons_ja_hd");
-                dictionary.Add(376, "menu_extra_buttons_ko_hd");
-                dictionary.Add(377, "menu_extra_buttons_es_hd");
-                dictionary.Add(378, "menu_extra_buttons_it_hd");
-                dictionary.Add(379, "menu_extra_buttons_nl_hd");
-                dictionary.Add(380, "menu_extra_buttons_br_hd");
-                dictionary.Add(291, "hud_buttons_gr_hd");
-                dictionary.Add(292, "hud_buttons_ru_hd");
-                dictionary.Add(293, "hud_buttons_zh_hd");
-                dictionary.Add(294, "hud_buttons_ja_hd");
-                dictionary.Add(381, "hud_buttons_ko_hd");
-                dictionary.Add(382, "hud_buttons_es_hd");
-                dictionary.Add(295, "menu_result_fr_hd");
-                dictionary.Add(296, "menu_result_gr_hd");
-                dictionary.Add(297, "menu_result_ru_hd");
-                dictionary.Add(298, "menu_result_zh_hd");
-                dictionary.Add(299, "menu_result_ja_hd");
-                dictionary.Add(383, "menu_result_ko_hd");
-                dictionary.Add(384, "menu_result_es_hd");
-                dictionary.Add(385, "menu_result_it_hd");
-                dictionary.Add(386, "menu_result_nl_hd");
-                dictionary.Add(387, "menu_result_br_hd");
-                dictionary.Add(300, "drawing_01");
-                dictionary.Add(301, "drawing_02");
-                dictionary.Add(302, "drawing_03");
-                dictionary.Add(303, "drawing_04");
-                dictionary.Add(304, "drawing_05");
-                dictionary.Add(305, "drawing_06");
-                dictionary.Add(306, "drawing_07");
-                dictionary.Add(307, "drawing_08");
-                dictionary.Add(308, "drawing_09");
-                dictionary.Add(309, "drawing_10");
-                dictionary.Add(310, "drawing_11");
-                dictionary.Add(311, "drawing_12");
-                dictionary.Add(312, "drawing_13");
-                dictionary.Add(313, "drawing_01_hd");
-                dictionary.Add(314, "drawing_02_hd");
-                dictionary.Add(315, "drawing_03_hd");
-                dictionary.Add(316, "drawing_04_hd");
-                dictionary.Add(317, "drawing_05_hd");
-                dictionary.Add(318, "drawing_06_hd");
-                dictionary.Add(319, "drawing_07_hd");
-                dictionary.Add(320, "drawing_08_hd");
-                dictionary.Add(321, "drawing_09_hd");
-                dictionary.Add(322, "drawing_10_hd");
-                dictionary.Add(323, "drawing_11_hd");
-                dictionary.Add(324, "drawing_12_hd");
-                dictionary.Add(325, "drawing_13_hd");
-                dictionary.Add(326, "menu_drawings_thumb_page");
-                dictionary.Add(327, "drawing_canvas_locked");
-                dictionary.Add(328, "drawing_facebook");
-                dictionary.Add(329, "drawings_menu_markers");
-                dictionary.Add(330, "drawings_thumb_01");
-                dictionary.Add(331, "drawings_thumb_02");
-                dictionary.Add(332, "drawings_thumb_03");
-                dictionary.Add(333, "drawings_thumb_04");
-                dictionary.Add(334, "drawings_thumb_05");
-                dictionary.Add(335, "drawings_thumb_06");
-                dictionary.Add(336, "drawings_thumb_07");
-                dictionary.Add(337, "drawings_thumb_08");
-                dictionary.Add(338, "drawings_thumb_09");
-                dictionary.Add(339, "drawings_thumb_10");
-                dictionary.Add(340, "drawings_thumb_11");
-                dictionary.Add(341, "drawings_thumb_12");
-                dictionary.Add(342, "drawings_thumb_13");
-                dictionary.Add(343, "menu_drawings_bgr");
-                dictionary.Add(344, "omnom_artist");
-                dictionary.Add(345, "menu_drawings_thumb_page_hd");
-                dictionary.Add(346, "drawing_canvas_locked_hd");
-                dictionary.Add(347, "drawing_facebook_hd");
-                dictionary.Add(348, "drawings_menu_markers_hd");
-                dictionary.Add(349, "drawings_thumb_01_hd");
-                dictionary.Add(350, "drawings_thumb_02_hd");
-                dictionary.Add(351, "drawings_thumb_03_hd");
-                dictionary.Add(352, "drawings_thumb_04_hd");
-                dictionary.Add(353, "drawings_thumb_05_hd");
-                dictionary.Add(354, "drawings_thumb_06_hd");
-                dictionary.Add(355, "drawings_thumb_07_hd");
-                dictionary.Add(356, "drawings_thumb_08_hd");
-                dictionary.Add(357, "drawings_thumb_09_hd");
-                dictionary.Add(358, "drawings_thumb_10_hd");
-                dictionary.Add(359, "drawings_thumb_11_hd");
-                dictionary.Add(360, "drawings_thumb_12_hd");
-                dictionary.Add(361, "drawings_thumb_13_hd");
-                dictionary.Add(362, "menu_drawings_bgr_hd");
-                dictionary.Add(363, "omnom_artist_hd");
-                dictionary.Add(388, "menu_scrollbar");
-                dictionary.Add(389, "menu_button_achiv_cup");
-                dictionary.Add(390, "menu_leaderboard");
-                dictionary.Add(391, "empty_achievement");
-                dictionary.Add(392, "arrows");
-                dictionary.Add(393, "scotch_tape_1");
-                dictionary.Add(394, "scotch_tape_2");
-                dictionary.Add(395, "scotch_tape_3");
-                dictionary.Add(396, "scotch_tape_4");
-                dictionary.Add(397, "menu_audio_icons");
-                dictionary.Add(398, "menu_audio_icons_hd");
-                dictionary.Add(182, "obj_ghost");
-                dictionary.Add(180, "obj_ghost_bubbles");
-                dictionary.Add(183, "obj_ghost_hd");
-                dictionary.Add(181, "obj_ghost_bubbles_hd");
-                dictionary.Add(184, "obj_pipe");
-                dictionary.Add(185, "obj_pipe_hd");
-                dictionary.Add(187, "obj_lantern_hd");
-                dictionary.Add(407, "menu_agepopup_bgr");
-                dictionary.Add(408, "menu_agepopup_bgr_hd");
-                dictionary.Add(409, "menu_agepopup");
-                dictionary.Add(410, "menu_agepopup_hd");
+                Dictionary<int, string> dictionary = new Dictionary<int, string>
+                {
+                    { 0, "zeptolab" },
+                    { 1, "loaderbar_full" },
+                    { 2, "zeptolab_hd" },
+                    { 3, "loaderbar_full_hd" },
+                    { 4, "menu_button_default" },
+                    { 5, "big_font" },
+                    { 6, "small_font" },
+                    { 7, "menu_loading" },
+                    { 8, "drawing_canvas" },
+                    { 9, "menu_drawings_bigpage_markers" },
+                    { 10, "menu_button_short" },
+                    { 11, "drawings_particles" },
+                    { 12, "menu_button_default_hd" },
+                    { 13, "big_font_hd" },
+                    { 14, "small_font_hd" },
+                    { 15, "menu_loading_hd" },
+                    { 16, "drawing_canvas_hd" },
+                    { 17, "menu_drawings_bigpage_markers_hd" },
+                    { 18, "menu_button_short_hd" },
+                    { 19, "drawings_particles_hd" },
+                    { 20, "menu_strings" },
+                    { 21, "tap" },
+                    { 22, "bubble_break" },
+                    { 23, "bubble" },
+                    { 24, "candy_break" },
+                    { 25, "monster_chewing" },
+                    { 26, "monster_close" },
+                    { 27, "monster_open" },
+                    { 28, "monster_sad" },
+                    { 29, "rope_bleak_1" },
+                    { 30, "rope_bleak_2" },
+                    { 31, "rope_bleak_3" },
+                    { 32, "rope_bleak_4" },
+                    { 33, "rope_get" },
+                    { 34, "scrape" },
+                    { 35, "star_1" },
+                    { 36, "star_2" },
+                    { 37, "star_3" },
+                    { 38, "electric" },
+                    { 39, "pump_1" },
+                    { 40, "pump_2" },
+                    { 41, "pump_3" },
+                    { 42, "pump_4" },
+                    { 60, "ghost_puff" },
+                    { 61, "steam_start" },
+                    { 62, "steam_start_2" },
+                    { 63, "steam_end" },
+                    { 43, "spider_activate" },
+                    { 44, "spider_fall" },
+                    { 45, "spider_win" },
+                    { 46, "wheel" },
+                    { 47, "win" },
+                    { 48, "gravity_off" },
+                    { 49, "gravity_on" },
+                    { 50, "candy_link" },
+                    { 51, "teleport" },
+                    { 52, "bouncer" },
+                    { 53, "spike_rotate_in" },
+                    { 54, "spike_rotate_out" },
+                    { 55, "buzz" },
+                    { 56, "scratch_in" },
+                    { 57, "scratch_out" },
+                    { 64, "lantern_teleport_in" },
+                    { 65, "lantern_teleport_out" },
+                    { 66, "menu_bgr" },
+                    { 67, "menu_button_crystal" },
+                    { 68, "menu_popup" },
+                    { 69, "menu_logo" },
+                    { 70, "menu_level_selection" },
+                    { 71, "menu_pack_selection" },
+                    { 399, "menu_pack_selection_boxes" },
+                    { 401, "menu_content_screen" },
+                    { 402, "menu_player_afterplay" },
+                    { 403, "menu_player" },
+                    { 72, "menu_extra_buttons" },
+                    { 73, "menu_extra_buttons_en" },
+                    { 74, "menu_shadow" },
+                    { 75, "candy_select_fx_demo" },
+                    { 76, "menu_processing" },
+                    { 77, "menu_promo" },
+                    { 78, "menu_promo_banner" },
+                    { 79, "menu_bgr_hd" },
+                    { 80, "menu_button_crystal_hd" },
+                    { 81, "menu_popup_hd" },
+                    { 82, "menu_logo_hd" },
+                    { 83, "menu_level_selection_hd" },
+                    { 84, "menu_pack_selection_hd" },
+                    { 400, "menu_pack_selection_boxes_hd" },
+                    { 404, "menu_content_screen_hd" },
+                    { 405, "menu_player_afterplay_hd" },
+                    { 406, "menu_player_hd" },
+                    { 85, "menu_extra_buttons_hd" },
+                    { 86, "menu_extra_buttons_en_hd" },
+                    { 87, "menu_shadow_hd" },
+                    { 88, "candy_select_fx_demo_hd" },
+                    { 89, "menu_processing_hd" },
+                    { 90, "menu_promo_hd" },
+                    { 91, "menu_promo_banner_hd" },
+                    { 92, "hud_buttons" },
+                    { 93, "obj_candy_01" },
+                    { 94, "obj_spider" },
+                    { 95, "confetti_particles" },
+                    { 96, "menu_pause" },
+                    { 97, "menu_result" },
+                    { 98, "font_numbers_big" },
+                    { 99, "menu_result_en" },
+                    { 100, "hud_buttons_en" },
+                    { 101, "obj_candy_02" },
+                    { 102, "obj_candy_03" },
+                    { 103, "obj_candy_fx" },
+                    { 104, "drawing_hidden" },
+                    { 105, "hud_buttons_hd" },
+                    { 106, "menu_pause_hd" },
+                    { 107, "menu_result_hd" },
+                    { 108, "obj_candy_01_hd" },
+                    { 109, "obj_spider_hd" },
+                    { 110, "obj_vinil_hd" },
+                    { 111, "confetti_particles_hd" },
+                    { 112, "font_numbers_big_hd" },
+                    { 113, "hud_buttons_en_hd" },
+                    { 114, "menu_result_en_hd" },
+                    { 115, "obj_candy_02_hd" },
+                    { 116, "obj_candy_03_hd" },
+                    { 117, "obj_candy_fx_hd" },
+                    { 118, "drawing_hidden_hd" },
+                    { 119, "obj_star_disappear" },
+                    { 120, "obj_bubble_flight" },
+                    { 121, "obj_bubble_pop" },
+                    { 122, "obj_hook_auto" },
+                    { 123, "obj_spikes_04" },
+                    { 124, "obj_bubble_attached" },
+                    { 125, "obj_hook_01" },
+                    { 126, "obj_hook_02" },
+                    { 127, "obj_star_idle" },
+                    { 128, "hud_star" },
+                    { 129, "obj_spikes_03" },
+                    { 130, "obj_spikes_02" },
+                    { 131, "obj_spikes_01" },
+                    { 132, "char_animations" },
+                    { 133, "char_animations_idle" },
+                    { 134, "obj_hook_regulated" },
+                    { 135, "obj_electrodes" },
+                    { 136, "obj_rotatable_spikes_01" },
+                    { 137, "obj_rotatable_spikes_02" },
+                    { 138, "obj_rotatable_spikes_03" },
+                    { 139, "obj_rotatable_spikes_04" },
+                    { 140, "obj_rotatable_spikes_button" },
+                    { 141, "obj_vinil" },
+                    { 142, "obj_hook_movable" },
+                    { 143, "obj_pump" },
+                    { 144, "tutorial_signs" },
+                    { 145, "obj_hat" },
+                    { 146, "obj_bouncer_01" },
+                    { 147, "obj_bouncer_02" },
+                    { 148, "obj_bee" },
+                    { 149, "obj_pollen" },
+                    { 150, "char_animations_hd" },
+                    { 151, "char_animations_idle_hd" },
+                    { 152, "hud_star_hd" },
+                    { 153, "obj_bubble_attached_hd" },
+                    { 154, "obj_bubble_flight_hd" },
+                    { 155, "obj_bubble_pop_hd" },
+                    { 156, "obj_electrodes_hd" },
+                    { 157, "obj_rotatable_spikes_01_hd" },
+                    { 158, "obj_rotatable_spikes_02_hd" },
+                    { 159, "obj_rotatable_spikes_03_hd" },
+                    { 160, "obj_rotatable_spikes_04_hd" },
+                    { 161, "obj_rotatable_spikes_button_hd" },
+                    { 162, "obj_hook_01_hd" },
+                    { 163, "obj_hook_02_hd" },
+                    { 164, "obj_hook_auto_hd" },
+                    { 165, "obj_hook_movable_hd" },
+                    { 166, "obj_hook_regulated_hd" },
+                    { 167, "obj_pump_hd" },
+                    { 168, "obj_spikes_01_hd" },
+                    { 169, "obj_spikes_02_hd" },
+                    { 170, "obj_spikes_03_hd" },
+                    { 171, "obj_spikes_04_hd" },
+                    { 172, "obj_star_disappear_hd" },
+                    { 173, "obj_star_idle_hd" },
+                    { 174, "tutorial_signs_hd" },
+                    { 175, "obj_hat_hd" },
+                    { 176, "obj_bouncer_01_hd" },
+                    { 177, "obj_bouncer_02_hd" },
+                    { 178, "obj_bee_hd" },
+                    { 179, "obj_pollen_hd" },
+                    { 188, "bgr_01" },
+                    { 189, "char_support_01" },
+                    { 190, "bgr_02" },
+                    { 191, "char_support_02" },
+                    { 192, "bgr_03" },
+                    { 193, "char_support_03" },
+                    { 194, "bgr_04" },
+                    { 195, "char_support_04" },
+                    { 196, "bgr_05" },
+                    { 197, "char_support_05" },
+                    { 198, "bgr_06" },
+                    { 199, "char_support_06" },
+                    { 200, "bgr_07" },
+                    { 201, "char_support_07" },
+                    { 202, "bgr_08" },
+                    { 203, "char_support_08" },
+                    { 204, "bgr_09" },
+                    { 205, "char_support_09" },
+                    { 206, "bgr_10" },
+                    { 207, "char_support_10" },
+                    { 208, "bgr_11" },
+                    { 209, "char_support_11" },
+                    { 210, "bgr_12" },
+                    { 211, "char_support_12" },
+                    { 212, "bgr_13" },
+                    { 213, "char_support_13" },
+                    { 214, "bgr_14" },
+                    { 215, "char_support_14" },
+                    { 216, "bgr_01_cover" },
+                    { 217, "bgr_02_cover" },
+                    { 218, "bgr_03_cover" },
+                    { 219, "bgr_04_cover" },
+                    { 220, "bgr_05_cover" },
+                    { 221, "bgr_06_cover" },
+                    { 222, "bgr_07_cover" },
+                    { 223, "bgr_08_cover" },
+                    { 224, "bgr_09_cover" },
+                    { 225, "bgr_10_cover" },
+                    { 226, "bgr_11_cover" },
+                    { 227, "bgr_12_cover" },
+                    { 228, "bgr_13_cover" },
+                    { 229, "bgr_14_cover" },
+                    { 230, "bgr_01_hd" },
+                    { 231, "char_support_01_hd" },
+                    { 232, "bgr_02_hd" },
+                    { 233, "char_support_02_hd" },
+                    { 234, "bgr_03_hd" },
+                    { 235, "char_support_03_hd" },
+                    { 236, "bgr_04_hd" },
+                    { 237, "char_support_04_hd" },
+                    { 238, "bgr_05_hd" },
+                    { 239, "char_support_05_hd" },
+                    { 240, "bgr_06_hd" },
+                    { 241, "char_support_06_hd" },
+                    { 242, "bgr_07_hd" },
+                    { 243, "char_support_07_hd" },
+                    { 244, "bgr_08_hd" },
+                    { 245, "char_support_08_hd" },
+                    { 246, "bgr_09_hd" },
+                    { 247, "char_support_09_hd" },
+                    { 248, "bgr_10_hd" },
+                    { 249, "char_support_10_hd" },
+                    { 250, "bgr_11_hd" },
+                    { 251, "char_support_11_hd" },
+                    { 252, "bgr_12_hd" },
+                    { 253, "char_support_12_hd" },
+                    { 254, "bgr_13_hd" },
+                    { 255, "char_support_13_hd" },
+                    { 256, "bgr_14_hd" },
+                    { 257, "char_support_14_hd" },
+                    { 258, "bgr_01_cover_hd" },
+                    { 259, "bgr_02_cover_hd" },
+                    { 260, "bgr_03_cover_hd" },
+                    { 261, "bgr_04_cover_hd" },
+                    { 262, "bgr_05_cover_hd" },
+                    { 263, "bgr_06_cover_hd" },
+                    { 264, "bgr_07_cover_hd" },
+                    { 265, "bgr_08_cover_hd" },
+                    { 266, "bgr_09_cover_hd" },
+                    { 267, "bgr_10_cover_hd" },
+                    { 268, "bgr_11_cover_hd" },
+                    { 269, "bgr_12_cover_hd" },
+                    { 270, "bgr_13_cover_hd" },
+                    { 271, "bgr_14_cover_hd" },
+                    { 58, "menu_music" },
+                    { 59, "game_music" },
+                    { 272, "menu_extra_buttons_ru" },
+                    { 273, "menu_extra_buttons_gr" },
+                    { 274, "menu_extra_buttons_fr" },
+                    { 275, "menu_extra_buttons_zh" },
+                    { 276, "menu_extra_buttons_ja" },
+                    { 364, "menu_extra_buttons_ko" },
+                    { 365, "menu_extra_buttons_es" },
+                    { 366, "menu_extra_buttons_it" },
+                    { 367, "menu_extra_buttons_nl" },
+                    { 368, "menu_extra_buttons_br" },
+                    { 277, "menu_result_ru" },
+                    { 278, "menu_result_gr" },
+                    { 279, "menu_result_fr" },
+                    { 280, "menu_result_zh" },
+                    { 281, "menu_result_ja" },
+                    { 371, "menu_result_ko" },
+                    { 372, "menu_result_es" },
+                    { 373, "menu_result_it" },
+                    { 374, "menu_result_nl" },
+                    { 375, "menu_result_br" },
+                    { 282, "hud_buttons_ru" },
+                    { 283, "hud_buttons_gr" },
+                    { 284, "hud_buttons_zh" },
+                    { 285, "hud_buttons_ja" },
+                    { 369, "hud_buttons_ko" },
+                    { 370, "hud_buttons_es" },
+                    { 286, "menu_extra_buttons_fr_hd" },
+                    { 287, "menu_extra_buttons_gr_hd" },
+                    { 288, "menu_extra_buttons_ru_hd" },
+                    { 289, "menu_extra_buttons_zh_hd" },
+                    { 290, "menu_extra_buttons_ja_hd" },
+                    { 376, "menu_extra_buttons_ko_hd" },
+                    { 377, "menu_extra_buttons_es_hd" },
+                    { 378, "menu_extra_buttons_it_hd" },
+                    { 379, "menu_extra_buttons_nl_hd" },
+                    { 380, "menu_extra_buttons_br_hd" },
+                    { 291, "hud_buttons_gr_hd" },
+                    { 292, "hud_buttons_ru_hd" },
+                    { 293, "hud_buttons_zh_hd" },
+                    { 294, "hud_buttons_ja_hd" },
+                    { 381, "hud_buttons_ko_hd" },
+                    { 382, "hud_buttons_es_hd" },
+                    { 295, "menu_result_fr_hd" },
+                    { 296, "menu_result_gr_hd" },
+                    { 297, "menu_result_ru_hd" },
+                    { 298, "menu_result_zh_hd" },
+                    { 299, "menu_result_ja_hd" },
+                    { 383, "menu_result_ko_hd" },
+                    { 384, "menu_result_es_hd" },
+                    { 385, "menu_result_it_hd" },
+                    { 386, "menu_result_nl_hd" },
+                    { 387, "menu_result_br_hd" },
+                    { 300, "drawing_01" },
+                    { 301, "drawing_02" },
+                    { 302, "drawing_03" },
+                    { 303, "drawing_04" },
+                    { 304, "drawing_05" },
+                    { 305, "drawing_06" },
+                    { 306, "drawing_07" },
+                    { 307, "drawing_08" },
+                    { 308, "drawing_09" },
+                    { 309, "drawing_10" },
+                    { 310, "drawing_11" },
+                    { 311, "drawing_12" },
+                    { 312, "drawing_13" },
+                    { 313, "drawing_01_hd" },
+                    { 314, "drawing_02_hd" },
+                    { 315, "drawing_03_hd" },
+                    { 316, "drawing_04_hd" },
+                    { 317, "drawing_05_hd" },
+                    { 318, "drawing_06_hd" },
+                    { 319, "drawing_07_hd" },
+                    { 320, "drawing_08_hd" },
+                    { 321, "drawing_09_hd" },
+                    { 322, "drawing_10_hd" },
+                    { 323, "drawing_11_hd" },
+                    { 324, "drawing_12_hd" },
+                    { 325, "drawing_13_hd" },
+                    { 326, "menu_drawings_thumb_page" },
+                    { 327, "drawing_canvas_locked" },
+                    { 328, "drawing_facebook" },
+                    { 329, "drawings_menu_markers" },
+                    { 330, "drawings_thumb_01" },
+                    { 331, "drawings_thumb_02" },
+                    { 332, "drawings_thumb_03" },
+                    { 333, "drawings_thumb_04" },
+                    { 334, "drawings_thumb_05" },
+                    { 335, "drawings_thumb_06" },
+                    { 336, "drawings_thumb_07" },
+                    { 337, "drawings_thumb_08" },
+                    { 338, "drawings_thumb_09" },
+                    { 339, "drawings_thumb_10" },
+                    { 340, "drawings_thumb_11" },
+                    { 341, "drawings_thumb_12" },
+                    { 342, "drawings_thumb_13" },
+                    { 343, "menu_drawings_bgr" },
+                    { 344, "omnom_artist" },
+                    { 345, "menu_drawings_thumb_page_hd" },
+                    { 346, "drawing_canvas_locked_hd" },
+                    { 347, "drawing_facebook_hd" },
+                    { 348, "drawings_menu_markers_hd" },
+                    { 349, "drawings_thumb_01_hd" },
+                    { 350, "drawings_thumb_02_hd" },
+                    { 351, "drawings_thumb_03_hd" },
+                    { 352, "drawings_thumb_04_hd" },
+                    { 353, "drawings_thumb_05_hd" },
+                    { 354, "drawings_thumb_06_hd" },
+                    { 355, "drawings_thumb_07_hd" },
+                    { 356, "drawings_thumb_08_hd" },
+                    { 357, "drawings_thumb_09_hd" },
+                    { 358, "drawings_thumb_10_hd" },
+                    { 359, "drawings_thumb_11_hd" },
+                    { 360, "drawings_thumb_12_hd" },
+                    { 361, "drawings_thumb_13_hd" },
+                    { 362, "menu_drawings_bgr_hd" },
+                    { 363, "omnom_artist_hd" },
+                    { 388, "menu_scrollbar" },
+                    { 389, "menu_button_achiv_cup" },
+                    { 390, "menu_leaderboard" },
+                    { 391, "empty_achievement" },
+                    { 392, "arrows" },
+                    { 393, "scotch_tape_1" },
+                    { 394, "scotch_tape_2" },
+                    { 395, "scotch_tape_3" },
+                    { 396, "scotch_tape_4" },
+                    { 397, "menu_audio_icons" },
+                    { 398, "menu_audio_icons_hd" },
+                    { 182, "obj_ghost" },
+                    { 180, "obj_ghost_bubbles" },
+                    { 183, "obj_ghost_hd" },
+                    { 181, "obj_ghost_bubbles_hd" },
+                    { 184, "obj_pipe" },
+                    { 185, "obj_pipe_hd" },
+                    { 187, "obj_lantern_hd" },
+                    { 407, "menu_agepopup_bgr" },
+                    { 408, "menu_agepopup_bgr_hd" },
+                    { 409, "menu_agepopup" },
+                    { 410, "menu_agepopup_hd" }
+                };
                 resNames_ = dictionary;
             }
             _ = resNames_.TryGetValue(handleLocalizedResource(handleWvgaResource(resId)), out string text);

@@ -55,6 +55,6 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x04000CA1 RID: 3233
-        private List<BaseElement> removeList = new List<BaseElement>();
+        private List<BaseElement> removeList = [];
     }
 }

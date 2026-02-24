@@ -11,7 +11,7 @@ namespace ctr_wp7.iframework.helpers
         // Token: 0x060003B2 RID: 946 RVA: 0x00017F9E File Offset: 0x0001619E
         public DelayedDispatcher()
         {
-            dispatchers = new List<Dispatch>();
+            dispatchers = [];
         }
 
         // Token: 0x060003B3 RID: 947 RVA: 0x00017FB1 File Offset: 0x000161B1

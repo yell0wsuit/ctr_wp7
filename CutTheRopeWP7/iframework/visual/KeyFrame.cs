@@ -34,8 +34,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060004AE RID: 1198 RVA: 0x00021F38 File Offset: 0x00020138
         public static KeyFrame makeSingleAction(BaseElement target, string action, int p, int sp, float time)
         {
-            List<Action> list = new List<Action>();
-            list.Add(Action.createAction(target, action, p, sp));
+            List<Action> list = [Action.createAction(target, action, p, sp)];
             return makeAction(list, time);
         }
 

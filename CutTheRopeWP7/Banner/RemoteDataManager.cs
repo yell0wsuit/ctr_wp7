@@ -144,13 +144,15 @@ namespace ctr_wp7.Banner
             if (bannerUrl != null)
             {
                 string text = "MMENU_BANNER_PRESSED";
-                List<string> list = new List<string>();
-                list.Add("banner_id");
-                list.Add(currentBanner.id.ToString());
-                list.Add("language");
-                list.Add(Application.sharedAppSettings().getString(8).ToString());
-                list.Add("game_unlocked");
-                list.Add(CTRPreferences.isLiteVersion() ? "0" : "1");
+                List<string> list =
+                [
+                    "banner_id",
+                    currentBanner.id.ToString(),
+                    "language",
+                    Application.sharedAppSettings().getString(8).ToString(),
+                    "game_unlocked",
+                    CTRPreferences.isLiteVersion() ? "0" : "1",
+                ];
                 FlurryAPI.logEvent(text, list);
                 AndroidAPI.openUrl(bannerUrl);
             }

@@ -45,6 +45,6 @@ namespace ctr_wp7
         }
 
         // Token: 0x040008A9 RID: 2217
-        private readonly Dictionary<Type, object> services = new Dictionary<Type, object>();
+        private readonly Dictionary<Type, object> services = [];
     }
 }

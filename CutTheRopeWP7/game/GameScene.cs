@@ -68,7 +68,7 @@ namespace ctr_wp7.game
                 }
                 for (int j = 0; j < 5; j++)
                 {
-                    fingerCuts[j] = new List<FingerCut>();
+                    fingerCuts[j] = [];
                     _ = NSRET(fingerCuts[j]);
                 }
             }
@@ -107,19 +107,19 @@ namespace ctr_wp7.game
             CTRSoundMgr._stopLoopedSounds();
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
             XMLNode map = ctrrootController.getMap();
-            bungees = new List<Grab>();
-            razors = new List<Razor>();
-            spikes = new List<Spikes>();
-            stars = new List<Star>();
-            bubbles = new List<Bubble>();
-            pumps = new List<Pump>();
-            socks = new List<Sock>();
-            bouncers = new List<Bouncer>();
-            tutorialImages = new List<GameObjectSpecial>();
-            tutorials = new List<TutorialText>();
-            rotatedCircles = new List<RotatedCircle>();
-            ghosts = new List<Ghost>();
-            tubes = new List<SteamTube>();
+            bungees = [];
+            razors = [];
+            spikes = [];
+            stars = [];
+            bubbles = [];
+            pumps = [];
+            socks = [];
+            bouncers = [];
+            tutorialImages = [];
+            tutorials = [];
+            rotatedCircles = [];
+            ghosts = [];
+            tubes = [];
             pollenDrawer = (PollenDrawer)new PollenDrawer().init();
             star = (ConstraintedPoint)new ConstraintedPoint().init();
             star.setWeight(1f);
@@ -153,8 +153,7 @@ namespace ctr_wp7.game
             Timeline.LoopType loopType = Timeline.LoopType.TIMELINE_NO_LOOP;
             int num4 = 2;
             int num5 = 15;
-            List<int> list = new List<int>();
-            list.Add(15);
+            List<int> list = [15];
             animation.addAnimationWithIDDelayLoopCountSequence(num2, num3, loopType, num4, num5, list);
             Timeline timeline = candyBlink.getTimeline(1);
             timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.solidOpaqueRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
@@ -196,7 +195,7 @@ namespace ctr_wp7.game
                         mapHeight = xmlnode2["height"].floatValue();
                         if (ctrrootController.getPack() == 6)
                         {
-                            earthAnims = new List<Image>();
+                            earthAnims = [];
                             if (mapWidth > SCREEN_WIDTH)
                             {
                                 createEarthImageWithOffsetXY(SCREEN_WIDTH, 0f);
@@ -380,10 +379,7 @@ namespace ctr_wp7.game
                         Timeline.LoopType loopType2 = Timeline.LoopType.TIMELINE_NO_LOOP;
                         int num10 = 4;
                         int num11 = 1;
-                        List<int> list2 = new List<int>();
-                        list2.Add(2);
-                        list2.Add(3);
-                        list2.Add(0);
+                        List<int> list2 = [2, 3, 0];
                         _ = animation2.addAnimationWithDelayLoopedCountSequence(num9, loopType2, num10, num11, list2);
                         pump.bb = new Rectangle(94.0, 95.0, 57.0, 57.0);
                         pump.initial_x = (pump.x = (float)xmlnode4["x"].intValue() * 1f + 0f);
@@ -619,38 +615,40 @@ namespace ctr_wp7.game
                         Timeline.LoopType loopType3 = Timeline.LoopType.TIMELINE_NO_LOOP;
                         int num39 = 32;
                         int num40 = 44;
-                        List<int> list3 = new List<int>();
-                        list3.Add(45);
-                        list3.Add(46);
-                        list3.Add(47);
-                        list3.Add(48);
-                        list3.Add(49);
-                        list3.Add(50);
-                        list3.Add(51);
-                        list3.Add(52);
-                        list3.Add(53);
-                        list3.Add(54);
-                        list3.Add(55);
-                        list3.Add(56);
-                        list3.Add(57);
-                        list3.Add(58);
-                        list3.Add(59);
-                        list3.Add(44);
-                        list3.Add(45);
-                        list3.Add(46);
-                        list3.Add(47);
-                        list3.Add(48);
-                        list3.Add(49);
-                        list3.Add(50);
-                        list3.Add(51);
-                        list3.Add(52);
-                        list3.Add(53);
-                        list3.Add(54);
-                        list3.Add(55);
-                        list3.Add(56);
-                        list3.Add(57);
-                        list3.Add(58);
-                        list3.Add(59);
+                        List<int> list3 =
+                        [
+                            45,
+                            46,
+                            47,
+                            48,
+                            49,
+                            50,
+                            51,
+                            52,
+                            53,
+                            54,
+                            55,
+                            56,
+                            57,
+                            58,
+                            59,
+                            44,
+                            45,
+                            46,
+                            47,
+                            48,
+                            49,
+                            50,
+                            51,
+                            52,
+                            53,
+                            54,
+                            55,
+                            56,
+                            57,
+                            58,
+                            59,
+                        ];
                         animation3.addAnimationWithIDDelayLoopCountSequence(num37, num38, loopType3, num39, num40, list3);
                         target.addAnimationWithIDDelayLoopFirstLast(4, 0.05f, Timeline.LoopType.TIMELINE_NO_LOOP, 37, 56);
                         target.addAnimationWithIDDelayLoopFirstLast(5, 0.05f, Timeline.LoopType.TIMELINE_NO_LOOP, 57, 83);
@@ -687,10 +685,7 @@ namespace ctr_wp7.game
                         Timeline.LoopType loopType4 = Timeline.LoopType.TIMELINE_NO_LOOP;
                         int num43 = 4;
                         int num44 = 35;
-                        List<int> list4 = new List<int>();
-                        list4.Add(36);
-                        list4.Add(36);
-                        list4.Add(36);
+                        List<int> list4 = [36, 36, 36];
                         animation4.addAnimationWithIDDelayLoopCountSequence(num41, num42, loopType4, num43, num44, list4);
                         blink.setActionTargetParamSubParamAtIndexforAnimation("ACTION_SET_VISIBLE", blink, 0, 0, 2, 0);
                         blinkTimer = 3;
@@ -860,14 +855,18 @@ namespace ctr_wp7.game
             }
             if (ropesCutFromLevelStart > 0)
             {
-                Dictionary<string, string> dictionary = new Dictionary<string, string>();
-                dictionary["ropes_cut"] = ropesCutFromLevelStart.ToString();
+                Dictionary<string, string> dictionary = new Dictionary<string, string>
+                {
+                    ["ropes_cut"] = ropesCutFromLevelStart.ToString()
+                };
                 postGameEvent("LEVSCR_ROPES_CUT", dictionary, false);
             }
             if (starsCollected > 0)
             {
-                Dictionary<string, string> dictionary2 = new Dictionary<string, string>();
-                dictionary2["stars_collected_on_level"] = starsCollected.ToString();
+                Dictionary<string, string> dictionary2 = new Dictionary<string, string>
+                {
+                    ["stars_collected_on_level"] = starsCollected.ToString()
+                };
                 postGameEvent("LEVSCR_STARS_COLLECTED", dictionary2, false);
             }
             Lantern.removeAllLanterns();
@@ -3425,7 +3424,7 @@ namespace ctr_wp7.game
                         array[num5++] = fingerCut.end;
                         j++;
                     }
-                    List<Vector> list = new List<Vector>();
+                    List<Vector> list = [];
                     Vector vector = default(Vector);
                     bool flag = true;
                     for (int k = 0; k < Enumerable.Count(array); k++)
@@ -4006,7 +4005,7 @@ namespace ctr_wp7.game
             int level = ctrrootController.getLevel();
             if (dict == null)
             {
-                dict = new Dictionary<string, string>();
+                dict = [];
             }
             dict["level"] = num.ToString() + "-" + level.ToString();
             FlurryAPI.logEventwithParams(_string, dict, true, mixpanel, false);
@@ -4511,8 +4510,7 @@ namespace ctr_wp7.game
             public override void switchToAnimationatEndOfAnimationDelay(int a2, int a1, float d)
             {
                 Timeline timeline = getTimeline(a1);
-                List<iframework.visual.Action> list = new List<iframework.visual.Action>();
-                list.Add(iframework.visual.Action.createAction(this, "ACTION_PLAY_TIMELINE", 0, a2));
+                List<iframework.visual.Action> list = [iframework.visual.Action.createAction(this, "ACTION_PLAY_TIMELINE", 0, a2)];
                 timeline.addKeyFrame(KeyFrame.makeAction(list, d));
             }
 

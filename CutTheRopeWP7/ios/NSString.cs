@@ -217,7 +217,7 @@ namespace ctr_wp7.ios
         // Token: 0x060005E7 RID: 1511 RVA: 0x0002CAC8 File Offset: 0x0002ACC8
         public List<NSString> componentsSeparatedByString(char ch)
         {
-            List<NSString> list = new List<NSString>();
+            List<NSString> list = [];
             char[] array = new char[] { ch };
             string[] array2 = value_.Split(array);
             foreach (string text in array2)

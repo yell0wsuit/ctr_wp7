@@ -1507,13 +1507,15 @@ namespace ctr_wp7.ctr_original
                 level = n - 1000;
                 int starsForPackLevel = CTRPreferences.getStarsForPackLevel(pack, level);
                 string text = "LEVSEL_LEVEL_PRESSED";
-                List<string> list = new List<string>();
-                list.Add("already_won");
-                list.Add((starsForPackLevel > 0).ToString());
-                list.Add("box_id");
-                list.Add(pack.ToString());
-                list.Add("level_id");
-                list.Add(level.ToString());
+                List<string> list =
+                [
+                    "already_won",
+                    (starsForPackLevel > 0).ToString(),
+                    "box_id",
+                    pack.ToString(),
+                    "level_id",
+                    level.ToString(),
+                ];
                 FlurryAPI.logEventwithParams(text, list, true, false, false);
                 BaseElement childWithName = activeView().getChildWithName("levelsBox");
                 childWithName.playTimeline(2);
@@ -1542,11 +1544,7 @@ namespace ctr_wp7.ctr_original
                 }
                 bool flag = CTRPreferences.getUnlockedForPackLevel(pack, 0) == UNLOCKED_STATE.UNLOCKED_STATE_LOCKED;
                 string text2 = "BOXSEL_BOX_PRESSED";
-                List<string> list2 = new List<string>();
-                list2.Add("box_id");
-                list2.Add(pack.ToString());
-                list2.Add("box_unlocked");
-                list2.Add((!flag).ToString());
+                List<string> list2 = ["box_id", pack.ToString(), "box_unlocked", (!flag).ToString()];
                 FlurryAPI.logEventwithParams(text2, list2, true, false, false);
                 if (flag)
                 {
@@ -1584,17 +1582,13 @@ namespace ctr_wp7.ctr_original
                     if (type == 1)
                     {
                         string text3 = "CARTOONSEL_CARTOON_PRESSED";
-                        List<string> list3 = new List<string>();
-                        list3.Add("cartoon_id");
-                        list3.Add(id.ToString());
+                        List<string> list3 = ["cartoon_id", id.ToString()];
                         FlurryAPI.logEventwithParams(text3, list3, true, true, false);
                     }
                     else
                     {
                         string text4 = "CARTOONSEL_BANNER_PRESSED";
-                        List<string> list4 = new List<string>();
-                        list4.Add("banner_id");
-                        list4.Add(id.ToString());
+                        List<string> list4 = ["banner_id", id.ToString()];
                         FlurryAPI.logEventwithParams(text4, list4, true, true, false);
                     }
                     CartoonsAfterwatchView cartoonsAfterwatchView = (CartoonsAfterwatchView)getView(ViewID.VIEW_CARTOONS_AFTERWATCH);
@@ -1663,9 +1657,7 @@ namespace ctr_wp7.ctr_original
                     case 4:
                         {
                             string text5 = "BUYFULL_PRESSED";
-                            List<string> list5 = new List<string>();
-                            list5.Add("stars_collected");
-                            list5.Add(CTRPreferences.getTotalStars().ToString());
+                            List<string> list5 = ["stars_collected", CTRPreferences.getTotalStars().ToString()];
                             FlurryAPI.logEvent(text5, list5);
                             CTRRootController.openFullVersionPage();
                             ep.hidePopup();
@@ -1677,9 +1669,7 @@ namespace ctr_wp7.ctr_original
                             bool flag2 = !Preferences._getBooleanForKey("SOUND_ON");
                             Preferences._setBooleanforKey(flag2, "SOUND_ON", true);
                             string text6 = "SETSCR_SOUNDBT_PRESSED";
-                            List<string> list6 = new List<string>();
-                            list6.Add("sound_on");
-                            list6.Add(flag2.ToString());
+                            List<string> list6 = ["sound_on", flag2.ToString()];
                             FlurryAPI.logEventwithParams(text6, list6, true, false, false);
                             return;
                         }
@@ -1689,9 +1679,7 @@ namespace ctr_wp7.ctr_original
                             bool flag3 = !Preferences._getBooleanForKey("MUSIC_ON");
                             Preferences._setBooleanforKey(flag3, "MUSIC_ON", true);
                             string text7 = "SETSCR_MUSICBT_PRESSED";
-                            List<string> list7 = new List<string>();
-                            list7.Add("music_on");
-                            list7.Add(flag3.ToString());
+                            List<string> list7 = ["music_on", flag3.ToString()];
                             FlurryAPI.logEventwithParams(text7, list7, true, false, false);
                             if (flag3)
                             {
@@ -1814,9 +1802,7 @@ namespace ctr_wp7.ctr_original
                     case 22:
                         {
                             string text8 = "BOXSEL_MISSING-OK_PRESSED";
-                            List<string> list8 = new List<string>();
-                            list8.Add("box_id");
-                            list8.Add(currentPackIndex.ToString());
+                            List<string> list8 = ["box_id", currentPackIndex.ToString()];
                             FlurryAPI.logEventwithParams(text8, list8, true, true, false);
                             break;
                         }
@@ -1889,9 +1875,7 @@ namespace ctr_wp7.ctr_original
                         {
                             int num4 = n - 43;
                             string text9 = "SEASONSEL_SEASON_PRESSED";
-                            List<string> list9 = new List<string>();
-                            list9.Add("season_id");
-                            list9.Add(num4.ToString());
+                            List<string> list9 = ["season_id", num4.ToString()];
                             FlurryAPI.logEvent(text9, list9);
                             CTRPreferences.setLastDelivery(num4);
                             deleteView(ViewID.VIEW_PACK_SELECT);
@@ -1930,9 +1914,7 @@ namespace ctr_wp7.ctr_original
                             int lastActivated = VideoDataManager.getLastActivated();
                             BlockInterface block = VideoDataManager.getBlockConfig().getBlock(lastActivated);
                             string text10 = "CARTOONSCR_REPLAY_PRESSED";
-                            List<string> list10 = new List<string>();
-                            list10.Add("cartoon_id");
-                            list10.Add(block.getId().ToString());
+                            List<string> list10 = ["cartoon_id", block.getId().ToString()];
                             FlurryAPI.logEvent(text10, list10);
                             if (lastActivated == -1)
                             {
@@ -1946,9 +1928,7 @@ namespace ctr_wp7.ctr_original
                         {
                             BlockInterface block2 = VideoDataManager.getBlockConfig().getBlock(VideoDataManager.getLastActivated());
                             string text11 = "CARTOONSCR_SHARE_PRESSED";
-                            List<string> list11 = new List<string>();
-                            list11.Add("cartoon_id");
-                            list11.Add(block2.getId().ToString());
+                            List<string> list11 = ["cartoon_id", block2.getId().ToString()];
                             FlurryAPI.logEvent(text11, list11);
                             AndroidAPI.share(Application.getString(1310773), NSS("Cut the Rope Cartoons: Episode " + block2.getNumber()), block2.getUrl(), false);
                             return;
@@ -1963,11 +1943,13 @@ namespace ctr_wp7.ctr_original
                             {
                                 BlockInterface block4 = blockConfig2.getBlock(nextSameType);
                                 string text12 = "CARTOONSCR_NEXT_PRESSED";
-                                List<string> list12 = new List<string>();
-                                list12.Add("cartoon_id");
-                                list12.Add(block3.getId().ToString());
-                                list12.Add("next_cartoon_id");
-                                list12.Add(block4.getId().ToString());
+                                List<string> list12 =
+                                [
+                                    "cartoon_id",
+                                    block3.getId().ToString(),
+                                    "next_cartoon_id",
+                                    block4.getId().ToString(),
+                                ];
                                 FlurryAPI.logEvent(text12, list12);
                                 onButtonPressed(4000 + nextSameType);
                                 return;
@@ -1978,9 +1960,7 @@ namespace ctr_wp7.ctr_original
                         {
                             BlockInterface block5 = VideoDataManager.getBlockConfig().getBlock(VideoDataManager.getLastActivated());
                             string text13 = "CARTOONSCR_BACKBT_PRESSED";
-                            List<string> list13 = new List<string>();
-                            list13.Add("cartoon_id");
-                            list13.Add(block5.getId().ToString());
+                            List<string> list13 = ["cartoon_id", block5.getId().ToString()];
                             FlurryAPI.logEvent(text13, list13);
                             showView(ViewID.VIEW_CARTOONS_SELECT);
                             return;
@@ -2405,9 +2385,7 @@ namespace ctr_wp7.ctr_original
             else if (n == ViewID.VIEW_PACK_SELECT)
             {
                 string text = "BOXSEL_SCREEN_SHOWN";
-                List<string> list = new List<string>();
-                list.Add("box_id");
-                list.Add(currentPackIndex.ToString());
+                List<string> list = ["box_id", currentPackIndex.ToString()];
                 FlurryAPI.logEvent(text, list);
                 int num = Math.Min(packSelect.size - 1, CTRPreferences.getLastPack());
                 packContainer.placeToScrollPoint((num != -1) ? num : packSelect.getFirstGameBox());
@@ -2415,9 +2393,7 @@ namespace ctr_wp7.ctr_original
             else if (n == ViewID.VIEW_LEVEL_SELECT)
             {
                 string text2 = "LEVSEL_SCREEN_SHOWN";
-                List<string> list2 = new List<string>();
-                list2.Add("box_id");
-                list2.Add(currentPackIndex.ToString());
+                List<string> list2 = ["box_id", currentPackIndex.ToString()];
                 FlurryAPI.logEvent(text2, list2);
             }
             else if (n == ViewID.VIEW_MAIN_MENU)
@@ -2428,9 +2404,7 @@ namespace ctr_wp7.ctr_original
                 }
                 string text3 = Assembly.GetExecutingAssembly().FullName.Split(new char[] { '=' })[1].Split(new char[] { ',' })[0];
                 string text4 = "MMENU_SCREEN_SHOWN";
-                List<string> list3 = new List<string>();
-                list3.Add("first_time");
-                list3.Add(FirstTime.ToString());
+                List<string> list3 = ["first_time", FirstTime.ToString()];
                 FlurryAPI.logEventwithParams(text4, list3, true, true, false);
                 FirstTime = false;
             }

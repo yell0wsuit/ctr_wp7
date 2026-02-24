@@ -43,8 +43,8 @@ namespace ctr_wp7.iframework.visual
                 cameraViewWidth = (int)SCREEN_WIDTH_EXPANDED;
                 cameraViewHeight = (int)SCREEN_HEIGHT_EXPANDED;
                 parallaxRatio = 1f;
-                drawers = new List<ImageMultiDrawer>();
-                tiles = new Dictionary<int, TileEntry>();
+                drawers = [];
+                tiles = [];
                 matrix = new int[columns, rows];
                 for (int i = 0; i < columns; i++)
                 {

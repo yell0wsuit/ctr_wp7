@@ -28,7 +28,7 @@ namespace ctr_wp7.iframework.visual
             keyFrames = new KeyFrame[keyFramesCapacity];
             if (type == TrackType.TRACK_ACTION)
             {
-                actionSets = new List<List<Action>>();
+                actionSets = [];
             }
             return this;
         }

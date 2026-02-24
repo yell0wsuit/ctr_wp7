@@ -40,7 +40,7 @@ namespace ctr_wp7.wp7utilities
         private static IEnumerable<string> GetAssetCandidates(string imgName)
         {
             string normalized = imgName.Replace('\\', '/').Trim();
-            HashSet<string> yielded = new HashSet<string>(StringComparer.Ordinal);
+            HashSet<string> yielded = [with(StringComparer.Ordinal)];
 
             foreach (string candidate in ExpandCandidates(normalized))
             {

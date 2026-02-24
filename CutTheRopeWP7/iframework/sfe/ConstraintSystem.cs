@@ -14,7 +14,7 @@ namespace ctr_wp7.iframework.sfe
             if (base.init() != null)
             {
                 relaxationTimes = 1;
-                parts = new List<ConstraintedPoint>();
+                parts = [];
             }
             return this;
         }

@@ -531,7 +531,7 @@ namespace ctr_wp7.iframework.core
         public ResourceMgrDelegate resourcesDelegate;
 
         // Token: 0x040008DE RID: 2270
-        private Dictionary<int, NSObject> s_Resources = new Dictionary<int, NSObject>();
+        private Dictionary<int, NSObject> s_Resources = [];
 
         // Token: 0x040008DF RID: 2271
         private XMLNode xmlStrings;
@@ -543,7 +543,7 @@ namespace ctr_wp7.iframework.core
         private int loadCount;
 
         // Token: 0x040008E2 RID: 2274
-        private List<int> loadQueue = new List<int>();
+        private List<int> loadQueue = [];
 
         // Token: 0x040008E3 RID: 2275
         private int Timer;
