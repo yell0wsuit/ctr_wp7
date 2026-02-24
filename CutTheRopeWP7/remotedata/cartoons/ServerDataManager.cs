@@ -9,10 +9,8 @@ using ctr_wp7.utils;
 
 namespace ctr_wp7.remotedata.cartoons
 {
-    // Token: 0x0200006F RID: 111
     public abstract class ServerDataManager
     {
-        // Token: 0x06000356 RID: 854 RVA: 0x0001523C File Offset: 0x0001343C
         protected static object readObject(string file, Type serializedObjectType)
         {
             object obj = null;
@@ -41,7 +39,6 @@ namespace ctr_wp7.remotedata.cartoons
             return obj;
         }
 
-        // Token: 0x06000357 RID: 855 RVA: 0x000152D4 File Offset: 0x000134D4
         protected static bool saveObject(object obj, string file)
         {
             string text = file + ".bak";
@@ -89,7 +86,6 @@ namespace ctr_wp7.remotedata.cartoons
             return flag2;
         }
 
-        // Token: 0x06000358 RID: 856 RVA: 0x000153E4 File Offset: 0x000135E4
         protected static bool saveBytes(byte[] bytes, string file)
         {
             string text = file + ".bak";
@@ -138,7 +134,6 @@ namespace ctr_wp7.remotedata.cartoons
             return flag2;
         }
 
-        // Token: 0x06000359 RID: 857 RVA: 0x000154F4 File Offset: 0x000136F4
         protected internal static void removeObject(string file)
         {
             using (IsolatedStorageFile userStoreForApplication = IsolatedStorageFile.GetUserStoreForApplication())
@@ -153,7 +148,6 @@ namespace ctr_wp7.remotedata.cartoons
             }
         }
 
-        // Token: 0x0600035A RID: 858 RVA: 0x0001553C File Offset: 0x0001373C
         protected static void removeObjects(string[] prefixes)
         {
             using (IsolatedStorageFile userStoreForApplication = IsolatedStorageFile.GetUserStoreForApplication())
@@ -179,10 +173,8 @@ namespace ctr_wp7.remotedata.cartoons
             }
         }
 
-        // Token: 0x0600035B RID: 859
         protected abstract void injectSizes(LinkBuilder link, int set);
 
-        // Token: 0x0600035C RID: 860 RVA: 0x000155D0 File Offset: 0x000137D0
         protected static void injectAdditionalParameters(LinkBuilder link)
         {
             string[] array = SystemInfo.getAppVersion().Split(['.']);
@@ -200,19 +192,15 @@ namespace ctr_wp7.remotedata.cartoons
             link.put("store", SystemInfo.getAppMarket());
         }
 
-        // Token: 0x0600035D RID: 861 RVA: 0x0001568F File Offset: 0x0001388F
         public static void public_InjectParameters(LinkBuilder link)
         {
             injectAdditionalParameters(link);
         }
 
-        // Token: 0x040008EC RID: 2284
         protected int protocolVersion;
 
-        // Token: 0x040008ED RID: 2285
         protected string serverUrl;
 
-        // Token: 0x040008EE RID: 2286
         protected bool execution;
     }
 }

@@ -3,10 +3,8 @@ using ctr_wp7.iframework.visual;
 
 namespace ctr_wp7.ctr_original
 {
-    // Token: 0x02000105 RID: 261
     internal sealed class StarsBreak : RotateableMultiParticles
     {
-        // Token: 0x060007EA RID: 2026 RVA: 0x0003E238 File Offset: 0x0003C438
         public override Particles initWithTotalParticlesandImageGrid(int p, Image grid)
         {
             if (base.initWithTotalParticlesandImageGrid(p, grid) == null)
@@ -55,7 +53,6 @@ namespace ctr_wp7.ctr_original
             return this;
         }
 
-        // Token: 0x060007EB RID: 2027 RVA: 0x0003E478 File Offset: 0x0003C678
         public override void draw()
         {
             preDraw();

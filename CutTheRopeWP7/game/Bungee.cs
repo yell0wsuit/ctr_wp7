@@ -7,10 +7,8 @@ using ctr_wp7.ios;
 
 namespace ctr_wp7.game
 {
-    // Token: 0x020000E0 RID: 224
     internal sealed class Bungee : ConstraintSystem
     {
-        // Token: 0x06000682 RID: 1666 RVA: 0x00031DF0 File Offset: 0x0002FFF0
         private void drawAntialiasedLineContinued(float x1, float y1, float x2, float y2, float size, RGBAColor color, ref float lx, ref float ly, ref float rx, ref float ry)
         {
             Vector vector = vect(x1, y1);
@@ -68,7 +66,6 @@ namespace ctr_wp7.game
             OpenGL.glVertexPointer_add(2, 5, 0, cverts);
         }
 
-        // Token: 0x06000683 RID: 1667 RVA: 0x00032098 File Offset: 0x00030298
         private void drawBungee(Bungee b, Vector[] pts, int count, int points)
         {
             float num = (b.cut == -1 || b.forceWhite) ? 1f : (b.cutTime / 1.95f);
@@ -170,7 +167,6 @@ namespace ctr_wp7.game
             OpenGL.glDisableClientState(13);
         }
 
-        // Token: 0x06000684 RID: 1668 RVA: 0x0003256C File Offset: 0x0003076C
         public NSObject initWithHeadAtXYTailAtTXTYandLength(ConstraintedPoint h, float hx, float hy, ConstraintedPoint t, float tx, float ty, float len)
         {
             if (init() != null)
@@ -203,7 +199,6 @@ namespace ctr_wp7.game
             return this;
         }
 
-        // Token: 0x06000685 RID: 1669 RVA: 0x000326D4 File Offset: 0x000308D4
         public int getLength()
         {
             if (this == null)
@@ -225,7 +220,6 @@ namespace ctr_wp7.game
             return num;
         }
 
-        // Token: 0x06000686 RID: 1670 RVA: 0x00032734 File Offset: 0x00030934
         public float rollBack(float amount)
         {
             float num = amount;
@@ -271,13 +265,11 @@ namespace ctr_wp7.game
             return num;
         }
 
-        // Token: 0x06000687 RID: 1671 RVA: 0x00032887 File Offset: 0x00030A87
         public void roll(float rollLen)
         {
             rollplacingWithOffset(rollLen, vectZero);
         }
 
-        // Token: 0x06000688 RID: 1672 RVA: 0x00032898 File Offset: 0x00030A98
         public void rollplacingWithOffset(float rollLen, Vector off)
         {
             ConstraintedPoint constraintedPoint = parts[^2];
@@ -313,7 +305,6 @@ namespace ctr_wp7.game
             }
         }
 
-        // Token: 0x06000689 RID: 1673 RVA: 0x000329C0 File Offset: 0x00030BC0
         public void removePart(int part)
         {
             forceWhite = false;
@@ -351,7 +342,6 @@ namespace ctr_wp7.game
             }
         }
 
-        // Token: 0x0600068A RID: 1674 RVA: 0x00032ADF File Offset: 0x00030CDF
         public void setCut(int part)
         {
             cut = part;
@@ -359,7 +349,6 @@ namespace ctr_wp7.game
             forceWhite = true;
         }
 
-        // Token: 0x0600068B RID: 1675 RVA: 0x00032AFC File Offset: 0x00030CFC
         public void strengthen()
         {
             int count = parts.Count;
@@ -384,13 +373,11 @@ namespace ctr_wp7.game
             }
         }
 
-        // Token: 0x0600068C RID: 1676 RVA: 0x00032B78 File Offset: 0x00030D78
         public override void update(float delta)
         {
             update(delta, 1f);
         }
 
-        // Token: 0x0600068D RID: 1677 RVA: 0x00032B88 File Offset: 0x00030D88
         public void update(float delta, float koeff)
         {
             if (cutTime > 0.0)
@@ -421,7 +408,6 @@ namespace ctr_wp7.game
             }
         }
 
-        // Token: 0x0600068E RID: 1678 RVA: 0x00032C5C File Offset: 0x00030E5C
         public override void draw()
         {
             int count = parts.Count;
@@ -479,94 +465,66 @@ namespace ctr_wp7.game
             }
         }
 
-        // Token: 0x0600068F RID: 1679 RVA: 0x00032DB7 File Offset: 0x00030FB7
         public override void dealloc()
         {
             base.dealloc();
         }
 
-        // Token: 0x04000BF2 RID: 3058
         public const float BUNGEE_REST_LEN = 30f;
 
-        // Token: 0x04000BF3 RID: 3059
         private const float ROLLBACK_K = 0.5f;
 
-        // Token: 0x04000BF4 RID: 3060
         private const int BUNGEE_BEZIER_POINTS = 3;
 
-        // Token: 0x04000BF5 RID: 3061
         public const int BUNGEE_RELAXION_TIMES = 30;
 
-        // Token: 0x04000BF6 RID: 3062
         private const float MAX_BUNGEE_SEGMENTS = 20f;
 
-        // Token: 0x04000BF7 RID: 3063
         private const float DEFAULT_PART_WEIGHT = 0.02f;
 
-        // Token: 0x04000BF8 RID: 3064
         private const float STRENGTHENED_PART_WEIGHT = 0.5f;
 
-        // Token: 0x04000BF9 RID: 3065
         private const float CUT_DISSAPPEAR_TIMEOUT = 2f;
 
-        // Token: 0x04000BFA RID: 3066
         private const float WHITE_TIMEOUT = 0.05f;
 
-        // Token: 0x04000BFB RID: 3067
         public ConstraintedPoint bungeeAnchor;
 
-        // Token: 0x04000BFC RID: 3068
         public ConstraintedPoint tail;
 
-        // Token: 0x04000BFD RID: 3069
         public int cut;
 
-        // Token: 0x04000BFE RID: 3070
         public int relaxed;
 
-        // Token: 0x04000BFF RID: 3071
         public float initialCandleAngle;
 
-        // Token: 0x04000C00 RID: 3072
         public bool chosenOne;
 
-        // Token: 0x04000C01 RID: 3073
         public int bungeeMode;
 
-        // Token: 0x04000C02 RID: 3074
         public float partWeight;
 
-        // Token: 0x04000C03 RID: 3075
         public bool forceWhite;
 
-        // Token: 0x04000C04 RID: 3076
         public float cutTime;
 
-        // Token: 0x04000C05 RID: 3077
         public float[] drawPts = new float[200];
 
-        // Token: 0x04000C06 RID: 3078
         public int drawPtsCount;
 
-        // Token: 0x04000C07 RID: 3079
         public float lineWidth;
 
-        // Token: 0x04000C08 RID: 3080
         public int width;
 
-        // Token: 0x04000C09 RID: 3081
         public bool hideTailParts;
 
-        // Token: 0x04000C0A RID: 3082
         public bool dontDrawRedStretch;
 
-        // Token: 0x04000C0B RID: 3083
         public bool alternateColors;
 
-        // Token: 0x04000C0C RID: 3084
         private static readonly RGBAColor[] ccolors =
-        [
-            RGBAColor.transparentRGBA,
+[
+    RGBAColor.transparentRGBA,
             RGBAColor.transparentRGBA,
             RGBAColor.transparentRGBA,
             RGBAColor.transparentRGBA,
@@ -574,17 +532,13 @@ namespace ctr_wp7.game
             RGBAColor.transparentRGBA,
             RGBAColor.transparentRGBA,
             RGBAColor.transparentRGBA
-        ];
+];
 
-        // Token: 0x04000C0D RID: 3085
         private readonly float[] cverts = new float[16];
 
-        // Token: 0x020000E1 RID: 225
         private enum BUNGEE_MODE
         {
-            // Token: 0x04000C0F RID: 3087
             BUNGEE_MODE_NORMAL,
-            // Token: 0x04000C10 RID: 3088
             BUNGEE_MODE_LOCKED
         }
     }

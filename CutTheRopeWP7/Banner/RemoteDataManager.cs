@@ -7,10 +7,8 @@ using ctr_wp7.ios;
 
 namespace ctr_wp7.Banner
 {
-    // Token: 0x0200002E RID: 46
     internal sealed class RemoteDataManager : NSObject, ButtonDelegate
     {
-        // Token: 0x060001AE RID: 430 RVA: 0x0000BE68 File Offset: 0x0000A068
         private static BannerSize getBannerSize()
         {
             BannerSize bannerSize;
@@ -19,7 +17,6 @@ namespace ctr_wp7.Banner
             return bannerSize;
         }
 
-        // Token: 0x060001AF RID: 431 RVA: 0x0000BE90 File Offset: 0x0000A090
         public NSObject acquireInfo(int setID)
         {
             if (init() != null && remoteDataMgr != null)
@@ -32,13 +29,11 @@ namespace ctr_wp7.Banner
             return this;
         }
 
-        // Token: 0x060001B0 RID: 432 RVA: 0x0000BEDB File Offset: 0x0000A0DB
         public static void initRemoteDataMgr(RemoteDataManager_Java pRemoteDataMgr)
         {
             remoteDataMgr = pRemoteDataMgr;
         }
 
-        // Token: 0x060001B1 RID: 433 RVA: 0x0000BEE4 File Offset: 0x0000A0E4
         public Image getBanner()
         {
             if (remoteDataMgr == null)
@@ -84,7 +79,6 @@ namespace ctr_wp7.Banner
             return null;
         }
 
-        // Token: 0x060001B2 RID: 434 RVA: 0x0000C06F File Offset: 0x0000A26F
         public static void nextBanner()
         {
             if (remoteDataMgr == null)
@@ -94,7 +88,6 @@ namespace ctr_wp7.Banner
             remoteDataMgr.nextBanner();
         }
 
-        // Token: 0x060001B3 RID: 435 RVA: 0x0000C083 File Offset: 0x0000A283
         public static void prevBanner()
         {
             if (remoteDataMgr == null)
@@ -104,37 +97,31 @@ namespace ctr_wp7.Banner
             remoteDataMgr.prevBanner();
         }
 
-        // Token: 0x060001B4 RID: 436 RVA: 0x0000C097 File Offset: 0x0000A297
         public static bool hasSenseToRotateBanners()
         {
             return remoteDataMgr != null && remoteDataMgr.hasSenseToRotateBanners();
         }
 
-        // Token: 0x060001B5 RID: 437 RVA: 0x0000C0AC File Offset: 0x0000A2AC
         public static bool getHideMainPromo()
         {
             return remoteDataMgr != null && remoteDataMgr.getHideMainPromo();
         }
 
-        // Token: 0x060001B6 RID: 438 RVA: 0x0000C0C1 File Offset: 0x0000A2C1
         public static bool getHideSocialNetworks()
         {
             return remoteDataMgr != null && remoteDataMgr.getHideSocialNetworks();
         }
 
-        // Token: 0x060001B7 RID: 439 RVA: 0x0000C0D6 File Offset: 0x0000A2D6
         public static bool getDefaultInterstitial()
         {
             return remoteDataMgr != null && remoteDataMgr.getDefaultInterstitial();
         }
 
-        // Token: 0x060001B8 RID: 440 RVA: 0x0000C0EB File Offset: 0x0000A2EB
         public static int getBoxForCrossPromo()
         {
             return remoteDataMgr == null ? -1 : remoteDataMgr.getBoxForCrossPromo();
         }
 
-        // Token: 0x060001B9 RID: 441 RVA: 0x0000C100 File Offset: 0x0000A300
         public void onButtonPressed(int n)
         {
             if (bannerUrl != null)
@@ -154,25 +141,18 @@ namespace ctr_wp7.Banner
             }
         }
 
-        // Token: 0x040007D1 RID: 2001
         public const int BANNER_MAIN_BUTTON = 0;
 
-        // Token: 0x040007D2 RID: 2002
         private static RemoteDataManager_Java remoteDataMgr;
 
-        // Token: 0x040007D3 RID: 2003
         private static Banner currentBanner;
 
-        // Token: 0x040007D4 RID: 2004
         private static NSString bannerUrl;
 
-        // Token: 0x0200002F RID: 47
         private struct BannerSize
         {
-            // Token: 0x040007D5 RID: 2005
             public int width;
 
-            // Token: 0x040007D6 RID: 2006
             public int height;
         }
     }

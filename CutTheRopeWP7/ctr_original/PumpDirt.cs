@@ -4,10 +4,8 @@ using ctr_wp7.iframework.visual;
 
 namespace ctr_wp7.ctr_original
 {
-    // Token: 0x02000104 RID: 260
     internal sealed class PumpDirt : MultiParticles
     {
-        // Token: 0x060007E5 RID: 2021 RVA: 0x0003DC74 File Offset: 0x0003BE74
         public PumpDirt initWithTotalParticlesAngleandImageGrid(int p, float a, Image grid)
         {
             if (initWithTotalParticlesandImageGrid(p, grid) == null)
@@ -52,7 +50,6 @@ namespace ctr_wp7.ctr_original
             return this;
         }
 
-        // Token: 0x060007E6 RID: 2022 RVA: 0x0003DE6C File Offset: 0x0003C06C
         public override void initParticle(ref Particle particle)
         {
             base.initParticle(ref particle);
@@ -64,7 +61,6 @@ namespace ctr_wp7.ctr_original
             particle.height = 10f;
         }
 
-        // Token: 0x060007E7 RID: 2023 RVA: 0x0003DEEC File Offset: 0x0003C0EC
         public override void updateParticle(ref Particle p, float delta)
         {
             if (p.life > 0f)
@@ -95,7 +91,6 @@ namespace ctr_wp7.ctr_original
             particleCount--;
         }
 
-        // Token: 0x060007E8 RID: 2024 RVA: 0x0003E13C File Offset: 0x0003C33C
         public override void update(float delta)
         {
             base.update(delta);

@@ -7,10 +7,8 @@ using ctr_wp7.ios;
 
 namespace ctr_wp7.game
 {
-    // Token: 0x020000C5 RID: 197
     internal abstract class BoxFabric : NSObject
     {
-        // Token: 0x060005B6 RID: 1462 RVA: 0x0002BF7C File Offset: 0x0002A17C
         public virtual BaseElement createPackElementforContainer(int i, int pbox, ScrollableContainer c, ButtonDelegate d)
         {
             buttonDelegate = d;
@@ -90,31 +88,26 @@ namespace ctr_wp7.game
             return baseElement2;
         }
 
-        // Token: 0x060005B7 RID: 1463 RVA: 0x0002C29D File Offset: 0x0002A49D
         public static int getSaveIndex(int box)
         {
             return isGameBox(box) ? box - 2 - 1 : -1;
         }
 
-        // Token: 0x060005B8 RID: 1464 RVA: 0x0002C2AE File Offset: 0x0002A4AE
         public static bool isGameBox(int box)
         {
             return box is > 2 and < 17;
         }
 
-        // Token: 0x060005B9 RID: 1465 RVA: 0x0002C2BC File Offset: 0x0002A4BC
         protected virtual bool isZeroBoxLowerDefined()
         {
             return false;
         }
 
-        // Token: 0x060005BA RID: 1466 RVA: 0x0002C2BF File Offset: 0x0002A4BF
         protected virtual bool isZeroBoxUpperDefined()
         {
             return false;
         }
 
-        // Token: 0x060005BB RID: 1467 RVA: 0x0002C2C4 File Offset: 0x0002A4C4
         protected virtual int getIcofor(int type)
         {
             switch (type)
@@ -130,7 +123,6 @@ namespace ctr_wp7.game
             }
         }
 
-        // Token: 0x060005BC RID: 1468 RVA: 0x0002C2F4 File Offset: 0x0002A4F4
         protected virtual int getTextfor(int type)
         {
             switch (type)
@@ -146,7 +138,6 @@ namespace ctr_wp7.game
             }
         }
 
-        // Token: 0x060005BD RID: 1469 RVA: 0x0002C32C File Offset: 0x0002A52C
         protected virtual bool isAvailablefor(int type)
         {
             switch (type)
@@ -162,7 +153,6 @@ namespace ctr_wp7.game
             }
         }
 
-        // Token: 0x060005BE RID: 1470 RVA: 0x0002C368 File Offset: 0x0002A568
         public virtual void doActionfor(int type)
         {
             switch (type)
@@ -180,7 +170,6 @@ namespace ctr_wp7.game
             }
         }
 
-        // Token: 0x060005BF RID: 1471 RVA: 0x0002C3A0 File Offset: 0x0002A5A0
         public virtual void provideAnalyticsfor(int type)
         {
             switch (type)
@@ -190,19 +179,15 @@ namespace ctr_wp7.game
             }
         }
 
-        // Token: 0x060005C0 RID: 1472 RVA: 0x0002C3C1 File Offset: 0x0002A5C1
         public virtual bool isZeroBoxDefined()
         {
             return isZeroBoxLowerDefined() || isZeroBoxUpperDefined();
         }
 
-        // Token: 0x060005C1 RID: 1473
         protected abstract BaseElement buildGameBox(int i, int n, BaseElement container, MenuController.TouchBaseElement tpack, ScrollableContainer c);
 
-        // Token: 0x060005C2 RID: 1474
         protected abstract BaseElement buildComingSoonBox();
 
-        // Token: 0x060005C3 RID: 1475 RVA: 0x0002C3D4 File Offset: 0x0002A5D4
         protected virtual BaseElement buildLock()
         {
             Image image = Image.Image_createWithResIDQuad(71, 1);
@@ -218,7 +203,6 @@ namespace ctr_wp7.game
             return image;
         }
 
-        // Token: 0x060005C4 RID: 1476 RVA: 0x0002C4A8 File Offset: 0x0002A6A8
         protected virtual BaseElement buildText(int label, bool multistring)
         {
             NSString @string = Application.getString(label);
@@ -237,7 +221,6 @@ namespace ctr_wp7.game
             return text;
         }
 
-        // Token: 0x060005C5 RID: 1477 RVA: 0x0002C510 File Offset: 0x0002A710
         protected virtual BaseElement buildPerfectMark()
         {
             Image image = Image.Image_createWithResIDQuad(71, 4);
@@ -246,7 +229,6 @@ namespace ctr_wp7.game
             return image;
         }
 
-        // Token: 0x060005C6 RID: 1478 RVA: 0x0002C540 File Offset: 0x0002A740
         protected virtual BaseElement buildNextDeliveryBox(ButtonDelegate buttonDelegate)
         {
             Image image = Image.Image_createWithResIDQuad(71, 13);
@@ -278,7 +260,6 @@ namespace ctr_wp7.game
             return touchBaseElement;
         }
 
-        // Token: 0x060005C7 RID: 1479 RVA: 0x0002C68C File Offset: 0x0002A88C
         protected virtual VBox buildZeroBox(ButtonDelegate buttonDelegate)
         {
             BaseElement baseElement = null;
@@ -300,68 +281,41 @@ namespace ctr_wp7.game
             return vbox;
         }
 
-        // Token: 0x060005C8 RID: 1480 RVA: 0x0002C724 File Offset: 0x0002A924
         protected virtual BaseElement buildLiteBox(ButtonDelegate buttonDelegate)
         {
             return null;
         }
 
-        // Token: 0x060005C9 RID: 1481
         protected abstract BaseElement buildVideoBox(ButtonDelegate buttonDelegate);
 
-        // Token: 0x04000B1E RID: 2846
         public const int ZEROBOX_UPPER = 2;
 
-        // Token: 0x04000B1F RID: 2847
         public const int ZEROBOX_LOWER = 1;
 
-        // Token: 0x04000B20 RID: 2848
         protected ButtonDelegate buttonDelegate;
 
-        // Token: 0x020000C6 RID: 198
         public enum GAMEBOXES
         {
-            // Token: 0x04000B22 RID: 2850
             _ZEROBOX,
-            // Token: 0x04000B23 RID: 2851
             _VIDEOBOX,
-            // Token: 0x04000B24 RID: 2852
             ___GAMEBOXES_START___,
-            // Token: 0x04000B25 RID: 2853
             CARDBOARD,
-            // Token: 0x04000B26 RID: 2854
             FABRIC,
-            // Token: 0x04000B27 RID: 2855
             FOIL,
-            // Token: 0x04000B28 RID: 2856
             MAGIC,
-            // Token: 0x04000B29 RID: 2857
             VALENTINE,
-            // Token: 0x04000B2A RID: 2858
             GIFT,
-            // Token: 0x04000B2B RID: 2859
             COSMIC,
-            // Token: 0x04000B2C RID: 2860
             TOY,
-            // Token: 0x04000B2D RID: 2861
             TOOLBOX,
-            // Token: 0x04000B2E RID: 2862
             BUZZ,
-            // Token: 0x04000B2F RID: 2863
             DJ,
-            // Token: 0x04000B30 RID: 2864
             SPOOKY,
-            // Token: 0x04000B31 RID: 2865
             STEAM,
-            // Token: 0x04000B32 RID: 2866
             LANTERN,
-            // Token: 0x04000B33 RID: 2867
             ___GAMEBOXES_FINISH___,
-            // Token: 0x04000B34 RID: 2868
             _COMING_SOON,
-            // Token: 0x04000B35 RID: 2869
             _NEXT_DELIVERY,
-            // Token: 0x04000B36 RID: 2870
             _LITE_GETFULL
         }
     }

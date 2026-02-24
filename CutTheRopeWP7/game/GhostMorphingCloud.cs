@@ -4,10 +4,8 @@ using ctr_wp7.ios;
 
 namespace ctr_wp7.game
 {
-    // Token: 0x0200008F RID: 143
     internal sealed class GhostMorphingCloud : MultiParticles
     {
-        // Token: 0x06000446 RID: 1094 RVA: 0x0001DDC4 File Offset: 0x0001BFC4
         public override NSObject init()
         {
             if (initWithTotalParticlesandImageGrid(5, Image.Image_createWithResID(180)) != null)
@@ -24,7 +22,6 @@ namespace ctr_wp7.game
             return this;
         }
 
-        // Token: 0x06000447 RID: 1095 RVA: 0x0001DE44 File Offset: 0x0001C044
         public override void initParticle(ref Particle particle)
         {
             angle += 360f / totalParticles;
@@ -39,7 +36,6 @@ namespace ctr_wp7.game
             particle.deltaColor = RGBAColor.MakeRGBA(0f, 0f, 0f, 0f);
         }
 
-        // Token: 0x06000448 RID: 1096 RVA: 0x0001DF2C File Offset: 0x0001C12C
         public override void update(float delta)
         {
             base.update(delta);
@@ -69,13 +65,11 @@ namespace ctr_wp7.game
             }
         }
 
-        // Token: 0x06000449 RID: 1097 RVA: 0x0001E07C File Offset: 0x0001C27C
         public void startSystem()
         {
             startSystem(5);
         }
 
-        // Token: 0x0400098F RID: 2447
         private const int CLOUD_PARTICLES = 5;
     }
 }

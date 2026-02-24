@@ -11,10 +11,8 @@ using ctr_wp7.ios;
 
 namespace ctr_wp7.game
 {
-    // Token: 0x020000D2 RID: 210
     internal sealed class PromoBanner : BaseElement, ButtonDelegate, TimelineDelegate
     {
-        // Token: 0x06000627 RID: 1575 RVA: 0x0002ED84 File Offset: 0x0002CF84
         public override NSObject init()
         {
             if (base.init() != null)
@@ -39,13 +37,11 @@ namespace ctr_wp7.game
             return this;
         }
 
-        // Token: 0x06000628 RID: 1576 RVA: 0x0002EE35 File Offset: 0x0002D035
         public override void dealloc()
         {
             base.dealloc();
         }
 
-        // Token: 0x06000629 RID: 1577 RVA: 0x0002EE40 File Offset: 0x0002D040
         public static BaseElement createBanner()
         {
             BaseElement banner = Application.sharedPreferences().remoteDataManager.getBanner();
@@ -63,7 +59,6 @@ namespace ctr_wp7.game
             return image;
         }
 
-        // Token: 0x0600062A RID: 1578 RVA: 0x0002EEA4 File Offset: 0x0002D0A4
         public BaseElement createMainBanner()
         {
             int banner_OFFSET = BANNER_OFFSET;
@@ -183,7 +178,6 @@ namespace ctr_wp7.game
             return baseElement;
         }
 
-        // Token: 0x0600062B RID: 1579 RVA: 0x0002F5F4 File Offset: 0x0002D7F4
         public void openMainPromo()
         {
             checkSwitchButtons();
@@ -198,7 +192,6 @@ namespace ctr_wp7.game
             promoBanner.playTimeline(0);
         }
 
-        // Token: 0x0600062C RID: 1580 RVA: 0x0002F6C8 File Offset: 0x0002D8C8
         public void closeMainPromo()
         {
             promoMainHidden = true;
@@ -212,7 +205,6 @@ namespace ctr_wp7.game
             promoBanner.playTimeline(1);
         }
 
-        // Token: 0x0600062D RID: 1581 RVA: 0x0002F770 File Offset: 0x0002D970
         public void onButtonPressed(int n)
         {
             switch (n)
@@ -254,7 +246,6 @@ namespace ctr_wp7.game
             }
         }
 
-        // Token: 0x0600062E RID: 1582 RVA: 0x0002F850 File Offset: 0x0002DA50
         public override void update(float delta)
         {
             base.update(delta);
@@ -270,19 +261,16 @@ namespace ctr_wp7.game
             }
         }
 
-        // Token: 0x0600062F RID: 1583 RVA: 0x0002F90A File Offset: 0x0002DB0A
         public void timelineFinished(Timeline t)
         {
             RemoteDataManager.nextBanner();
             changeBanner();
         }
 
-        // Token: 0x06000630 RID: 1584 RVA: 0x0002F921 File Offset: 0x0002DB21
         public void timelinereachedKeyFramewithIndex(Timeline t, KeyFrame k, int i)
         {
         }
 
-        // Token: 0x06000631 RID: 1585 RVA: 0x0002F924 File Offset: 0x0002DB24
         public void changeBanner()
         {
             BaseElement baseElement = createBanner();
@@ -292,7 +280,6 @@ namespace ctr_wp7.game
             _ = childWithName.addChild(baseElement);
         }
 
-        // Token: 0x06000632 RID: 1586 RVA: 0x0002F960 File Offset: 0x0002DB60
         public void checkSwitchButtons()
         {
             bool flag = RemoteDataManager.hasSenseToRotateBanners();
@@ -300,52 +287,37 @@ namespace ctr_wp7.game
             promoBanner.getChildWithName("promoSwitchRightButton").setEnabled(flag);
         }
 
-        // Token: 0x06000633 RID: 1587 RVA: 0x0002F9B8 File Offset: 0x0002DBB8
         public void reset()
         {
             _ = promoBanner.onTouchUpXY(-1000f, -1000f);
         }
 
-        // Token: 0x04000B84 RID: 2948
         public const int BUNGEE_LENGTH = 60;
 
-        // Token: 0x04000B85 RID: 2949
         private const int BUTTON_PROMO_MAIN = 0;
 
-        // Token: 0x04000B86 RID: 2950
         private const int BUTTON_PROMO_MAIN_TOGGLE = 1;
 
-        // Token: 0x04000B87 RID: 2951
         private const int BUTTON_PROMO_LEFT = 2;
 
-        // Token: 0x04000B88 RID: 2952
         private const int BUTTON_PROMO_RIGHT = 3;
 
-        // Token: 0x04000B89 RID: 2953
         public static int BANNER_OFFSET = (int)Math.Floor(-312.0);
 
-        // Token: 0x04000B8A RID: 2954
         private Processing fadeElement;
 
-        // Token: 0x04000B8B RID: 2955
         private BaseElement arrowContainer;
 
-        // Token: 0x04000B8C RID: 2956
         private Bungee bungee;
 
-        // Token: 0x04000B8D RID: 2957
         private ConstraintedPoint hook;
 
-        // Token: 0x04000B8E RID: 2958
         private ConstraintedPoint hookStart;
 
-        // Token: 0x04000B8F RID: 2959
         private Image hookButton;
 
-        // Token: 0x04000B90 RID: 2960
         private BaseElement promoBanner;
 
-        // Token: 0x04000B91 RID: 2961
         public bool promoMainHidden;
     }
 }

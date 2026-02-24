@@ -1,9 +1,7 @@
 ﻿namespace ctr_wp7.iframework.visual
 {
-    // Token: 0x02000092 RID: 146
     internal sealed class HBox : BaseElement
     {
-        // Token: 0x06000457 RID: 1111 RVA: 0x0001E7E4 File Offset: 0x0001C9E4
         public override int addChildwithID(BaseElement c, int i)
         {
             int num = base.addChildwithID(c, i);
@@ -25,13 +23,11 @@
             return num;
         }
 
-        // Token: 0x06000458 RID: 1112 RVA: 0x0001E88A File Offset: 0x0001CA8A
         public HBox initWithOffsetAlignHeight(double of, int a, double h)
         {
             return initWithOffsetAlignHeight((float)of, a, (float)h);
         }
 
-        // Token: 0x06000459 RID: 1113 RVA: 0x0001E897 File Offset: 0x0001CA97
         public HBox initWithOffsetAlignHeight(float of, int a, float h)
         {
             if (init() != null)
@@ -44,13 +40,10 @@
             return this;
         }
 
-        // Token: 0x0400099E RID: 2462
         public float offset;
 
-        // Token: 0x0400099F RID: 2463
         public int align;
 
-        // Token: 0x040009A0 RID: 2464
         public float nextElementX;
     }
 }

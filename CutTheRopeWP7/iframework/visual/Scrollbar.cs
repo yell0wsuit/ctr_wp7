@@ -4,10 +4,8 @@ using ctr_wp7.iframework.core;
 
 namespace ctr_wp7.iframework.visual
 {
-    // Token: 0x02000089 RID: 137
     internal sealed class Scrollbar : BaseElement
     {
-        // Token: 0x060003F8 RID: 1016 RVA: 0x0001C6B7 File Offset: 0x0001A8B7
         public override void update(float delta)
         {
             base.update(delta);
@@ -17,7 +15,6 @@ namespace ctr_wp7.iframework.visual
             }
         }
 
-        // Token: 0x060003F9 RID: 1017 RVA: 0x0001C6E8 File Offset: 0x0001A8E8
         public override void draw()
         {
             preDraw();
@@ -65,7 +62,6 @@ namespace ctr_wp7.iframework.visual
             postDraw();
         }
 
-        // Token: 0x060003FA RID: 1018 RVA: 0x0001C8E0 File Offset: 0x0001AAE0
         public Scrollbar initWithWidthHeightVertical(float w, float h, bool v)
         {
             if (init() != null)
@@ -82,28 +78,20 @@ namespace ctr_wp7.iframework.visual
             return this;
         }
 
-        // Token: 0x04000961 RID: 2401
         public Vector sp;
 
-        // Token: 0x04000962 RID: 2402
         public Vector mp;
 
-        // Token: 0x04000963 RID: 2403
         public Vector sc;
 
-        // Token: 0x04000964 RID: 2404
         public ProvideScrollPosMaxScrollPosScrollCoeff delegateProvider;
 
-        // Token: 0x04000965 RID: 2405
         public bool vertical;
 
-        // Token: 0x04000966 RID: 2406
         public RGBAColor backColor;
 
-        // Token: 0x04000967 RID: 2407
         public RGBAColor scrollerColor;
 
-        // Token: 0x0200008A RID: 138
         // (Invoke) Token: 0x060003FD RID: 1021
         public delegate void ProvideScrollPosMaxScrollPosScrollCoeff(ref Vector sp, ref Vector mp, ref Vector sc);
     }

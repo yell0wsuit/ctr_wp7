@@ -8,15 +8,12 @@ using ctr_wp7.ios;
 
 namespace ctr_wp7.game
 {
-    // Token: 0x020000C0 RID: 192
     internal sealed class SteamTube : BaseElement, TimelineDelegate
     {
-        // Token: 0x06000591 RID: 1425 RVA: 0x00029EFF File Offset: 0x000280FF
         public void timelinereachedKeyFramewithIndex(Timeline t, KeyFrame k, int i)
         {
         }
 
-        // Token: 0x06000592 RID: 1426 RVA: 0x00029F04 File Offset: 0x00028104
         public SteamTube initWithPositionAngle(Vector position, float angle)
         {
             if (init() != null)
@@ -57,7 +54,6 @@ namespace ctr_wp7.game
             return this;
         }
 
-        // Token: 0x06000593 RID: 1427 RVA: 0x0002A103 File Offset: 0x00028303
         public void drawBack()
         {
             preDraw();
@@ -67,7 +63,6 @@ namespace ctr_wp7.game
             restoreTransformations(this);
         }
 
-        // Token: 0x06000594 RID: 1428 RVA: 0x0002A132 File Offset: 0x00028332
         public void drawFront()
         {
             preDraw();
@@ -75,14 +70,12 @@ namespace ctr_wp7.game
             restoreTransformations(this);
         }
 
-        // Token: 0x06000595 RID: 1429 RVA: 0x0002A14C File Offset: 0x0002834C
         public float getCurrentHeightModulated()
         {
             float currentHeight = getCurrentHeight();
             return currentHeight + (1f * sinf(6f * phase));
         }
 
-        // Token: 0x06000596 RID: 1430 RVA: 0x0002A17B File Offset: 0x0002837B
         public override void update(float delta)
         {
             base.update(delta);
@@ -90,7 +83,6 @@ namespace ctr_wp7.game
             phase += delta;
         }
 
-        // Token: 0x06000597 RID: 1431 RVA: 0x0002A19E File Offset: 0x0002839E
         public override void dealloc()
         {
             tube = null;
@@ -101,7 +93,6 @@ namespace ctr_wp7.game
             base.dealloc();
         }
 
-        // Token: 0x06000598 RID: 1432 RVA: 0x0002A1CC File Offset: 0x000283CC
         public override bool onTouchDownXY(float tx, float ty)
         {
             Vector vector = vectAdd(vect(x, y), vectRotate(vect(0f, 28f), (double)DEGREES_TO_RADIANS(rotation)));
@@ -137,14 +128,12 @@ namespace ctr_wp7.game
             return false;
         }
 
-        // Token: 0x06000599 RID: 1433 RVA: 0x0002A2CC File Offset: 0x000284CC
         public void timelineFinished(Timeline t)
         {
             BaseElement element = t.element;
             element.parent.removeChild(element);
         }
 
-        // Token: 0x0600059A RID: 1434 RVA: 0x0002A2EC File Offset: 0x000284EC
         private float getCurrentHeight()
         {
             float num = 0f;
@@ -163,7 +152,6 @@ namespace ctr_wp7.game
             return num;
         }
 
-        // Token: 0x0600059B RID: 1435 RVA: 0x0002A334 File Offset: 0x00028534
         private void adjustSteam()
         {
             phase = 0f;
@@ -265,7 +253,6 @@ namespace ctr_wp7.game
             }
         }
 
-        // Token: 0x0600059C RID: 1436 RVA: 0x0002A6E8 File Offset: 0x000288E8
         private void startPuffFloatingAndAnimation(NSObject param)
         {
             BaseElement baseElement = (BaseElement)param;
@@ -275,39 +262,27 @@ namespace ctr_wp7.game
             child.playTimeline(0);
         }
 
-        // Token: 0x04000AE4 RID: 2788
         private const int STEAM_TUBE_TOUCH_RADIUS = 30;
 
-        // Token: 0x04000AE5 RID: 2789
         private const double PUFF_LIFETIME = 0.6;
 
-        // Token: 0x04000AE6 RID: 2790
         public int steamState;
 
-        // Token: 0x04000AE7 RID: 2791
         private DelayedDispatcher dd;
 
-        // Token: 0x04000AE8 RID: 2792
         private Image tube;
 
-        // Token: 0x04000AE9 RID: 2793
         private Image valve;
 
-        // Token: 0x04000AEA RID: 2794
         private BaseElement steamBack;
 
-        // Token: 0x04000AEB RID: 2795
         private BaseElement steamFront;
 
-        // Token: 0x04000AEC RID: 2796
         private float phase;
 
-        // Token: 0x020000C1 RID: 193
         private enum STEAM_TUBE_VALVE
         {
-            // Token: 0x04000AEE RID: 2798
             STEAM_TUBE_VALVE_ROTATION_CW,
-            // Token: 0x04000AEF RID: 2799
             STEAM_TUBE_VALVE_ROTATION_CCW
         }
     }

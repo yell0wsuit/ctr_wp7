@@ -2,10 +2,8 @@
 
 namespace ctr_wp7.iframework.visual
 {
-    // Token: 0x02000061 RID: 97
     internal sealed class VerticallyTiledImage : Image
     {
-        // Token: 0x060002E2 RID: 738 RVA: 0x00012A74 File Offset: 0x00010C74
         public override Image initWithTexture(Texture2D t)
         {
             if (base.initWithTexture(t) != null)
@@ -19,7 +17,6 @@ namespace ctr_wp7.iframework.visual
             return this;
         }
 
-        // Token: 0x060002E3 RID: 739 RVA: 0x00012AA8 File Offset: 0x00010CA8
         public override void draw()
         {
             preDraw();
@@ -45,7 +42,6 @@ namespace ctr_wp7.iframework.visual
             postDraw();
         }
 
-        // Token: 0x060002E4 RID: 740 RVA: 0x00012C9C File Offset: 0x00010E9C
         public void setTileVerticallyTopCenterBottom(int t, int c, int b)
         {
             tiles[0] = t;
@@ -60,13 +56,10 @@ namespace ctr_wp7.iframework.visual
             offsets[2] = (width - w3) / 2f;
         }
 
-        // Token: 0x040008C0 RID: 2240
         public int[] tiles = new int[3];
 
-        // Token: 0x040008C1 RID: 2241
         public float[] offsets = new float[3];
 
-        // Token: 0x040008C2 RID: 2242
         public int align;
     }
 }

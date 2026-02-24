@@ -9,10 +9,8 @@ using ctr_wp7.ios;
 
 namespace ctr_wp7.game
 {
-    // Token: 0x020000EF RID: 239
     internal sealed class RotatedCircle : BaseElement
     {
-        // Token: 0x06000729 RID: 1833 RVA: 0x0003952C File Offset: 0x0003772C
         public void setSize(float value)
         {
             size = value;
@@ -36,43 +34,36 @@ namespace ctr_wp7.game
             updateChildPositions();
         }
 
-        // Token: 0x0600072A RID: 1834 RVA: 0x0003974E File Offset: 0x0003794E
         public void setHasOneHandle(bool value)
         {
             vinilControllerL.visible = !value;
         }
 
-        // Token: 0x0600072B RID: 1835 RVA: 0x0003975F File Offset: 0x0003795F
         public bool hasOneHandle()
         {
             return !vinilControllerL.visible;
         }
 
-        // Token: 0x0600072C RID: 1836 RVA: 0x0003976F File Offset: 0x0003796F
         public void setIsLeftControllerActive(bool value)
         {
             vinilActiveControllerL.visible = value;
         }
 
-        // Token: 0x0600072D RID: 1837 RVA: 0x0003977D File Offset: 0x0003797D
         public bool isLeftControllerActive()
         {
             return vinilActiveControllerL.visible;
         }
 
-        // Token: 0x0600072E RID: 1838 RVA: 0x0003978A File Offset: 0x0003798A
         public void setIsRightControllerActive(bool value)
         {
             vinilActiveControllerR.visible = value;
         }
 
-        // Token: 0x0600072F RID: 1839 RVA: 0x00039798 File Offset: 0x00037998
         public bool isRightControllerActive()
         {
             return vinilActiveControllerR.visible;
         }
 
-        // Token: 0x06000730 RID: 1840 RVA: 0x000397A8 File Offset: 0x000379A8
         public bool containsSameObjectWithAnotherCircle()
         {
             for (int i = 0; i < circlesArray.Count; i++)
@@ -86,7 +77,6 @@ namespace ctr_wp7.game
             return false;
         }
 
-        // Token: 0x06000731 RID: 1841 RVA: 0x000397E8 File Offset: 0x000379E8
         public override NSObject init()
         {
             if (base.init() != null)
@@ -142,7 +132,6 @@ namespace ctr_wp7.game
             return this;
         }
 
-        // Token: 0x06000732 RID: 1842 RVA: 0x00039AEC File Offset: 0x00037CEC
         public NSObject copy()
         {
             RotatedCircle rotatedCircle = (RotatedCircle)new RotatedCircle().init();
@@ -163,7 +152,6 @@ namespace ctr_wp7.game
             return rotatedCircle;
         }
 
-        // Token: 0x06000733 RID: 1843 RVA: 0x00039C0C File Offset: 0x00037E0C
         public override void draw()
         {
             if (isRightControllerActive() || isLeftControllerActive())
@@ -220,7 +208,6 @@ namespace ctr_wp7.game
             vinilCenter.draw();
         }
 
-        // Token: 0x06000734 RID: 1844 RVA: 0x0003A004 File Offset: 0x00038204
         public override void dealloc()
         {
             vinilCenter = null;
@@ -237,7 +224,6 @@ namespace ctr_wp7.game
             base.dealloc();
         }
 
-        // Token: 0x06000735 RID: 1845 RVA: 0x0003A068 File Offset: 0x00038268
         public void updateChildPositions()
         {
             vinilCenter.x = x;
@@ -265,7 +251,6 @@ namespace ctr_wp7.game
             vinilActiveControllerR.y = vinilControllerR.y;
         }
 
-        // Token: 0x06000736 RID: 1846 RVA: 0x0003A36C File Offset: 0x0003856C
         public bool containsSameObjectWithCircle(RotatedCircle anotherCircle)
         {
             if (x == anotherCircle.x && y == anotherCircle.y && size == anotherCircle.size)
@@ -283,127 +268,86 @@ namespace ctr_wp7.game
             return false;
         }
 
-        // Token: 0x04000CAB RID: 3243
         private const float CONTROLLER_MIN_SCALE = 0.75f;
 
-        // Token: 0x04000CAC RID: 3244
         private const float STICKER_MIN_SCALE = 0.4f;
 
-        // Token: 0x04000CAD RID: 3245
         private const float CENTER_SCALE_FACTOR = 0.5f;
 
-        // Token: 0x04000CAE RID: 3246
         private const float HUNDRED_PERCENT_SCALE_SIZE = 160f;
 
-        // Token: 0x04000CAF RID: 3247
         private const int CIRCLE_VERTEX_COUNT = 50;
 
-        // Token: 0x04000CB0 RID: 3248
         private const float INNER_CIRCLE_WIDTH = 15f;
 
-        // Token: 0x04000CB1 RID: 3249
         private const float OUTER_CIRCLE_WIDTH = 7f;
 
-        // Token: 0x04000CB2 RID: 3250
         private const float ACTIVE_CIRCLE_WIDTH = 2f;
 
-        // Token: 0x04000CB3 RID: 3251
         private const float CONTROLLER_RATIO_PARAM = 0.58f;
 
-        // Token: 0x04000CB4 RID: 3252
         private const float CIRCLE_CONTROLLER_OFFS = 10f;
 
-        // Token: 0x04000CB5 RID: 3253
         private RGBAColor CIRCLE_COLOR1 = RGBAColor.MakeRGBA(0.306, 0.298, 0.454, 1.0);
 
-        // Token: 0x04000CB6 RID: 3254
         private RGBAColor CIRCLE_COLOR2 = RGBAColor.MakeRGBA(0.239, 0.231, 0.356, 1.0);
 
-        // Token: 0x04000CB7 RID: 3255
         private RGBAColor CIRCLE_COLOR3 = RGBAColor.MakeRGBA(0.29, 0.286, 0.419, 1.0);
 
-        // Token: 0x04000CB8 RID: 3256
         private RGBAColor INNER_CIRCLE_COLOR1 = RGBAColor.MakeRGBA(0.6901960784313725, 0.4196078431372549, 0.07450980392156863, 1.0);
 
-        // Token: 0x04000CB9 RID: 3257
         private RGBAColor INNER_CIRCLE_COLOR2 = RGBAColor.MakeRGBA(0.9294117647058824, 0.611764705882353, 0.07450980392156863, 1.0);
 
-        // Token: 0x04000CBA RID: 3258
         private RGBAColor CONTOUR_COLOR = RGBAColor.MakeRGBA(1.0, 1.0, 1.0, 0.2);
 
-        // Token: 0x04000CBB RID: 3259
         public float size;
 
-        // Token: 0x04000CBC RID: 3260
         public float sizeInPixels;
 
-        // Token: 0x04000CBD RID: 3261
         public int operating;
 
-        // Token: 0x04000CBE RID: 3262
         public int soundPlaying;
 
-        // Token: 0x04000CBF RID: 3263
         public Vector lastTouch;
 
-        // Token: 0x04000CC0 RID: 3264
         public Vector handle1;
 
-        // Token: 0x04000CC1 RID: 3265
         public Vector handle2;
 
-        // Token: 0x04000CC2 RID: 3266
         public Vector inithanlde1;
 
-        // Token: 0x04000CC3 RID: 3267
         public Vector inithanlde2;
 
-        // Token: 0x04000CC4 RID: 3268
         public List<RotatedCircle> circlesArray;
 
-        // Token: 0x04000CC5 RID: 3269
         public List<BaseElement> containedObjects;
 
-        // Token: 0x04000CC6 RID: 3270
         public bool removeOnNextUpdate;
 
-        // Token: 0x04000CC7 RID: 3271
         private Image vinilStickerL;
 
-        // Token: 0x04000CC8 RID: 3272
         private Image vinilStickerR;
 
-        // Token: 0x04000CC9 RID: 3273
         private Image vinilHighlightL;
 
-        // Token: 0x04000CCA RID: 3274
         private Image vinilHighlightR;
 
-        // Token: 0x04000CCB RID: 3275
         private Image vinilControllerL;
 
-        // Token: 0x04000CCC RID: 3276
         private Image vinilControllerR;
 
-        // Token: 0x04000CCD RID: 3277
         private Image vinilActiveControllerL;
 
-        // Token: 0x04000CCE RID: 3278
         private Image vinilActiveControllerR;
 
-        // Token: 0x04000CCF RID: 3279
         private Image vinilCenter;
 
-        // Token: 0x04000CD0 RID: 3280
         private Image vinilTL;
 
-        // Token: 0x04000CD1 RID: 3281
         private Image vinilTR;
 
-        // Token: 0x04000CD2 RID: 3282
         private Image vinilBL;
 
-        // Token: 0x04000CD3 RID: 3283
         private Image vinilBR;
     }
 }

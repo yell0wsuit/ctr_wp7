@@ -7,10 +7,8 @@ using ctr_wp7.iframework.helpers;
 
 namespace ctr_wp7.iframework.visual
 {
-    // Token: 0x020000CF RID: 207
     internal sealed class ScrollableContainer : BaseElement
     {
-        // Token: 0x06000603 RID: 1539 RVA: 0x0002D8B0 File Offset: 0x0002BAB0
         public void provideScrollPosMaxScrollPosScrollCoeff(ref Vector sp, ref Vector mp, ref Vector sc)
         {
             sp = getScroll();
@@ -20,7 +18,6 @@ namespace ctr_wp7.iframework.visual
             sc = vect(num, num2);
         }
 
-        // Token: 0x06000604 RID: 1540 RVA: 0x0002D90C File Offset: 0x0002BB0C
         public override int addChildwithID(BaseElement c, int i)
         {
             int num = container.addChildwithID(c, i);
@@ -28,38 +25,32 @@ namespace ctr_wp7.iframework.visual
             return num;
         }
 
-        // Token: 0x06000605 RID: 1541 RVA: 0x0002D930 File Offset: 0x0002BB30
         public override int addChild(BaseElement c)
         {
             c.parentAnchor = 9;
             return container.addChild(c);
         }
 
-        // Token: 0x06000606 RID: 1542 RVA: 0x0002D946 File Offset: 0x0002BB46
         public override void removeChildWithID(int i)
         {
             container.removeChildWithID(i);
         }
 
-        // Token: 0x06000607 RID: 1543 RVA: 0x0002D954 File Offset: 0x0002BB54
         public override void removeChild(BaseElement c)
         {
             container.removeChild(c);
         }
 
-        // Token: 0x06000608 RID: 1544 RVA: 0x0002D962 File Offset: 0x0002BB62
         public override BaseElement getChild(int i)
         {
             return container.getChild(i);
         }
 
-        // Token: 0x06000609 RID: 1545 RVA: 0x0002D970 File Offset: 0x0002BB70
         public override int childsCount()
         {
             return container.childsCount();
         }
 
-        // Token: 0x0600060A RID: 1546 RVA: 0x0002D980 File Offset: 0x0002BB80
         public override void draw()
         {
             float x = container.x;
@@ -75,7 +66,6 @@ namespace ctr_wp7.iframework.visual
             container.y = y;
         }
 
-        // Token: 0x0600060B RID: 1547 RVA: 0x0002DA30 File Offset: 0x0002BC30
         public override void postDraw()
         {
             if (!passTransformationsToChilds)
@@ -115,7 +105,6 @@ namespace ctr_wp7.iframework.visual
             }
         }
 
-        // Token: 0x0600060C RID: 1548 RVA: 0x0002DB2C File Offset: 0x0002BD2C
         public override void update(float delta)
         {
             base.update(delta);
@@ -215,7 +204,6 @@ namespace ctr_wp7.iframework.visual
             }
         }
 
-        // Token: 0x0600060D RID: 1549 RVA: 0x0002E074 File Offset: 0x0002C274
         public override void show()
         {
             touchTimer = 0f;
@@ -228,7 +216,6 @@ namespace ctr_wp7.iframework.visual
             }
         }
 
-        // Token: 0x0600060E RID: 1550 RVA: 0x0002E0B4 File Offset: 0x0002C2B4
         public override bool onTouchDownXY(float tx, float ty)
         {
             if (!pointInRect(tx, ty, drawX, drawY, width, height))
@@ -258,7 +245,6 @@ namespace ctr_wp7.iframework.visual
             return true;
         }
 
-        // Token: 0x0600060F RID: 1551 RVA: 0x0002E160 File Offset: 0x0002C360
         public override bool onTouchMoveXY(float tx, float ty)
         {
             if (MenuController.ep != null)
@@ -324,7 +310,6 @@ namespace ctr_wp7.iframework.visual
             return false;
         }
 
-        // Token: 0x06000610 RID: 1552 RVA: 0x0002E3E4 File Offset: 0x0002C5E4
         public override bool onTouchUpXY(float tx, float ty)
         {
             if (touchPassTimeout == 0f || passTouches)
@@ -378,14 +363,12 @@ namespace ctr_wp7.iframework.visual
             return true;
         }
 
-        // Token: 0x06000611 RID: 1553 RVA: 0x0002E560 File Offset: 0x0002C760
         public override void dealloc()
         {
             spoints = null;
             base.dealloc();
         }
 
-        // Token: 0x06000612 RID: 1554 RVA: 0x0002E570 File Offset: 0x0002C770
         public ScrollableContainer initWithWidthHeightContainer(float w, float h, BaseElement c)
         {
             if (init() != null)
@@ -428,7 +411,6 @@ namespace ctr_wp7.iframework.visual
             return this;
         }
 
-        // Token: 0x06000613 RID: 1555 RVA: 0x0002E6D0 File Offset: 0x0002C8D0
         public ScrollableContainer initWithWidthHeightContainerWidthHeight(float w, float h, float cw, float ch)
         {
             container = (BaseElement)new BaseElement().init();
@@ -438,7 +420,6 @@ namespace ctr_wp7.iframework.visual
             return this;
         }
 
-        // Token: 0x06000614 RID: 1556 RVA: 0x0002E71D File Offset: 0x0002C91D
         public void turnScrollPointsOnWithCapacity(int n)
         {
             spointsCapacity = n;
@@ -446,20 +427,17 @@ namespace ctr_wp7.iframework.visual
             spointsNum = 0;
         }
 
-        // Token: 0x06000615 RID: 1557 RVA: 0x0002E73E File Offset: 0x0002C93E
         public int addScrollPointAtXY(double sx, double sy)
         {
             return addScrollPointAtXY((float)sx, (float)sy);
         }
 
-        // Token: 0x06000616 RID: 1558 RVA: 0x0002E74A File Offset: 0x0002C94A
         public int addScrollPointAtXY(float sx, float sy)
         {
             addScrollPointAtXYwithID(sx, sy, spointsNum);
             return spointsNum - 1;
         }
 
-        // Token: 0x06000617 RID: 1559 RVA: 0x0002E762 File Offset: 0x0002C962
         public void addScrollPointAtXYwithID(float sx, float sy, int i)
         {
             spoints[i] = vect(-sx, -sy);
@@ -469,31 +447,26 @@ namespace ctr_wp7.iframework.visual
             }
         }
 
-        // Token: 0x06000618 RID: 1560 RVA: 0x0002E792 File Offset: 0x0002C992
         public int getTotalScrollPoints()
         {
             return spointsNum;
         }
 
-        // Token: 0x06000619 RID: 1561 RVA: 0x0002E79A File Offset: 0x0002C99A
         public Vector getScrollPoint(int i)
         {
             return spoints[i];
         }
 
-        // Token: 0x0600061A RID: 1562 RVA: 0x0002E7AD File Offset: 0x0002C9AD
         public Vector getScroll()
         {
             return vect(-container.x, -container.y);
         }
 
-        // Token: 0x0600061B RID: 1563 RVA: 0x0002E7CC File Offset: 0x0002C9CC
         public Vector getMaxScroll()
         {
             return vect(container.width - width, container.height - height);
         }
 
-        // Token: 0x0600061C RID: 1564 RVA: 0x0002E7FC File Offset: 0x0002C9FC
         public void setScroll(Vector s)
         {
             move = vectZero;
@@ -504,7 +477,6 @@ namespace ctr_wp7.iframework.visual
             lastTargetSpoint = -1;
         }
 
-        // Token: 0x0600061D RID: 1565 RVA: 0x0002E850 File Offset: 0x0002CA50
         public void placeToScrollPoint(int sp)
         {
             move = vectZero;
@@ -516,13 +488,11 @@ namespace ctr_wp7.iframework.visual
             delegateScrollableContainerProtocol?.scrollableContainerreachedScrollPoint(this, sp);
         }
 
-        // Token: 0x0600061E RID: 1566 RVA: 0x0002E8CA File Offset: 0x0002CACA
         public void moveToScrollPointmoveMultiplier(int sp, double m)
         {
             moveToScrollPointmoveMultiplier(sp, (float)m);
         }
 
-        // Token: 0x0600061F RID: 1567 RVA: 0x0002E8D5 File Offset: 0x0002CAD5
         public void moveToScrollPointmoveMultiplier(int sp, float m)
         {
             movingToSpoint = true;
@@ -532,7 +502,6 @@ namespace ctr_wp7.iframework.visual
             lastTargetSpoint = targetSpoint;
         }
 
-        // Token: 0x06000620 RID: 1568 RVA: 0x0002E900 File Offset: 0x0002CB00
         public void calculateNearsetScrollPointInDirection(Vector d)
         {
             spointMoveDirection = d;
@@ -581,7 +550,6 @@ namespace ctr_wp7.iframework.visual
             lastTargetSpoint = targetSpoint;
         }
 
-        // Token: 0x06000621 RID: 1569 RVA: 0x0002EBB8 File Offset: 0x0002CDB8
         public Vector moveContainerBy(Vector off)
         {
             float num = container.x + off.x;
@@ -600,7 +568,6 @@ namespace ctr_wp7.iframework.visual
             return vector;
         }
 
-        // Token: 0x06000622 RID: 1570 RVA: 0x0002EC94 File Offset: 0x0002CE94
         public void moveToPointDeltaSpeed(Vector tsp, float delta, float speed)
         {
             Vector vector = vectSub(tsp, vect(container.x, container.y));
@@ -612,7 +579,6 @@ namespace ctr_wp7.iframework.visual
             move = vectZero;
         }
 
-        // Token: 0x06000623 RID: 1571 RVA: 0x0002ED30 File Offset: 0x0002CF30
         public void startMovingToSpointInDirection(Vector d)
         {
             movingToSpoint = true;
@@ -620,167 +586,112 @@ namespace ctr_wp7.iframework.visual
             calculateNearsetScrollPointInDirection(d);
         }
 
-        // Token: 0x04000B4D RID: 2893
         private const double DEFAULT_BOUNCE_MOVEMENT_DIVIDE = 2.0;
 
-        // Token: 0x04000B4E RID: 2894
         private const double DEFAULT_BOUNCE_DURATION = 0.1;
 
-        // Token: 0x04000B4F RID: 2895
         private const double DEFAULT_DEACCELERATION = 3.0;
 
-        // Token: 0x04000B50 RID: 2896
         private const double DEFAULT_INERTIAL_TIMEOUT = 0.1;
 
-        // Token: 0x04000B51 RID: 2897
         private const double DEFAULT_SCROLL_TO_POINT_DURATION = 0.35;
 
-        // Token: 0x04000B52 RID: 2898
         private const double MIN_SCROLL_POINTS_MOVE = 50.0;
 
-        // Token: 0x04000B53 RID: 2899
         private const double CALC_NEAREST_DEFAULT_TIMEOUT = 0.02;
 
-        // Token: 0x04000B54 RID: 2900
         private const double DEFAULT_MAX_TOUCH_MOVE_LENGTH = 40.0;
 
-        // Token: 0x04000B55 RID: 2901
         private const double DEFAULT_TOUCH_PASS_TIMEOUT = 0.5;
 
-        // Token: 0x04000B56 RID: 2902
         private const double AUTO_RELEASE_TOUCH_TIMEOUT = 0.2;
 
-        // Token: 0x04000B57 RID: 2903
         private const double MOVE_APPROXIMATION = 0.2;
 
-        // Token: 0x04000B58 RID: 2904
         private const float MOVE_TOUCH_APPROXIMATION = 5f;
 
-        // Token: 0x04000B59 RID: 2905
         public ScrollableContainerProtocol delegateScrollableContainerProtocol;
 
-        // Token: 0x04000B5A RID: 2906
         private static readonly Vector impossibleTouch = new(-1000f, -1000f);
 
-        // Token: 0x04000B5B RID: 2907
         private BaseElement container;
 
-        // Token: 0x04000B5C RID: 2908
         private Vector dragStart;
 
-        // Token: 0x04000B5D RID: 2909
         private Vector staticMove;
 
-        // Token: 0x04000B5E RID: 2910
         private Vector move;
 
-        // Token: 0x04000B5F RID: 2911
         private bool movingByInertion;
 
-        // Token: 0x04000B60 RID: 2912
         private float inertiaTimeoutLeft;
 
-        // Token: 0x04000B61 RID: 2913
         private bool movingToSpoint;
 
-        // Token: 0x04000B62 RID: 2914
         private int targetSpoint;
 
-        // Token: 0x04000B63 RID: 2915
         private int lastTargetSpoint;
 
-        // Token: 0x04000B64 RID: 2916
         private float spointMoveMultiplier;
 
-        // Token: 0x04000B65 RID: 2917
         private Vector[] spoints;
 
-        // Token: 0x04000B66 RID: 2918
         private int spointsNum;
 
-        // Token: 0x04000B67 RID: 2919
         private int spointsCapacity;
 
-        // Token: 0x04000B68 RID: 2920
         private Vector spointMoveDirection;
 
-        // Token: 0x04000B69 RID: 2921
         private Vector targetPoint;
 
-        // Token: 0x04000B6A RID: 2922
         private TOUCH_STATE touchState;
 
-        // Token: 0x04000B6B RID: 2923
         private float touchTimer;
 
-        // Token: 0x04000B6C RID: 2924
         private float touchReleaseTimer;
 
-        // Token: 0x04000B6D RID: 2925
         private Vector savedTouch;
 
-        // Token: 0x04000B6E RID: 2926
         private Vector totalDrag;
 
-        // Token: 0x04000B6F RID: 2927
         private bool passTouches;
 
-        // Token: 0x04000B70 RID: 2928
         private float fixedDelta;
 
-        // Token: 0x04000B71 RID: 2929
         private float deaccelerationSpeed;
 
-        // Token: 0x04000B72 RID: 2930
         private float inertiaTimeout;
 
-        // Token: 0x04000B73 RID: 2931
         private float scrollToPointDuration;
 
-        // Token: 0x04000B74 RID: 2932
         public bool canSkipScrollPoints;
 
-        // Token: 0x04000B75 RID: 2933
         public bool shouldBounceHorizontally;
 
-        // Token: 0x04000B76 RID: 2934
         public bool shouldBounceVertically;
 
-        // Token: 0x04000B77 RID: 2935
         public float touchMoveIgnoreLength;
 
-        // Token: 0x04000B78 RID: 2936
         private float maxTouchMoveLength;
 
-        // Token: 0x04000B79 RID: 2937
         private float touchPassTimeout;
 
-        // Token: 0x04000B7A RID: 2938
         public bool resetScrollOnShow;
 
-        // Token: 0x04000B7B RID: 2939
         private bool dontHandleTouchDownsHandledByChilds;
 
-        // Token: 0x04000B7C RID: 2940
         private bool dontHandleTouchMovesHandledByChilds;
 
-        // Token: 0x04000B7D RID: 2941
         private bool dontHandleTouchUpsHandledByChilds;
 
-        // Token: 0x04000B7E RID: 2942
         public bool untouchChildsOnMove;
 
-        // Token: 0x04000B7F RID: 2943
         public float minAutoScrollToSpointLength;
 
-        // Token: 0x020000D0 RID: 208
         private enum TOUCH_STATE
         {
-            // Token: 0x04000B81 RID: 2945
             TOUCH_STATE_UP,
-            // Token: 0x04000B82 RID: 2946
             TOUCH_STATE_DOWN,
-            // Token: 0x04000B83 RID: 2947
             TOUCH_STATE_MOVING
         }
     }

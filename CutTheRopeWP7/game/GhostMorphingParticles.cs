@@ -4,10 +4,8 @@ using ctr_wp7.ios;
 
 namespace ctr_wp7.game
 {
-    // Token: 0x0200008E RID: 142
     internal sealed class GhostMorphingParticles : RotateableMultiParticles
     {
-        // Token: 0x06000442 RID: 1090 RVA: 0x0001DAD4 File Offset: 0x0001BCD4
         public override void initParticle(ref Particle particle)
         {
             base.initParticle(ref particle);
@@ -23,7 +21,6 @@ namespace ctr_wp7.game
             particle.deltaColor = RGBAColor.MakeRGBA(0f, 0f, 0f, 0f);
         }
 
-        // Token: 0x06000443 RID: 1091 RVA: 0x0001DBCC File Offset: 0x0001BDCC
         public new NSObject initWithTotalParticles(int numberOfParticles)
         {
             if (initWithTotalParticlesandImageGrid(numberOfParticles, Image.Image_createWithResID(180)) != null)
@@ -44,7 +41,6 @@ namespace ctr_wp7.game
             return this;
         }
 
-        // Token: 0x06000444 RID: 1092 RVA: 0x0001DC7C File Offset: 0x0001BE7C
         public override void update(float delta)
         {
             base.update(delta);

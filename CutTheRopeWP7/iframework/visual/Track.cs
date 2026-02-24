@@ -4,10 +4,8 @@ using ctr_wp7.ios;
 
 namespace ctr_wp7.iframework.visual
 {
-    // Token: 0x020000A9 RID: 169
     internal sealed class Track : NSObject
     {
-        // Token: 0x060004B7 RID: 1207 RVA: 0x000220BE File Offset: 0x000202BE
         public Track()
         {
             elementPrevState = new KeyFrame();
@@ -15,7 +13,6 @@ namespace ctr_wp7.iframework.visual
             currentStepAcceleration = new KeyFrame();
         }
 
-        // Token: 0x060004B8 RID: 1208 RVA: 0x000220E8 File Offset: 0x000202E8
         public Track initWithTimelineTypeandMaxKeyFrames(Timeline timeline, TrackType trackType, int m)
         {
             t = timeline;
@@ -33,7 +30,6 @@ namespace ctr_wp7.iframework.visual
             return this;
         }
 
-        // Token: 0x060004B9 RID: 1209 RVA: 0x0002214C File Offset: 0x0002034C
         public void initActionKeyFrameandTime(KeyFrame kf, float time)
         {
             keyFrameTimeLeft = time;
@@ -45,7 +41,6 @@ namespace ctr_wp7.iframework.visual
             }
         }
 
-        // Token: 0x060004BA RID: 1210 RVA: 0x00022180 File Offset: 0x00020380
         public void setKeyFrameAt(KeyFrame k, int i)
         {
             keyFrames[i] = k;
@@ -59,7 +54,6 @@ namespace ctr_wp7.iframework.visual
             }
         }
 
-        // Token: 0x060004BB RID: 1211 RVA: 0x000221CC File Offset: 0x000203CC
         public float getFrameTime(int f)
         {
             float num = 0f;
@@ -70,14 +64,12 @@ namespace ctr_wp7.iframework.visual
             return num;
         }
 
-        // Token: 0x060004BC RID: 1212 RVA: 0x000221FC File Offset: 0x000203FC
         public void updateRange()
         {
             startTime = getFrameTime(0);
             endTime = getFrameTime(keyFramesCount - 1);
         }
 
-        // Token: 0x060004BD RID: 1213 RVA: 0x00022220 File Offset: 0x00020420
         private void initKeyFrameStepFromTowithTime(KeyFrame src, KeyFrame dst, float time)
         {
             keyFrameTimeLeft = time;
@@ -198,7 +190,6 @@ namespace ctr_wp7.iframework.visual
             }
         }
 
-        // Token: 0x060004BE RID: 1214 RVA: 0x00022AF0 File Offset: 0x00020CF0
         public void setElementFromKeyFrame(KeyFrame kf)
         {
             _ = kf.debugBreak;
@@ -257,7 +248,6 @@ namespace ctr_wp7.iframework.visual
             }
         }
 
-        // Token: 0x060004BF RID: 1215 RVA: 0x00022E7C File Offset: 0x0002107C
         private void setKeyFrameFromElement(KeyFrame kf)
         {
             _ = kf.debugBreak;
@@ -284,7 +274,6 @@ namespace ctr_wp7.iframework.visual
             }
         }
 
-        // Token: 0x060004C0 RID: 1216 RVA: 0x00022F78 File Offset: 0x00021178
         public static void updateActionTrack(Track thiss, float delta)
         {
             if (thiss == null)
@@ -356,7 +345,6 @@ namespace ctr_wp7.iframework.visual
             }
         }
 
-        // Token: 0x060004C1 RID: 1217 RVA: 0x0002322C File Offset: 0x0002142C
         public static void updateTrack(Track thiss, float delta)
         {
             Timeline timeline = thiss.t;
@@ -504,77 +492,51 @@ namespace ctr_wp7.iframework.visual
             }
         }
 
-        // Token: 0x040009F8 RID: 2552
         public TrackType type;
 
-        // Token: 0x040009F9 RID: 2553
         public TrackState state;
 
-        // Token: 0x040009FA RID: 2554
         public bool relative;
 
-        // Token: 0x040009FB RID: 2555
         public float startTime;
 
-        // Token: 0x040009FC RID: 2556
         public float endTime;
 
-        // Token: 0x040009FD RID: 2557
         public int keyFramesCount;
 
-        // Token: 0x040009FE RID: 2558
         public KeyFrame[] keyFrames;
 
-        // Token: 0x040009FF RID: 2559
         public Timeline t;
 
-        // Token: 0x04000A00 RID: 2560
         public int nextKeyFrame;
 
-        // Token: 0x04000A01 RID: 2561
         public int keyFramesCapacity;
 
-        // Token: 0x04000A02 RID: 2562
         public KeyFrame currentStepPerSecond;
 
-        // Token: 0x04000A03 RID: 2563
         public KeyFrame currentStepAcceleration;
 
-        // Token: 0x04000A04 RID: 2564
         public float keyFrameTimeLeft;
 
-        // Token: 0x04000A05 RID: 2565
         public KeyFrame elementPrevState;
 
-        // Token: 0x04000A06 RID: 2566
         public float overrun;
 
-        // Token: 0x04000A07 RID: 2567
         public List<List<Action>> actionSets;
 
-        // Token: 0x020000AA RID: 170
         public enum TrackType
         {
-            // Token: 0x04000A09 RID: 2569
             TRACK_POSITION,
-            // Token: 0x04000A0A RID: 2570
             TRACK_SCALE,
-            // Token: 0x04000A0B RID: 2571
             TRACK_ROTATION,
-            // Token: 0x04000A0C RID: 2572
             TRACK_COLOR,
-            // Token: 0x04000A0D RID: 2573
             TRACK_ACTION,
-            // Token: 0x04000A0E RID: 2574
             TRACKS_COUNT
         }
 
-        // Token: 0x020000AB RID: 171
         public enum TrackState
         {
-            // Token: 0x04000A10 RID: 2576
             TRACK_NOT_ACTIVE,
-            // Token: 0x04000A11 RID: 2577
             TRACK_ACTIVE
         }
     }

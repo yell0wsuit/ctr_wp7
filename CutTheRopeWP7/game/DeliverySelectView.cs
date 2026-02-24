@@ -7,10 +7,8 @@ using ctr_wp7.ios;
 
 namespace ctr_wp7.game
 {
-    // Token: 0x02000069 RID: 105
     internal sealed class DeliverySelectView : MenuView
     {
-        // Token: 0x06000327 RID: 807 RVA: 0x00014278 File Offset: 0x00012478
         public NSObject initFullscreenBackgroundDelegate(BaseElement background, ButtonDelegate d)
         {
             if (initFullscreen() != null)
@@ -63,7 +61,6 @@ namespace ctr_wp7.game
             return this;
         }
 
-        // Token: 0x06000328 RID: 808 RVA: 0x000145BC File Offset: 0x000127BC
         public void checkCartoonsWatched()
         {
             int num = 0;
@@ -94,13 +91,10 @@ namespace ctr_wp7.game
             cartoonsButton.getChildWithName(NSS("newCartoonsLabel")).setEnabled(flag);
         }
 
-        // Token: 0x040008D5 RID: 2261
         private ButtonDelegate buttonDelegate;
 
-        // Token: 0x040008D6 RID: 2262
         private BaseElement box;
 
-        // Token: 0x040008D7 RID: 2263
         private BaseElement cartoonsButton;
     }
 }

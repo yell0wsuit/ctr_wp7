@@ -10,10 +10,8 @@ using Microsoft.Xna.Framework.GamerServices;
 
 namespace ctr_wp7.Specials
 {
-    // Token: 0x0200009E RID: 158
     internal sealed class UpdatePopup : Popup, ButtonDelegate
     {
-        // Token: 0x0600049F RID: 1183 RVA: 0x00021B74 File Offset: 0x0001FD74
         public void onButtonPressed(int n)
         {
             switch (n)
@@ -29,7 +27,6 @@ namespace ctr_wp7.Specials
             }
         }
 
-        // Token: 0x060004A0 RID: 1184 RVA: 0x00021BA0 File Offset: 0x0001FDA0
         public static void showUpdatePopup()
         {
             bool flag = false;
@@ -96,10 +93,8 @@ namespace ctr_wp7.Specials
             MenuController.ep = updatePopup;
         }
 
-        // Token: 0x040009DB RID: 2523
         private const int buttonNo = 0;
 
-        // Token: 0x040009DC RID: 2524
         private const int buttonYes = 1;
     }
 }

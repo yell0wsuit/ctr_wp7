@@ -6,10 +6,8 @@ using ctr_wp7.iframework.sfe;
 
 namespace ctr_wp7.iframework.visual
 {
-    // Token: 0x020000D7 RID: 215
     internal sealed class BungeeDrawer : BaseElement
     {
-        // Token: 0x06000643 RID: 1603 RVA: 0x000302F8 File Offset: 0x0002E4F8
         public override void draw()
         {
             preDraw();
@@ -22,7 +20,6 @@ namespace ctr_wp7.iframework.visual
             postDraw();
         }
 
-        // Token: 0x06000644 RID: 1604 RVA: 0x00030348 File Offset: 0x0002E548
         public override void update(float delta)
         {
             base.update(delta);
@@ -70,7 +67,6 @@ namespace ctr_wp7.iframework.visual
             }
         }
 
-        // Token: 0x06000645 RID: 1605 RVA: 0x000305D8 File Offset: 0x0002E7D8
         public override bool onTouchDownXY(float tx, float ty)
         {
             bool flag = base.onTouchDownXY(tx, ty);
@@ -86,7 +82,6 @@ namespace ctr_wp7.iframework.visual
             return flag;
         }
 
-        // Token: 0x06000646 RID: 1606 RVA: 0x0003067C File Offset: 0x0002E87C
         public override bool onTouchUpXY(float tx, float ty)
         {
             bool flag = base.onTouchUpXY(tx, ty);
@@ -99,7 +94,6 @@ namespace ctr_wp7.iframework.visual
             return flag;
         }
 
-        // Token: 0x06000647 RID: 1607 RVA: 0x000306C0 File Offset: 0x0002E8C0
         public override bool onTouchMoveXY(float tx, float ty)
         {
             bool flag = base.onTouchMoveXY(tx, ty);
@@ -119,28 +113,20 @@ namespace ctr_wp7.iframework.visual
             return flag;
         }
 
-        // Token: 0x04000BAC RID: 2988
         public ButtonDelegate delegateButtonDelegate;
 
-        // Token: 0x04000BAD RID: 2989
         public int bid;
 
-        // Token: 0x04000BAE RID: 2990
         public Bungee bungee;
 
-        // Token: 0x04000BAF RID: 2991
         public Processing fadeElement;
 
-        // Token: 0x04000BB0 RID: 2992
         public bool down;
 
-        // Token: 0x04000BB1 RID: 2993
         public Vector dragStart;
 
-        // Token: 0x04000BB2 RID: 2994
         public Vector tailStart;
 
-        // Token: 0x04000BB3 RID: 2995
         public Vector tailPos;
     }
 }

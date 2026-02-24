@@ -2,10 +2,8 @@
 
 namespace ctr_wp7.iframework.visual
 {
-    // Token: 0x0200007B RID: 123
     internal class RotateableMultiParticles : MultiParticles
     {
-        // Token: 0x060003A5 RID: 933 RVA: 0x00017392 File Offset: 0x00015592
         public override void initParticle(ref Particle particle)
         {
             base.initParticle(ref particle);
@@ -13,7 +11,6 @@ namespace ctr_wp7.iframework.visual
             particle.deltaAngle = DEGREES_TO_RADIANS(rotateSpeed + (rotateSpeedVar * RND_MINUS1_1));
         }
 
-        // Token: 0x060003A6 RID: 934 RVA: 0x000173C4 File Offset: 0x000155C4
         public override void updateParticle(ref Particle p, float delta)
         {
             if (p.life > 0f)
@@ -77,7 +74,6 @@ namespace ctr_wp7.iframework.visual
             particleCount--;
         }
 
-        // Token: 0x060003A7 RID: 935 RVA: 0x00017808 File Offset: 0x00015A08
         public override void update(float delta)
         {
             base.update(delta);
@@ -106,10 +102,8 @@ namespace ctr_wp7.iframework.visual
             OpenGL.glBindBuffer(2, 0U);
         }
 
-        // Token: 0x04000939 RID: 2361
         public float rotateSpeed;
 
-        // Token: 0x0400093A RID: 2362
         public float rotateSpeedVar;
     }
 }

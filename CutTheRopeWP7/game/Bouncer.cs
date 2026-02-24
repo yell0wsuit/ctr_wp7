@@ -4,22 +4,18 @@ using ctr_wp7.ios;
 
 namespace ctr_wp7.game
 {
-    // Token: 0x02000011 RID: 17
     internal class Bouncer : CTRGameObject
     {
-        // Token: 0x06000102 RID: 258 RVA: 0x00008501 File Offset: 0x00006701
         private static Bouncer Bouncer_create(Texture2D t)
         {
             return (Bouncer)new Bouncer().initWithTexture(t);
         }
 
-        // Token: 0x06000103 RID: 259 RVA: 0x00008513 File Offset: 0x00006713
         private static Bouncer Bouncer_createWithResID(int r)
         {
             return Bouncer_create(Application.getTexture(r));
         }
 
-        // Token: 0x06000104 RID: 260 RVA: 0x00008520 File Offset: 0x00006720
         private static Bouncer Bouncer_createWithResIDQuad(int r, int q)
         {
             Bouncer bouncer = Bouncer_create(Application.getTexture(r));
@@ -27,7 +23,6 @@ namespace ctr_wp7.game
             return bouncer;
         }
 
-        // Token: 0x06000105 RID: 261 RVA: 0x00008544 File Offset: 0x00006744
         public virtual NSObject initWithPosXYWidthAndAngle(float px, float py, int w, double an)
         {
             int num = -1;
@@ -54,7 +49,6 @@ namespace ctr_wp7.game
             return this;
         }
 
-        // Token: 0x06000106 RID: 262 RVA: 0x000085D2 File Offset: 0x000067D2
         public override void update(float delta)
         {
             base.update(delta);
@@ -64,7 +58,6 @@ namespace ctr_wp7.game
             }
         }
 
-        // Token: 0x06000107 RID: 263 RVA: 0x000085EC File Offset: 0x000067EC
         public virtual void updateRotation()
         {
             t1.x = x - (width / 2);
@@ -80,25 +73,18 @@ namespace ctr_wp7.game
             b2 = vectRotateAround(b2, angle, x, y);
         }
 
-        // Token: 0x0400073B RID: 1851
         private const float BOUNCER_HEIGHT = 10f;
 
-        // Token: 0x0400073C RID: 1852
         public float angle;
 
-        // Token: 0x0400073D RID: 1853
         public Vector t1;
 
-        // Token: 0x0400073E RID: 1854
         public Vector t2;
 
-        // Token: 0x0400073F RID: 1855
         public Vector b1;
 
-        // Token: 0x04000740 RID: 1856
         public Vector b2;
 
-        // Token: 0x04000741 RID: 1857
         public bool skip;
     }
 }

@@ -4,10 +4,8 @@ using ctr_wp7.iframework.visual;
 
 namespace ctr_wp7.game
 {
-    // Token: 0x0200003C RID: 60
     internal sealed class StartupView : View
     {
-        // Token: 0x06000214 RID: 532 RVA: 0x0000DD10 File Offset: 0x0000BF10
         public override void draw()
         {
             OpenGL.glEnable(0);

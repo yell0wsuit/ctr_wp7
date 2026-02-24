@@ -10,10 +10,8 @@ using ctr_wp7.ios;
 
 namespace ctr_wp7
 {
-    // Token: 0x0200005E RID: 94
     public class SpecialFont
     {
-        // Token: 0x060002D1 RID: 721 RVA: 0x000121DC File Offset: 0x000103DC
         private static void CheckCollison(int R1)
         {
             if (R1 > Regions.Count - 2)
@@ -32,7 +30,6 @@ namespace ctr_wp7
             }
         }
 
-        // Token: 0x060002D2 RID: 722 RVA: 0x0001226C File Offset: 0x0001046C
         public static void AddString(string s)
         {
             for (int i = 0; i < s.Length; i++)
@@ -41,7 +38,6 @@ namespace ctr_wp7
             }
         }
 
-        // Token: 0x060002D3 RID: 723 RVA: 0x00012298 File Offset: 0x00010498
         private static void AddCharacter(char c)
         {
             for (int i = 0; i < Regions.Count; i++)
@@ -83,7 +79,6 @@ namespace ctr_wp7
             Regions.Add(region5);
         }
 
-        // Token: 0x060002D4 RID: 724 RVA: 0x00012368 File Offset: 0x00010568
         public static void MakeSpriteFont()
         {
             string text = "custom.spritefont";
@@ -123,7 +118,6 @@ namespace ctr_wp7
             }
         }
 
-        // Token: 0x060002D5 RID: 725 RVA: 0x00012510 File Offset: 0x00010710
         internal static void ProcessMenuStrings(XMLNode xmlStrings, Language LANGUAGE)
         {
             string text = "en";
@@ -166,7 +160,6 @@ namespace ctr_wp7
             }
         }
 
-        // Token: 0x060002D6 RID: 726 RVA: 0x000125D0 File Offset: 0x000107D0
         internal static void ProcessLevel(XMLNode Level)
         {
             int count = Level.childs().Count;
@@ -186,7 +179,6 @@ namespace ctr_wp7
             }
         }
 
-        // Token: 0x060002D7 RID: 727 RVA: 0x00012664 File Offset: 0x00010864
         internal static void ProcessAllLevels()
         {
             int packsCount = CTRPreferences.getPacksCount();
@@ -201,16 +193,12 @@ namespace ctr_wp7
             }
         }
 
-        // Token: 0x040008BA RID: 2234
         private static readonly List<Region> Regions = [];
 
-        // Token: 0x0200005F RID: 95
         private sealed class Region
         {
-            // Token: 0x040008BB RID: 2235
             public char Start;
 
-            // Token: 0x040008BC RID: 2236
             public char End;
         }
     }

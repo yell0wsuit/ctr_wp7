@@ -4,10 +4,8 @@ using ctr_wp7.iframework.visual;
 
 namespace ctr_wp7.game
 {
-    // Token: 0x020000DE RID: 222
     internal sealed class LoadingView : View
     {
-        // Token: 0x06000679 RID: 1657 RVA: 0x00031A80 File Offset: 0x0002FC80
         public override void draw()
         {
             OpenGL.glEnable(0);
@@ -62,7 +60,6 @@ namespace ctr_wp7.game
             OpenGL.glDisable(1);
         }
 
-        // Token: 0x04000BEF RID: 3055
         public bool game;
     }
 }

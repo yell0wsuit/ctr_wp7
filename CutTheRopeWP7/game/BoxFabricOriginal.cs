@@ -5,10 +5,8 @@ using ctr_wp7.iframework.visual;
 
 namespace ctr_wp7.game
 {
-    // Token: 0x020000F0 RID: 240
     internal sealed class BoxFabricOriginal : BoxFabric
     {
-        // Token: 0x06000738 RID: 1848 RVA: 0x0003A510 File Offset: 0x00038710
         public static BaseElement buildBox(int quad)
         {
             Image image = Image.Image_createWithResIDQuad(399, quad);
@@ -23,7 +21,6 @@ namespace ctr_wp7.game
             return image;
         }
 
-        // Token: 0x06000739 RID: 1849 RVA: 0x0003A58C File Offset: 0x0003878C
         protected override BaseElement buildGameBox(int i, int n, BaseElement container, MenuController.TouchBaseElement tpack, ScrollableContainer c)
         {
             BaseElement baseElement = buildBox(n);
@@ -94,7 +91,6 @@ namespace ctr_wp7.game
             return baseElement;
         }
 
-        // Token: 0x0600073A RID: 1850 RVA: 0x0003A7F4 File Offset: 0x000389F4
         protected override BaseElement buildComingSoonBox()
         {
             BaseElement baseElement = buildBox(14);
@@ -102,7 +98,6 @@ namespace ctr_wp7.game
             return baseElement;
         }
 
-        // Token: 0x0600073B RID: 1851 RVA: 0x0003A820 File Offset: 0x00038A20
         protected override BaseElement buildVideoBox(ButtonDelegate buttonDelegate)
         {
             MenuController.TouchBaseElement touchBaseElement = (MenuController.TouchBaseElement)new MenuController.TouchBaseElement().init();
@@ -118,10 +113,8 @@ namespace ctr_wp7.game
             return touchBaseElement;
         }
 
-        // Token: 0x020000F1 RID: 241
         public sealed class MonsterSlot : RectangleElement
         {
-            // Token: 0x0600073D RID: 1853 RVA: 0x0003A8DC File Offset: 0x00038ADC
             public static MonsterSlot createMonsterSlot()
             {
                 MonsterSlot monsterSlot = new();
@@ -132,7 +125,6 @@ namespace ctr_wp7.game
                 return monsterSlot;
             }
 
-            // Token: 0x0600073E RID: 1854 RVA: 0x0003A93C File Offset: 0x00038B3C
             public override void draw()
             {
                 preDraw();
@@ -158,13 +150,10 @@ namespace ctr_wp7.game
                 }
             }
 
-            // Token: 0x04000CD4 RID: 3284
             public ScrollableContainer c;
 
-            // Token: 0x04000CD5 RID: 3285
             public float s;
 
-            // Token: 0x04000CD6 RID: 3286
             public float e;
         }
     }

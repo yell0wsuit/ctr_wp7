@@ -2,10 +2,8 @@
 
 namespace ctr_wp7.iframework.visual
 {
-    // Token: 0x0200007A RID: 122
     internal class MultiParticles : Particles
     {
-        // Token: 0x0600039E RID: 926 RVA: 0x00016D6C File Offset: 0x00014F6C
         public virtual Particles initWithTotalParticlesandImageGrid(int numberOfParticles, Image image)
         {
             if (base.init() == null)
@@ -31,7 +29,6 @@ namespace ctr_wp7.iframework.visual
             return this;
         }
 
-        // Token: 0x0600039F RID: 927 RVA: 0x00016E20 File Offset: 0x00015020
         public override void initParticle(ref Particle particle)
         {
             Image image = imageGrid;
@@ -45,7 +42,6 @@ namespace ctr_wp7.iframework.visual
             particle.height = rectangle.h * particle.size;
         }
 
-        // Token: 0x060003A0 RID: 928 RVA: 0x00016ED8 File Offset: 0x000150D8
         public override void updateParticle(ref Particle p, float delta)
         {
             if (p.life > 0f)
@@ -88,7 +84,6 @@ namespace ctr_wp7.iframework.visual
             particleCount--;
         }
 
-        // Token: 0x060003A1 RID: 929 RVA: 0x000171A4 File Offset: 0x000153A4
         public override void update(float delta)
         {
             base.update(delta);
@@ -117,7 +112,6 @@ namespace ctr_wp7.iframework.visual
             OpenGL.glBindBuffer(2, 0U);
         }
 
-        // Token: 0x060003A2 RID: 930 RVA: 0x00017298 File Offset: 0x00015498
         public override void draw()
         {
             preDraw();
@@ -143,7 +137,6 @@ namespace ctr_wp7.iframework.visual
             postDraw();
         }
 
-        // Token: 0x060003A3 RID: 931 RVA: 0x00017374 File Offset: 0x00015574
         public override void dealloc()
         {
             drawer = null;
@@ -151,10 +144,8 @@ namespace ctr_wp7.iframework.visual
             base.dealloc();
         }
 
-        // Token: 0x04000937 RID: 2359
         public ImageMultiDrawer drawer;
 
-        // Token: 0x04000938 RID: 2360
         public Image imageGrid;
     }
 }

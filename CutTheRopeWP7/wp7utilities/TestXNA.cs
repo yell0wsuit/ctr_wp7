@@ -8,16 +8,13 @@ using Microsoft.Xna.Framework;
 
 namespace ctr_wp7.wp7utilities
 {
-    // Token: 0x02000073 RID: 115
     internal sealed class TestXNA : BaseElement
     {
-        // Token: 0x06000376 RID: 886 RVA: 0x00016016 File Offset: 0x00014216
         private void cameraTestMove()
         {
             objects.Add(new TestCameraMove());
         }
 
-        // Token: 0x06000377 RID: 887 RVA: 0x00016028 File Offset: 0x00014228
         private void scaleTestTop()
         {
             int num = 1310747;
@@ -42,7 +39,6 @@ namespace ctr_wp7.wp7utilities
             objects.Add(button);
         }
 
-        // Token: 0x06000378 RID: 888 RVA: 0x000160FC File Offset: 0x000142FC
         private void scaleTestCenter()
         {
             int num = 1310721;
@@ -64,7 +60,6 @@ namespace ctr_wp7.wp7utilities
             objects.Add(button);
         }
 
-        // Token: 0x06000379 RID: 889 RVA: 0x000161CC File Offset: 0x000143CC
         private void scaleTestBottom()
         {
             int num = 1310748;
@@ -89,7 +84,6 @@ namespace ctr_wp7.wp7utilities
             objects.Add(button);
         }
 
-        // Token: 0x0600037A RID: 890 RVA: 0x000162AF File Offset: 0x000144AF
         public TestXNA()
         {
             _ = init();
@@ -98,7 +92,6 @@ namespace ctr_wp7.wp7utilities
             scaleTestBottom();
         }
 
-        // Token: 0x0600037B RID: 891 RVA: 0x000162DC File Offset: 0x000144DC
         public override void update(float delta)
         {
             foreach (BaseElement baseElement in objects)
@@ -107,7 +100,6 @@ namespace ctr_wp7.wp7utilities
             }
         }
 
-        // Token: 0x0600037C RID: 892 RVA: 0x00016330 File Offset: 0x00014530
         public override void draw()
         {
             foreach (BaseElement baseElement in objects)
@@ -116,19 +108,15 @@ namespace ctr_wp7.wp7utilities
             }
         }
 
-        // Token: 0x040008FC RID: 2300
         private readonly List<BaseElement> objects = [];
 
-        // Token: 0x02000074 RID: 116
         private sealed class TestCameraMove : BaseElement
         {
-            // Token: 0x0600037D RID: 893 RVA: 0x00016384 File Offset: 0x00014584
             public TestCameraMove()
             {
                 speed_ = new Vector2(10f, 10f);
             }
 
-            // Token: 0x0600037E RID: 894 RVA: 0x000163A1 File Offset: 0x000145A1
             public override void update(float delta)
             {
                 frame_++;
@@ -138,23 +126,18 @@ namespace ctr_wp7.wp7utilities
                 }
             }
 
-            // Token: 0x0600037F RID: 895 RVA: 0x000163D2 File Offset: 0x000145D2
             public override void draw()
             {
             }
 
-            // Token: 0x040008FD RID: 2301
             private Vector2 speed_;
 
-            // Token: 0x040008FE RID: 2302
             private int frame_;
         }
 
-        // Token: 0x02000075 RID: 117
         private sealed class TestRotate(BaseElement testObject) : BaseElement
         {
 
-            // Token: 0x06000381 RID: 897 RVA: 0x000163E4 File Offset: 0x000145E4
             public override void update(float delta)
             {
                 if (testObject_ != null)
@@ -167,13 +150,11 @@ namespace ctr_wp7.wp7utilities
                 }
             }
 
-            // Token: 0x06000382 RID: 898 RVA: 0x00016439 File Offset: 0x00014639
             public override void draw()
             {
                 testObject_?.draw();
             }
 
-            // Token: 0x040008FF RID: 2303
             private readonly BaseElement testObject_ = testObject;
         }
     }

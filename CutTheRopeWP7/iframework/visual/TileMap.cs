@@ -5,10 +5,8 @@ using ctr_wp7.iframework.core;
 
 namespace ctr_wp7.iframework.visual
 {
-    // Token: 0x02000036 RID: 54
     internal sealed class TileMap : BaseElement
     {
-        // Token: 0x060001FD RID: 509 RVA: 0x0000D13C File Offset: 0x0000B33C
         public override void draw()
         {
             int count = drawers.Count;
@@ -19,7 +17,6 @@ namespace ctr_wp7.iframework.visual
             }
         }
 
-        // Token: 0x060001FE RID: 510 RVA: 0x0000D177 File Offset: 0x0000B377
         public override void dealloc()
         {
             matrix = null;
@@ -30,7 +27,6 @@ namespace ctr_wp7.iframework.visual
             base.dealloc();
         }
 
-        // Token: 0x060001FF RID: 511 RVA: 0x0000D1AC File Offset: 0x0000B3AC
         public TileMap initWithRowsColumns(int r, int c)
         {
             if (init() != null)
@@ -60,7 +56,6 @@ namespace ctr_wp7.iframework.visual
             return this;
         }
 
-        // Token: 0x06000200 RID: 512 RVA: 0x0000D28C File Offset: 0x0000B48C
         public void addTileQuadwithID(Texture2D t, int q, int ti)
         {
             if (q == -1)
@@ -106,7 +101,6 @@ namespace ctr_wp7.iframework.visual
             tiles[ti] = tileEntry;
         }
 
-        // Token: 0x06000201 RID: 513 RVA: 0x0000D3C4 File Offset: 0x0000B5C4
         public void fillStartAtRowColumnRowsColumnswithTile(int r, int c, int rs, int cs, int ti)
         {
             for (int i = c; i < c + cs; i++)
@@ -118,27 +112,23 @@ namespace ctr_wp7.iframework.visual
             }
         }
 
-        // Token: 0x06000202 RID: 514 RVA: 0x0000D3FD File Offset: 0x0000B5FD
         public void setParallaxRatio(float r)
         {
             parallaxRatio = r;
         }
 
-        // Token: 0x06000203 RID: 515 RVA: 0x0000D406 File Offset: 0x0000B606
         public void setRepeatHorizontally(Repeat r)
         {
             repeatedHorizontally = r;
             updateVars();
         }
 
-        // Token: 0x06000204 RID: 516 RVA: 0x0000D415 File Offset: 0x0000B615
         public void setRepeatVertically(Repeat r)
         {
             repeatedVertically = r;
             updateVars();
         }
 
-        // Token: 0x06000205 RID: 517 RVA: 0x0000D424 File Offset: 0x0000B624
         public void updateWithCameraPos(Vector pos)
         {
             float num = (float)Math.Round((double)(pos.x / parallaxRatio));
@@ -258,7 +248,6 @@ namespace ctr_wp7.iframework.visual
             }
         }
 
-        // Token: 0x06000206 RID: 518 RVA: 0x0000D980 File Offset: 0x0000BB80
         public void updateVars()
         {
             maxColsOnScreen = 2 + (int)Math.Floor((double)(cameraViewWidth / (tileWidth + 1)));
@@ -275,74 +264,50 @@ namespace ctr_wp7.iframework.visual
             height = tileMapHeight = rows * tileHeight;
         }
 
-        // Token: 0x040007F4 RID: 2036
         public int[,] matrix;
 
-        // Token: 0x040007F5 RID: 2037
         private int rows;
 
-        // Token: 0x040007F6 RID: 2038
         private int columns;
 
-        // Token: 0x040007F7 RID: 2039
         private List<ImageMultiDrawer> drawers;
 
-        // Token: 0x040007F8 RID: 2040
         private Dictionary<int, TileEntry> tiles;
 
-        // Token: 0x040007F9 RID: 2041
         private int cameraViewWidth;
 
-        // Token: 0x040007FA RID: 2042
         private int cameraViewHeight;
 
-        // Token: 0x040007FB RID: 2043
         private int tileMapWidth;
 
-        // Token: 0x040007FC RID: 2044
         private int tileMapHeight;
 
-        // Token: 0x040007FD RID: 2045
         private int maxRowsOnScreen;
 
-        // Token: 0x040007FE RID: 2046
         private int maxColsOnScreen;
 
-        // Token: 0x040007FF RID: 2047
         private int randomSeed;
 
-        // Token: 0x04000800 RID: 2048
         private Repeat repeatedVertically;
 
-        // Token: 0x04000801 RID: 2049
         private Repeat repeatedHorizontally;
 
-        // Token: 0x04000802 RID: 2050
         private float parallaxRatio;
 
-        // Token: 0x04000803 RID: 2051
         private int tileWidth;
 
-        // Token: 0x04000804 RID: 2052
         private int tileHeight;
 
-        // Token: 0x04000805 RID: 2053
         private bool horizontalRandom;
 
-        // Token: 0x04000806 RID: 2054
         private bool verticalRandom;
 
-        // Token: 0x04000807 RID: 2055
         private bool restoreTileTransparency;
 
-        // Token: 0x02000037 RID: 55
         public enum Repeat
         {
-            // Token: 0x04000809 RID: 2057
             REPEAT_NONE,
-            // Token: 0x0400080A RID: 2058
             REPEAT_ALL,
-            // Token: 0x0400080B RID: 2059
             REPEAT_EDGES
         }
     }

@@ -6,10 +6,8 @@ using ctr_wp7.wp7utilities;
 
 namespace ctr_wp7.iframework.visual
 {
-    // Token: 0x020000CD RID: 205
     internal class Text : BaseElement
     {
-        // Token: 0x060005F0 RID: 1520 RVA: 0x0002CBFC File Offset: 0x0002ADFC
         public static Text createWithFontandString(int i, NSString str)
         {
             Text text = new Text().initWithFont(Application.getFont(i));
@@ -17,7 +15,6 @@ namespace ctr_wp7.iframework.visual
             return text;
         }
 
-        // Token: 0x060005F1 RID: 1521 RVA: 0x0002CC24 File Offset: 0x0002AE24
         public static Text createWithFontandStringEN(int i, NSString str)
         {
             Text text = new Text().initWithFont(Application.getFontEN(i));
@@ -25,7 +22,6 @@ namespace ctr_wp7.iframework.visual
             return text;
         }
 
-        // Token: 0x060005F2 RID: 1522 RVA: 0x0002CC4C File Offset: 0x0002AE4C
         public virtual Text initWithFont(FontGeneric i)
         {
             if (base.init() != null)
@@ -43,25 +39,21 @@ namespace ctr_wp7.iframework.visual
             return this;
         }
 
-        // Token: 0x060005F3 RID: 1523 RVA: 0x0002CCBC File Offset: 0x0002AEBC
         public virtual void setString(string newString)
         {
             setString(NSS(newString));
         }
 
-        // Token: 0x060005F4 RID: 1524 RVA: 0x0002CCCA File Offset: 0x0002AECA
         public virtual void setString(NSString newString)
         {
             setStringandWidth(newString, -1f);
         }
 
-        // Token: 0x060005F5 RID: 1525 RVA: 0x0002CCD8 File Offset: 0x0002AED8
         public virtual void setStringandWidth(NSString newString, double w)
         {
             setStringandWidth(newString, (float)w);
         }
 
-        // Token: 0x060005F6 RID: 1526 RVA: 0x0002CCE4 File Offset: 0x0002AEE4
         public virtual void setStringandWidth(NSString newString, float w)
         {
             string_ = newString;
@@ -85,7 +77,6 @@ namespace ctr_wp7.iframework.visual
             stringLength = 0;
         }
 
-        // Token: 0x060005F7 RID: 1527 RVA: 0x0002CD68 File Offset: 0x0002AF68
         public void mapCharAtXYatIndex(char ch, float dx, float dy, int n)
         {
             FontWP7.CharPosition charPosition = new()
@@ -101,7 +92,6 @@ namespace ctr_wp7.iframework.visual
             charsToDraw.Add(charPosition);
         }
 
-        // Token: 0x060005F8 RID: 1528 RVA: 0x0002CDB4 File Offset: 0x0002AFB4
         private void updateSystemFontDrawerValues()
         {
             charsToDraw = [];
@@ -170,7 +160,6 @@ namespace ctr_wp7.iframework.visual
             }
         }
 
-        // Token: 0x060005F9 RID: 1529 RVA: 0x0002D0E0 File Offset: 0x0002B2E0
         public virtual void updateDrawerValues()
         {
             multiDrawers.Clear();
@@ -269,19 +258,16 @@ namespace ctr_wp7.iframework.visual
             }
         }
 
-        // Token: 0x060005FA RID: 1530 RVA: 0x0002D56B File Offset: 0x0002B76B
         public virtual NSString getString()
         {
             return string_;
         }
 
-        // Token: 0x060005FB RID: 1531 RVA: 0x0002D573 File Offset: 0x0002B773
         public virtual void setAlignment(int a)
         {
             align = a;
         }
 
-        // Token: 0x060005FC RID: 1532 RVA: 0x0002D57C File Offset: 0x0002B77C
         public override void draw()
         {
             preDraw();
@@ -308,7 +294,6 @@ namespace ctr_wp7.iframework.visual
             postDraw();
         }
 
-        // Token: 0x060005FD RID: 1533 RVA: 0x0002D64C File Offset: 0x0002B84C
         public virtual void formatText()
         {
             short[] array = new short[512];
@@ -383,13 +368,11 @@ namespace ctr_wp7.iframework.visual
             }
         }
 
-        // Token: 0x060005FE RID: 1534 RVA: 0x0002D867 File Offset: 0x0002BA67
         private static BaseElement createFromXML(XMLNode xml)
         {
             return null;
         }
 
-        // Token: 0x060005FF RID: 1535 RVA: 0x0002D86A File Offset: 0x0002BA6A
         public override void dealloc()
         {
             font.notifyTextDeleted(this);
@@ -401,37 +384,26 @@ namespace ctr_wp7.iframework.visual
             base.dealloc();
         }
 
-        // Token: 0x04000B42 RID: 2882
         public bool useSystemFont;
 
-        // Token: 0x04000B43 RID: 2883
         public int align;
 
-        // Token: 0x04000B44 RID: 2884
         public NSString string_;
 
-        // Token: 0x04000B45 RID: 2885
         public int stringLength;
 
-        // Token: 0x04000B46 RID: 2886
         public FontGeneric font;
 
-        // Token: 0x04000B47 RID: 2887
         public float wrapWidth;
 
-        // Token: 0x04000B48 RID: 2888
         public List<FormattedString> formattedStrings;
 
-        // Token: 0x04000B49 RID: 2889
         private List<ImageMultiDrawer> multiDrawers;
 
-        // Token: 0x04000B4A RID: 2890
         public float maxHeight;
 
-        // Token: 0x04000B4B RID: 2891
         public bool wrapLongWords;
 
-        // Token: 0x04000B4C RID: 2892
         private List<FontWP7.CharPosition> charsToDraw;
     }
 }

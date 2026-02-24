@@ -3,22 +3,18 @@ using ctr_wp7.iframework.visual;
 
 namespace ctr_wp7.game
 {
-    // Token: 0x02000099 RID: 153
     internal sealed class CandyInGhostBubbleAnimation : Animation
     {
-        // Token: 0x0600048C RID: 1164 RVA: 0x00020C64 File Offset: 0x0001EE64
         public static CandyInGhostBubbleAnimation CIGBAnimation_createWithResID(int r)
         {
             return CIGBAnimation_create(Application.getTexture(r));
         }
 
-        // Token: 0x0600048D RID: 1165 RVA: 0x00020C71 File Offset: 0x0001EE71
         public static CandyInGhostBubbleAnimation CIGBAnimation_create(Texture2D t)
         {
             return (CandyInGhostBubbleAnimation)new CandyInGhostBubbleAnimation().initWithTexture(t);
         }
 
-        // Token: 0x0600048E RID: 1166 RVA: 0x00020C84 File Offset: 0x0001EE84
         public static CandyInGhostBubbleAnimation CIGBAnimation_createWithResIDQuad(int r, int q)
         {
             CandyInGhostBubbleAnimation candyInGhostBubbleAnimation = CIGBAnimation_createWithResID(r);
@@ -26,7 +22,6 @@ namespace ctr_wp7.game
             return candyInGhostBubbleAnimation;
         }
 
-        // Token: 0x0600048F RID: 1167 RVA: 0x00020CA4 File Offset: 0x0001EEA4
         public void addSupportingCloudsTimelines()
         {
             backCloud = Image_createWithResIDQuad(180, 4);
@@ -131,7 +126,6 @@ namespace ctr_wp7.game
             image2.playTimeline(0);
         }
 
-        // Token: 0x06000490 RID: 1168 RVA: 0x000217EC File Offset: 0x0001F9EC
         public override void dealloc()
         {
             backCloud = null;
@@ -140,13 +134,10 @@ namespace ctr_wp7.game
             base.dealloc();
         }
 
-        // Token: 0x040009D0 RID: 2512
         public Image backCloud;
 
-        // Token: 0x040009D1 RID: 2513
         public Image backCloud2;
 
-        // Token: 0x040009D2 RID: 2514
         public Image backCloud3;
     }
 }

@@ -4,10 +4,8 @@ using ctr_wp7.ios;
 
 namespace ctr_wp7.game
 {
-    // Token: 0x02000010 RID: 16
     internal class CTRGameObject : GameObject
     {
-        // Token: 0x06000100 RID: 256 RVA: 0x00008410 File Offset: 0x00006610
         public override void parseMover(XMLNode xml)
         {
             rotation = 0f;

@@ -6,17 +6,14 @@ using ctr_wp7.ios;
 
 namespace ctr_wp7.iframework.sfe
 {
-    // Token: 0x0200001F RID: 31
     internal class ConstraintedPoint : MaterialPoint
     {
-        // Token: 0x06000156 RID: 342 RVA: 0x0000A74F File Offset: 0x0000894F
         public override void dealloc()
         {
             constraints = null;
             base.dealloc();
         }
 
-        // Token: 0x06000157 RID: 343 RVA: 0x0000A75E File Offset: 0x0000895E
         public override NSObject init()
         {
             if (base.init() != null)
@@ -28,7 +25,6 @@ namespace ctr_wp7.iframework.sfe
             return this;
         }
 
-        // Token: 0x06000158 RID: 344 RVA: 0x0000A7A0 File Offset: 0x000089A0
         public virtual void addConstraintwithRestLengthofType(ConstraintedPoint c, float r, Constraint.CONSTRAINT t)
         {
             Constraint constraint = new();
@@ -39,7 +35,6 @@ namespace ctr_wp7.iframework.sfe
             constraints.Add(constraint);
         }
 
-        // Token: 0x06000159 RID: 345 RVA: 0x0000A7DC File Offset: 0x000089DC
         public virtual void removeConstraint(ConstraintedPoint o)
         {
             for (int i = 0; i < constraints.Count; i++)
@@ -53,13 +48,11 @@ namespace ctr_wp7.iframework.sfe
             }
         }
 
-        // Token: 0x0600015A RID: 346 RVA: 0x0000A822 File Offset: 0x00008A22
         public virtual void removeConstraints()
         {
             constraints = [];
         }
 
-        // Token: 0x0600015B RID: 347 RVA: 0x0000A830 File Offset: 0x00008A30
         public virtual void changeConstraintFromTo(ConstraintedPoint o, ConstraintedPoint n)
         {
             int count = constraints.Count;
@@ -74,7 +67,6 @@ namespace ctr_wp7.iframework.sfe
             }
         }
 
-        // Token: 0x0600015C RID: 348 RVA: 0x0000A878 File Offset: 0x00008A78
         public virtual void changeConstraintFromTowithRestLength(ConstraintedPoint o, ConstraintedPoint n, float l)
         {
             int count = constraints.Count;
@@ -90,7 +82,6 @@ namespace ctr_wp7.iframework.sfe
             }
         }
 
-        // Token: 0x0600015D RID: 349 RVA: 0x0000A8C8 File Offset: 0x00008AC8
         public virtual void changeRestLengthToFor(float l, ConstraintedPoint n)
         {
             int count = constraints.Count;
@@ -105,7 +96,6 @@ namespace ctr_wp7.iframework.sfe
             }
         }
 
-        // Token: 0x0600015E RID: 350 RVA: 0x0000A910 File Offset: 0x00008B10
         public virtual bool hasConstraintTo(ConstraintedPoint p)
         {
             int count = constraints.Count;
@@ -120,7 +110,6 @@ namespace ctr_wp7.iframework.sfe
             return false;
         }
 
-        // Token: 0x0600015F RID: 351 RVA: 0x0000A954 File Offset: 0x00008B54
         public virtual float restLengthFor(ConstraintedPoint n)
         {
             int count = constraints.Count;
@@ -135,7 +124,6 @@ namespace ctr_wp7.iframework.sfe
             return -1f;
         }
 
-        // Token: 0x06000160 RID: 352 RVA: 0x0000A99E File Offset: 0x00008B9E
         public override void resetAll()
         {
             base.resetAll();
@@ -143,13 +131,11 @@ namespace ctr_wp7.iframework.sfe
             removeConstraints();
         }
 
-        // Token: 0x06000161 RID: 353 RVA: 0x0000A9C1 File Offset: 0x00008BC1
         public override void update(float delta)
         {
             update(delta, 1f);
         }
 
-        // Token: 0x06000162 RID: 354 RVA: 0x0000A9D0 File Offset: 0x00008BD0
         public virtual void update(float delta, float koeff)
         {
             totalForce = vectZero;
@@ -177,7 +163,6 @@ namespace ctr_wp7.iframework.sfe
             pos = vectAdd(pos, posDelta);
         }
 
-        // Token: 0x06000163 RID: 355 RVA: 0x0000AB74 File Offset: 0x00008D74
         public static void satisfyConstraints(ConstraintedPoint p)
         {
             if (p.pin.x != -1f)
@@ -245,7 +230,6 @@ namespace ctr_wp7.iframework.sfe
             }
         }
 
-        // Token: 0x06000164 RID: 356 RVA: 0x0000ADA8 File Offset: 0x00008FA8
         public static void qcpupdate(ConstraintedPoint p, float delta, float koeff)
         {
             p.totalForce = vectZero;
@@ -275,19 +259,14 @@ namespace ctr_wp7.iframework.sfe
             p.pos = vectAdd(p.pos, p.posDelta);
         }
 
-        // Token: 0x04000785 RID: 1925
         public Vector prevPos;
 
-        // Token: 0x04000786 RID: 1926
         public Vector pin;
 
-        // Token: 0x04000787 RID: 1927
         public List<Constraint> constraints;
 
-        // Token: 0x04000788 RID: 1928
         public float preCalcDblTime;
 
-        // Token: 0x04000789 RID: 1929
         public float preCalcItersPerSecond;
     }
 }

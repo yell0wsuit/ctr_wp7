@@ -5,10 +5,8 @@ using ctr_wp7.ios;
 
 namespace ctr_wp7.game
 {
-    // Token: 0x020000C4 RID: 196
     internal sealed class GhostGrab : Grab
     {
-        // Token: 0x060005B2 RID: 1458 RVA: 0x0002B7C4 File Offset: 0x000299C4
         public NSObject initWithPositionXPositionY(float px, float py)
         {
             if (init() != null)
@@ -79,12 +77,10 @@ namespace ctr_wp7.game
             return this;
         }
 
-        // Token: 0x060005B3 RID: 1459 RVA: 0x0002BDBC File Offset: 0x00029FBC
         public override void drawBack()
         {
         }
 
-        // Token: 0x060005B4 RID: 1460 RVA: 0x0002BDC0 File Offset: 0x00029FC0
         public override void draw()
         {
             if (!visible)

@@ -5,28 +5,23 @@ using ctr_wp7.ios;
 
 namespace ctr_wp7.iframework.visual
 {
-    // Token: 0x020000AF RID: 175
     internal sealed class GLDrawer : NSObject
     {
-        // Token: 0x060004CE RID: 1230 RVA: 0x00023FA7 File Offset: 0x000221A7
         public static void drawImage(Texture2D image, float x, float y)
         {
             Texture2D.drawAtPoint(image, vect(x, y));
         }
 
-        // Token: 0x060004CF RID: 1231 RVA: 0x00023FB6 File Offset: 0x000221B6
         public static void drawImagePart(Texture2D image, Rectangle r, float x, float y)
         {
             Texture2D.drawRectAtPoint(image, r, vect(x, y));
         }
 
-        // Token: 0x060004D0 RID: 1232 RVA: 0x00023FC6 File Offset: 0x000221C6
         public static void drawImageQuad(Texture2D image, int q, double x, double y)
         {
             drawImageQuad(image, q, (float)x, (float)y);
         }
 
-        // Token: 0x060004D1 RID: 1233 RVA: 0x00023FD3 File Offset: 0x000221D3
         public static void drawImageQuad(Texture2D image, int q, float x, float y)
         {
             if (q == -1)
@@ -37,7 +32,6 @@ namespace ctr_wp7.iframework.visual
             Texture2D.drawQuadAtPoint(image, q, vect(x, y));
         }
 
-        // Token: 0x060004D2 RID: 1234 RVA: 0x00023FF0 File Offset: 0x000221F0
         public static void drawImageTiledCool(Texture2D image, int q, float x, float y, float width, float height)
         {
             float num = 0f;
@@ -76,7 +70,6 @@ namespace ctr_wp7.iframework.visual
             }
         }
 
-        // Token: 0x060004D3 RID: 1235 RVA: 0x000240CC File Offset: 0x000222CC
         public static void drawImageTiled(Texture2D image, int q, float x, float y, float width, float height)
         {
             if (IS_WVGA)
@@ -132,13 +125,11 @@ namespace ctr_wp7.iframework.visual
             }
         }
 
-        // Token: 0x060004D4 RID: 1236 RVA: 0x00024232 File Offset: 0x00022432
         public static Quad2D getTextureCoordinates(Texture2D t, Rectangle r)
         {
             return Quad2D.MakeQuad2D(t._invWidth * r.x, t._invHeight * r.y, t._invWidth * r.w, t._invHeight * r.h);
         }
 
-        // Token: 0x060004D5 RID: 1237 RVA: 0x00024274 File Offset: 0x00022474
         public static Vector calcPathBezier(Vector[] p, int count, float delta)
         {
             if (count > 2)
@@ -157,7 +148,6 @@ namespace ctr_wp7.iframework.visual
             return count == 2 ? calc2PointBezier(ref p[0], ref p[1], delta) : default;
         }
 
-        // Token: 0x060004D6 RID: 1238 RVA: 0x0002430C File Offset: 0x0002250C
         public static Vector calcPathBezier_2(Vector[] p, int count, float delta)
         {
             if (count > 2)
@@ -171,7 +161,6 @@ namespace ctr_wp7.iframework.visual
             return count == 2 ? calc2PointBezier(ref p[0], ref p[1], delta) : default;
         }
 
-        // Token: 0x060004D7 RID: 1239 RVA: 0x0002437C File Offset: 0x0002257C
         public static Vector calc2PointBezier(ref Vector a, ref Vector b, float delta)
         {
             float num = 1f - delta;
@@ -181,7 +170,6 @@ namespace ctr_wp7.iframework.visual
             return vector;
         }
 
-        // Token: 0x060004D8 RID: 1240 RVA: 0x000243C4 File Offset: 0x000225C4
         public static void calcCircle(float x, float y, float radius, int vertexCount, float[] glVertices)
         {
             float num = (float)(6.283185307179586 / vertexCount);
@@ -194,7 +182,6 @@ namespace ctr_wp7.iframework.visual
             }
         }
 
-        // Token: 0x060004D9 RID: 1241 RVA: 0x00024418 File Offset: 0x00022618
         public static void drawCircleIntersection(float cx1, float cy1, float radius1, float cx2, float cy2, float radius2, int vertexCount, float width, RGBAColor fill)
         {
             float num = vectDistance(vect(cx1, cy1), vect(cx2, cy2));
@@ -216,7 +203,6 @@ namespace ctr_wp7.iframework.visual
             drawAntialiasedCurve2(cx2, cy2, radius2, num6, num7, vertexCount, width, 1f, fill);
         }
 
-        // Token: 0x060004DA RID: 1242 RVA: 0x000244C8 File Offset: 0x000226C8
         public static void drawAntialiasedCurve2(float cx, float cy, float radius, float startAngle, float endAngle, int vertexCount, float width, float fadeWidth, RGBAColor fill)
         {
             float[] array = new float[((vertexCount - 1) * 12) + 4];
@@ -283,7 +269,6 @@ namespace ctr_wp7.iframework.visual
             OpenGL.glDisableClientState(13);
         }
 
-        // Token: 0x060004DB RID: 1243 RVA: 0x000248A0 File Offset: 0x00022AA0
         private static void calcCurve(float cx, float cy, float radius, float startAngle, float endAngle, int vertexCount, float[] glVertices)
         {
             float num = (endAngle - startAngle) / (vertexCount - 1);
@@ -304,7 +289,6 @@ namespace ctr_wp7.iframework.visual
             }
         }
 
-        // Token: 0x060004DC RID: 1244 RVA: 0x00024924 File Offset: 0x00022B24
         public static void drawAntialiasedLine(float x1, float y1, float x2, float y2, float size, RGBAColor color)
         {
             Vector vector = vect(x1, y1);
@@ -352,7 +336,6 @@ namespace ctr_wp7.iframework.visual
             OpenGL.glVertexPointer_add(2, 5, 0, verts);
         }
 
-        // Token: 0x060004DD RID: 1245 RVA: 0x00024B20 File Offset: 0x00022D20
         public static void drawRect(float x, float y, float w, float h, RGBAColor color)
         {
             float[] array =
@@ -369,7 +352,6 @@ namespace ctr_wp7.iframework.visual
             drawPolygon(array, 4, color);
         }
 
-        // Token: 0x060004DE RID: 1246 RVA: 0x00024B68 File Offset: 0x00022D68
         public static void drawSolidRect(float x, float y, float w, float h, RGBAColor border, RGBAColor fill)
         {
             float[] array =
@@ -386,7 +368,6 @@ namespace ctr_wp7.iframework.visual
             drawSolidPolygon(array, 4, border, fill);
         }
 
-        // Token: 0x060004DF RID: 1247 RVA: 0x00024BB4 File Offset: 0x00022DB4
         public static void drawSolidRectWOBorder(float x, float y, float w, float h, RGBAColor fill)
         {
             float[] array =
@@ -405,7 +386,6 @@ namespace ctr_wp7.iframework.visual
             OpenGL.glDrawArrays(8, 0, 4);
         }
 
-        // Token: 0x060004E0 RID: 1248 RVA: 0x00024C24 File Offset: 0x00022E24
         public static void drawPolygon(float[] vertices, int vertexCount, RGBAColor color)
         {
             OpenGL.glColor4f(color.r, color.g, color.b, color.a);
@@ -413,7 +393,6 @@ namespace ctr_wp7.iframework.visual
             OpenGL.glDrawArrays(9, 0, vertexCount);
         }
 
-        // Token: 0x060004E1 RID: 1249 RVA: 0x00024C5C File Offset: 0x00022E5C
         public static void drawSolidPolygon(float[] vertices, int vertexCount, RGBAColor border, RGBAColor fill)
         {
             OpenGL.glVertexPointer(2, 5, 0, vertices);
@@ -423,7 +402,6 @@ namespace ctr_wp7.iframework.visual
             OpenGL.glDrawArrays(9, 0, vertexCount);
         }
 
-        // Token: 0x060004E2 RID: 1250 RVA: 0x00024CC5 File Offset: 0x00022EC5
         public static void drawSolidPolygonWOBorder(float[] vertices, int vertexCount, RGBAColor fill)
         {
             OpenGL.glVertexPointer(2, 5, 0, vertices);
@@ -431,13 +409,11 @@ namespace ctr_wp7.iframework.visual
             OpenGL.glDrawArrays(8, 0, vertexCount);
         }
 
-        // Token: 0x04000A25 RID: 2597
         private static readonly Dictionary<int, Vector[]> VectorArray = [];
 
-        // Token: 0x04000A26 RID: 2598
         private static readonly RGBAColor[] colors =
-        [
-            RGBAColor.transparentRGBA,
+[
+    RGBAColor.transparentRGBA,
             RGBAColor.transparentRGBA,
             RGBAColor.transparentRGBA,
             RGBAColor.transparentRGBA,
@@ -445,9 +421,8 @@ namespace ctr_wp7.iframework.visual
             RGBAColor.transparentRGBA,
             RGBAColor.transparentRGBA,
             RGBAColor.transparentRGBA
-        ];
+];
 
-        // Token: 0x04000A27 RID: 2599
         private static readonly float[] verts = new float[16];
     }
 }

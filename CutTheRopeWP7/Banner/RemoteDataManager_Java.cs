@@ -10,10 +10,8 @@ using ctr_wp7.utils;
 
 namespace ctr_wp7.Banner
 {
-    // Token: 0x02000041 RID: 65
     public class RemoteDataManager_Java
     {
-        // Token: 0x06000221 RID: 545 RVA: 0x0000E35C File Offset: 0x0000C55C
         private void CheckCleanup()
         {
             string text = Preferences._getStringForKey("lastVersionLaunched");
@@ -36,7 +34,6 @@ namespace ctr_wp7.Banner
             }
         }
 
-        // Token: 0x06000222 RID: 546 RVA: 0x0000E444 File Offset: 0x0000C644
         public void initWith(string app, string platform, int pSet, int pWidth, int pHeight)
         {
             if (execution)
@@ -93,19 +90,16 @@ namespace ctr_wp7.Banner
             RequestDataTask_execute(text3);
         }
 
-        // Token: 0x06000223 RID: 547 RVA: 0x0000E63C File Offset: 0x0000C83C
         public static string getAdditionalParameters()
         {
             return "";
         }
 
-        // Token: 0x06000224 RID: 548 RVA: 0x0000E643 File Offset: 0x0000C843
         protected void RequestDataTask_execute(string url)
         {
             XMLNode.parseXML_URL(url, this);
         }
 
-        // Token: 0x06000225 RID: 549 RVA: 0x0000E64C File Offset: 0x0000C84C
         internal bool XMLDownloadFinished(XMLNode doc)
         {
             try
@@ -213,7 +207,6 @@ namespace ctr_wp7.Banner
             return false;
         }
 
-        // Token: 0x06000226 RID: 550 RVA: 0x0000EA1C File Offset: 0x0000CC1C
         public void SaveStoredBanners(Dictionary<int, Banner> banners)
         {
             using (IsolatedStorageFile userStoreForApplication = IsolatedStorageFile.GetUserStoreForApplication())
@@ -232,7 +225,6 @@ namespace ctr_wp7.Banner
             }
         }
 
-        // Token: 0x06000227 RID: 551 RVA: 0x0000EADC File Offset: 0x0000CCDC
         public void SaveStoredConfig(RemoteConfig config)
         {
             using (IsolatedStorageFile userStoreForApplication = IsolatedStorageFile.GetUserStoreForApplication())
@@ -246,7 +238,6 @@ namespace ctr_wp7.Banner
             }
         }
 
-        // Token: 0x06000228 RID: 552 RVA: 0x0000EB48 File Offset: 0x0000CD48
         public Dictionary<int, Banner> getStoredBanners()
         {
             try
@@ -278,7 +269,6 @@ namespace ctr_wp7.Banner
             return [];
         }
 
-        // Token: 0x06000229 RID: 553 RVA: 0x0000EC10 File Offset: 0x0000CE10
         public RemoteConfig getStoredConfig()
         {
             try
@@ -301,73 +291,61 @@ namespace ctr_wp7.Banner
             return null;
         }
 
-        // Token: 0x0600022A RID: 554 RVA: 0x0000EC9C File Offset: 0x0000CE9C
         public bool hasSenseToRotateBanners()
         {
             return config != null ? config.hasSenseToRotateBanners() : throw new NullReferenceException("config is null");
         }
 
-        // Token: 0x0600022B RID: 555 RVA: 0x0000ECBC File Offset: 0x0000CEBC
         public bool getHideMainPromo()
         {
             return config != null ? config.getHideMainPromo() : throw new NullReferenceException("config is null");
         }
 
-        // Token: 0x0600022C RID: 556 RVA: 0x0000ECDC File Offset: 0x0000CEDC
         public bool getHideSocialNetworks()
         {
             return config != null ? config.getHideSocialNetworks() : throw new NullReferenceException("config is null");
         }
 
-        // Token: 0x0600022D RID: 557 RVA: 0x0000ECFC File Offset: 0x0000CEFC
         public int getInterstitialBannersPeriod()
         {
             return config != null ? config.getInterstitialBannersPeriod() : throw new NullReferenceException("config is null");
         }
 
-        // Token: 0x0600022E RID: 558 RVA: 0x0000ED1C File Offset: 0x0000CF1C
         public int getChangeInterstitialToVideoPeriod()
         {
             return config != null ? config.getChangeInterstitialToVideoPeriod() : throw new NullReferenceException("config is null");
         }
 
-        // Token: 0x0600022F RID: 559 RVA: 0x0000ED3C File Offset: 0x0000CF3C
         public bool getDefaultInterstitial()
         {
             return config != null ? config.getDefaultInterstitial() : throw new NullReferenceException("config is null");
         }
 
-        // Token: 0x06000230 RID: 560 RVA: 0x0000ED5C File Offset: 0x0000CF5C
         public int getVideoBannersCount()
         {
             return config != null ? config.getVideoBannersCount() : throw new NullReferenceException("config is null");
         }
 
-        // Token: 0x06000231 RID: 561 RVA: 0x0000ED7C File Offset: 0x0000CF7C
         public int getBoxForCrossPromo()
         {
             return config != null ? config.getBoxForCrossPromo() : throw new NullReferenceException("config is null");
         }
 
-        // Token: 0x06000232 RID: 562 RVA: 0x0000ED9C File Offset: 0x0000CF9C
         public static bool isValid(Banner banner)
         {
             return banner != null && banner.saved;
         }
 
-        // Token: 0x06000233 RID: 563 RVA: 0x0000EDAC File Offset: 0x0000CFAC
         public string getStoredBannersPath()
         {
             return string.Format(storedBannersPrefix + "_{0}_{1}", width, height);
         }
 
-        // Token: 0x06000234 RID: 564 RVA: 0x0000EDD9 File Offset: 0x0000CFD9
         public string getStoredConfigPath()
         {
             return string.Format(storedConfigPrefix + "_{0}_{1}_{2}", set, width, height);
         }
 
-        // Token: 0x06000235 RID: 565 RVA: 0x0000EE14 File Offset: 0x0000D014
         public Banner getBanner()
         {
             if (banners != null && config != null && !bannersprocessing)
@@ -387,7 +365,6 @@ namespace ctr_wp7.Banner
             return null;
         }
 
-        // Token: 0x06000236 RID: 566 RVA: 0x0000EE7E File Offset: 0x0000D07E
         public void nextBanner()
         {
             if (banners != null && config != null && !bannersprocessing)
@@ -396,7 +373,6 @@ namespace ctr_wp7.Banner
             }
         }
 
-        // Token: 0x06000237 RID: 567 RVA: 0x0000EEA3 File Offset: 0x0000D0A3
         public void prevBanner()
         {
             if (banners != null && config != null && !bannersprocessing)
@@ -405,43 +381,30 @@ namespace ctr_wp7.Banner
             }
         }
 
-        // Token: 0x0400081D RID: 2077
         protected static string FORMAT_VERSION = "1";
 
-        // Token: 0x0400081E RID: 2078
         protected static string BANNER_SERVER_URL = "http://bms.zeptolab.com/feeder/csp?";
 
-        // Token: 0x0400081F RID: 2079
         protected string TAG = "RemoteDataManager";
 
-        // Token: 0x04000820 RID: 2080
         private int set;
 
-        // Token: 0x04000821 RID: 2081
         private int width;
 
-        // Token: 0x04000822 RID: 2082
         private int height;
 
-        // Token: 0x04000823 RID: 2083
         protected RemoteConfig config;
 
-        // Token: 0x04000824 RID: 2084
         protected Dictionary<int, Banner> banners;
 
-        // Token: 0x04000825 RID: 2085
         protected bool execution;
 
-        // Token: 0x04000826 RID: 2086
         protected bool bannersprocessing;
 
-        // Token: 0x04000827 RID: 2087
         protected string bannerPrefix = "banner";
 
-        // Token: 0x04000828 RID: 2088
         protected string storedBannersPrefix = "storedBanners";
 
-        // Token: 0x04000829 RID: 2089
         protected string storedConfigPrefix = "storedConfig";
     }
 }

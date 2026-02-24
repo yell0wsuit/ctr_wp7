@@ -5,16 +5,13 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace ctr_wp7.iframework
 {
-    // Token: 0x020000B1 RID: 177
     internal sealed class BlendParams
     {
-        // Token: 0x060004E5 RID: 1253 RVA: 0x00024DBC File Offset: 0x00022FBC
         public BlendParams()
         {
             defaultBlending = true;
         }
 
-        // Token: 0x060004E6 RID: 1254 RVA: 0x00024DD2 File Offset: 0x00022FD2
         public BlendParams(BlendingFactor s, BlendingFactor d)
         {
             sfactor = s;
@@ -23,19 +20,16 @@ namespace ctr_wp7.iframework
             enabled = true;
         }
 
-        // Token: 0x060004E7 RID: 1255 RVA: 0x00024DFD File Offset: 0x00022FFD
         public void enable()
         {
             enabled = true;
         }
 
-        // Token: 0x060004E8 RID: 1256 RVA: 0x00024E06 File Offset: 0x00023006
         public void disable()
         {
             enabled = false;
         }
 
-        // Token: 0x060004E9 RID: 1257 RVA: 0x00024E0F File Offset: 0x0002300F
         public static void applyDefault()
         {
             if (states[0] == null)
@@ -46,7 +40,6 @@ namespace ctr_wp7.iframework
             WP7Singletons.GraphicsDevice.BlendFactor = Color.White;
         }
 
-        // Token: 0x060004EA RID: 1258 RVA: 0x00024E48 File Offset: 0x00023048
         public void apply()
         {
             if (defaultBlending || !enabled)
@@ -116,7 +109,6 @@ namespace ctr_wp7.iframework
             }
         }
 
-        // Token: 0x060004EB RID: 1259 RVA: 0x00025014 File Offset: 0x00023214
         public override string ToString()
         {
             return !defaultBlending
@@ -124,36 +116,24 @@ namespace ctr_wp7.iframework
                 : "BlendParams(default)";
         }
 
-        // Token: 0x04000A34 RID: 2612
         private static readonly BlendState[] states = new BlendState[4];
 
-        // Token: 0x04000A35 RID: 2613
         private BlendType lastBlend = BlendType.Unknown;
 
-        // Token: 0x04000A36 RID: 2614
         private bool enabled;
 
-        // Token: 0x04000A37 RID: 2615
         private readonly bool defaultBlending;
 
-        // Token: 0x04000A38 RID: 2616
         private readonly BlendingFactor sfactor;
 
-        // Token: 0x04000A39 RID: 2617
         private readonly BlendingFactor dfactor;
 
-        // Token: 0x020000B2 RID: 178
         private enum BlendType
         {
-            // Token: 0x04000A3B RID: 2619
             Unknown = -1,
-            // Token: 0x04000A3C RID: 2620
             Default,
-            // Token: 0x04000A3D RID: 2621
             SourceAlpha_InverseSourceAlpha,
-            // Token: 0x04000A3E RID: 2622
             One_InverseSourceAlpha,
-            // Token: 0x04000A3F RID: 2623
             SourceAlpha_One
         }
     }

@@ -9,10 +9,8 @@ using ctr_wp7.utils;
 
 namespace ctr_wp7.remotedata.cartoons
 {
-    // Token: 0x02000070 RID: 112
     public class VideoDataManager : ServerDataManager, ImageDownloader.ImageDownloadedListener
     {
-        // Token: 0x0600035E RID: 862 RVA: 0x00015698 File Offset: 0x00013898
         public VideoDataManager()
         {
             ImageDownloader.setListener(this);
@@ -27,14 +25,12 @@ namespace ctr_wp7.remotedata.cartoons
             blockConfig = (BlockConfig)obj;
         }
 
-        // Token: 0x0600035F RID: 863 RVA: 0x000156F4 File Offset: 0x000138F4
         public void initWith(string app, int resolution)
         {
             this.resolution = resolution;
             request(app);
         }
 
-        // Token: 0x06000360 RID: 864 RVA: 0x000157C0 File Offset: 0x000139C0
         public void request(string app)
         {
             if (!success && !execution && !ImageDownloader.isBusy())
@@ -80,7 +76,6 @@ namespace ctr_wp7.remotedata.cartoons
             }
         }
 
-        // Token: 0x06000361 RID: 865 RVA: 0x00015885 File Offset: 0x00013A85
         public void clear()
         {
             if (!execution && !ImageDownloader.isBusy())
@@ -91,7 +86,6 @@ namespace ctr_wp7.remotedata.cartoons
             }
         }
 
-        // Token: 0x06000362 RID: 866 RVA: 0x000158B4 File Offset: 0x00013AB4
         protected override void injectSizes(LinkBuilder link, int set)
         {
             int num = 0;
@@ -125,7 +119,6 @@ namespace ctr_wp7.remotedata.cartoons
             link.put("ep_height", num4);
         }
 
-        // Token: 0x06000363 RID: 867 RVA: 0x00015968 File Offset: 0x00013B68
         public void imageDownloaded(string data, Block block)
         {
             bool flag = false;
@@ -143,41 +136,32 @@ namespace ctr_wp7.remotedata.cartoons
             saveBlockConfig();
         }
 
-        // Token: 0x06000364 RID: 868 RVA: 0x000159B0 File Offset: 0x00013BB0
         protected void saveBlockConfig()
         {
             _ = saveObject(blockConfig, "BlockConfig");
         }
 
-        // Token: 0x06000365 RID: 869 RVA: 0x000159C4 File Offset: 0x00013BC4
         public BlockConfig getBlockConfig()
         {
             return blockConfig;
         }
 
-        // Token: 0x06000366 RID: 870 RVA: 0x000159CC File Offset: 0x00013BCC
         protected static void rebuildCartoonsSelect()
         {
             CartoonsSelectView.needrebuild = true;
         }
 
-        // Token: 0x040008EF RID: 2287
         protected const string TAG = "VideoDataManager";
 
-        // Token: 0x040008F0 RID: 2288
         protected bool success;
 
-        // Token: 0x040008F1 RID: 2289
         protected internal BlockConfig blockConfig;
 
-        // Token: 0x040008F2 RID: 2290
         protected int resolution;
 
-        // Token: 0x02000071 RID: 113
         private sealed class VideoDataSaxHandler(VideoDataManager parrent) : DefaultHandler
         {
 
-            // Token: 0x06000369 RID: 873 RVA: 0x000159E4 File Offset: 0x00013BE4
             public override void StartElement(string URI, string localName, string qName, Dictionary<string, string> atts)
             {
                 if (localName == "response")
@@ -222,7 +206,6 @@ namespace ctr_wp7.remotedata.cartoons
                 }
             }
 
-            // Token: 0x0600036A RID: 874 RVA: 0x00015BD0 File Offset: 0x00013DD0
             public override void EndElement(string URI, string localName, string qName)
             {
                 if (localName is "episode" or "adblock")
@@ -269,7 +252,6 @@ namespace ctr_wp7.remotedata.cartoons
                 }
             }
 
-            // Token: 0x0600036B RID: 875 RVA: 0x00015D40 File Offset: 0x00013F40
             public override void Characters(string ch)
             {
                 if (textsaving && currentlang != null)
@@ -280,22 +262,16 @@ namespace ctr_wp7.remotedata.cartoons
                 }
             }
 
-            // Token: 0x040008F3 RID: 2291
             private int updatehash;
 
-            // Token: 0x040008F4 RID: 2292
             private Block writeblock;
 
-            // Token: 0x040008F5 RID: 2293
             private bool textsaving;
 
-            // Token: 0x040008F6 RID: 2294
             private string currentlang;
 
-            // Token: 0x040008F7 RID: 2295
             private int order;
 
-            // Token: 0x040008F8 RID: 2296
             private readonly VideoDataManager parrent = parrent;
         }
     }

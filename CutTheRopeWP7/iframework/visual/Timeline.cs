@@ -4,17 +4,14 @@ using ctr_wp7.ios;
 
 namespace ctr_wp7.iframework.visual
 {
-    // Token: 0x020000AC RID: 172
     internal sealed class Timeline : NSObject
     {
-        // Token: 0x060004C2 RID: 1218 RVA: 0x00023B86 File Offset: 0x00021D86
         public void stopTimeline()
         {
             state = TimelineState.TIMELINE_STOPPED;
             deactivateTracks();
         }
 
-        // Token: 0x060004C3 RID: 1219 RVA: 0x00023B98 File Offset: 0x00021D98
         public void deactivateTracks()
         {
             for (int i = 0; i < tracks.Length; i++)
@@ -23,7 +20,6 @@ namespace ctr_wp7.iframework.visual
             }
         }
 
-        // Token: 0x060004C4 RID: 1220 RVA: 0x00023BD0 File Offset: 0x00021DD0
         public void jumpToTrackKeyFrame(int t, int k)
         {
             if (state == TimelineState.TIMELINE_STOPPED)
@@ -33,7 +29,6 @@ namespace ctr_wp7.iframework.visual
             updateTimeline(this, tracks[t].getFrameTime(k) - time);
         }
 
-        // Token: 0x060004C5 RID: 1221 RVA: 0x00023BFC File Offset: 0x00021DFC
         public void playTimeline()
         {
             if (state != TimelineState.TIMELINE_PAUSED)
@@ -57,13 +52,11 @@ namespace ctr_wp7.iframework.visual
             updateTimeline(this, 0f);
         }
 
-        // Token: 0x060004C6 RID: 1222 RVA: 0x00023C8C File Offset: 0x00021E8C
         public void pauseTimeline()
         {
             state = TimelineState.TIMELINE_PAUSED;
         }
 
-        // Token: 0x060004C7 RID: 1223 RVA: 0x00023C98 File Offset: 0x00021E98
         public static void updateTimeline(Timeline thiss, float delta)
         {
             if (thiss.state != TimelineState.TIMELINE_PLAYING)
@@ -152,7 +145,6 @@ namespace ctr_wp7.iframework.visual
             }
         }
 
-        // Token: 0x060004C8 RID: 1224 RVA: 0x00023EA0 File Offset: 0x000220A0
         public Timeline initWithMaxKeyFramesOnTrack(int m)
         {
             if (init() != null)
@@ -167,14 +159,12 @@ namespace ctr_wp7.iframework.visual
             return this;
         }
 
-        // Token: 0x060004C9 RID: 1225 RVA: 0x00023EE0 File Offset: 0x000220E0
         public void addKeyFrame(KeyFrame k)
         {
             int num = (tracks[(int)k.trackType] == null) ? 0 : tracks[(int)k.trackType].keyFramesCount;
             setKeyFrameAt(k, num);
         }
 
-        // Token: 0x060004CA RID: 1226 RVA: 0x00023F1C File Offset: 0x0002211C
         public void setKeyFrameAt(KeyFrame k, int i)
         {
             if (tracks[(int)k.trackType] == null)
@@ -184,70 +174,49 @@ namespace ctr_wp7.iframework.visual
             tracks[(int)k.trackType].setKeyFrameAt(k, i);
         }
 
-        // Token: 0x060004CB RID: 1227 RVA: 0x00023F70 File Offset: 0x00022170
         public void setTimelineLoopType(LoopType l)
         {
             timelineLoopType = l;
         }
 
-        // Token: 0x060004CC RID: 1228 RVA: 0x00023F7C File Offset: 0x0002217C
         public Track getTrack(Track.TrackType tt)
         {
             return tracks[(int)tt];
         }
 
-        // Token: 0x04000A12 RID: 2578
         private const int TRACKS_COUNT = 5;
 
-        // Token: 0x04000A13 RID: 2579
         public TimelineDelegate delegateTimelineDelegate;
 
-        // Token: 0x04000A14 RID: 2580
         public BaseElement element;
 
-        // Token: 0x04000A15 RID: 2581
         public TimelineState state;
 
-        // Token: 0x04000A16 RID: 2582
         public float time;
 
-        // Token: 0x04000A17 RID: 2583
         private float length;
 
-        // Token: 0x04000A18 RID: 2584
         public bool timelineDirReverse;
 
-        // Token: 0x04000A19 RID: 2585
         public int loopsLimit;
 
-        // Token: 0x04000A1A RID: 2586
         private int maxKeyFrames;
 
-        // Token: 0x04000A1B RID: 2587
         public LoopType timelineLoopType;
 
-        // Token: 0x04000A1C RID: 2588
         private readonly Track[] tracks = new Track[5];
 
-        // Token: 0x020000AD RID: 173
         public enum TimelineState
         {
-            // Token: 0x04000A1E RID: 2590
             TIMELINE_STOPPED,
-            // Token: 0x04000A1F RID: 2591
             TIMELINE_PLAYING,
-            // Token: 0x04000A20 RID: 2592
             TIMELINE_PAUSED
         }
 
-        // Token: 0x020000AE RID: 174
         public enum LoopType
         {
-            // Token: 0x04000A22 RID: 2594
             TIMELINE_NO_LOOP,
-            // Token: 0x04000A23 RID: 2595
             TIMELINE_REPLAY,
-            // Token: 0x04000A24 RID: 2596
             TIMELINE_PING_PONG
         }
     }

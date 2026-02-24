@@ -17,22 +17,18 @@ using ctr_wp7.Specials;
 
 namespace ctr_wp7.ctr_original
 {
-    // Token: 0x020000E3 RID: 227
     internal sealed class MenuController : ViewController, ButtonDelegate, MovieMgrDelegate, ScrollableContainerProtocol, TimelineDelegate, LiftScrollbarDelegate
     {
-        // Token: 0x06000693 RID: 1683 RVA: 0x00032E87 File Offset: 0x00031087
         public void selector_gotoNextBox(NSObject param)
         {
             gotoNextBox();
         }
 
-        // Token: 0x06000694 RID: 1684 RVA: 0x00032E8F File Offset: 0x0003108F
         public void selector_playHandAnimation(NSObject param)
         {
             playHandAnimation();
         }
 
-        // Token: 0x06000695 RID: 1685 RVA: 0x00032E98 File Offset: 0x00031098
         private static void setElementPositionWithRelativeQuadOffset2(BaseElement e, int textureID, int quadToCountFrom, int textureID2, int quad)
         {
             Vector quadOffset = Image.getQuadOffset(textureID, quadToCountFrom);
@@ -42,7 +38,6 @@ namespace ctr_wp7.ctr_original
             e.y = vector.y;
         }
 
-        // Token: 0x06000696 RID: 1686 RVA: 0x00032EDC File Offset: 0x000310DC
         public static Button createButtonWithTextscaleTextIDDelegate(NSString str, float scale, int bid, ButtonDelegate d, int img, int idle, int pressed)
         {
             Image image = Image.Image_createWithResIDQuad(img, idle);
@@ -69,25 +64,21 @@ namespace ctr_wp7.ctr_original
             return button;
         }
 
-        // Token: 0x06000697 RID: 1687 RVA: 0x00032FD3 File Offset: 0x000311D3
         public static Button createButtonWithTextIDDelegate(NSString str, int bid, ButtonDelegate d, int img, int idle, int pressed)
         {
             return createButtonWithTextscaleTextIDDelegate(str, 1f, bid, d, img, idle, pressed);
         }
 
-        // Token: 0x06000698 RID: 1688 RVA: 0x00032FE7 File Offset: 0x000311E7
         public static Button createButtonWithTextIDDelegate(NSString str, float scale, int bid, ButtonDelegate d)
         {
             return createButtonWithTextscaleTextIDDelegate(str, scale, bid, d, 4, 0, 1);
         }
 
-        // Token: 0x06000699 RID: 1689 RVA: 0x00032FF5 File Offset: 0x000311F5
         public static Button createButtonWithTextIDDelegate(NSString str, int bid, ButtonDelegate d)
         {
             return createButtonWithTextIDDelegate(str, bid, d, 4, 0, 1);
         }
 
-        // Token: 0x0600069A RID: 1690 RVA: 0x00033004 File Offset: 0x00031204
         public static Button createBigButtonWithTextIDDelegate(NSString str, int bid, ButtonDelegate d)
         {
             FontGeneric font = Application.getFont(5);
@@ -102,7 +93,6 @@ namespace ctr_wp7.ctr_original
             return createButtonWithTextscaleTextIDDelegate(str, num, bid, d, 72, 6, 7);
         }
 
-        // Token: 0x0600069B RID: 1691 RVA: 0x00033068 File Offset: 0x00031268
         public static Button createButtonWithTextIDDelegateAutoScale(NSString str, int bid, ButtonDelegate d)
         {
             FontGeneric font = Application.getFont(5);
@@ -117,7 +107,6 @@ namespace ctr_wp7.ctr_original
             return createButtonWithTextscaleTextIDDelegate(str, num, bid, d, 4, 0, 1);
         }
 
-        // Token: 0x0600069C RID: 1692 RVA: 0x000330C8 File Offset: 0x000312C8
         public static TimedButton createTimedButtonWithTextIDDelegateTimer(NSString str, int bid, ButtonDelegate d, float time)
         {
             Image image = Image.Image_createWithResIDQuad(4, 0);
@@ -138,7 +127,6 @@ namespace ctr_wp7.ctr_original
             return timedButton;
         }
 
-        // Token: 0x0600069D RID: 1693 RVA: 0x0003319C File Offset: 0x0003139C
         public static Button createPromoBanner(ButtonDelegate d)
         {
             Button button = createButton2WithImageQuad1Quad2IDDelegate(77, 6, 6, 27, d);
@@ -158,7 +146,6 @@ namespace ctr_wp7.ctr_original
             return button;
         }
 
-        // Token: 0x0600069E RID: 1694 RVA: 0x00033298 File Offset: 0x00031498
         public static BaseElement frameElement(BaseElement block, int res, int frameid, int shadowid)
         {
             BaseElement baseElement = Image.createElementWithLeftPart(res, frameid);
@@ -171,7 +158,6 @@ namespace ctr_wp7.ctr_original
             return block;
         }
 
-        // Token: 0x0600069F RID: 1695 RVA: 0x000332E8 File Offset: 0x000314E8
         public static Button createShortButtonWithTextIDDelegate(NSString str, int bid, ButtonDelegate d)
         {
             Image image = Image.Image_createWithResIDQuad(10, 0);
@@ -191,7 +177,6 @@ namespace ctr_wp7.ctr_original
             return button;
         }
 
-        // Token: 0x060006A0 RID: 1696 RVA: 0x000333B4 File Offset: 0x000315B4
         public static ToggleButton createToggleButtonWithText1Text2IDDelegate(NSString str1, NSString str2, int bid, ButtonDelegate d)
         {
             Image image = Image.Image_createWithResIDQuad(4, 0);
@@ -221,7 +206,6 @@ namespace ctr_wp7.ctr_original
             return toggleButton;
         }
 
-        // Token: 0x060006A1 RID: 1697 RVA: 0x00033500 File Offset: 0x00031700
         public static Button createBackButtonWithDelegateID(ButtonDelegate d, int bid)
         {
             Button button = createButtonWithImageQuad1Quad2IDDelegate(72, 0, 1, bid, d);
@@ -231,7 +215,6 @@ namespace ctr_wp7.ctr_original
             return button;
         }
 
-        // Token: 0x060006A2 RID: 1698 RVA: 0x00033550 File Offset: 0x00031750
         public static BaseElement packOurNews(int bidtwit, int bidface, ButtonDelegate d)
         {
             Texture2D texture = Application.getTexture(72);
@@ -256,7 +239,6 @@ namespace ctr_wp7.ctr_original
             return button;
         }
 
-        // Token: 0x060006A3 RID: 1699 RVA: 0x00033648 File Offset: 0x00031848
         public static Button createButtonWithImageIDDelegate(int resID, int bid, ButtonDelegate d)
         {
             Texture2D texture = Application.getTexture(resID);
@@ -270,7 +252,6 @@ namespace ctr_wp7.ctr_original
             return button;
         }
 
-        // Token: 0x060006A4 RID: 1700 RVA: 0x000336C0 File Offset: 0x000318C0
         public static Button createButtonWithImageQuadIDDelegate(int resID, int quad, int bid, ButtonDelegate d)
         {
             Image image = Image.Image_createWithResIDQuad(resID, quad);
@@ -283,7 +264,6 @@ namespace ctr_wp7.ctr_original
             return button;
         }
 
-        // Token: 0x060006A5 RID: 1701 RVA: 0x00033734 File Offset: 0x00031934
         public static Button createButton2WithImageQuad1Quad2IDDelegate(int res, int q1, int q2, int bid, ButtonDelegate d)
         {
             Image image = Image.Image_createWithResIDQuad(res, q1);
@@ -294,7 +274,6 @@ namespace ctr_wp7.ctr_original
             return button;
         }
 
-        // Token: 0x060006A6 RID: 1702 RVA: 0x00033770 File Offset: 0x00031970
         public static Button buttonWithTextImageQuadHalfRescaledRecoloredIDDelegate(NSString str, int img, int quad, bool half, float scale, RGBAColor color, int bid, ButtonDelegate d)
         {
             BaseElement baseElement;
@@ -332,7 +311,6 @@ namespace ctr_wp7.ctr_original
             return button;
         }
 
-        // Token: 0x060006A7 RID: 1703 RVA: 0x000338C4 File Offset: 0x00031AC4
         public static Button createMenuButtonWithImgQuadTextDelegateID(int q, NSString str, ButtonDelegate d, int bid)
         {
             BaseElement baseElement = createMenuElementQuadText(q, str);
@@ -343,7 +321,6 @@ namespace ctr_wp7.ctr_original
             return button;
         }
 
-        // Token: 0x060006A8 RID: 1704 RVA: 0x0003390C File Offset: 0x00031B0C
         public static BaseElement createMenuElementQuadText(int q, NSString str)
         {
             Image image = Image.Image_createWithResIDQuad(72, 8);
@@ -361,7 +338,6 @@ namespace ctr_wp7.ctr_original
             return image;
         }
 
-        // Token: 0x060006A9 RID: 1705 RVA: 0x000339A0 File Offset: 0x00031BA0
         public static Button createButtonWithImageQuad1Quad2IDDelegate(int res, int q1, int q2, int bid, ButtonDelegate d)
         {
             Image image = Image.Image_createWithResIDQuad(res, q1);
@@ -375,7 +351,6 @@ namespace ctr_wp7.ctr_original
             return button;
         }
 
-        // Token: 0x060006AA RID: 1706 RVA: 0x00033A38 File Offset: 0x00031C38
         public static Button createStarkeyButtonWithDelegateID(int bid, ButtonDelegate d)
         {
             Image image = Image.Image_createWithResIDQuad(72, 4);
@@ -415,7 +390,6 @@ namespace ctr_wp7.ctr_original
             return button;
         }
 
-        // Token: 0x060006AB RID: 1707 RVA: 0x00033C30 File Offset: 0x00031E30
         private static Image createAudioElementForQuadwithCrosspressed(int q, bool b, bool p)
         {
             int num = p ? 1 : 0;
@@ -434,7 +408,6 @@ namespace ctr_wp7.ctr_original
             return image;
         }
 
-        // Token: 0x060006AC RID: 1708 RVA: 0x00033CD0 File Offset: 0x00031ED0
         private static ToggleButton createAudioButtonWithQuadDelegateID(int q, ButtonDelegate d, int bid)
         {
             Image image = createAudioElementForQuadwithCrosspressed(q, false, false);
@@ -446,7 +419,6 @@ namespace ctr_wp7.ctr_original
             return toggleButton;
         }
 
-        // Token: 0x060006AD RID: 1709 RVA: 0x00033D1C File Offset: 0x00031F1C
         public static BaseElement createButtonDelivery(int bid, ButtonDelegate d, int framenum, int heroid, bool under)
         {
             int num = 401;
@@ -507,7 +479,6 @@ namespace ctr_wp7.ctr_original
             return baseElement;
         }
 
-        // Token: 0x060006AE RID: 1710 RVA: 0x00033FB4 File Offset: 0x000321B4
         public static BaseElement createButtonCartoons(int bid, ButtonDelegate d, bool newmark = true)
         {
             int num = 401;
@@ -564,7 +535,6 @@ namespace ctr_wp7.ctr_original
             return baseElement;
         }
 
-        // Token: 0x060006AF RID: 1711 RVA: 0x000342C8 File Offset: 0x000324C8
         private Image createBackgroundWithLogo(bool l, bool mm = false)
         {
             Image image = Image.Image_createWithResIDQuad(66, 0);
@@ -640,7 +610,6 @@ namespace ctr_wp7.ctr_original
             return image;
         }
 
-        // Token: 0x060006B0 RID: 1712 RVA: 0x0003474C File Offset: 0x0003294C
         private void createMainMenu()
         {
             MenuView menuView = (MenuView)new MenuView().initFullscreen();
@@ -708,7 +677,6 @@ namespace ctr_wp7.ctr_original
             addViewwithID(menuView, ViewID.VIEW_MAIN_MENU);
         }
 
-        // Token: 0x060006B1 RID: 1713 RVA: 0x00034C08 File Offset: 0x00032E08
         private void createOptions()
         {
             MenuView menuView = (MenuView)new MenuView().initFullscreen();
@@ -774,7 +742,6 @@ namespace ctr_wp7.ctr_original
             addViewwithID(menuView, ViewID.VIEW_OPTIONS);
         }
 
-        // Token: 0x060006B2 RID: 1714 RVA: 0x00034E50 File Offset: 0x00033050
         private void createReset()
         {
             MenuView menuView = (MenuView)new MenuView().initFullscreen();
@@ -805,7 +772,6 @@ namespace ctr_wp7.ctr_original
             addViewwithID(menuView, ViewID.VIEW_RESET);
         }
 
-        // Token: 0x060006B3 RID: 1715 RVA: 0x00034FD8 File Offset: 0x000331D8
         private void createMovieView()
         {
             MenuView menuView = (MenuView)new MenuView().initFullscreen();
@@ -817,7 +783,6 @@ namespace ctr_wp7.ctr_original
             addViewwithID(menuView, ViewID.VIEW_MOVIE);
         }
 
-        // Token: 0x060006B4 RID: 1716 RVA: 0x00035038 File Offset: 0x00033238
         private void createTerms()
         {
             MenuView menuView = (MenuView)new MenuView().initFullscreen();
@@ -841,7 +806,6 @@ namespace ctr_wp7.ctr_original
             addViewwithID(menuView, ViewID.VIEW_TERMS);
         }
 
-        // Token: 0x060006B5 RID: 1717 RVA: 0x00035150 File Offset: 0x00033350
         private void createAbout()
         {
             MenuView menuView = (MenuView)new MenuView().initFullscreen();
@@ -881,7 +845,6 @@ namespace ctr_wp7.ctr_original
             addViewwithID(menuView, ViewID.VIEW_ABOUT);
         }
 
-        // Token: 0x060006B6 RID: 1718 RVA: 0x00035310 File Offset: 0x00033510
         public static HBox createTextWithStar(string t)
         {
             HBox hbox = new HBox().initWithOffsetAlignHeight(0.0, 16, 50.0);
@@ -893,7 +856,6 @@ namespace ctr_wp7.ctr_original
             return hbox;
         }
 
-        // Token: 0x060006B7 RID: 1719 RVA: 0x00035374 File Offset: 0x00033574
         private void createPackSelect()
         {
             _ = boxFabric.isZeroBoxDefined();
@@ -991,7 +953,6 @@ namespace ctr_wp7.ctr_original
             }
         }
 
-        // Token: 0x060006B8 RID: 1720 RVA: 0x00035918 File Offset: 0x00033B18
         public void scrollableContainerreachedScrollPoint(ScrollableContainer e, int i)
         {
             if (i > packSelect.size)
@@ -1047,13 +1008,11 @@ namespace ctr_wp7.ctr_original
             }
         }
 
-        // Token: 0x060006B9 RID: 1721 RVA: 0x00035A5F File Offset: 0x00033C5F
         public void scrollableContainerchangedTargetScrollPoint(ScrollableContainer e, int i)
         {
             CTRPreferences.setLastPack(i);
         }
 
-        // Token: 0x060006BA RID: 1722 RVA: 0x00035A68 File Offset: 0x00033C68
         private BaseElement createButtonForLevelPack(int l, int p)
         {
             bool flag = l >= CTRPreferences.getLevelsInPackCount() && CTRPreferences.isLiteVersion();
@@ -1101,7 +1060,6 @@ namespace ctr_wp7.ctr_original
             return touchBaseElement;
         }
 
-        // Token: 0x060006BB RID: 1723 RVA: 0x00035C18 File Offset: 0x00033E18
         private void createLevelSelect()
         {
             MenuView menuView = (MenuView)new MenuView().initFullscreen();
@@ -1212,28 +1170,24 @@ namespace ctr_wp7.ctr_original
             addViewwithID(menuView, ViewID.VIEW_LEVEL_SELECT);
         }
 
-        // Token: 0x060006BC RID: 1724 RVA: 0x00036314 File Offset: 0x00034514
         private void createDeliverySelect()
         {
             DeliverySelectView deliverySelectView = (DeliverySelectView)new DeliverySelectView().initFullscreenBackgroundDelegate(createBackgroundWithLogo(false, false), this);
             addViewwithID(deliverySelectView, ViewID.VIEW_DELIVERY_SELECT);
         }
 
-        // Token: 0x060006BD RID: 1725 RVA: 0x00036344 File Offset: 0x00034544
         private void createCartoonsSelect()
         {
             CartoonsSelectView cartoonsSelectView = (CartoonsSelectView)new CartoonsSelectView().initFullscreenBackgroundDelegate(createBackgroundWithLogo(false, true), this);
             addViewwithID(cartoonsSelectView, ViewID.VIEW_CARTOONS_SELECT);
         }
 
-        // Token: 0x060006BE RID: 1726 RVA: 0x00036374 File Offset: 0x00034574
         private void createCartoonsAfterwatch()
         {
             CartoonsAfterwatchView cartoonsAfterwatchView = (CartoonsAfterwatchView)new CartoonsAfterwatchView().initFullscreenBackgroundDelegate(createBackgroundWithLogo(false, false), this);
             addViewwithID(cartoonsAfterwatchView, ViewID.VIEW_CARTOONS_AFTERWATCH);
         }
 
-        // Token: 0x060006BF RID: 1727 RVA: 0x000363A4 File Offset: 0x000345A4
         public override NSObject initWithParent(ViewController p)
         {
             if (base.initWithParent(p) != null)
@@ -1267,7 +1221,6 @@ namespace ctr_wp7.ctr_original
             return this;
         }
 
-        // Token: 0x060006C0 RID: 1728 RVA: 0x00036494 File Offset: 0x00034694
         public override void dealloc()
         {
             ddMainMenu.cancelAllDispatches();
@@ -1279,7 +1232,6 @@ namespace ctr_wp7.ctr_original
             base.dealloc();
         }
 
-        // Token: 0x060006C1 RID: 1729 RVA: 0x000364E4 File Offset: 0x000346E4
         public override void activate()
         {
             packSelect.nextpack = -1;
@@ -1300,7 +1252,6 @@ namespace ctr_wp7.ctr_original
             CTRSoundMgr._playMusic(58);
         }
 
-        // Token: 0x060006C2 RID: 1730 RVA: 0x00036550 File Offset: 0x00034750
         public void showNextPack()
         {
             bool flag = false;
@@ -1327,7 +1278,6 @@ namespace ctr_wp7.ctr_original
             }
         }
 
-        // Token: 0x060006C3 RID: 1731 RVA: 0x00036620 File Offset: 0x00034820
         public override void onChildDeactivated(int n)
         {
             base.onChildDeactivated(n);
@@ -1336,7 +1286,6 @@ namespace ctr_wp7.ctr_original
             deactivate();
         }
 
-        // Token: 0x060006C4 RID: 1732 RVA: 0x0003664C File Offset: 0x0003484C
         public void moviePlaybackFinished(NSString url)
         {
             if (replayingIntroMovie)
@@ -1363,7 +1312,6 @@ namespace ctr_wp7.ctr_original
             showView(ViewID.VIEW_PACK_SELECT);
         }
 
-        // Token: 0x060006C5 RID: 1733 RVA: 0x000366F0 File Offset: 0x000348F0
         private void preLevelSelect()
         {
             ResourceMgr resourceMgr = Application.sharedResourceMgr();
@@ -1423,7 +1371,6 @@ namespace ctr_wp7.ctr_original
             createLevelSelect();
         }
 
-        // Token: 0x060006C6 RID: 1734 RVA: 0x000367E4 File Offset: 0x000349E4
         private void showIntroIfNeeded()
         {
             int i = 0;
@@ -1446,7 +1393,6 @@ namespace ctr_wp7.ctr_original
             moviePlaybackFinished(null);
         }
 
-        // Token: 0x060006C7 RID: 1735 RVA: 0x0003685C File Offset: 0x00034A5C
         public void timelinereachedKeyFramewithIndex(Timeline t, KeyFrame k, int i)
         {
             if (t.element == handAnimation && k.trackType == Track.TrackType.TRACK_SCALE && (i == 2 || i == 5))
@@ -1470,7 +1416,6 @@ namespace ctr_wp7.ctr_original
             }
         }
 
-        // Token: 0x060006C8 RID: 1736 RVA: 0x00036900 File Offset: 0x00034B00
         public void timelineFinished(Timeline t)
         {
             if (t.element != handAnimation)
@@ -1487,7 +1432,6 @@ namespace ctr_wp7.ctr_original
             }
         }
 
-        // Token: 0x060006C9 RID: 1737 RVA: 0x00036984 File Offset: 0x00034B84
         public void onButtonPressed(int n)
         {
             _ = activeView().onTouchMoveXY(-10000f, -10000f);
@@ -1973,7 +1917,6 @@ namespace ctr_wp7.ctr_original
             }
         }
 
-        // Token: 0x060006CA RID: 1738 RVA: 0x0003767C File Offset: 0x0003587C
         private void gotoNextBox()
         {
             _ = Application.sharedPreferences();
@@ -1999,7 +1942,6 @@ namespace ctr_wp7.ctr_original
             unlockAnimation = false;
         }
 
-        // Token: 0x060006CB RID: 1739 RVA: 0x00037730 File Offset: 0x00035930
         private void unlockBoxes()
         {
             needUnlock = false;
@@ -2021,7 +1963,6 @@ namespace ctr_wp7.ctr_original
             ddPackSelect.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(selector_gotoNextBox), null, 0.5);
         }
 
-        // Token: 0x060006CC RID: 1740 RVA: 0x000377B0 File Offset: 0x000359B0
         public override void update(float delta)
         {
             base.update(delta);
@@ -2082,7 +2023,6 @@ namespace ctr_wp7.ctr_original
             }
         }
 
-        // Token: 0x060006CD RID: 1741 RVA: 0x00037976 File Offset: 0x00035B76
         public override bool touchesBeganwithEvent(List<CTRTouchState> touches)
         {
             if (unlockAnimation)
@@ -2097,7 +2037,6 @@ namespace ctr_wp7.ctr_original
             return true;
         }
 
-        // Token: 0x060006CE RID: 1742 RVA: 0x000379A4 File Offset: 0x00035BA4
         public override bool backButtonPressed()
         {
             if (FLAG_RESTORING || unlockAnimation)
@@ -2158,12 +2097,10 @@ namespace ctr_wp7.ctr_original
             return true;
         }
 
-        // Token: 0x060006CF RID: 1743 RVA: 0x00037AB3 File Offset: 0x00035CB3
         private static void updateNewDrawingsCounter()
         {
         }
 
-        // Token: 0x060006D0 RID: 1744 RVA: 0x00037AB8 File Offset: 0x00035CB8
         private void playHandAnimation()
         {
             bool flag = Preferences._getBooleanForKey("PREFS_CANDY_WAS_CHANGED");
@@ -2178,7 +2115,6 @@ namespace ctr_wp7.ctr_original
             ddMainMenu.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(selector_playHandAnimation), null, 14f);
         }
 
-        // Token: 0x060006D1 RID: 1745 RVA: 0x00037B21 File Offset: 0x00035D21
         private void restoreSuccess()
         {
             FLAG_RESTORING = false;
@@ -2186,14 +2122,12 @@ namespace ctr_wp7.ctr_original
             statusBackupRestore = 2;
         }
 
-        // Token: 0x060006D2 RID: 1746 RVA: 0x00037B38 File Offset: 0x00035D38
         private void setProblem(int problemID)
         {
             FLAG_RESTORING = false;
             statusBackupRestore = problemID;
         }
 
-        // Token: 0x060006D3 RID: 1747 RVA: 0x00037B48 File Offset: 0x00035D48
         private int getFirstContainerForPack(int ppack)
         {
             int num = (ppack == -1) ? pack : ppack;
@@ -2207,7 +2141,6 @@ namespace ctr_wp7.ctr_original
             return -1;
         }
 
-        // Token: 0x060006D4 RID: 1748 RVA: 0x00037B94 File Offset: 0x00035D94
         private void showStatusPopup(BaseElement parent, NSString statusText)
         {
             FontGeneric font = Application.getFont(5);
@@ -2219,7 +2152,6 @@ namespace ctr_wp7.ctr_original
             showPopup(parent, text, button);
         }
 
-        // Token: 0x060006D5 RID: 1749 RVA: 0x00037BE8 File Offset: 0x00035DE8
         private static void showPopup(BaseElement parent, BaseElement message, BaseElement buttons)
         {
             Popup popup = (Popup)new Popup().init();
@@ -2238,7 +2170,6 @@ namespace ctr_wp7.ctr_original
             _ = parent.addChild(popup);
         }
 
-        // Token: 0x060006D6 RID: 1750 RVA: 0x00037C90 File Offset: 0x00035E90
         public void showYesNoPopup(BaseElement parent, NSString statusText, int buttonYes, int buttonNo)
         {
             Button button = createButtonWithTextIDDelegate(Application.getString(1310748), buttonNo, this);
@@ -2262,7 +2193,6 @@ namespace ctr_wp7.ctr_original
             showPopup(parent, text, vbox);
         }
 
-        // Token: 0x060006D7 RID: 1751 RVA: 0x00037D9C File Offset: 0x00035F9C
         public void showBuyFullPopup()
         {
             Button button = createButtonWithTextIDDelegate(Application.getString(1310833), 21, this);
@@ -2282,13 +2212,11 @@ namespace ctr_wp7.ctr_original
             showPopup(activeView(), text, button);
         }
 
-        // Token: 0x060006D8 RID: 1752 RVA: 0x00037E7C File Offset: 0x0003607C
         public void showUnlockShareware()
         {
             showYesNoPopup(activeView(), Application.getString(1310802), 29, 21);
         }
 
-        // Token: 0x060006D9 RID: 1753 RVA: 0x00037E98 File Offset: 0x00036098
         public void showCantUnlockPopupForPack(BaseElement parent, int pack)
         {
             float num = 280f;
@@ -2313,7 +2241,6 @@ namespace ctr_wp7.ctr_original
             showPopup(parent, vbox, button);
         }
 
-        // Token: 0x060006DA RID: 1754 RVA: 0x00037FB0 File Offset: 0x000361B0
         private void showGameFinishedPopup(BaseElement parent)
         {
             float num = 250f;
@@ -2331,7 +2258,6 @@ namespace ctr_wp7.ctr_original
             showPopup(parent, vbox, button);
         }
 
-        // Token: 0x060006DB RID: 1755 RVA: 0x00038068 File Offset: 0x00036268
         public void changedActiveSpointFromTo(int pp, int cp)
         {
             _ = liftScrollbar.getTotalScrollPoints();
@@ -2341,7 +2267,6 @@ namespace ctr_wp7.ctr_original
             touchImage2.setDrawQuad(9);
         }
 
-        // Token: 0x060006DC RID: 1756 RVA: 0x000380B4 File Offset: 0x000362B4
         private void showView(ViewID n)
         {
             if (n is ViewID.VIEW_OPTIONS or ViewID.VIEW_RESET or ViewID.VIEW_PACK_SELECT)
@@ -2399,31 +2324,26 @@ namespace ctr_wp7.ctr_original
             showView((int)n);
         }
 
-        // Token: 0x060006DD RID: 1757 RVA: 0x00038273 File Offset: 0x00036473
         private View getView(ViewID n)
         {
             return getView((int)n);
         }
 
-        // Token: 0x060006DE RID: 1758 RVA: 0x0003827C File Offset: 0x0003647C
         private void deleteView(ViewID n)
         {
             deleteView((int)n);
         }
 
-        // Token: 0x060006DF RID: 1759 RVA: 0x00038285 File Offset: 0x00036485
         private void addViewwithID(View view, ViewID n)
         {
             addViewwithID(view, (int)n);
         }
 
-        // Token: 0x060006E0 RID: 1760 RVA: 0x0003828F File Offset: 0x0003648F
         private void activateChild(CHILD_TYPE c)
         {
             activateChild((int)c);
         }
 
-        // Token: 0x060006E1 RID: 1761 RVA: 0x00038298 File Offset: 0x00036498
         public void createAchievements()
         {
             AchievementsView achievementsView = (AchievementsView)new AchievementsView().init();
@@ -2434,7 +2354,6 @@ namespace ctr_wp7.ctr_original
             _ = achievementsView.addChild(button);
         }
 
-        // Token: 0x060006E2 RID: 1762 RVA: 0x000382E4 File Offset: 0x000364E4
         public void createLeaderboards()
         {
             LeaderboardsView leaderboardsView = (LeaderboardsView)new LeaderboardsView().init();
@@ -2445,7 +2364,6 @@ namespace ctr_wp7.ctr_original
             _ = leaderboardsView.addChildwithID(button, leaderboardsView.childsCount());
         }
 
-        // Token: 0x060006E3 RID: 1763 RVA: 0x00038338 File Offset: 0x00036538
         public static Image createBlankScoresButtonWithIconpressed(int quad, bool pressed)
         {
             Image image = Image.Image_createWithResIDQuad(389, pressed ? 1 : 0);
@@ -2456,7 +2374,6 @@ namespace ctr_wp7.ctr_original
             return image;
         }
 
-        // Token: 0x060006E4 RID: 1764 RVA: 0x00038384 File Offset: 0x00036584
         public static Button createScoresButtonWithIconbuttonIDdelegate(int quad, int bId, ButtonDelegate delegateValue)
         {
             Image image = createBlankScoresButtonWithIconpressed(quad, false);
@@ -2467,275 +2384,162 @@ namespace ctr_wp7.ctr_original
             return button;
         }
 
-        // Token: 0x04000C11 RID: 3089
         public ScrollableContainer aboutContainer;
 
-        // Token: 0x04000C12 RID: 3090
         public ScrollableContainer packContainer;
 
-        // Token: 0x04000C13 RID: 3091
         public BaseElement[] boxes = new BaseElement[15];
 
-        // Token: 0x04000C14 RID: 3092
         public StarsBreak breakParticles;
 
-        // Token: 0x04000C15 RID: 3093
         public Button unlockb;
 
-        // Token: 0x04000C16 RID: 3094
         public bool unlockbHidden;
 
-        // Token: 0x04000C17 RID: 3095
         public Image handAnimation;
 
-        // Token: 0x04000C18 RID: 3096
         public Image glowAnimation;
 
-        // Token: 0x04000C19 RID: 3097
         public static Popup ep;
 
-        // Token: 0x04000C1A RID: 3098
         public bool showNextPackStatus;
 
-        // Token: 0x04000C1B RID: 3099
         public bool aboutAutoScroll;
 
-        // Token: 0x04000C1C RID: 3100
         public bool replayingIntroMovie;
 
-        // Token: 0x04000C1D RID: 3101
         public bool needRecreate;
 
-        // Token: 0x04000C1E RID: 3102
         public bool needUnlock;
 
-        // Token: 0x04000C1F RID: 3103
         public int statusBackupRestore;
 
-        // Token: 0x04000C20 RID: 3104
         public int pack;
 
-        // Token: 0x04000C21 RID: 3105
         public int level;
 
-        // Token: 0x04000C22 RID: 3106
         public ViewID viewToShow;
 
-        // Token: 0x04000C23 RID: 3107
         public int animationStartPackIndex;
 
-        // Token: 0x04000C24 RID: 3108
         public int currentPackIndex;
 
-        // Token: 0x04000C25 RID: 3109
         public bool unlockAnimation;
 
-        // Token: 0x04000C26 RID: 3110
         public DelayedDispatcher ddMainMenu;
 
-        // Token: 0x04000C27 RID: 3111
         public DelayedDispatcher ddPackSelect;
 
-        // Token: 0x04000C28 RID: 3112
         public Button promob;
 
-        // Token: 0x04000C29 RID: 3113
         public bool promobHidden;
 
-        // Token: 0x04000C2A RID: 3114
         public BaseElement bulletContainer;
 
-        // Token: 0x04000C2B RID: 3115
         public HLiftScrollbar liftScrollbar;
 
-        // Token: 0x04000C2C RID: 3116
         private PackSelectInfo packSelect;
 
-        // Token: 0x04000C2D RID: 3117
         private BoxFabric boxFabric;
 
-        // Token: 0x04000C2E RID: 3118
         private bool FLAG_RESTORING;
 
-        // Token: 0x04000C2F RID: 3119
         private static bool FirstTime = true;
 
-        // Token: 0x020000E4 RID: 228
         private enum CHILD_TYPE
         {
-            // Token: 0x04000C31 RID: 3121
             CHILD_PICKER
         }
 
-        // Token: 0x020000E5 RID: 229
         public enum ViewID
         {
-            // Token: 0x04000C33 RID: 3123
             VIEW_MAIN_MENU,
-            // Token: 0x04000C34 RID: 3124
             VIEW_OPTIONS,
-            // Token: 0x04000C35 RID: 3125
             VIEW_ABOUT,
-            // Token: 0x04000C36 RID: 3126
             VIEW_RESET,
-            // Token: 0x04000C37 RID: 3127
             VIEW_PACK_SELECT,
-            // Token: 0x04000C38 RID: 3128
             VIEW_LEVEL_SELECT,
-            // Token: 0x04000C39 RID: 3129
             VIEW_MOVIE,
-            // Token: 0x04000C3A RID: 3130
             VIEW_TERMS,
-            // Token: 0x04000C3B RID: 3131
             VIEW_ACHIEVEMENTS,
-            // Token: 0x04000C3C RID: 3132
             VIEW_LEADERBOARDS,
-            // Token: 0x04000C3D RID: 3133
             VIEW_DELIVERY_SELECT,
-            // Token: 0x04000C3E RID: 3134
             VIEW_CARTOONS_SELECT,
-            // Token: 0x04000C3F RID: 3135
             VIEW_CARTOONS_AFTERWATCH
         }
 
-        // Token: 0x020000E6 RID: 230
         public enum ButtonID
         {
-            // Token: 0x04000C41 RID: 3137
             BUTTON_PLAY,
-            // Token: 0x04000C42 RID: 3138
             BUTTON_OPTIONS,
-            // Token: 0x04000C43 RID: 3139
             BUTTON_EXTRAS,
-            // Token: 0x04000C44 RID: 3140
             BUTTON_CRYSTAL,
-            // Token: 0x04000C45 RID: 3141
             BUTTON_BUYGAME,
-            // Token: 0x04000C46 RID: 3142
             BUTTON_SOUND_ONOFF,
-            // Token: 0x04000C47 RID: 3143
             BUTTON_MUSIC_ONOFF,
-            // Token: 0x04000C48 RID: 3144
             BUTTON_ABOUT,
-            // Token: 0x04000C49 RID: 3145
             BUTTON_RESET,
-            // Token: 0x04000C4A RID: 3146
             BUTTON_BACK_TO_MAIN_MENU,
-            // Token: 0x04000C4B RID: 3147
             BUTTON_BACK_TO_OPTIONS,
-            // Token: 0x04000C4C RID: 3148
             BUTTON_BACK_TO_PACK_SELECT,
-            // Token: 0x04000C4D RID: 3149
             BUTTON_RESET_YES,
-            // Token: 0x04000C4E RID: 3150
             BUTTON_RESET_NO,
-            // Token: 0x04000C4F RID: 3151
             BUTTON_PACK_SOON,
-            // Token: 0x04000C50 RID: 3152
             BUTTON_GAMECENTER_ONOFF,
-            // Token: 0x04000C51 RID: 3153
             BUTTON_TWITTER,
-            // Token: 0x04000C52 RID: 3154
             BUTTON_FACEBOOK,
-            // Token: 0x04000C53 RID: 3155
             BUTTON_EXIT_YES,
-            // Token: 0x04000C54 RID: 3156
             BUTTON_RESTORE,
-            // Token: 0x04000C55 RID: 3157
             BUTTON_POPUP_OK,
-            // Token: 0x04000C56 RID: 3158
             BUTTON_POPUP_HIDE,
-            // Token: 0x04000C57 RID: 3159
             BUTTON_POPUP_HIDE_FROM_CANTUNLOCK,
-            // Token: 0x04000C58 RID: 3160
             BUTTON_CANDY,
-            // Token: 0x04000C59 RID: 3161
             BUTTON_DRAWINGS,
-            // Token: 0x04000C5A RID: 3162
             BUTTON_UNLOCK,
-            // Token: 0x04000C5B RID: 3163
             BUTTON_DISABLEBANNERS,
-            // Token: 0x04000C5C RID: 3164
             BUTTON_PROMO,
-            // Token: 0x04000C5D RID: 3165
             BUTTON_TOYS,
-            // Token: 0x04000C5E RID: 3166
             BUTTON_UNLOCK_SHAREWARE,
-            // Token: 0x04000C5F RID: 3167
             BUTTON_LEVEL_PROMO_1,
-            // Token: 0x04000C60 RID: 3168
             BUTTON_LEVEL_PROMO_2,
-            // Token: 0x04000C61 RID: 3169
             BUTTON_BACK_TO_ABOUT,
-            // Token: 0x04000C62 RID: 3170
             BUTTON_VIEW_TERMS,
-            // Token: 0x04000C63 RID: 3171
             BUTTON_TERMS,
-            // Token: 0x04000C64 RID: 3172
             BUTTON_PRIVACY,
-            // Token: 0x04000C65 RID: 3173
             BUTTON_ACHIEVEMENTS_BACK,
-            // Token: 0x04000C66 RID: 3174
             BUTTON_ACHIEVEMENTS,
-            // Token: 0x04000C67 RID: 3175
             BUTTON_LEADERBOARDS_BACK,
-            // Token: 0x04000C68 RID: 3176
             BUTTON_LEADERBOARDS,
-            // Token: 0x04000C69 RID: 3177
             BUTTON_BUY_FULL_FROM_LEVEL_SELECT,
-            // Token: 0x04000C6A RID: 3178
             BUTTON_BUY_FULL_FROM_DELIVERY_SELECT,
-            // Token: 0x04000C6B RID: 3179
             BUTTON_BUYGAME_FROM_MAINMENU,
-            // Token: 0x04000C6C RID: 3180
             BUTTON_DELIVERY_1,
-            // Token: 0x04000C6D RID: 3181
             BUTTON_DELIVERY_2,
-            // Token: 0x04000C6E RID: 3182
             BUTTON_DELIVERY_3,
-            // Token: 0x04000C6F RID: 3183
             BUTTON_DELIVERY_CARTOONS,
-            // Token: 0x04000C70 RID: 3184
             BUTTON_DELIVERY_NEXT,
-            // Token: 0x04000C71 RID: 3185
             BUTTON_BACK_TO_DELIVERY_SELECT,
-            // Token: 0x04000C72 RID: 3186
             BUTTON_CARTOON_REPLAY,
-            // Token: 0x04000C73 RID: 3187
             BUTTON_CARTOON_SHARE,
-            // Token: 0x04000C74 RID: 3188
             BUTTON_CARTOON_NEXT,
-            // Token: 0x04000C75 RID: 3189
             BUTTON_BACK_TO_CARTOON_SELECT,
-            // Token: 0x04000C76 RID: 3190
             BUTTON_VIDEO_BOX,
-            // Token: 0x04000C77 RID: 3191
             BUTTON_PRIVACY_P,
-            // Token: 0x04000C78 RID: 3192
             BUTTON_LEVEL_1 = 1000,
-            // Token: 0x04000C79 RID: 3193
             BUTTON_PACK_1 = 2000,
-            // Token: 0x04000C7A RID: 3194
             BUTTON_BULLET_1 = 3000,
-            // Token: 0x04000C7B RID: 3195
             BUTTON_BLOCK_1 = 4000
         }
 
-        // Token: 0x020000E7 RID: 231
         private enum Status
         {
-            // Token: 0x04000C7D RID: 3197
             STATUS,
-            // Token: 0x04000C7E RID: 3198
             STATUS_RESTORE_BROKEN,
-            // Token: 0x04000C7F RID: 3199
             STATUS_RESTORE_OK
         }
 
-        // Token: 0x020000E8 RID: 232
         public sealed class TouchBaseElement : BaseElement
         {
-            // Token: 0x060006E7 RID: 1767 RVA: 0x000383E4 File Offset: 0x000365E4
             public override bool onTouchDownXY(float tx, float ty)
             {
                 _ = base.onTouchDownXY(tx, ty);
@@ -2749,13 +2553,10 @@ namespace ctr_wp7.ctr_original
                 return false;
             }
 
-            // Token: 0x04000C80 RID: 3200
             public int bid;
 
-            // Token: 0x04000C81 RID: 3201
             public Rectangle bbc;
 
-            // Token: 0x04000C82 RID: 3202
             public ButtonDelegate delegateButtonDelegate;
         }
     }

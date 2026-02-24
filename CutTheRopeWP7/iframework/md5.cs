@@ -2,16 +2,13 @@
 
 namespace ctr_wp7.iframework
 {
-    // Token: 0x02000063 RID: 99
     internal sealed class md5
     {
-        // Token: 0x060002EC RID: 748 RVA: 0x00012E44 File Offset: 0x00011044
         private static void GET_UINT32(ref uint n, byte[] b, int dataIndex, int i)
         {
             n = (uint)(b[dataIndex + i] | (b[dataIndex + i + 1] << 8) | (b[dataIndex + i + 2] << 16) | (b[dataIndex + i + 3] << 24));
         }
 
-        // Token: 0x060002ED RID: 749 RVA: 0x00012E6D File Offset: 0x0001106D
         private static void PUT_UINT32(uint n, ref byte[] b, int i)
         {
             b[i] = (byte)n;
@@ -20,44 +17,37 @@ namespace ctr_wp7.iframework
             b[i + 3] = (byte)(n >> 24);
         }
 
-        // Token: 0x060002EE RID: 750 RVA: 0x00012E95 File Offset: 0x00011095
         private static uint S(uint x, uint n)
         {
             return (x << (int)n) | ((x & uint.MaxValue) >> (int)(32U - n));
         }
 
-        // Token: 0x060002EF RID: 751 RVA: 0x00012EA9 File Offset: 0x000110A9
         private static void P(ref uint a, uint b, uint c, uint d, uint k, uint s, uint t, uint[] X, FuncF F)
         {
             a += F(b, c, d) + X[(int)(UIntPtr)k] + t;
             a = S(a, s) + b;
         }
 
-        // Token: 0x060002F0 RID: 752 RVA: 0x00012ED1 File Offset: 0x000110D1
         private static uint F_1(uint x, uint y, uint z)
         {
             return z ^ (x & (y ^ z));
         }
 
-        // Token: 0x060002F1 RID: 753 RVA: 0x00012EDA File Offset: 0x000110DA
         private static uint F_2(uint x, uint y, uint z)
         {
             return y ^ (z & (x ^ y));
         }
 
-        // Token: 0x060002F2 RID: 754 RVA: 0x00012EE3 File Offset: 0x000110E3
         private static uint F_3(uint x, uint y, uint z)
         {
             return x ^ y ^ z;
         }
 
-        // Token: 0x060002F3 RID: 755 RVA: 0x00012EEA File Offset: 0x000110EA
         private static uint F_4(uint x, uint y, uint z)
         {
             return y ^ (x | ~z);
         }
 
-        // Token: 0x060002F4 RID: 756 RVA: 0x00012EF4 File Offset: 0x000110F4
         public static void md5_starts(ref md5_context ctx)
         {
             ctx.total[0] = 0U;
@@ -68,7 +58,6 @@ namespace ctr_wp7.iframework
             ctx.state[3] = 271733878U;
         }
 
-        // Token: 0x060002F5 RID: 757 RVA: 0x00012F50 File Offset: 0x00011150
         public static void md5_process(ref md5_context ctx, byte[] data, int dataIndex)
         {
             uint[] array = new uint[16];
@@ -166,7 +155,6 @@ namespace ctr_wp7.iframework
             ctx.state[3] += num4;
         }
 
-        // Token: 0x060002F6 RID: 758 RVA: 0x000136B0 File Offset: 0x000118B0
         public static void md5_update(ref md5_context ctx, byte[] input, uint length)
         {
             if (length == 0U)
@@ -202,7 +190,6 @@ namespace ctr_wp7.iframework
             }
         }
 
-        // Token: 0x060002F7 RID: 759 RVA: 0x0001378C File Offset: 0x0001198C
         public static void md5_finish(ref md5_context ctx, byte[] digest)
         {
             byte[] array = new byte[8];
@@ -220,7 +207,6 @@ namespace ctr_wp7.iframework
             PUT_UINT32(ctx.state[3], ref digest, 12);
         }
 
-        // Token: 0x060002F9 RID: 761 RVA: 0x00013850 File Offset: 0x00011A50
         // Note: this type is marked as 'beforefieldinit'.
         static md5()
         {
@@ -229,13 +215,10 @@ namespace ctr_wp7.iframework
             md5_padding = array;
         }
 
-        // Token: 0x040008C4 RID: 2244
         private static readonly byte[] md5_padding;
 
-        // Token: 0x02000064 RID: 100
         public sealed class md5_context
         {
-            // Token: 0x060002FA RID: 762 RVA: 0x0001387B File Offset: 0x00011A7B
             public md5_context()
             {
                 total = new uint[2];
@@ -243,17 +226,13 @@ namespace ctr_wp7.iframework
                 buffer = new byte[64];
             }
 
-            // Token: 0x040008C5 RID: 2245
             public uint[] total;
 
-            // Token: 0x040008C6 RID: 2246
             public uint[] state;
 
-            // Token: 0x040008C7 RID: 2247
             public byte[] buffer;
         }
 
-        // Token: 0x02000065 RID: 101
         // (Invoke) Token: 0x060002FC RID: 764
         private delegate uint FuncF(uint x, uint y, uint z);
     }

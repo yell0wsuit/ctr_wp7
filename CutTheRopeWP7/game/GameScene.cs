@@ -12,23 +12,19 @@ using ctr_wp7.wp7utilities;
 
 namespace ctr_wp7.game
 {
-    // Token: 0x02000108 RID: 264
     internal sealed class GameScene : BaseElement, ButtonDelegate, TimelineDelegate
     {
-        // Token: 0x060007FF RID: 2047 RVA: 0x0003F668 File Offset: 0x0003D868
         public static float FBOUND_PI(float a)
         {
             return (float)(((double)a > 3.141592653589793) ? ((double)a - 6.283185307179586) : (((double)a < -3.141592653589793) ? ((double)a + 6.283185307179586) : ((double)a)));
         }
 
-        // Token: 0x06000800 RID: 2048 RVA: 0x0003F6A3 File Offset: 0x0003D8A3
         public void animateLevelRestart()
         {
             restartState = 0;
             dimTime = 0.15f;
         }
 
-        // Token: 0x06000801 RID: 2049 RVA: 0x0003F6B8 File Offset: 0x0003D8B8
         public override NSObject init()
         {
             if (base.init() != null)
@@ -78,7 +74,6 @@ namespace ctr_wp7.game
             return this;
         }
 
-        // Token: 0x06000802 RID: 2050 RVA: 0x0003F8EC File Offset: 0x0003DAEC
         public void xmlLoaderFinishedWithfromwithSuccess(XMLNode rootNode, NSString url, bool success)
         {
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
@@ -92,7 +87,6 @@ namespace ctr_wp7.game
             restart();
         }
 
-        // Token: 0x06000803 RID: 2051 RVA: 0x0003F938 File Offset: 0x0003DB38
         public override void show()
         {
             isCandyInLantern = false;
@@ -801,7 +795,6 @@ namespace ctr_wp7.game
             ropesCutFromLevelStart = 0;
         }
 
-        // Token: 0x06000804 RID: 2052 RVA: 0x000422E4 File Offset: 0x000404E4
         public void timelinereachedKeyFramewithIndex(Timeline t, KeyFrame k, int i)
         {
             if (t.element is RotatedCircle circle && rotatedCircles.IndexOf(circle) >= 0)
@@ -833,7 +826,6 @@ namespace ctr_wp7.game
             }
         }
 
-        // Token: 0x06000805 RID: 2053 RVA: 0x000423AC File Offset: 0x000405AC
         public void timelineFinished(Timeline t)
         {
             if (t.element is RotatedCircle circle && rotatedCircles.IndexOf(circle) >= 0)
@@ -843,7 +835,6 @@ namespace ctr_wp7.game
             }
         }
 
-        // Token: 0x06000806 RID: 2054 RVA: 0x000423F4 File Offset: 0x000405F4
         public override void hide()
         {
             if (gravityButton != null)
@@ -869,7 +860,6 @@ namespace ctr_wp7.game
             Lantern.removeAllLanterns();
         }
 
-        // Token: 0x06000807 RID: 2055 RVA: 0x00042480 File Offset: 0x00040680
         public override void update(float delta)
         {
             base.update(delta);
@@ -2089,7 +2079,6 @@ namespace ctr_wp7.game
             }
         }
 
-        // Token: 0x06000808 RID: 2056 RVA: 0x00045820 File Offset: 0x00043A20
         public override void draw()
         {
             preDraw();
@@ -2347,7 +2336,6 @@ namespace ctr_wp7.game
             postDraw();
         }
 
-        // Token: 0x06000809 RID: 2057 RVA: 0x0004615C File Offset: 0x0004435C
         public override void dealloc()
         {
             for (int i = 0; i < 5; i++)
@@ -2360,7 +2348,6 @@ namespace ctr_wp7.game
             base.dealloc();
         }
 
-        // Token: 0x0600080A RID: 2058 RVA: 0x000461AC File Offset: 0x000443AC
         public void popBubbleAtXY(float bx, float by)
         {
             CTRSoundMgr._playSound(22);
@@ -2375,7 +2362,6 @@ namespace ctr_wp7.game
             _ = aniPool.addChild(animation);
         }
 
-        // Token: 0x0600080B RID: 2059 RVA: 0x0004621C File Offset: 0x0004441C
         public void popCandyBubble(bool left)
         {
             if (twoParts == 2)
@@ -2452,7 +2438,6 @@ namespace ctr_wp7.game
             popBubbleAtXY(candyR.x, candyR.y);
         }
 
-        // Token: 0x0600080C RID: 2060 RVA: 0x00046468 File Offset: 0x00044668
         public void loadNextMap()
         {
             dd.cancelAllDispatches();
@@ -2474,7 +2459,6 @@ namespace ctr_wp7.game
             }
         }
 
-        // Token: 0x0600080D RID: 2061 RVA: 0x00046540 File Offset: 0x00044740
         public void reload()
         {
             dd.cancelAllDispatches();
@@ -2489,7 +2473,6 @@ namespace ctr_wp7.game
             xmlLoaderFinishedWithfromwithSuccess(XMLNode.parseXML("maps/" + LevelsList.LEVEL_NAMES[num, level].ToString()), NSS("maps/" + LevelsList.LEVEL_NAMES[num, level].ToString()), true);
         }
 
-        // Token: 0x0600080E RID: 2062 RVA: 0x000465DC File Offset: 0x000447DC
         public bool touchDownXYIndex(float tx, float ty, int ti)
         {
             if (ignoreTouches)
@@ -2666,7 +2649,6 @@ namespace ctr_wp7.game
             return true;
         }
 
-        // Token: 0x0600080F RID: 2063 RVA: 0x00046DA4 File Offset: 0x00044FA4
         public bool touchUpXYIndex(float tx, float ty, int ti)
         {
             if (ignoreTouches)
@@ -2735,7 +2717,6 @@ namespace ctr_wp7.game
             return true;
         }
 
-        // Token: 0x06000810 RID: 2064 RVA: 0x00046F88 File Offset: 0x00045188
         public bool touchMoveXYIndex(float tx, float ty, int ti)
         {
             if (ignoreTouches)
@@ -2985,14 +2966,12 @@ namespace ctr_wp7.game
             return true;
         }
 
-        // Token: 0x06000811 RID: 2065 RVA: 0x00047A5B File Offset: 0x00045C5B
         public void restart()
         {
             hide();
             show();
         }
 
-        // Token: 0x06000812 RID: 2066 RVA: 0x00047A6C File Offset: 0x00045C6C
         public void spiderBusted(Grab g)
         {
             int num = Preferences._getIntForKey("PREFS_SPIDERS_BUSTED") + 1;
@@ -3033,7 +3012,6 @@ namespace ctr_wp7.game
             _ = aniPool.addChild(image);
         }
 
-        // Token: 0x06000813 RID: 2067 RVA: 0x00047CB0 File Offset: 0x00045EB0
         public void spiderWon(Grab sg)
         {
             CTRSoundMgr._playSound(45);
@@ -3096,7 +3074,6 @@ namespace ctr_wp7.game
             }
         }
 
-        // Token: 0x06000814 RID: 2068 RVA: 0x00047FD8 File Offset: 0x000461D8
         public void operatePump(Pump p)
         {
             p.playTimeline(0);
@@ -3127,7 +3104,6 @@ namespace ctr_wp7.game
             }
         }
 
-        // Token: 0x06000815 RID: 2069 RVA: 0x00048100 File Offset: 0x00046300
         public int cutWithRazorOrLine1Line2Immediate(Razor r, Vector v1, Vector v2, bool im)
         {
             int num = 0;
@@ -3185,7 +3161,6 @@ namespace ctr_wp7.game
             return num;
         }
 
-        // Token: 0x06000816 RID: 2070 RVA: 0x000483C4 File Offset: 0x000465C4
         public void gameWon()
         {
             dd.cancelAllDispatches();
@@ -3220,7 +3195,6 @@ namespace ctr_wp7.game
             releaseAllRopes(false);
         }
 
-        // Token: 0x06000817 RID: 2071 RVA: 0x000485C8 File Offset: 0x000467C8
         public void gameLost()
         {
             dd.cancelAllDispatches();
@@ -3231,7 +3205,6 @@ namespace ctr_wp7.game
             gameSceneDelegate_gameLost();
         }
 
-        // Token: 0x06000818 RID: 2072 RVA: 0x00048628 File Offset: 0x00046828
         public void releaseAllRopes(bool left)
         {
             int count = bungees.Count;
@@ -3260,7 +3233,6 @@ namespace ctr_wp7.game
             }
         }
 
-        // Token: 0x06000819 RID: 2073 RVA: 0x000486DC File Offset: 0x000468DC
         public void calculateScore()
         {
             timeBonus = (int)Math.Max(0f, 30f - time) * 100;
@@ -3270,13 +3242,11 @@ namespace ctr_wp7.game
             score = timeBonus + starBonus;
         }
 
-        // Token: 0x0600081A RID: 2074 RVA: 0x0004874C File Offset: 0x0004694C
         public void doCandyBlink()
         {
             candyBlink.playTimeline(0);
         }
 
-        // Token: 0x0600081B RID: 2075 RVA: 0x0004875C File Offset: 0x0004695C
         public void startCamera()
         {
             if (mapWidth > SCREEN_WIDTH || mapHeight > SCREEN_HEIGHT)
@@ -3324,7 +3294,6 @@ namespace ctr_wp7.game
             camera.moveToXYImmediate(0f, 0f, true);
         }
 
-        // Token: 0x0600081C RID: 2076 RVA: 0x00048914 File Offset: 0x00046B14
         public void drawCuts()
         {
             for (int i = 0; i < 5; i++)
@@ -3429,7 +3398,6 @@ namespace ctr_wp7.game
             }
         }
 
-        // Token: 0x0600081D RID: 2077 RVA: 0x00048C94 File Offset: 0x00046E94
         private static ToggleButton createGravityButtonWithDelegate(ButtonDelegate d)
         {
             Image image = Image.Image_createWithResIDQuad(127, 56);
@@ -3442,7 +3410,6 @@ namespace ctr_wp7.game
             return toggleButton;
         }
 
-        // Token: 0x0600081E RID: 2078 RVA: 0x00048D00 File Offset: 0x00046F00
         public void createEarthImageWithOffsetXY(float xs, float ys)
         {
             Image image = Image.Image_createWithResIDQuad(127, 58);
@@ -3461,13 +3428,11 @@ namespace ctr_wp7.game
             earthAnims.Add(image);
         }
 
-        // Token: 0x0600081F RID: 2079 RVA: 0x00048DCB File Offset: 0x00046FCB
         public void showGreeting()
         {
             target.playTimeline(11);
         }
 
-        // Token: 0x06000820 RID: 2080 RVA: 0x00048DDC File Offset: 0x00046FDC
         public static bool shouldSkipTutorialElement(XMLNode c)
         {
             NSString @string = ApplicationSettings.getString(8);
@@ -3486,7 +3451,6 @@ namespace ctr_wp7.game
             return false;
         }
 
-        // Token: 0x06000821 RID: 2081 RVA: 0x00048EF0 File Offset: 0x000470F0
         public void onButtonPressed(int n)
         {
             if (MaterialPoint.globalGravity.y == 784.0)
@@ -3521,7 +3485,6 @@ namespace ctr_wp7.game
             }
         }
 
-        // Token: 0x06000822 RID: 2082 RVA: 0x00048F98 File Offset: 0x00047198
         private void operateSteamTube(SteamTube tube)
         {
             float num = 5f;
@@ -3655,7 +3618,6 @@ namespace ctr_wp7.game
             }
         }
 
-        // Token: 0x06000823 RID: 2083 RVA: 0x000496BC File Offset: 0x000478BC
         public static void handlePumpFlowPtSkin(Pump p, ConstraintedPoint s, GameObject c)
         {
             float num = 200f;
@@ -3682,7 +3644,6 @@ namespace ctr_wp7.game
             }
         }
 
-        // Token: 0x06000824 RID: 2084 RVA: 0x00049878 File Offset: 0x00047A78
         public static void handleBouncePtDelta(Bouncer b, ConstraintedPoint s, float delta)
         {
             if (b.skip)
@@ -3705,7 +3666,6 @@ namespace ctr_wp7.game
             CTRSoundMgr._playSound(52);
         }
 
-        // Token: 0x06000825 RID: 2085 RVA: 0x000499D8 File Offset: 0x00047BD8
         public bool handleBubbleTouchXY(ConstraintedPoint s, float tx, float ty)
         {
             if (pointInRect(tx + camera.pos.x, ty + camera.pos.y, s.pos.x - 30f, s.pos.y - 30f, 60f, 60f))
@@ -3726,7 +3686,6 @@ namespace ctr_wp7.game
             return false;
         }
 
-        // Token: 0x06000826 RID: 2086 RVA: 0x00049A94 File Offset: 0x00047C94
         public void teleport()
         {
             if (targetSock == null)
@@ -3748,13 +3707,11 @@ namespace ctr_wp7.game
             targetSock = null;
         }
 
-        // Token: 0x06000827 RID: 2087 RVA: 0x00049C10 File Offset: 0x00047E10
         public bool pointOutOfScreen(ConstraintedPoint p)
         {
             return pack == 10 ? p.pos.y > mapHeight + 200.0 || p.pos.y < -200.0 : p.pos.y > mapHeight + 100.0 || p.pos.y < -50.0;
         }
 
-        // Token: 0x06000828 RID: 2088 RVA: 0x00049C98 File Offset: 0x00047E98
         public void rotateAllSpikesWithID(int sid)
         {
             int i = 0;
@@ -3770,49 +3727,41 @@ namespace ctr_wp7.game
             }
         }
 
-        // Token: 0x06000829 RID: 2089 RVA: 0x00049CD9 File Offset: 0x00047ED9
         public static void drawDrawing()
         {
         }
 
-        // Token: 0x0600082A RID: 2090 RVA: 0x00049CDB File Offset: 0x00047EDB
         private void selector_gameLost(NSObject param)
         {
             gameLost();
         }
 
-        // Token: 0x0600082B RID: 2091 RVA: 0x00049CE3 File Offset: 0x00047EE3
         private void selector_gameWonDelegate(NSObject param)
         {
             CTRSoundMgr.EnableLoopedSounds(false);
             gameSceneDelegate_gameWon();
         }
 
-        // Token: 0x0600082C RID: 2092 RVA: 0x00049CF6 File Offset: 0x00047EF6
         private void selector_animateLevelRestart(NSObject param)
         {
             animateLevelRestart();
         }
 
-        // Token: 0x0600082D RID: 2093 RVA: 0x00049CFE File Offset: 0x00047EFE
         private void selector_showGreeting(NSObject param)
         {
             showGreeting();
         }
 
-        // Token: 0x0600082E RID: 2094 RVA: 0x00049D06 File Offset: 0x00047F06
         private void selector_doCandyBlink(NSObject param)
         {
             doCandyBlink();
         }
 
-        // Token: 0x0600082F RID: 2095 RVA: 0x00049D0E File Offset: 0x00047F0E
         private void selector_teleport(NSObject param)
         {
             teleport();
         }
 
-        // Token: 0x06000830 RID: 2096 RVA: 0x00049D18 File Offset: 0x00047F18
         private static void drawCut(Vector fls, Vector frs, Vector start, Vector end, float startSize, float endSize, RGBAColor c, ref Vector le, ref Vector re)
         {
             Vector vector = vectSub(end, start);
@@ -3829,7 +3778,6 @@ namespace ctr_wp7.game
             re = vector7;
         }
 
-        // Token: 0x06000831 RID: 2097 RVA: 0x00049E28 File Offset: 0x00048028
         private static float maxOf4(float v1, float v2, float v3, float v4)
         {
             return v1 >= v2 && v1 >= v3 && v1 >= v4
@@ -3837,7 +3785,6 @@ namespace ctr_wp7.game
                 : v2 >= v1 && v2 >= v3 && v2 >= v4 ? v2 : v3 >= v2 && v3 >= v1 && v3 >= v4 ? v3 : v4 >= v2 && v4 >= v3 && v4 >= v1 ? v4 : -1f;
         }
 
-        // Token: 0x06000832 RID: 2098 RVA: 0x00049E7C File Offset: 0x0004807C
         private static float minOf4(float v1, float v2, float v3, float v4)
         {
             return v1 <= v2 && v1 <= v3 && v1 <= v4
@@ -3845,7 +3792,6 @@ namespace ctr_wp7.game
                 : v2 <= v1 && v2 <= v3 && v2 <= v4 ? v2 : v3 <= v2 && v3 <= v1 && v3 <= v4 ? v3 : v4 <= v2 && v4 <= v3 && v4 <= v1 ? v4 : -1f;
         }
 
-        // Token: 0x06000833 RID: 2099 RVA: 0x00049ED0 File Offset: 0x000480D0
         private void selector_revealCandyFromLantern(NSObject obj)
         {
             isCandyInLantern = false;
@@ -3856,7 +3802,6 @@ namespace ctr_wp7.game
             candyTop.scaleX = candyTop.scaleY = 0.71f;
         }
 
-        // Token: 0x06000834 RID: 2100 RVA: 0x00049F5C File Offset: 0x0004815C
         private static void postGameEvent(string _string, Dictionary<string, string> dict = null, bool mixpanel = false)
         {
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
@@ -3867,473 +3812,319 @@ namespace ctr_wp7.game
             FlurryAPI.logEventwithParams(_string, dict, true, mixpanel, false);
         }
 
-        // Token: 0x04000D49 RID: 3401
         public const int MAX_TOUCHES = 5;
 
-        // Token: 0x04000D4A RID: 3402
         public const float DIM_TIMEOUT = 0.15f;
 
-        // Token: 0x04000D4B RID: 3403
         public const int HUD_STARS_COUNT = 3;
 
-        // Token: 0x04000D4C RID: 3404
         public const float SCOMBO_TIMEOUT = 0.2f;
 
-        // Token: 0x04000D4D RID: 3405
         public const int SCUT_SCORE = 10;
 
-        // Token: 0x04000D4E RID: 3406
         public const int MAX_LOST_CANDIES = 3;
 
-        // Token: 0x04000D4F RID: 3407
         public const float ROPE_CUT_AT_ONCE_TIMEOUT = 0.05f;
 
-        // Token: 0x04000D50 RID: 3408
         public const float STAR_RADIUS = 15f;
 
-        // Token: 0x04000D51 RID: 3409
         public const float MOUTH_OPEN_RADIUS = 100f;
 
-        // Token: 0x04000D52 RID: 3410
         public const int BLINK_SKIP = 3;
 
-        // Token: 0x04000D53 RID: 3411
         public const float MOUTH_OPEN_TIME = 1f;
 
-        // Token: 0x04000D54 RID: 3412
         public const float PUMP_TIMEOUT = 0.05f;
 
-        // Token: 0x04000D55 RID: 3413
         public const float CAMERA_SPEED = 7f;
 
-        // Token: 0x04000D56 RID: 3414
         public const float SOCK_SPEED_K = 0.9f;
 
-        // Token: 0x04000D57 RID: 3415
         public const float SOCK_COLLISION_Y_OFFSET = 25f;
 
-        // Token: 0x04000D58 RID: 3416
         public const int RESTART_STATE_FADE_IN = 0;
 
-        // Token: 0x04000D59 RID: 3417
         public const int RESTART_STATE_FADE_OUT = 1;
 
-        // Token: 0x04000D5A RID: 3418
         private const int S_MOVE_DOWN = 0;
 
-        // Token: 0x04000D5B RID: 3419
         private const int S_WAIT = 1;
 
-        // Token: 0x04000D5C RID: 3420
         private const int S_MOVE_UP = 2;
 
-        // Token: 0x04000D5D RID: 3421
         private const int CAMERA_MOVE_TO_CANDY_PART = 0;
 
-        // Token: 0x04000D5E RID: 3422
         private const int CAMERA_MOVE_TO_CANDY = 1;
 
-        // Token: 0x04000D5F RID: 3423
         private const int BUTTON_GRAVITY = 0;
 
-        // Token: 0x04000D60 RID: 3424
         private const int BUTTON_SPIKES = 1;
 
-        // Token: 0x04000D61 RID: 3425
         private const int PARTS_SEPARATE = 0;
 
-        // Token: 0x04000D62 RID: 3426
         private const int PARTS_DIST = 1;
 
-        // Token: 0x04000D63 RID: 3427
         private const int PARTS_NONE = 2;
 
-        // Token: 0x04000D64 RID: 3428
         private const int CANDY_BLINK_INITIAL = 0;
 
-        // Token: 0x04000D65 RID: 3429
         private const int CANDY_BLINK_STAR = 1;
 
-        // Token: 0x04000D66 RID: 3430
         private const int TUTORIAL_SHOW_ANIM = 0;
 
-        // Token: 0x04000D67 RID: 3431
         private const int TUTORIAL_HIDE_ANIM = 1;
 
-        // Token: 0x04000D68 RID: 3432
         private const int EARTH_NORMAL_ANIM = 0;
 
-        // Token: 0x04000D69 RID: 3433
         private const int EARTH_UPSIDEDOWN_ANIM = 1;
 
-        // Token: 0x04000D6A RID: 3434
         private const int CHAR_ANIMATION_IDLE = 0;
 
-        // Token: 0x04000D6B RID: 3435
         private const int CHAR_ANIMATION_IDLE2 = 1;
 
-        // Token: 0x04000D6C RID: 3436
         private const int CHAR_ANIMATION_IDLE3 = 3;
 
-        // Token: 0x04000D6D RID: 3437
         private const int CHAR_ANIMATION_EXCITED = 4;
 
-        // Token: 0x04000D6E RID: 3438
         private const int CHAR_ANIMATION_PUZZLED = 5;
 
-        // Token: 0x04000D6F RID: 3439
         private const int CHAR_ANIMATION_FAIL = 6;
 
-        // Token: 0x04000D70 RID: 3440
         private const int CHAR_ANIMATION_WIN = 7;
 
-        // Token: 0x04000D71 RID: 3441
         private const int CHAR_ANIMATION_MOUTH_OPEN = 8;
 
-        // Token: 0x04000D72 RID: 3442
         private const int CHAR_ANIMATION_MOUTH_CLOSE = 9;
 
-        // Token: 0x04000D73 RID: 3443
         private const int CHAR_ANIMATION_CHEW = 10;
 
-        // Token: 0x04000D74 RID: 3444
         private const int CHAR_ANIMATION_GREETING = 11;
 
-        // Token: 0x04000D75 RID: 3445
         private const float GD_PRIMARY_FORCE = 32f;
 
-        // Token: 0x04000D76 RID: 3446
         private const float GD_SLOWING_FACTOR = 5f;
 
-        // Token: 0x04000D77 RID: 3447
         private static readonly int[] CANDIES = [93, 101, 102];
 
-        // Token: 0x04000D78 RID: 3448
         private DelayedDispatcher dd;
 
-        // Token: 0x04000D79 RID: 3449
         public gameWonDelegate gameSceneDelegate_gameWon;
 
-        // Token: 0x04000D7A RID: 3450
         public gameLostDelegate gameSceneDelegate_gameLost;
 
-        // Token: 0x04000D7B RID: 3451
         private AnimationsPool aniPool;
 
-        // Token: 0x04000D7C RID: 3452
         private AnimationsPool staticAniPool;
 
-        // Token: 0x04000D7D RID: 3453
         private PollenDrawer pollenDrawer;
 
-        // Token: 0x04000D7E RID: 3454
         private TileMap back;
 
-        // Token: 0x04000D7F RID: 3455
         private CharAnim target;
 
-        // Token: 0x04000D80 RID: 3456
         private CharAnim targetIdle;
 
-        // Token: 0x04000D81 RID: 3457
         private Image support;
 
-        // Token: 0x04000D82 RID: 3458
         private GameObject candy;
 
-        // Token: 0x04000D83 RID: 3459
         private GameObject candyMain;
 
-        // Token: 0x04000D84 RID: 3460
         private GameObject candyTop;
 
-        // Token: 0x04000D85 RID: 3461
         private Animation candyBlink;
 
-        // Token: 0x04000D86 RID: 3462
         private Animation candyBubbleAnimation;
 
-        // Token: 0x04000D87 RID: 3463
         private Animation candyBubbleAnimationL;
 
-        // Token: 0x04000D88 RID: 3464
         private Animation candyBubbleAnimationR;
 
-        // Token: 0x04000D89 RID: 3465
         private bool isCandyInGhostBubbleAnimationLoaded;
 
-        // Token: 0x04000D8A RID: 3466
         private bool isCandyInGhostBubbleAnimationLeftLoaded;
 
-        // Token: 0x04000D8B RID: 3467
         private bool isCandyInGhostBubbleAnimationRightLoaded;
 
-        // Token: 0x04000D8C RID: 3468
         private CandyInGhostBubbleAnimation candyGhostBubbleAnimation;
 
-        // Token: 0x04000D8D RID: 3469
         private CandyInGhostBubbleAnimation candyGhostBubbleAnimationL;
 
-        // Token: 0x04000D8E RID: 3470
         private CandyInGhostBubbleAnimation candyGhostBubbleAnimationR;
 
-        // Token: 0x04000D8F RID: 3471
         private bool shouldRestoreSecondGhost;
 
-        // Token: 0x04000D90 RID: 3472
         private ConstraintedPoint star;
 
-        // Token: 0x04000D91 RID: 3473
         private List<Grab> bungees;
 
-        // Token: 0x04000D92 RID: 3474
         private List<Razor> razors;
 
-        // Token: 0x04000D93 RID: 3475
         private List<Spikes> spikes;
 
-        // Token: 0x04000D94 RID: 3476
         private List<Star> stars;
 
-        // Token: 0x04000D95 RID: 3477
         private List<Bubble> bubbles;
 
-        // Token: 0x04000D96 RID: 3478
         private List<Pump> pumps;
 
-        // Token: 0x04000D97 RID: 3479
         private List<Sock> socks;
 
-        // Token: 0x04000D98 RID: 3480
         private List<Bouncer> bouncers;
 
-        // Token: 0x04000D99 RID: 3481
         private List<RotatedCircle> rotatedCircles;
 
-        // Token: 0x04000D9A RID: 3482
         private List<GameObjectSpecial> tutorialImages;
 
-        // Token: 0x04000D9B RID: 3483
         private List<TutorialText> tutorials;
 
-        // Token: 0x04000D9C RID: 3484
         private List<Ghost> ghosts;
 
-        // Token: 0x04000D9D RID: 3485
         private List<SteamTube> tubes;
 
-        // Token: 0x04000D9E RID: 3486
         private GameObject candyL;
 
-        // Token: 0x04000D9F RID: 3487
         private GameObject candyR;
 
-        // Token: 0x04000DA0 RID: 3488
         private ConstraintedPoint starL;
 
-        // Token: 0x04000DA1 RID: 3489
         private ConstraintedPoint starR;
 
-        // Token: 0x04000DA2 RID: 3490
         private Animation blink;
 
-        // Token: 0x04000DA3 RID: 3491
         private readonly bool[] dragging = new bool[5];
 
-        // Token: 0x04000DA4 RID: 3492
         private readonly Vector[] startPos = new Vector[5];
 
-        // Token: 0x04000DA5 RID: 3493
         private readonly Vector[] prevStartPos = new Vector[5];
 
-        // Token: 0x04000DA6 RID: 3494
         private float ropePhysicsSpeed;
 
-        // Token: 0x04000DA7 RID: 3495
         private GameObject candyBubble;
 
-        // Token: 0x04000DA8 RID: 3496
         private GameObject candyBubbleL;
 
-        // Token: 0x04000DA9 RID: 3497
         private GameObject candyBubbleR;
 
-        // Token: 0x04000DAA RID: 3498
         private readonly Animation[] hudStar = new Animation[3];
 
-        // Token: 0x04000DAB RID: 3499
         private Camera2D camera;
 
-        // Token: 0x04000DAC RID: 3500
         private float mapWidth;
 
-        // Token: 0x04000DAD RID: 3501
         private float mapHeight;
 
-        // Token: 0x04000DAE RID: 3502
         private bool mouthOpen;
 
-        // Token: 0x04000DAF RID: 3503
         private bool noCandy;
 
-        // Token: 0x04000DB0 RID: 3504
         private int blinkTimer;
 
-        // Token: 0x04000DB1 RID: 3505
         private int idlesTimer;
 
-        // Token: 0x04000DB2 RID: 3506
         private float mouthCloseTimer;
 
-        // Token: 0x04000DB3 RID: 3507
         private float lastCandyRotateDelta;
 
-        // Token: 0x04000DB4 RID: 3508
         private float lastCandyRotateDeltaL;
 
-        // Token: 0x04000DB5 RID: 3509
         private float lastCandyRotateDeltaR;
 
-        // Token: 0x04000DB6 RID: 3510
         private bool spiderTookCandy;
 
-        // Token: 0x04000DB7 RID: 3511
         private int special;
 
-        // Token: 0x04000DB8 RID: 3512
         private bool fastenCamera;
 
-        // Token: 0x04000DB9 RID: 3513
         private float savedSockSpeed;
 
-        // Token: 0x04000DBA RID: 3514
         private Sock targetSock;
 
-        // Token: 0x04000DBB RID: 3515
         private int ropesCutAtOnce;
 
-        // Token: 0x04000DBC RID: 3516
         private int ropesCutFromLevelStart;
 
-        // Token: 0x04000DBD RID: 3517
         private float ropeAtOnceTimer;
 
-        // Token: 0x04000DBE RID: 3518
         private int pack;
 
-        // Token: 0x04000DBF RID: 3519
         public int starsCollected;
 
-        // Token: 0x04000DC0 RID: 3520
         public int starBonus;
 
-        // Token: 0x04000DC1 RID: 3521
         public int timeBonus;
 
-        // Token: 0x04000DC2 RID: 3522
         public int score;
 
-        // Token: 0x04000DC3 RID: 3523
         public float time;
 
-        // Token: 0x04000DC4 RID: 3524
         private float initialCameraToStarDistance;
 
-        // Token: 0x04000DC5 RID: 3525
         public float dimTime;
 
-        // Token: 0x04000DC6 RID: 3526
         public int restartState;
 
-        // Token: 0x04000DC7 RID: 3527
         public bool animateRestartDim;
 
-        // Token: 0x04000DC8 RID: 3528
         private bool freezeCamera;
 
-        // Token: 0x04000DC9 RID: 3529
         private int cameraMoveMode;
 
-        // Token: 0x04000DCA RID: 3530
         private bool ignoreTouches;
 
-        // Token: 0x04000DCB RID: 3531
         private bool nightLevel;
 
-        // Token: 0x04000DCC RID: 3532
         private bool gravityNormal;
 
-        // Token: 0x04000DCD RID: 3533
         public ToggleButton gravityButton;
 
-        // Token: 0x04000DCE RID: 3534
         private int gravityTouchDown;
 
-        // Token: 0x04000DCF RID: 3535
         private bool isCandyInLantern;
 
-        // Token: 0x04000DD0 RID: 3536
         private int twoParts;
 
-        // Token: 0x04000DD1 RID: 3537
         private bool noCandyL;
 
-        // Token: 0x04000DD2 RID: 3538
         private bool noCandyR;
 
-        // Token: 0x04000DD3 RID: 3539
         private float partsDist;
 
-        // Token: 0x04000DD4 RID: 3540
         public List<Image> earthAnims;
 
-        // Token: 0x04000DD5 RID: 3541
         private int tummyTeasers;
 
-        // Token: 0x04000DD6 RID: 3542
         private Vector slastTouch;
 
-        // Token: 0x04000DD7 RID: 3543
         private readonly List<FingerCut>[] fingerCuts = new List<FingerCut>[5];
 
-        // Token: 0x04000DD8 RID: 3544
         private float JugglingTime;
 
-        // Token: 0x02000109 RID: 265
         private sealed class FingerCut : NSObject
         {
-            // Token: 0x04000DD9 RID: 3545
             public Vector start;
 
-            // Token: 0x04000DDA RID: 3546
             public Vector end;
 
-            // Token: 0x04000DDB RID: 3547
             public float startSize;
 
-            // Token: 0x04000DDC RID: 3548
             public float endSize;
 
-            // Token: 0x04000DDD RID: 3549
             public RGBAColor c;
         }
 
-        // Token: 0x0200010A RID: 266
         private sealed class CharAnim : GameObject
         {
-            // Token: 0x06000838 RID: 2104 RVA: 0x0004A03B File Offset: 0x0004823B
             public static CharAnim CharAnim_create(Texture2D t)
             {
                 return (CharAnim)new CharAnim().initWithTexture(t);
             }
 
-            // Token: 0x06000839 RID: 2105 RVA: 0x0004A04D File Offset: 0x0004824D
             public static CharAnim CharAnim_createWithResID(int r)
             {
                 return CharAnim_create(Application.getTexture(r));
             }
 
-            // Token: 0x0600083A RID: 2106 RVA: 0x0004A05C File Offset: 0x0004825C
             public static CharAnim CharAnim_createWithResIDQuad(int r, int q)
             {
                 CharAnim charAnim = CharAnim_create(Application.getTexture(r));
@@ -4341,7 +4132,6 @@ namespace ctr_wp7.game
                 return charAnim;
             }
 
-            // Token: 0x0600083B RID: 2107 RVA: 0x0004A080 File Offset: 0x00048280
             public override void playTimeline(int t)
             {
                 if (getTimeline(t) == null)
@@ -4362,7 +4152,6 @@ namespace ctr_wp7.game
                 }
             }
 
-            // Token: 0x0600083C RID: 2108 RVA: 0x0004A0E8 File Offset: 0x000482E8
             public override void switchToAnimationatEndOfAnimationDelay(int a2, int a1, float d)
             {
                 Timeline timeline = getTimeline(a1);
@@ -4370,29 +4159,23 @@ namespace ctr_wp7.game
                 timeline.addKeyFrame(KeyFrame.makeAction(list, d));
             }
 
-            // Token: 0x04000DDE RID: 3550
             public CharAnim o;
 
-            // Token: 0x04000DDF RID: 3551
             public bool disableAnimations;
         }
 
-        // Token: 0x0200010B RID: 267
         private sealed class GameObjectSpecial : CTRGameObject
         {
-            // Token: 0x0600083E RID: 2110 RVA: 0x0004A12B File Offset: 0x0004832B
             public static GameObjectSpecial GameObjectSpecial_create(Texture2D t)
             {
                 return (GameObjectSpecial)new GameObjectSpecial().initWithTexture(t);
             }
 
-            // Token: 0x0600083F RID: 2111 RVA: 0x0004A13D File Offset: 0x0004833D
             public static GameObjectSpecial GameObjectSpecial_createWithResID(int r)
             {
                 return GameObjectSpecial_create(Application.getTexture(r));
             }
 
-            // Token: 0x06000840 RID: 2112 RVA: 0x0004A14C File Offset: 0x0004834C
             public static GameObjectSpecial GameObjectSpecial_createWithResIDQuad(int r, int q)
             {
                 GameObjectSpecial gameObjectSpecial = GameObjectSpecial_create(Application.getTexture(r));
@@ -4400,38 +4183,28 @@ namespace ctr_wp7.game
                 return gameObjectSpecial;
             }
 
-            // Token: 0x04000DE0 RID: 3552
             public int special;
         }
 
-        // Token: 0x0200010C RID: 268
         private sealed class SCandy : ConstraintedPoint
         {
-            // Token: 0x04000DE1 RID: 3553
             public bool good;
 
-            // Token: 0x04000DE2 RID: 3554
             public float speed;
 
-            // Token: 0x04000DE3 RID: 3555
             public float angle;
 
-            // Token: 0x04000DE4 RID: 3556
             public float lastAngleChange;
         }
 
-        // Token: 0x0200010D RID: 269
         private sealed class TutorialText : Text
         {
-            // Token: 0x04000DE5 RID: 3557
             public int special;
         }
 
-        // Token: 0x0200010E RID: 270
         // (Invoke) Token: 0x06000845 RID: 2117
         public delegate void gameWonDelegate();
 
-        // Token: 0x0200010F RID: 271
         // (Invoke) Token: 0x06000849 RID: 2121
         public delegate void gameLostDelegate();
     }

@@ -6,10 +6,8 @@ using ctr_wp7.ios;
 
 namespace ctr_wp7.game
 {
-    // Token: 0x02000090 RID: 144
     internal sealed class CartoonsAfterwatchView : MenuView
     {
-        // Token: 0x0600044B RID: 1099 RVA: 0x0001E090 File Offset: 0x0001C290
         public NSObject initFullscreenBackgroundDelegate(BaseElement background, ButtonDelegate d)
         {
             if (initFullscreen() != null)
@@ -63,13 +61,11 @@ namespace ctr_wp7.game
             return this;
         }
 
-        // Token: 0x0600044C RID: 1100 RVA: 0x0001E3C0 File Offset: 0x0001C5C0
         public void renumberEpisode(NSString newnumber)
         {
             titletext.setString(Application.getString(1310836).ToString().Replace("%@", newnumber.ToString()));
         }
 
-        // Token: 0x0600044D RID: 1101 RVA: 0x0001E3EC File Offset: 0x0001C5EC
         public void setLast(bool last)
         {
             isLast = last;
@@ -92,28 +88,20 @@ namespace ctr_wp7.game
             }
         }
 
-        // Token: 0x04000990 RID: 2448
         private int texID;
 
-        // Token: 0x04000991 RID: 2449
         private int shineID;
 
-        // Token: 0x04000992 RID: 2450
         private bool isLast;
 
-        // Token: 0x04000993 RID: 2451
         private Text titletext;
 
-        // Token: 0x04000994 RID: 2452
         private Text replaytext;
 
-        // Token: 0x04000995 RID: 2453
         private Button replay;
 
-        // Token: 0x04000996 RID: 2454
         private Text nexttext;
 
-        // Token: 0x04000997 RID: 2455
         private Button next;
     }
 }

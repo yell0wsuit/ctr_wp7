@@ -5,16 +5,13 @@ using ctr_wp7.ios;
 
 namespace ctr_wp7.Specials
 {
-    // Token: 0x0200005D RID: 93
     internal sealed class LiftScrollbar : Image
     {
-        // Token: 0x060002CA RID: 714 RVA: 0x00011FD4 File Offset: 0x000101D4
         public static LiftScrollbar createWithResIDBackQuadLiftQuadLiftQuadPressed(int resID, int bq, int lq, int lqp)
         {
             return (LiftScrollbar)new LiftScrollbar().initWithResIDBackQuadLiftQuadLiftQuadPressed(resID, bq, lq, lqp);
         }
 
-        // Token: 0x060002CB RID: 715 RVA: 0x00011FEC File Offset: 0x000101EC
         public NSObject initWithResIDBackQuadLiftQuadLiftQuadPressed(int resID, int bq, int lq, int lqp)
         {
             if (initWithTexture(Application.getTexture(resID)) != null)
@@ -32,14 +29,12 @@ namespace ctr_wp7.Specials
             return this;
         }
 
-        // Token: 0x060002CC RID: 716 RVA: 0x0001208C File Offset: 0x0001028C
         public void percentXY(float px, float py)
         {
             Vector maxScroll = container.getMaxScroll();
             container.setScroll(vect(maxScroll.x * px, maxScroll.y * py));
         }
 
-        // Token: 0x060002CD RID: 717 RVA: 0x000120C8 File Offset: 0x000102C8
         public override void update(float delta)
         {
             base.update(delta);
@@ -59,14 +54,12 @@ namespace ctr_wp7.Specials
             lift.y = ((lift.maxY - lift.minY) * num2) + lift.minY;
         }
 
-        // Token: 0x060002CE RID: 718 RVA: 0x0001219C File Offset: 0x0001039C
         public override void dealloc()
         {
             container = null;
             base.dealloc();
         }
 
-        // Token: 0x060002CF RID: 719 RVA: 0x000121AC File Offset: 0x000103AC
         public override bool onTouchUpXY(float tx, float ty)
         {
             bool flag = base.onTouchUpXY(tx, ty);
@@ -74,10 +67,8 @@ namespace ctr_wp7.Specials
             return flag;
         }
 
-        // Token: 0x040008B8 RID: 2232
         private Lift lift;
 
-        // Token: 0x040008B9 RID: 2233
         public ScrollableContainer container;
     }
 }

@@ -14,10 +14,8 @@ using Microsoft.Xna.Framework;
 
 namespace ctr_wp7.ios
 {
-    // Token: 0x020000F4 RID: 244
     internal sealed class XMLNode
     {
-        // Token: 0x06000762 RID: 1890 RVA: 0x0003B173 File Offset: 0x00039373
         public XMLNode()
         {
             parent = null;
@@ -25,27 +23,22 @@ namespace ctr_wp7.ios
             attributes_ = [];
         }
 
-        // Token: 0x1700001F RID: 31
         // (get) Token: 0x06000763 RID: 1891 RVA: 0x0003B198 File Offset: 0x00039398
         public string Name => name;
 
-        // Token: 0x17000020 RID: 32
         // (get) Token: 0x06000764 RID: 1892 RVA: 0x0003B1A0 File Offset: 0x000393A0
         public NSString data => value;
 
-        // Token: 0x06000765 RID: 1893 RVA: 0x0003B1A8 File Offset: 0x000393A8
         public bool attributes()
         {
             return attributes_ != null && attributes_.Count > 0;
         }
 
-        // Token: 0x06000766 RID: 1894 RVA: 0x0003B1C2 File Offset: 0x000393C2
         public List<XMLNode> childs()
         {
             return childs_;
         }
 
-        // Token: 0x17000021 RID: 33
         public NSString this[string key]
         {
             get
@@ -54,7 +47,6 @@ namespace ctr_wp7.ios
             }
         }
 
-        // Token: 0x06000768 RID: 1896 RVA: 0x0003B1FC File Offset: 0x000393FC
         public XMLNode findChildWithTagNameAndAttributeNameValueRecursively(string tag, string attrName, string attrVal, bool recursively)
         {
             if (childs() == null)
@@ -79,13 +71,11 @@ namespace ctr_wp7.ios
             return null;
         }
 
-        // Token: 0x06000769 RID: 1897 RVA: 0x0003B2A8 File Offset: 0x000394A8
         public XMLNode findChildWithTagNameRecursively(NSString tag, bool recursively)
         {
             return findChildWithTagNameRecursively(tag.ToString(), recursively);
         }
 
-        // Token: 0x0600076A RID: 1898 RVA: 0x0003B2B8 File Offset: 0x000394B8
         public XMLNode findChildWithTagNameRecursively(string tag, bool recursively)
         {
             if (childs() == null)
@@ -110,7 +100,6 @@ namespace ctr_wp7.ios
             return null;
         }
 
-        // Token: 0x0600076B RID: 1899 RVA: 0x0003B340 File Offset: 0x00039540
         public List<XMLNode> getElementsByTagName(string tag)
         {
             List<XMLNode> list = [];
@@ -124,7 +113,6 @@ namespace ctr_wp7.ios
             return list;
         }
 
-        // Token: 0x0600076C RID: 1900 RVA: 0x0003B3A8 File Offset: 0x000395A8
         private static XMLNode ReadNode(XmlReader textReader, XMLNode parent)
         {
             while (textReader.NodeType != XmlNodeType.Element && textReader.Read())
@@ -171,19 +159,16 @@ namespace ctr_wp7.ios
             goto IL_009D;
         }
 
-        // Token: 0x0600076D RID: 1901 RVA: 0x0003B488 File Offset: 0x00039688
         public static XMLNode parseXML(string fileName)
         {
             return ParseLINQ(fileName);
         }
 
-        // Token: 0x0600076E RID: 1902 RVA: 0x0003B490 File Offset: 0x00039690
         public static void parseXML_URL(string URL, RemoteDataManager_Java MGR)
         {
             ParseLINQ_URL(URL, MGR);
         }
 
-        // Token: 0x0600076F RID: 1903 RVA: 0x0003B49C File Offset: 0x0003969C
         private static XMLNode ReadNodeLINQ(XElement nodeLinq, XMLNode parent)
         {
             XMLNode xmlnode = new();
@@ -211,7 +196,6 @@ namespace ctr_wp7.ios
             return xmlnode;
         }
 
-        // Token: 0x06000770 RID: 1904 RVA: 0x0003B594 File Offset: 0x00039794
         private static XMLNode ParseLINQ(string fileName)
         {
             XDocument xdocument = null;
@@ -290,7 +274,6 @@ namespace ctr_wp7.ios
             return null;
         }
 
-        // Token: 0x06000771 RID: 1905 RVA: 0x0003B638 File Offset: 0x00039838
         private static void ParseLINQ_URL(string URL, RemoteDataManager_Java MGR)
         {
             MGR_STORED = MGR;
@@ -298,7 +281,6 @@ namespace ctr_wp7.ios
             _ = webRequest.BeginGetResponse(new AsyncCallback(Response_Completed), webRequest);
         }
 
-        // Token: 0x06000772 RID: 1906 RVA: 0x0003B668 File Offset: 0x00039868
         private static void Response_Completed(IAsyncResult result)
         {
             try
@@ -319,25 +301,18 @@ namespace ctr_wp7.ios
             }
         }
 
-        // Token: 0x04000CE6 RID: 3302
         private int depth;
 
-        // Token: 0x04000CE7 RID: 3303
         private XMLNode parent;
 
-        // Token: 0x04000CE8 RID: 3304
         private readonly List<XMLNode> childs_;
 
-        // Token: 0x04000CE9 RID: 3305
         private string name;
 
-        // Token: 0x04000CEA RID: 3306
         private NSString value;
 
-        // Token: 0x04000CEB RID: 3307
         private readonly Dictionary<string, string> attributes_;
 
-        // Token: 0x04000CEC RID: 3308
         private static RemoteDataManager_Java MGR_STORED;
     }
 }

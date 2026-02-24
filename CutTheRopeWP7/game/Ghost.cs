@@ -7,10 +7,8 @@ using ctr_wp7.iframework.visual;
 
 namespace ctr_wp7.game
 {
-    // Token: 0x02000015 RID: 21
     internal sealed class Ghost : BaseElement, TimelineDelegate
     {
-        // Token: 0x06000110 RID: 272 RVA: 0x000090F8 File Offset: 0x000072F8
         public Ghost initWithPositionPossibleStatesMaskGrabRadiusBouncerAngleBubblesBungeesBouncers(Vector position, int possibleStateMask, float grabRadius, float bouncerAngle, List<Bubble> bubbles, List<Grab> bungees, List<Bouncer> bouncers)
         {
             if (init() != null)
@@ -73,7 +71,6 @@ namespace ctr_wp7.game
             return this;
         }
 
-        // Token: 0x06000111 RID: 273 RVA: 0x00009454 File Offset: 0x00007654
         public override void dealloc()
         {
             bubble = null;
@@ -87,7 +84,6 @@ namespace ctr_wp7.game
             base.dealloc();
         }
 
-        // Token: 0x06000112 RID: 274 RVA: 0x00009494 File Offset: 0x00007694
         public override void update(float delta)
         {
             if (bubble != null && bubble.getCurrentTimelineIndex() == 11 && bubble.getCurrentTimeline().state == Timeline.TimelineState.TIMELINE_STOPPED)
@@ -114,7 +110,6 @@ namespace ctr_wp7.game
             }
         }
 
-        // Token: 0x06000113 RID: 275 RVA: 0x000095C0 File Offset: 0x000077C0
         public void resetToState(int newState)
         {
             if ((newState & possibleStatesMask) == 0)
@@ -236,7 +231,6 @@ namespace ctr_wp7.game
             CTRSoundMgr._playSound(60);
         }
 
-        // Token: 0x06000114 RID: 276 RVA: 0x000099AC File Offset: 0x00007BAC
         public void resetToNextState()
         {
             int num = ghostState;
@@ -252,7 +246,6 @@ namespace ctr_wp7.game
             resetToState(num);
         }
 
-        // Token: 0x06000115 RID: 277 RVA: 0x000099DC File Offset: 0x00007BDC
         public override bool onTouchDownXY(float tx, float ty)
         {
             float num = vectLength(vectSub(vect(tx, ty), vect(x, y)));
@@ -264,12 +257,10 @@ namespace ctr_wp7.game
             return false;
         }
 
-        // Token: 0x06000116 RID: 278 RVA: 0x00009A2D File Offset: 0x00007C2D
         public void timelinereachedKeyFramewithIndex(Timeline t, KeyFrame k, int i)
         {
         }
 
-        // Token: 0x06000117 RID: 279 RVA: 0x00009A30 File Offset: 0x00007C30
         public void timelineFinished(Timeline t)
         {
             if (t.element == ghostImageFace)
@@ -298,67 +289,46 @@ namespace ctr_wp7.game
             }
         }
 
-        // Token: 0x0400074A RID: 1866
         private const float GHOST_MORPHING_APPEAR_TIME = 0.36f;
 
-        // Token: 0x0400074B RID: 1867
         private const double GHOST_MORPHING_DISAPPEAR_TIME = 0.16;
 
-        // Token: 0x0400074C RID: 1868
         private const int GHOST_MORPHING_BUBBLES_COUNT = 7;
 
-        // Token: 0x0400074D RID: 1869
         private const float GHOST_TOUCH_RADIUS = 40f;
 
-        // Token: 0x0400074E RID: 1870
         public int ghostState;
 
-        // Token: 0x0400074F RID: 1871
         public Bubble bubble;
 
-        // Token: 0x04000750 RID: 1872
         public Grab grab;
 
-        // Token: 0x04000751 RID: 1873
         public Bouncer bouncer;
 
-        // Token: 0x04000752 RID: 1874
         public bool cyclingEnabled;
 
-        // Token: 0x04000753 RID: 1875
         public float grabRadius;
 
-        // Token: 0x04000754 RID: 1876
         public bool candyBreak;
 
-        // Token: 0x04000755 RID: 1877
         public int possibleStatesMask;
 
-        // Token: 0x04000756 RID: 1878
         public float bouncerAngle;
 
-        // Token: 0x04000757 RID: 1879
         public BaseElement ghostImage;
 
-        // Token: 0x04000758 RID: 1880
         public Image ghostImageBody;
 
-        // Token: 0x04000759 RID: 1881
         public Image ghostImageFace;
 
-        // Token: 0x0400075A RID: 1882
         public List<Bubble> gsBubbles;
 
-        // Token: 0x0400075B RID: 1883
         public List<Grab> gsBungees;
 
-        // Token: 0x0400075C RID: 1884
         public List<Bouncer> gsBouncers;
 
-        // Token: 0x0400075D RID: 1885
         public GhostMorphingParticles morphingBubbles;
 
-        // Token: 0x0400075E RID: 1886
         public GhostMorphingCloud morphingCloud;
     }
 }

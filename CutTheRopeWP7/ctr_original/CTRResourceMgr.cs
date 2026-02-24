@@ -6,41 +6,34 @@ using ctr_wp7.ios;
 
 namespace ctr_wp7.ctr_original
 {
-    // Token: 0x020000B9 RID: 185
     internal sealed class CTRResourceMgr : ResourceMgr
     {
-        // Token: 0x0600053C RID: 1340 RVA: 0x0002644D File Offset: 0x0002464D
         public override NSObject init()
         {
             _ = base.init();
             return this;
         }
 
-        // Token: 0x0600053D RID: 1341 RVA: 0x00026457 File Offset: 0x00024657
         public static int handleResource(int r)
         {
             return handleLocalizedResource(handleWvgaResource(r));
         }
 
-        // Token: 0x0600053E RID: 1342 RVA: 0x00026464 File Offset: 0x00024664
         public override float getNormalScaleX(int r)
         {
             return 1f;
         }
 
-        // Token: 0x0600053F RID: 1343 RVA: 0x0002646B File Offset: 0x0002466B
         public override float getNormalScaleY(int r)
         {
             return 1f;
         }
 
-        // Token: 0x06000540 RID: 1344 RVA: 0x00026472 File Offset: 0x00024672
         public override float getWvgaScaleX(int r)
         {
             return 1.5f;
         }
 
-        // Token: 0x06000541 RID: 1345 RVA: 0x0002647C File Offset: 0x0002467C
         public override float getWvgaScaleY(int r)
         {
             if (r != 79)
@@ -105,7 +98,6 @@ namespace ctr_wp7.ctr_original
             return 1.6666666f;
         }
 
-        // Token: 0x06000542 RID: 1346 RVA: 0x00026560 File Offset: 0x00024760
         public override bool isWvgaResource(int r)
         {
             if (!IS_WVGA)
@@ -479,7 +471,6 @@ namespace ctr_wp7.ctr_original
             return true;
         }
 
-        // Token: 0x06000543 RID: 1347 RVA: 0x00026B08 File Offset: 0x00024D08
         public static int handleWvgaResource(int r)
         {
             if (!IS_WVGA)
@@ -1011,7 +1002,6 @@ namespace ctr_wp7.ctr_original
             return r;
         }
 
-        // Token: 0x06000544 RID: 1348 RVA: 0x00027438 File Offset: 0x00025638
         public static int handleLocalizedResource(int r)
         {
             if (r <= 86)
@@ -1288,7 +1278,6 @@ namespace ctr_wp7.ctr_original
             return r;
         }
 
-        // Token: 0x06000545 RID: 1349 RVA: 0x000277D4 File Offset: 0x000259D4
         public static string XNA_ResName(int resId)
         {
             if (resNames_ == null)
@@ -1712,25 +1701,21 @@ namespace ctr_wp7.ctr_original
             return text;
         }
 
-        // Token: 0x06000546 RID: 1350 RVA: 0x00029027 File Offset: 0x00027227
         public override NSObject loadResource(int resID, ResourceType resType)
         {
             return base.loadResource(handleLocalizedResource(handleWvgaResource(resID)), resType);
         }
 
-        // Token: 0x06000547 RID: 1351 RVA: 0x0002903B File Offset: 0x0002723B
         public override void freeResource(int resID)
         {
             base.freeResource(handleLocalizedResource(handleWvgaResource(resID)));
         }
 
-        // Token: 0x06000548 RID: 1352 RVA: 0x0002904E File Offset: 0x0002724E
         public override float getScaleX(int r)
         {
             return CHOOSE3(1.0, 1.5, 2.5);
         }
 
-        // Token: 0x06000549 RID: 1353 RVA: 0x00029070 File Offset: 0x00027270
         public override float getScaleY(int r)
         {
             if (r <= 79)
@@ -1832,7 +1817,6 @@ namespace ctr_wp7.ctr_original
             return CHOOSE3(1.0, 1.5, 2.5);
         }
 
-        // Token: 0x04000A8A RID: 2698
         private static Dictionary<int, string> resNames_;
     }
 }

@@ -5,47 +5,39 @@ using System.Threading;
 
 using Microsoft.Xna.Framework.GamerServices;
 
-// Token: 0x020000F2 RID: 242
 internal sealed class DeviceParams
 {
-    // Token: 0x06000741 RID: 1857 RVA: 0x0003AA5C File Offset: 0x00038C5C
     public static bool isEnglishISO(string s)
     {
         return (s[0] == 'e' && s[1] == 's') || s == "en-US";
     }
 
-    // Token: 0x06000742 RID: 1858 RVA: 0x0003AA84 File Offset: 0x00038C84
     private static string getDeviceLanguage2L()
     {
         return CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
     }
 
-    // Token: 0x06000743 RID: 1859 RVA: 0x0003AA90 File Offset: 0x00038C90
     private static string getDeviceLanguageName()
     {
         return Thread.CurrentThread.CurrentCulture.Name;
     }
 
-    // Token: 0x06000744 RID: 1860 RVA: 0x0003AAA4 File Offset: 0x00038CA4
     public static int getTimeZoneOffset()
     {
         return TimeZoneInfo.Local.BaseUtcOffset.Hours;
     }
 
-    // Token: 0x06000745 RID: 1861 RVA: 0x0003AAC4 File Offset: 0x00038CC4
     public static bool isEnglishDevice()
     {
         int timeZoneOffset = getTimeZoneOffset();
         return isEnglishISO(getDeviceLanguageName()) && timeZoneOffset >= -11 && timeZoneOffset <= -4 && timeZoneOffset != -9;
     }
 
-    // Token: 0x06000746 RID: 1862 RVA: 0x0003AAF8 File Offset: 0x00038CF8
     private static string string_isEnglishDevice()
     {
         return isEnglishDevice() ? "Yes" : "No";
     }
 
-    // Token: 0x06000747 RID: 1863 RVA: 0x0003AB18 File Offset: 0x00038D18
     public static void ShowMessageBox()
     {
         string text = "Is english device";
@@ -57,6 +49,5 @@ internal sealed class DeviceParams
         }, null);
     }
 
-    // Token: 0x04000CD7 RID: 3287
     public int owner_years_old;
 }

@@ -8,24 +8,20 @@ using ctr_wp7.ios;
 
 namespace ctr_wp7.iframework.core
 {
-    // Token: 0x0200006D RID: 109
     internal class ResourceMgr : NSObject
     {
-        // Token: 0x06000336 RID: 822 RVA: 0x000148D0 File Offset: 0x00012AD0
         public virtual bool hasResource(int resID)
         {
             _ = s_Resources.TryGetValue(resID, out NSObject nsobject);
             return nsobject != null;
         }
 
-        // Token: 0x06000337 RID: 823 RVA: 0x000148F5 File Offset: 0x00012AF5
         public virtual void addResourceToLoadQueue(int resID)
         {
             loadQueue.Add(resID);
             loadCount++;
         }
 
-        // Token: 0x06000338 RID: 824 RVA: 0x00014914 File Offset: 0x00012B14
         public virtual NSObject loadResource(int resID, ResourceType resType)
         {
             if (s_Resources.TryGetValue(resID, out NSObject nsobject))
@@ -68,13 +64,11 @@ namespace ctr_wp7.iframework.core
             return nsobject;
         }
 
-        // Token: 0x06000339 RID: 825 RVA: 0x000149FF File Offset: 0x00012BFF
         public virtual NSObject loadSoundInfo(string path)
         {
             return new NSObject().init();
         }
 
-        // Token: 0x0600033A RID: 826 RVA: 0x00014A0C File Offset: 0x00012C0C
         public NSString loadStringsInfo(int key)
         {
             key &= 65535;
@@ -129,7 +123,6 @@ namespace ctr_wp7.iframework.core
             return new NSString();
         }
 
-        // Token: 0x0600033B RID: 827 RVA: 0x00014AFC File Offset: 0x00012CFC
         public virtual FontGeneric loadVariableFontInfo(string path, int resID, bool isWvga)
         {
             XMLNode xmlnode = XMLNode.parseXML(path);
@@ -148,7 +141,6 @@ namespace ctr_wp7.iframework.core
             return fontGeneric;
         }
 
-        // Token: 0x0600033C RID: 828 RVA: 0x00014BA0 File Offset: 0x00012DA0
         public virtual Texture2D loadTextureImageInfo(string path, XMLNode i, bool isWvga, float scaleX, float scaleY)
         {
             i ??= XMLNode.parseXML(path);
@@ -208,7 +200,6 @@ namespace ctr_wp7.iframework.core
             return texture2D;
         }
 
-        // Token: 0x0600033D RID: 829 RVA: 0x00014C3C File Offset: 0x00012E3C
         public virtual Texture2D loadTextureImageInfo(string path)
         {
             Texture2D.setAntiAliasTexParameters();
@@ -221,7 +212,6 @@ namespace ctr_wp7.iframework.core
             return texture2D;
         }
 
-        // Token: 0x0600033E RID: 830 RVA: 0x00014C80 File Offset: 0x00012E80
         public virtual void setTextureInfo(Texture2D t, XMLNode i, bool isWvga, float scaleX, float scaleY)
         {
             t.preCutSize = vectUndefined;
@@ -266,13 +256,11 @@ namespace ctr_wp7.iframework.core
             }
         }
 
-        // Token: 0x0600033F RID: 831 RVA: 0x00014E08 File Offset: 0x00013008
         private static string fullPathFromRelativePath(string relPath)
         {
             return ContentFolder + relPath;
         }
 
-        // Token: 0x06000340 RID: 832 RVA: 0x00014E18 File Offset: 0x00013018
         private static void setQuadsInfo(Texture2D t, float[] data, int size, float scaleX, float scaleY)
         {
             int num = data.Length / 4;
@@ -299,7 +287,6 @@ namespace ctr_wp7.iframework.core
             Texture2D.optimizeMemory();
         }
 
-        // Token: 0x06000341 RID: 833 RVA: 0x00014EE8 File Offset: 0x000130E8
         private static void setOffsetsInfo(Texture2D t, float[] data, int size, float scaleX, float scaleY)
         {
             int num = size / 2;
@@ -317,37 +304,31 @@ namespace ctr_wp7.iframework.core
             }
         }
 
-        // Token: 0x06000342 RID: 834 RVA: 0x00014F67 File Offset: 0x00013167
         public virtual bool isWvgaResource(int r)
         {
             return true;
         }
 
-        // Token: 0x06000343 RID: 835 RVA: 0x00014F6A File Offset: 0x0001316A
         public virtual float getNormalScaleX(int r)
         {
             return 1f;
         }
 
-        // Token: 0x06000344 RID: 836 RVA: 0x00014F71 File Offset: 0x00013171
         public virtual float getNormalScaleY(int r)
         {
             return 1f;
         }
 
-        // Token: 0x06000345 RID: 837 RVA: 0x00014F78 File Offset: 0x00013178
         public virtual float getWvgaScaleX(int r)
         {
             return 1.5f;
         }
 
-        // Token: 0x06000346 RID: 838 RVA: 0x00014F7F File Offset: 0x0001317F
         public virtual float getWvgaScaleY(int r)
         {
             return 1.5f;
         }
 
-        // Token: 0x06000347 RID: 839 RVA: 0x00014F86 File Offset: 0x00013186
         public virtual void initLoading()
         {
             loadQueue.Clear();
@@ -355,13 +336,11 @@ namespace ctr_wp7.iframework.core
             loadCount = 0;
         }
 
-        // Token: 0x06000348 RID: 840 RVA: 0x00014FA1 File Offset: 0x000131A1
         public virtual int getPercentLoaded()
         {
             return loadCount == 0 ? 100 : 100 * loaded / getLoadCount();
         }
 
-        // Token: 0x06000349 RID: 841 RVA: 0x00014FC0 File Offset: 0x000131C0
         public virtual void loadPack(int[] pack)
         {
             int num = 0;
@@ -372,7 +351,6 @@ namespace ctr_wp7.iframework.core
             }
         }
 
-        // Token: 0x0600034A RID: 842 RVA: 0x00014FE4 File Offset: 0x000131E4
         public virtual void freePack(int[] pack)
         {
             int num = 0;
@@ -383,7 +361,6 @@ namespace ctr_wp7.iframework.core
             }
         }
 
-        // Token: 0x0600034B RID: 843 RVA: 0x00015008 File Offset: 0x00013208
         public virtual void loadImmediately()
         {
             while (loadQueue.Count != 0)
@@ -395,7 +372,6 @@ namespace ctr_wp7.iframework.core
             }
         }
 
-        // Token: 0x0600034C RID: 844 RVA: 0x00015052 File Offset: 0x00013252
         public virtual void startLoading()
         {
             if (resourcesDelegate != null)
@@ -405,13 +381,11 @@ namespace ctr_wp7.iframework.core
             bUseFake = loadQueue.Count < 100;
         }
 
-        // Token: 0x0600034D RID: 845 RVA: 0x0001508E File Offset: 0x0001328E
         private int getLoadCount()
         {
             return !bUseFake ? loadCount : 100;
         }
 
-        // Token: 0x0600034E RID: 846 RVA: 0x000150A4 File Offset: 0x000132A4
         public void update()
         {
             if (loadQueue.Count > 0)
@@ -432,13 +406,11 @@ namespace ctr_wp7.iframework.core
             }
         }
 
-        // Token: 0x0600034F RID: 847 RVA: 0x00015121 File Offset: 0x00013321
         private static void rmgr_internalUpdate(NSObject obj)
         {
             ((ResourceMgr)obj).update();
         }
 
-        // Token: 0x06000350 RID: 848 RVA: 0x00015130 File Offset: 0x00013330
         private void loadResource(int resId)
         {
             if (411 < resId)
@@ -474,7 +446,6 @@ namespace ctr_wp7.iframework.core
             }
         }
 
-        // Token: 0x06000351 RID: 849 RVA: 0x000151A8 File Offset: 0x000133A8
         public virtual void freeResource(int resId)
         {
             if (411 < resId)
@@ -498,56 +469,39 @@ namespace ctr_wp7.iframework.core
             }
         }
 
-        // Token: 0x06000352 RID: 850 RVA: 0x00015207 File Offset: 0x00013407
         public virtual float getScaleX(int r)
         {
             return 1f;
         }
 
-        // Token: 0x06000353 RID: 851 RVA: 0x0001520E File Offset: 0x0001340E
         public virtual float getScaleY(int r)
         {
             return 1f;
         }
 
-        // Token: 0x040008DD RID: 2269
         public ResourceMgrDelegate resourcesDelegate;
 
-        // Token: 0x040008DE RID: 2270
         private readonly Dictionary<int, NSObject> s_Resources = [];
 
-        // Token: 0x040008DF RID: 2271
         private XMLNode xmlStrings;
 
-        // Token: 0x040008E0 RID: 2272
         private int loaded;
 
-        // Token: 0x040008E1 RID: 2273
         private int loadCount;
 
-        // Token: 0x040008E2 RID: 2274
         private readonly List<int> loadQueue = [];
 
-        // Token: 0x040008E3 RID: 2275
         private int Timer;
 
-        // Token: 0x040008E4 RID: 2276
         private bool bUseFake;
 
-        // Token: 0x0200006E RID: 110
         public enum ResourceType
         {
-            // Token: 0x040008E6 RID: 2278
             IMAGE,
-            // Token: 0x040008E7 RID: 2279
             FONT,
-            // Token: 0x040008E8 RID: 2280
             SOUND,
-            // Token: 0x040008E9 RID: 2281
             BINARY,
-            // Token: 0x040008EA RID: 2282
             STRINGS,
-            // Token: 0x040008EB RID: 2283
             ELEMENT
         }
     }

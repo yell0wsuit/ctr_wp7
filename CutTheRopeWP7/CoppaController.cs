@@ -7,16 +7,13 @@ using ctr_wp7.iframework.core;
 using ctr_wp7.iframework.visual;
 using ctr_wp7.ios;
 
-// Token: 0x020000DD RID: 221
 internal sealed class CoppaController : ViewController, ButtonDelegate, TimelineDelegate
 {
-    // Token: 0x0600066B RID: 1643 RVA: 0x000312E5 File Offset: 0x0002F4E5
     private new void addViewwithID(View view, int n)
     {
         base.addViewwithID(view, n);
     }
 
-    // Token: 0x0600066C RID: 1644 RVA: 0x000312F0 File Offset: 0x0002F4F0
     public override NSObject initWithParent(ViewController p)
     {
         _ = base.initWithParent(p);
@@ -92,7 +89,6 @@ internal sealed class CoppaController : ViewController, ButtonDelegate, Timeline
         return this;
     }
 
-    // Token: 0x0600066D RID: 1645 RVA: 0x00031818 File Offset: 0x0002FA18
     public void onButtonPressed(int a)
     {
         CTRSoundMgr._playSound(21);
@@ -133,106 +129,81 @@ internal sealed class CoppaController : ViewController, ButtonDelegate, Timeline
         rollbar.scrollWithSpeed(100f);
     }
 
-    // Token: 0x0600066E RID: 1646 RVA: 0x0003191C File Offset: 0x0002FB1C
     public void timelineFinished(Timeline tl)
     {
     }
 
-    // Token: 0x0600066F RID: 1647 RVA: 0x0003191E File Offset: 0x0002FB1E
     public void timelinereachedKeyFramewithIndex(Timeline tl, KeyFrame kf, int a)
     {
     }
 
-    // Token: 0x06000670 RID: 1648 RVA: 0x00031920 File Offset: 0x0002FB20
     public override void showView(int n)
     {
         base.showView(n);
     }
 
-    // Token: 0x06000671 RID: 1649 RVA: 0x00031929 File Offset: 0x0002FB29
     private bool ageValid()
     {
         return getSelectedAge() >= minAge && getSelectedAge() <= maxAge;
     }
 
-    // Token: 0x06000672 RID: 1650 RVA: 0x0003194A File Offset: 0x0002FB4A
     private int getSelectedAge()
     {
         return roll.getIndex() + 1;
     }
 
-    // Token: 0x06000673 RID: 1651 RVA: 0x00031959 File Offset: 0x0002FB59
     public override void activate()
     {
         base.activate();
         showView(COPPA_VIEW_MAIN);
     }
 
-    // Token: 0x06000674 RID: 1652 RVA: 0x0003196C File Offset: 0x0002FB6C
     public override void update(float delta)
     {
         base.update(delta);
         okb.color = new RGBAColor(1f, 1f, 1f, ((ageValid() ? 1 : 0) + 1) * 0.5f);
     }
 
-    // Token: 0x06000675 RID: 1653 RVA: 0x000319AC File Offset: 0x0002FBAC
     public static void trackCoppaParams(int age)
     {
         string text = string.Format("{0}age={1}&app={2}", COPPA_URL, age, getAppName());
         _ = WebRequest.Create(text);
     }
 
-    // Token: 0x06000676 RID: 1654 RVA: 0x000319DC File Offset: 0x0002FBDC
     public static NSString getAppName()
     {
         return NSS("ctr");
     }
 
-    // Token: 0x04000BDF RID: 3039
     private Button okb;
 
-    // Token: 0x04000BE0 RID: 3040
     private Rollbar roll;
 
-    // Token: 0x04000BE1 RID: 3041
     private static readonly string COPPA_URL = "http://coppa.zeptodev.com/?";
 
-    // Token: 0x04000BE2 RID: 3042
     private static readonly int speedAccelerator = 2;
 
-    // Token: 0x04000BE3 RID: 3043
     private static readonly int blankSpaceTop = 2;
 
-    // Token: 0x04000BE4 RID: 3044
     private static readonly int blankSpaceBottom = 1;
 
-    // Token: 0x04000BE5 RID: 3045
     private static readonly int minAge = 1;
 
-    // Token: 0x04000BE6 RID: 3046
     private static readonly int maxAge = 99;
 
-    // Token: 0x04000BE7 RID: 3047
     private static readonly int defaultIdx = maxAge / 4;
 
-    // Token: 0x04000BE8 RID: 3048
     private static readonly float friction = 5f;
 
-    // Token: 0x04000BE9 RID: 3049
     private static readonly float minFriction = 0.7f;
 
-    // Token: 0x04000BEA RID: 3050
     private static readonly float cellBounceSpeed = 3f;
 
-    // Token: 0x04000BEB RID: 3051
     private static readonly float boundReturnSpeed = 20f;
 
-    // Token: 0x04000BEC RID: 3052
     private static readonly int COPPA_VIEW_MAIN = 300;
 
-    // Token: 0x04000BED RID: 3053
     private static readonly int COPPA_BUTTON_OK;
 
-    // Token: 0x04000BEE RID: 3054
     private static readonly int COPPA_BUTTON_PRIVACY = 1;
 }

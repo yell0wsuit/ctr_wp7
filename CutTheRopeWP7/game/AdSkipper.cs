@@ -5,10 +5,8 @@ using ctr_wp7.ios;
 
 namespace ctr_wp7.game
 {
-    // Token: 0x020000F7 RID: 247
     internal sealed class AdSkipper : BaseElement, ButtonDelegate
     {
-        // Token: 0x0600077F RID: 1919 RVA: 0x0003B8E0 File Offset: 0x00039AE0
         public override NSObject init()
         {
             if (base.init() != null)
@@ -26,7 +24,6 @@ namespace ctr_wp7.game
             return this;
         }
 
-        // Token: 0x06000780 RID: 1920 RVA: 0x0003B972 File Offset: 0x00039B72
         public void setJskipper(object jskipper)
         {
             freeJskipper();
@@ -35,7 +32,6 @@ namespace ctr_wp7.game
             skipAd.setEnabled(true);
         }
 
-        // Token: 0x06000781 RID: 1921 RVA: 0x0003B994 File Offset: 0x00039B94
         public void freeJskipper()
         {
             if (skipper != null)
@@ -47,14 +43,12 @@ namespace ctr_wp7.game
             }
         }
 
-        // Token: 0x06000782 RID: 1922 RVA: 0x0003B9C3 File Offset: 0x00039BC3
         public override void dealloc()
         {
             freeJskipper();
             base.dealloc();
         }
 
-        // Token: 0x06000783 RID: 1923 RVA: 0x0003B9D1 File Offset: 0x00039BD1
         public override void update(float delta)
         {
             base.update(delta);
@@ -64,7 +58,6 @@ namespace ctr_wp7.game
             }
         }
 
-        // Token: 0x06000784 RID: 1924 RVA: 0x0003B9F0 File Offset: 0x00039BF0
         public void onButtonPressed(int n)
         {
             if (active)
@@ -72,19 +65,14 @@ namespace ctr_wp7.game
             }
         }
 
-        // Token: 0x04000CF5 RID: 3317
         public const int BUTTON_SKIP_AD = 0;
 
-        // Token: 0x04000CF6 RID: 3318
         private Button skipAd;
 
-        // Token: 0x04000CF7 RID: 3319
         private object skipper;
 
-        // Token: 0x04000CF8 RID: 3320
         public float timerNoDraw;
 
-        // Token: 0x04000CF9 RID: 3321
         public bool active;
     }
 }

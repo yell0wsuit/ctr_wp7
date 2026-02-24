@@ -5,10 +5,8 @@ using ctr_wp7.ios;
 
 namespace ctr_wp7.ctr_commons
 {
-    // Token: 0x0200006A RID: 106
     internal class Popup : BaseElement, TimelineDelegate
     {
-        // Token: 0x0600032A RID: 810 RVA: 0x00014674 File Offset: 0x00012874
         public override NSObject init()
         {
             if (base.init() != null)
@@ -30,7 +28,6 @@ namespace ctr_wp7.ctr_commons
             return this;
         }
 
-        // Token: 0x0600032B RID: 811 RVA: 0x000147C0 File Offset: 0x000129C0
         public override void draw()
         {
             OpenGL.glEnable(1);
@@ -44,33 +41,28 @@ namespace ctr_wp7.ctr_commons
             OpenGL.glDisable(1);
         }
 
-        // Token: 0x0600032C RID: 812 RVA: 0x00014845 File Offset: 0x00012A45
         public virtual void timelinereachedKeyFramewithIndex(Timeline t, KeyFrame k, int i)
         {
         }
 
-        // Token: 0x0600032D RID: 813 RVA: 0x00014848 File Offset: 0x00012A48
         public virtual void timelineFinished(Timeline t)
         {
             View view = (View)parent;
             view?.removeChild(this);
         }
 
-        // Token: 0x0600032E RID: 814 RVA: 0x0001486B File Offset: 0x00012A6B
         public virtual void showPopup()
         {
             isShow = true;
             playTimeline(0);
         }
 
-        // Token: 0x0600032F RID: 815 RVA: 0x0001487B File Offset: 0x00012A7B
         public virtual void hidePopup()
         {
             isShow = false;
             playTimeline(1);
         }
 
-        // Token: 0x06000330 RID: 816 RVA: 0x0001488B File Offset: 0x00012A8B
         public override bool onTouchDownXY(float tx, float ty)
         {
             if (isShow)
@@ -80,7 +72,6 @@ namespace ctr_wp7.ctr_commons
             return true;
         }
 
-        // Token: 0x06000331 RID: 817 RVA: 0x0001489F File Offset: 0x00012A9F
         public override bool onTouchUpXY(float tx, float ty)
         {
             if (isShow)
@@ -90,7 +81,6 @@ namespace ctr_wp7.ctr_commons
             return true;
         }
 
-        // Token: 0x06000332 RID: 818 RVA: 0x000148B3 File Offset: 0x00012AB3
         public override bool onTouchMoveXY(float tx, float ty)
         {
             if (isShow)
@@ -100,18 +90,13 @@ namespace ctr_wp7.ctr_commons
             return true;
         }
 
-        // Token: 0x040008D8 RID: 2264
         private readonly Image imageBackground;
 
-        // Token: 0x040008D9 RID: 2265
         private bool isShow;
 
-        // Token: 0x0200006B RID: 107
         private enum POPUP
         {
-            // Token: 0x040008DB RID: 2267
             POPUP_SHOW_ANIM,
-            // Token: 0x040008DC RID: 2268
             POPUP_HIDE_ANIM
         }
     }

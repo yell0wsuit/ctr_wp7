@@ -7,10 +7,8 @@ using ctr_wp7.ios;
 
 namespace ctr_wp7.game
 {
-    // Token: 0x02000059 RID: 89
     internal sealed class ButtonBlock : Button
     {
-        // Token: 0x060002A8 RID: 680 RVA: 0x00010CF4 File Offset: 0x0000EEF4
         public NSObject initWithIDDelegateBlock(int bid, ButtonDelegate d, BlockInterface pBlock)
         {
             delegateButtonDelegate = d;
@@ -51,13 +49,11 @@ namespace ctr_wp7.game
             return this;
         }
 
-        // Token: 0x060002A9 RID: 681 RVA: 0x00010E38 File Offset: 0x0000F038
         public static ButtonBlock createWithIDDelegateBlock(int bid, ButtonDelegate d, BlockInterface pBlock)
         {
             return (ButtonBlock)new ButtonBlock().initWithIDDelegateBlock(bid, d, pBlock);
         }
 
-        // Token: 0x060002AA RID: 682 RVA: 0x00010E5C File Offset: 0x0000F05C
         private static BaseElement buildAdBlock(Texture2D texture, NSString title)
         {
             int num = 403;
@@ -98,7 +94,6 @@ namespace ctr_wp7.game
             return baseElement;
         }
 
-        // Token: 0x060002AB RID: 683 RVA: 0x00010FCC File Offset: 0x0000F1CC
         private BaseElement buildEpisodeBlock(Texture2D texture, NSString title, NSString number, bool processing, bool isNew)
         {
             int num = 403;
@@ -215,7 +210,6 @@ namespace ctr_wp7.game
             return baseElement;
         }
 
-        // Token: 0x060002AC RID: 684 RVA: 0x00011694 File Offset: 0x0000F894
         public override void update(float delta)
         {
             base.update(delta);
@@ -260,16 +254,12 @@ namespace ctr_wp7.game
             }
         }
 
-        // Token: 0x040008A5 RID: 2213
         private BlockInterface block;
 
-        // Token: 0x040008A6 RID: 2214
         private bool recheckneeded;
 
-        // Token: 0x040008A7 RID: 2215
         private float check;
 
-        // Token: 0x040008A8 RID: 2216
         private float transition;
     }
 }

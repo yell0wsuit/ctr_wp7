@@ -8,10 +8,8 @@ using ctr_wp7.ios;
 
 namespace ctr_wp7.game
 {
-    // Token: 0x020000D4 RID: 212
     internal sealed class PollenDrawer : BaseElement
     {
-        // Token: 0x06000636 RID: 1590 RVA: 0x0002F9F0 File Offset: 0x0002DBF0
         public override NSObject init()
         {
             if (base.init() != null)
@@ -28,7 +26,6 @@ namespace ctr_wp7.game
             return this;
         }
 
-        // Token: 0x06000637 RID: 1591 RVA: 0x0002FA80 File Offset: 0x0002DC80
         public override void dealloc()
         {
             if (pollens != null)
@@ -49,7 +46,6 @@ namespace ctr_wp7.game
             base.dealloc();
         }
 
-        // Token: 0x06000638 RID: 1592 RVA: 0x0002FAF4 File Offset: 0x0002DCF4
         public void addPollenAtparentIndex(Vector v, int pi)
         {
             float num = 1f;
@@ -105,13 +101,11 @@ namespace ctr_wp7.game
             pollenCount++;
         }
 
-        // Token: 0x06000639 RID: 1593 RVA: 0x0002FD53 File Offset: 0x0002DF53
         private static int WVGAD(int V)
         {
             return !IS_WVGA ? V : V * 2;
         }
 
-        // Token: 0x0600063A RID: 1594 RVA: 0x0002FD64 File Offset: 0x0002DF64
         public void fillWithPolenFromPathIndexToPathIndexGrab(int p1, int p2, Grab g)
         {
             int num = WVGAD(10);
@@ -130,7 +124,6 @@ namespace ctr_wp7.game
             }
         }
 
-        // Token: 0x0600063B RID: 1595 RVA: 0x0002FE3C File Offset: 0x0002E03C
         public override void update(float delta)
         {
             base.update(delta);
@@ -169,7 +162,6 @@ namespace ctr_wp7.game
             OpenGL.glBindBuffer(2, 0U);
         }
 
-        // Token: 0x0600063C RID: 1596 RVA: 0x000300CC File Offset: 0x0002E2CC
         public override void draw()
         {
             if (pollenCount < 2)
@@ -193,34 +185,24 @@ namespace ctr_wp7.game
             postDraw();
         }
 
-        // Token: 0x04000B9E RID: 2974
         private ImageMultiDrawer drawer;
 
-        // Token: 0x04000B9F RID: 2975
         private int pollenCount;
 
-        // Token: 0x04000BA0 RID: 2976
         private int totalCapacity;
 
-        // Token: 0x04000BA1 RID: 2977
         private Pollen[] pollens;
 
-        // Token: 0x04000BA2 RID: 2978
         private float qw;
 
-        // Token: 0x04000BA3 RID: 2979
         private float qh;
 
-        // Token: 0x04000BA4 RID: 2980
         private RGBAColor[] colors;
 
-        // Token: 0x04000BA5 RID: 2981
         private uint colorsID;
 
-        // Token: 0x04000BA6 RID: 2982
         private PointSprite[] vertices;
 
-        // Token: 0x04000BA7 RID: 2983
         private uint verticesID;
     }
 }

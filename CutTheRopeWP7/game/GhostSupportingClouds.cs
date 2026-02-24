@@ -4,10 +4,8 @@ using ctr_wp7.ios;
 
 namespace ctr_wp7.game
 {
-    // Token: 0x0200003F RID: 63
     internal sealed class GhostSupportingClouds : BaseElement
     {
-        // Token: 0x0600021C RID: 540 RVA: 0x0000DF34 File Offset: 0x0000C134
         public NSObject initWithPositionSupportedElement(Vector pos, int supEl)
         {
             if (init() != null)

@@ -10,10 +10,8 @@ using ctr_wp7.ios;
 
 namespace ctr_wp7.game
 {
-    // Token: 0x02000112 RID: 274
     internal sealed class Lantern : CTRGameObject
     {
-        // Token: 0x06000853 RID: 2131 RVA: 0x0004A29C File Offset: 0x0004849C
         public Lantern initWithPosition(Vector position)
         {
             Texture2D texture = Application.getTexture(186);
@@ -108,13 +106,11 @@ namespace ctr_wp7.game
             return this;
         }
 
-        // Token: 0x06000854 RID: 2132 RVA: 0x0004AA4A File Offset: 0x00048C4A
         public void _captureCandy(NSObject obj)
         {
             captureCandy((ConstraintedPoint)obj);
         }
 
-        // Token: 0x06000855 RID: 2133 RVA: 0x0004AA58 File Offset: 0x00048C58
         public void captureCandy(ConstraintedPoint candyPoint)
         {
             CTRSoundMgr._playSound(64);
@@ -137,20 +133,17 @@ namespace ctr_wp7.game
             }
         }
 
-        // Token: 0x06000856 RID: 2134 RVA: 0x0004ABE8 File Offset: 0x00048DE8
         public static List<Lantern> getAllLanterns()
         {
             allLanterns ??= [];
             return allLanterns;
         }
 
-        // Token: 0x06000857 RID: 2135 RVA: 0x0004AC00 File Offset: 0x00048E00
         public static void removeAllLanterns()
         {
             getAllLanterns().Clear();
         }
 
-        // Token: 0x06000858 RID: 2136 RVA: 0x0004AC0C File Offset: 0x00048E0C
         public override void update(float delta)
         {
             prevPos = vect(x, y);
@@ -166,7 +159,6 @@ namespace ctr_wp7.game
             }
         }
 
-        // Token: 0x06000859 RID: 2137 RVA: 0x0004AC84 File Offset: 0x00048E84
         public override bool onTouchDownXY(float tx, float ty)
         {
             float num = vectDistance(vect(tx, ty), vect(x, y));
@@ -178,14 +170,12 @@ namespace ctr_wp7.game
             return false;
         }
 
-        // Token: 0x0600085A RID: 2138 RVA: 0x0004ACD0 File Offset: 0x00048ED0
         public override void draw()
         {
             preDraw();
             postDraw();
         }
 
-        // Token: 0x0600085B RID: 2139 RVA: 0x0004ACDE File Offset: 0x00048EDE
         public override void dealloc()
         {
             idleForm = null;
@@ -196,7 +186,6 @@ namespace ctr_wp7.game
             base.dealloc();
         }
 
-        // Token: 0x0600085C RID: 2140 RVA: 0x0004AD09 File Offset: 0x00048F09
         private void releaseCandy(NSObject obj)
         {
             sharedCandyPoint.disableGravity = false;
@@ -205,13 +194,11 @@ namespace ctr_wp7.game
             sharedCandyPoint = null;
         }
 
-        // Token: 0x0600085D RID: 2141 RVA: 0x0004AD47 File Offset: 0x00048F47
         private void becomeCandyAware(NSObject obj)
         {
             ((Lantern)obj).lanternState = 0;
         }
 
-        // Token: 0x0600085E RID: 2142 RVA: 0x0004AD58 File Offset: 0x00048F58
         private void initiateReleasingCandy()
         {
             CTRSoundMgr._playSound(65);
@@ -232,50 +219,34 @@ namespace ctr_wp7.game
             delayedDispatcher.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(releaseCandy), null, 0.01f);
         }
 
-        // Token: 0x04000DEE RID: 3566
         public const float LANTERN_CANDY_REVEAL_TIME = 0.1f;
 
-        // Token: 0x04000DEF RID: 3567
         private static ConstraintedPoint sharedCandyPoint;
 
-        // Token: 0x04000DF0 RID: 3568
         private static readonly float LANTERN_TOUCH_RADIUS = 35f;
 
-        // Token: 0x04000DF1 RID: 3569
         private static readonly float LANTERN_INACTIVE_DELAY = 0.4f;
 
-        // Token: 0x04000DF2 RID: 3570
         public int lanternState;
 
-        // Token: 0x04000DF3 RID: 3571
         private static List<Lantern> allLanterns;
 
-        // Token: 0x04000DF4 RID: 3572
         public Vector prevPos;
 
-        // Token: 0x04000DF5 RID: 3573
         private Image idleForm;
 
-        // Token: 0x04000DF6 RID: 3574
         private Image activeForm;
 
-        // Token: 0x04000DF7 RID: 3575
         private Image innerCandy;
 
-        // Token: 0x04000DF8 RID: 3576
         private Image fire;
 
-        // Token: 0x04000DF9 RID: 3577
         private DelayedDispatcher delayedDispatcher;
 
-        // Token: 0x02000113 RID: 275
         private enum LANTERN_ACTIVATION
         {
-            // Token: 0x04000DFB RID: 3579
             LANTERN_ACTIVATION_TL,
-            // Token: 0x04000DFC RID: 3580
             LANTERN_DEACTIVATION_TL,
-            // Token: 0x04000DFD RID: 3581
             LANTERN_FIRE_BOUNCING_TL
         }
     }

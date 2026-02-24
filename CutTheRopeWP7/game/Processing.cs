@@ -5,16 +5,13 @@ using ctr_wp7.ios;
 
 namespace ctr_wp7.game
 {
-    // Token: 0x02000068 RID: 104
     internal sealed class Processing : RectangleElement, TimelineDelegate
     {
-        // Token: 0x0600031D RID: 797 RVA: 0x00013E3A File Offset: 0x0001203A
         private static NSObject createWithLoading()
         {
             return new Processing().initWithLoading(true);
         }
 
-        // Token: 0x0600031E RID: 798 RVA: 0x00013E48 File Offset: 0x00012048
         public NSObject initWithLoading(bool loading)
         {
             if (init() != null)
@@ -54,7 +51,6 @@ namespace ctr_wp7.game
             return this;
         }
 
-        // Token: 0x0600031F RID: 799 RVA: 0x00014030 File Offset: 0x00012230
         public NSObject initWithTouchesBlocking(bool b)
         {
             if (init() != null)
@@ -95,28 +91,24 @@ namespace ctr_wp7.game
             return this;
         }
 
-        // Token: 0x06000320 RID: 800 RVA: 0x000141E0 File Offset: 0x000123E0
         public override bool onTouchDownXY(float tx, float ty)
         {
             bool flag = base.onTouchDownXY(tx, ty);
             return blockTouches || flag;
         }
 
-        // Token: 0x06000321 RID: 801 RVA: 0x00014204 File Offset: 0x00012404
         public override bool onTouchUpXY(float tx, float ty)
         {
             bool flag = base.onTouchUpXY(tx, ty);
             return blockTouches || flag;
         }
 
-        // Token: 0x06000322 RID: 802 RVA: 0x00014228 File Offset: 0x00012428
         public override bool onTouchMoveXY(float tx, float ty)
         {
             bool flag = base.onTouchMoveXY(tx, ty);
             return blockTouches || flag;
         }
 
-        // Token: 0x06000323 RID: 803 RVA: 0x00014249 File Offset: 0x00012449
         public override void playTimeline(int t)
         {
             if (t == 0)
@@ -126,18 +118,15 @@ namespace ctr_wp7.game
             base.playTimeline(t);
         }
 
-        // Token: 0x06000324 RID: 804 RVA: 0x0001425C File Offset: 0x0001245C
         public void timelineFinished(Timeline t)
         {
             setEnabled(false);
         }
 
-        // Token: 0x06000325 RID: 805 RVA: 0x00014265 File Offset: 0x00012465
         public void timelinereachedKeyFramewithIndex(Timeline t, KeyFrame k, int i)
         {
         }
 
-        // Token: 0x040008D4 RID: 2260
         private bool blockTouches = true;
     }
 }

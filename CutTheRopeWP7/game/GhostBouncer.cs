@@ -6,10 +6,8 @@ using ctr_wp7.ios;
 
 namespace ctr_wp7.game
 {
-    // Token: 0x02000012 RID: 18
     internal sealed class GhostBouncer : Bouncer
     {
-        // Token: 0x06000109 RID: 265 RVA: 0x0000875C File Offset: 0x0000695C
         public override NSObject initWithPosXYWidthAndAngle(float px, float py, int w, double an)
         {
             if (base.initWithPosXYWidthAndAngle(px, py, w, an) != null)
@@ -100,7 +98,6 @@ namespace ctr_wp7.game
             return this;
         }
 
-        // Token: 0x0600010A RID: 266 RVA: 0x0000907E File Offset: 0x0000727E
         public override void playTimeline(int t)
         {
             if (getCurrentTimelineIndex() == 11)
@@ -114,7 +111,6 @@ namespace ctr_wp7.game
             base.playTimeline(t);
         }
 
-        // Token: 0x0600010B RID: 267 RVA: 0x000090B9 File Offset: 0x000072B9
         public override void draw()
         {
             backCloud.draw();
@@ -122,7 +118,6 @@ namespace ctr_wp7.game
             base.draw();
         }
 
-        // Token: 0x0600010C RID: 268 RVA: 0x000090D7 File Offset: 0x000072D7
         public override void dealloc()
         {
             backCloud = null;
@@ -130,10 +125,8 @@ namespace ctr_wp7.game
             base.dealloc();
         }
 
-        // Token: 0x04000742 RID: 1858
         public Image backCloud;
 
-        // Token: 0x04000743 RID: 1859
         public Image backCloud2;
     }
 }

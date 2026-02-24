@@ -4,10 +4,8 @@ using ctr_wp7.ios;
 
 namespace ctr_wp7.iframework.visual
 {
-    // Token: 0x02000087 RID: 135
     internal sealed class TimedButton : BaseElement
     {
-        // Token: 0x060003E9 RID: 1001 RVA: 0x0001C1DC File Offset: 0x0001A3DC
         public static TimedButton createWithTextureUpDownID(Texture2D up, Texture2D down, int bID)
         {
             Image image = Image.Image_create(up);
@@ -15,7 +13,6 @@ namespace ctr_wp7.iframework.visual
             return new TimedButton().initWithUpElementDownElementandID(image, image2, bID);
         }
 
-        // Token: 0x060003EA RID: 1002 RVA: 0x0001C204 File Offset: 0x0001A404
         public TimedButton initWithID(int n)
         {
             if (init() != null)
@@ -31,7 +28,6 @@ namespace ctr_wp7.iframework.visual
             return this;
         }
 
-        // Token: 0x060003EB RID: 1003 RVA: 0x0001C274 File Offset: 0x0001A474
         public TimedButton initWithUpElementDownElementandID(BaseElement up, BaseElement down, int n)
         {
             if (initWithID(n) != null)
@@ -55,13 +51,11 @@ namespace ctr_wp7.iframework.visual
             return this;
         }
 
-        // Token: 0x060003EC RID: 1004 RVA: 0x0001C3C3 File Offset: 0x0001A5C3
         public void setTouchIncreaseLeftRightTopBottom(double l, double r, double t, double b)
         {
             setTouchIncreaseLeftRightTopBottom((float)l, (float)r, (float)t, (float)b);
         }
 
-        // Token: 0x060003ED RID: 1005 RVA: 0x0001C3D4 File Offset: 0x0001A5D4
         public void setTouchIncreaseLeftRightTopBottom(float l, float r, float t, float b)
         {
             touchLeftInc = l;
@@ -70,13 +64,11 @@ namespace ctr_wp7.iframework.visual
             touchBottomInc = b;
         }
 
-        // Token: 0x060003EE RID: 1006 RVA: 0x0001C3F3 File Offset: 0x0001A5F3
         public void forceTouchRect(Rectangle r)
         {
             forcedTouchZone = r;
         }
 
-        // Token: 0x060003EF RID: 1007 RVA: 0x0001C3FC File Offset: 0x0001A5FC
         public bool isInTouchZoneXYforTouchDown(float tx, float ty, bool td)
         {
             float num = td ? 0f : 15f;
@@ -85,7 +77,6 @@ namespace ctr_wp7.iframework.visual
                 : pointInRect(tx, ty, drawX - touchLeftInc - num, drawY - touchTopInc - num, width + (touchLeftInc + touchRightInc) + (num * 2f), height + (touchTopInc + touchBottomInc) + (num * 2f));
         }
 
-        // Token: 0x060003F0 RID: 1008 RVA: 0x0001C4E0 File Offset: 0x0001A6E0
         public void setState(TIMED_BUTTON s)
         {
             state = s;
@@ -95,7 +86,6 @@ namespace ctr_wp7.iframework.visual
             child2.setEnabled(s == TIMED_BUTTON.TIMED_BUTTON_DOWN);
         }
 
-        // Token: 0x060003F1 RID: 1009 RVA: 0x0001C518 File Offset: 0x0001A718
         public override bool onTouchDownXY(float tx, float ty)
         {
             _ = base.onTouchDownXY(tx, ty);
@@ -109,7 +99,6 @@ namespace ctr_wp7.iframework.visual
             return false;
         }
 
-        // Token: 0x060003F2 RID: 1010 RVA: 0x0001C554 File Offset: 0x0001A754
         public override bool onTouchUpXY(float tx, float ty)
         {
             _ = base.onTouchUpXY(tx, ty);
@@ -133,7 +122,6 @@ namespace ctr_wp7.iframework.visual
             return false;
         }
 
-        // Token: 0x060003F3 RID: 1011 RVA: 0x0001C5DB File Offset: 0x0001A7DB
         public override bool onTouchMoveXY(float tx, float ty)
         {
             _ = base.onTouchMoveXY(tx, ty);
@@ -148,7 +136,6 @@ namespace ctr_wp7.iframework.visual
             return false;
         }
 
-        // Token: 0x060003F4 RID: 1012 RVA: 0x0001C608 File Offset: 0x0001A808
         public override int addChildwithID(BaseElement c, int i)
         {
             int num = base.addChildwithID(c, i);
@@ -162,13 +149,11 @@ namespace ctr_wp7.iframework.visual
             return num;
         }
 
-        // Token: 0x060003F5 RID: 1013 RVA: 0x0001C64A File Offset: 0x0001A84A
         public BaseElement createFromXML(XMLNode xml)
         {
             throw new NotImplementedException();
         }
 
-        // Token: 0x060003F6 RID: 1014 RVA: 0x0001C654 File Offset: 0x0001A854
         public override void update(float delta)
         {
             base.update(delta);
@@ -183,45 +168,31 @@ namespace ctr_wp7.iframework.visual
             }
         }
 
-        // Token: 0x04000953 RID: 2387
         private int buttonID;
 
-        // Token: 0x04000954 RID: 2388
         public float timer;
 
-        // Token: 0x04000955 RID: 2389
         private bool timelinePlayed;
 
-        // Token: 0x04000956 RID: 2390
         private float time;
 
-        // Token: 0x04000957 RID: 2391
         private TIMED_BUTTON state;
 
-        // Token: 0x04000958 RID: 2392
         public ButtonDelegate delegateButtonDelegate;
 
-        // Token: 0x04000959 RID: 2393
         private float touchLeftInc;
 
-        // Token: 0x0400095A RID: 2394
         private float touchRightInc;
 
-        // Token: 0x0400095B RID: 2395
         private float touchTopInc;
 
-        // Token: 0x0400095C RID: 2396
         private float touchBottomInc;
 
-        // Token: 0x0400095D RID: 2397
         private Rectangle forcedTouchZone;
 
-        // Token: 0x02000088 RID: 136
         public enum TIMED_BUTTON
         {
-            // Token: 0x0400095F RID: 2399
             TIMED_BUTTON_UP,
-            // Token: 0x04000960 RID: 2400
             TIMED_BUTTON_DOWN
         }
     }

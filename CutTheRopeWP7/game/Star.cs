@@ -6,22 +6,18 @@ using ctr_wp7.ios;
 
 namespace ctr_wp7.game
 {
-    // Token: 0x02000084 RID: 132
     internal sealed class Star : CTRGameObject
     {
-        // Token: 0x060003DE RID: 990 RVA: 0x00018A01 File Offset: 0x00016C01
         public static Star Star_create(Texture2D t)
         {
             return (Star)new Star().initWithTexture(t);
         }
 
-        // Token: 0x060003DF RID: 991 RVA: 0x00018A13 File Offset: 0x00016C13
         public static Star Star_createWithResID(int r)
         {
             return Star_create(Application.getTexture(r));
         }
 
-        // Token: 0x060003E0 RID: 992 RVA: 0x00018A20 File Offset: 0x00016C20
         public static Star Star_createWithResIDQuad(int r, int q)
         {
             Star star = Star_create(Application.getTexture(r));
@@ -29,7 +25,6 @@ namespace ctr_wp7.game
             return star;
         }
 
-        // Token: 0x060003E1 RID: 993 RVA: 0x00018A41 File Offset: 0x00016C41
         public override NSObject init()
         {
             if (base.init() != null)
@@ -39,7 +34,6 @@ namespace ctr_wp7.game
             return this;
         }
 
-        // Token: 0x060003E2 RID: 994 RVA: 0x00018A54 File Offset: 0x00016C54
         public override void update(float delta)
         {
             if (timeout > 0.0 && time > 0.0)
@@ -49,14 +43,12 @@ namespace ctr_wp7.game
             base.update(delta);
         }
 
-        // Token: 0x060003E3 RID: 995 RVA: 0x00018AA3 File Offset: 0x00016CA3
         public override void draw()
         {
             timedAnim?.draw();
             base.draw();
         }
 
-        // Token: 0x060003E4 RID: 996 RVA: 0x00018AC0 File Offset: 0x00016CC0
         public void createAnimations()
         {
             if (timeout > 0.0)
@@ -100,13 +92,10 @@ namespace ctr_wp7.game
             _ = addChild(animation);
         }
 
-        // Token: 0x0400094E RID: 2382
         public float time;
 
-        // Token: 0x0400094F RID: 2383
         public float timeout;
 
-        // Token: 0x04000950 RID: 2384
         public Animation timedAnim;
     }
 }

@@ -3,10 +3,8 @@ using ctr_wp7.iframework.visual;
 
 namespace ctr_wp7.ctr_original
 {
-    // Token: 0x02000103 RID: 259
     internal sealed class CandyBreak : RotateableMultiParticles
     {
-        // Token: 0x060007E1 RID: 2017 RVA: 0x0003D930 File Offset: 0x0003BB30
         public override Particles initWithTotalParticlesandImageGrid(int p, Image grid)
         {
             if (base.initWithTotalParticlesandImageGrid(p, grid) == null)
@@ -53,7 +51,6 @@ namespace ctr_wp7.ctr_original
             return this;
         }
 
-        // Token: 0x060007E2 RID: 2018 RVA: 0x0003DB44 File Offset: 0x0003BD44
         public override void initParticle(ref Particle particle)
         {
             base.initParticle(ref particle);
@@ -65,7 +62,6 @@ namespace ctr_wp7.ctr_original
             particle.height = 16f;
         }
 
-        // Token: 0x060007E3 RID: 2019 RVA: 0x0003DBC4 File Offset: 0x0003BDC4
         public override void draw()
         {
             preDraw();

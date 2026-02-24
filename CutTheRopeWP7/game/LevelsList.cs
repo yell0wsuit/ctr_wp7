@@ -2,10 +2,8 @@
 
 namespace ctr_wp7.game
 {
-    // Token: 0x02000085 RID: 133
     internal sealed class LevelsList : NSObject
     {
-        // Token: 0x060003E7 RID: 999 RVA: 0x00018DAC File Offset: 0x00016FAC
         // Note: this type is marked as 'beforefieldinit'.
         static LevelsList()
         {
@@ -715,10 +713,8 @@ namespace ctr_wp7.game
             LEVEL_NAMES = array2;
         }
 
-        // Token: 0x04000951 RID: 2385
         public static NSString[,] LEVEL_HASHES;
 
-        // Token: 0x04000952 RID: 2386
         public static NSString[,] LEVEL_NAMES;
     }
 }

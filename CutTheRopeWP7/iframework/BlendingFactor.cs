@@ -1,29 +1,17 @@
 ﻿namespace ctr_wp7.iframework
 {
-    // Token: 0x020000B0 RID: 176
     public enum BlendingFactor
     {
-        // Token: 0x04000A29 RID: 2601
         GL_ZERO,
-        // Token: 0x04000A2A RID: 2602
         GL_ONE,
-        // Token: 0x04000A2B RID: 2603
         GL_SRC_COLOR = 768,
-        // Token: 0x04000A2C RID: 2604
         GL_ONE_MINUS_SRC_COLOR,
-        // Token: 0x04000A2D RID: 2605
         GL_SRC_ALPHA,
-        // Token: 0x04000A2E RID: 2606
         GL_ONE_MINUS_SRC_ALPHA,
-        // Token: 0x04000A2F RID: 2607
         GL_DST_ALPHA,
-        // Token: 0x04000A30 RID: 2608
         GL_ONE_MINUS_DST_ALPHA,
-        // Token: 0x04000A31 RID: 2609
         GL_DST_COLOR,
-        // Token: 0x04000A32 RID: 2610
         GL_ONE_MINUS_DST_COLOR,
-        // Token: 0x04000A33 RID: 2611
         GL_SRC_ALPHA_SATURATE
     }
 }

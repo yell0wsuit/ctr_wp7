@@ -5,30 +5,25 @@ using ctr_wp7.ios;
 
 namespace ctr_wp7.iframework.visual
 {
-    // Token: 0x0200000C RID: 12
     internal sealed class GLCanvas : NSObject
     {
-        // Token: 0x060000C6 RID: 198 RVA: 0x0000702B File Offset: 0x0000522B
         public GLCanvas initWithFrame(Rectangle frame)
         {
             _ = init();
             return this;
         }
 
-        // Token: 0x060000C7 RID: 199 RVA: 0x00007035 File Offset: 0x00005235
         public void show()
         {
             destroyFramebuffer();
             _ = createFramebuffer();
         }
 
-        // Token: 0x060000C8 RID: 200 RVA: 0x00007044 File Offset: 0x00005244
         public static void hide()
         {
             destroyFramebuffer();
         }
 
-        // Token: 0x060000C9 RID: 201 RVA: 0x0000704C File Offset: 0x0000524C
         public static void beforeRender()
         {
             setDefaultProjection();
@@ -37,19 +32,16 @@ namespace ctr_wp7.iframework.visual
             OpenGL.glEnableClientState(12);
         }
 
-        // Token: 0x060000CA RID: 202 RVA: 0x00007068 File Offset: 0x00005268
         public static void afterRender()
         {
         }
 
-        // Token: 0x060000CB RID: 203 RVA: 0x0000706A File Offset: 0x0000526A
         public void initFPSMeterWithFont(FontGeneric font)
         {
             fpsFont = font;
             fpsText = new Text().initWithFont(fpsFont);
         }
 
-        // Token: 0x060000CC RID: 204 RVA: 0x0000708C File Offset: 0x0000528C
         public void drawFPS(int fps)
         {
             if (fpsText == null || fpsFont == null)
@@ -69,7 +61,6 @@ namespace ctr_wp7.iframework.visual
             OpenGL.glDisable(0);
         }
 
-        // Token: 0x060000CD RID: 205 RVA: 0x0000711A File Offset: 0x0000531A
         public bool createFramebuffer()
         {
             backingWidth = (int)SCREEN_WIDTH;
@@ -80,7 +71,6 @@ namespace ctr_wp7.iframework.visual
             return true;
         }
 
-        // Token: 0x060000CE RID: 206 RVA: 0x0000714C File Offset: 0x0000534C
         public static void setDefaultProjection()
         {
             OpenGL.glViewport(0.0, 0.0, REAL_SCREEN_WIDTH, REAL_SCREEN_HEIGHT);
@@ -91,7 +81,6 @@ namespace ctr_wp7.iframework.visual
             OpenGL.glLoadIdentity();
         }
 
-        // Token: 0x060000CF RID: 207 RVA: 0x000071D4 File Offset: 0x000053D4
         public static void setDefaultRealProjection()
         {
             OpenGL.glViewport(0.0, 0.0, REAL_SCREEN_WIDTH, REAL_SCREEN_HEIGHT);
@@ -102,12 +91,10 @@ namespace ctr_wp7.iframework.visual
             OpenGL.glLoadIdentity();
         }
 
-        // Token: 0x060000D0 RID: 208 RVA: 0x00007251 File Offset: 0x00005451
         public static void destroyFramebuffer()
         {
         }
 
-        // Token: 0x060000D1 RID: 209 RVA: 0x00007253 File Offset: 0x00005453
         public void touchesBeganwithEvent(List<CTRTouchState> touches)
         {
             if (touchDelegate != null)
@@ -116,7 +103,6 @@ namespace ctr_wp7.iframework.visual
             }
         }
 
-        // Token: 0x060000D2 RID: 210 RVA: 0x0000726A File Offset: 0x0000546A
         public void touchesMovedwithEvent(List<CTRTouchState> touches)
         {
             if (touchDelegate != null)
@@ -125,7 +111,6 @@ namespace ctr_wp7.iframework.visual
             }
         }
 
-        // Token: 0x060000D3 RID: 211 RVA: 0x00007281 File Offset: 0x00005481
         public void touchesEndedwithEvent(List<CTRTouchState> touches)
         {
             if (touchDelegate != null)
@@ -134,7 +119,6 @@ namespace ctr_wp7.iframework.visual
             }
         }
 
-        // Token: 0x060000D4 RID: 212 RVA: 0x00007298 File Offset: 0x00005498
         public void touchesCancelledwithEvent(List<CTRTouchState> touches)
         {
             if (touchDelegate != null)
@@ -143,19 +127,16 @@ namespace ctr_wp7.iframework.visual
             }
         }
 
-        // Token: 0x060000D5 RID: 213 RVA: 0x000072AF File Offset: 0x000054AF
         public bool backButtonPressed()
         {
             return touchDelegate != null && touchDelegate.backButtonPressed();
         }
 
-        // Token: 0x060000D6 RID: 214 RVA: 0x000072C6 File Offset: 0x000054C6
         public bool menuButtonPressed()
         {
             return touchDelegate != null && touchDelegate.menuButtonPressed();
         }
 
-        // Token: 0x060000D7 RID: 215 RVA: 0x000072DD File Offset: 0x000054DD
         public override void dealloc()
         {
             NSREL(fpsFont);
@@ -163,28 +144,20 @@ namespace ctr_wp7.iframework.visual
             hide();
         }
 
-        // Token: 0x04000721 RID: 1825
         public int backingWidth;
 
-        // Token: 0x04000722 RID: 1826
         public int backingHeight;
 
-        // Token: 0x04000723 RID: 1827
         public uint viewRenderbuffer;
 
-        // Token: 0x04000724 RID: 1828
         public uint viewFramebuffer;
 
-        // Token: 0x04000725 RID: 1829
         public uint depthRenderbuffer;
 
-        // Token: 0x04000726 RID: 1830
         public FontGeneric fpsFont;
 
-        // Token: 0x04000727 RID: 1831
         public Text fpsText;
 
-        // Token: 0x04000728 RID: 1832
         public TouchDelegate touchDelegate;
     }
 }

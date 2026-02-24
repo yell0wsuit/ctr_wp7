@@ -4,22 +4,18 @@ using ctr_wp7.iframework.core;
 
 namespace ctr_wp7.iframework.visual
 {
-    // Token: 0x0200000D RID: 13
     internal class Animation : Image
     {
-        // Token: 0x060000D9 RID: 217 RVA: 0x00007303 File Offset: 0x00005503
         public static Animation Animation_create(Texture2D t)
         {
             return (Animation)new Animation().initWithTexture(t);
         }
 
-        // Token: 0x060000DA RID: 218 RVA: 0x00007315 File Offset: 0x00005515
         public static Animation Animation_createWithResID(int r)
         {
             return Animation_create(Application.getTexture(r));
         }
 
-        // Token: 0x060000DB RID: 219 RVA: 0x00007324 File Offset: 0x00005524
         public static Animation Animation_createWithResIDQuad(int r, int q)
         {
             Animation animation = Animation_createWithResID(r);
@@ -27,14 +23,12 @@ namespace ctr_wp7.iframework.visual
             return animation;
         }
 
-        // Token: 0x060000DC RID: 220 RVA: 0x00007344 File Offset: 0x00005544
         public virtual void addAnimationWithIDDelayLoopFirstLast(int aid, float d, Timeline.LoopType l, int s, int e)
         {
             int num = e - s + 1;
             addAnimationWithIDDelayLoopCountFirstLastArgumentList(aid, d, l, num, s, e);
         }
 
-        // Token: 0x060000DD RID: 221 RVA: 0x00007368 File Offset: 0x00005568
         public virtual void addAnimationWithIDDelayLoopCountFirstLastArgumentList(int aid, float d, Timeline.LoopType l, int c, int s, int e)
         {
             Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(c + 2);
@@ -58,13 +52,11 @@ namespace ctr_wp7.iframework.visual
             addTimelinewithID(timeline, aid);
         }
 
-        // Token: 0x060000DE RID: 222 RVA: 0x00007413 File Offset: 0x00005613
         public virtual void addAnimationWithIDDelayLoopCountSequence(int aid, float d, Timeline.LoopType l, int c, int s, List<int> al)
         {
             addAnimationWithIDDelayLoopCountFirstLastArgumentList(aid, d, l, c, s, -1, al);
         }
 
-        // Token: 0x060000DF RID: 223 RVA: 0x00007428 File Offset: 0x00005628
         public virtual void addAnimationWithIDDelayLoopCountFirstLastArgumentList(int aid, float d, Timeline.LoopType l, int c, int s, int e, List<int> al)
         {
             Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(c + 2);
@@ -88,7 +80,6 @@ namespace ctr_wp7.iframework.visual
             addTimelinewithID(timeline, aid);
         }
 
-        // Token: 0x060000E0 RID: 224 RVA: 0x000074E4 File Offset: 0x000056E4
         public virtual void switchToAnimationatEndOfAnimationDelay(int a2, int a1, float d)
         {
             Timeline timeline = getTimeline(a1);
@@ -96,13 +87,11 @@ namespace ctr_wp7.iframework.visual
             timeline.addKeyFrame(KeyFrame.makeAction(list, d));
         }
 
-        // Token: 0x060000E1 RID: 225 RVA: 0x0000751F File Offset: 0x0000571F
         public virtual void setPauseAtIndexforAnimation(int i, int a)
         {
             setActionTargetParamSubParamAtIndexforAnimation("ACTION_PAUSE_TIMELINE", this, 0, 0, i, a);
         }
 
-        // Token: 0x060000E2 RID: 226 RVA: 0x00007534 File Offset: 0x00005734
         public virtual void setActionTargetParamSubParamAtIndexforAnimation(string action, BaseElement target, int p, int sp, int i, int a)
         {
             Timeline timeline = getTimeline(a);
@@ -112,7 +101,6 @@ namespace ctr_wp7.iframework.visual
             actionSet.Add(Action.createAction(target, action, p, sp));
         }
 
-        // Token: 0x060000E3 RID: 227 RVA: 0x00007580 File Offset: 0x00005780
         public virtual int addAnimationWithDelayLoopedCountSequence(float d, Timeline.LoopType l, int c, int s, List<int> al)
         {
             int count = timelines.Count;
@@ -120,7 +108,6 @@ namespace ctr_wp7.iframework.visual
             return count;
         }
 
-        // Token: 0x060000E4 RID: 228 RVA: 0x000075AC File Offset: 0x000057AC
         public void setDelayatIndexforAnimation(float d, int i, int a)
         {
             Timeline timeline = getTimeline(a);
@@ -129,7 +116,6 @@ namespace ctr_wp7.iframework.visual
             keyFrame.timeOffset = d;
         }
 
-        // Token: 0x060000E5 RID: 229 RVA: 0x000075DC File Offset: 0x000057DC
         public int addAnimationDelayLoopFirstLast(float d, Timeline.LoopType l, int s, int e)
         {
             int count = timelines.Count;
@@ -137,7 +123,6 @@ namespace ctr_wp7.iframework.visual
             return count;
         }
 
-        // Token: 0x060000E6 RID: 230 RVA: 0x00007604 File Offset: 0x00005804
         public void jumpTo(int i)
         {
             Timeline currentTimeline = getCurrentTimeline();

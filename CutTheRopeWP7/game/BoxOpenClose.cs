@@ -9,10 +9,8 @@ using ctr_wp7.ios;
 
 namespace ctr_wp7.game
 {
-    // Token: 0x02000095 RID: 149
     internal sealed class BoxOpenClose : BaseElement, TimelineDelegate
     {
-        // Token: 0x0600046D RID: 1133 RVA: 0x0001EF08 File Offset: 0x0001D108
         public NSObject initWithButtonDelegate(ButtonDelegate b)
         {
             if (init() != null)
@@ -115,7 +113,6 @@ namespace ctr_wp7.game
             return this;
         }
 
-        // Token: 0x0600046E RID: 1134 RVA: 0x0001F452 File Offset: 0x0001D652
         public void levelFirstStart()
         {
             boxAnim = 0;
@@ -127,7 +124,6 @@ namespace ctr_wp7.game
             }
         }
 
-        // Token: 0x0600046F RID: 1135 RVA: 0x0001F480 File Offset: 0x0001D680
         public void levelStart()
         {
             boxAnim = 1;
@@ -139,7 +135,6 @@ namespace ctr_wp7.game
             }
         }
 
-        // Token: 0x06000470 RID: 1136 RVA: 0x0001F4B0 File Offset: 0x0001D6B0
         public void levelWon()
         {
             boxAnim = 2;
@@ -158,7 +153,6 @@ namespace ctr_wp7.game
             stamp.setEnabled(false);
         }
 
-        // Token: 0x06000471 RID: 1137 RVA: 0x0001F55B File Offset: 0x0001D75B
         public void levelLost()
         {
             boxAnim = 3;
@@ -166,7 +160,6 @@ namespace ctr_wp7.game
             showCloseAnim();
         }
 
-        // Token: 0x06000472 RID: 1138 RVA: 0x0001F570 File Offset: 0x0001D770
         public void levelQuit()
         {
             boxAnim = 4;
@@ -175,7 +168,6 @@ namespace ctr_wp7.game
             showCloseAnim();
         }
 
-        // Token: 0x06000473 RID: 1139 RVA: 0x0001F591 File Offset: 0x0001D791
         public void postBoxClosed()
         {
             if (delegateboxClosed != null)
@@ -188,19 +180,16 @@ namespace ctr_wp7.game
             }
         }
 
-        // Token: 0x06000474 RID: 1140 RVA: 0x0001F5B4 File Offset: 0x0001D7B4
         public void showOpenAnim()
         {
             showOpenCloseAnim(true);
         }
 
-        // Token: 0x06000475 RID: 1141 RVA: 0x0001F5BD File Offset: 0x0001D7BD
         public void showCloseAnim()
         {
             showOpenCloseAnim(false);
         }
 
-        // Token: 0x06000476 RID: 1142 RVA: 0x0001F5C8 File Offset: 0x0001D7C8
         public static BaseElement createConfettiParticleNear(Vector p)
         {
             Confetti confetti = Confetti.Confetti_createWithResID(95);
@@ -239,7 +228,6 @@ namespace ctr_wp7.game
             return confetti;
         }
 
-        // Token: 0x06000477 RID: 1143 RVA: 0x0001F788 File Offset: 0x0001D988
         public void removeOpenCloseAnims()
         {
             if (getChild(0) != null)
@@ -253,7 +241,6 @@ namespace ctr_wp7.game
             text.color.a = text2.color.a = text3.color.a = 1f;
         }
 
-        // Token: 0x06000478 RID: 1144 RVA: 0x0001F824 File Offset: 0x0001DA24
         public void createOpenCloseAnims()
         {
             openCloseAnims = (BaseElement)new BaseElement().init();
@@ -264,7 +251,6 @@ namespace ctr_wp7.game
             openCloseAnims.passTransformationsToChilds = true;
         }
 
-        // Token: 0x06000479 RID: 1145 RVA: 0x0001F89C File Offset: 0x0001DA9C
         public void showConfetti()
         {
             for (int i = 0; i < 70; i++)
@@ -273,7 +259,6 @@ namespace ctr_wp7.game
             }
         }
 
-        // Token: 0x0600047A RID: 1146 RVA: 0x0001F8D0 File Offset: 0x0001DAD0
         public override void update(float delta)
         {
             base.update(delta);
@@ -429,7 +414,6 @@ namespace ctr_wp7.game
             }
         }
 
-        // Token: 0x0600047B RID: 1147 RVA: 0x0001FF60 File Offset: 0x0001E160
         public void showOpenCloseAnim(bool open)
         {
             createOpenCloseAnims();
@@ -585,12 +569,10 @@ namespace ctr_wp7.game
             }
         }
 
-        // Token: 0x0600047C RID: 1148 RVA: 0x00020AC6 File Offset: 0x0001ECC6
         public void timelinereachedKeyFramewithIndex(Timeline t, KeyFrame k, int i)
         {
         }
 
-        // Token: 0x0600047D RID: 1149 RVA: 0x00020AC8 File Offset: 0x0001ECC8
         public void timelineFinished(Timeline t)
         {
             switch (boxAnim)
@@ -621,115 +603,80 @@ namespace ctr_wp7.game
             }
         }
 
-        // Token: 0x0600047E RID: 1150 RVA: 0x00020B64 File Offset: 0x0001ED64
         private static void selector_removeOpenCloseAnims(NSObject obj)
         {
             ((BoxOpenClose)obj).removeOpenCloseAnims();
         }
 
-        // Token: 0x0600047F RID: 1151 RVA: 0x00020B71 File Offset: 0x0001ED71
         private static void selector_postBoxClosed(NSObject obj)
         {
             ((BoxOpenClose)obj).postBoxClosed();
         }
 
-        // Token: 0x040009AD RID: 2477
         public const int BOX_ANIM_LEVEL_FIRST_START = 0;
 
-        // Token: 0x040009AE RID: 2478
         public const int BOX_ANIM_LEVEL_START = 1;
 
-        // Token: 0x040009AF RID: 2479
         public const int BOX_ANIM_LEVEL_WON = 2;
 
-        // Token: 0x040009B0 RID: 2480
         public const int BOX_ANIM_LEVEL_LOST = 3;
 
-        // Token: 0x040009B1 RID: 2481
         public const int BOX_ANIM_LEVEL_QUIT = 4;
 
-        // Token: 0x040009B2 RID: 2482
         public const int RESULT_STATE_WAIT = 0;
 
-        // Token: 0x040009B3 RID: 2483
         public const int RESULT_STATE_SHOW_STAR_BONUS = 1;
 
-        // Token: 0x040009B4 RID: 2484
         public const int RESULT_STATE_COUNTDOWN_STAR_BONUS = 2;
 
-        // Token: 0x040009B5 RID: 2485
         public const int RESULT_STATE_HIDE_STAR_BONUS = 3;
 
-        // Token: 0x040009B6 RID: 2486
         public const int RESULT_STATE_SHOW_TIME_BONUS = 4;
 
-        // Token: 0x040009B7 RID: 2487
         public const int RESULT_STATE_COUNTDOWN_TIME_BONUS = 5;
 
-        // Token: 0x040009B8 RID: 2488
         public const int RESULT_STATE_HIDE_TIME_BONUS = 6;
 
-        // Token: 0x040009B9 RID: 2489
         public const int RESULT_STATE_SHOW_FINAL_SCORE = 7;
 
-        // Token: 0x040009BA RID: 2490
         public const int RESULTS_SHOW_ANIM = 0;
 
-        // Token: 0x040009BB RID: 2491
         public const int RESULTS_HIDE_ANIM = 1;
 
-        // Token: 0x040009BC RID: 2492
         public BaseElement openCloseAnims;
 
-        // Token: 0x040009BD RID: 2493
         public BaseElement confettiAnims;
 
-        // Token: 0x040009BE RID: 2494
         public BaseElement result;
 
-        // Token: 0x040009BF RID: 2495
         public int boxAnim;
 
-        // Token: 0x040009C0 RID: 2496
         public bool shouldShowConfetti;
 
-        // Token: 0x040009C1 RID: 2497
         public bool shouldShowImprovedResult;
 
-        // Token: 0x040009C2 RID: 2498
         public Image stamp;
 
-        // Token: 0x040009C3 RID: 2499
         public int raState;
 
-        // Token: 0x040009C4 RID: 2500
         public int timeBonus;
 
-        // Token: 0x040009C5 RID: 2501
         public int starBonus;
 
-        // Token: 0x040009C6 RID: 2502
         public int score;
 
-        // Token: 0x040009C7 RID: 2503
         public float time;
 
-        // Token: 0x040009C8 RID: 2504
         public float ctime;
 
-        // Token: 0x040009C9 RID: 2505
         public int cstarBonus;
 
-        // Token: 0x040009CA RID: 2506
         public int cscore;
 
-        // Token: 0x040009CB RID: 2507
         public float raDelay;
 
-        // Token: 0x040009CC RID: 2508
         public boxClosed delegateboxClosed;
 
-        // Token: 0x02000096 RID: 150
         // (Invoke) Token: 0x06000482 RID: 1154
         public delegate void boxClosed();
     }

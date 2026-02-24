@@ -3,10 +3,8 @@ using System.Xml;
 
 namespace ctr_wp7.utils
 {
-    // Token: 0x02000002 RID: 2
     public abstract class DefaultHandler
     {
-        // Token: 0x06000001 RID: 1 RVA: 0x00002050 File Offset: 0x00000250
         public void Parse()
         {
             if (xmlReader != null)
@@ -52,16 +50,12 @@ namespace ctr_wp7.utils
             }
         }
 
-        // Token: 0x06000002 RID: 2
         public abstract void StartElement(string URI, string localName, string qName, Dictionary<string, string> atts);
 
-        // Token: 0x06000003 RID: 3
         public abstract void EndElement(string URI, string localName, string qName);
 
-        // Token: 0x06000004 RID: 4
         public abstract void Characters(string characters);
 
-        // Token: 0x04000001 RID: 1
         public XmlReader xmlReader;
     }
 }

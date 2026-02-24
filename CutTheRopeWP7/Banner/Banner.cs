@@ -8,10 +8,8 @@ using ctr_wp7.ios;
 
 namespace ctr_wp7.Banner
 {
-    // Token: 0x02000091 RID: 145
     public class Banner
     {
-        // Token: 0x0600044F RID: 1103 RVA: 0x0001E4F0 File Offset: 0x0001C6F0
         internal Banner(XMLNode xmlBanner, int width, int height)
         {
             id = xmlBanner["id"].intValue();
@@ -31,7 +29,6 @@ namespace ctr_wp7.Banner
             }
         }
 
-        // Token: 0x06000450 RID: 1104 RVA: 0x0001E5E8 File Offset: 0x0001C7E8
         internal Banner(BinaryReader file)
         {
             saved = file.ReadBoolean();
@@ -48,7 +45,6 @@ namespace ctr_wp7.Banner
             }
         }
 
-        // Token: 0x06000451 RID: 1105 RVA: 0x0001E664 File Offset: 0x0001C864
         public void SaveToFile(BinaryWriter file)
         {
             file.Write(saved);
@@ -63,7 +59,6 @@ namespace ctr_wp7.Banner
             }
         }
 
-        // Token: 0x06000452 RID: 1106 RVA: 0x0001E70C File Offset: 0x0001C90C
         protected bool saveImage(string base64)
         {
             bool flag;
@@ -88,41 +83,32 @@ namespace ctr_wp7.Banner
             return flag;
         }
 
-        // Token: 0x06000453 RID: 1107 RVA: 0x0001E798 File Offset: 0x0001C998
         public string getName()
         {
             return name;
         }
 
-        // Token: 0x06000454 RID: 1108 RVA: 0x0001E7A0 File Offset: 0x0001C9A0
         public string getUrl()
         {
             return url;
         }
 
-        // Token: 0x06000455 RID: 1109 RVA: 0x0001E7A8 File Offset: 0x0001C9A8
         public string getString()
         {
             string text = langs[ApplicationSettings.getString(8).ToString()];
             return text == null ? "" : text;
         }
 
-        // Token: 0x04000998 RID: 2456
         private static readonly long serialVersionUID = 1L;
 
-        // Token: 0x04000999 RID: 2457
         public bool saved;
 
-        // Token: 0x0400099A RID: 2458
         protected string name;
 
-        // Token: 0x0400099B RID: 2459
         public int id;
 
-        // Token: 0x0400099C RID: 2460
         protected string url;
 
-        // Token: 0x0400099D RID: 2461
         protected Dictionary<string, string> langs;
     }
 }

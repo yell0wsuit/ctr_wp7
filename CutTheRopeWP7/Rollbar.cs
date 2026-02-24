@@ -6,16 +6,13 @@ using ctr_wp7.iframework.core;
 using ctr_wp7.iframework.visual;
 using ctr_wp7.ios;
 
-// Token: 0x020000DC RID: 220
 internal sealed class Rollbar : BaseElement
 {
-    // Token: 0x06000660 RID: 1632 RVA: 0x00030A87 File Offset: 0x0002EC87
     public int getIndex()
     {
         return (int)(-Math.Round(offsetY / centralCellHeight) - 2.0);
     }
 
-    // Token: 0x06000661 RID: 1633 RVA: 0x00030AA8 File Offset: 0x0002ECA8
     public Rollbar Create()
     {
         _ = init();
@@ -89,7 +86,6 @@ internal sealed class Rollbar : BaseElement
         return this;
     }
 
-    // Token: 0x06000662 RID: 1634 RVA: 0x00030F0C File Offset: 0x0002F10C
     public override bool onTouchDownXY(float x, float y)
     {
         if (x < this.x || x > this.x + width || y < this.y || y > this.y + height)
@@ -103,7 +99,6 @@ internal sealed class Rollbar : BaseElement
         return true;
     }
 
-    // Token: 0x06000663 RID: 1635 RVA: 0x00030F80 File Offset: 0x0002F180
     public override bool onTouchMoveXY(float x, float y)
     {
         if (lastTouchY > (double)-(double)SCREEN_HEIGHT_EXPANDED)
@@ -120,7 +115,6 @@ internal sealed class Rollbar : BaseElement
         return false;
     }
 
-    // Token: 0x06000664 RID: 1636 RVA: 0x00030FF8 File Offset: 0x0002F1F8
     public override bool onTouchUpXY(float x, float y)
     {
         manualMode = false;
@@ -137,19 +131,16 @@ internal sealed class Rollbar : BaseElement
         return true;
     }
 
-    // Token: 0x06000665 RID: 1637 RVA: 0x0003105E File Offset: 0x0002F25E
     public void scrollWithSpeed(float speed)
     {
         speedY = speed;
     }
 
-    // Token: 0x06000666 RID: 1638 RVA: 0x00031068 File Offset: 0x0002F268
     private float getCurrentScrollSpeed()
     {
         return (float)speedY;
     }
 
-    // Token: 0x06000667 RID: 1639 RVA: 0x00031074 File Offset: 0x0002F274
     public float getOffsetY()
     {
         float num = (float)(offsetY - (Math.Floor(offsetY / centralCellHeight) * centralCellHeight));
@@ -160,7 +151,6 @@ internal sealed class Rollbar : BaseElement
         return num;
     }
 
-    // Token: 0x06000668 RID: 1640 RVA: 0x000310C0 File Offset: 0x0002F2C0
     public override void draw()
     {
         base.draw();
@@ -181,7 +171,6 @@ internal sealed class Rollbar : BaseElement
         scrollTop.draw();
     }
 
-    // Token: 0x06000669 RID: 1641 RVA: 0x00031194 File Offset: 0x0002F394
     public override void update(float delta)
     {
         base.update(delta);
@@ -210,78 +199,53 @@ internal sealed class Rollbar : BaseElement
         }
     }
 
-    // Token: 0x04000BC6 RID: 3014
     private const int speedAccelerator = 2;
 
-    // Token: 0x04000BC7 RID: 3015
     private const int blankSpaceTop = 2;
 
-    // Token: 0x04000BC8 RID: 3016
     private const int blankSpaceBottom = 1;
 
-    // Token: 0x04000BC9 RID: 3017
     private const int minAge = 1;
 
-    // Token: 0x04000BCA RID: 3018
     private const int maxAge = 99;
 
-    // Token: 0x04000BCB RID: 3019
     private const int defaultIdx = 24;
 
-    // Token: 0x04000BCC RID: 3020
     private const float friction = 5f;
 
-    // Token: 0x04000BCD RID: 3021
     private const float minFriction = 0.7f;
 
-    // Token: 0x04000BCE RID: 3022
     private const float cellBounceSpeed = 3f;
 
-    // Token: 0x04000BCF RID: 3023
     private const float boundReturnSpeed = 20f;
 
-    // Token: 0x04000BD0 RID: 3024
     private double offsetY;
 
-    // Token: 0x04000BD1 RID: 3025
     private double oldOffsetY;
 
-    // Token: 0x04000BD2 RID: 3026
     private double speedY;
 
-    // Token: 0x04000BD3 RID: 3027
     private double lastTouchY;
 
-    // Token: 0x04000BD4 RID: 3028
     private double preLastTouchY;
 
-    // Token: 0x04000BD5 RID: 3029
     private double lastTimeDelta;
 
-    // Token: 0x04000BD6 RID: 3030
     private double lastMoveSpeed;
 
-    // Token: 0x04000BD7 RID: 3031
     private bool manualMode;
 
-    // Token: 0x04000BD8 RID: 3032
     private Vector scissorTL;
 
-    // Token: 0x04000BD9 RID: 3033
     private Vector scissorWH;
 
-    // Token: 0x04000BDA RID: 3034
     private int halfVisibleCount;
 
-    // Token: 0x04000BDB RID: 3035
     private Vector centralCellTL;
 
-    // Token: 0x04000BDC RID: 3036
     private float centralCellHeight;
 
-    // Token: 0x04000BDD RID: 3037
     private BaseElement scrollTop;
 
-    // Token: 0x04000BDE RID: 3038
     private List<BaseElement> elements;
 }

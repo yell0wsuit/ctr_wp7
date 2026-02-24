@@ -7,10 +7,8 @@ using ctr_wp7.ios;
 
 namespace ctr_wp7.game
 {
-    // Token: 0x02000018 RID: 24
     internal sealed class CartoonsSelectView : MenuView
     {
-        // Token: 0x0600011F RID: 287 RVA: 0x00009D08 File Offset: 0x00007F08
         public NSObject initFullscreenBackgroundDelegate(BaseElement background, ButtonDelegate d)
         {
             if (initFullscreen() != null)
@@ -74,7 +72,6 @@ namespace ctr_wp7.game
             return this;
         }
 
-        // Token: 0x06000120 RID: 288 RVA: 0x00009FC4 File Offset: 0x000081C4
         public void buildBlocks()
         {
             BaseElement baseElement = (BaseElement)new BaseElement().init();
@@ -98,7 +95,6 @@ namespace ctr_wp7.game
             _ = box.addChild(baseElement2);
         }
 
-        // Token: 0x06000121 RID: 289 RVA: 0x0000A07C File Offset: 0x0000827C
         public void rebuild()
         {
             needrebuild = false;
@@ -107,13 +103,11 @@ namespace ctr_wp7.game
             buildBlocks();
         }
 
-        // Token: 0x06000122 RID: 290 RVA: 0x0000A0AA File Offset: 0x000082AA
         public static bool isRebuildNeeded()
         {
             return needrebuild;
         }
 
-        // Token: 0x06000123 RID: 291 RVA: 0x0000A0B4 File Offset: 0x000082B4
         public void notifyBlockWatched(int blocknum)
         {
             BaseElement child = box.getChild(blocknum + 1);
@@ -124,19 +118,16 @@ namespace ctr_wp7.game
             }
         }
 
-        // Token: 0x06000124 RID: 292 RVA: 0x0000A0EE File Offset: 0x000082EE
         public void openCurtain()
         {
             curtain.setEnabled(true);
         }
 
-        // Token: 0x06000125 RID: 293 RVA: 0x0000A0FC File Offset: 0x000082FC
         public void closeCurtain()
         {
             curtain.setEnabled(false);
         }
 
-        // Token: 0x06000126 RID: 294 RVA: 0x0000A10A File Offset: 0x0000830A
         public override void update(float delta)
         {
             if (needrebuild)
@@ -146,19 +137,14 @@ namespace ctr_wp7.game
             base.update(delta);
         }
 
-        // Token: 0x0400075F RID: 1887
         private ButtonDelegate buttonDelegate;
 
-        // Token: 0x04000760 RID: 1888
         private BaseElement box;
 
-        // Token: 0x04000761 RID: 1889
         private float sheight;
 
-        // Token: 0x04000762 RID: 1890
         private RectangleElement curtain;
 
-        // Token: 0x04000763 RID: 1891
         public static bool needrebuild;
     }
 }
