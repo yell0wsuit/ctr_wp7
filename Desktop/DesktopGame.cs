@@ -4,6 +4,7 @@ using System.Globalization;
 
 using ctr_wp7.ctr_commons;
 using ctr_wp7.iframework;
+using ctr_wp7.iframework.media;
 using ctr_wp7.wp7utilities;
 
 using Microsoft.Xna.Framework;
@@ -40,6 +41,7 @@ namespace ctr_wp7.Desktop
         {
             WP7Singletons.GraphicsDevice = GraphicsDevice;
             WP7Singletons.Content = Content;
+            SoundMgr.SetContentManager(Content);
 
             OpenGL.Init();
             CtrRenderer.onSurfaceCreated();
