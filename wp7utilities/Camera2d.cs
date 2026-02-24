@@ -1,9 +1,9 @@
 ﻿using System;
-using ctre_wp7.iframework.core;
+using ctr_wp7.iframework.core;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace ctre_wp7.wp7utilities
+namespace ctr_wp7.wp7utilities
 {
 	// Token: 0x020000FF RID: 255
 	public class Camera2d

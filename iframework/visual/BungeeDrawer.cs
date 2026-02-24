@@ -1,10 +1,10 @@
 ﻿using System;
-using ctre_wp7.game;
-using ctre_wp7.iframework.core;
-using ctre_wp7.iframework.helpers;
-using ctre_wp7.iframework.sfe;
+using ctr_wp7.game;
+using ctr_wp7.iframework.core;
+using ctr_wp7.iframework.helpers;
+using ctr_wp7.iframework.sfe;
 
-namespace ctre_wp7.iframework.visual
+namespace ctr_wp7.iframework.visual
 {
 	// Token: 0x020000D7 RID: 215
 	internal class BungeeDrawer : BaseElement

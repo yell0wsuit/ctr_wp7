@@ -1,8 +1,8 @@
 ﻿using System;
-using ctre_wp7.iframework.core;
-using ctre_wp7.ios;
+using ctr_wp7.iframework.core;
+using ctr_wp7.ios;
 
-namespace ctre_wp7.ctr_commons
+namespace ctr_wp7.ctr_commons
 {
 	// Token: 0x0200001A RID: 26
 	internal class CTRApp : Application

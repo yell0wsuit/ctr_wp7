@@ -1,15 +1,13 @@
 ﻿using System;
 using System.IO.IsolatedStorage;
-using System.Windows.Media.Imaging;
-using ctre_wp7.ctr_commons;
-using ctre_wp7.iframework.core;
-using ctre_wp7.iframework.helpers;
-using ctre_wp7.ios;
-using ctre_wp7.wp7utilities;
-using Microsoft.Phone;
+using ctr_wp7.ctr_commons;
+using ctr_wp7.iframework.core;
+using ctr_wp7.iframework.helpers;
+using ctr_wp7.ios;
+using ctr_wp7.wp7utilities;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace ctre_wp7.iframework.visual
+namespace ctr_wp7.iframework.visual
 {
 	// Token: 0x0200004A RID: 74
 	internal class Texture2D : NSObject
@@ -223,27 +221,9 @@ namespace ctre_wp7.iframework.visual
 				{
 					using (IsolatedStorageFile userStoreForApplication = IsolatedStorageFile.GetUserStoreForApplication())
 					{
-						using (IsolatedStorageFileStream isolatedStorageFileStream = userStoreForApplication.OpenFile(path, 3, 1))
+						using (IsolatedStorageFileStream isolatedStorageFileStream = userStoreForApplication.OpenFile(path, System.IO.FileMode.Open, System.IO.FileAccess.Read))
 						{
-							WriteableBitmap writeableBitmap = PictureDecoder.DecodeJpeg(isolatedStorageFileStream);
-							int pixelWidth = writeableBitmap.PixelWidth;
-							int pixelHeight = writeableBitmap.PixelHeight;
-							this.xnaTexture_ = new Texture2D(WP7Singletons.GraphicsDevice, pixelWidth, pixelHeight);
-							int[] pixels = writeableBitmap.Pixels;
-							Console.WriteLine(pixels.Length);
-							for (int i = 0; i < pixelHeight; i++)
-							{
-								for (int j = 0; j < pixelWidth; j++)
-								{
-									int num = pixels[i * pixelWidth + j];
-									byte[] bytes = BitConverter.GetBytes(num);
-									byte b = bytes[0];
-									bytes[0] = bytes[2];
-									bytes[2] = b;
-									pixels[i * pixelWidth + j] = BitConverter.ToInt32(bytes, 0);
-								}
-							}
-							this.xnaTexture_.SetData<int>(pixels);
+							this.xnaTexture_ = Microsoft.Xna.Framework.Graphics.Texture2D.FromStream(WP7Singletons.GraphicsDevice, isolatedStorageFileStream);
 						}
 					}
 				}
@@ -365,7 +345,7 @@ namespace ctre_wp7.iframework.visual
 		}
 
 		// Token: 0x0600026B RID: 619 RVA: 0x0000FBAC File Offset: 0x0000DDAC
-		public virtual Texture2D initWithTexture(Texture2D texture)
+		public virtual Texture2D initWithTexture(Microsoft.Xna.Framework.Graphics.Texture2D texture)
 		{
 			if (base.init() == null)
 			{
@@ -402,9 +382,9 @@ namespace ctre_wp7.iframework.visual
 			{
 				using (IsolatedStorageFile userStoreForApplication = IsolatedStorageFile.GetUserStoreForApplication())
 				{
-					using (IsolatedStorageFileStream isolatedStorageFileStream = new IsolatedStorageFileStream(path, 3, userStoreForApplication))
+					using (IsolatedStorageFileStream isolatedStorageFileStream = new IsolatedStorageFileStream(path, (System.IO.FileMode)3, userStoreForApplication))
 					{
-						this.xnaTexture_ = Texture2D.FromStream(WP7Singletons.GraphicsDevice, isolatedStorageFileStream);
+						this.xnaTexture_ = Microsoft.Xna.Framework.Graphics.Texture2D.FromStream(WP7Singletons.GraphicsDevice, isolatedStorageFileStream);
 					}
 				}
 			}
@@ -426,7 +406,7 @@ namespace ctre_wp7.iframework.visual
 		private const int UNDEFINED_TEXTURE = 65536;
 
 		// Token: 0x0400083B RID: 2107
-		public Texture2D xnaTexture_;
+		public Microsoft.Xna.Framework.Graphics.Texture2D xnaTexture_;
 
 		// Token: 0x0400083C RID: 2108
 		public string _resName;

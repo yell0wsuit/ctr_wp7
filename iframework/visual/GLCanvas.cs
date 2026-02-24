@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using ctre_wp7.ctr_commons;
-using ctre_wp7.ios;
+using ctr_wp7.ctr_commons;
+using ctr_wp7.ios;
 
-namespace ctre_wp7.iframework.visual
+namespace ctr_wp7.iframework.visual
 {
 	// Token: 0x0200000C RID: 12
 	internal class GLCanvas : NSObject

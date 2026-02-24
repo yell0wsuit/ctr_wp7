@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using ctre_wp7.ios;
+using ctr_wp7.ios;
 
-namespace ctre_wp7.iframework.visual
+namespace ctr_wp7.iframework.visual
 {
 	// Token: 0x02000009 RID: 9
 	internal class BaseElement : NSObject
@@ -225,7 +225,7 @@ namespace ctre_wp7.iframework.visual
 			while (i < this.childs.Count)
 			{
 				BaseElement baseElement;
-				bool flag = this.childs.TryGetValue(num, ref baseElement);
+				bool flag = this.childs.TryGetValue(num, out baseElement);
 				if (flag)
 				{
 					if (baseElement != null && baseElement.visible)
@@ -254,7 +254,7 @@ namespace ctre_wp7.iframework.visual
 			while (i < this.childs.Count)
 			{
 				BaseElement baseElement;
-				bool flag = this.childs.TryGetValue(num, ref baseElement);
+				bool flag = this.childs.TryGetValue(num, out baseElement);
 				if (flag)
 				{
 					if (baseElement != null && baseElement.updateable)
@@ -426,7 +426,7 @@ namespace ctre_wp7.iframework.visual
 				i = 0;
 				bool flag = false;
 				BaseElement baseElement;
-				while (this.childs.TryGetValue(i, ref baseElement))
+				while (this.childs.TryGetValue(i, out baseElement))
 				{
 					if (baseElement == null)
 					{
@@ -441,7 +441,7 @@ namespace ctre_wp7.iframework.visual
 					this.childs.Add(i, c);
 				}
 			}
-			else if (this.childs.TryGetValue(i, ref baseElement2))
+			else if (this.childs.TryGetValue(i, out baseElement2))
 			{
 				if (baseElement2 != c)
 				{
@@ -460,7 +460,7 @@ namespace ctre_wp7.iframework.visual
 		public virtual void removeChildWithID(int i)
 		{
 			BaseElement baseElement = null;
-			if (this.childs.TryGetValue(i, ref baseElement))
+			if (this.childs.TryGetValue(i, out baseElement))
 			{
 				if (baseElement != null)
 				{
@@ -493,7 +493,7 @@ namespace ctre_wp7.iframework.visual
 		public virtual BaseElement getChild(int i)
 		{
 			BaseElement baseElement = null;
-			this.childs.TryGetValue(i, ref baseElement);
+			this.childs.TryGetValue(i, out baseElement);
 			return baseElement;
 		}
 
@@ -553,7 +553,7 @@ namespace ctre_wp7.iframework.visual
 		public virtual void playTimeline(int t)
 		{
 			Timeline timeline = null;
-			this.timelines.TryGetValue(t, ref timeline);
+			this.timelines.TryGetValue(t, out timeline);
 			if (timeline == null)
 			{
 				return;
@@ -603,7 +603,7 @@ namespace ctre_wp7.iframework.visual
 		public virtual Timeline getTimeline(int n)
 		{
 			Timeline timeline = null;
-			this.timelines.TryGetValue(n, ref timeline);
+			this.timelines.TryGetValue(n, out timeline);
 			return timeline;
 		}
 

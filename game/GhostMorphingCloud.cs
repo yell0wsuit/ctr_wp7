@@ -1,10 +1,10 @@
 ﻿using System;
-using ctre_wp7.iframework;
-using ctre_wp7.iframework.helpers;
-using ctre_wp7.iframework.visual;
-using ctre_wp7.ios;
+using ctr_wp7.iframework;
+using ctr_wp7.iframework.helpers;
+using ctr_wp7.iframework.visual;
+using ctr_wp7.ios;
 
-namespace ctre_wp7.game
+namespace ctr_wp7.game
 {
 	// Token: 0x0200008F RID: 143
 	internal class GhostMorphingCloud : MultiParticles

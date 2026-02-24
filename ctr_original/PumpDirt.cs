@@ -1,10 +1,10 @@
 ﻿using System;
-using ctre_wp7.iframework;
-using ctre_wp7.iframework.core;
-using ctre_wp7.iframework.helpers;
-using ctre_wp7.iframework.visual;
+using ctr_wp7.iframework;
+using ctr_wp7.iframework.core;
+using ctr_wp7.iframework.helpers;
+using ctr_wp7.iframework.visual;
 
-namespace ctre_wp7.ctr_original
+namespace ctr_wp7.ctr_original
 {
 	// Token: 0x02000104 RID: 260
 	internal class PumpDirt : MultiParticles

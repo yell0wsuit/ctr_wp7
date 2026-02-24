@@ -1,14 +1,14 @@
 ﻿using System;
-using ctre_wp7.ios;
-using ctre_wp7.remotedata.cartoons;
+using ctr_wp7.ios;
+using ctr_wp7.remotedata.cartoons;
 
-namespace ctre_wp7.game.remotedata
+namespace ctr_wp7.game.remotedata
 {
 	// Token: 0x0200003D RID: 61
 	internal class BlockConfig : NSObject
 	{
 		// Token: 0x06000216 RID: 534 RVA: 0x0000DE2F File Offset: 0x0000C02F
-		public virtual NSObject initWithJObject(BlockConfig pBlockConfig)
+		public virtual NSObject initWithJObject(ctr_wp7.remotedata.cartoons.BlockConfig pBlockConfig)
 		{
 			if (base.init() != null)
 			{
@@ -74,7 +74,7 @@ namespace ctre_wp7.game.remotedata
 		}
 
 		// Token: 0x04000817 RID: 2071
-		protected BlockConfig jblockConfig;
+		protected ctr_wp7.remotedata.cartoons.BlockConfig jblockConfig;
 
 		// Token: 0x04000818 RID: 2072
 		protected BlockInterface hardcode;

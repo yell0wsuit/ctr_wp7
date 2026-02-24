@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using ctre_wp7.iframework.core;
-using ctre_wp7.iframework.helpers;
-using ctre_wp7.iframework.visual;
+using ctr_wp7.iframework.core;
+using ctr_wp7.iframework.helpers;
+using ctr_wp7.iframework.visual;
 
-namespace ctre_wp7.game
+namespace ctr_wp7.game
 {
 	// Token: 0x02000054 RID: 84
 	internal class Sock : CTRGameObject

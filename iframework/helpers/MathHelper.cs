@@ -1,9 +1,9 @@
 ﻿using System;
-using ctre_wp7.ctr_original;
-using ctre_wp7.iframework.core;
-using ctre_wp7.ios;
+using ctr_wp7.ctr_original;
+using ctr_wp7.iframework.core;
+using ctr_wp7.ios;
 
-namespace ctre_wp7.iframework.helpers
+namespace ctr_wp7.iframework.helpers
 {
 	// Token: 0x02000004 RID: 4
 	internal class MathHelper : ResDataPhoneFull

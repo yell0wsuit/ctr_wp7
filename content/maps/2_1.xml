@@ -1,0 +1,63 @@
+<map>
+<layer name="settings">
+<map gridSize="32" width="320" height="480" />
+<gameDesign special="1" twoParts="false" ropePhysicsSpeed="1.0" water="0" waterSpeed="0" />
+</layer>
+<layer name="Objects">
+<candy x="161" y="230" />
+<target x="254" y="416" />
+<star x="299" y="99" timeout="-1" />
+<star x="20" y="99" timeout="-1" />
+<star x="161" y="181" timeout="-1" />
+<pump x="42" y="247" angle="0" />
+<pump x="277" y="243" angle="180" />
+<grab x="162" y="98" length="110" wheel="false" gun="false" kickable="false" kicked="false" radius="-1" invisible="false" moveLength="-1" moveVertical="false" moveOffset="0" spider="false" helicopter="false" part="L" hidePath="false" />
+<pump x="161" y="334" angle="-90" />
+<tutorialText x="22" y="357" locale="en" text="Tap the Air Cushion to blow objects" width="180" />
+<tutorial04 x="101" y="347" locale="en" angle="180" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="Ru">
+<tutorial04 x="104" y="350" locale="ru" angle="180" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="22" y="357" locale="ru" text="Нажмите на подушку, чтобы подуть на леденец" width="180" />
+</layer>
+<layer name="Fr">
+<tutorial04 x="101" y="347" locale="fr" angle="180" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="22" y="357" locale="fr" text="Tapotez le coussin d'air pour pousser les objets" width="180" />
+</layer>
+<layer name="De">
+<tutorial04 x="102" y="347" locale="de" angle="180" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="23" y="357" locale="de" text="Tippe das Luftkissen an, um Gegenstände wegzublasen" width="180" />
+</layer>
+<layer name="It">
+<tutorial04 x="104" y="350" locale="it" angle="180" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="22" y="357" locale="it" text="Tocca il cuscino d'aria per soffiare sugli oggetti e spostarli" width="180" />
+</layer>
+<layer name="Ja">
+<tutorial04 x="104" y="340" locale="ja" angle="180" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="12" y="360" locale="ja" text="エアー*クッションを*タップ*して*いろいろな*ものを*吹き飛ばし*ましょう" width="200" />
+</layer>
+<layer name="Es">
+<tutorial04 x="104" y="350" locale="es" angle="180" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="22" y="357" locale="es" text="Aprieta el fuelle para soplar aire y mover objetos." width="180" />
+</layer>
+<layer name="Zh">
+<tutorial04 x="104" y="350" locale="zh" angle="180" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="22" y="365" locale="zh" text="触按气垫以吹起物品 " width="180" />
+</layer>
+<layer name="Ko">
+<tutorial04 x="104" y="350" locale="ko" angle="180" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="6" y="365" locale="ko" text="공기 주머니를 터치하면 *물건을 날려 보내요." width="180" />
+</layer>
+<layer name="Br">
+<tutorial04 x="104" y="350" locale="br" angle="180" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="13" y="357" locale="br" text="Toque a almofada de ar para soprar objetos" width="170" />
+</layer>
+<layer name="Tr">
+<tutorial04 x="104" y="350" locale="tr" angle="180" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="22" y="357" locale="tr" text="Nesneleri patlatmak için Hava Yastığına dokun " width="180" />
+</layer>
+<layer name="Nl">
+<tutorial04 x="104" y="350" locale="nl" angle="180" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="22" y="357" locale="nl" text="Tik op het luchtkussen om voorwerpen weg te blazen" width="180" />
+</layer>
+</map>

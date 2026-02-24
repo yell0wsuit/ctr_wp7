@@ -1,8 +1,8 @@
 ﻿using System;
-using ctre_wp7.iframework.core;
-using ctre_wp7.iframework.helpers;
+using ctr_wp7.iframework.core;
+using ctr_wp7.iframework.helpers;
 
-namespace ctre_wp7.iframework.visual
+namespace ctr_wp7.iframework.visual
 {
 	// Token: 0x0200007D RID: 125
 	internal class RotatableScalableMultiParticles : ScalableMultiParticles

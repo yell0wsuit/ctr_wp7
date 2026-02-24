@@ -1,7 +1,7 @@
 ﻿using System;
-using ctre_wp7.ios;
+using ctr_wp7.ios;
 
-namespace ctre_wp7.ctr_original
+namespace ctr_wp7.ctr_original
 {
 	// Token: 0x02000106 RID: 262
 	internal struct ScoreStruct

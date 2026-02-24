@@ -1,8 +1,8 @@
 ﻿using System;
-using ctre_wp7.iframework.core;
-using ctre_wp7.iframework.helpers;
+using ctr_wp7.iframework.core;
+using ctr_wp7.iframework.helpers;
 
-namespace ctre_wp7.iframework.visual
+namespace ctr_wp7.iframework.visual
 {
 	// Token: 0x02000089 RID: 137
 	internal class Scrollbar : BaseElement

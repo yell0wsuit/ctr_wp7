@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using ctre_wp7.iframework;
+using ctr_wp7.iframework;
 
-namespace ctre_wp7.ctr_original
+namespace ctr_wp7.ctr_original
 {
 	// Token: 0x02000003 RID: 3
 	internal class ResDataPhoneFull
@@ -392,7 +392,7 @@ namespace ctre_wp7.ctr_original
 				ResDataPhoneFull.xmls_ = dictionary;
 			}
 			string text;
-			ResDataPhoneFull.xmls_.TryGetValue(resName, ref text);
+			ResDataPhoneFull.xmls_.TryGetValue(resName, out text);
 			return text;
 		}
 

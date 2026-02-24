@@ -1,7 +1,7 @@
 ﻿using System;
-using ctre_wp7.iframework.visual;
+using ctr_wp7.iframework.visual;
 
-namespace ctre_wp7.ctr_commons
+namespace ctr_wp7.ctr_commons
 {
 	// Token: 0x02000115 RID: 277
 	internal class Lift : Button

@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-using ctre_wp7.ctr_original;
-using ctre_wp7.iframework.helpers;
-using ctre_wp7.ios;
-using FlurryWP7SDK;
-using FlurryWP7SDK.Models;
-using Microsoft.Phone.Tasks;
+using ctr_wp7.ctr_original;
+using ctr_wp7.iframework.helpers;
+using ctr_wp7.ios;
 
-namespace ctre_wp7.iframework
+namespace ctr_wp7.iframework
 {
 	// Token: 0x02000005 RID: 5
 	internal class FrameworkTypes : MathHelper
@@ -250,20 +248,9 @@ namespace ctre_wp7.iframework
 			// Token: 0x06000063 RID: 99 RVA: 0x0000574C File Offset: 0x0000394C
 			public static void logEvent(string s, List<string> Parameters_Double_String = null)
 			{
-				if (FrameworkTypes.FlurryAPI.enabled)
+				if (!FrameworkTypes.FlurryAPI.enabled)
 				{
-					if (Parameters_Double_String != null)
-					{
-						List<Parameter> list = new List<Parameter>();
-						for (int i = 0; i < Parameters_Double_String.Count / 2; i++)
-						{
-							Parameter parameter = new Parameter(Parameters_Double_String[i * 2], Parameters_Double_String[1 + i * 2]);
-							list.Add(parameter);
-						}
-						Api.LogEvent(s, list);
-						return;
-					}
-					Api.LogEvent(s);
+					return;
 				}
 			}
 
@@ -287,17 +274,11 @@ namespace ctre_wp7.iframework
 			// Token: 0x06000065 RID: 101 RVA: 0x000057D4 File Offset: 0x000039D4
 			public static void logEventwithParams(string str, Dictionary<string, string> _params, bool flurryon = true, bool mixpanelon = false, bool attachManufacturerInfo = false)
 			{
-				FrameworkTypes.FlurryAPI.injectGlobalLoggingParams(_params);
-				if (flurryon && _params != null)
+				if (_params == null)
 				{
-					List<Parameter> list = new List<Parameter>();
-					foreach (KeyValuePair<string, string> keyValuePair in _params)
-					{
-						Parameter parameter = new Parameter(keyValuePair.Key, keyValuePair.Value);
-						list.Add(parameter);
-					}
-					Api.LogEvent(str, list);
+					return;
 				}
+				FrameworkTypes.FlurryAPI.injectGlobalLoggingParams(_params);
 			}
 
 			// Token: 0x06000066 RID: 102 RVA: 0x00005854 File Offset: 0x00003A54
@@ -362,10 +343,10 @@ namespace ctre_wp7.iframework
 			{
 				try
 				{
-					new WebBrowserTask
+					Process.Start(new ProcessStartInfo(url)
 					{
-						Uri = new Uri(url, 1)
-					}.Show();
+						UseShellExecute = true
+					});
 				}
 				catch (Exception)
 				{
@@ -375,12 +356,16 @@ namespace ctre_wp7.iframework
 			// Token: 0x0600006C RID: 108 RVA: 0x000059DC File Offset: 0x00003BDC
 			public static void share(NSString title, NSString subject, NSString text, bool isDrawing = false)
 			{
-				new ShareLinkTask
+				try
 				{
-					Title = title.ToString(),
-					LinkUri = new Uri(text.ToString(), 1),
-					Message = subject.ToString()
-				}.Show();
+					Process.Start(new ProcessStartInfo(text.ToString())
+					{
+						UseShellExecute = true
+					});
+				}
+				catch (Exception)
+				{
+				}
 			}
 
 			// Token: 0x0600006D RID: 109 RVA: 0x00005A1F File Offset: 0x00003C1F

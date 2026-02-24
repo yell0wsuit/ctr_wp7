@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ctre_wp7.iframework.visual
+namespace ctr_wp7.iframework.visual
 {
 	// Token: 0x020000A1 RID: 161
 	internal class RotationParams

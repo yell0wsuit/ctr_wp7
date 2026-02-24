@@ -1,7 +1,7 @@
 ﻿using System;
-using ctre_wp7.ios;
+using ctr_wp7.ios;
 
-namespace ctre_wp7.iframework.helpers
+namespace ctr_wp7.iframework.helpers
 {
 	// Token: 0x0200007E RID: 126
 	internal class Dispatch : NSObject

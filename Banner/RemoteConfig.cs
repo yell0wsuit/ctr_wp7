@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace ctre_wp7.Banner
+namespace ctr_wp7.Banner
 {
 	// Token: 0x020000F3 RID: 243
 	public class RemoteConfig

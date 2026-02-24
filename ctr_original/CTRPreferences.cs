@@ -1,11 +1,11 @@
 ﻿using System;
-using ctre_wp7.Banner;
-using ctre_wp7.game;
-using ctre_wp7.iframework.core;
-using ctre_wp7.iframework.helpers;
-using ctre_wp7.ios;
+using ctr_wp7.Banner;
+using ctr_wp7.game;
+using ctr_wp7.iframework.core;
+using ctr_wp7.iframework.helpers;
+using ctr_wp7.ios;
 
-namespace ctre_wp7.ctr_original
+namespace ctr_wp7.ctr_original
 {
 	// Token: 0x020000BB RID: 187
 	internal class CTRPreferences : Preferences

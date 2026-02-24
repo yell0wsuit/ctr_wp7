@@ -1,0 +1,68 @@
+<map>
+<layer name="settings">
+<map gridSize="32" width="320" height="480" />
+<gameDesign special="1" twoParts="false" ropePhysicsSpeed="1.0" water="0" waterSpeed="0" />
+</layer>
+<layer name="Objects">
+<rotatedCircle x="155" y="230" size="120" handleAngle="-15" oneHandle="false" />
+<target x="55" y="427" />
+<candy x="152" y="387" />
+<grab x="60" y="165" length="200" wheel="false" gun="false" kickable="false" kicked="false" radius="-1" invisible="false" moveLength="-1" moveVertical="false" moveOffset="0" spider="false" helicopter="false" part="L" hidePath="false" />
+<grab x="252" y="166" length="200" wheel="false" gun="false" kickable="false" kicked="false" radius="-1" invisible="false" moveLength="-1" moveVertical="false" moveOffset="0" spider="false" helicopter="false" part="L" hidePath="false" />
+<grab x="156" y="348" length="70" wheel="false" gun="false" kickable="false" kicked="false" radius="-1" invisible="false" moveLength="-1" moveVertical="false" moveOffset="0" spider="false" helicopter="false" part="L" hidePath="false" />
+<star x="54" y="226" timeout="-1" />
+<star x="154" y="444" timeout="-1" />
+<spike1 x="76" y="381" angle="25" size="1" toggled="false" />
+<spike1 x="232" y="381" angle="-25" size="1" toggled="false" />
+<spike1 x="28" y="343" angle="53" size="1" toggled="false" />
+<spike1 x="279" y="343" angle="-53" size="1" toggled="false" />
+<star x="251" y="238" timeout="-1" />
+<tutorialText x="142" y="43" locale="en" text="Rotate the record using this handle" width="155" />
+<tutorial04 x="291" y="135" locale="en" angle="-55" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="Ru">
+<tutorialText x="126" y="45" locale="ru" text="Вращайте пластинку этой ручкой" width="200" />
+<tutorial04 x="290" y="135" locale="ru" angle="-55" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="De">
+<tutorialText x="117" y="42" locale="de" text="Drehe die Schallplatte mit diesem Griff" width="200" />
+<tutorial04 x="291" y="136" locale="de" angle="-55" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="Fr">
+<tutorialText x="87" y="41" locale="fr" text="Fais tourner le disque en agrippant cette poignée" width="210" />
+<tutorial04 x="291" y="135" locale="fr" angle="-55" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="It">
+<tutorialText x="115" y="37" locale="it" text="Fai girare il disco usando questa maniglia" width="195" />
+<tutorial04 x="290" y="135" locale="it" angle="-55" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="Ja">
+<tutorialText x="126" y="45" locale="ja" text="このハンドルを使って
+レコードを回します" width="200" />
+<tutorial04 x="290" y="135" locale="ja" angle="-55" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="Es">
+<tutorialText x="137" y="37" locale="es" text="Gira el disco usando este mando" width="155" />
+<tutorial04 x="290" y="135" locale="es" angle="-55" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="Zh">
+<tutorialText x="127" y="60" locale="zh" text="用此手柄*旋转唱片" width="200" />
+<tutorial04 x="290" y="135" locale="zh" angle="-55" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="Ko">
+<tutorialText x="130" y="46" locale="ko" text="이 손잡이로 원판을 돌리세요." width="200" />
+<tutorial04 x="290" y="135" locale="ko" angle="-55" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="Br">
+<tutorialText x="149" y="45" locale="br" text="Gire o disco usando esse apoio" width="150" />
+<tutorial04 x="290" y="135" locale="br" angle="-55" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="Tr">
+<tutorialText x="118" y="46" locale="tr" text="Bu tutacağı kullanarak plağı çevir" width="200" />
+<tutorial04 x="290" y="135" locale="tr" angle="-55" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="Nl">
+<tutorialText x="156" y="41" locale="nl" text="Draai de plaat met dit handvat" width="150" />
+<tutorial04 x="290" y="135" locale="nl" angle="-55" moveSpeed="100" rotateSpeed="100" />
+</layer>
+</map>

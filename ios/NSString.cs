@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ctre_wp7.ios
+namespace ctr_wp7.ios
 {
 	// Token: 0x020000CA RID: 202
 	internal class NSString : NSObject
@@ -82,7 +82,7 @@ namespace ctre_wp7.ios
 		// Token: 0x060005DD RID: 1501 RVA: 0x0002C875 File Offset: 0x0002AA75
 		public char characterAtIndex(int n)
 		{
-			return this.value_.get_Chars(n);
+			return this.value_[n];
 		}
 
 		// Token: 0x060005DE RID: 1502 RVA: 0x0002C883 File Offset: 0x0002AA83
@@ -97,7 +97,7 @@ namespace ctre_wp7.ios
 			int num = Math.Min(to.Length - 1, this.length());
 			for (int i = 0; i < num; i++)
 			{
-				to[i] = this.value_.get_Chars(i);
+				to[i] = this.value_[i];
 			}
 			to[num] = '\0';
 		}
@@ -142,11 +142,11 @@ namespace ctre_wp7.ios
 			int num2 = 1;
 			while (i < length)
 			{
-				if (this.value_.get_Chars(i) == ' ')
+				if (this.value_[i] == ' ')
 				{
 					i++;
 				}
-				else if (this.value_.get_Chars(i) == '-')
+				else if (this.value_[i] == '-')
 				{
 					num2 = -1;
 					i++;
@@ -154,7 +154,7 @@ namespace ctre_wp7.ios
 				else
 				{
 					num *= 10;
-					num += (int)(this.value_.get_Chars(i++) - '0');
+					num += (int)(this.value_[i++] - '0');
 				}
 			}
 			return num * num2;
@@ -186,16 +186,16 @@ namespace ctre_wp7.ios
 			int num4 = 1;
 			while (i < length)
 			{
-				if (this.value_.get_Chars(i) == ' ')
+				if (this.value_[i] == ' ')
 				{
 					i++;
 				}
-				else if (this.value_.get_Chars(i) == '-')
+				else if (this.value_[i] == '-')
 				{
 					num2 = -1;
 					i++;
 				}
-				else if (this.value_.get_Chars(i) == ',' || this.value_.get_Chars(i) == '.')
+				else if (this.value_[i] == ',' || this.value_[i] == '.')
 				{
 					num3 = 1;
 					num4 = 10;
@@ -204,7 +204,7 @@ namespace ctre_wp7.ios
 				else
 				{
 					num *= (float)num3;
-					num += ((float)this.value_.get_Chars(i++) - 48f) / (float)num4;
+					num += ((float)this.value_[i++] - 48f) / (float)num4;
 					if (num4 > 1)
 					{
 						num4 *= 10;

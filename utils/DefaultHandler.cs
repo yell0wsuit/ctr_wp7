@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Xml;
 
-namespace ctre_wp7.utils
+namespace ctr_wp7.utils
 {
 	// Token: 0x02000002 RID: 2
 	public abstract class DefaultHandler
@@ -17,7 +17,7 @@ namespace ctre_wp7.utils
 					XmlNodeType nodeType = this.xmlReader.NodeType;
 					switch (nodeType)
 					{
-					case 1:
+					case XmlNodeType.Element:
 					{
 						Dictionary<string, string> dictionary = new Dictionary<string, string>();
 						string baseURI = this.xmlReader.BaseURI;
@@ -37,13 +37,13 @@ namespace ctre_wp7.utils
 						this.StartElement(baseURI, localName, name, dictionary);
 						break;
 					}
-					case 2:
+					case XmlNodeType.Attribute:
 						break;
-					case 3:
+					case XmlNodeType.Text:
 						this.Characters(this.xmlReader.Value);
 						break;
 					default:
-						if (nodeType == 15)
+						if (nodeType == XmlNodeType.EndElement)
 						{
 							this.EndElement(this.xmlReader.BaseURI, this.xmlReader.LocalName, this.xmlReader.Name);
 						}

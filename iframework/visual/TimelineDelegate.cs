@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ctre_wp7.iframework.visual
+namespace ctr_wp7.iframework.visual
 {
 	// Token: 0x02000014 RID: 20
 	internal interface TimelineDelegate

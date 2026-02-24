@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ctre_wp7.iframework
+namespace ctr_wp7.iframework
 {
 	// Token: 0x020000B0 RID: 176
 	public enum BlendingFactor

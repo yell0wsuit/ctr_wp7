@@ -1,9 +1,9 @@
 ﻿using System;
-using ctre_wp7.game;
-using ctre_wp7.iframework.core;
-using ctre_wp7.iframework.visual;
+using ctr_wp7.game;
+using ctr_wp7.iframework.core;
+using ctr_wp7.iframework.visual;
 
-namespace ctre_wp7.Specials
+namespace ctr_wp7.Specials
 {
 	// Token: 0x02000045 RID: 69
 	internal class Factory

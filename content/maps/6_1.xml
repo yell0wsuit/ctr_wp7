@@ -1,0 +1,67 @@
+<map>
+<layer name="settings">
+<map gridSize="32" width="320" height="480" />
+<gameDesign special="1" twoParts="false" ropePhysicsSpeed="1.0" water="0" waterSpeed="0" />
+</layer>
+<layer name="Objects">
+<target x="243" y="305" />
+<star x="76" y="65" timeout="-1" />
+<star x="241" y="379" timeout="-1" />
+<star x="78" y="212" timeout="-1" />
+<candy x="161" y="69" />
+<grab x="165" y="407" length="310" wheel="true" gun="false" kickable="false" kicked="false" radius="-1" invisible="false" moveLength="-1" moveVertical="false" moveOffset="0" spider="false" helicopter="false" part="L" hidePath="false" />
+<bubble x="161" y="68" />
+<pump x="78" y="311" angle="0" />
+<tutorialText x="14" y="335" locale="en" text="Rotate the wheel to control the rope length" width="120" />
+<tutorial03 x="166" y="409" locale="en" moveSpeed="100" rotateSpeed="100" />
+<pump x="233" y="216" angle="-180" />
+</layer>
+<layer name="Ru">
+<tutorialText x="15" y="335" locale="ru" text="Вращайте колесо для изменения длины веревки" width="120" />
+<tutorial03 x="166" y="409" locale="ru" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="Fr">
+<tutorial03 x="166" y="410" locale="fr" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="8" y="333" locale="fr" text="Faites tourner la roue pour modifier la longueur de la corde" width="140" />
+</layer>
+<layer name="De">
+<tutorial03 x="166" y="409" locale="de" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="14" y="335" locale="de" text="Drehe das Rad, um die Seillänge einzustellen" width="120" />
+</layer>
+<layer name="It">
+<tutorialText x="10" y="335" locale="it" text="Gira la ruota per controllare la lunghezza della corda" width="125" />
+<tutorial03 x="166" y="409" locale="it" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="Ja">
+<tutorialText x="15" y="345" locale="ja" text="車輪を回転させて
+ロープの長さを
+調整しましょう" width="120" />
+<tutorial03 x="166" y="409" locale="ja" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="Es">
+<tutorialText x="15" y="335" locale="es" text="Gira el carrete para controlar la longitud de la cuerda." width="120" />
+<tutorial03 x="166" y="409" locale="es" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="Zh">
+<tutorialText x="200" y="397" locale="zh" text="旋转转轮即可
+
+控制绳索长度" width="120" />
+<tutorial03 x="166" y="409" locale="zh" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="Ko">
+<tutorialText x="15" y="340" locale="ko" text="바퀴를 돌려 *줄 길이를 조정하세요." width="120" />
+<tutorial03 x="166" y="409" locale="ko" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="Br">
+<tutorialText x="15" y="335" locale="br" text="Gire a roda para mudar o tamanho da corda" width="100" />
+<tutorial03 x="166" y="409" locale="br" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="Tr">
+<tutorialText x="15" y="335" locale="tr" text="İpin uzunluğunu kontrol etmek için tekerleği döndür" width="120" />
+<tutorial03 x="166" y="409" locale="tr" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="Nl">
+<tutorialText x="15" y="335" locale="nl" text="Draai aan het wiel om de lengte van het touw te bepalen" width="120" />
+<tutorial03 x="166" y="409" locale="nl" moveSpeed="100" rotateSpeed="100" />
+</layer>
+</map>

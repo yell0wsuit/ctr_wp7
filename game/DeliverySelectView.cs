@@ -1,12 +1,12 @@
 ﻿using System;
-using ctre_wp7.ctr_original;
-using ctre_wp7.game.remotedata;
-using ctre_wp7.iframework;
-using ctre_wp7.iframework.core;
-using ctre_wp7.iframework.visual;
-using ctre_wp7.ios;
+using ctr_wp7.ctr_original;
+using ctr_wp7.game.remotedata;
+using ctr_wp7.iframework;
+using ctr_wp7.iframework.core;
+using ctr_wp7.iframework.visual;
+using ctr_wp7.ios;
 
-namespace ctre_wp7.game
+namespace ctr_wp7.game
 {
 	// Token: 0x02000069 RID: 105
 	internal class DeliverySelectView : MenuView

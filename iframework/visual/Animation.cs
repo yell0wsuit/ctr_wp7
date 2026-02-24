@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using ctre_wp7.iframework.core;
+using ctr_wp7.iframework.core;
 
-namespace ctre_wp7.iframework.visual
+namespace ctr_wp7.iframework.visual
 {
 	// Token: 0x0200000D RID: 13
 	internal class Animation : Image

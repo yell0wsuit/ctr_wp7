@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using ctre_wp7.ctr_original;
-using ctre_wp7.iframework.core;
-using ctre_wp7.ios;
+using ctr_wp7.ctr_original;
+using ctr_wp7.iframework.core;
+using ctr_wp7.ios;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Media;
 
-namespace ctre_wp7.iframework.media
+namespace ctr_wp7.iframework.media
 {
 	// Token: 0x02000028 RID: 40
 	internal class SoundMgr : NSObject
@@ -43,17 +43,14 @@ namespace ctre_wp7.iframework.media
 				return null;
 			}
 			SoundEffect soundEffect;
-			if (this.LoadedSounds.TryGetValue(resId, ref soundEffect))
+			if (this.LoadedSounds.TryGetValue(resId, out soundEffect))
 			{
 				return soundEffect;
 			}
-			try
+			SoundMgr.TryLoadAssetWithFallback<SoundEffect>(resId, out soundEffect);
+			if (soundEffect != null)
 			{
-				soundEffect = SoundMgr._contentManager.Load<SoundEffect>("ctr/sounds/" + CTRResourceMgr.XNA_ResName(resId));
 				this.LoadedSounds.Add(resId, soundEffect);
-			}
-			catch (Exception)
-			{
 			}
 			return soundEffect;
 		}
@@ -132,9 +129,13 @@ namespace ctre_wp7.iframework.media
 			{
 				if (MediaPlayer.GameHasControl)
 				{
-					if (!this.AllSongs.TryGetValue(sid, ref this.song))
+					if (!this.AllSongs.TryGetValue(sid, out this.song))
 					{
-						this.song = SoundMgr._contentManager.Load<Song>("ctr/sounds/" + CTRResourceMgr.XNA_ResName(sid));
+						SoundMgr.TryLoadAssetWithFallback<Song>(sid, out this.song);
+						if (this.song == null)
+						{
+							return;
+						}
 						this.AllSongs.Add(sid, this.song);
 					}
 					MediaPlayer.IsRepeating = true;
@@ -158,12 +159,40 @@ namespace ctre_wp7.iframework.media
 		// Token: 0x0600018A RID: 394 RVA: 0x0000B964 File Offset: 0x00009B64
 		public void LoadMusic(int sid)
 		{
-			if (!this.AllSongs.TryGetValue(sid, ref this.song))
+			if (!this.AllSongs.TryGetValue(sid, out this.song))
 			{
-				this.song = SoundMgr._contentManager.Load<Song>("ctr/sounds/" + CTRResourceMgr.XNA_ResName(sid));
-				this.AllSongs.Add(sid, this.song);
+				SoundMgr.TryLoadAssetWithFallback<Song>(sid, out this.song);
+				if (this.song != null)
+				{
+					this.AllSongs.Add(sid, this.song);
+				}
 			}
 			this.song = null;
+		}
+
+		private static bool TryLoadAssetWithFallback<T>(int resId, out T asset) where T : class
+		{
+			asset = default(T);
+			if (SoundMgr._contentManager == null)
+			{
+				return false;
+			}
+			string text = CTRResourceMgr.XNA_ResName(resId);
+			foreach (string text2 in new string[] { "ctr/sounds/" + text, "sounds/" + text })
+			{
+				try
+				{
+					asset = SoundMgr._contentManager.Load<T>(text2);
+					if (asset != null)
+					{
+						return true;
+					}
+				}
+				catch (Exception)
+				{
+				}
+			}
+			return false;
 		}
 
 		// Token: 0x0600018B RID: 395 RVA: 0x0000B9BE File Offset: 0x00009BBE

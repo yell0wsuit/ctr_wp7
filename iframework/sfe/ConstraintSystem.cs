@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using ctre_wp7.ios;
+using ctr_wp7.ios;
 
-namespace ctre_wp7.iframework.sfe
+namespace ctr_wp7.iframework.sfe
 {
 	// Token: 0x020000DF RID: 223
 	internal class ConstraintSystem : NSObject

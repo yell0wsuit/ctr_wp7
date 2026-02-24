@@ -1,0 +1,123 @@
+<map>
+<layer name="settings">
+<map gridSize="32" width="320" height="480" />
+<gameDesign special="1" twoParts="false" ropePhysicsSpeed="1.0" water="0" waterSpeed="0" />
+</layer>
+<layer name="Objects">
+<candy x="166" y="116" />
+<target x="165" y="426" />
+<star x="166" y="365" timeout="-1" />
+<star x="165" y="167" timeout="-1" />
+<star x="165" y="277" timeout="-1" />
+<grab x="292" y="87" length="100" wheel="false" gun="false" kickable="false" kicked="false" radius="-1" invisible="false" moveLength="-1" moveVertical="false" moveOffset="0" spider="false" helicopter="false" part="L" hidePath="false" />
+<grab x="35" y="89" length="100" wheel="false" gun="false" kickable="false" kicked="false" radius="-1" invisible="false" moveLength="-1" moveVertical="false" moveOffset="0" spider="false" helicopter="false" part="L" hidePath="false" />
+<spike4 x="294" y="212" angle="90" size="4" toggled="false" />
+<spike4 x="28" y="213" angle="90" size="4" toggled="false" />
+<tutorialText x="53" y="173" locale="en" text="You can also use multi-touch to deal with the several ropes at once" width="220" />
+<tutorial01 x="85" y="101" locale="en" angle="90" moveSpeed="100" rotateSpeed="100" />
+<tutorial01 x="238" y="100" locale="en" angle="90" moveSpeed="100" rotateSpeed="100" />
+<tutorial07 x="85" y="63" locale="en" angle="90" moveSpeed="100" rotateSpeed="100" />
+<tutorial07 x="238" y="62" locale="en" angle="90" moveSpeed="100" rotateSpeed="100" />
+<tutorial07 x="237" y="139" locale="en" angle="-90" moveSpeed="100" rotateSpeed="100" />
+<tutorial07 x="84" y="139" locale="en" angle="-90" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="Ru">
+<tutorial07 x="85" y="63" locale="ru" angle="90" moveSpeed="100" rotateSpeed="100" />
+<tutorial01 x="85" y="101" locale="ru" angle="90" moveSpeed="100" rotateSpeed="100" />
+<tutorial07 x="84" y="139" locale="ru" angle="-90" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="53" y="173" locale="ru" text="Вы можете использовать сразу несколько пальцев для перерезания" width="220" />
+<tutorial07 x="237" y="139" locale="ru" angle="-90" moveSpeed="100" rotateSpeed="100" />
+<tutorial01 x="238" y="100" locale="ru" angle="90" moveSpeed="100" rotateSpeed="100" />
+<tutorial07 x="238" y="62" locale="ru" angle="90" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="Fr">
+<tutorial07 x="85" y="63" locale="fr" angle="90" moveSpeed="100" rotateSpeed="100" />
+<tutorial01 x="85" y="101" locale="fr" angle="90" moveSpeed="100" rotateSpeed="100" />
+<tutorial07 x="84" y="139" locale="fr" angle="-90" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="52" y="162" locale="fr" text="Vous pouvez également utiliser le multi-touch pour gérer plusieurs cordes à la fois" width="220" />
+<tutorial07 x="237" y="139" locale="fr" angle="-90" moveSpeed="100" rotateSpeed="100" />
+<tutorial01 x="238" y="100" locale="fr" angle="90" moveSpeed="100" rotateSpeed="100" />
+<tutorial07 x="238" y="62" locale="fr" angle="90" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="De">
+<tutorialText x="36" y="162" locale="de" text="Du kannst auch Multitouch benutzen, um mehrere Seile zu zerschneiden" width="245" />
+<tutorial01 x="84" y="101" locale="de" angle="90" moveSpeed="100" rotateSpeed="100" />
+<tutorial07 x="84" y="63" locale="de" angle="90" moveSpeed="100" rotateSpeed="100" />
+<tutorial07 x="83" y="139" locale="de" angle="-90" moveSpeed="100" rotateSpeed="100" />
+<tutorial01 x="237" y="100" locale="de" angle="90" moveSpeed="100" rotateSpeed="100" />
+<tutorial07 x="237" y="62" locale="de" angle="90" moveSpeed="100" rotateSpeed="100" />
+<tutorial07 x="236" y="139" locale="de" angle="-90" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="It">
+<tutorial07 x="85" y="63" locale="it" angle="90" moveSpeed="100" rotateSpeed="100" />
+<tutorial01 x="85" y="101" locale="it" angle="90" moveSpeed="100" rotateSpeed="100" />
+<tutorial07 x="84" y="139" locale="it" angle="-90" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="53" y="173" locale="it" text="Puoi usare anche il multi-touch per gestire più corde alla volta" width="220" />
+<tutorial07 x="237" y="139" locale="it" angle="-90" moveSpeed="100" rotateSpeed="100" />
+<tutorial01 x="238" y="100" locale="it" angle="90" moveSpeed="100" rotateSpeed="100" />
+<tutorial07 x="238" y="62" locale="it" angle="90" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="Ja">
+<tutorial07 x="85" y="63" locale="ja" angle="90" moveSpeed="100" rotateSpeed="100" />
+<tutorial01 x="85" y="101" locale="ja" angle="90" moveSpeed="100" rotateSpeed="100" />
+<tutorial07 x="84" y="139" locale="ja" angle="-90" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="53" y="173" locale="ja" text="マルチタッチで*複数の*ロープを*同時に*操作*できます" width="220" />
+<tutorial07 x="237" y="139" locale="ja" angle="-90" moveSpeed="100" rotateSpeed="100" />
+<tutorial01 x="238" y="100" locale="ja" angle="90" moveSpeed="100" rotateSpeed="100" />
+<tutorial07 x="238" y="62" locale="ja" angle="90" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="Es">
+<tutorial07 x="85" y="63" locale="es" angle="90" moveSpeed="100" rotateSpeed="100" />
+<tutorial01 x="85" y="101" locale="es" angle="90" moveSpeed="100" rotateSpeed="100" />
+<tutorial07 x="84" y="139" locale="es" angle="-90" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="51" y="165" locale="es" text="Puedes deslizar varios dedos por la pantalla para cortar varias cuerdas a la vez." width="220" />
+<tutorial07 x="237" y="139" locale="es" angle="-90" moveSpeed="100" rotateSpeed="100" />
+<tutorial01 x="238" y="100" locale="es" angle="90" moveSpeed="100" rotateSpeed="100" />
+<tutorial07 x="238" y="62" locale="es" angle="90" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="Zh">
+<tutorial07 x="85" y="63" locale="zh" angle="90" moveSpeed="100" rotateSpeed="100" />
+<tutorial01 x="85" y="101" locale="zh" angle="90" moveSpeed="100" rotateSpeed="100" />
+<tutorial07 x="84" y="139" locale="zh" angle="-90" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="53" y="180" locale="zh" text="你还可以利用多点触控，*一次操纵几条绳索" width="220" />
+<tutorial07 x="237" y="139" locale="zh" angle="-90" moveSpeed="100" rotateSpeed="100" />
+<tutorial01 x="238" y="100" locale="zh" angle="90" moveSpeed="100" rotateSpeed="100" />
+<tutorial07 x="238" y="62" locale="zh" angle="90" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="Ko">
+<tutorial07 x="85" y="63" locale="ko" angle="90" moveSpeed="100" rotateSpeed="100" />
+<tutorial01 x="85" y="101" locale="ko" angle="90" moveSpeed="100" rotateSpeed="100" />
+<tutorial07 x="84" y="139" locale="ko" angle="-90" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="53" y="181" locale="ko" text="멀티 터치로 한번에 *여러 줄을 다룰 수 있어요." width="220" />
+<tutorial07 x="237" y="139" locale="ko" angle="-90" moveSpeed="100" rotateSpeed="100" />
+<tutorial01 x="238" y="100" locale="ko" angle="90" moveSpeed="100" rotateSpeed="100" />
+<tutorial07 x="238" y="62" locale="ko" angle="90" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="Br">
+<tutorial07 x="85" y="63" locale="br" angle="90" moveSpeed="100" rotateSpeed="100" />
+<tutorial01 x="85" y="101" locale="br" angle="90" moveSpeed="100" rotateSpeed="100" />
+<tutorial07 x="84" y="139" locale="br" angle="-90" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="52" y="165" locale="br" text="Você também pode usar multi-toque para lidar com várias cordas de uma só vez" width="220" />
+<tutorial07 x="237" y="139" locale="br" angle="-90" moveSpeed="100" rotateSpeed="100" />
+<tutorial01 x="238" y="100" locale="br" angle="90" moveSpeed="100" rotateSpeed="100" />
+<tutorial07 x="238" y="62" locale="br" angle="90" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="Tr">
+<tutorial07 x="85" y="63" locale="tr" angle="90" moveSpeed="100" rotateSpeed="100" />
+<tutorial01 x="85" y="101" locale="tr" angle="90" moveSpeed="100" rotateSpeed="100" />
+<tutorial07 x="84" y="139" locale="tr" angle="-90" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="53" y="160" locale="tr" text="Birden fala iple aynı anda ilgilenmek için çok dokunuşluyu da kullanabilirsin" width="220" />
+<tutorial07 x="237" y="139" locale="tr" angle="-90" moveSpeed="100" rotateSpeed="100" />
+<tutorial01 x="238" y="100" locale="tr" angle="90" moveSpeed="100" rotateSpeed="100" />
+<tutorial07 x="238" y="62" locale="tr" angle="90" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="Nl">
+<tutorial07 x="85" y="63" locale="nl" angle="90" moveSpeed="100" rotateSpeed="100" />
+<tutorial01 x="85" y="101" locale="nl" angle="90" moveSpeed="100" rotateSpeed="100" />
+<tutorial07 x="84" y="139" locale="nl" angle="-90" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="51" y="166" locale="nl" text="Met multi-touch kun je ook verschillende touwen tegelijk doorsnijden" width="220" />
+<tutorial07 x="237" y="139" locale="nl" angle="-90" moveSpeed="100" rotateSpeed="100" />
+<tutorial01 x="238" y="100" locale="nl" angle="90" moveSpeed="100" rotateSpeed="100" />
+<tutorial07 x="238" y="62" locale="nl" angle="90" moveSpeed="100" rotateSpeed="100" />
+</layer>
+</map>

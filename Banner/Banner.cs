@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.IO.IsolatedStorage;
-using ctre_wp7.iframework.core;
-using ctre_wp7.ios;
+using ctr_wp7.iframework.core;
+using ctr_wp7.ios;
 
-namespace ctre_wp7.Banner
+namespace ctr_wp7.Banner
 {
 	// Token: 0x02000091 RID: 145
 	public class Banner
@@ -71,7 +71,7 @@ namespace ctre_wp7.Banner
 				byte[] array = Convert.FromBase64String(base64);
 				using (IsolatedStorageFile userStoreForApplication = IsolatedStorageFile.GetUserStoreForApplication())
 				{
-					using (IsolatedStorageFileStream isolatedStorageFileStream = new IsolatedStorageFileStream(this.name, 2, userStoreForApplication))
+					using (IsolatedStorageFileStream isolatedStorageFileStream = new IsolatedStorageFileStream(this.name, System.IO.FileMode.Create, userStoreForApplication))
 					{
 						BinaryWriter binaryWriter = new BinaryWriter(isolatedStorageFileStream);
 						binaryWriter.Write(array);

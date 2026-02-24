@@ -1,7 +1,7 @@
 ﻿using System;
-using ctre_wp7.iframework;
+using ctr_wp7.iframework;
 
-namespace ctre_wp7.ios
+namespace ctr_wp7.ios
 {
 	// Token: 0x02000008 RID: 8
 	internal class NSObject : FrameworkTypes

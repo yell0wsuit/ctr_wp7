@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using ctre_wp7.iframework;
-using ctre_wp7.iframework.core;
-using ctre_wp7.iframework.visual;
-using ctre_wp7.ios;
-using ctre_wp7.wp7utilities;
+using ctr_wp7.iframework;
+using ctr_wp7.iframework.core;
+using ctr_wp7.iframework.visual;
+using ctr_wp7.ios;
+using ctr_wp7.wp7utilities;
 
-namespace ctre_wp7.game
+namespace ctr_wp7.game
 {
 	// Token: 0x0200009C RID: 156
 	internal class MapPickerController : ViewController, ButtonDelegate

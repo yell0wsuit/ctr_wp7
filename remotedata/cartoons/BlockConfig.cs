@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace ctre_wp7.remotedata.cartoons
+namespace ctr_wp7.remotedata.cartoons
 {
 	// Token: 0x02000055 RID: 85
 	[DataContract]
@@ -38,7 +38,7 @@ namespace ctre_wp7.remotedata.cartoons
 		public Block getBlockWithIDandHash(string id, string hash)
 		{
 			Block block = null;
-			this.blocks.TryGetValue(id, ref block);
+			this.blocks.TryGetValue(id, out block);
 			if (block == null || !block.hash.Equals(hash))
 			{
 				block = new Block();

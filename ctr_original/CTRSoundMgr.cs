@@ -1,10 +1,10 @@
 ﻿using System;
-using ctre_wp7.game;
-using ctre_wp7.iframework.core;
-using ctre_wp7.iframework.media;
+using ctr_wp7.game;
+using ctr_wp7.iframework.core;
+using ctr_wp7.iframework.media;
 using Microsoft.Xna.Framework.Audio;
 
-namespace ctre_wp7.ctr_original
+namespace ctr_wp7.ctr_original
 {
 	// Token: 0x02000029 RID: 41
 	internal class CTRSoundMgr : SoundMgr

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ctre_wp7.game
+namespace ctr_wp7.game
 {
 	// Token: 0x02000013 RID: 19
 	internal enum GHOST_STATE

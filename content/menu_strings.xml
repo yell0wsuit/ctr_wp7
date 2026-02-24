@@ -1,0 +1,2285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<strings locales="en,ru,fr,de,ko,zh,ja,es,it,nl,br">
+  <string name="PLAY">
+    <en>Play</en>
+    <ru>Играть</ru>
+    <fr>Jouer</fr>
+    <de>Spielen</de>
+    <ko>플레이</ko>
+    <zh>玩游戏</zh>
+    <ja>プレイ</ja>
+    <es>Jugar</es>
+    <it>Gioca</it>
+    <nl>Spelen</nl>
+    <br>Jogar</br>
+  </string>
+  <string name="OPTIONS">
+    <en>Options</en>
+    <ru>Настройки</ru>
+    <fr>Options</fr>
+    <de>Einstellungen</de>
+    <ko>환경설정</ko>
+    <zh>选项</zh>
+    <ja>オプション</ja>
+    <es>Opciones</es>
+    <it>Opzioni</it>
+    <nl>Opties</nl>
+    <br>Opções</br>
+  </string>
+  <string name="EXTRAS">
+    <en>Extras</en>
+    <ru>Дополнительно</ru>
+    <fr>Extras</fr>
+    <de>Extras</de>
+    <ko>부가 기능</ko>
+    <zh>额外内容</zh>
+    <ja>エクストラ</ja>
+    <es>Extras</es>
+    <it>Extra</it>
+    <nl>Extra's</nl>
+    <br>Extras</br>
+  </string>
+  <string name="FULL_VERSION">
+    <en>Buy Full Game</en>
+    <ru>Купить полную версию игры</ru>
+    <fr>Acheter le jeu complet</fr>
+    <de>Spiele-Vollversion kaufen</de>
+    <ko>정식 버전 게임 구입</ko>
+    <zh>购买完整游戏</zh>
+    <ja>完全版の購入</ja>
+    <es>Comprar juego completo</es>
+    <it>Acquista gioco completo</it>
+    <nl>Volledige game kopen</nl>
+    <br>Comprar Jogo Completo</br>
+  </string>
+  <string name="RESET">
+    <en>Reset game</en>
+    <ru>Сброс прогресса</ru>
+    <fr>Réinitialiser</fr>
+    <de>Zurücksetzen</de>
+    <ko>게임 초기화</ko>
+    <zh>重置游戏</zh>
+    <ja>リセット</ja>
+    <es>Restablecer</es>
+    <it>Azzera gioco</it>
+    <nl>Herstarten</nl>
+    <br>Reinicia jogo</br>
+  </string>
+  <string name="CREDITS">
+    <en>Credits</en>
+    <ru>Авторы</ru>
+    <fr>Crédits</fr>
+    <de>Mitwirkende</de>
+    <ko>제작진</ko>
+    <zh>制作人员</zh>
+    <ja>スタッフロール</ja>
+    <es>Créditos</es>
+    <it>Crediti</it>
+    <nl>Credits</nl>
+    <br>Créditos</br>
+  </string>
+  <string name="DRAWINGS">
+    <en>Drawings</en>
+    <ru>Рисунки</ru>
+    <fr>Dessins</fr>
+    <de>Zeichnungen</de>
+    <ko>그림</ko>
+    <zh>画作</zh>
+    <ja>画像</ja>
+    <es>Dibujos</es>
+    <it>Disegni</it>
+    <nl>Tekeningen</nl>
+    <br>Desenhos</br>
+  </string>
+  <string name="CRYSTAL">
+    <en>Scoreloop</en>
+    <ru>Scoreloop</ru>
+    <fr>Scoreloop</fr>
+    <de>Scoreloop</de>
+    <ko>Scoreloop</ko>
+    <zh>Scoreloop</zh>
+    <ja>Scoreloop</ja>
+    <es>Scoreloop</es>
+    <it>Scoreloop</it>
+    <nl>Scoreloop</nl>
+    <br>Scoreloop</br>
+  </string>
+  <string name="MUSIC_ON">
+    <en>Music on</en>
+    <ru>Музыка вкл.</ru>
+    <fr>Musique : oui</fr>
+    <de>Musik an</de>
+    <ko>배경음 켜기</ko>
+    <zh>音乐打开</zh>
+    <ja>音楽：*オン</ja>
+    <es>Música: sí</es>
+    <it>Musica: sì</it>
+    <nl>Muziek aan</nl>
+    <br>Música on</br>
+  </string>
+  <string name="MUSIC_OFF">
+    <en>Music off</en>
+    <ru>Музыка выкл.</ru>
+    <fr>Musique : non</fr>
+    <de>Musik aus</de>
+    <ko>배경음 끄기</ko>
+    <zh>音乐关闭</zh>
+    <ja>音楽：*オフ</ja>
+    <es>Música: no</es>
+    <it>Musica: no</it>
+    <nl>Muziek uit</nl>
+    <br>Música off</br>
+  </string>
+  <string name="SOUNDS_ON">
+    <en>Sounds on</en>
+    <ru>Звук вкл.</ru>
+    <fr>Sons : oui</fr>
+    <de>Sound an</de>
+    <ko>효과음 켜기</ko>
+    <zh>声音打开</zh>
+    <ja>効果音：*オン</ja>
+    <es>Sonido: sí</es>
+    <it>Suoni: sì</it>
+    <nl>Geluid aan</nl>
+    <br>Sons on</br>
+  </string>
+  <string name="SOUNDS_OFF">
+    <en>Sounds off</en>
+    <ru>Звук выкл.</ru>
+    <fr>Sons : non</fr>
+    <de>Sound aus</de>
+    <ko>효과음 끄기</ko>
+    <zh>声音关闭</zh>
+    <ja>効果音：*オフ</ja>
+    <es>Sonido: no</es>
+    <it>Suoni: no</it>
+    <nl>Geluid uit</nl>
+    <br>Sons off</br>
+  </string>
+  <string name="LANGUAGE">
+    <en>Language:</en>
+    <ru>Язык:</ru>
+    <fr>Langue : </fr>
+    <de>Sprache:</de>
+    <ko>언어:</ko>
+    <zh>语言：</zh>
+    <ja>言語：</ja>
+    <es>Idioma:</es>
+    <it>Lingua:</it>
+    <nl>Taal:</nl>
+    <br>Idioma:</br>
+  </string>
+  <string name="NEWS">
+    <en>News</en>
+    <ru>Новости</ru>
+    <fr>Nouveautés</fr>
+    <de>Neuigkeiten</de>
+    <ko>뉴스</ko>
+    <zh>新闻</zh>
+    <ja>ニュース</ja>
+    <es>Noticias</es>
+    <it>Novità</it>
+    <nl>Nieuws</nl>
+    <br>Notícias</br>
+  </string>
+  <string name="FOLLOW_US">
+    <en>Follow us</en>
+    <ru>Следите за нами</ru>
+    <fr>Suis-nous</fr>
+    <de>Folge uns</de>
+    <ko>팔로우하세요</ko>
+    <zh>关注我们</zh>
+    <ja>フォローする</ja>
+    <es>Síguenos</es>
+    <it>Seguici</it>
+    <nl>Volg ons</nl>
+    <br>Siga-nos</br>
+  </string>
+  <string name="RESET_TEXT">
+    <en>Are you sure you want to reset your progress?</en>
+    <ru>Уверены, что хотите сбросить игровой прогресс?</ru>
+    <fr>Veux-tu vraiment réinitialiser ta progression ?</fr>
+    <de>Spielfortschritt wirklich zurücksetzen?</de>
+    <ko>게임을 초기화하시겠습니까?</ko>
+    <zh>你确定要*重置你的*进度吗？</zh>
+    <ja>本当に*リセット*しますか？</ja>
+    <es>¿Seguro que quieres borrar el progreso realizado?</es>
+    <it>Vuoi davvero azzerare i tuoi progressi?</it>
+    <nl>Weet je zeker dat je je voortgang wilt wissen?</nl>
+    <br>Tem certeza de que deseja descartar seu progresso?</br>
+  </string>
+  <string name="QUIT">
+    <en>Are you sure you want to quit?</en>
+    <ru>Вы действительно хотите выйти из игры?</ru>
+    <fr>Veux-tu vraiment quitter ?</fr>
+    <de>Bist du sicher, dass du beenden willst?</de>
+    <ko>게임을 끝내시겠습니까?</ko>
+    <zh>你确定要*退出吗？</zh>
+    <ja>本当に*やめますか？</ja>
+    <es>¿Seguro que deseas salir?</es>
+    <it>Vuoi davvero uscire?</it>
+    <nl>Weet je zeker dat je wilt stoppen?</nl>
+    <br>Tem certeza de que deseja sair?</br>
+  </string>
+  <string name="LEVEL_CLEARED1">
+    <en>Passable!</en>
+    <ru>Уровень пройден!</ru>
+    <fr>Passable !</fr>
+    <de>Akzeptabel!</de>
+    <ko>간신히 통과!</ko>
+    <zh>马马虎虎！</zh>
+    <ja>まずまず!</ja>
+    <es>¡No está mal!</es>
+    <it>Accettabile!</it>
+    <nl>Voldoende!</nl>
+    <br>Passável!</br>
+  </string>
+  <string name="LEVEL_CLEARED2">
+    <en>Good!</en>
+    <ru>Хорошо!</ru>
+    <fr>Bien !</fr>
+    <de>Gut!</de>
+    <ko>좋아요!</ko>
+    <zh>好！</zh>
+    <ja>グッド!</ja>
+    <es>¡Bien!</es>
+    <it>Bene!</it>
+    <nl>Goed!</nl>
+    <br>Bom!</br>
+  </string>
+  <string name="LEVEL_CLEARED3">
+    <en>Great!</en>
+    <ru>Отлично!</ru>
+    <fr>Super !</fr>
+    <de>Klasse!</de>
+    <ko>잘 했어요!</ko>
+    <zh>真棒！</zh>
+    <ja>グレート!</ja>
+    <es>¡Genial!</es>
+    <it>Ottimo!</it>
+    <nl>Geweldig!</nl>
+    <br>Ótimo!</br>
+  </string>
+  <string name="LEVEL_CLEARED4">
+    <en>Excellent!</en>
+    <ru>Супер!</ru>
+    <fr>Formidable !</fr>
+    <de>Hervorragend!</de>
+    <ko>아주 잘 했어요!</ko>
+    <zh>好极了！</zh>
+    <ja>最高!</ja>
+    <es>¡Excelente!</es>
+    <it>Eccellente!</it>
+    <nl>Uitstekend!</nl>
+    <br>Excelente!</br>
+  </string>
+  <string name="LEVEL">
+    <en>Level</en>
+    <ru>Уровень</ru>
+    <fr>Niveau</fr>
+    <de>Level</de>
+    <ko>레벨</ko>
+    <zh>关卡</zh>
+    <ja>レベル</ja>
+    <es>Nivel</es>
+    <it>Livello</it>
+    <nl>Level</nl>
+    <br>Nível</br>
+  </string>
+  <string name="TIME">
+    <en>Time</en>
+    <ru>Время</ru>
+    <fr>Temps</fr>
+    <de>Zeit</de>
+    <ko>시간</ko>
+    <zh>时间</zh>
+    <ja>タイム</ja>
+    <es>Tiempo</es>
+    <it>Tempo</it>
+    <nl>Tijd</nl>
+    <br>Tempo</br>
+  </string>
+  <string name="STAR_BONUS">
+    <en>Star Bonus</en>
+    <ru>Бонус за звезды</ru>
+    <fr>Bonus étoiles</fr>
+    <de>Sternbonus</de>
+    <ko>보너스 별</ko>
+    <zh>星星奖励</zh>
+    <ja>スターボーナス</ja>
+    <es>Bonificación por estrellas</es>
+    <it>Bonus stelle</it>
+    <nl>Sterrenbonus</nl>
+    <br>Bônus de estrela</br>
+  </string>
+  <string name="FINAL_SCORE">
+    <en>Your Final Score</en>
+    <ru>Итоговые очки</ru>
+    <fr>Score final</fr>
+    <de>Endergebnis</de>
+    <ko>최종 점수</ko>
+    <zh>你的*最终得分</zh>
+    <ja>あなたの*最終*スコア</ja>
+    <es>Puntuación final</es>
+    <it>Punteggio finale</it>
+    <nl>Je eindscore</nl>
+    <br>Sua pontuação final</br>
+  </string>
+  <string name="BEST_SCORE">
+    <en>Best Score</en>
+    <ru>Лучший результат</ru>
+    <fr>Meilleur score</fr>
+    <de>Beste Punktzahl</de>
+    <ko>최고 점수</ko>
+    <zh>最佳得分</zh>
+    <ja>ベスト*スコア</ja>
+    <es>Mejor puntuación</es>
+    <it>Miglior punteggio</it>
+    <nl>Beste score</nl>
+    <br>Melhor pontuação</br>
+  </string>
+  <string name="SCORE">
+    <en>Score</en>
+    <ru>Очки</ru>
+    <fr>Score</fr>
+    <de>Punktzahl</de>
+    <ko>점수</ko>
+    <zh>得分</zh>
+    <ja>スコア</ja>
+    <es>Puntuación</es>
+    <it>Punteggio</it>
+    <nl>Score</nl>
+    <br>Pontuação</br>
+  </string>
+  <string name="YES">
+    <en>Yes</en>
+    <ru>Да</ru>
+    <fr>Oui</fr>
+    <de>Ja</de>
+    <ko>예</ko>
+    <zh>是</zh>
+    <ja>はい</ja>
+    <es>Sí</es>
+    <it>Sì</it>
+    <nl>Ja</nl>
+    <br>Sim</br>
+  </string>
+  <string name="NO">
+    <en>No</en>
+    <ru>Нет</ru>
+    <fr>Non</fr>
+    <de>Nein</de>
+    <ko>아니요</ko>
+    <zh>否</zh>
+    <ja>いいえ</ja>
+    <es>No</es>
+    <it>No</it>
+    <nl>Nee</nl>
+    <br>Não</br>
+  </string>
+  <string name="REPLAY">
+    <en>Replay</en>
+    <ru>Еще раз</ru>
+    <fr>Rejouer</fr>
+    <de>Nochmal</de>
+    <ko>다시 하기</ko>
+    <zh>回放</zh>
+    <ja>やり直す</ja>
+    <es>Repetir</es>
+    <it>Rigioca</it>
+    <nl>Opnieuw</nl>
+    <br>Repetir</br>
+  </string>
+  <string name="NEXT">
+    <en>Next</en>
+    <ru>Вперед</ru>
+    <fr>Suivant</fr>
+    <de>Weiter</de>
+    <ko>다음</ko>
+    <zh>下一步</zh>
+    <ja>次へ</ja>
+    <es>Siguiente</es>
+    <it>Prossimo</it>
+    <nl>Volgende</nl>
+    <br>Próximo</br>
+  </string>
+  <string name="MENU">
+    <en>Menu</en>
+    <ru>Меню</ru>
+    <fr>Menu</fr>
+    <de>Menü</de>
+    <ko>메뉴</ko>
+    <zh>菜单</zh>
+    <ja>メニュー</ja>
+    <es>Menú</es>
+    <it>Menu</it>
+    <nl>Menu</nl>
+    <br>Menu</br>
+  </string>
+  <string name="LOADING">
+    <en>Loading...</en>
+    <ru>Загрузка...</ru>
+    <fr>Chargement...</fr>
+    <de>Lädt ...</de>
+    <ko>불러오는 중...</ko>
+    <zh>正在加载...</zh>
+    <ja>ロード中…</ja>
+    <es>Cargando...</es>
+    <it>Caricamento in corso...</it>
+    <nl>Bezig met laden...</nl>
+    <br>Carregando ...</br>
+  </string>
+  <string name="TOTAL_STARS">
+    <en>Total: %d</en>
+    <ru>Всего: %d</ru>
+    <fr>Total : %d</fr>
+    <de>Gesamt: %d</de>
+    <ko>총 점수: %d</ko>
+    <zh>合计： %d</zh>
+    <ja>合計：%d</ja>
+    <es>Total: %d</es>
+    <it>Totale: %d</it>
+    <nl>Totaal: %d</nl>
+    <br>Total: %d</br>
+  </string>
+  <string name="OK">
+    <en>Ok</en>
+    <ru>ОК</ru>
+    <fr>OK</fr>
+    <de>OK</de>
+    <ko>확인</ko>
+    <zh>确定</zh>
+    <ja>OK</ja>
+    <es>Aceptar</es>
+    <it>Ok</it>
+    <nl>Oké</nl>
+    <br>Ok</br>
+  </string>
+  <string name="CANT_WAIT">
+    <en>Can't wait?</en>
+    <ru>Не терпится?</ru>
+    <fr>Impatient ?</fr>
+    <de>Ungeduldig?</de>
+    <ko>기다릴 수 없어!</ko>
+    <zh>迫不急待*了？</zh>
+    <ja>待ち*きれない?</ja>
+    <es>¿Quieres más?</es>
+    <it>Impaziente?</it>
+    <nl>Ongeduldig?</nl>
+    <br>Quero já!</br>
+  </string>
+  <string name="CANT_UNLOCK_TEXT1">
+    <en>You are missing</en>
+    <ru>Вам не хватает всего</ru>
+    <fr>Il te manque</fr>
+    <de>Dir fehlen noch</de>
+    <ko>이 상자를 열려면</ko>
+    <zh>你还需要</zh>
+    <ja>アンロックには</ja>
+    <es>Necesitas</es>
+    <it>Hai bisogno di</it>
+    <nl>Je mist</nl>
+    <br>Você precisa de</br>
+  </string>
+  <string name="CANT_UNLOCK_TEXT2">
+    <en>to unlock this box</en>
+    <ru>чтобы открыть коробку</ru>
+    <fr>pour cette boîte</fr>
+    <de>zum Öffnen der Kiste.</de>
+    <ko>개가 더 필요해요.</ko>
+    <zh>才能解锁*这个盒子</zh>
+    <ja>が必要です</ja>
+    <es>para abrir esta caja</es>
+    <it>per sblocc. la scatola</it>
+    <nl>om deze doos te openen</nl>
+    <br>para liberar esta caixa</br>
+  </string>
+  <string name="CANT_UNLOCK_TEXT3">
+    <en>Get more stars from the earlier levels</en>
+    <ru>Соберите больше звезд на предыдущих уровнях</ru>
+    <fr>Obtiens plus d'étoiles dans les niveaux précédents </fr>
+    <de>Hole dir mehr Sterne aus den vorherigen Levels.</de>
+    <ko>이전 레벨에서 별을 더 모으세요.</ko>
+    <zh>从先前的*关卡中*获取更多*星星</zh>
+    <ja>前の*レベルで*スターを*もっと*獲得*しましょう</ja>
+    <es>Vuelve a jugar los niveles anteriores para obtener más estrellas</es>
+    <it>Ottieni altre stelle nei primi livelli </it>
+    <nl>Ontvang meer sterren uit de eerdere levels</nl>
+    <br>Obtenha mais estrelas em níveis anteriores</br>
+  </string>
+  <string name="GAME_FINISHED_TEXT">
+    <en>You have finished the game!</en>
+    <ru>Вы успешно прошли игру!</ru>
+    <fr>Tu as terminé le jeu !</fr>
+    <de>Du hast das Spiel geschafft!</de>
+    <ko>게임이 끝났습니다!</ko>
+    <zh>你已完成*该游戏！</zh>
+    <ja>ゲームを
+クリアしました！</ja>
+    <es>¡Has terminado el juego!</es>
+    <it>Hai completato il gioco!</it>
+    <nl>Je hebt de game uitgespeeld!</nl>
+    <br>Você terminou o jogo!</br>
+  </string>
+  <string name="GAME_FINISHED_TEXT2">
+    <en>Check back for the new levels coming with the updates</en>
+    <ru>Новые уровни будут добавляться с обновлениями</ru>
+    <fr>Reviens plus tard pour découvrir les nouveaux niveaux contenus dans les mises à jour</fr>
+    <de>Verpasse nicht die neuen Level in den kommenden Updates!</de>
+    <ko>업데이트로 새로운 레벨이 추가됩니다. 자주 확인하세요.</ko>
+    <zh>请常来*看看*有没有*更新*推出的*新关卡</zh>
+    <ja>更新して*新たな*ゲーム*コンテンツを*ゲット*しましょう</ja>
+    <es>¡No te pierdas los niveles que iremos incorporando en próximas actualizaciones!</es>
+    <it>Torna a visitarci per scoprire i nuovi livelli dei prossimi aggiornamenti</it>
+    <nl>Houd de nieuwe levels in de gaten die bij updates beschikbaar worden</nl>
+    <br>Volte para ver os novos níveis que vêm com as atualizações</br>
+  </string>
+  <string name="ACHIEVEMENT_GAINED">
+    <en>achievement gained!</en>
+    <ru>: достижение получено!</ru>
+    <fr>succès obtenu !</fr>
+    <de>: Erfolg errungen!</de>
+    <ko>도전 과제 획득!</ko>
+    <zh>已取得*成就！</zh>
+    <ja>達成項目*ゲット!</ja>
+    <es>¡Logro obtenido!</es>
+    <it>: obiettivo completato!</it>
+    <nl>prestatie verdiend!</nl>
+    <br>conquista obtida!</br>
+  </string>
+  <string name="CONTINUE">
+    <en>Continue</en>
+    <ru>Продолжить</ru>
+    <fr>Continuer</fr>
+    <de>Fortfahren</de>
+    <ko>계속</ko>
+    <zh>继续</zh>
+    <ja>続ける</ja>
+    <es>Continuar</es>
+    <it>Continua</it>
+    <nl>Doorgaan</nl>
+    <br>Continuar</br>
+  </string>
+  <string name="SKIP_LEVEL">
+    <en>Skip level</en>
+    <ru>Пропустить</ru>
+    <fr>Passer le niveau</fr>
+    <de>Überspringen</de>
+    <ko>레벨 건너뛰기</ko>
+    <zh>跳过关卡</zh>
+    <ja>スキップ</ja>
+    <es>Saltar nivel</es>
+    <it>Salta livello</it>
+    <nl>Overslaan</nl>
+    <br>Pular nível</br>
+  </string>
+  <string name="LEVEL_SELECT">
+    <en>Level select</en>
+    <ru>Выбор уровня</ru>
+    <fr>Sélect. niv.</fr>
+    <de>Level wählen</de>
+    <ko>레벨 선택</ko>
+    <zh>选择关卡</zh>
+    <ja>レベル*選択</ja>
+    <es>Elegir nivel</es>
+    <it>Sel. livello</it>
+    <nl>Level kiezen</nl>
+    <br>Escolha nível</br>
+  </string>
+  <string name="MAIN_MENU">
+    <en>Main menu</en>
+    <ru>Главное меню</ru>
+    <fr>Menu princ.</fr>
+    <de>Hauptmenü</de>
+    <ko>주 메뉴</ko>
+    <zh>主菜单</zh>
+    <ja>メイン*メニュー</ja>
+    <es>Menú princ.</es>
+    <it>Menu di gioco</it>
+    <nl>Hoofdmenu</nl>
+    <br>Menu Princ.</br>
+  </string>
+  <string name="DRAWINGS_TAP">
+    <en>Tap to continue</en>
+    <ru>Продолжить</ru>
+    <fr>Touche pour continuer</fr>
+    <de>Zum Fortfahren antippen</de>
+    <ko>계속하려면 터치하세요.</ko>
+    <zh>触按以*继续</zh>
+    <ja>タップしてください</ja>
+    <es>Toca aquí para continuar.</es>
+    <it>Tocca per continuare</it>
+    <nl>Tik om door te gaan</nl>
+    <br>Toque para continuar</br>
+  </string>
+  <string name="DRAWINGS_LOCKED">
+    <en>Find this picture on the background of game levels!</en>
+    <ru>Ищите рисунок на заднем фоне уровней игры!</ru>
+    <fr>Trouve cette image dans l'arrière-plan des niveaux du jeu !</fr>
+    <de>Suche dieses Bild im Hintergrund der einzelnen Level!</de>
+    <ko>각 레벨 배경에서 이 그림을 찾으세요!</ko>
+    <zh>在这些*游戏关卡*的背景中*找出这*幅画！</zh>
+    <ja>ゲーム*レベルの*背景から*この画像を*探そう!</ja>
+    <es>¡Busca esta imagen en el fondo de los niveles!</es>
+    <it>Trova quest'immagine nello sfondo dei livelli di gioco!</it>
+    <nl>Zoek deze afbeelding op op de achtergrond van levels in de game!</nl>
+    <br>Encontre esta foto no fundo dos níveis de jogo!</br>
+  </string>
+  <string name="DRAWINGS_FACEBOOK">
+    <en>Like our group on Facebook and get latest news about Cut the Rope!</en>
+    <ru>Нажмите "Мне нравится", чтобы вступить в группу на Facebook и всегда быть в курсе последних новостей!</ru>
+    <fr>Aime notre groupe sur Facebook afin d'obtenir les dernières infos sur Cut the Rope !</fr>
+    <de>Gehe auf unsere Facebook-Seite und tippe "Gefällt mir" an, um immer die aktuellsten Neuigkeiten über "Cut the Rope" zu erhalten!</de>
+    <ko>Cut the Rope Facebook 페이지에서 '좋아요'를 클릭하고 최신 게임 정보를 확인하세요!</ko>
+    <zh>在 Facebook 上*赞我们*的群，并*获取有关* Cut the Rope 的*最新消息！</zh>
+    <ja>Facebookで*「いいね!」を*押して*「Cut the Rope」の*最新*情報を*ゲット*!</ja>
+    <es>¡Únete a nuestro grupo de Facebook para enterarte de las últimas novedades acerca de Cut the Rope!</es>
+    <it>Unisciti al nostro gruppo di Facebook e ricevi le ultime notizie su Cut the Rope!</it>
+    <nl>Geef via Facebook aan dat je onze groep leuk vindt en blijf op de hoogte van het laatste nieuws over Cut the Rope!</nl>
+    <br>Curta nosso grupo no Facebook e receba as últimas notícias sobre Cut the Rope!</br>
+  </string>
+  <string name="UPDATE_POPUP_TITLE">
+    <en>What's new in the update</en>
+    <ru>Что нового в обновлении</ru>
+    <fr>Nouveautés de la version</fr>
+    <de>Neues in diesem Update</de>
+    <ko>주요 업데이트 사항</ko>
+    <zh>本次更新*的新增内*容</zh>
+    <ja>本アップデートの*更新*情報</ja>
+    <es>Novedades de esta actualización</es>
+    <it>Novità nell'aggiornamento</it>
+    <nl>Vernieuwingen in de update</nl>
+    <br>Novidades da atualização</br>
+  </string>
+  <string name="DRAWING_FOUND">
+    <en>Drawing found!</en>
+    <ru>Новый рисунок!</ru>
+    <fr>Dessin trouvé !</fr>
+    <de>Zeichnung gefunden!</de>
+    <ko>그림을 찾았습니다!</ko>
+    <zh>画作已找*到！</zh>
+    <ja>画像*発見!</ja>
+    <es>¡Dibujo encontrado!</es>
+    <it>Disegno trovato!</it>
+    <nl>Tekening gevonden!</nl>
+    <br>Desenho encontrado!</br>
+  </string>
+  <string name="DRAWINGS_TOTAL">
+    <en>Drawings found: %d / %d</en>
+    <ru>Найдено рисунков: %d / %d</ru>
+    <fr>Dessins trouvés : %d / %d</fr>
+    <de>Gefundene Zeichnungen: %d / %d</de>
+    <ko>찾은 그림: %d / %d</ko>
+    <zh>已找到*画作：%d / %d</zh>
+    <ja>発見した画像：%d / %d</ja>
+    <es>Dibujos encontrados: %d / %d</es>
+    <it>Disegni trovati: %d / %d</it>
+    <nl>Tekeningen gevonden: %d / %d</nl>
+    <br>Desenhos encontrados: %d / %d</br>
+  </string>
+  <string name="FACEBOOK_LIKE">
+    <en>Like</en>
+    <ru>Мне нравится</ru>
+    <fr>J'aime</fr>
+    <de>Gefällt mir</de>
+    <ko>좋아요</ko>
+    <zh>赞</zh>
+    <ja>いいね!</ja>
+    <es>Me gusta</es>
+    <it>Mi piace</it>
+    <nl>Vind ik leuk</nl>
+    <br>Curtir</br>
+  </string>
+  <string name="FACEBOOK_SHARE">
+    <en>Share</en>
+    <ru>Поделиться</ru>
+    <fr>Partager</fr>
+    <de>Teilen</de>
+    <ko>공유하기</ko>
+    <zh>分享</zh>
+    <ja>共有</ja>
+    <es>Compartir</es>
+    <it>Condividi</it>
+    <nl>Delen</nl>
+    <br>Compartilhar</br>
+  </string>
+  <string name="PROCESSING">
+    <en>Processing...</en>
+    <ru>Обработка...</ru>
+    <fr>Traitement en cours...</fr>
+    <de>Wird bearbeitet ...</de>
+    <ko>처리 중...</ko>
+    <zh>正在*处理中...</zh>
+    <ja>処理中...</ja>
+    <es>Procesando...</es>
+    <it>Elaborazione in corso...</it>
+    <nl>Bezig met verwerken...</nl>
+    <br>Processando...</br>
+  </string>
+  <string name="DRAWING_UNLOCKED_MESSAGE">
+    <en>I've just unlocked a new Om Nom's drawing in Cut the Rope!</en>
+    <ru>Я только что нашел новый рисунок Ам Няма в Cut the Rope!</ru>
+    <fr>Je viens de débloquer un nouveau dessin d’Om Nom dans Cut the Rope !</fr>
+    <de>Ich habe gerade eine neue Om-Nom-Zeichnung in "Cut the Rope" entdeckt!</de>
+    <ko>Cut the Rope에서 Om Nom의 새 그림을 열었어요!</ko>
+    <zh>我刚在 Cut the Rope 中解锁了一幅新的 Om Nom 画作！</zh>
+    <ja>「Cut the Rope」のOm Nomの画像をアンロックしました!</ja>
+    <es>¡Acabo de desbloquear un nuevo dibujo de Om Nom en Cut the Rope!</es>
+    <it>Ho appena sbloccato un nuovo disegno di Om Nom in Cut the Rope!</it>
+    <nl>Ik heb net een nieuwe Om Nom-tekening ontgrendeld in Cut the Rope!</nl>
+    <br>Acabei de liberar um novo desenho de Om Nom em Cut the Rope!</br>
+  </string>
+  <string name="DRAWING_UNLOCKED_DESCRIPTION">
+    <en>The gallery of the art dedicated to the sweets has just got a new masterpiece.</en>
+    <ru>В галерею искусств, посвященных сладостям, поступил новый шедевр!</ru>
+    <fr>La galerie d’art dédiée aux sucreries vient de recevoir un nouveau chef-d'œuvre.</fr>
+    <de>Diese Bonbon-Kunstgalerie wurde grade um ein neues Meisterwerk ergänzt.</de>
+    <ko>사탕 미술관에 새로운 명작이 들어왔어요.</ko>
+    <zh>专为甜心们而设的艺廊刚刚得到一张全新杰作。</zh>
+    <ja>スイーツのギャラリーに傑作が追加されました。</ja>
+    <es>Nuestra galería de arte dedicada a las golosinas acaba de recibir una nueva obra maestra.</es>
+    <it>Alla galleria d'arte dedicata ai dolcetti è stato appena aggiunto un nuovo capolavoro.</it>
+    <nl>De kunstgalerie vol zoetigheid heeft net een nieuw meesterwerk binnengekregen.</nl>
+    <br>A galeria de arte dedicada aos doces acaba de receber uma nova obra-prima.</br>
+  </string>
+  <string name="RESET_HOLD_TEXT">
+    <en>Hold 'Yes' button for 3 seconds to reset.</en>
+    <ru>Удерживайте "Да" в течение 3 секунд для сброса прогресса.</ru>
+    <fr>Maintenir le doigt sur "Oui" pendant 3 secondes pour réinitialiser.</fr>
+    <de>Halte zum Neustarten 3 Sekunden lang "Ja" gedrückt.</de>
+    <ko>“예” 버튼을 3초 동안 누르면 초기화됩니다.</ko>
+    <zh>按住“是”按钮 3 秒即可重置。</zh>
+    <ja>「はい」*のボタンを*３秒間*長押しで*リセット</ja>
+    <es>Mantén pulsado "Sí" durante 3 segundos para reiniciar.</es>
+    <it>Tieni premuto il tasto "sì" per 3 secondi per azzerare.</it>
+    <nl>Houd de Ja-knop 3 seconden ingedrukt om opnieuw te beginnen.</nl>
+    <br>Segure o botão "Sim" por 3 segundos para reiniciar.</br>
+  </string>
+  <string name="STATUS_RESTORE_AVAILABLE">
+    <en>Restore progress from other version of Cut the Rope?</en>
+    <ru>Восстановить прогресс из другой версии Cut the Rope?</ru>
+    <fr>Restaurer la progression depuis une autre version de Cut the Rope ?</fr>
+    <de>Möchtest du deinen Spielfortschritt aus einer anderen Version von "Cut the Rope" wiederherstellen?</de>
+    <ko>Cut the Rope 다른 버전으로부터 데이터를 복구하시겠습니까?</ko>
+    <zh>从 Cut the Rope *其它版本*恢复进度？</zh>
+    <ja>他の*バージョンの*Cut the Ropeから*進行状況を*修復しますか?</ja>
+    <es>¿Quieres recuperar el progreso realizado en otra versión de Cut the Rope?</es>
+    <it>Vuoi ripristinare i progressi da un'altra versione di Cut the Rope?</it>
+    <nl>Wil je je voortgang herstellen uit andere versies van Cut the Rope?</nl>
+    <br>Restaurar o progresso da outra versão de Cut the Rope?</br>
+  </string>
+  <string name="STATUS_RESTORE_OK">
+    <en>Restore done successfully </en>
+    <ru>Восстановление данных завершено</ru>
+    <fr>Restauration effectuée</fr>
+    <de>Erfolgreich wiederhergestellt </de>
+    <ko>복구가 성공했습니다.</ko>
+    <zh>恢复成功 </zh>
+    <ja>修復*完了</ja>
+    <es>Recuperación efectuada. </es>
+    <it>Ripristino completato con successo</it>
+    <nl>Herstellen is gelukt </nl>
+    <br>Restauração feita com sucesso</br>
+  </string>
+  <string name="STATUS_RESTORE_BROKEN">
+    <en>Game progress file is broken </en>
+    <ru>Файл игрового прогресса поврежден</ru>
+    <fr>Le fichier de progression dans le jeu est endommagé </fr>
+    <de>Die Spielfortschrittsdatei ist beschädigt </de>
+    <ko>게임 진행 파일이 손상되었습니다.</ko>
+    <zh>游戏进度*文件已损坏 </zh>
+    <ja>進行状況*ファイルが*破損*しています</ja>
+    <es>Los datos de progreso del juego están dañados. </es>
+    <it>Il file del progresso di gioco è corrotto</it>
+    <nl>Bestand met voortgang in de game is kapot </nl>
+    <br>Arquivo de progresso do jogo está danificado</br>
+  </string>
+  <string name="GET_IT_NOW">
+    <en>Get it now!</en>
+    <ru>Скачайте сейчас!</ru>
+    <fr>Télécharger !</fr>
+    <de>Jetzt holen!</de>
+    <ko>지금 받으세요!</ko>
+    <zh>立即购买！</zh>
+    <ja>今すぐ*ゲット!</ja>
+    <es>¡Consíguelo!</es>
+    <it>Scaricalo!</it>
+    <nl>Nu ophalen!</nl>
+    <br>Obtenha já!</br>
+  </string>
+  <string name="ERROR_OPERATION_FAILED">
+    <en>The requested operation cannot be completed because of the error.</en>
+    <ru>Завершение операции невозможно из-за ошибки.</ru>
+    <fr>L'erreur empêche l'opération demandée de s'effectuer.</fr>
+    <de>Der angeforderte Vorgang kann aufgrund eines Fehlers nicht abgeschlossen werden.</de>
+    <ko>오류로 인해 요청한 작업을 완료할 수 없습니다.</ko>
+    <zh>由于*此错误，*所请求的*操作无法*完成。</zh>
+    <ja>エラー*のため*処理に*失敗*しました。</ja>
+    <es>No se ha podido realizar la operación solicitada.</es>
+    <it>L'operazione richiesta non può essere completata a causa dell'errore.</it>
+    <nl>Vanwege de fout kan de gevraagde handeling niet voltooid worden.</nl>
+    <br>A operação solicitada não pode ser concluída por causa do erro.</br>
+  </string>
+  <string name="THANKS_FOR_PURCHASE">
+    <en>Thanks for the purchase! It may take some time before the transaction will be completed.</en>
+    <ru>Спасибо за покупку! На совершение транзакции может потребоваться некоторое время.</ru>
+    <fr>Merci pour ton achat ! La réalisation de la transaction peut prendre un certain temps.</fr>
+    <de>Vielen Dank für den Kauf! Es kann etwas Zeit in Anspruch nehmen, bevor die Transaktion abgeschlossen ist.</de>
+    <ko>구매해 주셔서 감사합니다! 거래가 끝날 때까지 시간이 걸릴 수 있습니다.</ko>
+    <zh>谢谢选购！*可能需要*一点时间*才能完成*交易。</zh>
+    <ja>購入*ありがとう*ございます!* 購入処理*完了まで*もう少し*お待ち*ください。</ja>
+    <es>¡Gracias por tu compra! La transacción puede tardar unos instantes en completarse.</es>
+    <it>Grazie per l'acquisto! La transazione potrebbe richiedere qualche minuto.</it>
+    <nl>Bedankt voor je aankoop! Het kan even duren voordat de transactie afgerond is.</nl>
+    <br>Obrigado pela compra! Pode demorar algum tempo até a transação ser concluída.</br>
+  </string>
+  <string name="ABOUT_TEXT">
+    <en>Cut the Rope%@ ver. %@
+Copyright 2010-2013 by ZeptoLab.
+
+A game developed and published by ZeptoLab.
+
+Additional Design:
+Nataliya Omelyanchuk
+
+Music and Sounds:
+Alexander Falinski
+
+Quality assurance:
+SPL
+Universally Speaking
+
+Special Thanks:
+Vladimir Agafonov, Maks Chekmarev, Dmitry Chernenko, Alexander Danilov, Alexandra Dubovitskaya, Grigory Kireev, Viktor Kuzmin, Louise Lazzari, Brandyn Rasmussen, Tiago Amorim Rocha, Andrey Vengerskiy, Barbos, Uliya Voinova, Elena Volk
+
+Very Special Thanks: 1C Wireless
+
+ZeptoLab, Cut the Rope, Om Nom, Nommies and Feed with Candy are the trademarks or registered trademarks of ZeptoLab UK Limited. © 2010-2013 ZeptoLab UK Limited. All rights reserved.
+
+Legal: Hughes Media Law Group</en>
+    <ru>Cut the Rope%@ версия %@
+2010-2013 ZeptoLab.
+
+Игра разработана и издается ZeptoLab.
+
+Дополнительный гейм-дизайн:
+Наталья Омельянчук
+
+Музыка и звуки:
+Александр Фалинский
+
+Контроль качества: 
+SPL
+Universally Speaking
+
+Отдельное спасибо:
+Владимир Агафонов, Максим Чекмарёв, Дмитрий Черненко, Александр Данилов, Александра Дубовицкая, Григорий Киреев, Louise Lazzari, Brandyn Rasmussen, Tiago Amorim Rocha, Андрей Венгерский, Барбос, Юлия Воинова, Елена Волк
+
+Огромное спасибо: 1C Wireless
+
+ZeptoLab, Cut the Rope, Om Nom, Nommies и Feed with Candy являются товарными знаками или зарегистрированными товарными знаками ZeptoLab UK Limited. © 2010-2013 ZeptoLab UK Limited. Все права защищены.
+
+Юридическая поддержка: Hughes Media Law Group</ru>
+    <fr>Cut the Rope%@ ver. %@
+Copyright 2010-2013 ZeptoLab.
+
+Jeu développé et édité par ZeptoLab.
+
+Conception de niveaux supplémentaires :
+Nataliya Omelyanchuk
+
+Musique et bruitages :
+Alexander Falinski
+
+Assurance qualité :
+SPL
+Universally Speaking
+
+Remerciements particuliers :
+Vladimir Agafonov, Maks Chekmarev, Dmitry Chernenko, Alexander Danilov, Alexandra Dubovitskaya, Grigory Kireev, Viktor Kuzmin, Louise Lazzari, Brandyn Rasmussen, Tiago Amorim Rocha, Andrey Vengerskiy, Barbos, Uliya Voinova, Elena Volk
+Remerciements très particuliers : 1C Wireless
+
+ZeptoLab, Cut the Rope, Om Nom, Nommies et Feed with Candy sont des marques commerciales et/ou déposées de ZeptoLab UK Limited. © 2010-2013 ZeptoLab UK Limited. Tous droits réservés.
+
+Assistance juridique : Hughes Media Law Group</fr>
+    <de>Cut the Rope%@ Version: %@
+Copyright 2010-2013 von ZeptoLab.
+
+Entwickelt und herausgegeben von ZeptoLab.
+
+Zusätzliches Design:
+Natalija Omeljantschuk
+
+Musik und Sound:
+Alexander Falinski
+
+Qualitätssicherung: 
+SPL
+Universally Speaking
+
+Besonderen Dank an:
+Wladimir Agafonow, Maks Tschekmarew, Dmitri Tschernenko, Alexander Danilow, Alexandra Dubowitskaja, Grigori Kireew, Louise Lazzari, Brandyn Rasmussen, Tiago Amorim Rocha, Andrej Wengerskij, Barbos, Ulija Woinowa, Elena Wolk
+
+Und ganz besonderen Dank an: 1C Wireless
+
+ZeptoLab, Cut the Rope, Om Nom, Nommies und Feed with Candy sind Marken oder eingetragene Marken von ZeptoLab UK Limited. © 2010-2013 ZeptoLab UK Limited. Alle Rechte vorbehalten.
+
+Rechtsbeistand: Hughes Media Law Group</de>
+    <ko>Cut the Rope%@ 버전 %@
+Copyright 2010-2013 ZeptoLab.
+
+게임 개발 및 출시: ZeptoLab
+
+추가 디자인:
+Nataliya Omelyanchuk
+
+음악/효과음:
+Alexander Falinski
+
+QA: 
+SPL
+Universally Speaking
+
+도움 주신 분들:
+Vladimir Agafonov, Maks Chekmarev, Dmitry Chernenko, Alexander Danilov, Alexandra Dubovitskaya, Grigory Kireev, Viktor Kuzmin, Louise Lazzari, Brandyn Rasmussen, Tiago Amorim Rocha, Andrey Vengerskiy, Barbos, Uliya Voinova, Elena Volk
+
+도움 주신 분들: 1C Wireless
+
+ZeptoLab, Cut the Rope, Om Nom, Nommies 및 Feed with Candy는 ZeptoLab UK Limited의 상표 또는 등록 상표입니다. © 2010-2013 ZeptoLab UK Limited. All rights reserved.
+
+법률 자문: Hughes Media Law Group</ko>
+    <zh>Cut the Rope%@ 第 %@ 版
+ZeptoLab 2010-2013 年版权所有。
+
+一款由 ZeptoLab 开发并发布的的游戏。
+
+其它设计：
+Nataliya Omelyanchuk
+
+音乐和声音：
+Alexander Falinski
+
+质量保证：
+SPL
+Universally Speaking
+
+特别致谢：
+Vladimir Agafonov, Maks Chekmarev, Dmitry Chernenko, Alexander Danilov, Alexandra Dubovitskaya, Grigory Kireev, Viktor Kuzmin, Louise Lazzari, Brandyn Rasmussen, Tiago Amorim Rocha, Andrey Vengerskiy, Barbos, Uliya Voinova, Elena Volk
+
+专门特别*致谢：1C Wireless
+
+*Zeptolab、Cut the Rope、Om Nom、Nommies以及Feed with Candy是*Zeptolab英国有限公司的*商标或注册商标。*© 2010-2013 Zeptolab英国有限公司。 保留所有权利。
+
+法律事务：Hughes Media Law Group</zh>
+    <ja>Cut the Rope%@ ver. %@
+Copyright 2010-2013 ZeptoLab.
+
+開発・販売：*ZeptoLab
+
+アディショナル・*デザイン：
+Nataliya Omelyanchuk
+
+音楽・効果音：
+Alexander Falinski
+
+品質管理：* 
+SPL
+Universally Speaking
+
+スペシャル・*サンクス：
+Vladimir Agafonov, Maks Chekmarev, Dmitry Chernenko, Alexander Danilov, Alexandra Dubovitskaya, Grigory Kireev, Viktor Kuzmin, Louise Lazzari, Brandyn Rasmussen, Tiago Amorim Rocha, Andrey Vengerskiy, Barbos, Uliya Voinova, Elena Volk
+
+ベリー・スペシャル・サンクス：
+1C Wireless
+
+ZeptoLab、Cut the Rope、Om Nom、Nommies、Feed with Candy は ZeptoLab UK Limited の商標、または登録商標です。*© 2010-2013 ZeptoLab UK Limited. All rights reserved.
+
+法律顧問：*Hughes Media Law Group</ja>
+    <es>Cut the Rope%@, versión %@
+Copyright 2010-2013 ZeptoLab.
+
+Desarrollado y distribuido por ZeptoLab.
+
+Diseño adicional:
+Nataliya Omelyanchuk
+
+Música y efectos:
+Alexander Falinski
+
+Control de calidad: 
+SPL
+Universally Speaking
+
+Agradecimientos:
+Vladimir Agafonov, Maks Chekmarev, Dmitry Chernenko, Alexander Danilov, Alexandra Dubovitskaya, Grigory Kireev, Viktor Kuzmin, Louise Lazzari, Brandyn Rasmussen, Tiago Amorim Rocha, Andrey Vengerskiy, Barbos, Uliya Voinova, Elena Volk
+
+Agradecimientos especiales: 1C Wireless
+
+ZeptoLab, Cut the Rope, Om Nom, Nommies y Feed with Candy son marcas comerciales o marcas registradas de ZeptoLab UK Limited. © 2010-2013 ZeptoLab UK Limited. Todos los derechos reservados.
+
+Asesoría legal: Hughes Media Law Group</es>
+    <it>Cut the Rope%@ ver. %@
+Copyright 2010-2013 ZeptoLab.
+
+Gioco sviluppato e pubblicato da ZeptoLab.
+
+Design aggiuntivo:
+Nataliya Omelyanchuk
+
+Musica e suoni:
+Alexander Falinski
+
+Controllo qualità: 
+SPL
+Universally Speaking
+
+Ringraziamenti speciali:
+Vladimir Agafonov, Maks Chekmarev, Dmitry Chernenko, Alexander Danilov, Alexandra Dubovitskaya, Grigory Kireev, Viktor Kuzmin, Louise Lazzari, Brandyn Rasmussen, Tiago Amorim Rocha, Andrey Vengerskiy, Barbos, Uliya Voinova, Elena Volk
+
+Ringraziamenti molto speciali: 1C Wireless
+
+ZeptoLab, Cut the Rope, Om Nom, Nommies e Feed with Candy sono marchi o marchi registrati di ZeptoLab UK Limited. © 2010-2013 ZeptoLab UK Limited. Tutti i diritti riservati.
+
+Assistenza legale: Hughes Media Law Group</it>
+    <nl>Cut the Rope%@ versie %@
+Copyright 2010-2013 van ZeptoLab.
+
+Ontwikkeld en uitgegeven door ZeptoLab.
+
+Aanvullend ontwerp:
+Nataliya Omelyanchuk
+
+Muziek en geluid:
+Alexander Falinski
+
+Kwaliteitsbeheer: 
+SPL
+Universally Speaking
+
+Met bijzondere dank aan:
+Vladimir Agafonov, Maks Chekmarev, Dmitry Chernenko, Alexander Danilov, Alexandra Dubovitskaya, Grigory Kireev, Viktor Kuzmin, Louise Lazzari, Brandyn Rasmussen, Tiago Amorim Rocha, Andrey Vengerskiy, Barbos, Uliya Voinova, Elena Volk
+
+Met heel bijzondere dank aan: 1C Wireless
+
+ZeptoLab, Cut the Rope, Om Nom, Nommies en Feed with Candy zijn handelsmerken of gedeponeerde handelsmerken van ZeptoLab UK Limited. © 2010-2013 ZeptoLab UK Limited. Alle rechten voorbehouden.
+
+Juridische ondersteuning: Hughes Media Law Group</nl>
+    <br>Cut the Rope%@ ver. %@
+Copyright 2010-2013 por ZeptoLab.
+
+Um jogo desenvolvido e publicado pela ZeptoLab.
+
+Design adicional:
+Nataliya Omelyanchuk
+
+Música e Sons:
+Alexander Falinski
+
+Controle de Qualidade: 
+SPL
+Universally Speaking
+
+Agradecimentos especiais:
+Vladimir Agafonov, Maks Chekmarev, Dmitry Chernenko, Alexander Danilov, Alexandra Dubovitskaya, Grigory Kireev, Viktor Kuzmin, Louise Lazzari, Brandyn Rasmussen, Tiago Amorim Rocha, Andrey Vengerskiy, Barbos, Uliya Voinova, Elena Volk
+
+Agradecimentos muito especiais: 1C Wireless
+
+ZeptoLab, Cut the Rope, Om Nom, Nommies e Feed with Candy são a marca ou marcas registradas da ZeptoLab UK Limited. © 2010-2013 ZeptoLab UK Limited. Todos os direitos reservados.
+
+Legal: Hughes Media Law Group</br>
+  </string>
+  <string name="BOX1_LABEL">
+    <en>1. Cardboard Box</en>
+    <ru>1. Картонная</ru>
+    <fr>1. Carton</fr>
+    <de>1. Pappbox</de>
+    <ko>1. 골판지 상자</ko>
+    <zh>1. 纸板盒</zh>
+    <ja>1. ダンボール箱</ja>
+    <es>1. Cartón</es>
+    <it>1. Cartone</it>
+    <nl>1. Karton</nl>
+    <br>1. Papelão </br>
+  </string>
+  <string name="BOX2_LABEL">
+    <en>2. Fabric Box</en>
+    <ru>2. Тканевая</ru>
+    <fr>2. Tissu</fr>
+    <de>2. Stoffbox</de>
+    <ko>2. 천 상자</ko>
+    <zh>2. 布盒</zh>
+    <ja>2. 布の箱</ja>
+    <es>2. Tela</es>
+    <it>2. Tessuto</it>
+    <nl>2. Stof</nl>
+    <br>2. Tecido</br>
+  </string>
+  <string name="BOX3_LABEL">
+    <en>3. Foil Box</en>
+    <ru>3. Из фольги</ru>
+    <fr>3. Papier</fr>
+    <de>3. Folienbox</de>
+    <ko>3. 은박지 상자</ko>
+    <zh>3. 铝箔盒</zh>
+    <ja>3. アルミ箔の箱</ja>
+    <es>3. Metal</es>
+    <it>3. Alluminio</it>
+    <nl>3. Folie</nl>
+    <br>3. Alumínio</br>
+  </string>
+  <string name="BOX4_LABEL">
+    <en>4. Magic Box</en>
+    <ru>4. Волшебная</ru>
+    <fr>4. Magique</fr>
+    <de>4. Zauberbox</de>
+    <ko>4. 마술 상자</ko>
+    <zh>4. 魔盒</zh>
+    <ja>4. 魔法の箱</ja>
+    <es>4. Magia</es>
+    <it>4. Magica</it>
+    <nl>4. Tover</nl>
+    <br>4. Mágica</br>
+  </string>
+  <string name="BOX5_LABEL">
+    <en>5. Valentine Box</en>
+    <ru>5. Валентинка</ru>
+    <fr>5. Valentin</fr>
+    <de>5. Valentinsbox</de>
+    <ko>5. 발렌타인 상자</ko>
+    <zh>5. 情人盒</zh>
+    <ja>5. 恋人の箱</ja>
+    <es>5. Romance</es>
+    <it>5. San Valentino</it>
+    <nl>5. Valentijn</nl>
+    <br>5. Namorados</br>
+  </string>
+  <string name="BOX6_LABEL">
+    <en>6. Gift Box</en>
+    <ru>6. Подарочная</ru>
+    <fr>6. Cadeau</fr>
+    <de>6. Geschenkebox</de>
+    <ko>6. 선물 상자</ko>
+    <zh>6. 礼物盒</zh>
+    <ja>6. プレゼント箱</ja>
+    <es>6. Regalo</es>
+    <it>6. Regalo</it>
+    <nl>6. Cadeau</nl>
+    <br>6. Presente</br>
+  </string>
+  <string name="BOX7_LABEL">
+    <en>7. Cosmic Box</en>
+    <ru>7. Космическая</ru>
+    <fr>7. Cosmique</fr>
+    <de>7. Kosmosbox</de>
+    <ko>7. 우주 상자</ko>
+    <zh>7. 宇宙盒</zh>
+    <ja>7. 宇宙の箱</ja>
+    <es>7. Cosmos</es>
+    <it>7. Cosmica</it>
+    <nl>7. Ruimte</nl>
+    <br>7. Cósmica</br>
+  </string>
+  <string name="BOX8_LABEL">
+    <en>8. Toy box</en>
+    <ru>8. Игрушечная</ru>
+    <fr>8. Jouets</fr>
+    <de>8. Spielzeugbox</de>
+    <ko>8. 장난감 상자</ko>
+    <zh>8. 玩具盒</zh>
+    <ja>8. おもちゃ箱</ja>
+    <es>8. Juguetes</es>
+    <it>8. Giochi</it>
+    <nl>8. Speelgoed</nl>
+    <br>8. Brinquedos</br>
+  </string>
+  <string name="BOX9_LABEL">
+    <en>9. Toolbox</en>
+    <ru>9. Инструменты</ru>
+    <fr>9. Outils</fr>
+    <de>9. Werkzeugbox</de>
+    <ko>9. 공구 상자</ko>
+    <zh>9. 工具盒</zh>
+    <ja>9. 道具箱</ja>
+    <es>9. Bricolaje</es>
+    <it>9. Attrezzi</it>
+    <nl>9. Gereedschap</nl>
+    <br>9. Ferramentas</br>
+  </string>
+  <string name="BOX10_LABEL">
+    <en>10. Buzz Box</en>
+    <ru>10. Медовая</ru>
+    <fr>10. Abeille</fr>
+    <de>10. Summbox</de>
+    <ko>10. 꿀벌 상자</ko>
+    <zh>10. 嗡嗡盒</zh>
+    <ja>10. ハチの巣箱</ja>
+    <es>10. Colmena</es>
+    <it>10. Alveare</it>
+    <nl>10. Zoem</nl>
+    <br>10. Abelhas</br>
+  </string>
+  <string name="BOX11_LABEL">
+    <en>11. DJ Box</en>
+    <ru>11. DJ</ru>
+    <fr>11. DJ</fr>
+    <de>11. DJ-Box</de>
+    <ko>11. DJ 상자</ko>
+    <zh>11. DJ 盒</zh>
+    <ja>11. DJの箱</ja>
+    <es>11. DJ</es>
+    <it>11. DJ</it>
+    <nl>11. DJ</nl>
+    <br>11. DJ</br>
+  </string>
+  <string name="BOX12_LABEL">
+    <en>12. Spooky Box</en>
+    <ru>12. С призраками</ru>
+    <fr>12. Fantôme</fr>
+    <de>12. Spukbox</de>
+    <ko>12. 유령 상자</ko>
+    <zh>12. 幽灵盒</zh>
+    <ja>12. オバケの箱</ja>
+    <es>12. Espectro</es>
+    <it>12. Spettrale</it>
+    <nl>12. Spookachtig</nl>
+    <br>12. Fantasma</br>
+  </string>
+  <string name="BOX13_LABEL">
+    <en>13. Steam Box</en>
+    <ru>13. Паровая</ru>
+    <fr>13. Boîte à vapeur</fr>
+    <de>13. Dampfbox</de>
+    <ko>13. 증기 상자</ko>
+    <zh>13. 蒸汽盒</zh>
+    <ja>13. スチームの箱</ja>
+    <es>13. Caja de vapor</es>
+    <it>13. Vapore</it>
+    <nl>13. Stoomkast</nl>
+    <br>13. Vaporeira</br>
+  </string>
+  <string name="BOX14_LABEL">
+    <en>14. Lantern Box</en>
+    <ru>14. C фонариками</ru>
+    <fr>14. Lampions</fr>
+    <de>14. Laternenbox</de>
+    <ko>14. 랜턴 상자</ko>
+    <zh>14. 灯笼盒</zh>
+    <ja>14. ちょうちんの箱</ja>
+    <es>14. Caja de linternas</es>
+    <it>14. Lanterne</it>
+    <nl>14. Lampionnen</nl>
+    <br>14. Lanterna Chinesa</br>
+  </string>
+  <string name="BOX_SOON_LABEL">
+    <en>New levels coming soon!</en>
+    <ru>Новые уровни на подходе!</ru>
+    <fr>Nouveaux niveaux bientôt disponibles !</fr>
+    <de>Bald gibt es neue Levels!</de>
+    <ko>새 레벨들이 곧 추가됩니다!</ko>
+    <zh>新关卡*即将到来！</zh>
+    <ja>次の*レベル*まで*もう*すこし!</ja>
+    <es>¡Más niveles próximamente!</es>
+    <it>Nuovi livelli in arrivo!</it>
+    <nl>Er komen binnenkort nieuwe levels aan!</nl>
+    <br>Novos níveis em breve!</br>
+  </string>
+  <string name="DEMONSTRATION_TEXT">
+    <en>This version of Cut the Rope has been created specifically for demonstration purposes.</en>
+    <ru>Данная версия игры "Cut the Rope" создана в демонстрационных целях.</ru>
+    <fr>Ceci est une version de démonstration de Cut the Rope.</fr>
+    <de>Diese Version von "Cut the Rope" wurde speziell zu Testzwecken erstellt.</de>
+    <ko>이 버전의 Cut the Rope는 평가 목적으로 만들어졌습니다.</ko>
+    <zh>这一 *Cut the Rope *版本专为*试玩目的*创建。</zh>
+    <ja>この版の*「Cut the Rope」は*デモ目的にのみ*作成されています。</ja>
+    <es>Esta versión de Cut the Rope ha sido creada especialmente con fines de demostración.</es>
+    <it>Questa versione di Cut the Rope è stata appositamente realizzata a scopi dimostrativi.</it>
+    <nl>Dit is een demoversie van Cut the Rope.</nl>
+    <br>Esta versão de Cut the Rope foi criada especificamente para fins de demonstração.</br>
+  </string>
+  <string name="FACEBOOK">
+    <en>Facebook</en>
+    <ru>Facebook</ru>
+    <fr>Facebook</fr>
+    <de>Facebook</de>
+    <ko>Facebook</ko>
+    <zh>Facebook</zh>
+    <ja>Facebook</ja>
+    <es>Facebook</es>
+    <it>Facebook</it>
+    <nl>Facebook</nl>
+    <br>Facebook</br>
+  </string>
+  <string name="GET_FULLVERSION_QUESTION">
+    <en>Would you like to get the Full version of Cut the Rope?</en>
+    <ru>Хотите купить полную версию игры Cut the Rope?</ru>
+    <fr>Acheter la version complète de Cut the Rope ?</fr>
+    <de>Möchtest du die Vollversion von Cut the Rope kaufen?</de>
+    <ko>Cut the Rope 정식판을 구매하시겠습니까?</ko>
+    <zh>您想购买 *Cut the Rope *的正式版*吗？</zh>
+    <ja>Cut the Ropeの*フルバージョンを*購入*されますか？</ja>
+    <es>¿Quieres descargar la versión completa de Cut the Rope? </es>
+    <it>Vuoi acquistare la versione completa di Cut the Rope?</it>
+    <nl>Wil je de volledige versie van Cut the Rope kopen?</nl>
+    <br>Você gostaria de obter a versão completa de Cut the Rope?</br>
+  </string>
+  <string name="UNLOCK_ALL">
+    <en>Unlock all</en>
+    <ru>Открыть все</ru>
+    <fr>Débloquer</fr>
+    <de>Alle öffnen</de>
+    <ko>모두 열기</ko>
+    <zh>全部解锁</zh>
+    <ja>アンロック</ja>
+    <es>Desbloq. todo</es>
+    <it>Sblocca tutte</it>
+    <nl>Alles openen</nl>
+    <br>liberar tudo</br>
+  </string>
+  <string name="GET_CTREXP">
+    <en>Get Cut the Rope: Experiments</en>
+    <ru>Загрузите Cut the Rope: Experiments</ru>
+    <fr>Obtenir Cut the Rope: Experiments</fr>
+    <de>Hole dir "Cut the Rope: Experiments"!</de>
+    <ko>Cut the Rope: Experiments 다운로드</ko>
+    <zh>购买* Cut the Rope: Experiments</zh>
+    <ja>Cut the Rope: Experimentsを*ゲット</ja>
+    <es>Consigue Cut the Rope: Experiments</es>
+    <it>Ottieni Cut the Rope: Experiments</it>
+    <nl>Haal Cut the Rope: Experiments</nl>
+    <br>Obtenha o Cut the Rope: Experiments</br>
+  </string>
+  <string name="UNLOCK_HINT">
+    <en>Collect %d stars to unlock this level pack</en>
+    <ru>Соберите %d звезд, чтобы открыть коробку</ru>
+    <fr>Collecte %d étoiles pour débloquer ce pack de niveaux</fr>
+    <de>Sammle %d Sterne, um dieses Level-Pack freizuschalten.</de>
+    <ko>이 레벨 상자를 열려면 별 %d개를 모으세요.</ko>
+    <zh>收集 %d 颗*星星*才能解锁*这一*关卡集</zh>
+    <ja>アンロック*するには* %d の*スターが*必要です</ja>
+    <es>Consigue %d estrellas para desbloquear este pack de niveles</es>
+    <it>Raccogli %d stelle per sbloccare questo pacchetto di livelli</it>
+    <nl>Verzamel %d sterren om dit levelpakket te ontgrendelen</nl>
+    <br>Colete %d estrelas para liberar este nível</br>
+  </string>
+  <string name="GET_SOMETHING_QUESTION">
+    <en>Would you like to get %s?</en>
+    <ru>Хотите купить %s?</ru>
+    <fr>Acheter %s ?</fr>
+    <de>Möchtest du %s haben?</de>
+    <ko>%s을(를) 구입하시겠습니까?</ko>
+    <zh>您想购买*%s吗？</zh>
+    <ja>%sを*購入*されますか？</ja>
+    <es>¿Quieres descargar %s?</es>
+    <it>Vuoi acquistare %s?</it>
+    <nl>Wil je %s kopen?</nl>
+    <br>Você gostaria de obter %s?</br>
+  </string>
+  <string name="ERROR_SERVER_UNAVAILABLE">
+    <en>Error: server unavailable. Please try later.</en>
+    <ru>Ошибка: сервер недоступен. Попробуйте позже.</ru>
+    <fr>Erreur : serveur non disponible.
+Veuillez réessayer plus tard.</fr>
+    <de>Fehler: Server ist nicht verfügbar. Bitte später erneut versuchen.
+</de>
+    <ko>오류: 서버를 이용할 수 없습니다.
+다음에 다시 시도하십시오.</ko>
+    <zh>错误：*服务器*不可用。*请稍后*重试。</zh>
+    <ja>エラー：*サーバーを*利用*できません。*後ほど*お試し*ください。</ja>
+    <es>Error: servidor no disponible. Inténtalo más tarde.</es>
+    <it>Errore: server non disponibile. Riprova più tardi.</it>
+    <nl>Fout: server niet beschikbaar. Probeer het later opnieuw.</nl>
+    <br>Erro: servidor indisponível. Tente mais tarde.</br>
+  </string>
+  <string name="DESCRIPTION">
+    <en>Description:</en>
+    <ru>Описание:</ru>
+    <fr>Description :</fr>
+    <de>Beschreibung:</de>
+    <ko>내용:</ko>
+    <zh>说明：</zh>
+    <ja>詳細： </ja>
+    <es>Descripción:</es>
+    <it>Descrizione:</it>
+    <nl>Beschrijving:</nl>
+    <br>Descrição: </br>
+  </string>
+  <string name="PRICE">
+    <en>Price:</en>
+    <ru>Цена:</ru>
+    <fr>Prix :</fr>
+    <de>Preis:</de>
+    <ko>가격:</ko>
+    <zh>价格：</zh>
+    <ja>価格： </ja>
+    <es>Precio:</es>
+    <it>Prezzo:</it>
+    <nl>Prijs:</nl>
+    <br>Preço:</br>
+  </string>
+  <string name="ERROR_INTERNET_AND_SIM">
+    <en>Error occured. Please check your internet connection or network coverage and retry.</en>
+    <ru>Произошла ошибка. Пожалуйста, проверьте подключение к интернету.</ru>
+    <fr>Une erreur est survenue. Vérifie ta connexion internet et ta couverture réseau avant de réessayer.</fr>
+    <de>Ein Fehler ist aufgetreten. Bitte die Internetverbindung oder Signalstärke überprüfen und erneut versuchen.</de>
+    <ko>오류가 발생했습니다. 인터넷 연결 또는 네트워크 범위를 확인한 후 다시 시도하십시오.</ko>
+    <zh>发生错误。*请确认*您的网络*连接或*网络覆盖*范围并重试。</zh>
+    <ja>エラーが*発生*しました。*インターネット*接続または*ネットワークの*サービスエリアを*確認のうえ*再試行*して*ください。</ja>
+    <es>Se ha producido un error. Comprueba que tienes cobertura o acceso a Internet y vuelve a intentarlo.</es>
+    <it>Si è verificato un errore. Controlla la connessione Internet o la copertura di rete e riprova.</it>
+    <nl>Er is een fout opgetreden. Controleer je internetverbinding of netwerkbereik en probeer het opnieuw.</nl>
+    <br>Ocorreu um erro. Verifique sua conexão de internet ou a cobertura de rede e tente novamente.</br>
+  </string>
+  <string name="ERROR_PURCHASE_IN_PROGRESS">
+    <en>Please wait until previous purchase is completed.</en>
+    <ru>Пожалуйста, дождитесь завершения предыдущей транзакции.</ru>
+    <fr>Une transaction est en cours. Attends qu'elle se termine.</fr>
+    <de>Bitte warten, bis der vorherige Einkauf abgeschlossen ist.</de>
+    <ko>이전 구매 과정이 완료될 때까지 기다리십시오.</ko>
+    <zh>请等到*上一次*购买完成。</zh>
+    <ja>先の*購入が*完了*するまで、*少々*お待ち*ください。</ja>
+    <es>Espera a que termine de tramitarse la compra anterior.</es>
+    <it>Attendi che l'acquisto precedente sia completato.</it>
+    <nl>Momentje geduld tot de voorgaande aankoop is afgerond.</nl>
+    <br>Por favor, espere enquanto a compra anterior é concluída.</br>
+  </string>
+  <string name="PURCHASE_IS_PROCESSING">
+    <en>Your purchase is being processed. Please don't quit the game until the purchase is completed.</en>
+    <ru>Заказ обрабатывается. Пожалуйста, не выходите из игры до завершения процесса покупки.</ru>
+    <fr>Achat en cours. Ne quitte pas  le jeu et attends que la transaction se termine.</fr>
+    <de>Einkauf wird verarbeitet. Bitte das Spiel nicht beenden und warten, bis der Einkauf abgeschlossen ist.</de>
+    <ko>구매 과정 진행 중입니다. 게임을 종료하지 마시고 구매가 완료될 때까지 기다리십시오.</ko>
+    <zh>购买*进行中。*请勿退出*游戏，稍等*购买完成。</zh>
+    <ja>購入処理中*です。*ゲームを*終了せず、*購入が*完了*するまで*お待ち*ください。</ja>
+    <es>La compra está siendo tramitada. No salgas del juego hasta que termine el proceso.</es>
+    <it>Acquisto in corso. Non uscire dal gioco e attendi che l'acquisto sia completato.</it>
+    <nl>Aankoop wordt verwerkt. Sluit de game niet af en wacht tot de aankoop is afgerond.</nl>
+    <br>A compra está sendo processada. Não saia do jogo até que a compra seja concluída.</br>
+  </string>
+  <string name="ITEM_FULL_GAME">
+    <en>Full Game</en>
+    <ru>Полная версия</ru>
+    <fr></fr>
+    <de></de>
+    <ko></ko>
+    <zh></zh>
+    <ja></ja>
+    <es></es>
+    <it></it>
+    <nl></nl>
+    <br></br>
+  </string>
+  <string name="ITEM_FULL_GAME_CASE">
+    <en>the Full Game</en>
+    <ru>полную версию</ru>
+    <fr>le jeu complet</fr>
+    <de>die Vollversion des Spiels</de>
+    <ko>정식판 게임</ko>
+    <zh>正式版</zh>
+    <ja>フル*バージョン</ja>
+    <es>la versión completa</es>
+    <it>il gioco completo?</it>
+    <nl>de volledige versie</nl>
+    <br>o jogo completo</br>
+  </string>
+  <string name="DESCRIPTION_STAR_KEY">
+    <en>"Star Key" unlocks all current and future level boxes.</en>
+    <ru>"Star Key" открывает все текущие и будущие коробки c уровнями.</ru>
+    <fr>La Star Key débloque toutes les boîtes de niveaux existantes et futures.</fr>
+    <de>Der "Star Key" schaltet alle derzeitigen und zukünftigen Level frei.</de>
+    <ko>“Star Key”로 현재 및 미래의 모든 레벨 상자를 열 수 있습니다.</ko>
+    <zh>Star Key*用于解开当前*和未来的*关卡盒。</zh>
+    <ja>Star Keyに*よって*現在および*将来の*すべての*レベル*ボックスを*アンロック*できます。</ja>
+    <es>Star Key desbloquea todas las cajas de niveles actuales y futuras.</es>
+    <it>La Star Key sblocca tutte le scatole di livelli attuali e future.</it>
+    <nl>De Star Key ontgrendelt alle huidige en toekomstige leveldozen.</nl>
+    <br>A Star Key desbloqueia todas as caixas dos níveis atual e futuros.</br>
+  </string>
+  <string name="DESCRIPTION_FULL_GAME">
+    <en>All game levels are available for playing in the Full Game.</en>
+    <ru>В полной версии игры доступны все уровни.</ru>
+    <fr>Tous les niveaux sont maintenant disponibles et jouables dans le jeu complet.</fr>
+    <de>In der Vollversion stehen dir sämtliche Level zur Vefügung.</de>
+    <ko>정식판 게임에서는 모든 게임 레벨을 즐길 수 있습니다.</ko>
+    <zh>正式版*可以玩*全部的*关卡盒。</zh>
+    <ja>フル*バージョンでは*全ての*レベルが*プレイ*可能です。</ja>
+    <es>En la versión completa del juego podrás acceder a todos los niveles.</es>
+    <it>Nella versione completa del gioco tutti i livelli sono disponibili.</it>
+    <nl>Alle levels kunnen in de volledige versie gespeeld worden.</nl>
+    <br>Todos os níveis de jogo estão disponíveis no jogo completo.</br>
+  </string>
+  <string name="SKIP_AD">
+    <en>Skip ad</en>
+    <ru>Пропустить</ru>
+    <fr>Passer l'annonce</fr>
+    <de>Überspringen</de>
+    <ko>광고 건너뛰기</ko>
+    <zh>跳过广告</zh>
+    <ja>広告を*スキップ</ja>
+    <es>Saltar anuncio</es>
+    <it>Salta l'annuncio</it>
+    <nl>Advert. overslaan</nl>
+    <br>Ignorar anúncio</br>
+  </string>
+  <string name="FOLLOW_US_SHORT">
+    <en>Follow us!</en>
+    <ru>Присоединиться!</ru>
+    <fr>Suis-nous !</fr>
+    <de>Folge uns!</de>
+    <ko>팔로우하세요!</ko>
+    <zh>关注我们！</zh>
+    <ja>フォローする</ja>
+    <es>¡Síguenos!</es>
+    <it>Seguici!</it>
+    <nl>Volg ons!</nl>
+    <br>Siga-nos!</br>
+  </string>
+  <string name="GET_IT_FREE">
+    <en>Get it free</en>
+    <ru>Скачайте бесплатно!</ru>
+    <fr>Obtiens-le gratuitement !</fr>
+    <de>Hol es dir kostenlos!</de>
+    <ko>무료 다운로드!</ko>
+    <zh>免费获取！</zh>
+    <ja>無料で*ゲット！</ja>
+    <es>¡Consíguelo gratis!</es>
+    <it>Scaricalo gratis!</it>
+    <nl>Haal het gratis!</nl>
+    <br>Receba de graça!</br>
+  </string>
+  <string name="LICENSE_TEXT">
+    <en>By purchasing and/or using this application, you agree to the terms of Privacy Policy and Terms of Service.</en>
+    <ru>Купив и (или) используя это приложение, вы выражаете согласие с условиями обслуживания и политикой конфиденциальности.</ru>
+    <fr>En achetant et/ou en utilisant cette application, vous acceptez les conditions de service et la politique de respect de la vie privée.</fr>
+    <de>Durch den Erwerb und/oder die Verwendung dieser Anwendung stimmen Sie den Datenschutzbestimmungen und den Allgemeinen Geschäftsbedingungen (AGB) zu.</de>
+    <ko>이 응용 프로그램을 구매하거나 사용하면 최종 사용자 라이센스 계약, 개인정보 수집정책, 서비스 이용약관에 동의하는 것입니다.</ko>
+    <zh>购买*和/或使用*此应用程序*即表示*您同意* 隐私政策* 和* 服务条款*中的条款。</zh>
+    <ja>このアプリケーションを*購入*または*使用する*ことにより、*お客様は*プライバシー*および*サービス利用条件の*各項に*同意したものと*見なします。</ja>
+    <es>Al comprar y /o utilizar esta aplicación,  aceptas los términos de la política de privacidad y términos del servicio.</es>
+    <it>Acquistando e/o utilizzando questa applicazione, accetti le condizioni dell'Informativa sulla privacy e i Termini di utilizzo.</it>
+    <nl>Door deze applicatie te kopen en/of te gebruiken, ga je akkoord met de voorwaarden van het privacybeleid en de servicevoorwaarden.</nl>
+    <br>Ao comprar e/ou utilizar este aplicativo, você concorda com os termos da Política de Privacidade e dos Termos de Serviço.</br>
+  </string>
+  <string name="PRIVACY">
+    <en>Privacy Policy</en>
+    <ru>Политика конф.</ru>
+    <fr>Vie privée</fr>
+    <de>Datenschutz</de>
+    <ko>개인정보 수집정책</ko>
+    <zh>隐私政策</zh>
+    <ja>個人情報保護方針</ja>
+    <es>Política privacidad</es>
+    <it>Privacy</it>
+    <nl>Privacybeleid</nl>
+    <br>Política de Privac.</br>
+  </string>
+  <string name="TERMS">
+    <en>Terms of Service</en>
+    <ru>Условия обслуживания</ru>
+    <fr>Conditions de service</fr>
+    <de>AGB</de>
+    <ko>서비스 이용약관</ko>
+    <zh>服务条款</zh>
+    <ja>サービス利用条件</ja>
+    <es>Términos del servicio</es>
+    <it>Termini di utilizzo</it>
+    <nl>Servicevoorwaarden</nl>
+    <br>Termos de Serviço</br>
+  </string>
+  <string name="PRIVACY_URL">
+    <en>http://privacy-policy.truste.com/certified-policy/mobile/app/en/CutTheRope.com</en>
+    <ru>http://privacy-policy.truste.com/certified-policy/mobile/app/en/CutTheRope.com</ru>
+    <fr>http://privacy-policy.truste.com/certified-policy/mobile/app/en/CutTheRope.com</fr>
+    <de>http://privacy-policy.truste.com/certified-policy/mobile/app/en/CutTheRope.com</de>
+    <ko>http://privacy-policy.truste.com/certified-policy/mobile/app/en/CutTheRope.com</ko>
+    <zh>http://privacy-policy.truste.com/certified-policy/mobile/app/en/CutTheRope.com</zh>
+    <ja>http://privacy-policy.truste.com/certified-policy/mobile/app/en/CutTheRope.com</ja>
+    <es>http://privacy-policy.truste.com/certified-policy/mobile/app/en/CutTheRope.com</es>
+    <it>http://privacy-policy.truste.com/certified-policy/mobile/app/en/CutTheRope.com</it>
+    <nl>http://privacy-policy.truste.com/certified-policy/mobile/app/en/CutTheRope.com</nl>
+    <br>http://privacy-policy.truste.com/certified-policy/mobile/app/en/CutTheRope.com</br>
+  </string>
+  <string name="TERMS_URL">
+    <en>http://www.zeptolab.com/tc.htm</en>
+    <ru>http://www.zeptolab.com/tc.htm</ru>
+    <fr>http://www.zeptolab.com/tc.htm</fr>
+    <de>http://www.zeptolab.com/tc.htm</de>
+    <ko>http://www.zeptolab.com/tc.htm</ko>
+    <zh>http://www.zeptolab.com/tc.htm</zh>
+    <ja>http://www.zeptolab.com/tc.htm</ja>
+    <es>http://www.zeptolab.com/tc.htm</es>
+    <it>http://www.zeptolab.com/tc.htm</it>
+    <nl>http://www.zeptolab.com/tc.htm</nl>
+    <br>http://www.zeptolab.com/tc.htm</br>
+  </string>
+  <string name="TERMS_BUTTON">
+    <en>Info</en>
+    <ru>Инфо</ru>
+    <fr>Info</fr>
+    <de>Info</de>
+    <ko>정보</ko>
+    <zh>信息</zh>
+    <ja>情報</ja>
+    <es>Info</es>
+    <it>Info</it>
+    <nl>Info</nl>
+    <br>Info</br>
+  </string>
+    <string name="LEADERBOARD_NAME">
+    <en>Name</en>
+    <ru>Имя</ru>
+    <fr>Nom</fr>
+    <de>Name</de>
+    <ko>이름</ko>
+    <zh>姓名</zh>
+    <ja>名前</ja>
+    <es>Nombre</es>
+    <it>Nome</it>
+    <nl>Naam</nl>
+    <br>Nome</br>
+  </string>
+  <string name="LEADERBOARD_SCORE">
+    <en>Score</en>
+    <ru>Счет</ru>
+    <fr>Score</fr>
+    <de>Punktzahl</de>
+    <ko>점수</ko>
+    <zh>得分</zh>
+    <ja>スコア</ja>
+    <es>Puntuación</es>
+    <it>Punteggio</it>
+    <nl>Score</nl>
+    <br>Pontuação</br>
+  </string>
+  <string name="XBOXLIVE_UPDATE">
+    <en>An update is available! This update is required to connect to Xbox LIVE. Update now?</en>
+    <ru>Доступно обновление! Это обновление необходимо для подключения к Xbox LIVE. Обновить сейчас?</ru>
+    <fr>Une mise à jour est disponible ! Cette mise à jour est requise pour vous connecter à Xbox LIVE. Mettre à jour maintenant ?</fr>
+    <de>Ein Update ist verfügbar! Dieses Update wird benötigt, um sich mit Xbox LIVE zu verbinden. Jetzt updaten?</de>
+    <ko>업데이트가 출시되었습니다! Xbox LIVE에 연결하기 위해서는 해당 업데이트가 필요합니다. 지금 업데이트 하시겠습니까?</ko>
+    <zh>现有一个更新！此更新需要连接到 Xbox LIVE。即刻更新？</zh>
+    <ja>更新可能です！この更新は Xbox LIVE に接続して行います。 更新しますか？</ja>
+    <es>¡Hay una actualización disponible! Esta actualización es necesaria para conectarse a Xbox LIVE. ¿Actualizar ahora?</es>
+    <it>È disponibile un aggiornamento! L'aggiornamento è necessario per la connessione a Xbox LIVE. Vuoi aggiornare ora?</it>
+    <nl>Er is een update beschikbaar! Deze update is vereist voor verbinding met Xbox LIVE. Nu updaten?</nl>
+    <br>Uma atualização está disponível! Esta atualização é necessária para conectar ao Xbox LIVE. Atualizar agora?</br>
+  </string>
+  <string name ="ACHIEVEMENTS">
+    <en>Achievements</en>
+    <ru>Достижения</ru>
+    <fr>Succès</fr>
+    <de>Erfolge</de>
+    <ko>도전 과제</ko>
+    <zh>成就</zh>
+    <ja>実績</ja>
+    <es>Logros</es>
+    <it>Obiettivi</it>
+    <nl>Prestaties</nl>
+    <br>Conquistas</br>
+  </string>
+  <string name ="LEADERBOARDS">
+    <en>Leaderboards</en>
+    <ru>Списки лидеров</ru>
+    <fr>Classements</fr>
+    <de>Bestenlisten</de>
+    <ko>순위표</ko>
+    <zh>排行榜</zh>
+    <ja>ランキング</ja>
+    <es>Marcadores</es>
+    <it>Classifiche</it>
+    <nl>Klassementen</nl>
+    <br>Placares de Líderes</br>
+  </string>
+  <string name ="CANNOT_CONNECT">
+    <en>Unable to connect to Xbox LIVE at this time. Please check your connection.</en>
+    <ru>Сейчас не удается подключиться к службе Xbox LIVE. Проверьте подключение.</ru>
+    <fr>Connexion au Xbox LIVE impossible. Vérifiez votre connexion.</fr>
+    <de>Es konnte momentan keine Verbindung zu Xbox LIVE hergestellt werden. Bitte überprüfen Sie Ihre Verbindung.</de>
+    <ko>지금은 Xbox LIVE에 연결할 수 없습니다. 연결을 확인하십시오.</ko>
+    <zh>当前无法连接到 Xbox LIVE。请检查您的连接。</zh>
+    <ja>Xbox LIVE に接続できませんでした。 ネットワーク接続を確認してください。</ja>
+    <es>No se puede conectar con Xbox LIVE. Comprueba tu conexión.</es>
+    <it>Impossibile connettersi a Xbox LIVE. Verifica la connessione.</it>
+    <nl>Kan momenteel geen verbinding maken met Xbox LIVE. Controleer de verbinding.</nl>
+    <br>Não foi possível conectar ao Xbox LIVE agora. Verifique sua conexão.</br>
+  </string>
+  <string name="GET_FULLVERSION_TRIAL">
+    <en>All game levels are available for playing in the Full Game.</en>
+    <ru>В полной версии игры доступны все уровни.</ru>
+    <fr>Tous les niveaux sont maintenant disponibles et jouables dans le jeu complet.</fr>
+    <de>In der Vollversion stehen dir sämtliche Level zur Vefügung.</de>
+    <ko>정식판 게임에서는 모든 게임 레벨을 즐길 수 있습니다.</ko>
+    <zh>正式版*可以玩*全部的*关卡盒。</zh>
+    <ja>フル*バージョンでは*全ての*レベルが*プレイ*可能です。</ja>
+    <es>En la versión completa del juego podrás acceder a todos los niveles.</es>
+    <it>Nella versione completa del gioco tutti i livelli sono disponibili.</it>
+    <nl>Alle levels kunnen in de volledige versie gespeeld worden.</nl>
+    <br>Todos os níveis de jogo estão disponíveis no jogo completo.</br>
+  </string>
+  <string name="CLOSE">
+    <en>Close</en>
+    <ru>Закрыть</ru>
+    <fr>Fermer</fr>
+    <de>Schließen</de>
+    <ko>닫기</ko>
+    <zh>关闭</zh>
+    <ja>閉じる</ja>
+    <es>Cerrar</es>
+    <it>Chiudi</it>
+    <nl>Sluiten</nl>
+    <br>Fechar</br>
+  </string>
+  <string name="SEASON_NO">
+    <en>Season %d</en>
+    <ru>Сезон %d</ru>
+    <fr>Saison %d</fr>
+    <de>Staffel %d</de>
+    <ko>시즌 %d</ko>
+    <zh>第 %d 季</zh>
+    <ja>シーズン %d</ja>
+    <es>Temporada %d</es>
+    <it>Stagione %d</it>
+    <nl>Seizoen %d</nl>
+    <br>Temporada %d</br>
+  </string>
+  <string name="CARTOONS">
+    <en>Cartoons</en>
+    <ru>Мультфильмы</ru>
+    <fr>Cartoons</fr>
+    <de>Cartoons</de>
+    <ko>카툰</ko>
+    <zh>卡通</zh>
+    <ja>漫画</ja>
+    <es>Dibujos</es>
+    <it>Cartoni animati</it>
+    <nl>Filmpjes</nl>
+    <br>Desenhos animados</br>
+  </string>
+  <string name="EPISODE_NO">
+    <en>Episode %@</en>
+    <ru>Серия %@</ru>
+    <fr>Épisode %@</fr>
+    <de>Episode %@</de>
+    <ko>에피소드 %@</ko>
+    <zh>第 %@ 集</zh>
+    <ja>エピソード %@</ja>
+    <es>Episodio %@</es>
+    <it>Episodio %@</it>
+    <nl>Aflevering %@</nl>
+    <br>Episódio %@</br>
+  </string>
+  <string name="NEXT_SEASON">
+    <en>Next season</en>
+    <ru>Следующий сезон</ru>
+    <fr>Saison suivante</fr>
+    <de>Nächste Staffel</de>
+    <ko>다음 시즌</ko>
+    <zh>下一季</zh>
+    <ja>次のシーズン</ja>
+    <es>Siguiente temporada</es>
+    <it>Stagione successiva</it>
+    <nl>Volgend seizoen</nl>
+    <br>Próxima temporada</br>
+  </string>
+  <string name="SP_POPUP_BUY_TITLE">
+    <en>GET SUPERPOWERS</en>
+    <ru>ПОЛУЧИТЬ СУПЕРСИЛЫ</ru>
+    <fr>SUPER-POUVOIRS</fr>
+    <de>ERHALTE SUPERKRÄFTE</de>
+    <ko>초능력을 써보세요</ko>
+    <zh>获取*超能力</zh>
+    <ja>超能力をゲット</ja>
+    <es>OBTÉN SUPERPODERES</es>
+    <it>OTTIENI SUPERPOTERI</it>
+    <nl>SUPERKRACHTEN KRIJGEN</nl>
+    <br>GANHE SUPERPODERES</br>
+  </string>
+  <string name="TWITTER_MESSAGE_TITLE">
+    <en>Message:</en>
+    <ru>Сообщение:</ru>
+    <fr>Message:</fr>
+    <de>Nachricht:</de>
+    <ko>메시지:</ko>
+    <zh>消息：</zh>
+    <ja>メッセージ：</ja>
+    <es>Mensaje:</es>
+    <it>Messaggio:</it>
+    <nl>Bericht:</nl>
+    <br>Mensagem:</br>
+  </string>
+  <string name="TWITTER_BUTTON_POST_TWEET">
+    <en>Tweet</en>
+    <ru>Твитнуть</ru>
+    <fr>Tweet</fr>
+    <de>Tweeten</de>
+    <ko>트윗</ko>
+    <zh>Tweet</zh>
+    <ja>ツイートする</ja>
+    <es>Tuitéalo</es>
+    <it>Tweet</it>
+    <nl>Tweet</nl>
+    <br>Tuitar</br>
+  </string>
+  <string name="TWITTER_ERROR_MESSAGE">
+    <en>Oops! Something went wrong!%@Please check the password or try again later.</en>
+    <ru>Ой! Что-то пошло не так!%@Проверьте пароль и повторите попытку.</ru>
+    <fr>Oops ! Un problème est survenu.%@Vérifie ton mot de passe ou réessaie plus tard.</fr>
+    <de>Ups! Das ging daneben! Bitte überprüfe dein%@Passwort oder versuche es später erneut.</de>
+    <ko>오류가 발생했습니다! 비밀번호를 다시%@확인하거나 나중에 다시 시도하십시오.</ko>
+    <zh>糟糕！出问题了！%@请检查密码或稍后重试。</zh>
+    <ja>ツイートできませんでした。パスワードを%@確認するか、あとでもう一度お試しください。</ja>
+    <es>¡Vaya! ¡Algo ha salido mal!%@Comprueba la contraseña o inténtalo más tarde.</es>
+    <it>Oops! Qualcosa è andato storto.%@Verifica la password o riprova più tardi.</it>
+    <nl>Er is een fout opgetreden.%@Controleer het wachtwoord of probeer het later.</nl>
+    <br>Opa! Alguma coisa deu errado!%@Verifique a senha ou tente de novo mais tarde.</br>
+  </string>
+  <string name="TWITTER_BUTTON_CAPTION_SMALL">
+    <en>Tweet about it</en>
+    <ru>Твитнуть об этом</ru>
+    <fr>Tweete-le !</fr>
+    <de>Darüber tweeten</de>
+    <ko>트윗 보내기</ko>
+    <zh>到 Tweet 上晒一晒</zh>
+    <ja>Twitterで自慢する</ja>
+    <es>Dilo en Twitter</es>
+    <it>Pubblica un tweet</it>
+    <nl>Tweet versturen</nl>
+    <br>Mande um tweet</br>
+  </string>
+  <string name="TWITTER_LOGIN">
+    <en>Login</en>
+    <ru>Имя пользователя</ru>
+    <fr>Connexion</fr>
+    <de>Einloggen</de>
+    <ko>로그인</ko>
+    <zh>登录</zh>
+    <ja>ログイン</ja>
+    <es>Usuario</es>
+    <it>Accedi</it>
+    <nl>Gebruikersnaam</nl>
+    <br>Login do Twitter</br>
+  </string>
+  <string name="TWITTER_PASSWORD">
+    <en>Password</en>
+    <ru>Пароль</ru>
+    <fr>Mot de passe</fr>
+    <de>Passwort</de>
+    <ko>비밀번호</ko>
+    <zh>密码</zh>
+    <ja>パスワード</ja>
+    <es>Contraseña</es>
+    <it>Password</it>
+    <nl>Wachtwoord</nl>
+    <br>Senha</br>
+  </string>
+  <string name="TWITTER_EVENT_LEVEL_3STARS_ATLAST">
+    <en>Whew! I did it! Got 3 stars for Level %@ @Cut_the_Rope! Lovin' it! %@ #cuttherope</en>
+    <ru>Ну наконец-то! 3 звезды на уровне %@ в @Cut_the_Rope! Крутотень! %@ #cuttherope</ru>
+    <fr>Ouf ! J’ai réussi ! 3 étoiles pour le niveau %@ à @Cut_the_Rope ! J’adore ! %@ #cuttherope</fr>
+    <de>Puh! Geschafft! Habe 3 Sterne für Level %@ von @Cut_the_Rope erhalten! Einmalig! %@ #cuttherope</de>
+    <ko>드디어 해냈다! %@ 레벨에서 별 3개를 땄어요! @Cut_the_Rope! 정말 재밌네요! %@ #cuttherope</ko>
+    <zh>哈！*我做到了！*我在 @Cut_the_Rope *第%@关*获得了 3 颗星*！爱死它了！* %@ #cuttherope</zh>
+    <ja>@Cut_the_Rope* レベル %@  で*ついに*スター3つ*ゲット！*わーい！* %@ #cuttherope</ja>
+    <es>¡Uff! ¡Por fin! ¡Tengo las 3 estrellas del nivel %@ de @Cut_the_Rope! ¡Me encanta! %@ #cuttherope</es>
+    <it>Ce l’ho fatta! Ho raccolto 3 stelle nel livello %@ in @Cut_the_Rope. Piccole soddisfazioni! %@ #cuttherope</it>
+    <nl>Kicken! Gelukt! 3 sterren gehaald voor level %@ van @Cut_the_Rope! Te gek! %@ #cuttherope</nl>
+    <br>Ufa! Consegui! 3 estrelas na fase %@ @Cut_the_Rope! Muito massa! %@ #cuttherope</br>
+  </string>
+  <string name="TWITTER_EVENT_LEVEL_3STARS_ATLAST_BANNER">
+    <en>You did it!</en>
+    <ru>Получилось!</ru>
+    <fr>Tu as réussi !</fr>
+    <de>Geschafft!</de>
+    <ko>드디어 해냈군요!</ko>
+    <zh>干得不错！</zh>
+    <ja>頑張った！</ja>
+    <es>¡Lo has conseguido!</es>
+    <it>Ce l’hai fatta!</it>
+    <nl>Het is je gelukt!</nl>
+    <br>Você conseguiu!</br>
+  </string>
+  <string name="TWITTER_EVENT_BOX_COMPLETED">
+    <en>SWEET! Just completed @Cut_the_Rope %@. Join the fun! %@ #cuttherope</en>
+    <ru>ЗДОРОВО! %@ в @Cut_the_Rope пройдена. Давай, вливайся! %@ #cuttherope</ru>
+    <fr>COOL ! Je viens de finir la boîte %@ de @Cut_the_Rope. Viens t’éclater ! %@ #cuttherope</fr>
+    <de>TOLL! Habe gerade die %@ von @Cut_the_Rope abgeschlossen. Spiel mit! %@ #cuttherope</de>
+    <ko>야호! @Cut_the_Rope에서 %@를 다 깼어요. 함께 해 보실래요? %@ #cuttherope</ko>
+    <zh>太好玩了！*我刚刚*完成了* @Cut_the_Rope *的%@。*快来一起玩吧！* %@ #cuttherope</zh>
+    <ja>@Cut_the_Rope* %@ をクリア！*面白いよ！* %@ #cuttherope</ja>
+    <es>¡GENIAL! Acabo de completar la caja %@ de @Cut_the_Rope. ¡Únete a la diversión! %@ #cuttherope</es>
+    <it>MITICO! Ho appena completato la scatola %@ in @Cut_the_Rope. Chi si unisce al divertimento? %@ #cuttherope</it>
+    <nl>VET! Net doos %@ van @Cut_the_Rope gehaald. Doe ook mee! %@ #cuttherope</nl>
+    <br>MANEIRO! Acabei de completar a caixa %@ @Cut_the_Rope. Venha jogar! %@ #cuttherope</br>
+  </string>
+  <string name="TWITTER_EVENT_BOX_COMPLETED_BANNER">
+    <en>Nice work!</en>
+    <ru>Здорово!</ru>
+    <fr>Beau travail !</fr>
+    <de>Sehr schön!</de>
+    <ko>잘 했어요!</ko>
+    <zh>干得好！</zh>
+    <ja>よくやった！</ja>
+    <es>¡Bien hecho!</es>
+    <it>Ottimo lavoro!</it>
+    <nl>Goed gedaan!</nl>
+    <br>Bom trabalho!</br>
+  </string>
+  <string name="TWITTER_EVENT_BOX_COMPLETED_3STARS">
+    <en>Wohoo! Completed @Cut_the_Rope %@ &amp; got ALL 3 stars %@ #cuttherope #OmNomLovesMe</en>
+    <ru>Готово! %@ в @Cut_the_Rope ВСЯ пройдена на 3 звезды! %@ #cuttherope #OmNomLovesMe</ru>
+    <fr>Wohoo ! J’ai fini la boîte %@ de @Cut_the_Rope et j’ai eu les TROIS étoiles %@ #cuttherope #OmNomLovesMe</fr>
+    <de>Juhu! Habe die %@ von @Cut_the_Rope abgeschlossen &amp; ALLE 3 Sterne erhalten! %@ #cuttherope #OmNomLovesMe</de>
+    <ko>앗싸! @Cut_the_Rope에서 %@를 전부 별 3개로 깼어요! %@ #cuttherope #OmNomLovesMe</ko>
+    <zh>耶！*我刚刚*完成了* @Cut_the_Rope* 的%@，*而且*全部获得*了 3 颗星！* %@ #cuttherope #OmNomLovesMe</zh>
+    <ja>やったね！*@Cut_the_Rope %@ の*全レベルを*スター3つで*クリアしたよ！* %@ #cuttherope #OmNomLovesMe</ja>
+    <es>¡Yujuu! ¡He completado la caja %@ de @Cut_the_Rope con TODAS las estrellas! %@ #cuttherope #OmNomLovesMe</es>
+    <it>Yi-ha! Ho completato la scatola %@ in @Cut_the_Rope con TUTTE e 3 le stelle! %@ #cuttherope #OmNomLovesMe</it>
+    <nl>Woehoe! Doos %@ van @Cut_the_Rope gehaald &amp; ALLE 3 sterren binnen! %@ #cuttherope #OmNomLovesMe</nl>
+    <br>Uhul! Completei a caixa %@ @Cut_the_Rope e peguei TODAS as estrelas! %@ #cuttherope #OmNomLovesMe</br>
+  </string>
+  <string name="TWITTER_EVENT_BOX_COMPLETED_3STARS_BANNER">
+    <en>Great job! Congrats!</en>
+    <ru>Готово! Молодец!</ru>
+    <fr>Bon boulot ! Bravo !</fr>
+    <de>Super! Gratulation!</de>
+    <ko>대단해요! 축하합니다!</ko>
+    <zh>漂亮！*祝贺你！</zh>
+    <ja>三ツ星*おめでとう！</ja>
+    <es>¡Muy buen trabajo!</es>
+    <it>Congratulazioni!</it>
+    <nl>Top! Gefeliciteerd!</nl>
+    <br>Muito bem! Legal!</br>
+  </string>
+  <string name="TWITTER_EVENT_GAME_COMPLETED">
+    <en>Can I get a high five!? Just finished ALL levels of @Cut_the_Rope. Mission: Accomplished. %@ #cuttherope</en>
+    <ru>Дай пять!!! Пройдены ВСЕ уровни в @Cut_the_Rope. Готово дело! %@ #cuttherope</ru>
+    <fr>Je suis bon ou quoi !? Je viens de finir TOUS les niveaux de @Cut_the_Rope. Mission : accomplie. %@ #cuttherope</fr>
+    <de>Gib mir fünf! Ich habe gerade ALLE Level von @Cut_the_Rope geschafft. Mission erfüllt! %@ #cuttherope</de>
+    <ko>자랑해야지! @Cut_the_Rope의 모든 레벨을 다 깼어요. 미션 컴플리트! %@ #cuttherope</ko>
+    <zh>和我一起*庆祝胜利吧！*我刚刚*完成了* @Cut_the_Rope *的全部关卡。*任务完成了！* %@ #cuttherope</zh>
+    <ja>@Cut_the_Rope の*全レベルを*クリア！*任務完了で*あります！* %@ #cuttherope</ja>
+    <es>¿Quién choca esos cinco? Acabo de completar TODOS los niveles de @Cut_the_Rope. Misión cumplida. %@ #cuttherope</es>
+    <it>Chi mi batte un cinque? Ho appena terminato TUTTI i livelli di @Cut_the_Rope. Missione compiuta. %@ #cuttherope</it>
+    <nl>Mag ik een high five!? Net ALLE levels van @Cut_the_Rope gehaald. Taak volbracht. %@ #cuttherope</nl>
+    <br>Irado! Acabei TODAS as fases de @Cut_the_Rope. Missão cumprida! %@ #cuttherope</br>
+  </string>
+  <string name="TWITTER_EVENT_GAME_COMPLETED_BANNER">
+    <en>Wow! You did it!</en>
+    <ru>Прекрасно!</ru>
+    <fr>Wow! Bravo !</fr>
+    <de>Du bist der Hammer!</de>
+    <ko>와! 해냈군요!</ko>
+    <zh>哇！成功啦！</zh>
+    <ja>クリア*おめでとう！</ja>
+    <es>¡Vaya! ¡Muy bien!</es>
+    <it>Wow! Ce l’hai fatta!</it>
+    <nl>Wauw! Gelukt!</nl>
+    <br>Uau! Você conseguiu!</br>
+  </string>
+  <string name="TWITTER_EVENT_GAME_COMPLETED_3STARS">
+    <en>I'm rocking @Cut_the_Rope - won ALL 3 stars on every level! Try and beat that! %@ #cuttherope #OmNomLovesMe</en>
+    <ru>Удалось сделать 3 звезды на КАЖДОМ уровне в @Cut_the_Rope! А тебе слабо? %@ #cuttherope #OmNomLovesMe</ru>
+    <fr>J’assure à @Cut_the_Rope – 3 étoiles à TOUS les niveaux ! Essaie de faire mieux ! %@ #cuttherope #OmNomLovesMe</fr>
+    <de>Das rockt! Habe ALLE 3 Sterne in allen Levels von @Cut_the_Rope gewonnen! Und du? %@ #cuttherope #OmNomLovesMe</de>
+    <ko>내가 최고! @Cut_the_Rope의 모든 레벨을 별 3개로 깼어요! 기록에 도전해봐요! %@ #cuttherope #OmNomLovesMe</ko>
+    <zh>我在* @Cut_the_Rope *中可厉害了！*每关*都全取* 3 颗星！*试试挑战*我的成绩吧！* %@ #cuttherope #OmNomLovesMe</zh>
+    <ja>@Cut_the_Rope の*全レベルを*スター3つで*クリア！*君に*真似できるかな？* %@ #cuttherope #OmNomLovesMe</ja>
+    <es>Lo parto en @Cut_the_Rope – ¡Tengo las 3 estrellas DE CADA NIVEL! ¡Superadlo si podéis! %@ #cuttherope #OmNomLovesMe</es>
+    <it>Sto dominando a @Cut_the_Rope: ho preso TUTTE e 3 le stelle in ogni livello! Chi mi batte? %@ #cuttherope #OmNomLovesMe</it>
+    <nl>Goed bezig met @Cut_the_Rope – ALLE 3 sterren op elk level gehaald! Doe dat maar eens na! %@ #cuttherope #OmNomLovesMe</nl>
+    <br>Mandando MUITO @Cut_the_Rope, 3 estrelas em TODOS os níveis! Quem faz melhor! %@ #cuttherope #OmNomLovesMe</br>
+  </string>
+  <string name="TWITTER_EVENT_GAME_COMPLETED_3STARS_BANNER">
+    <en>You're a rockstar!</en>
+    <ru>Круто!</ru>
+    <fr>Tu assures un max !</fr>
+    <de>Du rockst!</de>
+    <ko>정말 짱이네요!</ko>
+    <zh>你就是神！</zh>
+    <ja>まさに*名人！</ja>
+    <es>¡Eres el amo!</es>
+    <it>Sei forte!</it>
+    <nl>Jij bent echt goed!</nl>
+    <br>Mandou muito bem!</br>
+  </string>
+  <string name="TWITTER_EVENT_GAME_IN_PROGRESS">
+    <en>This game is so addictive! Playing @Cut_the_Rope and lovin' it! %@ #cuttherope</en>
+    <ru>@Cut_the_Rope – просто отличная игра! %@ #cuttherope</ru>
+    <fr>Ce jeu est trop prenant ! Je joue à @Cut_the_Rope et je m’éclate ! %@ #cuttherope</fr>
+    <de>Dieses Spiel macht süchtig! Ich spiele @Cut_the_Rope wahnsinnig gern! %@ #cuttherope</de>
+    <ko>@Cut_the_Rope 플레이 중. 중독성 최고! %@ #cuttherope</ko>
+    <zh>这款游戏*真让人*爱不释手！*我正在玩* @Cut_the_Rope，*爱死它了！* %@ #cuttherope</zh>
+    <ja>やめられないね、*@Cut_the_Rope！*まだまだ*やるよ！* %@ #cuttherope</ja>
+    <es>¡Qué vicio de juego! ¡Estoy jugando a @Cut_the_Rope y me encanta! %@ #cuttherope</es>
+    <it>Non riesco a smettere di giocarci. Adoro @Cut_the_Rope! %@ #cuttherope</it>
+    <nl>Dit spel is zo verslavend! @Cut_the_Rope aan het spelen, kan niet stoppen! %@ #cuttherope</nl>
+    <br>Esse jogo é tão viciante! Tô jogando @Cut_the_Rope e adorando! %@ #cuttherope</br>
+  </string>
+  <string name="TWITTER_EVENT_GAME_IN_PROGRESS_BANNER">
+    <en>Like the game?</en>
+    <ru>Понравилась игра?</ru>
+    <fr>Tu aimes le jeu ?</fr>
+    <de>Magst du das Spiel?</de>
+    <ko>게임이 마음에 드세요?</ko>
+    <zh>喜欢*这个游戏吗？</zh>
+    <ja>面白すぎ？</ja>
+    <es>¿Te gusta el juego?</es>
+    <it>Ti piace il gioco?</it>
+    <nl>Leuk spel?</nl>
+    <br>Gostou do jogo?</br>
+  </string>
+  <string name="TWITTER_EVENT_DRAWING_FOUND">
+    <en>This is SO cool! Finally found an #OmNomDrawing %@ @Cut_the_Rope %@ #cuttherope</en>
+    <ru>Просто КРУТО! Вот что нашлось в @Cut_the_Rope %@ – #OmNomDrawing %@! #cuttherope</ru>
+    <fr>C’est trop COOL ! J’ai enfin trouvé un #OmNomDrawing %@ dans @Cut_the_Rope ! %@ #cuttherope</fr>
+    <de>COOL! Habe endlich eine #OmNomDrawing %@ @Cut_the_Rope gefunden! %@ #cuttherope</de>
+    <ko>끝내준다! @Cut_the_Rope에서 #OmNomDrawing %@ 발견! %@ #cuttherope</ko>
+    <zh>太酷了！*终于在* @Cut_the_Rope* 中发现*了一幅* #OmNomDrawing %@！* %@ #cuttherope</zh>
+    <ja>これいいね！*@Cut_the_Rope で*ついに* #OmNomDrawing %@ を*見つけたよ！* %@ #cuttherope</ja>
+    <es>¡Esto es una pasada! ¡Por fin he encontrado un #OmNomDrawing %@ en @Cut_the_Rope! %@ #cuttherope</es>
+    <it>Figo! Finalmente ho trovato un disegno #OmNomDrawing %@ in @Cut_the_Rope! %@ #cuttherope</it>
+    <nl>Dit is ZO cool! Eindelijk een #OmNomDrawing %@ in @Cut_the_Rope gevonden! %@ #cuttherope</nl>
+    <br>Que máximo! Achei um #OmNomDrawing %@ @Cut_the_Rope! %@ #cuttherope</br>
+  </string>
+  <string name="TWITTER_EVENT_DRAWINGS_FOUND_ALL">
+    <en>Wohoo! Found EVERY @OmNomDrawing @Cut_the_Rope! %@ #cuttherope @OmNomLovesMe</en>
+    <ru>Ага! В @Cut_the_Rope нашлись ВСЕ #OmNomDrawing %@ #cuttherope #OmNomLovesMe</ru>
+    <fr>Wohoo ! J’ai trouvé TOUS les #OmNomDrawing de @Cut_the_Rope ! %@ #cuttherope #OmNomLovesMe</fr>
+    <de>Juhu! Habe ALLE #OmNomDrawing @Cut_the_Rope gefunden! %@ #cuttherope #OmNomLovesMe</de>
+    <ko>앗싸! @Cut_the_Rope에서 #OmNomDrawing을 모두 찾았어요! %@ #cuttherope #OmNomLovesMe</ko>
+    <zh>耶！*我在 *@Cut_the_Rope *中发现了*每一幅 *#OmNomDrawing！ *%@ #cuttherope #OmNomLovesMe</zh>
+    <ja>やったね！*@Cut_the_Rope で* #OmNomDrawing を*全部*見つけたよ！* %@ #cuttherope #OmNomLovesMe</ja>
+    <es>¡Yujuu! ¡He encontrado TODOS los #OmNomDrawing en @Cut_the_Rope! %@ #cuttherope #OmNomLovesMe</es>
+    <it>Yay! Ho trovato TUTTI i disegni #OmNomDrawing in @Cut_the_Rope! %@ #cuttherope #OmNomLovesMe</it>
+    <nl>Woehoe! ELKE #OmNomDrawing in @Cut_the_Rope gevonden! %@ #cuttherope #OmNomLovesMe</nl>
+    <br>Show! Achei TODOS #OmNomDrawing @Cut_the_Rope! %@ #cuttherope #OmNomLovesMe</br>
+  </string>
+  <string name="BOX1_TWITTER_LABEL">
+    <en>Cardboard Box</en>
+    <ru>Картонная коробка </ru>
+    <fr>Carton</fr>
+    <de>Pappbox</de>
+    <ko>골판지 상자</ko>
+    <zh>纸板盒</zh>
+    <ja>ダンボール箱</ja>
+    <es>Cartón</es>
+    <it>Cartone</it>
+    <nl>Karton</nl>
+    <br>Papelão </br>
+  </string>
+  <string name="BOX2_TWITTER_LABEL">
+    <en>Fabric Box</en>
+    <ru>Тканевая коробка </ru>
+    <fr>Tissu</fr>
+    <de>Stoffbox</de>
+    <ko>천 상자</ko>
+    <zh>布盒</zh>
+    <ja>布の箱</ja>
+    <es>Tela</es>
+    <it>Tessuto</it>
+    <nl>Stof</nl>
+    <br>Tecido</br>
+  </string>
+  <string name="BOX3_TWITTER_LABEL">
+    <en>Foil Box</en>
+    <ru>Коробка из фольги</ru>
+    <fr>Papier</fr>
+    <de>Folienbox</de>
+    <ko>은박지 상자</ko>
+    <zh>铝箔盒</zh>
+    <ja>アルミ箔の箱</ja>
+    <es>Metal</es>
+    <it>Alluminio</it>
+    <nl>Folie</nl>
+    <br>Alumínio</br>
+  </string>
+  <string name="BOX4_TWITTER_LABEL">
+    <en>Magic Box</en>
+    <ru>Волшебная коробка</ru>
+    <fr>Magique</fr>
+    <de>Zauberbox</de>
+    <ko>마술 상자</ko>
+    <zh>魔盒</zh>
+    <ja>魔法の箱</ja>
+    <es>Magia</es>
+    <it>Magica</it>
+    <nl>Tover</nl>
+    <br>Mágica</br>
+  </string>
+  <string name="BOX5_TWITTER_LABEL">
+    <en>Valentine Box</en>
+    <ru>Коробка «Валентинка»</ru>
+    <fr>Valentin</fr>
+    <de>Valentinsbox</de>
+    <ko>발렌타인 상자</ko>
+    <zh>情人盒</zh>
+    <ja>恋人の箱</ja>
+    <es>Romance</es>
+    <it>San Valentino</it>
+    <nl>Valentijn</nl>
+    <br>Namorados</br>
+  </string>
+  <string name="BOX6_TWITTER_LABEL">
+    <en>Toy box</en>
+    <ru>Игрушечная коробка</ru>
+    <fr>Jouets</fr>
+    <de>Spielzeugbox</de>
+    <ko>장난감 상자</ko>
+    <zh>玩具盒</zh>
+    <ja>おもちゃ箱</ja>
+    <es>Juguetes</es>
+    <it>Giochi</it>
+    <nl>Speelgoed</nl>
+    <br>Brinquedos</br>
+  </string>
+  <string name="BOX7_TWITTER_LABEL">
+    <en>Gift Box</en>
+    <ru>Подарочная коробка</ru>
+    <fr>Cadeau</fr>
+    <de>Geschenkebox</de>
+    <ko>선물 상자</ko>
+    <zh>礼物盒</zh>
+    <ja>プレゼント箱</ja>
+    <es>Regalo</es>
+    <it>Regalo</it>
+    <nl>Cadeau</nl>
+    <br>Presente</br>
+  </string>
+  <string name="BOX8_TWITTER_LABEL">
+    <en>Cosmic Box</en>
+    <ru>Космическая коробка</ru>
+    <fr>Cosmique</fr>
+    <de>Kosmosbox</de>
+    <ko>우주 상자</ko>
+    <zh>宇宙盒</zh>
+    <ja>宇宙の箱</ja>
+    <es>Cosmos</es>
+    <it>Cosmica</it>
+    <nl>Ruimte</nl>
+    <br>Cósmica</br>
+  </string>
+  <string name="BOX9_TWITTER_LABEL">
+    <en>Toolbox</en>
+    <ru>Коробка «Инструменты»</ru>
+    <fr>Outils</fr>
+    <de>Werkzeugbox</de>
+    <ko>공구 상자</ko>
+    <zh>工具盒</zh>
+    <ja>道具箱</ja>
+    <es>Bricolaje</es>
+    <it>Attrezzi</it>
+    <nl>Gereedschap</nl>
+    <br>Ferramentas</br>
+  </string>
+  <string name="BOX10_TWITTER_LABEL">
+    <en>Buzz Box</en>
+    <ru>Медовая коробка</ru>
+    <fr>Abeille</fr>
+    <de>Summbox</de>
+    <ko>꿀벌 상자</ko>
+    <zh>嗡嗡盒</zh>
+    <ja>ハチの巣箱</ja>
+    <es>Colmena</es>
+    <it>Alveare</it>
+    <nl>Zoem</nl>
+    <br>Abelhas</br>
+  </string>
+  <string name="BOX11_TWITTER_LABEL">
+    <en>DJ Box</en>
+    <ru>«Коробка DJ»</ru>
+    <fr>DJ</fr>
+    <de>DJ-Box</de>
+    <ko>DJ 상자</ko>
+    <zh>DJ 盒</zh>
+    <ja>DJの箱</ja>
+    <es>DJ</es>
+    <it>DJ</it>
+    <nl>DJ</nl>
+    <br>DJ</br>
+  </string>
+  <string name="BOX_SOON_AVAILABLE_LABEL">
+    <en>New levels available!</en>
+    <ru>Доступны новые уровни!</ru>
+    <fr>Nouveaux niveaux disponibles !</fr>
+    <de>Neue Level verfügbar!</de>
+    <ko>새로운 레벨을 즐길 수 있습니다!</ko>
+    <zh>新关卡*已推出！</zh>
+    <ja>新レベルが
+遊べるよ！</ja>
+    <es>¡Nuevos niveles disponibles!</es>
+    <it>Nuovi livelli disponibili!</it>
+    <nl>Nieuwe levels beschikbaar!</nl>
+    <br>Novos níveis disponíveis!</br>
+  </string>
+  <string name="TWITTER_MAIL_NOT_SUPPORTED">
+    <en>Please enter your login (not e-mail)</en>
+    <ru>Введите ваш псевдоним%@(не адрес электронной почты)</ru>
+    <fr>Veuillez entrer votre identifiant%@(pas l’adresse e-mail)</fr>
+    <de>Bitte geben Sie Ihre Login-Daten ein%@(nicht Ihre E-Mail)</de>
+    <ko>이메일이아닌 사용자아이디를 입력하세요</ko>
+    <zh>请输入登录名（非电子邮件）</zh>
+    <ja>ユーザー名を 入力してください%@（メールアドレスでは*ありません）</ja>
+    <es>Introduce tu nombre de usuario%@(no tu correo electrónico)</es>
+    <it>Inserisci i tuoi dati di accesso%@(non l’indirizzoe-mail)</it>
+    <nl>Voer je gebruikersnaam in%@(niet jee-mail)</nl>
+    <br>Por favor, digite o seu login%@(não o seu e-mail)</br>
+  </string>
+  <string name="COPPA_PRIVACY_TITLE">
+    <en>We care about your privacy and gaming experience.</en>
+    <ru>We care about your privacy and gaming experience.</ru>
+    <fr>We care about your privacy and gaming experience.</fr>
+    <de>We care about your privacy and gaming experience.</de>
+    <ko>We care about your privacy and gaming experience.</ko>
+    <zh>We care about your privacy and gaming experience.</zh>
+    <ja>We care about your privacy and gaming experience.</ja>
+    <es>We care about your privacy and gaming experience.</es>
+    <it>We care about your privacy and gaming experience.</it>
+    <nl>We care about your privacy and gaming experience.</nl>
+    <br>We care about your privacy and gaming experience.</br>
+  </string>
+  <string name="COPPA_TEXT">
+    <en>
+      Please verify your age
+      and enjoy the game
+    </en>
+    <ru>
+      Please verify your age
+      and enjoy the game
+    </ru>
+    <fr>
+      Please verify your age
+      and enjoy the game
+    </fr>
+    <de>
+      Please verify your age
+      and enjoy the game
+    </de>
+    <ko>
+      Please verify your age
+      and enjoy the game
+    </ko>
+    <zh>
+      Please verify your age
+      and enjoy the game
+    </zh>
+    <ja>
+      Please verify your age
+      and enjoy the game
+    </ja>
+    <es>
+      Please verify your age
+      and enjoy the game
+    </es>
+    <it>
+      Please verify your age
+      and enjoy the game
+    </it>
+    <nl>
+      Please verify your age
+      and enjoy the game
+    </nl>
+    <br>
+      Please verify your age
+      and enjoy the game
+    </br>
+  </string>
+</strings>

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using ctre_wp7.ctr_commons;
+using ctr_wp7.ctr_commons;
 
-namespace ctre_wp7.iframework.visual
+namespace ctr_wp7.iframework.visual
 {
 	// Token: 0x0200000B RID: 11
 	internal interface TouchDelegate

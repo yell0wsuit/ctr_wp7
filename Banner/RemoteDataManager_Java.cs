@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.IO.IsolatedStorage;
 using System.Reflection;
-using ctre_wp7.iframework.core;
-using ctre_wp7.ios;
-using ctre_wp7.utils;
+using ctr_wp7.iframework.core;
+using ctr_wp7.ios;
+using ctr_wp7.utils;
 
-namespace ctre_wp7.Banner
+namespace ctr_wp7.Banner
 {
 	// Token: 0x02000041 RID: 65
 	public class RemoteDataManager_Java
@@ -222,7 +222,7 @@ namespace ctre_wp7.Banner
 		{
 			using (IsolatedStorageFile userStoreForApplication = IsolatedStorageFile.GetUserStoreForApplication())
 			{
-				using (IsolatedStorageFileStream isolatedStorageFileStream = new IsolatedStorageFileStream(this.getStoredBannersPath(), 2, userStoreForApplication))
+				using (IsolatedStorageFileStream isolatedStorageFileStream = new IsolatedStorageFileStream(this.getStoredBannersPath(), System.IO.FileMode.Create, userStoreForApplication))
 				{
 					BinaryWriter binaryWriter = new BinaryWriter(isolatedStorageFileStream);
 					binaryWriter.Write(banners.Count);
@@ -241,7 +241,7 @@ namespace ctre_wp7.Banner
 		{
 			using (IsolatedStorageFile userStoreForApplication = IsolatedStorageFile.GetUserStoreForApplication())
 			{
-				using (IsolatedStorageFileStream isolatedStorageFileStream = new IsolatedStorageFileStream(this.getStoredConfigPath(), 2, userStoreForApplication))
+				using (IsolatedStorageFileStream isolatedStorageFileStream = new IsolatedStorageFileStream(this.getStoredConfigPath(), System.IO.FileMode.Create, userStoreForApplication))
 				{
 					BinaryWriter binaryWriter = new BinaryWriter(isolatedStorageFileStream);
 					config.SaveConfig(binaryWriter);
@@ -259,7 +259,7 @@ namespace ctre_wp7.Banner
 				{
 					if (userStoreForApplication.FileExists(this.getStoredBannersPath()))
 					{
-						using (IsolatedStorageFileStream isolatedStorageFileStream = new IsolatedStorageFileStream(this.getStoredBannersPath(), 3, userStoreForApplication))
+						using (IsolatedStorageFileStream isolatedStorageFileStream = new IsolatedStorageFileStream(this.getStoredBannersPath(), System.IO.FileMode.Open, userStoreForApplication))
 						{
 							BinaryReader binaryReader = new BinaryReader(isolatedStorageFileStream);
 							int num = binaryReader.ReadInt32();
@@ -291,7 +291,7 @@ namespace ctre_wp7.Banner
 				{
 					if (userStoreForApplication.FileExists(this.getStoredBannersPath()))
 					{
-						using (IsolatedStorageFileStream isolatedStorageFileStream = new IsolatedStorageFileStream(this.getStoredConfigPath(), 3, userStoreForApplication))
+						using (IsolatedStorageFileStream isolatedStorageFileStream = new IsolatedStorageFileStream(this.getStoredConfigPath(), System.IO.FileMode.Open, userStoreForApplication))
 						{
 							BinaryReader binaryReader = new BinaryReader(isolatedStorageFileStream);
 							return new RemoteConfig(binaryReader);
@@ -410,7 +410,7 @@ namespace ctre_wp7.Banner
 			{
 				int currentBannerID = this.config.getCurrentBannerID();
 				Banner banner;
-				if (!this.banners.TryGetValue(currentBannerID, ref banner))
+				if (!this.banners.TryGetValue(currentBannerID, out banner))
 				{
 					return null;
 				}

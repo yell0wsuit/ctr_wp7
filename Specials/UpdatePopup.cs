@@ -1,15 +1,15 @@
 ﻿using System;
-using ctre_wp7.ctr_commons;
-using ctre_wp7.ctr_original;
-using ctre_wp7.game;
-using ctre_wp7.iframework;
-using ctre_wp7.iframework.core;
-using ctre_wp7.iframework.visual;
-using ctre_wp7.ios;
+using ctr_wp7.ctr_commons;
+using ctr_wp7.ctr_original;
+using ctr_wp7.game;
+using ctr_wp7.iframework;
+using ctr_wp7.iframework.core;
+using ctr_wp7.iframework.visual;
+using ctr_wp7.ios;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.GamerServices;
 
-namespace ctre_wp7.Specials
+namespace ctr_wp7.Specials
 {
 	// Token: 0x0200009E RID: 158
 	internal class UpdatePopup : Popup, ButtonDelegate

@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using ctre_wp7.ctr_commons;
-using ctre_wp7.iframework.visual;
-using ctre_wp7.ios;
+using ctr_wp7.ctr_commons;
+using ctr_wp7.iframework.visual;
+using ctr_wp7.ios;
 using Microsoft.Xna.Framework.Input.Touch;
 
-namespace ctre_wp7.iframework.core
+namespace ctr_wp7.iframework.core
 {
 	// Token: 0x02000066 RID: 102
 	internal class ViewController : NSObject, TouchDelegate
@@ -99,7 +99,7 @@ namespace ctre_wp7.iframework.core
 		public virtual void addViewwithID(View v, int n)
 		{
 			View view;
-			this.views.TryGetValue(n, ref view);
+			this.views.TryGetValue(n, out view);
 			this.views[n] = v;
 		}
 
@@ -144,7 +144,7 @@ namespace ctre_wp7.iframework.core
 		public virtual View getView(int n)
 		{
 			View view = null;
-			this.views.TryGetValue(n, ref view);
+			this.views.TryGetValue(n, out view);
 			return view;
 		}
 
@@ -163,7 +163,7 @@ namespace ctre_wp7.iframework.core
 		public virtual void deleteChild(int n)
 		{
 			ViewController viewController = null;
-			if (this.childs.TryGetValue(n, ref viewController))
+			if (this.childs.TryGetValue(n, out viewController))
 			{
 				viewController.dealloc();
 				this.childs[n] = null;

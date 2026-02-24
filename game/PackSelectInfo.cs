@@ -1,8 +1,8 @@
 ﻿using System;
-using ctre_wp7.iframework.visual;
-using ctre_wp7.ios;
+using ctr_wp7.iframework.visual;
+using ctr_wp7.ios;
 
-namespace ctre_wp7.game
+namespace ctr_wp7.game
 {
 	// Token: 0x02000110 RID: 272
 	internal class PackSelectInfo : NSObject

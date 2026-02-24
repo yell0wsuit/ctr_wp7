@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using ctre_wp7.ctr_commons;
-using ctre_wp7.ctr_original;
-using ctre_wp7.iframework;
-using ctre_wp7.iframework.core;
-using ctre_wp7.iframework.helpers;
-using ctre_wp7.ios;
+using ctr_wp7.ctr_commons;
+using ctr_wp7.ctr_original;
+using ctr_wp7.iframework;
+using ctr_wp7.iframework.core;
+using ctr_wp7.iframework.helpers;
+using ctr_wp7.ios;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.GamerServices;
 
-namespace ctre_wp7.game
+namespace ctr_wp7.game
 {
 	// Token: 0x0200008D RID: 141
 	internal class CTRRootController : RootController
@@ -401,7 +401,7 @@ namespace ctre_wp7.game
 		public static void checkMapIsValid(char[] data)
 		{
 			CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
-			NSString md = ctre_wp7.iframework.helpers.MathHelper.getMD5(data);
+			NSString md = ctr_wp7.iframework.helpers.MathHelper.getMD5(data);
 			int num = ctrrootController.getPack();
 			int num2 = ctrrootController.getLevel();
 			if (!md.isEqualToString(LevelsList.LEVEL_HASHES[num, num2]))

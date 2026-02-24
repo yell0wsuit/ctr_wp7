@@ -1,8 +1,8 @@
 ﻿using System;
-using ctre_wp7.ios;
+using ctr_wp7.ios;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace ctre_wp7.iframework.visual
+namespace ctr_wp7.iframework.visual
 {
 	// Token: 0x020000EC RID: 236
 	internal class ImageMultiDrawer : BaseElement

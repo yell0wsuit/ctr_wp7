@@ -1,0 +1,64 @@
+<map>
+<layer name="settings">
+<map gridSize="32" width="320" height="480" />
+<gameDesign special="1" twoParts="false" ropePhysicsSpeed="1" water="0" waterSpeed="0" />
+</layer>
+<layer name="Objects">
+<target x="248" y="384" />
+<sock x="59" y="367" group="0" angle="-90" />
+<sock x="254" y="114" group="0" angle="90" />
+<candy x="55" y="173" />
+<grab x="56" y="69" length="90" wheel="false" gun="false" kickable="false" kicked="false" radius="-1" invisible="false" moveLength="0" moveVertical="false" moveOffset="0" spider="false" helicopter="false" part="L" hidePath="false" />
+<tutorialText x="76" y="216" locale="en" text="Drop the candy into the magic hat and it will fall out from the other one" width="160" />
+<tutorial04 x="118" y="347" locale="en" angle="0" moveSpeed="100" rotateSpeed="100" />
+<star x="56" y="328" timeout="-1" />
+<star x="259" y="177" timeout="-1" />
+<star x="250" y="319" timeout="-1" />
+</layer>
+<layer name="Fr">
+<tutorial04 x="118" y="347" locale="fr" angle="0" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="76" y="209" locale="fr" text="Faites tomber le bonbon dans le chapeau magique et il atterrira dans l'autre" width="160" />
+</layer>
+<layer name="De">
+<tutorial04 x="118" y="348" locale="de" angle="0" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="78" y="183" locale="de" text="Werfe die Süßigkeiten in den Zauberhut und sie fallen aus dem anderen wieder heraus" width="160" />
+</layer>
+<layer name="Ru">
+<tutorial04 x="118" y="347" locale="ru" angle="0" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="72" y="219" locale="ru" text="Киньте леденец в одну из волшебных шляп, и он вылетит из другой" width="165" />
+</layer>
+<layer name="It">
+<tutorial04 x="118" y="347" locale="it" angle="0" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="74" y="218" locale="it" text="Butta il bonbon nel cappello magico e cadrà dall'altro cappello" width="160" />
+</layer>
+<layer name="Ja">
+<tutorial04 x="118" y="347" locale="ja" angle="0" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="75" y="230" locale="ja" text="魔法の帽子にキャンディを
+入れると、他の帽子から
+出てきます" width="160" />
+</layer>
+<layer name="Es">
+<tutorial04 x="118" y="347" locale="es" angle="0" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="77" y="215" locale="es" text="Al caer en una chistera mágica, el caramelo saldrá por la otra." width="160" />
+</layer>
+<layer name="Zh">
+<tutorial04 x="118" y="347" locale="zh" angle="0" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="73" y="247" locale="zh" text="将糖果丢入魔术帽。*它会从另一个魔术帽中掉出" width="160" />
+</layer>
+<layer name="Ko">
+<tutorial04 x="118" y="350" locale="ko" angle="0" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="76" y="205" locale="ko" text="마술 모자에 사탕을 넣으면 *다른 마술 모자에서 *튀어나와요." width="160" />
+</layer>
+<layer name="Br">
+<tutorial04 x="118" y="347" locale="br" angle="0" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="76" y="216" locale="br" text="Jogue os doces no chapéu mágico e eles cairão do outro chapéu" width="160" />
+</layer>
+<layer name="Tr">
+<tutorial04 x="118" y="347" locale="tr" angle="0" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="69" y="243" locale="tr" text="Şekeri sihirli şapkaya düşür ve diğerinden çıksın" width="160" />
+</layer>
+<layer name="Nl">
+<tutorial04 x="118" y="347" locale="nl" angle="0" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="75" y="206" locale="nl" text="Laat het snoepje in de toverhoed vallen en het komt er bij de andere weer uit" width="155" />
+</layer>
+</map>

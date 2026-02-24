@@ -1,9 +1,9 @@
 ﻿using System;
-using ctre_wp7.wp7utilities;
+using ctr_wp7.wp7utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace ctre_wp7.iframework
+namespace ctr_wp7.iframework
 {
 	// Token: 0x020000B1 RID: 177
 	internal class BlendParams

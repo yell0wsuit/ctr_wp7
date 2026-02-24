@@ -1,9 +1,9 @@
 ﻿using System;
-using ctre_wp7.iframework;
-using ctre_wp7.iframework.core;
-using ctre_wp7.iframework.visual;
+using ctr_wp7.iframework;
+using ctr_wp7.iframework.core;
+using ctr_wp7.iframework.visual;
 
-namespace ctre_wp7.game
+namespace ctr_wp7.game
 {
 	// Token: 0x020000DE RID: 222
 	internal class LoadingView : View

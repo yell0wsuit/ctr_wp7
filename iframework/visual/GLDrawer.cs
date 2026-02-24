@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using ctre_wp7.iframework.core;
-using ctre_wp7.iframework.helpers;
-using ctre_wp7.ios;
+using ctr_wp7.iframework.core;
+using ctr_wp7.iframework.helpers;
+using ctr_wp7.ios;
 
-namespace ctre_wp7.iframework.visual
+namespace ctr_wp7.iframework.visual
 {
 	// Token: 0x020000AF RID: 175
 	internal class GLDrawer : NSObject
@@ -146,7 +146,7 @@ namespace ctre_wp7.iframework.visual
 			if (count > 2)
 			{
 				Vector[] array;
-				if (!GLDrawer.VectorArray.TryGetValue(count - 1, ref array))
+				if (!GLDrawer.VectorArray.TryGetValue(count - 1, out array))
 				{
 					array = new Vector[count - 1];
 					GLDrawer.VectorArray.Add(count - 1, array);

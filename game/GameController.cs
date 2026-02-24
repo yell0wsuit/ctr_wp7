@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using ctre_wp7.ctr_commons;
-using ctre_wp7.ctr_original;
-using ctre_wp7.iframework;
-using ctre_wp7.iframework.core;
-using ctre_wp7.iframework.visual;
-using ctre_wp7.ios;
-using ctre_wp7.Specials;
+using ctr_wp7.ctr_commons;
+using ctr_wp7.ctr_original;
+using ctr_wp7.iframework;
+using ctr_wp7.iframework.core;
+using ctr_wp7.iframework.visual;
+using ctr_wp7.ios;
+using ctr_wp7.Specials;
 using Microsoft.Xna.Framework.Input.Touch;
 
-namespace ctre_wp7.game
+namespace ctr_wp7.game
 {
 	// Token: 0x02000101 RID: 257
 	internal class GameController : ViewController, ButtonDelegate

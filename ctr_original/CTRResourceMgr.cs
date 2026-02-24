@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using ctre_wp7.iframework;
-using ctre_wp7.iframework.core;
-using ctre_wp7.ios;
+using ctr_wp7.iframework;
+using ctr_wp7.iframework.core;
+using ctr_wp7.ios;
 
-namespace ctre_wp7.ctr_original
+namespace ctr_wp7.ctr_original
 {
 	// Token: 0x020000B9 RID: 185
 	internal class CTRResourceMgr : ResourceMgr
@@ -1706,8 +1706,8 @@ namespace ctre_wp7.ctr_original
 				dictionary.Add(410, "menu_agepopup_hd");
 				CTRResourceMgr.resNames_ = dictionary;
 			}
-			string text;
-			CTRResourceMgr.resNames_.TryGetValue(CTRResourceMgr.handleLocalizedResource(CTRResourceMgr.handleWvgaResource(resId)), ref text);
+			string text = null;
+			CTRResourceMgr.resNames_.TryGetValue(CTRResourceMgr.handleLocalizedResource(CTRResourceMgr.handleWvgaResource(resId)), out text);
 			return text;
 		}
 

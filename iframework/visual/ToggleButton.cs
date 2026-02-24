@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ctre_wp7.iframework.visual
+namespace ctr_wp7.iframework.visual
 {
 	// Token: 0x02000048 RID: 72
 	internal class ToggleButton : BaseElement, ButtonDelegate

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ctre_wp7.iframework.core
+namespace ctr_wp7.iframework.core
 {
 	// Token: 0x02000082 RID: 130
 	public class VectorClass

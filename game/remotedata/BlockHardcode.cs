@@ -1,8 +1,8 @@
 ﻿using System;
-using ctre_wp7.iframework.core;
-using ctre_wp7.ios;
+using ctr_wp7.iframework.core;
+using ctr_wp7.ios;
 
-namespace ctre_wp7.game.remotedata
+namespace ctr_wp7.game.remotedata
 {
 	// Token: 0x020000FD RID: 253
 	internal class BlockHardcode : BlockInterface
