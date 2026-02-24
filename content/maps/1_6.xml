@@ -1,0 +1,61 @@
+<map>
+<layer name="settings">
+<map gridSize="32" width="320" height="480" />
+<gameDesign special="1" twoParts="false" ropePhysicsSpeed="1.0" water="0" waterSpeed="0" />
+</layer>
+<layer name="Objects">
+<star x="161" y="371" timeout="-1" />
+<star x="163" y="293" timeout="-1" />
+<target x="160" y="432" />
+<candy x="160" y="217" />
+<grab x="163" y="152" length="50" wheel="false" gun="false" kickable="false" kicked="false" radius="-1" invisible="false" moveLength="-1" moveVertical="false" moveOffset="0" spider="false" helicopter="false" part="L" hidePath="false" />
+<bubble x="161" y="293" />
+<star x="161" y="91" timeout="-1" />
+<tutorialText x="20" y="80" locale="en" text="Don't let the candy leave the box" width="120" />
+<tutorial09 x="79" y="65" locale="en" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="Ru">
+<tutorialText x="20" y="80" locale="ru" text="Не дайте леденцу вылететь за пределы коробки" width="120" />
+<tutorial09 x="79" y="65" locale="ru" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="Fr">
+<tutorialText x="20" y="80" locale="fr" text="Ne laissez pas le bonbon sortir de la boîte" width="110" />
+<tutorial09 x="79" y="65" locale="fr" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="De">
+<tutorialText x="14" y="80" locale="de" text="Lass die Süßigkeit nicht aus der Box" width="140" />
+<tutorial09 x="79" y="65" locale="de" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="It">
+<tutorialText x="20" y="80" locale="it" text="Non far uscire il bonbon dalla scatola" width="120" />
+<tutorial09 x="79" y="65" locale="it" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="Ja">
+<tutorialText x="20" y="80" locale="ja" text="キャンディが*箱から*出ない*ように*注意*しましょう" width="120" />
+<tutorial09 x="79" y="45" locale="ja" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="Es">
+<tutorialText x="20" y="80" locale="es" text="No dejes que el caramelo se salga de la caja." width="120" />
+<tutorial09 x="79" y="65" locale="es" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="Zh">
+<tutorialText x="28" y="100" locale="zh" text="切勿让糖果离开盒子" width="120" />
+<tutorial09 x="81" y="79" locale="zh" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="Ko">
+<tutorialText x="20" y="80" locale="ko" text="사탕이 상자 *밖으로 나오지 않게 *하세요." width="120" />
+<tutorial09 x="79" y="62" locale="ko" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="Br">
+<tutorialText x="20" y="80" locale="br" text="Não deixe os doces saírem da caixa" width="120" />
+<tutorial09 x="79" y="65" locale="br" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="Tr">
+<tutorialText x="20" y="80" locale="tr" text="Şekerin kutudan çıkmamasını sağla" width="120" />
+<tutorial09 x="79" y="65" locale="tr" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="Nl">
+<tutorialText x="20" y="80" locale="nl" text="Zorg dat het snoepje in de doos blijft" width="120" />
+<tutorial09 x="79" y="65" locale="nl" moveSpeed="100" rotateSpeed="100" />
+</layer>
+</map>

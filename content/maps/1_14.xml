@@ -1,0 +1,55 @@
+<map>
+<layer name="settings">
+<map gridSize="32" width="320" height="480" />
+<gameDesign special="1" twoParts="false" ropePhysicsSpeed="1.0" water="0" waterSpeed="0" />
+</layer>
+<layer name="Objects">
+<candy x="64" y="310" />
+<target x="244" y="77" />
+<grab x="66" y="248" length="60" wheel="false" gun="false" kickable="false" kicked="false" radius="-1" invisible="false" moveLength="-1" moveVertical="false" moveOffset="0" spider="false" helicopter="false" part="L" hidePath="false" />
+<bubble x="65" y="424" />
+<grab x="143" y="159" length="100" wheel="false" gun="false" kickable="false" kicked="false" radius="75" invisible="false" moveLength="-1" moveVertical="false" moveOffset="0" spider="false" helicopter="false" part="L" hidePath="false" />
+<bubble x="238" y="201" />
+<star x="65" y="425" timeout="-1" />
+<star x="63" y="195" timeout="-1" />
+<star x="239" y="201" timeout="-1" />
+<tutorialText x='135' y='336' text='You can skip the level in the pause menu' locale='en' width='140'/>
+<tutorial09 x='200' moveSpeed='100' y='322' rotateSpeed='100' locale='en'/>
+</layer>
+<layer name='Ru'>
+<tutorialText x='137' y='312' text='Вы можете пропустить уровень в меню паузы' locale='ru' width='140'/>
+<tutorial09 x='202' moveSpeed='100' y='297' rotateSpeed='100' locale='ru'/>
+</layer>
+<layer name='Fr'>
+<tutorialText x='135' y='337' text='Vous pouvez passer le niveau dans le menu pause' locale='fr' width='140'/>
+<tutorial09 x='200' moveSpeed='100' y='323' rotateSpeed='100' locale='fr'/>
+</layer>
+<layer name='De'>
+<tutorialText x='141' y='318' text='Im Pausemenü kannst du den Level überspringen.' locale='de' width='140'/>
+<tutorial09 x='206' moveSpeed='100' y='304' rotateSpeed='100' locale='de'/>
+</layer>
+<layer name='It'>
+<tutorialText x='137' y='312' text='Puoi saltare il livello dal Menu di pausa' locale='it' width='140'/>
+<tutorial09 x='202' moveSpeed='100' y='297' rotateSpeed='100' locale='it'/>
+</layer><layer name='Ja'>
+<tutorialText x='137' y='312' text='ポーズメニューで*レベルステージを*スキップ*できます' locale='ja' width='140'/>
+<tutorial09 x='202' moveSpeed='100' y='287' rotateSpeed='100' locale='ja'/>
+</layer><layer name='Es'>
+<tutorialText x='137' y='312' text='Puedes saltarte el nivel desde el menú de pausa' locale='es' width='140'/>
+<tutorial09 x='202' moveSpeed='100' y='295' rotateSpeed='100' locale='es'/>
+</layer><layer name='Zh'>
+<tutorialText x='137' y='320' text='你可以在“暂停”菜单中*跳过这一关' locale='zh' width='140'/>
+<tutorial09 x='202' moveSpeed='100' y='295' rotateSpeed='100' locale='zh'/>
+</layer><layer name='Ko'>
+<tutorialText x='137' y='312' text='일시 정지 메뉴에서 *레벨을 건너뛸 수 있어요.' locale='ko' width='140'/>
+<tutorial09 x='202' moveSpeed='100' y='295' rotateSpeed='100' locale='ko'/>
+</layer><layer name='Br'>
+<tutorialText x='137' y='312' text='Você pode pular o nível no menu de pausa' locale='br' width='140'/>
+<tutorial09 x='202' moveSpeed='100' y='297' rotateSpeed='100' locale='br'/>
+</layer><layer name='Tr'>
+<tutorialText x='137' y='312' text='Duraklatma menüsünde seviyeyi atlayabilirsin' locale='tr' width='140'/>
+<tutorial09 x='202' moveSpeed='100' y='297' rotateSpeed='100' locale='tr'/>
+</layer><layer name='Nl'>
+<tutorialText x='137' y='312' text='Je kunt het level ook overslaan via het pauzemenu' locale='nl' width='140'/>
+<tutorial09 x='202' moveSpeed='100' y='297' rotateSpeed='100' locale='nl'/>
+</layer></map>

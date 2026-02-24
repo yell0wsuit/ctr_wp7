@@ -1,0 +1,64 @@
+<map>
+<layer name="settings">
+<map gridSize="32" width="320" height="480" />
+<gameDesign special="1" twoParts="false" ropePhysicsSpeed="1.0" water="0" waterSpeed="0" />
+</layer>
+<layer name="Objects">
+<candy x="77" y="313" />
+<target x="123" y="432" />
+<star x="148" y="139" timeout="-1" />
+<star x="257" y="351" timeout="-1" />
+<star x="122" y="346" timeout="-1" />
+<grab x="124" y="191" length="70" wheel="false" gun="false" kickable="false" kicked="false" radius="-1" invisible="false" moveLength="-1" moveVertical="false" moveOffset="0" spider="false" helicopter="false" part="L" hidePath="false" />
+<grab x="247" y="92" length="150" wheel="false" gun="false" kickable="false" kicked="false" radius="55" invisible="false" moveLength="-1" moveVertical="false" moveOffset="0" spider="false" helicopter="false" part="L" hidePath="false" />
+<grab x="188" y="289" length="100" wheel="false" gun="false" kickable="false" kicked="false" radius="65" invisible="false" moveLength="-1" moveVertical="false" moveOffset="0" spider="false" helicopter="false" part="L" hidePath="false" />
+<grab x="49" y="381" length="25" wheel="false" gun="false" kickable="false" kicked="false" radius="-1" invisible="false" moveLength="-1" moveVertical="false" moveOffset="0" spider="false" helicopter="false" part="L" hidePath="false" />
+<tutorialText x="20" y="98" locale="en" text="Stretched ropes get red" width="100" />
+<tutorial09 x="67" y="85" locale="en" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="Ru">
+<tutorial09 x="68" y="64" locale="ru" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="21" y="77" locale="ru" text="Натянутые веревки становятся красными" width="100" />
+</layer>
+<layer name="Fr">
+<tutorial09 x="67" y="61" locale="fr" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="20" y="74" locale="fr" text="Les cordes étirées deviennent rouges" width="100" />
+</layer>
+<layer name="De">
+<tutorialText x="57" y="33" locale="de" text="Gespannte Seile werden rot" width="140" />
+<tutorial09 x="39" y="68" locale="de" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="It">
+<tutorial09 x="68" y="64" locale="it" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="21" y="77" locale="it" text="Le corde tese diventano rosse" width="100" />
+</layer>
+<layer name="Ja">
+<tutorial09 x="58" y="54" locale="ja" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="11" y="77" locale="ja" text="伸びすぎた*ロープは*赤く*なって*しまいます" width="100" />
+</layer>
+<layer name="Es">
+<tutorial09 x="57" y="64" locale="es" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="10" y="77" locale="es" text="Las cuerdas se ponen rojas cuando están muy tensas." width="100" />
+</layer>
+<layer name="Zh">
+<tutorial09 x="81" y="57" locale="zh" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="31" y="77" locale="zh" text="拉紧的绳索
+会变成红色" width="100" />
+</layer>
+<layer name="Ko">
+<tutorial09 x="68" y="60" locale="ko" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="21" y="78" locale="ko" text="늘어난 줄은 *빨간색으로 변해요." width="100" />
+</layer>
+<layer name="Br">
+<tutorial09 x="68" y="64" locale="br" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="21" y="77" locale="br" text="Cordas esticadas ficam vermelhas" width="100" />
+</layer>
+<layer name="Tr">
+<tutorial09 x="68" y="64" locale="tr" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="21" y="77" locale="tr" text="Uzatılan ipler kırmızılaşır" width="100" />
+</layer>
+<layer name="Nl">
+<tutorial09 x="68" y="64" locale="nl" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="21" y="77" locale="nl" text="Uitgerekte touwen worden rood" width="100" />
+</layer>
+</map>

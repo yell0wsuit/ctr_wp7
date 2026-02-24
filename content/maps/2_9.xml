@@ -1,0 +1,64 @@
+<map>
+<layer name="settings">
+<map gridSize="32" width="320" height="480" />
+<gameDesign special="1" twoParts="false" ropePhysicsSpeed="1.0" water="0" waterSpeed="0" />
+</layer>
+<layer name="Objects">
+<candy x="113" y="125" />
+<target x="163" y="430" />
+<grab x="117" y="45" length="40" wheel="false" gun="false" kickable="false" kicked="false" radius="-1" invisible="false" moveLength="-1" moveVertical="false" moveOffset="0" spider="false" helicopter="false" part="L" hidePath="false" />
+<grab x="162" y="224" length="70" wheel="false" gun="false" kickable="false" kicked="false" radius="80" invisible="false" moveLength="-1" moveVertical="false" moveOffset="0" spider="true" helicopter="false" part="L" hidePath="false" />
+<spike1 x="220" y="405" angle="90" size="1" toggled="false" />
+<spike1 x="101" y="406" angle="90" size="1" toggled="false" />
+<tutorialText x="56" y="299" locale="en" text="Cut the rope before the spider reaches the candy" width="240" />
+<tutorial09 x="39" y="334" locale="en" moveSpeed="100" rotateSpeed="100" />
+<star x="113" y="222" timeout="-1" />
+<star x="255" y="286" timeout="-1" />
+<star x="162" y="376" timeout="-1" />
+</layer>
+<layer name="Ru">
+<tutorialText x="59" y="288" locale="ru" text="Перережьте веревку прежде, чем паучок доберется до леденца" width="200" />
+<tutorial09 x="49" y="331" locale="ru" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="Fr">
+<tutorialText x="56" y="299" locale="fr" text="Coupez la corde avant que l'araignée atteigne le bonbon" width="240" />
+<tutorial09 x="39" y="334" locale="fr" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="De">
+<tutorialText x="79" y="287" locale="de" text="Trenne das Seil durch, bevor die Spinne die Süßigkeit erreicht" width="200" />
+<tutorial09 x="66" y="334" locale="de" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="It">
+<tutorialText x="62" y="288" locale="it" text="Taglia la corda prima che il ragno raggiunga il bonbon" width="200" />
+<tutorial09 x="42" y="326" locale="it" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="Ja">
+<tutorialText x="15" y="247" locale="ja" text="クモが*キャンディに*到達する*前に*ロープを*切り*ましょう" width="180" />
+<tutorial09 x="20" y="311" locale="ja" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="Es">
+<tutorialText x="61" y="288" locale="es" text="Corta la cuerda antes de que la araña llegue al caramelo. " width="200" />
+<tutorial09 x="43" y="331" locale="es" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="Zh">
+<tutorialText x="70" y="300" locale="zh" text="在蜘蛛到达糖果之前*剪断绳索 " width="200" />
+<tutorial09 x="67" y="334" locale="zh" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="Ko">
+<tutorialText x="55" y="299" locale="ko" text="거미가 사탕에 도착하기 
+전에 줄을 자르세요!" width="220" />
+<tutorial09 x="45" y="331" locale="ko" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="Br">
+<tutorialText x="71" y="287" locale="br" text="Corte a corda antes que a aranha atinja os doces" width="200" />
+<tutorial09 x="47" y="330" locale="br" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="Tr">
+<tutorialText x="61" y="295" locale="tr" text="Örümcek şekere ulaşmadan önce ipi kes " width="200" />
+<tutorial09 x="42" y="326" locale="tr" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="Nl">
+<tutorialText x="61" y="288" locale="nl" text="Snijd het touw door voordat de spin het snoepje kan bereiken " width="200" />
+<tutorial09 x="51" y="322" locale="nl" moveSpeed="100" rotateSpeed="100" />
+</layer>
+</map>

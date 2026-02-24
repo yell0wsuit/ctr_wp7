@@ -1,0 +1,65 @@
+<map>
+<layer name="settings">
+<map gridSize="32" width="320" height="480" />
+<gameDesign special="1" twoParts="false" ropePhysicsSpeed="1.0" water="0" waterSpeed="0" />
+</layer>
+<layer name="Objects">
+<candy x="134" y="214" />
+<grab x="214" y="175" length="65" wheel="false" gun="false" kickable="false" kicked="false" radius="-1" invisible="false" moveLength="-1" moveVertical="false" moveOffset="0" spider="false" helicopter="false" part="L" hidePath="false" />
+<grab x="46" y="175" length="65" wheel="false" gun="false" kickable="false" kicked="false" radius="-1" invisible="false" moveLength="-1" moveVertical="false" moveOffset="0" spider="false" helicopter="false" part="L" hidePath="false" />
+<target x="257" y="380" />
+<star x="262" y="81" timeout="-1" />
+<star x="133" y="85" timeout="-1" />
+<gravitySwitch x="55" y="398" />
+<spike4 x="104" y="323" angle="0" size="4" toggled="false" />
+<spike4 x="104" y="46" angle="0" size="4" toggled="false" />
+<tutorialText x="84" y="337" locale="en" text="Toggle the gravity with this button" width="140" />
+<tutorial04 x="119" y="418" locale="en" angle="35" moveSpeed="100" rotateSpeed="100" />
+<star x="133" y="273" timeout="-1" />
+</layer>
+<layer name="Ru">
+<tutorial04 x="111" y="429" locale="ru" angle="40" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="83" y="328" locale="ru" text="Переключайте гравитацию с помощью этой кнопки" width="140" />
+</layer>
+<layer name="Fr">
+<tutorialText x="86" y="334" locale="fr" text="Inversez la gravité avec ce bouton" width="140" />
+<tutorial04 x="119" y="418" locale="fr" angle="35" moveSpeed="100" rotateSpeed="100" />
+</layer>
+<layer name="De">
+<tutorial04 x="122" y="411" locale="de" angle="30" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="78" y="319" locale="de" text="Knopf zum Vertauschen der Schwerkraft" width="140" />
+</layer>
+<layer name="It">
+<tutorial04 x="111" y="429" locale="it" angle="40" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="83" y="340" locale="it" text="Attiva la gravità con questo tasto" width="130" />
+</layer>
+<layer name="Ja">
+<tutorial04 x="111" y="429" locale="ja" angle="40" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="82" y="330" locale="ja" text="このボタンで*重力を*ON/OFF*できます" width="140" />
+</layer>
+<layer name="Es">
+<tutorial04 x="111" y="429" locale="es" angle="40" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="83" y="328" locale="es" text="Toca este botón para activar o desactivar la gravedad." width="140" />
+</layer>
+<layer name="Zh">
+<tutorial04 x="111" y="429" locale="zh" angle="40" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="89" y="362" locale="zh" text="用此按钮
+切换重力" width="100" />
+</layer>
+<layer name="Ko">
+<tutorial04 x="114" y="420" locale="ko" angle="40" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="75" y="328" locale="ko" text="버튼을 누르면 *중력을 켜거나 *끌 수 있어요." width="140" />
+</layer>
+<layer name="Br">
+<tutorial04 x="111" y="429" locale="br" angle="40" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="87" y="340" locale="br" text="Alterne a gravidade com este botão" width="140" />
+</layer>
+<layer name="Tr">
+<tutorial04 x="111" y="429" locale="tr" angle="40" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="84" y="357" locale="tr" text="Bu düğmeyle yerçekimine geç" width="140" />
+</layer>
+<layer name="Nl">
+<tutorial04 x="95" y="442" locale="nl" angle="50" moveSpeed="100" rotateSpeed="100" />
+<tutorialText x="83" y="344" locale="nl" text="Schakel de zwaartekracht met deze knop in of uit" width="135" />
+</layer>
+</map>
