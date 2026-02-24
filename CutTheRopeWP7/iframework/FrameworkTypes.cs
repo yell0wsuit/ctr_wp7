@@ -49,13 +49,13 @@ namespace ctr_wp7.iframework
         // Token: 0x06000054 RID: 84 RVA: 0x0000559F File Offset: 0x0000379F
         public static float transformToRealX(float x)
         {
-            return x * VIEW_SCREEN_WIDTH / SCREEN_WIDTH + VIEW_OFFSET_X;
+            return (x * VIEW_SCREEN_WIDTH / SCREEN_WIDTH) + VIEW_OFFSET_X;
         }
 
         // Token: 0x06000055 RID: 85 RVA: 0x000055B4 File Offset: 0x000037B4
         public static float transformToRealY(float y)
         {
-            return y * VIEW_SCREEN_HEIGHT / SCREEN_HEIGHT + VIEW_OFFSET_Y;
+            return (y * VIEW_SCREEN_HEIGHT / SCREEN_HEIGHT) + VIEW_OFFSET_Y;
         }
 
         // Token: 0x06000056 RID: 86 RVA: 0x000055C9 File Offset: 0x000037C9

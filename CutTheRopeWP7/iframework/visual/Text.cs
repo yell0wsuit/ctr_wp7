@@ -157,7 +157,7 @@ namespace ctr_wp7.iframework.visual
                         if (flag && i == num5 - 1)
                         {
                             int num9 = (int)font.getCharWidth('.');
-                            if (j == num7 - 1 || (j == num7 - 2 && num8 + 3 * (num9 + num4) + font.getCharWidth(' ') > wrapWidth))
+                            if (j == num7 - 1 || (j == num7 - 2 && num8 + (3 * (num9 + num4)) + font.getCharWidth(' ') > wrapWidth))
                             {
                                 mapCharAtXYatIndex(characters2[j], num8, num, num3++);
                                 num8 += num9 + num4;
@@ -179,7 +179,7 @@ namespace ctr_wp7.iframework.visual
             }
             else
             {
-                height = (int)((font.fontHeight() + font.getLineOffset()) * formattedStrings.Count - font.getLineOffset());
+                height = (int)(((font.fontHeight() + font.getLineOffset()) * formattedStrings.Count) - font.getLineOffset());
                 width = (int)wrapWidth;
             }
             if (maxHeight != -1f)
@@ -271,7 +271,7 @@ namespace ctr_wp7.iframework.visual
                             int charQuad2 = font.getCharQuad('.');
                             ImageMultiDrawer imageMultiDrawer3 = multiDrawers[charmapIndex2];
                             int num11 = (int)font.getCharWidth('.');
-                            if (l == num9 - 1 || (l == num9 - 2 && num10 + 3 * (num11 + num7) + font.getCharWidth(' ') > wrapWidth))
+                            if (l == num9 - 1 || (l == num9 - 2 && num10 + (3 * (num11 + num7)) + font.getCharWidth(' ') > wrapWidth))
                             {
                                 imageMultiDrawer3.mapTextureQuadAtXYatIndex(charQuad2, num10, num4, num6++);
                                 num10 += num11 + num7;
@@ -293,7 +293,7 @@ namespace ctr_wp7.iframework.visual
             }
             else
             {
-                height = (int)((font.fontHeight() + font.getLineOffset()) * formattedStrings.Count - font.getLineOffset());
+                height = (int)(((font.fontHeight() + font.getLineOffset()) * formattedStrings.Count) - font.getLineOffset());
                 width = (int)wrapWidth;
             }
             if (maxHeight != -1f)

@@ -313,7 +313,7 @@ namespace ctr_wp7.game
                             Text text5 = (Text)result.getChildWithName("dataValue");
                             text5.setEnabled(true);
                             Text text6 = (Text)result.getChildWithName("scoreValue");
-                            text4.color.a = text5.color.a = text6.color.a = 1f - raDelay / 0.2f;
+                            text4.color.a = text5.color.a = text6.color.a = 1f - (raDelay / 0.2f);
                             if (flag)
                             {
                                 raState = 2;
@@ -349,7 +349,7 @@ namespace ctr_wp7.game
                                 raState = 4;
                                 raDelay = 0.2f;
                                 int num = (int)Math.Floor(Math.Round(time) / 60.0);
-                                int num2 = (int)(Math.Round(time) - num * 60.0);
+                                int num2 = (int)(Math.Round(time) - (num * 60.0));
                                 Text text11 = (Text)result.getChildWithName("dataTitle");
                                 text11.setString(Application.getString(1310742));
                                 Text text12 = (Text)result.getChildWithName("dataValue");
@@ -362,7 +362,7 @@ namespace ctr_wp7.game
                         {
                             Text text13 = (Text)result.getChildWithName("dataTitle");
                             Text text14 = (Text)result.getChildWithName("dataValue");
-                            text13.color.a = text14.color.a = 1f - raDelay / 0.2f;
+                            text13.color.a = text14.color.a = 1f - (raDelay / 0.2f);
                             if (flag)
                             {
                                 raState = 5;
@@ -374,9 +374,9 @@ namespace ctr_wp7.game
                     case 5:
                         {
                             ctime = time * raDelay;
-                            cscore = (int)(starBonus + (1.0 - raDelay) * timeBonus);
+                            cscore = (int)(starBonus + ((1.0 - raDelay) * timeBonus));
                             int num3 = (int)Math.Floor(Math.Round(ctime) / 60.0);
-                            int num4 = (int)(Math.Round(ctime) - num3 * 60.0);
+                            int num4 = (int)(Math.Round(ctime) - (num3 * 60.0));
                             Text text15 = (Text)result.getChildWithName("dataValue");
                             text15.setString(NSS(num3 + ":" + num4.ToString("D2")));
                             Text text16 = (Text)result.getChildWithName("scoreValue");
@@ -411,7 +411,7 @@ namespace ctr_wp7.game
                         {
                             Text text21 = (Text)result.getChildWithName("dataTitle");
                             Text text22 = (Text)result.getChildWithName("dataValue");
-                            text21.color.a = text22.color.a = 1f - raDelay / 0.2f;
+                            text21.color.a = text22.color.a = 1f - (raDelay / 0.2f);
                             if (flag)
                             {
                                 raState = 8;
@@ -436,8 +436,8 @@ namespace ctr_wp7.game
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
             int num = 216 + ctrrootController.getPack();
             Image image = Image.Image_createWithResIDQuad(97, 16);
-            image.rotationCenterX = (float)-(float)image.width / 2f + 1f;
-            image.rotationCenterY = (float)-(float)image.height / 2f + 1f;
+            image.rotationCenterX = ((float)-(float)image.width / 2f) + 1f;
+            image.rotationCenterY = ((float)-(float)image.height / 2f) + 1f;
             image.scaleX = image.scaleY = 4f;
             Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(2);
             if (open)

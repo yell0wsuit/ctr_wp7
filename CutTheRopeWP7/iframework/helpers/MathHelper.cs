@@ -65,7 +65,7 @@ namespace ctr_wp7.iframework.helpers
 
         // Token: 0x17000001 RID: 1
         // (get) Token: 0x06000014 RID: 20 RVA: 0x0000475F File Offset: 0x0000295F
-        public static float RND_MINUS1_1 => (float)(arc4random() / (double)ARC4RANDOM_MAX * 2.0 - 1.0);
+        public static float RND_MINUS1_1 => (float)((arc4random() / (double)ARC4RANDOM_MAX * 2.0) - 1.0);
 
         // Token: 0x17000002 RID: 2
         // (get) Token: 0x06000015 RID: 21 RVA: 0x00004784 File Offset: 0x00002984
@@ -358,13 +358,13 @@ namespace ctr_wp7.iframework.helpers
         // Token: 0x06000036 RID: 54 RVA: 0x00004E28 File Offset: 0x00003028
         public static float vectDot(Vector v1, Vector v2)
         {
-            return v1.x * v2.x + v1.y * v2.y;
+            return (v1.x * v2.x) + (v1.y * v2.y);
         }
 
         // Token: 0x06000037 RID: 55 RVA: 0x00004E49 File Offset: 0x00003049
         private static float vectCross(Vector v1, Vector v2)
         {
-            return v1.x * v2.y - v1.y * v2.x;
+            return (v1.x * v2.y) - (v1.y * v2.x);
         }
 
         // Token: 0x06000038 RID: 56 RVA: 0x00004E6A File Offset: 0x0000306A
@@ -388,13 +388,13 @@ namespace ctr_wp7.iframework.helpers
         // Token: 0x0600003B RID: 59 RVA: 0x00004EB0 File Offset: 0x000030B0
         private static Vector vectRotateByVector(Vector v1, Vector v2)
         {
-            return vect(v1.x * v2.x - v1.y * v2.y, v1.x * v2.y + v1.y * v2.x);
+            return vect((v1.x * v2.x) - (v1.y * v2.y), (v1.x * v2.y) + (v1.y * v2.x));
         }
 
         // Token: 0x0600003C RID: 60 RVA: 0x00004F00 File Offset: 0x00003100
         private static Vector vectUnrotateByVector(Vector v1, Vector v2)
         {
-            return vect(v1.x * v2.x + v1.y * v2.y, v1.y * v2.x - v1.x * v2.y);
+            return vect((v1.x * v2.x) + (v1.y * v2.y), (v1.y * v2.x) - (v1.x * v2.y));
         }
 
         // Token: 0x0600003D RID: 61 RVA: 0x00004F50 File Offset: 0x00003150
@@ -451,8 +451,8 @@ namespace ctr_wp7.iframework.helpers
         {
             float num = fmCos((float)rad);
             float num2 = fmSin((float)rad);
-            float num3 = v.x * num - v.y * num2;
-            float num4 = v.x * num2 + v.y * num;
+            float num3 = (v.x * num) - (v.y * num2);
+            float num4 = (v.x * num2) + (v.y * num);
             return vect(num3, num4);
         }
 
@@ -556,9 +556,9 @@ namespace ctr_wp7.iframework.helpers
             Vector vector3;
             vector3.x = x4 - x3;
             vector3.y = y4 - y3;
-            float num = vector2.y * vector3.x - vector3.y * vector2.x;
-            float num2 = vector3.x * vector.y - vector3.y * vector.x;
-            float num3 = vector2.x * vector.y - vector2.y * vector.x;
+            float num = (vector2.y * vector3.x) - (vector3.y * vector2.x);
+            float num2 = (vector3.x * vector.y) - (vector3.y * vector.x);
+            float num3 = (vector2.x * vector.y) - (vector2.y * vector.x);
             return Math.Abs(num2) <= Math.Abs(num) && Math.Abs(num3) <= Math.Abs(num);
         }
 
@@ -581,7 +581,7 @@ namespace ctr_wp7.iframework.helpers
             for (int i = 0; i < data.Length; i++)
             {
                 array[i * 2] = (byte)((data[i] & '\uff00') >> 8);
-                array[i * 2 + 1] = (byte)(data[i] & 'ÿ');
+                array[(i * 2) + 1] = (byte)(data[i] & 'ÿ');
             }
             md5.md5_context md5_context = new();
             md5.md5_starts(ref md5_context);

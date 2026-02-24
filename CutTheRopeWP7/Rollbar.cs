@@ -152,7 +152,7 @@ internal class Rollbar : BaseElement
     // Token: 0x06000667 RID: 1639 RVA: 0x00031074 File Offset: 0x0002F274
     public float getOffsetY()
     {
-        float num = (float)(offsetY - Math.Floor(offsetY / centralCellHeight) * centralCellHeight);
+        float num = (float)(offsetY - (Math.Floor(offsetY / centralCellHeight) * centralCellHeight));
         if (num > centralCellHeight / 2f)
         {
             num -= centralCellHeight;
@@ -188,7 +188,7 @@ internal class Rollbar : BaseElement
         lastTimeDelta = delta;
         oldOffsetY = offsetY;
         offsetY += speedY * (double)delta;
-        float num = (float)(offsetY - Math.Floor(offsetY / centralCellHeight) * centralCellHeight);
+        float num = (float)(offsetY - (Math.Floor(offsetY / centralCellHeight) * centralCellHeight));
         if (num > centralCellHeight / 2f)
         {
             num -= centralCellHeight;
@@ -197,7 +197,7 @@ internal class Rollbar : BaseElement
         {
             speedY -= num / 3f;
         }
-        speedY *= MAX(0.7f, 1f - delta * 5f);
+        speedY *= MAX(0.7f, 1f - (delta * 5f));
         float num2 = (float)(offsetY + (double)(halfVisibleCount * centralCellHeight));
         if (num2 > 0f && !manualMode)
         {

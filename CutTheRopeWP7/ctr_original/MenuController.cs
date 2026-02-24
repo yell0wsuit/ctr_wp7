@@ -484,8 +484,8 @@ namespace ctr_wp7.ctr_original
             button.setName("del_button");
             Image.setElementPositionWithRelativeQuadOffset(button, num, num2, num3);
             _ = baseElement2.addChild(button);
-            int num4 = 2 + framenum * 2;
-            int num5 = 1 + framenum * 2;
+            int num4 = 2 + (framenum * 2);
+            int num5 = 1 + (framenum * 2);
             Vector relativeQuadOffset = Image.getRelativeQuadOffset(num, num2, num4);
             Image image2 = Image.Image_createWithResIDQuad(num, num4);
             image2.anchor = image2.parentAnchor = 9;
@@ -667,7 +667,7 @@ namespace ctr_wp7.ctr_original
             BaseElement.calculateTopLeft(childWithName.parent);
             BaseElement.calculateTopLeft(childWithName);
             _ = Image.getQuadCenter(69, 1);
-            Vector vector = vect(childWithName.drawX + childWithName.width / 2 - 5f, childWithName.drawY + childWithName.height / 2 - 5f);
+            Vector vector = vect(childWithName.drawX + (childWithName.width / 2) - 5f, childWithName.drawY + (childWithName.height / 2) - 5f);
             handAnimation = Image.Image_createWithResIDQuad(75, 1);
             handAnimation.rotationCenterX = -(float)handAnimation.width / 2;
             handAnimation.rotationCenterY = -(float)handAnimation.height / 2;

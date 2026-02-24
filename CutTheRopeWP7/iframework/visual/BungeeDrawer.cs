@@ -34,7 +34,7 @@ namespace ctr_wp7.iframework.visual
             bungee.tail.applyImpulseDelta(vect(-bungee.tail.v.x / num2, -bungee.tail.v.y / num2), num);
             bungee.update(num);
             bungee.tail.update(num);
-            float num3 = 1f - parent.y / PromoBanner.BANNER_OFFSET;
+            float num3 = 1f - (parent.y / PromoBanner.BANNER_OFFSET);
             fadeElement.color.a = 0.4f * num3;
             fadeElement.setEnabled(parent.y != PromoBanner.BANNER_OFFSET);
             if (down)

@@ -16,7 +16,7 @@ namespace ctr_wp7.game
         public virtual void setSize(float value)
         {
             size = value;
-            float num = size / (vinilTL.width + vinilTR.width * (1f - vinilTL.scaleX));
+            float num = size / (vinilTL.width + (vinilTR.width * (1f - vinilTL.scaleX)));
             vinilHighlightL.scaleX = vinilHighlightL.scaleY = vinilHighlightR.scaleY = num;
             vinilHighlightR.scaleX = -num;
             vinilBL.scaleX = vinilBL.scaleY = vinilBR.scaleY = num;
@@ -30,7 +30,7 @@ namespace ctr_wp7.game
             float num3 = (num >= 0.75f) ? num : 0.75f;
             vinilControllerL.scaleX = vinilControllerL.scaleY = vinilControllerR.scaleX = vinilControllerR.scaleY = num3;
             vinilActiveControllerL.scaleX = vinilActiveControllerL.scaleY = vinilActiveControllerR.scaleX = vinilActiveControllerR.scaleY = num3;
-            vinilCenter.scaleX = 1f - (1f - vinilStickerL.scaleX) * 0.5f;
+            vinilCenter.scaleX = 1f - ((1f - vinilStickerL.scaleX) * 0.5f);
             vinilCenter.scaleY = vinilCenter.scaleX;
             sizeInPixels = vinilHighlightL.width * vinilHighlightL.scaleX;
             updateChildPositions();
@@ -170,7 +170,7 @@ namespace ctr_wp7.game
             {
                 OpenGL.glDisable(0);
                 OpenGL.glBlendFunc(BlendingFactor.GL_ONE, BlendingFactor.GL_ONE_MINUS_SRC_ALPHA);
-                GLDrawer.drawAntialiasedCurve2(x, y, sizeInPixels + 3f * Math.Abs(vinilTR.scaleX), 0f, 6.2831855f, 51, 2f, 1f * Math.Abs(vinilTR.scaleX), RGBAColor.whiteRGBA);
+                GLDrawer.drawAntialiasedCurve2(x, y, sizeInPixels + (3f * Math.Abs(vinilTR.scaleX)), 0f, 6.2831855f, 51, 2f, 1f * Math.Abs(vinilTR.scaleX), RGBAColor.whiteRGBA);
             }
             OpenGL.glEnable(0);
             OpenGL.glBlendFunc(BlendingFactor.GL_ONE, BlendingFactor.GL_ONE_MINUS_SRC_ALPHA);
@@ -247,7 +247,7 @@ namespace ctr_wp7.game
             float num3 = (vinilBL.width + 4) / 2f * (1f - vinilBL.scaleX);
             float num4 = (vinilBL.height + 4) / 2f * (1f - vinilBL.scaleY);
             float num5 = (Math.Abs(vinilControllerR.scaleX) < 1f) ? ((1f - Math.Abs(vinilControllerR.scaleX)) * 10f) : 0f;
-            float num6 = (Math.Abs(vinilTL.scaleX) < 0.45f) ? ((0.45f - Math.Abs(vinilTL.scaleX)) * 10f + 1f) : 0f;
+            float num6 = (Math.Abs(vinilTL.scaleX) < 0.45f) ? (((0.45f - Math.Abs(vinilTL.scaleX)) * 10f) + 1f) : 0f;
             float num7 = Math.Abs(vinilBL.height * vinilBL.scaleY) - Math.Abs(vinilControllerR.height * 0.58f * vinilControllerR.scaleY / 2f) - num5 - num6;
             vinilHighlightL.x = x + num;
             vinilHighlightR.x = x - num;

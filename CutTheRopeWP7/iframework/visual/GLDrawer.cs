@@ -184,8 +184,8 @@ namespace ctr_wp7.iframework.visual
         {
             float num = 1f - delta;
             Vector vector;
-            vector.x = a.x * num + b.x * delta;
-            vector.y = a.y * num + b.y * delta;
+            vector.x = (a.x * num) + (b.x * delta);
+            vector.y = (a.y * num) + (b.y * delta);
             return vector;
         }
 
@@ -196,8 +196,8 @@ namespace ctr_wp7.iframework.visual
             float num2 = 0f;
             for (int i = 0; i < vertexCount; i++)
             {
-                glVertices[i * 2] = x + radius * cosf(num2);
-                glVertices[i * 2 + 1] = y + radius * sinf(num2);
+                glVertices[i * 2] = x + (radius * cosf(num2));
+                glVertices[(i * 2) + 1] = y + (radius * sinf(num2));
                 num2 += num;
             }
         }
@@ -210,7 +210,7 @@ namespace ctr_wp7.iframework.visual
             {
                 return;
             }
-            float num2 = (radius1 * radius1 - radius2 * radius2 + num * num) / (2f * num);
+            float num2 = ((radius1 * radius1) - (radius2 * radius2) + (num * num)) / (2f * num);
             float num3 = num - num2;
             float num4 = acosf(num3 / radius2);
             float num5 = vectAngle(vectSub(vect(cx1, cy1), vect(cx2, cy2)));
@@ -227,12 +227,12 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060004DA RID: 1242 RVA: 0x000244C8 File Offset: 0x000226C8
         public static void drawAntialiasedCurve2(float cx, float cy, float radius, float startAngle, float endAngle, int vertexCount, float width, float fadeWidth, RGBAColor fill)
         {
-            float[] array = new float[(vertexCount - 1) * 12 + 4];
+            float[] array = new float[((vertexCount - 1) * 12) + 4];
             float[] array2 = new float[vertexCount * 2];
             float[] array3 = new float[vertexCount * 2];
             float[] array4 = new float[vertexCount * 2];
             float[] array5 = new float[vertexCount * 2];
-            RGBAColor[] array6 = new RGBAColor[(vertexCount - 1) * 6 + 2];
+            RGBAColor[] array6 = new RGBAColor[((vertexCount - 1) * 6) + 2];
             calcCurve(cx, cy, radius + fadeWidth, startAngle, endAngle, vertexCount, array2);
             calcCurve(cx, cy, radius, startAngle, endAngle, vertexCount, array3);
             calcCurve(cx, cy, radius - width, startAngle, endAngle, vertexCount, array4);
@@ -242,51 +242,51 @@ namespace ctr_wp7.iframework.visual
             array6[0] = RGBAColor.transparentRGBA;
             for (int i = 1; i < vertexCount; i += 2)
             {
-                array[12 * i - 10] = array2[i * 2];
-                array[12 * i - 9] = array2[i * 2 + 1];
-                array[12 * i - 8] = array3[i * 2 - 2];
-                array[12 * i - 7] = array3[i * 2 - 1];
-                array[12 * i - 6] = array3[i * 2];
-                array[12 * i - 5] = array3[i * 2 + 1];
-                array[12 * i - 4] = array4[i * 2 - 2];
-                array[12 * i - 3] = array4[i * 2 - 1];
-                array[12 * i - 2] = array4[i * 2];
-                array[12 * i - 1] = array4[i * 2 + 1];
-                array[12 * i] = array5[i * 2 - 2];
-                array[12 * i + 1] = array5[i * 2 - 1];
-                array[12 * i + 2] = array5[i * 2 + 2];
-                array[12 * i + 3] = array5[i * 2 + 3];
-                array[12 * i + 4] = array4[i * 2];
-                array[12 * i + 5] = array4[i * 2 + 1];
-                array[12 * i + 6] = array4[i * 2 + 2];
-                array[12 * i + 7] = array4[i * 2 + 3];
-                array[12 * i + 8] = array3[i * 2];
-                array[12 * i + 9] = array3[i * 2 + 1];
-                array[12 * i + 10] = array3[i * 2 + 2];
-                array[12 * i + 11] = array3[i * 2 + 3];
-                array[12 * i + 12] = array2[i * 2];
-                array[12 * i + 13] = array2[i * 2 + 1];
-                array6[6 * i - 5] = RGBAColor.transparentRGBA;
-                array6[6 * i - 4] = fill;
-                array6[6 * i - 3] = fill;
-                array6[6 * i - 2] = fill;
-                array6[6 * i - 1] = fill;
+                array[(12 * i) - 10] = array2[i * 2];
+                array[(12 * i) - 9] = array2[(i * 2) + 1];
+                array[(12 * i) - 8] = array3[(i * 2) - 2];
+                array[(12 * i) - 7] = array3[(i * 2) - 1];
+                array[(12 * i) - 6] = array3[i * 2];
+                array[(12 * i) - 5] = array3[(i * 2) + 1];
+                array[(12 * i) - 4] = array4[(i * 2) - 2];
+                array[(12 * i) - 3] = array4[(i * 2) - 1];
+                array[(12 * i) - 2] = array4[i * 2];
+                array[(12 * i) - 1] = array4[(i * 2) + 1];
+                array[12 * i] = array5[(i * 2) - 2];
+                array[(12 * i) + 1] = array5[(i * 2) - 1];
+                array[(12 * i) + 2] = array5[(i * 2) + 2];
+                array[(12 * i) + 3] = array5[(i * 2) + 3];
+                array[(12 * i) + 4] = array4[i * 2];
+                array[(12 * i) + 5] = array4[(i * 2) + 1];
+                array[(12 * i) + 6] = array4[(i * 2) + 2];
+                array[(12 * i) + 7] = array4[(i * 2) + 3];
+                array[(12 * i) + 8] = array3[i * 2];
+                array[(12 * i) + 9] = array3[(i * 2) + 1];
+                array[(12 * i) + 10] = array3[(i * 2) + 2];
+                array[(12 * i) + 11] = array3[(i * 2) + 3];
+                array[(12 * i) + 12] = array2[i * 2];
+                array[(12 * i) + 13] = array2[(i * 2) + 1];
+                array6[(6 * i) - 5] = RGBAColor.transparentRGBA;
+                array6[(6 * i) - 4] = fill;
+                array6[(6 * i) - 3] = fill;
+                array6[(6 * i) - 2] = fill;
+                array6[(6 * i) - 1] = fill;
                 array6[6 * i] = RGBAColor.transparentRGBA;
-                array6[6 * i + 1] = RGBAColor.transparentRGBA;
-                array6[6 * i + 2] = fill;
-                array6[6 * i + 3] = fill;
-                array6[6 * i + 4] = fill;
-                array6[6 * i + 5] = fill;
-                array6[6 * i + 6] = RGBAColor.transparentRGBA;
+                array6[(6 * i) + 1] = RGBAColor.transparentRGBA;
+                array6[(6 * i) + 2] = fill;
+                array6[(6 * i) + 3] = fill;
+                array6[(6 * i) + 4] = fill;
+                array6[(6 * i) + 5] = fill;
+                array6[(6 * i) + 6] = RGBAColor.transparentRGBA;
             }
-            array[(vertexCount - 1) * 12 + 2] = array2[vertexCount * 2 - 2];
-            array[(vertexCount - 1) * 12 + 3] = array2[vertexCount * 2 - 1];
-            array6[(vertexCount - 1) * 6 + 1] = RGBAColor.transparentRGBA;
+            array[((vertexCount - 1) * 12) + 2] = array2[(vertexCount * 2) - 2];
+            array[((vertexCount - 1) * 12) + 3] = array2[(vertexCount * 2) - 1];
+            array6[((vertexCount - 1) * 6) + 1] = RGBAColor.transparentRGBA;
             OpenGL.glColorPointer(4, 5, 0, array6);
             OpenGL.glDisableClientState(0);
             OpenGL.glEnableClientState(13);
             OpenGL.glVertexPointer(2, 5, 0, array);
-            OpenGL.glDrawArrays(8, 0, (vertexCount - 1) * 6 + 2);
+            OpenGL.glDrawArrays(8, 0, ((vertexCount - 1) * 6) + 2);
             OpenGL.glEnableClientState(0);
             OpenGL.glDisableClientState(13);
         }
@@ -302,7 +302,7 @@ namespace ctr_wp7.iframework.visual
             for (int i = 0; i < vertexCount; i++)
             {
                 glVertices[i * 2] = num4 + cx;
-                glVertices[i * 2 + 1] = num5 + cy;
+                glVertices[(i * 2) + 1] = num5 + cy;
                 float num6 = -num5;
                 float num7 = num4;
                 num4 += num6 * num2;

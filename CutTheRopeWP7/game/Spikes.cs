@@ -50,7 +50,7 @@ namespace ctr_wp7.game
             {
                 doRestoreCutTransparency();
                 int num2 = (t - 1) * 2;
-                int num3 = 1 + (t - 1) * 2;
+                int num3 = 1 + ((t - 1) * 2);
                 Image image = Image_createWithResIDQuad(140, num2);
                 Image image2 = Image_createWithResIDQuad(140, num3);
                 image.doRestoreCutTransparency();
@@ -63,7 +63,7 @@ namespace ctr_wp7.game
                 Vector quadSize = getQuadSize(140, num2);
                 Vector vector = vect(image.texture.preCutSize.x, image.texture.preCutSize.y);
                 Vector vector2 = vectSub(vector, vectAdd(quadSize, quadOffset));
-                rotateButton.setTouchIncreaseLeftRightTopBottom(-quadOffset.x + quadSize.x / 2f, -vector2.x + quadSize.x / 2f, -quadOffset.y + quadSize.y / 2f, -vector2.y + quadSize.y / 2f);
+                rotateButton.setTouchIncreaseLeftRightTopBottom(-quadOffset.x + (quadSize.x / 2f), -vector2.x + (quadSize.x / 2f), -quadOffset.y + (quadSize.y / 2f), -vector2.y + (quadSize.y / 2f));
             }
             passColorToChilds = false;
             spikesNormal = false;

@@ -10,7 +10,7 @@ namespace ctr_wp7.iframework.visual
         {
             base.initParticle(ref particle);
             particle.angle = initialAngle;
-            particle.deltaAngle = DEGREES_TO_RADIANS(rotateSpeed + rotateSpeedVar * RND_MINUS1_1);
+            particle.deltaAngle = DEGREES_TO_RADIANS(rotateSpeed + (rotateSpeedVar * RND_MINUS1_1));
             particle.deltaSize = (endSize - size) / particle.life;
         }
 
@@ -43,14 +43,14 @@ namespace ctr_wp7.iframework.visual
                 p.life -= delta;
                 float num = p.width * p.size;
                 float num2 = p.height * p.size;
-                float num3 = p.pos.x - num / 2f;
-                float num4 = p.pos.y - num2 / 2f;
-                float num5 = p.pos.x + num / 2f;
-                float num6 = p.pos.y - num2 / 2f;
-                float num7 = p.pos.x - num / 2f;
-                float num8 = p.pos.y + num2 / 2f;
-                float num9 = p.pos.x + num / 2f;
-                float num10 = p.pos.y + num2 / 2f;
+                float num3 = p.pos.x - (num / 2f);
+                float num4 = p.pos.y - (num2 / 2f);
+                float num5 = p.pos.x + (num / 2f);
+                float num6 = p.pos.y - (num2 / 2f);
+                float num7 = p.pos.x - (num / 2f);
+                float num8 = p.pos.y + (num2 / 2f);
+                float num9 = p.pos.x + (num / 2f);
+                float num10 = p.pos.y + (num2 / 2f);
                 float x2 = p.pos.x;
                 float y = p.pos.y;
                 Vector vector4 = vect(num3, num4);
@@ -67,7 +67,7 @@ namespace ctr_wp7.iframework.visual
                 drawer.vertices[particleIdx] = Quad3D.MakeQuad3DEx(vector4.x, vector4.y, vector5.x, vector5.y, vector6.x, vector6.y, vector7.x, vector7.y);
                 for (int i = 0; i < 4; i++)
                 {
-                    colors[particleIdx * 4 + i] = p.color;
+                    colors[(particleIdx * 4) + i] = p.color;
                 }
                 particleIdx++;
                 return;

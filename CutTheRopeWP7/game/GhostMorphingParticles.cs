@@ -17,7 +17,7 @@ namespace ctr_wp7.game
             Quad3D quad3D = Quad3D.MakeQuad3D(0f, 0f, 0f, 0f, 0f);
             drawer.setTextureQuadatVertexQuadatIndex(quad2D, quad3D, particleCount);
             Rectangle rectangle = imageGrid.texture.quadRects[num];
-            float num2 = size + FLOAT_RND_RANGE(-1, 1) * sizeVar;
+            float num2 = size + (FLOAT_RND_RANGE(-1, 1) * sizeVar);
             particle.width = rectangle.w * num2;
             particle.height = rectangle.h * num2;
             particle.deltaColor = RGBAColor.MakeRGBA(0f, 0f, 0f, 0f);

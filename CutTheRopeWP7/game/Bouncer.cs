@@ -67,8 +67,8 @@ namespace ctr_wp7.game
         // Token: 0x06000107 RID: 263 RVA: 0x000085EC File Offset: 0x000067EC
         public virtual void updateRotation()
         {
-            t1.x = x - width / 2;
-            t2.x = x + width / 2;
+            t1.x = x - (width / 2);
+            t2.x = x + (width / 2);
             t1.y = t2.y = (float)(y - 5.0);
             b1.x = t1.x;
             b2.x = t2.x;

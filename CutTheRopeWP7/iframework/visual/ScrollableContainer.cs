@@ -152,12 +152,12 @@ namespace ctr_wp7.iframework.visual
                 {
                     if (container.x > 0.0)
                     {
-                        float num = (float)(50.0 + (double)Math.Abs(container.x) * 5.0);
+                        float num = (float)(50.0 + ((double)Math.Abs(container.x) * 5.0));
                         moveToPointDeltaSpeed(vect(0f, container.y), delta, num);
                     }
                     else if (container.x < (float)(-(float)container.width + width) && container.x < 0.0)
                     {
-                        float num2 = (float)(50.0 + (double)Math.Abs((float)(-(float)container.width + width) - container.x) * 5.0);
+                        float num2 = (float)(50.0 + ((double)Math.Abs((float)(-(float)container.width + width) - container.x) * 5.0));
                         moveToPointDeltaSpeed(vect((float)(-(float)container.width + width), container.y), delta, num2);
                     }
                 }
@@ -165,11 +165,11 @@ namespace ctr_wp7.iframework.visual
                 {
                     if (container.y > 0.0)
                     {
-                        moveToPointDeltaSpeed(vect(container.x, 0f), delta, (float)(50.0 + (double)Math.Abs(container.y) * 5.0));
+                        moveToPointDeltaSpeed(vect(container.x, 0f), delta, (float)(50.0 + ((double)Math.Abs(container.y) * 5.0)));
                     }
                     else if (container.y < (float)(-(float)container.height + height) && container.y < 0.0)
                     {
-                        moveToPointDeltaSpeed(vect(container.x, (float)(-(float)container.height + height)), delta, (float)(50.0 + (double)Math.Abs((float)(-(float)container.height + height) - container.y) * 5.0));
+                        moveToPointDeltaSpeed(vect(container.x, (float)(-(float)container.height + height)), delta, (float)(50.0 + ((double)Math.Abs((float)(-(float)container.height + height) - container.y) * 5.0)));
                     }
                 }
             }

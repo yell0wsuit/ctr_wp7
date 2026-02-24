@@ -343,7 +343,7 @@ namespace ctr_wp7.ctr_commons
                                     }
                                     float num = touchLocation.Position.X - ctrtouchState.Position.X;
                                     float num2 = touchLocation.Position.Y - ctrtouchState.Position.Y;
-                                    if ((num != 0f || num2 != 0f) && num * num + num2 * num2 >= 81f)
+                                    if ((num != 0f || num2 != 0f) && (num * num) + (num2 * num2) >= 81f)
                                     {
                                         CTRTouchState ctrtouchState3 = new()
                                         {

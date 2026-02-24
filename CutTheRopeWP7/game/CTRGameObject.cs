@@ -24,7 +24,7 @@ namespace ctr_wp7.game
                 {
                     NSString nsstring3 = nsstring2.substringFromIndex(2);
                     int num2 = nsstring3.intValue();
-                    num = num2 / 2 + 1;
+                    num = (num2 / 2) + 1;
                 }
                 float num3 = xml["moveSpeed"].floatValue();
                 float num4 = num3;

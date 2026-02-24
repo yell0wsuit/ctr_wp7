@@ -63,8 +63,8 @@ namespace ctr_wp7.iframework.helpers
                 float num4 = 0f;
                 for (int i = 0; i < num2; i++)
                 {
-                    float num5 = s.x + num * (float)Math.Cos((double)num4);
-                    float num6 = s.y + num * (float)Math.Sin((double)num4);
+                    float num5 = s.x + (num * (float)Math.Cos((double)num4));
+                    float num6 = s.y + (num * (float)Math.Sin((double)num4));
                     addPathPoint(vect(num5, num6));
                     num4 += num3;
                 }

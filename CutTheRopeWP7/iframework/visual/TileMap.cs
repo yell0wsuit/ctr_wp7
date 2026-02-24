@@ -178,8 +178,8 @@ namespace ctr_wp7.iframework.visual
             Rectangle rectangle = rectInRectIntersection(new Rectangle(num3, num4, tileMapWidth, tileMapHeight), new Rectangle(num, num2, cameraViewWidth, cameraViewHeight));
             Vector vector = vect(Math.Max(0f, rectangle.x), Math.Max(0f, rectangle.y));
             Vector vector2 = vect((int)vector.x / tileWidth, (int)vector.y / tileHeight);
-            float num9 = num4 + vector2.y * tileHeight;
-            Vector vector3 = vect(num3 + vector2.x * tileWidth, num9);
+            float num9 = num4 + (vector2.y * tileHeight);
+            Vector vector3 = vect(num3 + (vector2.x * tileWidth), num9);
             int count = drawers.Count;
             for (int i = 0; i < count; i++)
             {

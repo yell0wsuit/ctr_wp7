@@ -27,8 +27,8 @@ namespace ctr_wp7.game
                 float num4 = 0f;
                 for (int i = 0; i < num2; i++)
                 {
-                    float num5 = (float)(s.x + num * Math.Cos((double)num4));
-                    float num6 = (float)(s.y + num * Math.Sin((double)num4));
+                    float num5 = (float)(s.x + (num * Math.Cos((double)num4)));
+                    float num6 = (float)(s.y + (num * Math.Sin((double)num4)));
                     addPathPoint(new Vector(num5, num6));
                     num4 += num3;
                 }

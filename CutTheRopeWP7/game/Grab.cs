@@ -72,7 +72,7 @@ namespace ctr_wp7.game
                 }
                 else
                 {
-                    wheelImage2.scaleX = wheelImage2.scaleY = (float)Math.Max(0.0, Math.Min(1.2, 1.0 - (double)num / 700.0));
+                    wheelImage2.scaleX = wheelImage2.scaleY = (float)Math.Max(0.0, Math.Min(1.2, 1.0 - ((double)num / 700.0)));
                 }
             }
             if (bee != null)
@@ -269,8 +269,8 @@ namespace ctr_wp7.game
             Vector quadOffset = getQuadOffset(148, 0);
             bee.x = -quadOffset.x;
             bee.y = -quadOffset.y;
-            bee.rotationCenterX = quadOffset.x - bee.width / 2;
-            bee.rotationCenterY = quadOffset.y - bee.height / 2;
+            bee.rotationCenterX = quadOffset.x - (bee.width / 2);
+            bee.rotationCenterY = quadOffset.y - (bee.height / 2);
             bee.scaleX = bee.scaleY = 0.7692308f;
             _ = addChild(bee);
         }
@@ -461,7 +461,7 @@ namespace ctr_wp7.game
             OpenGL.glVertexPointer_setAdditive(2, 5, 0, s.vertexCount * 16);
             for (int i = 0; i < s.vertexCount; i += 2)
             {
-                GLDrawer.drawAntialiasedLine(s.vertices[i * 2], s.vertices[i * 2 + 1], s.vertices[i * 2 + 2], s.vertices[i * 2 + 3], 1f, color);
+                GLDrawer.drawAntialiasedLine(s.vertices[i * 2], s.vertices[(i * 2) + 1], s.vertices[(i * 2) + 2], s.vertices[(i * 2) + 3], 1f, color);
             }
             OpenGL.glDrawArrays(8, 0, 8);
             OpenGL.glEnableClientState(0);

@@ -45,7 +45,7 @@ namespace ctr_wp7.game
                 image.doRestoreCutTransparency();
                 image.anchor = 18;
                 image.parentAnchor = -1;
-                monsterSlot.s = 250f * i - 80f;
+                monsterSlot.s = (250f * i) - 80f;
                 monsterSlot.e = monsterSlot.s + 160f;
                 image.x = 156f;
                 image.y = 246f;
@@ -151,7 +151,7 @@ namespace ctr_wp7.game
                 if (x >= s && x < e)
                 {
                     OpenGL.glEnable(4);
-                    float num = x - (s + e) / 2f;
+                    float num = x - ((s + e) / 2f);
                     OpenGL.setScissorRectangle(120.0 - (double)num, 0.0, 100.0, SCREEN_HEIGHT);
                     postDraw();
                     OpenGL.glDisable(4);

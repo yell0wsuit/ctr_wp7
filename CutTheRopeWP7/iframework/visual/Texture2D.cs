@@ -18,8 +18,8 @@ namespace ctr_wp7.iframework.visual
         {
             float num = t._invWidth * rect.x;
             float num2 = t._invHeight * rect.y;
-            float num3 = num + t._invWidth * rect.w;
-            float num4 = num2 + t._invHeight * rect.h;
+            float num3 = num + (t._invWidth * rect.w);
+            float num4 = num2 + (t._invHeight * rect.h);
             float[] array = [num, num2, num3, num2, num, num4, num3, num4];
             float[] array2 = new float[12];
             array2[0] = point.x;

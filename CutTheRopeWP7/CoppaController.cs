@@ -50,13 +50,13 @@ internal class CoppaController : ViewController, ButtonDelegate, TimelineDelegat
         string[] array = text2.Split(['\n']);
         Text[] array2 = new Text[array.Length];
         BaseElement baseElement = (BaseElement)new BaseElement().init();
-        image2.y = (float)(SCREEN_HEIGHT - 0.75 * SCREEN_HEIGHT) + num;
+        image2.y = (float)(SCREEN_HEIGHT - (0.75 * SCREEN_HEIGHT)) + num;
         for (int i = 0; i < array.Length; i++)
         {
             array[i] = array[i].Replace('\n', ' ');
             array2[i] = new Text().initWithFont(Application.getFont(6));
             array2[i].setString(array[i]);
-            array2[i].y = image2.y - 40f + i * 20;
+            array2[i].y = image2.y - 40f + (i * 20);
             array2[i].x = image2.x - 10f;
             array2[i].color = RGBAColor.blackRGBA;
             array2[i].setAlignment(2);

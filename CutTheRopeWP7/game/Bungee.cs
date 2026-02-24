@@ -165,7 +165,7 @@ namespace ctr_wp7.game
                     OpenGL.glColorPointer_setAdditive(8 * (num20 - 1));
                     for (int i = 0; i < num20 - 1; i++)
                     {
-                        drawAntialiasedLineContinued(array[i * 2], array[i * 2 + 1], array[i * 2 + 2], array[i * 2 + 3], b.width, rgbacolor10, ref num16, ref num17, ref num18, ref num19);
+                        drawAntialiasedLineContinued(array[i * 2], array[(i * 2) + 1], array[(i * 2) + 2], array[(i * 2) + 3], b.width, rgbacolor10, ref num16, ref num17, ref num18, ref num19);
                     }
                     OpenGL.glDrawArrays(8, 0, 8);
                     array[0] = array[num7 - 2];
@@ -224,7 +224,7 @@ namespace ctr_wp7.game
                 addPart(tail);
                 tail.addConstraintwithRestLengthofType(bungeeAnchor, 30f, Constraint.CONSTRAINT.CONSTRAINT_DISTANCE);
                 Vector vector = vectSub(tail.pos, bungeeAnchor.pos);
-                int num = (int)(len / 30f + 2f);
+                int num = (int)((len / 30f) + 2f);
                 vector = vectDiv(vector, num);
                 rollplacingWithOffset(len, vector);
                 forceWhite = false;

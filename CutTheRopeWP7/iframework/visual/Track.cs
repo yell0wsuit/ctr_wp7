@@ -393,8 +393,8 @@ namespace ctr_wp7.iframework.visual
                             float num2 = thiss.currentStepAcceleration.value.pos.y * delta;
                             thiss.currentStepPerSecond.value.pos.x += num;
                             thiss.currentStepPerSecond.value.pos.y += num2;
-                            timeline.element.x += (keyFrame.value.pos.x + num / 2f) * delta;
-                            timeline.element.y += (keyFrame.value.pos.y + num2 / 2f) * delta;
+                            timeline.element.x += (keyFrame.value.pos.x + (num / 2f)) * delta;
+                            timeline.element.y += (keyFrame.value.pos.y + (num2 / 2f)) * delta;
                             break;
                         }
                     case TrackType.TRACK_SCALE:
@@ -403,15 +403,15 @@ namespace ctr_wp7.iframework.visual
                             float num4 = thiss.currentStepAcceleration.value.scale.scaleY * delta;
                             thiss.currentStepPerSecond.value.scale.scaleX += num3;
                             thiss.currentStepPerSecond.value.scale.scaleY += num4;
-                            timeline.element.scaleX += (keyFrame.value.scale.scaleX + num3 / 2f) * delta;
-                            timeline.element.scaleY += (keyFrame.value.scale.scaleY + num4 / 2f) * delta;
+                            timeline.element.scaleX += (keyFrame.value.scale.scaleX + (num3 / 2f)) * delta;
+                            timeline.element.scaleY += (keyFrame.value.scale.scaleY + (num4 / 2f)) * delta;
                             break;
                         }
                     case TrackType.TRACK_ROTATION:
                         {
                             float num5 = thiss.currentStepAcceleration.value.rotation.angle * delta;
                             thiss.currentStepPerSecond.value.rotation.angle += num5;
-                            timeline.element.rotation += (keyFrame.value.rotation.angle + num5 / 2f) * delta;
+                            timeline.element.rotation += (keyFrame.value.rotation.angle + (num5 / 2f)) * delta;
                             break;
                         }
                     case TrackType.TRACK_COLOR:
@@ -437,13 +437,13 @@ namespace ctr_wp7.iframework.visual
                             ColorParams color8 = thiss.currentStepPerSecond.value.color;
                             color8.rgba.a += num9;
                             BaseElement element = timeline.element;
-                            element.color.r += (keyFrame.value.color.rgba.r + num6 / 2f) * delta;
+                            element.color.r += (keyFrame.value.color.rgba.r + (num6 / 2f)) * delta;
                             BaseElement element2 = timeline.element;
-                            element2.color.g += (keyFrame.value.color.rgba.g + num7 / 2f) * delta;
+                            element2.color.g += (keyFrame.value.color.rgba.g + (num7 / 2f)) * delta;
                             BaseElement element3 = timeline.element;
-                            element3.color.b += (keyFrame.value.color.rgba.b + num8 / 2f) * delta;
+                            element3.color.b += (keyFrame.value.color.rgba.b + (num8 / 2f)) * delta;
                             BaseElement element4 = timeline.element;
-                            element4.color.a += (keyFrame.value.color.rgba.a + num9 / 2f) * delta;
+                            element4.color.a += (keyFrame.value.color.rgba.a + (num9 / 2f)) * delta;
                             break;
                         }
                 }

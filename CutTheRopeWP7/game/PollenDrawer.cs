@@ -61,11 +61,11 @@ namespace ctr_wp7.game
             float num5 = num4;
             if (RND(1) == 1)
             {
-                num4 *= 1f + RND(1) / 10f;
+                num4 *= 1f + (RND(1) / 10f);
             }
             else
             {
-                num5 *= 1f + RND(1) / 10f;
+                num5 *= 1f + (RND(1) / 10f);
             }
             num *= num4;
             num2 *= num5;
@@ -88,9 +88,9 @@ namespace ctr_wp7.game
             pollen.endScaleY = num2;
             pollen.endAlpha = 0.3f;
             pollen.startAlpha = 1f;
-            pollen.alpha = 0.7f * rnd_0_ + 0.3f;
+            pollen.alpha = (0.7f * rnd_0_) + 0.3f;
             Quad2D quad2D = drawer.image.texture.quads[0];
-            Quad3D quad3D = Quad3D.MakeQuad3D((double)(v.x - num6 / 2), (double)(v.y - num7 / 2), 0.0, num6, num7);
+            Quad3D quad3D = Quad3D.MakeQuad3D((double)(v.x - (num6 / 2)), (double)(v.y - (num7 / 2)), 0.0, num6, num7);
             drawer.setTextureQuadatVertexQuadatIndex(quad2D, quad3D, pollenCount);
             if (pollenCount >= totalCapacity)
             {
@@ -100,7 +100,7 @@ namespace ctr_wp7.game
             }
             for (int i = 0; i < 4; i++)
             {
-                colors[pollenCount * 4 + i] = RGBAColor.whiteRGBA;
+                colors[(pollenCount * 4) + i] = RGBAColor.whiteRGBA;
             }
             pollens[pollenCount] = pollen;
             pollenCount++;
@@ -156,7 +156,7 @@ namespace ctr_wp7.game
                 }
                 float num = qw * pollens[i].scaleX;
                 float num2 = qh * pollens[i].scaleY;
-                drawer.vertices[i] = Quad3D.MakeQuad3D((double)(pollens[i].x - num / 2f), (double)(pollens[i].y - num2 / 2f), 0.0, (double)num, (double)num2);
+                drawer.vertices[i] = Quad3D.MakeQuad3D((double)(pollens[i].x - (num / 2f)), (double)(pollens[i].y - (num2 / 2f)), 0.0, (double)num, (double)num2);
                 if (Mover.moveVariableToTarget(ref pollens[i].alpha, pollens[i].endAlpha, 1f, delta))
                 {
                     float startAlpha = pollens[i].startAlpha;
@@ -166,7 +166,7 @@ namespace ctr_wp7.game
                 float alpha = pollens[i].alpha;
                 for (int j = 0; j < 4; j++)
                 {
-                    colors[i * 4 + j] = RGBAColor.MakeRGBA(alpha, alpha, alpha, alpha);
+                    colors[(i * 4) + j] = RGBAColor.MakeRGBA(alpha, alpha, alpha, alpha);
                 }
             }
             OpenGL.glBindBuffer(2, colorsID);

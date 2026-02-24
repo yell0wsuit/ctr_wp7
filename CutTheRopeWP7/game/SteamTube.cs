@@ -82,7 +82,7 @@ namespace ctr_wp7.game
         public float getCurrentHeightModulated()
         {
             float currentHeight = getCurrentHeight();
-            return currentHeight + 1f * sinf(6f * phase);
+            return currentHeight + (1f * sinf(6f * phase));
         }
 
         // Token: 0x06000596 RID: 1430 RVA: 0x0002A17B File Offset: 0x0002837B
@@ -223,7 +223,7 @@ namespace ctr_wp7.game
                     float num4 = 0.6f;
                     float num5 = num4 / (num3 - num2 + 1);
                     float num6 = -getCurrentHeight();
-                    num6 *= 1f + 0.1f * RND_MINUS1_1;
+                    num6 *= 1f + (0.1f * RND_MINUS1_1);
                     if (steamState == 1 && (i % 3 == 1 || i % 3 == 2))
                     {
                         num6 *= 0.95f;

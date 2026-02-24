@@ -136,7 +136,7 @@ namespace ctr_wp7.game
                 lantern.fire.color = RGBAColor.MakeRGBA(0.7, 0.7, 0.7, 0.7);
                 lantern.delayedDispatcher.cancelAllDispatches();
                 lantern.delayedDispatcher.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(lantern.fire._playTimeline), NSInt.intWithInt(2), 0.4 * (double)RND_0_1);
-                lantern.delayedDispatcher.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(lantern.innerCandy._playTimeline), NSInt.intWithInt(2), 0.2 + 0.2 * (double)RND_0_1);
+                lantern.delayedDispatcher.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(lantern.innerCandy._playTimeline), NSInt.intWithInt(2), 0.2 + (0.2 * (double)RND_0_1));
             }
         }
 

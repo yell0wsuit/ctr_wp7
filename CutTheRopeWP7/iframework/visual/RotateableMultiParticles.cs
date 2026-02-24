@@ -10,7 +10,7 @@ namespace ctr_wp7.iframework.visual
         {
             base.initParticle(ref particle);
             particle.angle = 0f;
-            particle.deltaAngle = DEGREES_TO_RADIANS(rotateSpeed + rotateSpeedVar * RND_MINUS1_1);
+            particle.deltaAngle = DEGREES_TO_RADIANS(rotateSpeed + (rotateSpeedVar * RND_MINUS1_1));
         }
 
         // Token: 0x060003A6 RID: 934 RVA: 0x000173C4 File Offset: 0x000155C4
@@ -39,14 +39,14 @@ namespace ctr_wp7.iframework.visual
                 p.color.b += p.deltaColor.b * delta;
                 p.color.a += p.deltaColor.a * delta;
                 p.life -= delta;
-                float num = p.pos.x - p.width / 2f;
-                float num2 = p.pos.y - p.height / 2f;
-                float num3 = p.pos.x + p.width / 2f;
-                float num4 = p.pos.y - p.height / 2f;
-                float num5 = p.pos.x - p.width / 2f;
-                float num6 = p.pos.y + p.height / 2f;
-                float num7 = p.pos.x + p.width / 2f;
-                float num8 = p.pos.y + p.height / 2f;
+                float num = p.pos.x - (p.width / 2f);
+                float num2 = p.pos.y - (p.height / 2f);
+                float num3 = p.pos.x + (p.width / 2f);
+                float num4 = p.pos.y - (p.height / 2f);
+                float num5 = p.pos.x - (p.width / 2f);
+                float num6 = p.pos.y + (p.height / 2f);
+                float num7 = p.pos.x + (p.width / 2f);
+                float num8 = p.pos.y + (p.height / 2f);
                 float x2 = p.pos.x;
                 float y = p.pos.y;
                 Vector vector4 = vect(num, num2);
@@ -63,7 +63,7 @@ namespace ctr_wp7.iframework.visual
                 drawer.vertices[particleIdx] = Quad3D.MakeQuad3DEx(vector4.x, vector4.y, vector5.x, vector5.y, vector6.x, vector6.y, vector7.x, vector7.y);
                 for (int i = 0; i < 4; i++)
                 {
-                    colors[particleIdx * 4 + i] = p.color;
+                    colors[(particleIdx * 4) + i] = p.color;
                 }
                 particleIdx++;
                 return;

@@ -289,7 +289,7 @@ namespace ctr_wp7.game
             float num = 25f;
             float num2 = 0f;
             _ = Application.sharedAppSettings().getString(8).isEqualToString("zh");
-            VBox vbox = new VBox().initWithOffsetAlignWidth(30.0, 2, (double)num2 + (double)(SCREEN_WIDTH_EXPANDED - num2) / 2.0 + (double)num);
+            VBox vbox = new VBox().initWithOffsetAlignWidth(30.0, 2, (double)num2 + ((double)(SCREEN_WIDTH_EXPANDED - num2) / 2.0) + (double)num);
             vbox.x = num;
             vbox.parentAnchor = vbox.anchor = 10;
             if (baseElement != null)

@@ -124,7 +124,7 @@ namespace ctr_wp7.iframework.helpers
                 {
                     NSString nsstring2 = nsstring.substringFromIndex(2);
                     int num2 = nsstring2.intValue();
-                    num = num2 / 2 + 1;
+                    num = (num2 / 2) + 1;
                 }
                 float num3 = xml["moveSpeed"].floatValue();
                 float num4 = xml["rotateSpeed"].floatValue();
@@ -161,10 +161,10 @@ namespace ctr_wp7.iframework.helpers
             Vector vector2 = vect(bb.x + bb.w, bb.y);
             Vector vector3 = vect(bb.x + bb.w, bb.y + bb.h);
             Vector vector4 = vect(bb.x, bb.y + bb.h);
-            vector = vectRotateAround(vector, (double)DEGREES_TO_RADIANS(a), (float)(width / 2.0 + rotationCenterX), (float)(height / 2.0 + rotationCenterY));
-            vector2 = vectRotateAround(vector2, (double)DEGREES_TO_RADIANS(a), (float)(width / 2.0 + rotationCenterX), (float)(height / 2.0 + rotationCenterY));
-            vector3 = vectRotateAround(vector3, (double)DEGREES_TO_RADIANS(a), (float)(width / 2.0 + rotationCenterX), (float)(height / 2.0 + rotationCenterY));
-            vector4 = vectRotateAround(vector4, (double)DEGREES_TO_RADIANS(a), (float)(width / 2.0 + rotationCenterX), (float)(height / 2.0 + rotationCenterY));
+            vector = vectRotateAround(vector, (double)DEGREES_TO_RADIANS(a), (float)((width / 2.0) + rotationCenterX), (float)((height / 2.0) + rotationCenterY));
+            vector2 = vectRotateAround(vector2, (double)DEGREES_TO_RADIANS(a), (float)((width / 2.0) + rotationCenterX), (float)((height / 2.0) + rotationCenterY));
+            vector3 = vectRotateAround(vector3, (double)DEGREES_TO_RADIANS(a), (float)((width / 2.0) + rotationCenterX), (float)((height / 2.0) + rotationCenterY));
+            vector4 = vectRotateAround(vector4, (double)DEGREES_TO_RADIANS(a), (float)((width / 2.0) + rotationCenterX), (float)((height / 2.0) + rotationCenterY));
             rbb.tlX = vector.x;
             rbb.tlY = vector.y;
             rbb.trX = vector2.x;

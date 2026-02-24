@@ -18,7 +18,7 @@ namespace ctr_wp7.game
                 buttonDelegate = d;
                 float num = 20f;
                 float num2 = 30f;
-                sheight = SCREEN_HEIGHT_EXPANDED - 60f - 2f * num;
+                sheight = SCREEN_HEIGHT_EXPANDED - 60f - (2f * num);
                 BaseElement baseElement = (BaseElement)new BaseElement().init();
                 baseElement.x = -SCREEN_OFFSET_X;
                 baseElement.y = num - SCREEN_OFFSET_Y;
@@ -36,7 +36,7 @@ namespace ctr_wp7.game
                 box = new VBox().initWithOffsetAlignWidth(num2, 2, SCREEN_WIDTH);
                 buildBlocks();
                 float num3 = 3f;
-                ScrollableContainer scrollableContainer = new ScrollableContainer().initWithWidthHeightContainer(box.width, sheight + num3 * 2f, box);
+                ScrollableContainer scrollableContainer = new ScrollableContainer().initWithWidthHeightContainer(box.width, sheight + (num3 * 2f), box);
                 scrollableContainer.shouldBounceVertically = true;
                 scrollableContainer.resetScrollOnShow = false;
                 scrollableContainer.untouchChildsOnMove = true;

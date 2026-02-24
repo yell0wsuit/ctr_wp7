@@ -55,8 +55,8 @@ namespace ctr_wp7.Specials
             {
                 num2 = scroll.y / maxScroll.y;
             }
-            lift.x = (lift.maxX - lift.minX) * num + lift.minX;
-            lift.y = (lift.maxY - lift.minY) * num2 + lift.minY;
+            lift.x = ((lift.maxX - lift.minX) * num) + lift.minX;
+            lift.y = ((lift.maxY - lift.minY) * num2) + lift.minY;
         }
 
         // Token: 0x060002CE RID: 718 RVA: 0x0001219C File Offset: 0x0001039C

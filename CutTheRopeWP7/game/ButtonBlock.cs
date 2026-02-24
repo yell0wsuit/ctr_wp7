@@ -16,7 +16,7 @@ namespace ctr_wp7.game
             delegateButtonDelegate = d;
             block = pBlock;
             recheckneeded = false;
-            check = RND_0_1 * 3f + 1f;
+            check = (RND_0_1 * 3f) + 1f;
             transition = 0.5f;
             NSString text = block.getText();
             NSString name = block.getName();
@@ -254,7 +254,7 @@ namespace ctr_wp7.game
                     }
                     else
                     {
-                        check = RND_0_1 * 5f + 1f;
+                        check = (RND_0_1 * 5f) + 1f;
                     }
                 }
             }

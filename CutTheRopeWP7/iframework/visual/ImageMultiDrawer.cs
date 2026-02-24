@@ -46,11 +46,11 @@ namespace ctr_wp7.iframework.visual
             for (int i = 0; i < totalQuads; i++)
             {
                 indices[i * 6] = (short)(i * 4);
-                indices[i * 6 + 1] = (short)(i * 4 + 1);
-                indices[i * 6 + 2] = (short)(i * 4 + 2);
-                indices[i * 6 + 3] = (short)(i * 4 + 3);
-                indices[i * 6 + 4] = (short)(i * 4 + 2);
-                indices[i * 6 + 5] = (short)(i * 4 + 1);
+                indices[(i * 6) + 1] = (short)((i * 4) + 1);
+                indices[(i * 6) + 2] = (short)((i * 4) + 2);
+                indices[(i * 6) + 3] = (short)((i * 4) + 3);
+                indices[(i * 6) + 4] = (short)((i * 4) + 2);
+                indices[(i * 6) + 5] = (short)((i * 4) + 1);
             }
         }
 

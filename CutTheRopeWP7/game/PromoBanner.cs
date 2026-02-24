@@ -142,7 +142,7 @@ namespace ctr_wp7.game
             _ = bungeeDrawer.addChild(hookButton);
             hookButton.x = hook.pos.x;
             hookButton.y = hook.pos.y - 5f;
-            hookButton.rotationCenterY = -(float)hookButton.height / 2 + 5;
+            hookButton.rotationCenterY = (-(float)hookButton.height / 2) + 5;
             promoMainHidden = true;
             baseElement.width = (int)SCREEN_WIDTH_EXPANDED;
             baseElement.height = image.height + baseElement2.height + image2.height;
