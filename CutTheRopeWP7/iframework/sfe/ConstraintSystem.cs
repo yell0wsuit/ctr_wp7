@@ -38,10 +38,7 @@ namespace ctr_wp7.iframework.sfe
             for (int i = 0; i < count; i++)
             {
                 ConstraintedPoint constraintedPoint = parts[i];
-                if (constraintedPoint != null)
-                {
-                    constraintedPoint.update(delta);
-                }
+                constraintedPoint?.update(delta);
             }
             int count2 = parts.Count;
             for (int j = 0; j < relaxationTimes; j++)

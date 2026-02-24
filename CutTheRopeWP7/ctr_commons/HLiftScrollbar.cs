@@ -86,10 +86,7 @@ namespace ctr_wp7.ctr_commons
                     int num = limitPoints[i];
                     if (activeSpoint != num)
                     {
-                        if (delegateLiftScrollbarDelegate != null)
-                        {
-                            delegateLiftScrollbarDelegate.changedActiveSpointFromTo(activeSpoint, num);
-                        }
+                        delegateLiftScrollbarDelegate?.changedActiveSpointFromTo(activeSpoint, num);
                         activeSpoint = num;
                     }
                     return;
@@ -97,10 +94,7 @@ namespace ctr_wp7.ctr_commons
             }
             if (lift.x >= spointsLimits[spointsNum - 1].x && activeSpoint != limitPoints[spointsNum - 1])
             {
-                if (delegateLiftScrollbarDelegate != null)
-                {
-                    delegateLiftScrollbarDelegate.changedActiveSpointFromTo(activeSpoint, limitPoints[spointsNum - 1]);
-                }
+                delegateLiftScrollbarDelegate?.changedActiveSpointFromTo(activeSpoint, limitPoints[spointsNum - 1]);
                 activeSpoint = limitPoints[spointsNum - 1];
             }
         }

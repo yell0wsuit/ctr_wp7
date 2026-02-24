@@ -64,10 +64,7 @@ namespace ctr_wp7.iframework.visual
                     if ((double)num4 > 45.0)
                     {
                         down = false;
-                        if (delegateButtonDelegate != null)
-                        {
-                            delegateButtonDelegate.onButtonPressed(bid);
-                        }
+                        delegateButtonDelegate?.onButtonPressed(bid);
                     }
                 }
             }
@@ -96,10 +93,7 @@ namespace ctr_wp7.iframework.visual
             if (down)
             {
                 down = false;
-                if (delegateButtonDelegate != null)
-                {
-                    delegateButtonDelegate.onButtonPressed(bid);
-                }
+                delegateButtonDelegate?.onButtonPressed(bid);
                 return true;
             }
             return flag;

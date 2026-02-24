@@ -22,10 +22,7 @@ namespace ctr_wp7.game
         public static CandyInGhostBubbleAnimation CIGBAnimation_createWithResIDQuad(int r, int q)
         {
             CandyInGhostBubbleAnimation candyInGhostBubbleAnimation = CIGBAnimation_createWithResID(r);
-            if (candyInGhostBubbleAnimation != null)
-            {
-                candyInGhostBubbleAnimation.setDrawQuad(q);
-            }
+            candyInGhostBubbleAnimation?.setDrawQuad(q);
             return candyInGhostBubbleAnimation;
         }
 

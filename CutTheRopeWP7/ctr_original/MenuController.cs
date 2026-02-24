@@ -2074,11 +2074,8 @@ namespace ctr_wp7.ctr_original
             }
             if (statusBackupRestore > 0)
             {
-                if (ep != null)
-                {
-                    ep.hidePopup();
-                    ep = null;
-                }
+                ep?.hidePopup();
+                ep = null;
                 switch (statusBackupRestore)
                 {
                     case 1:
@@ -2130,10 +2127,7 @@ namespace ctr_wp7.ctr_original
                     promoBanner.closeMainPromo();
                     return true;
                 }
-                if (promoBanner != null)
-                {
-                    promoBanner.reset();
-                }
+                promoBanner?.reset();
                 showYesNoPopup(activeView(), Application.getString(1310736), 18, 21);
             }
             if (activeViewID == 1)
@@ -2755,10 +2749,7 @@ namespace ctr_wp7.ctr_original
                 Rectangle rectangle2 = rectInRectIntersection(MakeRectangle(0.0, 0.0, SCREEN_WIDTH, SCREEN_HEIGHT), rectangle);
                 if (pointInRect(tx, ty, rectangle.x, rectangle.y, rectangle.w, rectangle.h) && rectangle2.w > rectangle.w / 2.0)
                 {
-                    if (delegateButtonDelegate != null)
-                    {
-                        delegateButtonDelegate.onButtonPressed(bid);
-                    }
+                    delegateButtonDelegate?.onButtonPressed(bid);
                     return true;
                 }
                 return false;

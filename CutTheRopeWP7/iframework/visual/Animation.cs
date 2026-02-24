@@ -23,10 +23,7 @@ namespace ctr_wp7.iframework.visual
         public static Animation Animation_createWithResIDQuad(int r, int q)
         {
             Animation animation = Animation_createWithResID(r);
-            if (animation != null)
-            {
-                animation.setDrawQuad(q);
-            }
+            animation?.setDrawQuad(q);
             return animation;
         }
 

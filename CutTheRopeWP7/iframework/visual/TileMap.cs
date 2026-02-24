@@ -15,10 +15,7 @@ namespace ctr_wp7.iframework.visual
             for (int i = 0; i < count; i++)
             {
                 ImageMultiDrawer imageMultiDrawer = drawers[i];
-                if (imageMultiDrawer != null)
-                {
-                    imageMultiDrawer.draw();
-                }
+                imageMultiDrawer?.draw();
             }
         }
 
@@ -187,10 +184,7 @@ namespace ctr_wp7.iframework.visual
             for (int i = 0; i < count; i++)
             {
                 ImageMultiDrawer imageMultiDrawer = drawers[i];
-                if (imageMultiDrawer != null)
-                {
-                    imageMultiDrawer.numberOfQuadsToDraw = 0;
-                }
+                imageMultiDrawer?.numberOfQuadsToDraw = 0;
             }
             int num10 = (int)(vector2.x + maxColsOnScreen - 1f);
             int num11 = (int)(vector2.y + maxRowsOnScreen - 1f);

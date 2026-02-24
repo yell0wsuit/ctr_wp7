@@ -240,10 +240,7 @@ namespace ctr_wp7.game
                         image.anchor = image.parentAnchor = 18;
                         _ = childWithName.addChild(image);
                         BaseElement childWithName2 = getChild(0).getChildWithName(NSS("progressbar"));
-                        if (childWithName2 != null)
-                        {
-                            childWithName2.playTimeline(1);
-                        }
+                        childWithName2?.playTimeline(1);
                         BaseElement childWithName3 = getChild(1).getChildWithName(NSS("dummy"));
                         Image image2 = Image.Image_create(texture2D);
                         image2.anchor = image2.parentAnchor = 18;

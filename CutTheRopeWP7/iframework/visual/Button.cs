@@ -107,10 +107,7 @@ namespace ctr_wp7.iframework.visual
                 setState(BUTTON_STATE.BUTTON_UP);
                 if (isInTouchZoneXYforTouchDown(tx, ty, false))
                 {
-                    if (delegateButtonDelegate != null)
-                    {
-                        delegateButtonDelegate.onButtonPressed(buttonID);
-                    }
+                    delegateButtonDelegate?.onButtonPressed(buttonID);
                     return true;
                 }
             }

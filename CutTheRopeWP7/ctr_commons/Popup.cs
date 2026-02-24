@@ -53,10 +53,7 @@ namespace ctr_wp7.ctr_commons
         public virtual void timelineFinished(Timeline t)
         {
             View view = (View)parent;
-            if (view != null)
-            {
-                view.removeChild(this);
-            }
+            view?.removeChild(this);
         }
 
         // Token: 0x0600032E RID: 814 RVA: 0x0001486B File Offset: 0x00012A6B

@@ -52,10 +52,7 @@ namespace ctr_wp7.game
         // Token: 0x060003E3 RID: 995 RVA: 0x00018AA3 File Offset: 0x00016CA3
         public override void draw()
         {
-            if (timedAnim != null)
-            {
-                timedAnim.draw();
-            }
+            timedAnim?.draw();
             base.draw();
         }
 

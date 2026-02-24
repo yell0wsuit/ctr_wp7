@@ -120,10 +120,7 @@ namespace ctr_wp7.game
             if (child != null)
             {
                 BaseElement childWithName = child.getChildWithName(NSS("nimbus"));
-                if (childWithName != null)
-                {
-                    childWithName.setEnabled(false);
-                }
+                childWithName?.setEnabled(false);
             }
         }
 

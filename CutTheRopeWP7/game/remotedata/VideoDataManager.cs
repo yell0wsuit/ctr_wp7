@@ -67,10 +67,7 @@ namespace ctr_wp7.game.remotedata
         // Token: 0x06000659 RID: 1625 RVA: 0x00030A4F File Offset: 0x0002EC4F
         public static void clear()
         {
-            if (videoDataMgr != null)
-            {
-                videoDataMgr.clear();
-            }
+            videoDataMgr?.clear();
         }
 
         // Token: 0x04000BC4 RID: 3012

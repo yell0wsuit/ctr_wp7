@@ -19,10 +19,7 @@ namespace ctr_wp7.iframework.visual
         {
             for (int i = 0; i < tracks.Length; i++)
             {
-                if (tracks[i] != null)
-                {
-                    tracks[i].state = Track.TrackState.TRACK_NOT_ACTIVE;
-                }
+                tracks[i]?.state = Track.TrackState.TRACK_NOT_ACTIVE;
             }
         }
 
@@ -116,10 +113,7 @@ namespace ctr_wp7.iframework.visual
                             if (thiss.loopsLimit == 0)
                             {
                                 thiss.stopTimeline();
-                                if (thiss.delegateTimelineDelegate != null)
-                                {
-                                    thiss.delegateTimelineDelegate.timelineFinished(thiss);
-                                }
+                                thiss.delegateTimelineDelegate?.timelineFinished(thiss);
                             }
                         }
                         thiss.time = Math.Min(thiss.time - thiss.length, thiss.length);
@@ -144,10 +138,7 @@ namespace ctr_wp7.iframework.visual
                                 if (thiss.loopsLimit == 0)
                                 {
                                     thiss.stopTimeline();
-                                    if (thiss.delegateTimelineDelegate != null)
-                                    {
-                                        thiss.delegateTimelineDelegate.timelineFinished(thiss);
-                                    }
+                                    thiss.delegateTimelineDelegate?.timelineFinished(thiss);
                                 }
                             }
                             thiss.time = Math.Min(-thiss.time, thiss.length);

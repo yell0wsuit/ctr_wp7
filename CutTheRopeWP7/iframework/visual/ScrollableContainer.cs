@@ -179,10 +179,7 @@ namespace ctr_wp7.iframework.visual
                 moveToPointDeltaSpeed(vector, delta, (float)Math.Max(100.0, (double)vectDistance(vector, vect(container.x, container.y)) * 4.0 * spointMoveMultiplier));
                 if (container.x == vector.x && container.y == vector.y)
                 {
-                    if (delegateScrollableContainerProtocol != null)
-                    {
-                        delegateScrollableContainerProtocol.scrollableContainerreachedScrollPoint(this, targetSpoint);
-                    }
+                    delegateScrollableContainerProtocol?.scrollableContainerreachedScrollPoint(this, targetSpoint);
                     movingToSpoint = false;
                     targetSpoint = -1;
                     lastTargetSpoint = -1;
@@ -516,10 +513,7 @@ namespace ctr_wp7.iframework.visual
             movingToSpoint = false;
             targetSpoint = -1;
             lastTargetSpoint = sp;
-            if (delegateScrollableContainerProtocol != null)
-            {
-                delegateScrollableContainerProtocol.scrollableContainerreachedScrollPoint(this, sp);
-            }
+            delegateScrollableContainerProtocol?.scrollableContainerreachedScrollPoint(this, sp);
         }
 
         // Token: 0x0600061E RID: 1566 RVA: 0x0002E8CA File Offset: 0x0002CACA

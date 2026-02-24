@@ -205,10 +205,7 @@ namespace ctr_wp7.Banner
                     }
                     SaveStoredConfig(config);
                     SaveStoredBanners(banners);
-                    if (config != null)
-                    {
-                        config.iterateBanner();
-                    }
+                    config?.iterateBanner();
                     return true;
                 }
             }

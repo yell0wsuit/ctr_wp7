@@ -333,10 +333,7 @@ namespace ctr_wp7.iframework.visual
                 while (i < count)
                 {
                     ImageMultiDrawer imageMultiDrawer = multiDrawers[i];
-                    if (imageMultiDrawer != null)
-                    {
-                        imageMultiDrawer.drawAllQuads();
-                    }
+                    imageMultiDrawer?.drawAllQuads();
                     i++;
                 }
                 OpenGL.glTranslatef(-drawX, -drawY, 0f);

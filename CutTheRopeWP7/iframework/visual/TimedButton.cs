@@ -121,10 +121,7 @@ namespace ctr_wp7.iframework.visual
                 timelinePlayed = false;
                 if (isInTouchZoneXYforTouchDown(tx, ty, false) && time <= 0f)
                 {
-                    if (delegateButtonDelegate != null)
-                    {
-                        delegateButtonDelegate.onButtonPressed(buttonID);
-                    }
+                    delegateButtonDelegate?.onButtonPressed(buttonID);
                     Timeline currentTimeline = getCurrentTimeline();
                     if (currentTimeline != null)
                     {

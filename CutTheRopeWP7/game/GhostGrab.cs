@@ -114,10 +114,7 @@ namespace ctr_wp7.game
             OpenGL.glColor4f(1.0, 1.0, 1.0, 1.0);
             OpenGL.glEnable(0);
             OpenGL.glDisable(0);
-            if (rope != null)
-            {
-                rope.draw();
-            }
+            rope?.draw();
             OpenGL.glColor4f(1.0, 1.0, 1.0, 1.0);
             OpenGL.glEnable(0);
             OpenGL.glBlendFunc(BlendingFactor.GL_ONE, BlendingFactor.GL_ONE_MINUS_SRC_ALPHA);

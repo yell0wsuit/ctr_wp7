@@ -289,10 +289,7 @@ namespace ctr_wp7.iframework.media
         {
             foreach (SoundEffectInstance soundEffectInstance in list)
             {
-                if (soundEffectInstance != null)
-                {
-                    soundEffectInstance.Stop();
-                }
+                soundEffectInstance?.Stop();
             }
         }
 

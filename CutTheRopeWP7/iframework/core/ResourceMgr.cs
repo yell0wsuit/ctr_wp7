@@ -507,10 +507,7 @@ namespace ctr_wp7.iframework.core
             }
             if (s_Resources.TryGetValue(resId, out NSObject nsobject))
             {
-                if (nsobject != null)
-                {
-                    nsobject.dealloc();
-                }
+                nsobject?.dealloc();
                 _ = s_Resources.Remove(resId);
             }
         }

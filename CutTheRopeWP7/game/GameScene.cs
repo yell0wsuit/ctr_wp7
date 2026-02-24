@@ -178,10 +178,7 @@ namespace ctr_wp7.game
             {
                 if (hudStar[i] != null)
                 {
-                    if (hudStar[i].getCurrentTimeline() != null)
-                    {
-                        hudStar[i].getCurrentTimeline().stopTimeline();
-                    }
+                    hudStar[i].getCurrentTimeline()?.stopTimeline();
                     hudStar[i].setDrawQuad(0);
                 }
             }
@@ -417,10 +414,7 @@ namespace ctr_wp7.game
                         sock.state = Sock.SOCK_IDLE;
                         sock.parseMover(xmlnode4);
                         sock.rotation += 90f;
-                        if (sock.mover != null)
-                        {
-                            sock.mover.angle += 90.0;
-                        }
+                        sock.mover?.angle += 90.0;
                         sock.updateRotation();
                         socks.Add(sock);
                     }
@@ -935,10 +929,7 @@ namespace ctr_wp7.game
                 for (int l = 0; l < num; l++)
                 {
                     Image image = earthAnims[l];
-                    if (image != null)
-                    {
-                        image.update(delta);
-                    }
+                    image?.update(delta);
                 }
             }
             _ = Mover.moveVariableToTarget(ref ropeAtOnceTimer, 0f, 1f, delta);
@@ -1016,10 +1007,7 @@ namespace ctr_wp7.game
                     }
                     if (rope.cut == -1 || rope.cutTime != 0.0)
                     {
-                        if (rope != null)
-                        {
-                            rope.update(delta * ropePhysicsSpeed, ropePhysicsSpeed);
-                        }
+                        rope?.update(delta * ropePhysicsSpeed, ropePhysicsSpeed);
                         if (!grab.hasSpider)
                         {
                             goto IL_0506;
@@ -1557,29 +1545,20 @@ namespace ctr_wp7.game
             {
                 foreach (Ghost ghost9 in ghosts)
                 {
-                    if (ghost9 != null)
-                    {
-                        ghost9.update(delta);
-                    }
+                    ghost9?.update(delta);
                 }
             }
             num = tutorials.Count;
             for (int num20 = 0; num20 < num; num20++)
             {
                 Text text = tutorials[num20];
-                if (text != null)
-                {
-                    text.update(delta);
-                }
+                text?.update(delta);
             }
             num = tutorialImages.Count;
             for (int num21 = 0; num21 < num; num21++)
             {
                 GameObject gameObject2 = tutorialImages[num21];
-                if (gameObject2 != null)
-                {
-                    gameObject2.update(delta);
-                }
+                gameObject2?.update(delta);
             }
             num = pumps.Count;
             for (int num22 = 0; num22 < num; num22++)
@@ -1881,10 +1860,7 @@ namespace ctr_wp7.game
                             {
                                 foreach (Ghost ghost10 in ghosts)
                                 {
-                                    if (ghost10 != null)
-                                    {
-                                        ghost10.candyBreak = true;
-                                    }
+                                    ghost10?.candyBreak = true;
                                 }
                             }
                             return;
@@ -2176,19 +2152,13 @@ namespace ctr_wp7.game
                 for (int i = 0; i < earthAnims.Count; i++)
                 {
                     Image image = earthAnims[i];
-                    if (image != null)
-                    {
-                        image.draw();
-                    }
+                    image?.draw();
                 }
             }
             OpenGL.glPopMatrix();
             camera.applyCameraTransformation();
             pollenDrawer.draw();
-            if (gravityButton != null)
-            {
-                gravityButton.draw();
-            }
+            gravityButton?.draw();
             OpenGL.SetWhiteColor();
             OpenGL.glEnable(0);
             OpenGL.glBlendFunc(BlendingFactor.GL_ONE, BlendingFactor.GL_ONE_MINUS_SRC_ALPHA);
@@ -2206,10 +2176,7 @@ namespace ctr_wp7.game
                 for (int j = 0; j < tutorials.Count; j++)
                 {
                     Text text = tutorials[j];
-                    if (text != null)
-                    {
-                        text.draw();
-                    }
+                    text?.draw();
                 }
             }
             if (tutorialImages != null)
@@ -2217,10 +2184,7 @@ namespace ctr_wp7.game
                 for (int k = 0; k < tutorialImages.Count; k++)
                 {
                     GameObject gameObject = tutorialImages[k];
-                    if (gameObject != null)
-                    {
-                        gameObject.draw();
-                    }
+                    gameObject?.draw();
                 }
             }
             if (razors != null)
@@ -2228,20 +2192,14 @@ namespace ctr_wp7.game
                 for (int l = 0; l < razors.Count; l++)
                 {
                     Razor razor = razors[l];
-                    if (razor != null)
-                    {
-                        razor.draw();
-                    }
+                    razor?.draw();
                 }
             }
             if (rotatedCircles != null)
             {
                 for (int m = 0; m < rotatedCircles.Count; m++)
                 {
-                    if (rotatedCircles[m] != null)
-                    {
-                        rotatedCircles[m].draw();
-                    }
+                    rotatedCircles[m]?.draw();
                 }
             }
             if (bubbles != null)
@@ -2249,10 +2207,7 @@ namespace ctr_wp7.game
                 for (int n = 0; n < bubbles.Count; n++)
                 {
                     GameObject gameObject2 = bubbles[n];
-                    if (gameObject2 != null)
-                    {
-                        gameObject2.draw();
-                    }
+                    gameObject2?.draw();
                 }
             }
             if (pumps != null)
@@ -2260,10 +2215,7 @@ namespace ctr_wp7.game
                 for (int num7 = 0; num7 < pumps.Count; num7++)
                 {
                     GameObject gameObject3 = pumps[num7];
-                    if (gameObject3 != null)
-                    {
-                        gameObject3.draw();
-                    }
+                    gameObject3?.draw();
                 }
             }
             if (spikes != null)
@@ -2271,10 +2223,7 @@ namespace ctr_wp7.game
                 for (int num8 = 0; num8 < spikes.Count; num8++)
                 {
                     Spikes spikes = this.spikes[num8];
-                    if (spikes != null)
-                    {
-                        spikes.draw();
-                    }
+                    spikes?.draw();
                 }
             }
             if (bouncers != null)
@@ -2282,10 +2231,7 @@ namespace ctr_wp7.game
                 for (int num9 = 0; num9 < bouncers.Count; num9++)
                 {
                     Bouncer bouncer = bouncers[num9];
-                    if (bouncer != null)
-                    {
-                        bouncer.draw();
-                    }
+                    bouncer?.draw();
                 }
             }
             if (socks != null)
@@ -2293,10 +2239,7 @@ namespace ctr_wp7.game
                 for (int num10 = 0; num10 < socks.Count; num10++)
                 {
                     Sock sock = socks[num10];
-                    if (sock != null)
-                    {
-                        sock.y -= 25f;
-                    }
+                    sock?.y -= 25f;
                     sock.draw();
                     sock.y += 25f;
                 }
@@ -2305,10 +2248,7 @@ namespace ctr_wp7.game
             {
                 foreach (SteamTube steamTube in tubes)
                 {
-                    if (steamTube != null)
-                    {
-                        steamTube.drawBack();
-                    }
+                    steamTube?.drawBack();
                 }
             }
             List<Lantern> allLanterns = Lantern.getAllLanterns();
@@ -2321,10 +2261,7 @@ namespace ctr_wp7.game
             {
                 foreach (Ghost ghost in ghosts)
                 {
-                    if (ghost != null)
-                    {
-                        ghost.draw();
-                    }
+                    ghost?.draw();
                 }
             }
             OpenGL.glBlendFunc(BlendingFactor.GL_SRC_ALPHA, BlendingFactor.GL_ONE_MINUS_SRC_ALPHA);
@@ -2333,10 +2270,7 @@ namespace ctr_wp7.game
                 for (int num11 = 0; num11 < bungees.Count; num11++)
                 {
                     Grab grab = bungees[num11];
-                    if (grab != null)
-                    {
-                        grab.drawBack();
-                    }
+                    grab?.drawBack();
                 }
             }
             if (bungees != null)
@@ -2344,10 +2278,7 @@ namespace ctr_wp7.game
                 for (int num12 = 0; num12 < bungees.Count; num12++)
                 {
                     Grab grab2 = bungees[num12];
-                    if (grab2 != null)
-                    {
-                        grab2.draw();
-                    }
+                    grab2?.draw();
                 }
             }
             OpenGL.glBlendFunc(BlendingFactor.GL_ONE, BlendingFactor.GL_ONE_MINUS_SRC_ALPHA);
@@ -2356,10 +2287,7 @@ namespace ctr_wp7.game
                 for (int num13 = 0; num13 < stars.Count; num13++)
                 {
                     GameObject gameObject4 = stars[num13];
-                    if (gameObject4 != null)
-                    {
-                        gameObject4.draw();
-                    }
+                    gameObject4?.draw();
                 }
             }
             if (!noCandy && targetSock == null)
@@ -2396,10 +2324,7 @@ namespace ctr_wp7.game
             {
                 foreach (SteamTube steamTube2 in tubes)
                 {
-                    if (steamTube2 != null)
-                    {
-                        steamTube2.drawFront();
-                    }
+                    steamTube2?.drawFront();
                 }
             }
             if (bungees != null)

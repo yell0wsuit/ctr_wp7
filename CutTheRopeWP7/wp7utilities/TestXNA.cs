@@ -170,10 +170,7 @@ namespace ctr_wp7.wp7utilities
             // Token: 0x06000382 RID: 898 RVA: 0x00016439 File Offset: 0x00014639
             public override void draw()
             {
-                if (testObject_ != null)
-                {
-                    testObject_.draw();
-                }
+                testObject_?.draw();
             }
 
             // Token: 0x040008FF RID: 2303

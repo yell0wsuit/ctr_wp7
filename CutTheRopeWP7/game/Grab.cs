@@ -104,10 +104,7 @@ namespace ctr_wp7.game
             }
             OpenGL.glBlendFunc(BlendingFactor.GL_SRC_ALPHA, BlendingFactor.GL_ONE_MINUS_SRC_ALPHA);
             OpenGL.glDisable(0);
-            if (bungee != null)
-            {
-                bungee.draw();
-            }
+            bungee?.draw();
             OpenGL.SetWhiteColor();
             OpenGL.glEnable(0);
             if (moveLength <= 0.0)

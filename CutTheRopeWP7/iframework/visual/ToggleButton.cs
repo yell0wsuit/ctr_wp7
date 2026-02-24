@@ -13,10 +13,7 @@
                     toggle();
                     break;
             }
-            if (delegateButtonDelegate != null)
-            {
-                delegateButtonDelegate.onButtonPressed(buttonID);
-            }
+            delegateButtonDelegate?.onButtonPressed(buttonID);
         }
 
         // Token: 0x0600024C RID: 588 RVA: 0x0000F1A4 File Offset: 0x0000D3A4

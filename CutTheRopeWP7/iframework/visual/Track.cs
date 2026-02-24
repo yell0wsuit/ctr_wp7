@@ -479,10 +479,7 @@ namespace ctr_wp7.iframework.visual
             }
             if (thiss.keyFrameTimeLeft <= 1E-06f)
             {
-                if (timeline.delegateTimelineDelegate != null)
-                {
-                    timeline.delegateTimelineDelegate.timelinereachedKeyFramewithIndex(timeline, thiss.keyFrames[thiss.nextKeyFrame], thiss.nextKeyFrame);
-                }
+                timeline.delegateTimelineDelegate?.timelinereachedKeyFramewithIndex(timeline, thiss.keyFrames[thiss.nextKeyFrame], thiss.nextKeyFrame);
                 thiss.overrun = -thiss.keyFrameTimeLeft;
                 if (thiss.nextKeyFrame == thiss.keyFramesCount - 1)
                 {

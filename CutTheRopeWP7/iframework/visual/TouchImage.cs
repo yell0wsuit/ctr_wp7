@@ -11,10 +11,7 @@ namespace ctr_wp7.iframework.visual
             _ = base.onTouchDownXY(tx, ty);
             if (pointInRect(tx, ty, drawX, drawY, width, height))
             {
-                if (delegateButtonDelegate != null)
-                {
-                    delegateButtonDelegate.onButtonPressed(bid);
-                }
+                delegateButtonDelegate?.onButtonPressed(bid);
                 return true;
             }
             return false;

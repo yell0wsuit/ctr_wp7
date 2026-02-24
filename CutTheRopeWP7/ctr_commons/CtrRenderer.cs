@@ -210,10 +210,7 @@ namespace ctr_wp7.ctr_commons
             if (!gPaused)
             {
                 gPaused = true;
-                if (gApp != null)
-                {
-                    gApp.applicationWillResignActive(null);
-                }
+                gApp?.applicationWillResignActive(null);
                 CTRSoundMgr._pause();
                 Texture2D.suspendAll();
             }
@@ -234,10 +231,7 @@ namespace ctr_wp7.ctr_commons
                     if (!gameController.isGamePaused)
                     {
                         gameController.setPaused(true);
-                        if (gApp != null)
-                        {
-                            gApp.applicationDidBecomeActive(null);
-                        }
+                        gApp?.applicationDidBecomeActive(null);
                         return;
                     }
                 }
@@ -247,17 +241,11 @@ namespace ctr_wp7.ctr_commons
                     if (menuController != null)
                     {
                         PromoBanner promoBanner = (PromoBanner)menuController.activeView().getChildWithName("promoBanner");
-                        if (promoBanner != null)
-                        {
-                            promoBanner.reset();
-                        }
+                        promoBanner?.reset();
                     }
                 }
                 CTRSoundMgr._unpause();
-                if (gApp != null)
-                {
-                    gApp.applicationDidBecomeActive(null);
-                }
+                gApp?.applicationDidBecomeActive(null);
             }
         }
 
@@ -413,10 +401,7 @@ namespace ctr_wp7.ctr_commons
         public static void Java_com_zeptolab_ctr_CtrRenderer_nativeDrawFps(int fps)
         {
             GLCanvas glcanvas = Application.sharedCanvas();
-            if (glcanvas != null)
-            {
-                glcanvas.drawFPS(fps);
-            }
+            glcanvas?.drawFPS(fps);
         }
 
         // Token: 0x06000707 RID: 1799 RVA: 0x00038E68 File Offset: 0x00037068

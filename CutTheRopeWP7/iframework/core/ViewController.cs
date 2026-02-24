@@ -115,10 +115,7 @@ namespace ctr_wp7.iframework.core
         {
             View view = views[activeViewID];
             Application.sharedRootController().onControllerViewHide(view);
-            if (view != null)
-            {
-                view.hide();
-            }
+            view?.hide();
             activeViewID = -1;
         }
 
@@ -152,10 +149,7 @@ namespace ctr_wp7.iframework.core
         public virtual void addChildwithID(ViewController c, int n)
         {
             ViewController viewController = null;
-            if (viewController != null)
-            {
-                viewController.dealloc();
-            }
+            viewController?.dealloc();
             childs[n] = c;
         }
 

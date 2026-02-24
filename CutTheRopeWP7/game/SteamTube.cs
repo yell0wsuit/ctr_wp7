@@ -176,10 +176,7 @@ namespace ctr_wp7.game
                 foreach (KeyValuePair<int, BaseElement> keyValuePair in childs)
                 {
                     BaseElement value = keyValuePair.Value;
-                    if (value != null)
-                    {
-                        value.getTimeline(0).setTimelineLoopType(Timeline.LoopType.TIMELINE_NO_LOOP);
-                    }
+                    value?.getTimeline(0).setTimelineLoopType(Timeline.LoopType.TIMELINE_NO_LOOP);
                 }
             }
             if (steamFront != null)
@@ -188,10 +185,7 @@ namespace ctr_wp7.game
                 foreach (KeyValuePair<int, BaseElement> keyValuePair2 in childs2)
                 {
                     BaseElement value2 = keyValuePair2.Value;
-                    if (value2 != null)
-                    {
-                        value2.getTimeline(0).setTimelineLoopType(Timeline.LoopType.TIMELINE_NO_LOOP);
-                    }
+                    value2?.getTimeline(0).setTimelineLoopType(Timeline.LoopType.TIMELINE_NO_LOOP);
                 }
             }
             if (steamState != 3)
