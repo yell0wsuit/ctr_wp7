@@ -103,7 +103,7 @@ namespace ctr_wp7.Banner
         // Token: 0x06000455 RID: 1109 RVA: 0x0001E7A8 File Offset: 0x0001C9A8
         public string getString()
         {
-            string text = langs[Application.sharedAppSettings().getString(8).ToString()];
+            string text = langs[ApplicationSettings.getString(8).ToString()];
             if (text == null)
             {
                 return "";

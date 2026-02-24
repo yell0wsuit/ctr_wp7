@@ -11,7 +11,7 @@ namespace ctr_wp7.iframework.media
         public void playURL(NSString moviePath, bool mute)
         {
             bool flag = !MediaPlayer.GameHasControl && MediaPlayer.State == MediaState.Playing;
-            GamePage.MainPage.PlayMovie(moviePath, mute, delegateMovieMgrDelegate, flag);
+            GamePage.PlayMovie(moviePath, mute, delegateMovieMgrDelegate, flag);
         }
 
         // Token: 0x04000868 RID: 2152

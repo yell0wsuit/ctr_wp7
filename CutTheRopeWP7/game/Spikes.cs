@@ -191,7 +191,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0600027F RID: 639 RVA: 0x000103E5 File Offset: 0x0000E5E5
-        public void timelineReachedKeyFramewithIndex(Timeline t, KeyFrame k, int i)
+        public static void timelineReachedKeyFramewithIndex(Timeline t, KeyFrame k, int i)
         {
         }
 

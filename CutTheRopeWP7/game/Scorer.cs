@@ -18,7 +18,7 @@ namespace ctr_wp7.game
             {
                 return;
             }
-            GamePage.MainPage.PostLeaderboard(level, boxScore);
+            GamePage.PostLeaderboard(level, boxScore);
         }
 
         // Token: 0x06000401 RID: 1025 RVA: 0x0001C999 File Offset: 0x0001AB99
@@ -34,7 +34,7 @@ namespace ctr_wp7.game
                 {
                     return;
                 }
-                GamePage.MainPage.AwardAchievement(name.ToString());
+                GamePage.AwardAchievement(name.ToString());
             }
         }
 

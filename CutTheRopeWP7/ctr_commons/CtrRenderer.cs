@@ -210,7 +210,7 @@ namespace ctr_wp7.ctr_commons
             if (!gPaused)
             {
                 gPaused = true;
-                gApp?.applicationWillResignActive(null);
+                CTRApp.applicationWillResignActive(null);
                 CTRSoundMgr._pause();
                 Texture2D.suspendAll();
             }
@@ -231,7 +231,7 @@ namespace ctr_wp7.ctr_commons
                     if (!gameController.isGamePaused)
                     {
                         gameController.setPaused(true);
-                        gApp?.applicationDidBecomeActive(null);
+                        CTRApp.applicationDidBecomeActive(null);
                         return;
                     }
                 }
@@ -245,7 +245,7 @@ namespace ctr_wp7.ctr_commons
                     }
                 }
                 CTRSoundMgr._unpause();
-                gApp?.applicationDidBecomeActive(null);
+                CTRApp.applicationDidBecomeActive(null);
             }
         }
 

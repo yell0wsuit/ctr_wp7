@@ -89,7 +89,7 @@ namespace ctr_wp7.remotedata.cartoons
         }
 
         // Token: 0x06000297 RID: 663 RVA: 0x00010928 File Offset: 0x0000EB28
-        public void dumpContent()
+        public static void dumpContent()
         {
         }
 

@@ -58,7 +58,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x060002AA RID: 682 RVA: 0x00010E5C File Offset: 0x0000F05C
-        protected BaseElement buildAdBlock(Texture2D texture, NSString title)
+        protected static BaseElement buildAdBlock(Texture2D texture, NSString title)
         {
             int num = 403;
             int num2 = 10;

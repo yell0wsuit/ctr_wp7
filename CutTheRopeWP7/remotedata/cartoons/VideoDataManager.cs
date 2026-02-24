@@ -156,7 +156,7 @@ namespace ctr_wp7.remotedata.cartoons
         }
 
         // Token: 0x06000366 RID: 870 RVA: 0x000159CC File Offset: 0x00013BCC
-        protected void rebuildCartoonsSelect()
+        protected static void rebuildCartoonsSelect()
         {
             CartoonsSelectView.needrebuild = true;
         }
@@ -255,7 +255,7 @@ namespace ctr_wp7.remotedata.cartoons
                             {
                                 if (block.loadState == Block.LoadState.DONE)
                                 {
-                                    parrent.removeObject(block.getName());
+                                    removeObject(block.getName());
                                 }
                             }
                             if (order != parrent.blockConfig.getTotalBlocks())

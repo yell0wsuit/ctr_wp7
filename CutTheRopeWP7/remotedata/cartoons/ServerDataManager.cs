@@ -13,7 +13,7 @@ namespace ctr_wp7.remotedata.cartoons
     public abstract class ServerDataManager
     {
         // Token: 0x06000356 RID: 854 RVA: 0x0001523C File Offset: 0x0001343C
-        protected object readObject(string file, Type serializedObjectType)
+        protected static object readObject(string file, Type serializedObjectType)
         {
             object obj = null;
             using (IsolatedStorageFile userStoreForApplication = IsolatedStorageFile.GetUserStoreForApplication())
@@ -42,7 +42,7 @@ namespace ctr_wp7.remotedata.cartoons
         }
 
         // Token: 0x06000357 RID: 855 RVA: 0x000152D4 File Offset: 0x000134D4
-        protected bool saveObject(object obj, string file)
+        protected static bool saveObject(object obj, string file)
         {
             string text = file + ".bak";
             bool flag = false;
@@ -90,7 +90,7 @@ namespace ctr_wp7.remotedata.cartoons
         }
 
         // Token: 0x06000358 RID: 856 RVA: 0x000153E4 File Offset: 0x000135E4
-        protected bool saveBytes(byte[] bytes, string file)
+        protected static bool saveBytes(byte[] bytes, string file)
         {
             string text = file + ".bak";
             bool flag = false;
@@ -139,7 +139,7 @@ namespace ctr_wp7.remotedata.cartoons
         }
 
         // Token: 0x06000359 RID: 857 RVA: 0x000154F4 File Offset: 0x000136F4
-        protected internal void removeObject(string file)
+        protected internal static void removeObject(string file)
         {
             using (IsolatedStorageFile userStoreForApplication = IsolatedStorageFile.GetUserStoreForApplication())
             {
@@ -154,7 +154,7 @@ namespace ctr_wp7.remotedata.cartoons
         }
 
         // Token: 0x0600035A RID: 858 RVA: 0x0001553C File Offset: 0x0001373C
-        protected void removeObjects(string[] prefixes)
+        protected static void removeObjects(string[] prefixes)
         {
             using (IsolatedStorageFile userStoreForApplication = IsolatedStorageFile.GetUserStoreForApplication())
             {
@@ -193,8 +193,8 @@ namespace ctr_wp7.remotedata.cartoons
             }
             link.put("model", SystemInfo.getPhoneModel());
             link.put("os", SystemInfo.getOSVersion());
-            link.put("locale", Application.sharedAppSettings().getString(8));
-            link.put("lang", Application.sharedAppSettings().getString(8));
+            link.put("locale", ApplicationSettings.getString(8));
+            link.put("lang", ApplicationSettings.getString(8));
             link.put("version", text);
             link.put("net", SystemInfo.getNetworkType());
             link.put("store", SystemInfo.getAppMarket());

@@ -1,4 +1,5 @@
-﻿using ctr_wp7.ctr_original;
+﻿using ctr_wp7.Banner;
+using ctr_wp7.ctr_original;
 using ctr_wp7.game.remotedata;
 using ctr_wp7.iframework;
 using ctr_wp7.iframework.core;
@@ -57,7 +58,7 @@ namespace ctr_wp7.game
                 _ = background.addChild(button);
                 if (LANGUAGE != Language.LANG_ZH)
                 {
-                    _ = Application.sharedPreferences().remoteDataManager.getHideSocialNetworks();
+                    _ = RemoteDataManager.getHideSocialNetworks();
                 }
                 _ = background.addChild(baseElement);
                 _ = addChild(background);
@@ -108,7 +109,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000122 RID: 290 RVA: 0x0000A0AA File Offset: 0x000082AA
-        public bool isRebuildNeeded()
+        public static bool isRebuildNeeded()
         {
             return needrebuild;
         }

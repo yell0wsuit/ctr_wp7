@@ -19,7 +19,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x06000271 RID: 625 RVA: 0x0000FD2C File Offset: 0x0000DF2C
-        public Texture2D grab()
+        public static Texture2D grab()
         {
             return (Texture2D)new Texture2D().initFromPixels(0, 0, (int)REAL_SCREEN_WIDTH, (int)REAL_SCREEN_HEIGHT);
         }

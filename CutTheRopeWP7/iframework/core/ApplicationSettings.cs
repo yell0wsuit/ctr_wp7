@@ -8,7 +8,7 @@ namespace ctr_wp7.iframework.core
     internal sealed class ApplicationSettings : NSObject
     {
         // Token: 0x06000531 RID: 1329 RVA: 0x00026026 File Offset: 0x00024226
-        public int getInt(int s)
+        public static int getInt(int s)
         {
             if (s == 5)
             {
@@ -18,7 +18,7 @@ namespace ctr_wp7.iframework.core
         }
 
         // Token: 0x06000532 RID: 1330 RVA: 0x00026034 File Offset: 0x00024234
-        public NSString getString(int s)
+        public static NSString getString(int s)
         {
             if (s != 8)
             {

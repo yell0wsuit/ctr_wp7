@@ -183,7 +183,7 @@ internal sealed class CoppaController : ViewController, ButtonDelegate, Timeline
     }
 
     // Token: 0x06000676 RID: 1654 RVA: 0x000319DC File Offset: 0x0002FBDC
-    public NSString getAppName()
+    public static NSString getAppName()
     {
         return NSS("ctr");
     }

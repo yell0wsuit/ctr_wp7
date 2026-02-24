@@ -198,7 +198,7 @@ namespace ctr_wp7.iframework.core
             return texture2D;
         }
 
-        private Texture2D tryLoadTextureAsset(string contentKey, bool useLinearFilter, int format)
+        private static Texture2D tryLoadTextureAsset(string contentKey, bool useLinearFilter, int format)
         {
             if (useLinearFilter)
             {
@@ -279,7 +279,7 @@ namespace ctr_wp7.iframework.core
         }
 
         // Token: 0x06000340 RID: 832 RVA: 0x00014E18 File Offset: 0x00013018
-        private void setQuadsInfo(Texture2D t, float[] data, int size, float scaleX, float scaleY)
+        private static void setQuadsInfo(Texture2D t, float[] data, int size, float scaleX, float scaleY)
         {
             int num = data.Length / 4;
             t.setQuadsCapacity(num);
@@ -302,11 +302,11 @@ namespace ctr_wp7.iframework.core
             {
                 t._lowypoint = num2;
             }
-            t.optimizeMemory();
+            Texture2D.optimizeMemory();
         }
 
         // Token: 0x06000341 RID: 833 RVA: 0x00014EE8 File Offset: 0x000130E8
-        private void setOffsetsInfo(Texture2D t, float[] data, int size, float scaleX, float scaleY)
+        private static void setOffsetsInfo(Texture2D t, float[] data, int size, float scaleX, float scaleY)
         {
             int num = size / 2;
             for (int i = 0; i < num; i++)

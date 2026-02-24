@@ -11,7 +11,7 @@ namespace ctr_wp7.Banner
     internal sealed class RemoteDataManager : NSObject, ButtonDelegate
     {
         // Token: 0x060001AE RID: 430 RVA: 0x0000BE68 File Offset: 0x0000A068
-        private BannerSize getBannerSize()
+        private static BannerSize getBannerSize()
         {
             BannerSize bannerSize;
             bannerSize.width = 480;
@@ -85,7 +85,7 @@ namespace ctr_wp7.Banner
         }
 
         // Token: 0x060001B2 RID: 434 RVA: 0x0000C06F File Offset: 0x0000A26F
-        public void nextBanner()
+        public static void nextBanner()
         {
             if (remoteDataMgr == null)
             {
@@ -95,7 +95,7 @@ namespace ctr_wp7.Banner
         }
 
         // Token: 0x060001B3 RID: 435 RVA: 0x0000C083 File Offset: 0x0000A283
-        public void prevBanner()
+        public static void prevBanner()
         {
             if (remoteDataMgr == null)
             {
@@ -105,31 +105,31 @@ namespace ctr_wp7.Banner
         }
 
         // Token: 0x060001B4 RID: 436 RVA: 0x0000C097 File Offset: 0x0000A297
-        public bool hasSenseToRotateBanners()
+        public static bool hasSenseToRotateBanners()
         {
             return remoteDataMgr != null && remoteDataMgr.hasSenseToRotateBanners();
         }
 
         // Token: 0x060001B5 RID: 437 RVA: 0x0000C0AC File Offset: 0x0000A2AC
-        public bool getHideMainPromo()
+        public static bool getHideMainPromo()
         {
             return remoteDataMgr != null && remoteDataMgr.getHideMainPromo();
         }
 
         // Token: 0x060001B6 RID: 438 RVA: 0x0000C0C1 File Offset: 0x0000A2C1
-        public bool getHideSocialNetworks()
+        public static bool getHideSocialNetworks()
         {
             return remoteDataMgr != null && remoteDataMgr.getHideSocialNetworks();
         }
 
         // Token: 0x060001B7 RID: 439 RVA: 0x0000C0D6 File Offset: 0x0000A2D6
-        public bool getDefaultInterstitial()
+        public static bool getDefaultInterstitial()
         {
             return remoteDataMgr != null && remoteDataMgr.getDefaultInterstitial();
         }
 
         // Token: 0x060001B8 RID: 440 RVA: 0x0000C0EB File Offset: 0x0000A2EB
-        public int getBoxForCrossPromo()
+        public static int getBoxForCrossPromo()
         {
             if (remoteDataMgr == null)
             {
@@ -149,7 +149,7 @@ namespace ctr_wp7.Banner
                     "banner_id",
                     currentBanner.id.ToString(),
                     "language",
-                    Application.sharedAppSettings().getString(8).ToString(),
+                    ApplicationSettings.getString(8).ToString(),
                     "game_unlocked",
                     CTRPreferences.isLiteVersion() ? "0" : "1",
                 ];

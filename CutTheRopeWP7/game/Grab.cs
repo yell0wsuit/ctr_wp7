@@ -452,7 +452,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x060005B0 RID: 1456 RVA: 0x0002B700 File Offset: 0x00029900
-        protected void drawGrabCircle(Grab s, float x, float y, float radius, int vertexCount, RGBAColor color)
+        protected static void drawGrabCircle(Grab s, float x, float y, float radius, int vertexCount, RGBAColor color)
         {
             OpenGL.glColor4f(color.r, color.g, color.b, color.a);
             OpenGL.glDisableClientState(0);

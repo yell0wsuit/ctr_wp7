@@ -366,13 +366,13 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x06000088 RID: 136 RVA: 0x00006368 File Offset: 0x00004568
-        private BaseElement createFromXML(XMLNode xml)
+        private static BaseElement createFromXML(XMLNode xml)
         {
             return new BaseElement();
         }
 
         // Token: 0x06000089 RID: 137 RVA: 0x0000637C File Offset: 0x0000457C
-        private int parseAlignmentString(NSString s)
+        private static int parseAlignmentString(NSString s)
         {
             int num = 0;
             if (s.rangeOfString("LEFT").length > 0U)

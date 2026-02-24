@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
+using ctr_wp7.Banner;
 using ctr_wp7.ctr_original;
 using ctr_wp7.iframework;
 using ctr_wp7.iframework.core;
@@ -46,7 +47,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000629 RID: 1577 RVA: 0x0002EE40 File Offset: 0x0002D040
-        public BaseElement createBanner()
+        public static BaseElement createBanner()
         {
             BaseElement banner = Application.sharedPreferences().remoteDataManager.getBanner();
             if (banner != null)
@@ -225,7 +226,7 @@ namespace ctr_wp7.game
                             "banner_id",
                             "basic",
                             "language",
-                            Application.sharedAppSettings().getString(8).ToString(),
+                            ApplicationSettings.getString(8).ToString(),
                             "game_unlocked",
                             CTRPreferences.isLiteVersion() ? "0" : "1",
                         ];
@@ -242,11 +243,11 @@ namespace ctr_wp7.game
                     closeMainPromo();
                     return;
                 case 2:
-                    Application.sharedPreferences().remoteDataManager.prevBanner();
+                    RemoteDataManager.prevBanner();
                     changeBanner();
                     return;
                 case 3:
-                    Application.sharedPreferences().remoteDataManager.nextBanner();
+                    RemoteDataManager.nextBanner();
                     changeBanner();
                     return;
                 default:
@@ -273,7 +274,7 @@ namespace ctr_wp7.game
         // Token: 0x0600062F RID: 1583 RVA: 0x0002F90A File Offset: 0x0002DB0A
         public void timelineFinished(Timeline t)
         {
-            Application.sharedPreferences().remoteDataManager.nextBanner();
+            RemoteDataManager.nextBanner();
             changeBanner();
         }
 
@@ -295,7 +296,7 @@ namespace ctr_wp7.game
         // Token: 0x06000632 RID: 1586 RVA: 0x0002F960 File Offset: 0x0002DB60
         public void checkSwitchButtons()
         {
-            bool flag = Application.sharedPreferences().remoteDataManager != null && Application.sharedPreferences().remoteDataManager.hasSenseToRotateBanners();
+            bool flag = RemoteDataManager.hasSenseToRotateBanners();
             promoBanner.getChildWithName("promoSwitchLeftButton").setEnabled(flag);
             promoBanner.getChildWithName("promoSwitchRightButton").setEnabled(flag);
         }

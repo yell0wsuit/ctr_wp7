@@ -156,7 +156,7 @@ namespace ctr_wp7.Banner
         }
 
         // Token: 0x0600075A RID: 1882 RVA: 0x0003AEDC File Offset: 0x000390DC
-        protected List<int> convertArray(string[] arr)
+        protected static List<int> convertArray(string[] arr)
         {
             List<int> list = [arr.Length];
             int num = 0;

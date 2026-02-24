@@ -633,7 +633,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x060007D4 RID: 2004 RVA: 0x0003D684 File Offset: 0x0003B884
-        public bool unlockNextLevel()
+        public static bool unlockNextLevel()
         {
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
             int pack = ctrrootController.getPack();

@@ -1,4 +1,5 @@
-﻿using ctr_wp7.ctr_original;
+﻿using ctr_wp7.Banner;
+using ctr_wp7.ctr_original;
 using ctr_wp7.iframework;
 using ctr_wp7.iframework.core;
 using ctr_wp7.iframework.visual;
@@ -159,7 +160,7 @@ namespace ctr_wp7.game
                 case 1:
                     return true;
                 case 2:
-                    return !Application.sharedPreferences().remoteDataManager.getHideSocialNetworks();
+                    return !RemoteDataManager.getHideSocialNetworks();
                 default:
                     return false;
             }
@@ -288,7 +289,7 @@ namespace ctr_wp7.game
             BaseElement baseElement2 = null;
             float num = 25f;
             float num2 = 0f;
-            _ = Application.sharedAppSettings().getString(8).isEqualToString("zh");
+            _ = ApplicationSettings.getString(8).isEqualToString("zh");
             VBox vbox = new VBox().initWithOffsetAlignWidth(30.0, 2, (double)num2 + ((double)(SCREEN_WIDTH_EXPANDED - num2) / 2.0) + (double)num);
             vbox.x = num;
             vbox.parentAnchor = vbox.anchor = 10;

@@ -147,7 +147,7 @@ namespace ctr_wp7.iframework.core
         }
 
         // Token: 0x060003D4 RID: 980 RVA: 0x000182AC File Offset: 0x000164AC
-        public void _deleteKey(string k, bool comit)
+        public static void _deleteKey(string k, bool comit)
         {
             if (dataStrings_.TryGetValue(k, out _))
             {
@@ -165,7 +165,7 @@ namespace ctr_wp7.iframework.core
         }
 
         // Token: 0x060003D5 RID: 981 RVA: 0x000182F8 File Offset: 0x000164F8
-        public void _deleteKeysStartWith(string ks, bool comit)
+        public static void _deleteKeysStartWith(string ks, bool comit)
         {
             List<string> list = [];
             foreach (KeyValuePair<string, string> keyValuePair in dataStrings_)

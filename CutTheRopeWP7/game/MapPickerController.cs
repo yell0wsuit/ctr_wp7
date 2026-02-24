@@ -80,7 +80,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000496 RID: 1174 RVA: 0x00021A5E File Offset: 0x0001FC5E
-        public void loadList()
+        public static void loadList()
         {
         }
 
@@ -102,7 +102,7 @@ namespace ctr_wp7.game
                 }
                 ctrrootController.setMap(rootNode);
                 ctrrootController.setMapName(selectedMap);
-                ctrrootController.setMapsList(maplist);
+                CTRRootController.setMapsList(maplist);
                 deactivate();
             }
         }

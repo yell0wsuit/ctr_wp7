@@ -417,7 +417,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x060005FE RID: 1534 RVA: 0x0002D867 File Offset: 0x0002BA67
-        private BaseElement createFromXML(XMLNode xml)
+        private static BaseElement createFromXML(XMLNode xml)
         {
             return null;
         }

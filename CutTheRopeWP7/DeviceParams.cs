@@ -9,25 +9,25 @@ using Microsoft.Xna.Framework.GamerServices;
 internal sealed class DeviceParams
 {
     // Token: 0x06000741 RID: 1857 RVA: 0x0003AA5C File Offset: 0x00038C5C
-    public bool isEnglishISO(string s)
+    public static bool isEnglishISO(string s)
     {
         return (s[0] == 'e' && s[1] == 's') || s == "en-US";
     }
 
     // Token: 0x06000742 RID: 1858 RVA: 0x0003AA84 File Offset: 0x00038C84
-    private string getDeviceLanguage2L()
+    private static string getDeviceLanguage2L()
     {
         return CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
     }
 
     // Token: 0x06000743 RID: 1859 RVA: 0x0003AA90 File Offset: 0x00038C90
-    private string getDeviceLanguageName()
+    private static string getDeviceLanguageName()
     {
         return Thread.CurrentThread.CurrentCulture.Name;
     }
 
     // Token: 0x06000744 RID: 1860 RVA: 0x0003AAA4 File Offset: 0x00038CA4
-    public int getTimeZoneOffset()
+    public static int getTimeZoneOffset()
     {
         return TimeZoneInfo.Local.BaseUtcOffset.Hours;
     }

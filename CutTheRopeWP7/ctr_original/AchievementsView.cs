@@ -11,7 +11,7 @@ namespace ctr_wp7.ctr_original
             Init = achievements != null;
         }
 
-        public void resetScroll()
+        public static void resetScroll()
         {
         }
     }

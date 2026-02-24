@@ -27,7 +27,7 @@ namespace ctr_wp7.game.remotedata
         // Token: 0x060007A6 RID: 1958 RVA: 0x0003C36C File Offset: 0x0003A56C
         public override NSString getUrl()
         {
-            if (!Application.sharedAppSettings().getString(8).isEqualToString(NSS("zh")))
+            if (!ApplicationSettings.getString(8).isEqualToString(NSS("zh")))
             {
                 return NSS("vnd.youtube:bj3cbCE56wQ?vndapp=youtube_mobile");
             }

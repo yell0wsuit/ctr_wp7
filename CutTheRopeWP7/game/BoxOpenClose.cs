@@ -201,7 +201,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000476 RID: 1142 RVA: 0x0001F5C8 File Offset: 0x0001D7C8
-        public BaseElement createConfettiParticleNear(Vector p)
+        public static BaseElement createConfettiParticleNear(Vector p)
         {
             Confetti confetti = Confetti.Confetti_createWithResID(95);
             confetti.doRestoreCutTransparency();

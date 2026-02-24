@@ -65,10 +65,10 @@ namespace ctr_wp7.Banner
             _ = Environment.OSVersion.Version.Minor;
             string osversion = SystemInfo.getOSVersion();
             string appVersion = SystemInfo.getAppVersion();
-            string text = deviceParams.getTimeZoneOffset().ToString();
+            string text = DeviceParams.getTimeZoneOffset().ToString();
             _ = SystemInfo.getNetworkType().ToString();
             string phoneModel = SystemInfo.getPhoneModel();
-            string text2 = Application.sharedAppSettings().getString(8).ToString();
+            string text2 = ApplicationSettings.getString(8).ToString();
             string appMarket = SystemInfo.getAppMarket();
             string text3 = string.Format("{0}&app={1}&platform={2}&d=480x300&set={3}&w={4}&h={5}&fv={6}&osversion={7}&version={8}&sisterapps=&model={9}&tz={10}&locale={11}&store={12}", new object[]
             {
@@ -96,7 +96,7 @@ namespace ctr_wp7.Banner
         }
 
         // Token: 0x06000223 RID: 547 RVA: 0x0000E63C File Offset: 0x0000C83C
-        public string getAdditionalParameters()
+        public static string getAdditionalParameters()
         {
             return "";
         }
@@ -384,7 +384,7 @@ namespace ctr_wp7.Banner
         }
 
         // Token: 0x06000232 RID: 562 RVA: 0x0000ED9C File Offset: 0x0000CF9C
-        public bool isValid(Banner banner)
+        public static bool isValid(Banner banner)
         {
             return banner != null && banner.saved;
         }

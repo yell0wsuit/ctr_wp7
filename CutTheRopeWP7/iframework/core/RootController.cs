@@ -82,12 +82,12 @@ namespace ctr_wp7.iframework.core
                     }
                 }
                 OpenGL.glPopMatrix();
-                Application.sharedCanvas().afterRender();
+                GLCanvas.afterRender();
             }
         }
 
         // Token: 0x06000407 RID: 1031 RVA: 0x0001CBD1 File Offset: 0x0001ADD1
-        private void applyLandscape()
+        private static void applyLandscape()
         {
         }
 
@@ -116,7 +116,7 @@ namespace ctr_wp7.iframework.core
             OpenGL.glEnable(0);
             OpenGL.glEnable(1);
             OpenGL.glBlendFunc(BlendingFactor.GL_SRC_ALPHA, BlendingFactor.GL_ONE_MINUS_SRC_ALPHA);
-            Application.sharedCanvas().setDefaultRealProjection();
+            GLCanvas.setDefaultRealProjection();
             switch (viewTransition)
             {
                 case 4:
@@ -194,7 +194,7 @@ namespace ctr_wp7.iframework.core
         }
 
         // Token: 0x0600040D RID: 1037 RVA: 0x0001CF99 File Offset: 0x0001B199
-        private void runLoop()
+        private static void runLoop()
         {
         }
 
@@ -233,7 +233,7 @@ namespace ctr_wp7.iframework.core
         {
             if (viewTransition != -1 && previousView != null)
             {
-                Application.sharedCanvas().setDefaultProjection();
+                GLCanvas.setDefaultProjection();
                 OpenGL.glClearColor(0.0, 0.0, 0.0, 1.0);
                 OpenGL.glClear(0);
                 transitionTime = lastTime + transitionDelay;
@@ -244,7 +244,7 @@ namespace ctr_wp7.iframework.core
                 {
                     nextScreenImage.xnaTexture_.Dispose();
                 }
-                nextScreenImage = screenGrabber.grab();
+                nextScreenImage = Grabber.grab();
                 _ = NSRET(nextScreenImage);
                 OpenGL.glLoadIdentity();
             }
@@ -256,7 +256,7 @@ namespace ctr_wp7.iframework.core
             previousView = v;
             if (viewTransition != -1 && previousView != null)
             {
-                Application.sharedCanvas().setDefaultProjection();
+                GLCanvas.setDefaultProjection();
                 OpenGL.glClearColor(0.0, 0.0, 0.0, 1.0);
                 OpenGL.glClear(0);
                 applyLandscape();
@@ -266,7 +266,7 @@ namespace ctr_wp7.iframework.core
                 {
                     prevScreenImage.xnaTexture_.Dispose();
                 }
-                prevScreenImage = screenGrabber.grab();
+                prevScreenImage = Grabber.grab();
                 _ = NSRET(prevScreenImage);
                 OpenGL.glLoadIdentity();
             }

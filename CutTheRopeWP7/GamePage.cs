@@ -7,16 +7,16 @@ namespace ctr_wp7
     {
         public static GamePage MainPage { get; } = new();
 
-        internal void PlayMovie(NSString path, bool mute, MovieMgrDelegate delegateMovieMgr, bool resumeMusicAfterOnVideoEnds)
+        internal static void PlayMovie(NSString path, bool mute, MovieMgrDelegate delegateMovieMgr, bool resumeMusicAfterOnVideoEnds)
         {
             delegateMovieMgr?.moviePlaybackFinished(path);
         }
 
-        public void AwardAchievement(string name)
+        public static void AwardAchievement(string name)
         {
         }
 
-        public void PostLeaderboard(int pack, int score)
+        public static void PostLeaderboard(int pack, int score)
         {
         }
     }

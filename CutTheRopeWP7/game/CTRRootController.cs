@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using ctr_wp7.ctr_commons;
 using ctr_wp7.ctr_original;
 using ctr_wp7.iframework.core;
+using ctr_wp7.iframework.visual;
 using ctr_wp7.ios;
 
 using Microsoft.Xna.Framework;
@@ -40,7 +41,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000425 RID: 1061 RVA: 0x0001D29A File Offset: 0x0001B49A
-        public void setMapsList(Dictionary<string, XMLNode> l)
+        public static void setMapsList(Dictionary<string, XMLNode> l)
         {
         }
 
@@ -83,7 +84,7 @@ namespace ctr_wp7.game
             activateChild(0);
             Application.sharedCanvas().beforeRender();
             activeChild().activeView().draw();
-            Application.sharedCanvas().afterRender();
+            GLCanvas.afterRender();
             CTRPreferences.setGameSessionsCount(CTRPreferences.getGameSessionsCount() + 1);
         }
 
@@ -97,12 +98,12 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x0600042B RID: 1067 RVA: 0x0001D38E File Offset: 0x0001B58E
-        public void disableGameCenter()
+        public static void disableGameCenter()
         {
         }
 
         // Token: 0x0600042C RID: 1068 RVA: 0x0001D390 File Offset: 0x0001B590
-        public void enableGameCenter()
+        public static void enableGameCenter()
         {
         }
 

@@ -38,7 +38,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x060000CA RID: 202 RVA: 0x00007068 File Offset: 0x00005268
-        public void afterRender()
+        public static void afterRender()
         {
         }
 
@@ -81,7 +81,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x060000CE RID: 206 RVA: 0x0000714C File Offset: 0x0000534C
-        public void setDefaultProjection()
+        public static void setDefaultProjection()
         {
             OpenGL.glViewport(0.0, 0.0, REAL_SCREEN_WIDTH, REAL_SCREEN_HEIGHT);
             OpenGL.glMatrixMode(15);
@@ -92,7 +92,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x060000CF RID: 207 RVA: 0x000071D4 File Offset: 0x000053D4
-        public void setDefaultRealProjection()
+        public static void setDefaultRealProjection()
         {
             OpenGL.glViewport(0.0, 0.0, REAL_SCREEN_WIDTH, REAL_SCREEN_HEIGHT);
             OpenGL.glMatrixMode(15);
@@ -103,7 +103,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x060000D0 RID: 208 RVA: 0x00007251 File Offset: 0x00005451
-        public void destroyFramebuffer()
+        public static void destroyFramebuffer()
         {
         }
 

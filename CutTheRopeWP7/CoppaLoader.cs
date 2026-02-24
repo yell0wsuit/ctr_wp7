@@ -19,7 +19,7 @@ internal sealed class CoppaLoader
     }
 
     // Token: 0x0600036D RID: 877 RVA: 0x00015DD9 File Offset: 0x00013FD9
-    private void fetchXml()
+    private static void fetchXml()
     {
     }
 

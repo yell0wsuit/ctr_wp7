@@ -100,7 +100,7 @@ namespace ctr_wp7.game
                 OpenGL.SetWhiteColor();
                 OpenGL.glEnable(0);
             }
-            gameScene.drawDrawing();
+            GameScene.drawDrawing();
         }
 
         // Token: 0x06000538 RID: 1336 RVA: 0x00026422 File Offset: 0x00024622

@@ -4,7 +4,7 @@ namespace ctr_wp7.ctr_original
 {
     internal sealed class LeaderboardsView : View
     {
-        public void resetScroll()
+        public static void resetScroll()
         {
         }
     }

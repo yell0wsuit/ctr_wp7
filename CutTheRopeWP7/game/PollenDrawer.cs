@@ -107,7 +107,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000639 RID: 1593 RVA: 0x0002FD53 File Offset: 0x0002DF53
-        private int WVGAD(int V)
+        private static int WVGAD(int V)
         {
             if (!IS_WVGA)
             {

@@ -9,7 +9,7 @@ namespace ctr_wp7.game
     internal sealed class BoxFabricOriginal : BoxFabric
     {
         // Token: 0x06000738 RID: 1848 RVA: 0x0003A510 File Offset: 0x00038710
-        public BaseElement buildBox(int quad)
+        public static BaseElement buildBox(int quad)
         {
             Image image = Image.Image_createWithResIDQuad(399, quad);
             image.doRestoreCutTransparency();

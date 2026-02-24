@@ -390,7 +390,7 @@ namespace ctr_wp7.iframework.visual
         {
             if (base.init() != null)
             {
-                float num = Application.sharedAppSettings().getInt(5);
+                float num = ApplicationSettings.getInt(5);
                 fixedDelta = (float)(1.0 / (double)num);
                 spoints = null;
                 spointsNum = -1;

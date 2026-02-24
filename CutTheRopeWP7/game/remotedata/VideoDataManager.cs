@@ -19,7 +19,7 @@ namespace ctr_wp7.game.remotedata
             if (videoDataMgr != null)
             {
                 string text = "ctr";
-                NSString @string = Application.sharedAppSettings().getString(8);
+                NSString @string = ApplicationSettings.getString(8);
                 if (@string.isEqualToString("zh"))
                 {
                     text += "_zh";
@@ -57,7 +57,7 @@ namespace ctr_wp7.game.remotedata
             if (videoDataMgr != null)
             {
                 string text = "ctr";
-                NSString @string = Application.sharedAppSettings().getString(8);
+                NSString @string = ApplicationSettings.getString(8);
                 if (@string.isEqualToString("zh"))
                 {
                 }

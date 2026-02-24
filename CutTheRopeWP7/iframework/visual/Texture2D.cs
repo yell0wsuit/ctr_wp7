@@ -262,7 +262,7 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x06000263 RID: 611 RVA: 0x0000FA13 File Offset: 0x0000DC13
-        private void resume()
+        private static void resume()
         {
         }
 
@@ -273,12 +273,12 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x06000265 RID: 613 RVA: 0x0000FA1D File Offset: 0x0000DC1D
-        public void optimizeMemory()
+        public static void optimizeMemory()
         {
         }
 
         // Token: 0x06000266 RID: 614 RVA: 0x0000FA28 File Offset: 0x0000DC28
-        public void suspend()
+        public static void suspend()
         {
         }
 
@@ -287,7 +287,7 @@ namespace ctr_wp7.iframework.visual
         {
             for (Texture2D texture2D = root; texture2D != null; texture2D = texture2D.next)
             {
-                texture2D.suspend();
+                suspend();
             }
         }
 
@@ -296,7 +296,7 @@ namespace ctr_wp7.iframework.visual
         {
             for (Texture2D texture2D = root; texture2D != null; texture2D = texture2D.next)
             {
-                texture2D.resume();
+                resume();
             }
         }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Threading;
 
+using ctr_wp7.Banner;
 using ctr_wp7.ctr_commons;
 using ctr_wp7.game;
 using ctr_wp7.game.remotedata;
@@ -32,7 +33,7 @@ namespace ctr_wp7.ctr_original
         }
 
         // Token: 0x06000695 RID: 1685 RVA: 0x00032E98 File Offset: 0x00031098
-        private void setElementPositionWithRelativeQuadOffset2(BaseElement e, int textureID, int quadToCountFrom, int textureID2, int quad)
+        private static void setElementPositionWithRelativeQuadOffset2(BaseElement e, int textureID, int quadToCountFrom, int textureID2, int quad)
         {
             Vector quadOffset = Image.getQuadOffset(textureID, quadToCountFrom);
             Vector quadOffset2 = Image.getQuadOffset(textureID2, quad);
@@ -659,7 +660,7 @@ namespace ctr_wp7.ctr_original
             _ = Application.getTexture(72);
             if (LANGUAGE != Language.LANG_ZH)
             {
-                _ = Application.sharedPreferences().remoteDataManager.getHideSocialNetworks();
+                _ = RemoteDataManager.getHideSocialNetworks();
             }
             _ = CTRPreferences.isBannersMustBeShown();
             _ = image.addChild(vbox);
@@ -698,7 +699,7 @@ namespace ctr_wp7.ctr_original
             ddMainMenu.cancelAllDispatches();
             ddMainMenu.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(selector_playHandAnimation), null, 3f);
             _ = menuView.addChild(image);
-            if (!Application.sharedPreferences().remoteDataManager.getHideMainPromo())
+            if (!RemoteDataManager.getHideMainPromo())
             {
                 PromoBanner promoBanner = (PromoBanner)new PromoBanner().init();
                 promoBanner.setName("promoBanner");
@@ -1849,7 +1850,7 @@ namespace ctr_wp7.ctr_original
                         FlurryAPI.logEvent("SETSCR_ACHIEVEMENTS_PRESSED", null);
                         if (AchievementsView.Init)
                         {
-                            ((AchievementsView)views[8]).resetScroll();
+                            AchievementsView.resetScroll();
                             showView(ViewID.VIEW_ACHIEVEMENTS);
                             return;
                         }
@@ -1895,7 +1896,7 @@ namespace ctr_wp7.ctr_original
                                 FlurryAPI.logEvent("SEASONSEL_CARTOONS_PRESSED", null);
                             }
                             CartoonsSelectView cartoonsSelectView2 = (CartoonsSelectView)getView(ViewID.VIEW_CARTOONS_SELECT);
-                            if (cartoonsSelectView2.isRebuildNeeded())
+                            if (CartoonsSelectView.isRebuildNeeded())
                             {
                                 cartoonsSelectView2.rebuild();
                             }
@@ -2166,7 +2167,7 @@ namespace ctr_wp7.ctr_original
         }
 
         // Token: 0x060006CF RID: 1743 RVA: 0x00037AB3 File Offset: 0x00035CB3
-        private void updateNewDrawingsCounter()
+        private static void updateNewDrawingsCounter()
         {
         }
 
@@ -2227,7 +2228,7 @@ namespace ctr_wp7.ctr_original
         }
 
         // Token: 0x060006D5 RID: 1749 RVA: 0x00037BE8 File Offset: 0x00035DE8
-        private void showPopup(BaseElement parent, BaseElement message, BaseElement buttons)
+        private static void showPopup(BaseElement parent, BaseElement message, BaseElement buttons)
         {
             Popup popup = (Popup)new Popup().init();
             popup.setName(NSS("popup"));

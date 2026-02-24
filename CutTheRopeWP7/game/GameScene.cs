@@ -3477,7 +3477,7 @@ namespace ctr_wp7.game
         // Token: 0x06000820 RID: 2080 RVA: 0x00048DDC File Offset: 0x00046FDC
         public static bool shouldSkipTutorialElement(XMLNode c)
         {
-            NSString @string = Application.sharedAppSettings().getString(8);
+            NSString @string = ApplicationSettings.getString(8);
             NSString nsstring = c["locale"];
             if (@string.isEqualToString(NSS("en")) || @string.isEqualToString(NSS("ru")) || @string.isEqualToString(NSS("de")) || @string.isEqualToString(NSS("fr")) || @string.isEqualToString(NSS("zh")) || @string.isEqualToString(NSS("ja")) || @string.isEqualToString(NSS("ko")) || @string.isEqualToString(NSS("es")) || @string.isEqualToString(NSS("it")) || @string.isEqualToString(NSS("br")) || @string.isEqualToString(NSS("nl")))
             {
@@ -3696,7 +3696,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000823 RID: 2083 RVA: 0x000496BC File Offset: 0x000478BC
-        public void handlePumpFlowPtSkin(Pump p, ConstraintedPoint s, GameObject c)
+        public static void handlePumpFlowPtSkin(Pump p, ConstraintedPoint s, GameObject c)
         {
             float num = 200f;
             if (GameObject.rectInObject(p.x - num, p.y - num, p.x + num, p.y + num, c))
@@ -3723,7 +3723,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000824 RID: 2084 RVA: 0x00049878 File Offset: 0x00047A78
-        public void handleBouncePtDelta(Bouncer b, ConstraintedPoint s, float delta)
+        public static void handleBouncePtDelta(Bouncer b, ConstraintedPoint s, float delta)
         {
             if (b.skip)
             {
@@ -3815,7 +3815,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000829 RID: 2089 RVA: 0x00049CD9 File Offset: 0x00047ED9
-        public void drawDrawing()
+        public static void drawDrawing()
         {
         }
 
@@ -3857,7 +3857,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000830 RID: 2096 RVA: 0x00049D18 File Offset: 0x00047F18
-        private void drawCut(Vector fls, Vector frs, Vector start, Vector end, float startSize, float endSize, RGBAColor c, ref Vector le, ref Vector re)
+        private static void drawCut(Vector fls, Vector frs, Vector start, Vector end, float startSize, float endSize, RGBAColor c, ref Vector le, ref Vector re)
         {
             Vector vector = vectSub(end, start);
             Vector vector2 = vectNormalize(vector);
@@ -3874,7 +3874,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000831 RID: 2097 RVA: 0x00049E28 File Offset: 0x00048028
-        private float maxOf4(float v1, float v2, float v3, float v4)
+        private static float maxOf4(float v1, float v2, float v3, float v4)
         {
             if (v1 >= v2 && v1 >= v3 && v1 >= v4)
             {
@@ -3896,7 +3896,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000832 RID: 2098 RVA: 0x00049E7C File Offset: 0x0004807C
-        private float minOf4(float v1, float v2, float v3, float v4)
+        private static float minOf4(float v1, float v2, float v3, float v4)
         {
             if (v1 <= v2 && v1 <= v3 && v1 <= v4)
             {
@@ -3929,7 +3929,7 @@ namespace ctr_wp7.game
         }
 
         // Token: 0x06000834 RID: 2100 RVA: 0x00049F5C File Offset: 0x0004815C
-        private void postGameEvent(string _string, Dictionary<string, string> dict = null, bool mixpanel = false)
+        private static void postGameEvent(string _string, Dictionary<string, string> dict = null, bool mixpanel = false)
         {
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
             int num = ctrrootController.getPack();
