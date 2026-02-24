@@ -9,14 +9,8 @@ namespace ctr_wp7
         // Token: 0x060002AE RID: 686 RVA: 0x00011868 File Offset: 0x0000FA68
         public void AddService(Type serviceType, object service)
         {
-            if (serviceType == null)
-            {
-                throw new ArgumentNullException("serviceType");
-            }
-            if (service == null)
-            {
-                throw new ArgumentNullException("service");
-            }
+            ArgumentNullException.ThrowIfNull(serviceType);
+            ArgumentNullException.ThrowIfNull(service);
             if (!serviceType.IsAssignableFrom(service.GetType()))
             {
                 throw new ArgumentException("service does not match the specified serviceType");
@@ -27,20 +21,14 @@ namespace ctr_wp7
         // Token: 0x060002AF RID: 687 RVA: 0x000118B7 File Offset: 0x0000FAB7
         public object GetService(Type serviceType)
         {
-            if (serviceType == null)
-            {
-                throw new ArgumentNullException("serviceType");
-            }
+            ArgumentNullException.ThrowIfNull(serviceType);
             return services[serviceType];
         }
 
         // Token: 0x060002B0 RID: 688 RVA: 0x000118D3 File Offset: 0x0000FAD3
         public void RemoveService(Type serviceType)
         {
-            if (serviceType == null)
-            {
-                throw new ArgumentNullException("serviceType");
-            }
+            ArgumentNullException.ThrowIfNull(serviceType);
             _ = services.Remove(serviceType);
         }
 

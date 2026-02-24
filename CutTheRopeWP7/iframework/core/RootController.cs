@@ -54,7 +54,7 @@ namespace ctr_wp7.iframework.core
         {
             if (currentController.activeViewID != -1)
             {
-                Application.sharedCanvas().beforeRender();
+                GLCanvas.beforeRender();
                 OpenGL.glPushMatrix();
                 applyLandscape();
                 if (transitionTime == -1f)

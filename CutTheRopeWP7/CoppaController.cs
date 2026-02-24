@@ -176,7 +176,7 @@ internal sealed class CoppaController : ViewController, ButtonDelegate, Timeline
     }
 
     // Token: 0x06000675 RID: 1653 RVA: 0x000319AC File Offset: 0x0002FBAC
-    public void trackCoppaParams(int age)
+    public static void trackCoppaParams(int age)
     {
         string text = string.Format("{0}age={1}&app={2}", COPPA_URL, age, getAppName());
         _ = WebRequest.Create(text);

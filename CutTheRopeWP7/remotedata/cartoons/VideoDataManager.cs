@@ -282,9 +282,9 @@ namespace ctr_wp7.remotedata.cartoons
                 if (textsaving && currentlang != null)
                 {
                     StringBuilder stringBuilder;
-                    if (writeblock.langs.ContainsKey(currentlang))
+                    if (writeblock.langs.TryGetValue(currentlang, out string value))
                     {
-                        stringBuilder = new StringBuilder(writeblock.langs[currentlang]);
+                        stringBuilder = new StringBuilder(value);
                     }
                     else
                     {

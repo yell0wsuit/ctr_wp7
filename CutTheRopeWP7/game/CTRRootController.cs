@@ -82,7 +82,7 @@ namespace ctr_wp7.game
             _ = CTRPreferences.isFirstLaunch();
             base.activate();
             activateChild(0);
-            Application.sharedCanvas().beforeRender();
+            GLCanvas.beforeRender();
             activeChild().activeView().draw();
             GLCanvas.afterRender();
             CTRPreferences.setGameSessionsCount(CTRPreferences.getGameSessionsCount() + 1);

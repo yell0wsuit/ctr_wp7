@@ -23,13 +23,13 @@ namespace ctr_wp7.iframework.visual
         }
 
         // Token: 0x060000C8 RID: 200 RVA: 0x00007044 File Offset: 0x00005244
-        public void hide()
+        public static void hide()
         {
             destroyFramebuffer();
         }
 
         // Token: 0x060000C9 RID: 201 RVA: 0x0000704C File Offset: 0x0000524C
-        public void beforeRender()
+        public static void beforeRender()
         {
             setDefaultProjection();
             OpenGL.glDisable(1);

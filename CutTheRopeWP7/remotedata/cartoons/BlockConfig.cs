@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace ctr_wp7.remotedata.cartoons
@@ -37,7 +38,7 @@ namespace ctr_wp7.remotedata.cartoons
         public Block getBlockWithIDandHash(string id, string hash)
         {
             _ = blocks.TryGetValue(id, out Block block);
-            if (block == null || !block.hash.Equals(hash))
+            if (block == null || !block.hash.Equals(hash, StringComparison.Ordinal))
             {
                 block = new Block();
                 blocks[id] = block;

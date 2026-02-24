@@ -33,14 +33,14 @@ internal sealed class DeviceParams
     }
 
     // Token: 0x06000745 RID: 1861 RVA: 0x0003AAC4 File Offset: 0x00038CC4
-    public bool isEnglishDevice()
+    public static bool isEnglishDevice()
     {
         int timeZoneOffset = getTimeZoneOffset();
         return isEnglishISO(getDeviceLanguageName()) && timeZoneOffset >= -11 && timeZoneOffset <= -4 && timeZoneOffset != -9;
     }
 
     // Token: 0x06000746 RID: 1862 RVA: 0x0003AAF8 File Offset: 0x00038CF8
-    private string string_isEnglishDevice()
+    private static string string_isEnglishDevice()
     {
         if (isEnglishDevice())
         {
@@ -50,7 +50,7 @@ internal sealed class DeviceParams
     }
 
     // Token: 0x06000747 RID: 1863 RVA: 0x0003AB18 File Offset: 0x00038D18
-    public void ShowMessageBox()
+    public static void ShowMessageBox()
     {
         string text = "Is english device";
         string text2 = string_isEnglishDevice();
