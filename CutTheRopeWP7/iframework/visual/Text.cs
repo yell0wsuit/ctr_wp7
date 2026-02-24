@@ -114,7 +114,7 @@ namespace ctr_wp7.iframework.visual
             NSString nsstring = NSS("..");
             char[] characters = nsstring.getCharacters();
             int num4 = (int)font.getCharOffset(characters, 0, 2);
-            int num5 = (int)((maxHeight == -1f) ? ((float)formattedStrings.Count) : MIN((float)formattedStrings.Count, maxHeight / ((float)num2 + font.getLineOffset())));
+            int num5 = (int)((maxHeight == -1f) ? formattedStrings.Count : MIN(formattedStrings.Count, maxHeight / (num2 + font.getLineOffset())));
             bool flag = num5 != formattedStrings.Count;
             int num6 = 0;
             for (int i = 0; i < num5; i++)
@@ -155,19 +155,19 @@ namespace ctr_wp7.iframework.visual
                         if (flag && i == num5 - 1)
                         {
                             int num9 = (int)font.getCharWidth('.');
-                            if (j == num7 - 1 || (j == num7 - 2 && num8 + (float)(3 * (num9 + num4)) + font.getCharWidth(' ') > wrapWidth))
+                            if (j == num7 - 1 || (j == num7 - 2 && num8 + 3 * (num9 + num4) + font.getCharWidth(' ') > wrapWidth))
                             {
                                 mapCharAtXYatIndex(characters2[j], num8, num, num3++);
-                                num8 += (float)(num9 + num4);
+                                num8 += num9 + num4;
                                 mapCharAtXYatIndex(characters2[j], num8, num, num3++);
-                                num8 += (float)(num9 + num4);
+                                num8 += num9 + num4;
                                 mapCharAtXYatIndex(characters2[j], num8, num, num3++);
                                 break;
                             }
                         }
                     }
                 }
-                num += (float)num2 + font.getLineOffset();
+                num += num2 + font.getLineOffset();
             }
             stringLength = num3;
             if (formattedStrings.Count <= 1)
@@ -177,12 +177,12 @@ namespace ctr_wp7.iframework.visual
             }
             else
             {
-                height = (int)((font.fontHeight() + font.getLineOffset()) * (float)formattedStrings.Count - font.getLineOffset());
+                height = (int)((font.fontHeight() + font.getLineOffset()) * formattedStrings.Count - font.getLineOffset());
                 width = (int)wrapWidth;
             }
             if (maxHeight != -1f)
             {
-                height = (int)MIN((float)height, maxHeight);
+                height = (int)MIN(height, maxHeight);
             }
         }
 
@@ -222,7 +222,7 @@ namespace ctr_wp7.iframework.visual
             NSString nsstring = NSS("..");
             char[] characters2 = nsstring.getCharacters();
             int num7 = (int)font.getCharOffset(characters2, 0, 2);
-            int num8 = (int)((maxHeight == -1f) ? ((float)formattedStrings.Count) : MIN((float)formattedStrings.Count, maxHeight / ((float)num5 + font.getLineOffset())));
+            int num8 = (int)((maxHeight == -1f) ? formattedStrings.Count : MIN(formattedStrings.Count, maxHeight / (num5 + font.getLineOffset())));
             bool flag = num8 != formattedStrings.Count;
             int[] array2 = new int[num];
             for (int k = 0; k < num8; k++)
@@ -269,19 +269,19 @@ namespace ctr_wp7.iframework.visual
                             int charQuad2 = font.getCharQuad('.');
                             ImageMultiDrawer imageMultiDrawer3 = multiDrawers[charmapIndex2];
                             int num11 = (int)font.getCharWidth('.');
-                            if (l == num9 - 1 || (l == num9 - 2 && num10 + (float)(3 * (num11 + num7)) + font.getCharWidth(' ') > wrapWidth))
+                            if (l == num9 - 1 || (l == num9 - 2 && num10 + 3 * (num11 + num7) + font.getCharWidth(' ') > wrapWidth))
                             {
                                 imageMultiDrawer3.mapTextureQuadAtXYatIndex(charQuad2, num10, num4, num6++);
-                                num10 += (float)(num11 + num7);
+                                num10 += num11 + num7;
                                 imageMultiDrawer3.mapTextureQuadAtXYatIndex(charQuad2, num10, num4, num6++);
-                                num10 += (float)(num11 + num7);
+                                num10 += num11 + num7;
                                 imageMultiDrawer3.mapTextureQuadAtXYatIndex(charQuad2, num10, num4, num6++);
                                 break;
                             }
                         }
                     }
                 }
-                num4 += (float)num5 + font.getLineOffset();
+                num4 += num5 + font.getLineOffset();
             }
             stringLength = num6;
             if (formattedStrings.Count <= 1)
@@ -291,12 +291,12 @@ namespace ctr_wp7.iframework.visual
             }
             else
             {
-                height = (int)((font.fontHeight() + font.getLineOffset()) * (float)formattedStrings.Count - font.getLineOffset());
+                height = (int)((font.fontHeight() + font.getLineOffset()) * formattedStrings.Count - font.getLineOffset());
                 width = (int)wrapWidth;
             }
             if (maxHeight != -1f)
             {
-                height = (int)MIN((float)height, maxHeight);
+                height = (int)MIN(height, maxHeight);
             }
         }
 
@@ -405,8 +405,8 @@ namespace ctr_wp7.iframework.visual
             formattedStrings.Clear();
             for (int j = 0; j < num8; j++)
             {
-                int num9 = (int)array[j << 1];
-                int num10 = (int)array[(j << 1) + 1];
+                int num9 = array[j << 1];
+                int num10 = array[(j << 1) + 1];
                 NSRange nsrange;
                 nsrange.location = (uint)num9;
                 nsrange.length = (uint)(num10 - num9);

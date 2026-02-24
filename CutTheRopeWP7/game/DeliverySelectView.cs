@@ -50,7 +50,7 @@ namespace ctr_wp7.game
                 BaseElement baseElement6 = (BaseElement)new BaseElement().init();
                 baseElement6.height = 60;
                 _ = box.addChild(baseElement6);
-                ScrollableContainer scrollableContainer = new ScrollableContainer().initWithWidthHeightContainer((float)box.width, SCREEN_HEIGHT_EXPANDED + 3f, box);
+                ScrollableContainer scrollableContainer = new ScrollableContainer().initWithWidthHeightContainer(box.width, SCREEN_HEIGHT_EXPANDED + 3f, box);
                 scrollableContainer.shouldBounceVertically = true;
                 scrollableContainer.resetScrollOnShow = false;
                 scrollableContainer.anchor = scrollableContainer.parentAnchor = 10;

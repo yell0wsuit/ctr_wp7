@@ -227,7 +227,7 @@ namespace ctr_wp7.game
                             break;
                     }
                     float num4 = 0.6f;
-                    float num5 = num4 / (float)(num3 - num2 + 1);
+                    float num5 = num4 / (num3 - num2 + 1);
                     float num6 = -getCurrentHeight();
                     num6 *= 1f + 0.1f * RND_MINUS1_1;
                     if (steamState == 1 && (i % 3 == 1 || i % 3 == 2))
@@ -245,7 +245,7 @@ namespace ctr_wp7.game
                     }
                     else if (i % 3 == 1)
                     {
-                        num7 *= (float)steamState;
+                        num7 *= steamState;
                     }
                     else if (i % 3 == 2)
                     {
@@ -265,7 +265,7 @@ namespace ctr_wp7.game
                     BaseElement baseElement = new();
                     _ = baseElement.init();
                     baseElement.addTimelinewithID(timeline, 0);
-                    dd.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(startPuffFloatingAndAnimation), baseElement, num4 * (float)i / (float)num);
+                    dd.callObjectSelectorParamafterDelay(new DelayedDispatcher.DispatchFunc(startPuffFloatingAndAnimation), baseElement, num4 * i / num);
                     _ = baseElement.addChild(animation);
                     baseElement.anchor = baseElement.parentAnchor = 18;
                     baseElement.setEnabled(false);

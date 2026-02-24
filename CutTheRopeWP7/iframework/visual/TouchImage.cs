@@ -9,7 +9,7 @@ namespace ctr_wp7.iframework.visual
         public override bool onTouchDownXY(float tx, float ty)
         {
             _ = base.onTouchDownXY(tx, ty);
-            if (pointInRect(tx, ty, drawX, drawY, (float)width, (float)height))
+            if (pointInRect(tx, ty, drawX, drawY, width, height))
             {
                 if (delegateButtonDelegate != null)
                 {

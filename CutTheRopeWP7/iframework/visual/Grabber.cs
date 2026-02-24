@@ -43,14 +43,14 @@ namespace ctr_wp7.iframework.visual
                 t._maxT
             ];
             float[] array2 = new float[12];
-            array2[0] = (float)x;
-            array2[1] = (float)y;
-            array2[3] = (float)(t._realWidth + x);
-            array2[4] = (float)y;
-            array2[6] = (float)x;
-            array2[7] = (float)(t._realHeight + y);
-            array2[9] = (float)(t._realWidth + x);
-            array2[10] = (float)(t._realHeight + y);
+            array2[0] = x;
+            array2[1] = y;
+            array2[3] = t._realWidth + x;
+            array2[4] = y;
+            array2[6] = x;
+            array2[7] = t._realHeight + y;
+            array2[9] = t._realWidth + x;
+            array2[10] = t._realHeight + y;
             float[] array3 = array2;
             OpenGL.glEnable(0);
             OpenGL.glBindTexture(t.name());

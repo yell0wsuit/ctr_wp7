@@ -16,7 +16,7 @@ namespace ctr_wp7.game
             preDraw();
             CTRRootController ctrrootController = (CTRRootController)Application.sharedRootController();
             int num = 216 + ctrrootController.getPack();
-            float num2 = (float)Application.sharedResourceMgr().getPercentLoaded();
+            float num2 = Application.sharedResourceMgr().getPercentLoaded();
             Texture2D texture = Application.getTexture(num);
             OpenGL.glColor4f(0.85, 0.85, 0.85, 1.0);
             OpenGL.glPushMatrix();
@@ -33,7 +33,7 @@ namespace ctr_wp7.game
             if (!game)
             {
                 OpenGL.glEnable(4);
-                OpenGL.setScissorRectangle(0.0, (double)-(double)SCREEN_OFFSET_Y, (double)SCREEN_WIDTH, (double)SCREEN_BG_SCALE_Y * 500.0 * (double)num2 / 100.0);
+                OpenGL.setScissorRectangle(0.0, (double)-(double)SCREEN_OFFSET_Y, SCREEN_WIDTH, SCREEN_BG_SCALE_Y * 500.0 * (double)num2 / 100.0);
             }
             OpenGL.SetWhiteColor();
             if (game || num2 > 0f)

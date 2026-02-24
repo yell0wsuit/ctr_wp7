@@ -27,7 +27,7 @@ namespace ctr_wp7.iframework.visual
             preDraw();
             float w = texture.quadRects[tiles[0]].w;
             float w2 = texture.quadRects[tiles[2]].w;
-            float num = (float)width - (w + w2);
+            float num = width - (w + w2);
             if (num >= 0f)
             {
                 GLDrawer.drawImageQuad(texture, tiles[0], drawX, drawY + offsets[0]);
@@ -38,8 +38,8 @@ namespace ctr_wp7.iframework.visual
             {
                 Rectangle rectangle = texture.quadRects[tiles[0]];
                 Rectangle rectangle2 = texture.quadRects[tiles[2]];
-                rectangle.w = Math.Min(rectangle.w, (float)width / 2f);
-                rectangle2.w = Math.Min(rectangle2.w, (float)width - rectangle.w);
+                rectangle.w = Math.Min(rectangle.w, width / 2f);
+                rectangle2.w = Math.Min(rectangle2.w, width - rectangle.w);
                 rectangle2.x += texture.quadRects[tiles[2]].w - rectangle2.w;
                 GLDrawer.drawImagePart(texture, rectangle, drawX, drawY + offsets[0]);
                 GLDrawer.drawImagePart(texture, rectangle2, drawX + rectangle.w, drawY + offsets[2]);
@@ -68,9 +68,9 @@ namespace ctr_wp7.iframework.visual
             {
                 height = (int)h3;
             }
-            offsets[0] = ((float)height - h) / 2f;
-            offsets[1] = ((float)height - h2) / 2f;
-            offsets[2] = ((float)height - h3) / 2f;
+            offsets[0] = (height - h) / 2f;
+            offsets[1] = (height - h2) / 2f;
+            offsets[2] = (height - h3) / 2f;
         }
 
         // Token: 0x060002DE RID: 734 RVA: 0x00012A0F File Offset: 0x00010C0F

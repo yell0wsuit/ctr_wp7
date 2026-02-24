@@ -19,7 +19,7 @@ namespace ctr_wp7.game
                 NSString nsstring = p.substringFromIndex(2);
                 int num = nsstring.intValue();
                 int num2 = num / 2;
-                float num3 = (float)(6.283185307179586 / (double)num2);
+                float num3 = (float)(6.283185307179586 / num2);
                 if (!flag)
                 {
                     num3 = -num3;
@@ -27,8 +27,8 @@ namespace ctr_wp7.game
                 float num4 = 0f;
                 for (int i = 0; i < num2; i++)
                 {
-                    float num5 = (float)((double)s.x + (double)num * Math.Cos((double)num4));
-                    float num6 = (float)((double)s.y + (double)num * Math.Sin((double)num4));
+                    float num5 = (float)(s.x + num * Math.Cos((double)num4));
+                    float num6 = (float)(s.y + num * Math.Sin((double)num4));
                     addPathPoint(new Vector(num5, num6));
                     num4 += num3;
                 }

@@ -271,9 +271,9 @@ namespace ctr_wp7.game
             text.anchor = text.parentAnchor = 18;
             text.y = -2f;
             text.x = -4f;
-            if ((float)text.width > 150f)
+            if (text.width > 150f)
             {
-                text.scaleX = text.scaleY = 150f / (float)text.width;
+                text.scaleX = text.scaleY = 150f / text.width;
             }
             text.setAlignment(2);
             _ = touchBaseElement.addChild(text);

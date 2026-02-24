@@ -119,12 +119,12 @@ namespace ctr_wp7.iframework.visual
             float[] array2 = new float[12];
             array2[0] = point.x;
             array2[1] = point.y;
-            array2[3] = (float)t._realWidth + point.x;
+            array2[3] = t._realWidth + point.x;
             array2[4] = point.y;
             array2[6] = point.x;
-            array2[7] = (float)t._realHeight + point.y;
-            array2[9] = (float)t._realWidth + point.x;
-            array2[10] = (float)t._realHeight + point.y;
+            array2[7] = t._realHeight + point.y;
+            array2[9] = t._realWidth + point.x;
+            array2[10] = t._realHeight + point.y;
             float[] array3 = array2;
             OpenGL.glEnable(0);
             OpenGL.glBindTexture(t.name());
@@ -252,12 +252,12 @@ namespace ctr_wp7.iframework.visual
             _lowypoint = h;
             int num = calcRealSize(w);
             int num2 = calcRealSize(h);
-            _size = new Vector((float)num, (float)num2);
+            _size = new Vector(num, num2);
             _width = (uint)num;
             _height = (uint)num2;
             _format = _defaultAlphaPixelFormat;
-            _maxS = (float)w / (float)num;
-            _maxT = (float)h / (float)num2;
+            _maxS = w / (float)num;
+            _maxT = h / (float)num2;
             _hasPremultipliedAlpha = true;
         }
 
@@ -322,11 +322,11 @@ namespace ctr_wp7.iframework.visual
             Application.sharedRootController().transitionTime = transitionTime;
             xnaTexture_ = renderTarget2D;
             _format = Texture2DPixelFormat.kTexture2DPixelFormat_RGBA8888;
-            _size = new Vector((float)num, (float)num2);
+            _size = new Vector(num, num2);
             _width = (uint)num;
             _height = (uint)num2;
-            _maxS = (float)w / (float)num;
-            _maxT = (float)h / (float)num2;
+            _maxS = w / (float)num;
+            _maxT = h / (float)num2;
             _hasPremultipliedAlpha = true;
             quadsCount = 0;
             calculateForQuickDrawing();

@@ -44,7 +44,7 @@ namespace ctr_wp7.iframework.helpers
             if (!vectEqual(pos, target))
             {
                 pos = vectAdd(pos, vectMult(offset, delta));
-                pos = vect(round((double)pos.x), round((double)pos.y));
+                pos = vect(round(pos.x), round(pos.y));
                 if (!sameSign(offset.x, target.x - pos.x) || !sameSign(offset.y, target.y - pos.y))
                 {
                     pos = target;
@@ -61,7 +61,7 @@ namespace ctr_wp7.iframework.helpers
         // Token: 0x06000212 RID: 530 RVA: 0x0000DCDD File Offset: 0x0000BEDD
         public virtual void cancelCameraTransformation()
         {
-            OpenGL.glTranslatef((double)pos.x, (double)pos.y, 0.0);
+            OpenGL.glTranslatef(pos.x, pos.y, 0.0);
         }
 
         // Token: 0x04000812 RID: 2066

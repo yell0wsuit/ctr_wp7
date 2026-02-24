@@ -36,7 +36,7 @@ namespace ctr_wp7.game
                 box = new VBox().initWithOffsetAlignWidth(num2, 2, SCREEN_WIDTH);
                 buildBlocks();
                 float num3 = 3f;
-                ScrollableContainer scrollableContainer = new ScrollableContainer().initWithWidthHeightContainer((float)box.width, sheight + num3 * 2f, box);
+                ScrollableContainer scrollableContainer = new ScrollableContainer().initWithWidthHeightContainer(box.width, sheight + num3 * 2f, box);
                 scrollableContainer.shouldBounceVertically = true;
                 scrollableContainer.resetScrollOnShow = false;
                 scrollableContainer.untouchChildsOnMove = true;

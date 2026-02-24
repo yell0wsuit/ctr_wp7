@@ -30,7 +30,7 @@ namespace ctr_wp7.game
                 float num4 = num3;
                 float num5 = xml["rotateSpeed"].floatValue();
                 CTRMover ctrmover = (CTRMover)new CTRMover().initWithPathCapacityMoveSpeedRotateSpeed(num, num4, num5);
-                ctrmover.angle = (double)rotation;
+                ctrmover.angle = rotation;
                 ctrmover.setPathFromStringandStart(nsstring2, new Vector(x, y));
                 setMover(ctrmover);
                 ctrmover.start();

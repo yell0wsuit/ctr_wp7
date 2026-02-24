@@ -11,7 +11,7 @@ namespace ctr_wp7.game
         public override void initParticle(ref Particle particle)
         {
             base.initParticle(ref particle);
-            angle += (float)(360 / totalParticles);
+            angle += 360 / totalParticles;
             int num = RND_RANGE(2, 4);
             Quad2D quad2D = imageGrid.texture.quads[num];
             Quad3D quad3D = Quad3D.MakeQuad3D(0f, 0f, 0f, 0f, 0f);
@@ -30,7 +30,7 @@ namespace ctr_wp7.game
             {
                 size = 0.6f;
                 sizeVar = 0.2f;
-                angle = (float)RND_RANGE(0, 360);
+                angle = RND_RANGE(0, 360);
                 angleVar = 15f;
                 rotateSpeedVar = 30f;
                 life = 0.4f;

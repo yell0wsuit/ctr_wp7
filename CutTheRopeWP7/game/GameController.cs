@@ -437,7 +437,7 @@ namespace ctr_wp7.game
             mapNameLabel.y = 20f;
             mapNameLabel.x += SCREEN_OFFSET_X;
             _ = image.addChild(mapNameLabel);
-            VBox vbox = new VBox().initWithOffsetAlignWidth(5.0, 2, (double)SCREEN_WIDTH);
+            VBox vbox = new VBox().initWithOffsetAlignWidth(5.0, 2, SCREEN_WIDTH);
             Button button4 = MenuController.createButtonWithTextIDDelegate(Application.getString(1310762), 0, this);
             _ = vbox.addChild(button4);
             Button button5 = MenuController.createButtonWithTextIDDelegate(Application.getString(1310763), 2, this);

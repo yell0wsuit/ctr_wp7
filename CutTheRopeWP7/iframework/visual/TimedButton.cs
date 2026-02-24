@@ -84,7 +84,7 @@ namespace ctr_wp7.iframework.visual
             {
                 return pointInRect(tx, ty, drawX + forcedTouchZone.x - num, drawY + forcedTouchZone.y - num, forcedTouchZone.w + num * 2f, forcedTouchZone.h + num * 2f);
             }
-            return pointInRect(tx, ty, drawX - touchLeftInc - num, drawY - touchTopInc - num, (float)width + (touchLeftInc + touchRightInc) + num * 2f, (float)height + (touchTopInc + touchBottomInc) + num * 2f);
+            return pointInRect(tx, ty, drawX - touchLeftInc - num, drawY - touchTopInc - num, width + (touchLeftInc + touchRightInc) + num * 2f, height + (touchTopInc + touchBottomInc) + num * 2f);
         }
 
         // Token: 0x060003F0 RID: 1008 RVA: 0x0001C4E0 File Offset: 0x0001A6E0

@@ -218,8 +218,8 @@ namespace ctr_wp7.game
                 num2 = 18;
                 num3 = 26;
             }
-            float num4 = (float)RND_RANGE(-100, (int)SCREEN_WIDTH);
-            float num5 = (float)RND_RANGE(-20, 50);
+            float num4 = RND_RANGE(-100, (int)SCREEN_WIDTH);
+            float num5 = RND_RANGE(-20, 50);
             float num6 = FLOAT_RND_RANGE(2, 5);
             int num7 = confetti.addAnimationDelayLoopFirstLast(0.05f, Timeline.LoopType.TIMELINE_REPLAY, num2, num3);
             confetti.ani = confetti.getTimeline(num7);
@@ -324,8 +324,8 @@ namespace ctr_wp7.game
                         }
                     case 2:
                         {
-                            cstarBonus = (int)((float)starBonus * raDelay);
-                            cscore = (int)((1.0 - (double)raDelay) * (double)starBonus);
+                            cstarBonus = (int)(starBonus * raDelay);
+                            cscore = (int)((1.0 - raDelay) * starBonus);
                             Text text7 = (Text)result.getChildWithName("dataValue");
                             text7.setString(NSS(string.Concat(cstarBonus)));
                             Text text8 = (Text)result.getChildWithName("scoreValue");
@@ -348,8 +348,8 @@ namespace ctr_wp7.game
                             {
                                 raState = 4;
                                 raDelay = 0.2f;
-                                int num = (int)Math.Floor(Math.Round((double)time) / 60.0);
-                                int num2 = (int)(Math.Round((double)time) - (double)num * 60.0);
+                                int num = (int)Math.Floor(Math.Round(time) / 60.0);
+                                int num2 = (int)(Math.Round(time) - num * 60.0);
                                 Text text11 = (Text)result.getChildWithName("dataTitle");
                                 text11.setString(Application.getString(1310742));
                                 Text text12 = (Text)result.getChildWithName("dataValue");
@@ -374,9 +374,9 @@ namespace ctr_wp7.game
                     case 5:
                         {
                             ctime = time * raDelay;
-                            cscore = (int)((double)starBonus + (1.0 - (double)raDelay) * (double)timeBonus);
-                            int num3 = (int)Math.Floor(Math.Round((double)ctime) / 60.0);
-                            int num4 = (int)(Math.Round((double)ctime) - (double)num3 * 60.0);
+                            cscore = (int)(starBonus + (1.0 - raDelay) * timeBonus);
+                            int num3 = (int)Math.Floor(Math.Round(ctime) / 60.0);
+                            int num4 = (int)(Math.Round(ctime) - num3 * 60.0);
                             Text text15 = (Text)result.getChildWithName("dataValue");
                             text15.setString(NSS(num3 + ":" + num4.ToString("D2")));
                             Text text16 = (Text)result.getChildWithName("scoreValue");
@@ -500,7 +500,7 @@ namespace ctr_wp7.game
             timeline = new Timeline().initWithMaxKeyFramesOnTrack(2);
             if (open)
             {
-                timeline.addKeyFrame(KeyFrame.makePos((double)((float)image2.width - 25f), 25.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
+                timeline.addKeyFrame(KeyFrame.makePos((double)(image2.width - 25f), 25.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
                 timeline.addKeyFrame(KeyFrame.makePos(-10.0, 25.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.53));
                 timeline.addKeyFrame(KeyFrame.makeScale(1.0, 1.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
                 timeline.addKeyFrame(KeyFrame.makeScale(0.0, 1.3, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.53));
@@ -508,7 +508,7 @@ namespace ctr_wp7.game
             else
             {
                 timeline.addKeyFrame(KeyFrame.makePos(-15.0, 25.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
-                timeline.addKeyFrame(KeyFrame.makePos((double)((float)image2.width - 25f), 25.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.49));
+                timeline.addKeyFrame(KeyFrame.makePos((double)(image2.width - 25f), 25.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.49));
                 timeline.addKeyFrame(KeyFrame.makeScale(0.0, 1.3, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
                 timeline.addKeyFrame(KeyFrame.makeScale(1.0, 1.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.53));
             }
@@ -517,15 +517,15 @@ namespace ctr_wp7.game
             timeline = new Timeline().initWithMaxKeyFramesOnTrack(2);
             if (open)
             {
-                timeline.addKeyFrame(KeyFrame.makePos((double)(SCREEN_WIDTH - (float)image2.width + 3f), 25.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
+                timeline.addKeyFrame(KeyFrame.makePos((double)(SCREEN_WIDTH - image2.width + 3f), 25.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
                 timeline.addKeyFrame(KeyFrame.makePos((double)(SCREEN_WIDTH + 6f), 25.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.56));
                 timeline.addKeyFrame(KeyFrame.makeScale(1.0, 1.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
                 timeline.addKeyFrame(KeyFrame.makeScale(0.0, 1.3, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.53));
             }
             else
             {
-                timeline.addKeyFrame(KeyFrame.makePos((double)SCREEN_WIDTH - 9.0, 25.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
-                timeline.addKeyFrame(KeyFrame.makePos((double)(SCREEN_WIDTH - (float)image2.width + 4f), 25.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.48));
+                timeline.addKeyFrame(KeyFrame.makePos(SCREEN_WIDTH - 9.0, 25.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
+                timeline.addKeyFrame(KeyFrame.makePos((double)(SCREEN_WIDTH - image2.width + 4f), 25.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.48));
                 timeline.addKeyFrame(KeyFrame.makeScale(0.0, 1.3, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
                 timeline.addKeyFrame(KeyFrame.makeScale(1.0, 1.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.53));
             }
@@ -543,7 +543,7 @@ namespace ctr_wp7.game
             timeline = new Timeline().initWithMaxKeyFramesOnTrack(2);
             if (open)
             {
-                timeline.addKeyFrame(KeyFrame.makePos((double)image2.width - 3.0, 0.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
+                timeline.addKeyFrame(KeyFrame.makePos(image2.width - 3.0, 0.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
                 timeline.addKeyFrame(KeyFrame.makePos((double)num2, 0.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.53));
                 timeline.addKeyFrame(KeyFrame.makeScale(0.0, 1.3, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
                 timeline.addKeyFrame(KeyFrame.makeScale(1.0, 1.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.53));
@@ -551,7 +551,7 @@ namespace ctr_wp7.game
             else
             {
                 timeline.addKeyFrame(KeyFrame.makePos((double)num3, 0.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
-                timeline.addKeyFrame(KeyFrame.makePos((double)((float)image2.width - num5), 0.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.49));
+                timeline.addKeyFrame(KeyFrame.makePos((double)(image2.width - num5), 0.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.49));
                 timeline.addKeyFrame(KeyFrame.makeScale(1.0, 1.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
                 timeline.addKeyFrame(KeyFrame.makeScale(0.0, 1.3, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.53));
             }
@@ -561,15 +561,15 @@ namespace ctr_wp7.game
             timeline = new Timeline().initWithMaxKeyFramesOnTrack(2);
             if (open)
             {
-                timeline.addKeyFrame(KeyFrame.makePos((double)(SCREEN_WIDTH - (float)image2.width) + 3.0, 0.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
-                timeline.addKeyFrame(KeyFrame.makePos((double)SCREEN_WIDTH, 0.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.56));
+                timeline.addKeyFrame(KeyFrame.makePos((double)(SCREEN_WIDTH - image2.width) + 3.0, 0.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
+                timeline.addKeyFrame(KeyFrame.makePos(SCREEN_WIDTH, 0.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.56));
                 timeline.addKeyFrame(KeyFrame.makeScale(0.0, 1.3, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
                 timeline.addKeyFrame(KeyFrame.makeScale(1.0, 1.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.53));
             }
             else
             {
                 timeline.addKeyFrame(KeyFrame.makePos((double)(SCREEN_WIDTH - num4), 0.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
-                timeline.addKeyFrame(KeyFrame.makePos((double)(SCREEN_WIDTH - (float)image2.width + num6), 0.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.48));
+                timeline.addKeyFrame(KeyFrame.makePos((double)(SCREEN_WIDTH - image2.width + num6), 0.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.48));
                 timeline.addKeyFrame(KeyFrame.makeScale(1.0, 1.0, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
                 timeline.addKeyFrame(KeyFrame.makeScale(0.0, 1.3, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.53));
             }

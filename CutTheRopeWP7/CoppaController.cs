@@ -39,7 +39,7 @@ internal class CoppaController : ViewController, ButtonDelegate, TimelineDelegat
         text.scaleX /= 2.2f;
         text.scaleY /= 2.2f;
         Image.setElementPositionWithQuadCenter(text, 409, 10);
-        text.y += (float)((double)vector.y * 1.1 * 0.5);
+        text.y += (float)(vector.y * 1.1 * 0.5);
         text.anchor = 18;
         _ = coppaView.addChild(text);
         Image image2 = Image.Image_createWithResIDQuad(409, 5);
@@ -50,13 +50,13 @@ internal class CoppaController : ViewController, ButtonDelegate, TimelineDelegat
         string[] array = text2.Split(['\n']);
         Text[] array2 = new Text[array.Length];
         BaseElement baseElement = (BaseElement)new BaseElement().init();
-        image2.y = (float)((double)SCREEN_HEIGHT - 0.75 * (double)SCREEN_HEIGHT) + num;
+        image2.y = (float)(SCREEN_HEIGHT - 0.75 * SCREEN_HEIGHT) + num;
         for (int i = 0; i < array.Length; i++)
         {
             array[i] = array[i].Replace('\n', ' ');
             array2[i] = new Text().initWithFont(Application.getFont(6));
             array2[i].setString(array[i]);
-            array2[i].y = image2.y - 40f + (float)(i * 20);
+            array2[i].y = image2.y - 40f + i * 20;
             array2[i].x = image2.x - 10f;
             array2[i].color = RGBAColor.blackRGBA;
             array2[i].setAlignment(2);
@@ -68,13 +68,13 @@ internal class CoppaController : ViewController, ButtonDelegate, TimelineDelegat
         baseElement.setName(NSS("baloonText"));
         _ = coppaView.addChild(baseElement);
         Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(7);
-        timeline.addKeyFrame(KeyFrame.makePos((double)image2.x, (double)image2.y, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
-        timeline.addKeyFrame(KeyFrame.makePos((double)(image2.x + 3f), (double)image2.y, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.05));
-        timeline.addKeyFrame(KeyFrame.makePos((double)(image2.x - 2f), (double)image2.y, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.05));
-        timeline.addKeyFrame(KeyFrame.makePos((double)(image2.x + 2f), (double)image2.y, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.05));
-        timeline.addKeyFrame(KeyFrame.makePos((double)(image2.x + -3f), (double)image2.y, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.05));
-        timeline.addKeyFrame(KeyFrame.makePos((double)(image2.x + 3f), (double)image2.y, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.05));
-        timeline.addKeyFrame(KeyFrame.makePos((double)image2.x, (double)image2.y, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.05));
+        timeline.addKeyFrame(KeyFrame.makePos(image2.x, image2.y, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
+        timeline.addKeyFrame(KeyFrame.makePos((double)(image2.x + 3f), image2.y, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.05));
+        timeline.addKeyFrame(KeyFrame.makePos((double)(image2.x - 2f), image2.y, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.05));
+        timeline.addKeyFrame(KeyFrame.makePos((double)(image2.x + 2f), image2.y, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.05));
+        timeline.addKeyFrame(KeyFrame.makePos((double)(image2.x + -3f), image2.y, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.05));
+        timeline.addKeyFrame(KeyFrame.makePos((double)(image2.x + 3f), image2.y, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.05));
+        timeline.addKeyFrame(KeyFrame.makePos(image2.x, image2.y, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.05));
         _ = image2.addTimeline(timeline);
         roll = new Rollbar().Create();
         roll.setName("agePicker");
@@ -172,7 +172,7 @@ internal class CoppaController : ViewController, ButtonDelegate, TimelineDelegat
     public override void update(float delta)
     {
         base.update(delta);
-        okb.color = new RGBAColor(1f, 1f, 1f, (float)((ageValid() ? 1 : 0) + 1) * 0.5f);
+        okb.color = new RGBAColor(1f, 1f, 1f, ((ageValid() ? 1 : 0) + 1) * 0.5f);
     }
 
     // Token: 0x06000675 RID: 1653 RVA: 0x000319AC File Offset: 0x0002FBAC

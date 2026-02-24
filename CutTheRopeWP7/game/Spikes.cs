@@ -88,7 +88,7 @@ namespace ctr_wp7.game
             float num;
             if (electro)
             {
-                num = (float)(width - 130);
+                num = width - 130;
             }
             else
             {
@@ -101,7 +101,7 @@ namespace ctr_wp7.game
             b1.x = t1.x;
             b2.x = t2.x;
             b1.y = b2.y = y + 5f;
-            angle = (double)DEGREES_TO_RADIANS(rotation);
+            angle = DEGREES_TO_RADIANS(rotation);
             t1 = vectRotateAround(t1, angle, x, y);
             t2 = vectRotateAround(t2, angle, x, y);
             b1 = vectRotateAround(b1, angle, x, y);
@@ -136,7 +136,7 @@ namespace ctr_wp7.game
         {
             spikesNormal = !spikesNormal;
             removeTimeline(2);
-            float num = (float)(spikesNormal ? 90 : 0);
+            float num = spikesNormal ? 90 : 0;
             float num2 = origRotation + num;
             Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(2);
             timeline.addKeyFrame(KeyFrame.makeRotation((int)rotation, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0f));
@@ -173,7 +173,7 @@ namespace ctr_wp7.game
                 if (electroOn)
                 {
                     _ = Mover.moveVariableToTarget(ref electroTimer, 0f, 1f, delta);
-                    if ((double)electroTimer == 0.0)
+                    if (electroTimer == 0.0)
                     {
                         turnElectroOff();
                         return;
@@ -182,7 +182,7 @@ namespace ctr_wp7.game
                 else
                 {
                     _ = Mover.moveVariableToTarget(ref electroTimer, 0f, 1f, delta);
-                    if ((double)electroTimer == 0.0)
+                    if (electroTimer == 0.0)
                     {
                         turnElectroOn();
                     }

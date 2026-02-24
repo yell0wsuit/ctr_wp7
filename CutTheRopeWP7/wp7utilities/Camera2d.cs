@@ -82,14 +82,14 @@ namespace ctr_wp7.wp7utilities
         {
             get
             {
-                return new Vector((float)ScreenSizes.Width2 - move_.X, (float)ScreenSizes.Height2 - move_.Y);
+                return new Vector(ScreenSizes.Width2 - move_.X, ScreenSizes.Height2 - move_.Y);
             }
         }
 
         // Token: 0x060007BA RID: 1978 RVA: 0x0003C500 File Offset: 0x0003A700
         public Matrix getTransformation(GraphicsDevice graphicsDevice)
         {
-            transform_ = Matrix.CreateTranslation(new Vector3(-translate_.X + move_.X, -translate_.Y + move_.Y, 0f)) * Matrix.CreateRotationZ(Rotation) * Matrix.CreateScale(new Vector3(Zoom.X, Zoom.Y, 1f)) * Matrix.CreateTranslation(new Vector3((float)graphicsDevice.Viewport.Width * 0.5f, (float)graphicsDevice.Viewport.Height * 0.5f, 0f));
+            transform_ = Matrix.CreateTranslation(new Vector3(-translate_.X + move_.X, -translate_.Y + move_.Y, 0f)) * Matrix.CreateRotationZ(Rotation) * Matrix.CreateScale(new Vector3(Zoom.X, Zoom.Y, 1f)) * Matrix.CreateTranslation(new Vector3(graphicsDevice.Viewport.Width * 0.5f, graphicsDevice.Viewport.Height * 0.5f, 0f));
             return transform_;
         }
 

@@ -16,7 +16,7 @@ namespace ctr_wp7.game
             Vector vector = vect(x1, y1);
             Vector vector2 = vect(x2, y2);
             Vector vector3 = vectSub(vector2, vector);
-            Vector vector4 = vectMult(vector3, ((double)color.a == 1.0) ? 1.02f : 1f);
+            Vector vector4 = vectMult(vector3, (color.a == 1.0) ? 1.02f : 1f);
             Vector vector5 = vectPerp(vector3);
             Vector vector6 = vectNormalize(vector5);
             vector5 = vectMult(vector6, size);
@@ -110,19 +110,19 @@ namespace ctr_wp7.game
             int num4 = (count - 1) * points;
             float[] array = new float[num4 * 2];
             b.drawPtsCount = num4 * 2;
-            float num5 = 1f / (float)num4;
+            float num5 = 1f / num4;
             float num6 = 0f;
             int num7 = 0;
             int num8 = 0;
             int num9 = 0;
             RGBAColor rgbacolor8 = rgbacolor5;
             RGBAColor rgbacolor9 = rgbacolor7;
-            float num10 = (rgbacolor4.r - rgbacolor5.r) / (float)(num4 - 1);
-            float num11 = (rgbacolor4.g - rgbacolor5.g) / (float)(num4 - 1);
-            float num12 = (rgbacolor4.b - rgbacolor5.b) / (float)(num4 - 1);
-            float num13 = (rgbacolor6.r - rgbacolor7.r) / (float)(num4 - 1);
-            float num14 = (rgbacolor6.g - rgbacolor7.g) / (float)(num4 - 1);
-            float num15 = (rgbacolor6.b - rgbacolor7.b) / (float)(num4 - 1);
+            float num10 = (rgbacolor4.r - rgbacolor5.r) / (num4 - 1);
+            float num11 = (rgbacolor4.g - rgbacolor5.g) / (num4 - 1);
+            float num12 = (rgbacolor4.b - rgbacolor5.b) / (num4 - 1);
+            float num13 = (rgbacolor6.r - rgbacolor7.r) / (num4 - 1);
+            float num14 = (rgbacolor6.g - rgbacolor7.g) / (num4 - 1);
+            float num15 = (rgbacolor6.b - rgbacolor7.b) / (num4 - 1);
             float num16 = -1f;
             float num17 = -1f;
             float num18 = -1f;
@@ -165,7 +165,7 @@ namespace ctr_wp7.game
                     OpenGL.glColorPointer_setAdditive(8 * (num20 - 1));
                     for (int i = 0; i < num20 - 1; i++)
                     {
-                        drawAntialiasedLineContinued(array[i * 2], array[i * 2 + 1], array[i * 2 + 2], array[i * 2 + 3], (float)b.width, rgbacolor10, ref num16, ref num17, ref num18, ref num19);
+                        drawAntialiasedLineContinued(array[i * 2], array[i * 2 + 1], array[i * 2 + 2], array[i * 2 + 3], b.width, rgbacolor10, ref num16, ref num17, ref num18, ref num19);
                     }
                     OpenGL.glDrawArrays(8, 0, 8);
                     array[0] = array[num7 - 2];
@@ -173,12 +173,12 @@ namespace ctr_wp7.game
                     num7 = 2;
                     flag = !flag;
                     num9++;
-                    rgbacolor8.r += num10 * (float)(num20 - 1);
-                    rgbacolor8.g += num11 * (float)(num20 - 1);
-                    rgbacolor8.b += num12 * (float)(num20 - 1);
-                    rgbacolor9.r += num13 * (float)(num20 - 1);
-                    rgbacolor9.g += num14 * (float)(num20 - 1);
-                    rgbacolor9.b += num15 * (float)(num20 - 1);
+                    rgbacolor8.r += num10 * (num20 - 1);
+                    rgbacolor8.g += num11 * (num20 - 1);
+                    rgbacolor8.b += num12 * (num20 - 1);
+                    rgbacolor9.r += num13 * (num20 - 1);
+                    rgbacolor9.g += num14 * (num20 - 1);
+                    rgbacolor9.b += num15 * (num20 - 1);
                 }
                 if ((double)num6 >= 1.0)
                 {
@@ -225,7 +225,7 @@ namespace ctr_wp7.game
                 tail.addConstraintwithRestLengthofType(bungeeAnchor, 30f, Constraint.CONSTRAINT.CONSTRAINT_DISTANCE);
                 Vector vector = vectSub(tail.pos, bungeeAnchor.pos);
                 int num = (int)(len / 30f + 2f);
-                vector = vectDiv(vector, (float)num);
+                vector = vectDiv(vector, num);
                 rollplacingWithOffset(len, vector);
                 forceWhite = false;
                 initialCandleAngle = -1f;
@@ -272,23 +272,23 @@ namespace ctr_wp7.game
                 {
                     ConstraintedPoint constraintedPoint2 = parts[num3 - 2];
                     ConstraintedPoint constraintedPoint3 = parts[num3 - 3];
-                    tail.changeConstraintFromTowithRestLength(constraintedPoint2, constraintedPoint3, (float)num2);
+                    tail.changeConstraintFromTowithRestLength(constraintedPoint2, constraintedPoint3, num2);
                     parts.RemoveAt(parts.Count - 2);
                     num3--;
                     num -= 30f;
                 }
                 else
                 {
-                    int num4 = (int)((float)num2 - num);
+                    int num4 = (int)(num2 - num);
                     if (num4 < 1)
                     {
                         num = 30f;
-                        num2 = (int)(30f + (float)num4 + 1f);
+                        num2 = (int)(30f + num4 + 1f);
                     }
                     else
                     {
                         ConstraintedPoint constraintedPoint4 = parts[num3 - 2];
-                        tail.changeRestLengthToFor((float)num4, constraintedPoint4);
+                        tail.changeRestLengthToFor(num4, constraintedPoint4);
                         num = 0f;
                     }
                 }
@@ -299,7 +299,7 @@ namespace ctr_wp7.game
                 Constraint constraint = tail.constraints[i];
                 if (constraint != null && constraint.type == Constraint.CONSTRAINT.CONSTRAINT_NOT_MORE_THAN)
                 {
-                    constraint.restLength = (float)(num3 - 1) * 33f;
+                    constraint.restLength = (num3 - 1) * 33f;
                 }
             }
             return num;
@@ -325,22 +325,22 @@ namespace ctr_wp7.game
                     constraintedPoint3.setWeight(0.02f);
                     constraintedPoint3.pos = vectAdd(constraintedPoint2.pos, off);
                     addPartAt(constraintedPoint3, parts.Count - 1);
-                    tail.changeConstraintFromTowithRestLength(constraintedPoint2, constraintedPoint3, (float)num);
+                    tail.changeConstraintFromTowithRestLength(constraintedPoint2, constraintedPoint3, num);
                     constraintedPoint3.addConstraintwithRestLengthofType(constraintedPoint2, 30f, Constraint.CONSTRAINT.CONSTRAINT_DISTANCE);
                     rollLen -= 30f;
                 }
                 else
                 {
-                    int num2 = (int)(rollLen + (float)num);
-                    if ((float)num2 > 30f)
+                    int num2 = (int)(rollLen + num);
+                    if (num2 > 30f)
                     {
                         rollLen = 30f;
-                        num = (int)((float)num2 - 30f);
+                        num = (int)(num2 - 30f);
                     }
                     else
                     {
                         ConstraintedPoint constraintedPoint4 = parts[parts.Count - 2];
-                        tail.changeRestLengthToFor((float)num2, constraintedPoint4);
+                        tail.changeRestLengthToFor(num2, constraintedPoint4);
                         rollLen = 0f;
                     }
                 }
@@ -418,7 +418,7 @@ namespace ctr_wp7.game
                         }
                         if (i != 0)
                         {
-                            constraintedPoint.addConstraintwithRestLengthofType(bungeeAnchor, (float)i * 33f, Constraint.CONSTRAINT.CONSTRAINT_NOT_MORE_THAN);
+                            constraintedPoint.addConstraintwithRestLengthofType(bungeeAnchor, i * 33f, Constraint.CONSTRAINT.CONSTRAINT_NOT_MORE_THAN);
                         }
                     }
                     i++;
@@ -435,7 +435,7 @@ namespace ctr_wp7.game
         // Token: 0x0600068D RID: 1677 RVA: 0x00032B88 File Offset: 0x00030D88
         public virtual void update(float delta, float koeff)
         {
-            if ((double)cutTime > 0.0)
+            if (cutTime > 0.0)
             {
                 _ = Mover.moveVariableToTarget(ref cutTime, 0f, 1f, delta);
                 if (cutTime < 1.95f && forceWhite)

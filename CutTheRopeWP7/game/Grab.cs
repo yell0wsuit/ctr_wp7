@@ -49,7 +49,7 @@ namespace ctr_wp7.game
             if (hideRadius)
             {
                 radiusAlpha -= 1.5f * delta;
-                if ((double)radiusAlpha <= 0.0)
+                if (radiusAlpha <= 0.0)
                 {
                     radius = -1f;
                     hideRadius = false;
@@ -60,7 +60,7 @@ namespace ctr_wp7.game
                 float num;
                 if (rope != null)
                 {
-                    num = (float)rope.getLength() * 0.7f;
+                    num = rope.getLength() * 0.7f;
                 }
                 else
                 {
@@ -110,7 +110,7 @@ namespace ctr_wp7.game
             }
             OpenGL.SetWhiteColor();
             OpenGL.glEnable(0);
-            if ((double)moveLength <= 0.0)
+            if (moveLength <= 0.0)
             {
                 front.draw();
             }
@@ -216,12 +216,12 @@ namespace ctr_wp7.game
             moveLength = l;
             moveVertical = v;
             moveOffset = o;
-            if ((double)moveLength > 0.0)
+            if (moveLength > 0.0)
             {
                 moveBackground = HorizontallyTiledImage.HorizontallyTiledImage_createWithResID(142);
                 moveBackground.setTileHorizontallyLeftCenterRight(0, 2, 1);
                 moveBackground.width = (int)((double)l + 37.0);
-                moveBackground.rotationCenterX = (float)(-(float)Math.Round((double)moveBackground.width / 2.0) + 17.0);
+                moveBackground.rotationCenterX = (float)(-(float)Math.Round(moveBackground.width / 2.0) + 17.0);
                 moveBackground.x = -17f;
                 grabMoverHighlight = Image_createWithResIDQuad(142, 3);
                 grabMoverHighlight.visible = false;
@@ -272,8 +272,8 @@ namespace ctr_wp7.game
             Vector quadOffset = getQuadOffset(148, 0);
             bee.x = -quadOffset.x;
             bee.y = -quadOffset.y;
-            bee.rotationCenterX = quadOffset.x - (float)(bee.width / 2);
-            bee.rotationCenterY = quadOffset.y - (float)(bee.height / 2);
+            bee.rotationCenterX = quadOffset.x - bee.width / 2;
+            bee.rotationCenterY = quadOffset.y - bee.height / 2;
             bee.scaleX = bee.scaleY = 0.7692308f;
             _ = addChild(bee);
         }
@@ -325,7 +325,7 @@ namespace ctr_wp7.game
         // Token: 0x060005AA RID: 1450 RVA: 0x0002B2E0 File Offset: 0x000294E0
         public virtual void drawBack()
         {
-            if ((double)moveLength > 0.0)
+            if (moveLength > 0.0)
             {
                 moveBackground.draw();
             }
@@ -336,7 +336,7 @@ namespace ctr_wp7.game
             OpenGL.glDisable(0);
             if (radius != -1f || hideRadius)
             {
-                RGBAColor rgbacolor = RGBAColor.MakeRGBA(0.2, 0.5, 0.9, (double)radiusAlpha);
+                RGBAColor rgbacolor = RGBAColor.MakeRGBA(0.2, 0.5, 0.9, radiusAlpha);
                 drawGrabCircle(this, x, y, radius, vertexCount, rgbacolor);
             }
             OpenGL.SetWhiteColor();
@@ -428,7 +428,7 @@ namespace ctr_wp7.game
             num = (num > 0f) ? MIN((double)MAX(1.0, (double)num), 2.0) : MAX((double)MIN(-1.0, (double)num), -2.0);
             if (rope != null)
             {
-                float num2 = (float)rope.getLength();
+                float num2 = rope.getLength();
                 if (num > 0f)
                 {
                     if ((double)num2 < 500.0)

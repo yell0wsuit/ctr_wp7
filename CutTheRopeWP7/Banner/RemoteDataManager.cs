@@ -60,7 +60,7 @@ namespace ctr_wp7.Banner
                 {
                     texture2D.setWvga();
                 }
-                texture2D.setScale((float)bannerSize.width / 321f, (float)bannerSize.height / CHOOSE3(200.0, 200.0, 160.0));
+                texture2D.setScale(bannerSize.width / 321f, bannerSize.height / CHOOSE3(200.0, 200.0, 160.0));
                 Image image = Image.Image_create(texture2D);
                 if (nsstring.ToString() != "#" && bannerUrl.ToString() != "#")
                 {

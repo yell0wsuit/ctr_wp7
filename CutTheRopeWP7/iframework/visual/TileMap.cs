@@ -152,11 +152,11 @@ namespace ctr_wp7.iframework.visual
                 int num6 = (int)num5 % tileMapHeight;
                 if (num5 < 0f)
                 {
-                    num4 = (float)num6 + num2;
+                    num4 = num6 + num2;
                 }
                 else
                 {
-                    num4 = (float)(num6 - tileMapHeight) + num2;
+                    num4 = num6 - tileMapHeight + num2;
                 }
             }
             if (repeatedHorizontally != Repeat.REPEAT_NONE)
@@ -165,22 +165,22 @@ namespace ctr_wp7.iframework.visual
                 int num8 = (int)num7 % tileMapWidth;
                 if (num7 < 0f)
                 {
-                    num3 = (float)num8 + num;
+                    num3 = num8 + num;
                 }
                 else
                 {
-                    num3 = (float)(num8 - tileMapWidth) + num;
+                    num3 = num8 - tileMapWidth + num;
                 }
             }
-            if (!rectInRect(num, num2, num + (float)cameraViewWidth, num2 + (float)cameraViewHeight, num3, num4, num3 + (float)tileMapWidth, num4 + (float)tileMapHeight))
+            if (!rectInRect(num, num2, num + cameraViewWidth, num2 + cameraViewHeight, num3, num4, num3 + tileMapWidth, num4 + tileMapHeight))
             {
                 return;
             }
-            Rectangle rectangle = rectInRectIntersection(new Rectangle(num3, num4, (float)tileMapWidth, (float)tileMapHeight), new Rectangle(num, num2, (float)cameraViewWidth, (float)cameraViewHeight));
+            Rectangle rectangle = rectInRectIntersection(new Rectangle(num3, num4, tileMapWidth, tileMapHeight), new Rectangle(num, num2, cameraViewWidth, cameraViewHeight));
             Vector vector = vect(Math.Max(0f, rectangle.x), Math.Max(0f, rectangle.y));
-            Vector vector2 = vect((float)((int)vector.x / tileWidth), (float)((int)vector.y / tileHeight));
-            float num9 = num4 + vector2.y * (float)tileHeight;
-            Vector vector3 = vect(num3 + vector2.x * (float)tileWidth, num9);
+            Vector vector2 = vect((int)vector.x / tileWidth, (int)vector.y / tileHeight);
+            float num9 = num4 + vector2.y * tileHeight;
+            Vector vector3 = vect(num3 + vector2.x * tileWidth, num9);
             int count = drawers.Count;
             for (int i = 0; i < count; i++)
             {
@@ -190,8 +190,8 @@ namespace ctr_wp7.iframework.visual
                     imageMultiDrawer.numberOfQuadsToDraw = 0;
                 }
             }
-            int num10 = (int)(vector2.x + (float)maxColsOnScreen - 1f);
-            int num11 = (int)(vector2.y + (float)maxRowsOnScreen - 1f);
+            int num10 = (int)(vector2.x + maxColsOnScreen - 1f);
+            int num11 = (int)(vector2.y + maxRowsOnScreen - 1f);
             if (repeatedVertically == Repeat.REPEAT_NONE)
             {
                 num11 = Math.Min(rows - 1, num11);
@@ -204,9 +204,9 @@ namespace ctr_wp7.iframework.visual
             {
                 vector3.y = num9;
                 int num12 = (int)vector2.y;
-                while (num12 <= num11 && vector3.y < num2 + (float)cameraViewHeight)
+                while (num12 <= num11 && vector3.y < num2 + cameraViewHeight)
                 {
-                    Rectangle rectangle2 = rectInRectIntersection(new Rectangle(num, num2, (float)cameraViewWidth, (float)cameraViewHeight), new Rectangle(vector3.x, vector3.y, (float)tileWidth, (float)tileHeight));
+                    Rectangle rectangle2 = rectInRectIntersection(new Rectangle(num, num2, cameraViewWidth, cameraViewHeight), new Rectangle(vector3.x, vector3.y, tileWidth, tileHeight));
                     Rectangle rectangle3 = new(num - vector3.x + rectangle2.x, num2 - vector3.y + rectangle2.y, rectangle2.w, rectangle2.h);
                     int num13 = j;
                     int num14 = num12;
@@ -216,7 +216,7 @@ namespace ctr_wp7.iframework.visual
                         {
                             num14 = 0;
                         }
-                        else if (vector3.y >= y + (float)tileMapHeight)
+                        else if (vector3.y >= y + tileMapHeight)
                         {
                             num14 = rows - 1;
                         }
@@ -227,19 +227,19 @@ namespace ctr_wp7.iframework.visual
                         {
                             num13 = 0;
                         }
-                        else if (vector3.x >= x + (float)tileMapWidth)
+                        else if (vector3.x >= x + tileMapWidth)
                         {
                             num13 = columns - 1;
                         }
                     }
                     if (horizontalRandom)
                     {
-                        float num15 = fmSin(vector3.x) * (float)randomSeed;
+                        float num15 = fmSin(vector3.x) * randomSeed;
                         num13 = Math.Abs((int)num15 % columns);
                     }
                     if (verticalRandom)
                     {
-                        float num16 = fmSin(vector3.y) * (float)randomSeed;
+                        float num16 = fmSin(vector3.y) * randomSeed;
                         num14 = Math.Abs((int)num16 % rows);
                     }
                     if (num13 >= columns)
@@ -262,14 +262,14 @@ namespace ctr_wp7.iframework.visual
                             rectangle3.y += texture.quadRects[tileEntry.quad].y;
                         }
                         Quad2D textureCoordinates = GLDrawer.getTextureCoordinates(imageMultiDrawer2.image.texture, rectangle3);
-                        Quad3D quad3D = Quad3D.MakeQuad3D((double)(pos.x + rectangle2.x), (double)(pos.y + rectangle2.y), 0.0, (double)rectangle2.w, (double)rectangle2.h);
+                        Quad3D quad3D = Quad3D.MakeQuad3D((double)(pos.x + rectangle2.x), (double)(pos.y + rectangle2.y), 0.0, rectangle2.w, rectangle2.h);
                         imageMultiDrawer2.setTextureQuadatVertexQuadatIndex(textureCoordinates, quad3D, imageMultiDrawer2.numberOfQuadsToDraw++);
                     }
-                    vector3.y += (float)tileHeight;
+                    vector3.y += tileHeight;
                     num12++;
                 }
-                vector3.x += (float)tileWidth;
-                if (vector3.x >= num + (float)cameraViewWidth)
+                vector3.x += tileWidth;
+                if (vector3.x >= num + cameraViewWidth)
                 {
                     return;
                 }

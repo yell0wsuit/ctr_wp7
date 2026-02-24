@@ -27,10 +27,10 @@ namespace ctr_wp7.ctr_commons
                 lift.parentAnchor = 17;
                 lift.anchor = 18;
                 lift.minX = 1f;
-                lift.maxX = (float)width - lift.minX;
+                lift.maxX = width - lift.minX;
                 lift.liftDelegate = new Lift.PercentXY(percentXY);
                 int num = 45;
-                lift.setTouchIncreaseLeftRightTopBottom((float)num, (float)num, -5f, 10f);
+                lift.setTouchIncreaseLeftRightTopBottom(num, num, -5f, 10f);
                 _ = addChild(lift);
                 spointsNum = 0;
                 spoints = null;

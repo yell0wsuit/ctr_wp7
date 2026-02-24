@@ -36,7 +36,7 @@ namespace ctr_wp7.iframework
         {
             if (cap == 4)
             {
-                glScissor(0.0, 0.0, (double)FrameworkTypes.REAL_SCREEN_WIDTH, (double)FrameworkTypes.REAL_SCREEN_HEIGHT);
+                glScissor(0.0, 0.0, FrameworkTypes.REAL_SCREEN_WIDTH, FrameworkTypes.REAL_SCREEN_HEIGHT);
             }
             if (cap == 1)
             {
@@ -492,7 +492,7 @@ namespace ctr_wp7.iframework
             BasicEffect basicEffect = useTexture ? (useColor ? s_effectTextureColor : s_effectTexture) : s_effectColor;
             if (useTexture)
             {
-                basicEffect.Alpha = (float)s_Color.A / 255f;
+                basicEffect.Alpha = s_Color.A / 255f;
                 if (basicEffect.Alpha == 0f)
                 {
                     return basicEffect;

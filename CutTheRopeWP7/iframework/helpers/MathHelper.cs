@@ -139,7 +139,7 @@ namespace ctr_wp7.iframework.helpers
                 fmSins = new float[1024];
                 for (int i = 0; i < 1024; i++)
                 {
-                    fmSins[i] = (float)Math.Sin((double)(i * 2) * 3.141592653589793 / 1024.0);
+                    fmSins[i] = (float)Math.Sin(i * 2 * 3.141592653589793 / 1024.0);
                 }
             }
             if (fmCoss == null)
@@ -147,7 +147,7 @@ namespace ctr_wp7.iframework.helpers
                 fmCoss = new float[1024];
                 for (int j = 0; j < 1024; j++)
                 {
-                    fmCoss[j] = (float)Math.Cos((double)(j * 2) * 3.141592653589793 / 1024.0);
+                    fmCoss[j] = (float)Math.Cos(j * 2 * 3.141592653589793 / 1024.0);
                 }
             }
         }
@@ -418,7 +418,7 @@ namespace ctr_wp7.iframework.helpers
         // Token: 0x0600003E RID: 62 RVA: 0x00004F68 File Offset: 0x00003168
         public static float vectAngleNormalized(Vector v)
         {
-            return (float)Math.Atan2((double)v.y, (double)v.x);
+            return (float)Math.Atan2(v.y, v.x);
         }
 
         // Token: 0x0600003F RID: 63 RVA: 0x00004F80 File Offset: 0x00003180
@@ -448,7 +448,7 @@ namespace ctr_wp7.iframework.helpers
         // Token: 0x06000043 RID: 67 RVA: 0x00004FC0 File Offset: 0x000031C0
         private static float vectToAngle(Vector v)
         {
-            return (float)Math.Atan2((double)v.x, (double)v.y);
+            return (float)Math.Atan2(v.x, v.y);
         }
 
         // Token: 0x06000044 RID: 68 RVA: 0x00004FD8 File Offset: 0x000031D8
@@ -577,7 +577,7 @@ namespace ctr_wp7.iframework.helpers
         // Token: 0x0600004B RID: 75 RVA: 0x0000538C File Offset: 0x0000358C
         public static float FLOAT_RND_RANGE(int S, int F)
         {
-            return (float)RND_RANGE(S * 1000, F * 1000) / 1000f;
+            return RND_RANGE(S * 1000, F * 1000) / 1000f;
         }
 
         // Token: 0x0600004C RID: 76 RVA: 0x000053A8 File Offset: 0x000035A8
@@ -604,7 +604,7 @@ namespace ctr_wp7.iframework.helpers
             int num = 0;
             for (int j = 0; j < 16; j++)
             {
-                int num2 = (int)array2[j];
+                int num2 = array2[j];
                 int num3 = (num2 >> 4) & 15;
                 array3[num++] = (char)((num3 < 10) ? (48 + num3) : (97 + num3 - 10));
                 num3 = num2 & 15;

@@ -15,8 +15,8 @@ namespace ctr_wp7.iframework.visual
         {
             sp = getScroll();
             mp = getMaxScroll();
-            float num = (float)container.width / (float)width;
-            float num2 = (float)container.height / (float)height;
+            float num = container.width / (float)width;
+            float num2 = container.height / (float)height;
             sc = vect(num, num2);
         }
 
@@ -64,11 +64,11 @@ namespace ctr_wp7.iframework.visual
         {
             float x = container.x;
             float y = container.y;
-            container.x = (float)Math.Round((double)container.x);
-            container.y = (float)Math.Round((double)container.y);
+            container.x = (float)Math.Round(container.x);
+            container.y = (float)Math.Round(container.y);
             base.preDraw();
             OpenGL.glEnable(4);
-            OpenGL.setScissorRectangle(drawX, drawY, (float)width, (float)height);
+            OpenGL.setScissorRectangle(drawX, drawY, width, height);
             postDraw();
             OpenGL.glDisable(4);
             container.x = x;
@@ -95,7 +95,7 @@ namespace ctr_wp7.iframework.visual
                 BaseElement baseElement = childs[i];
                 float drawX = baseElement.drawX;
                 float drawY = baseElement.drawY;
-                if (baseElement != null && baseElement.visible && rectInRect(drawX, drawY, drawX + (float)baseElement.width, drawY + (float)baseElement.height, this.drawX, this.drawY, this.drawX + (float)width, this.drawY + (float)height))
+                if (baseElement != null && baseElement.visible && rectInRect(drawX, drawY, drawX + baseElement.width, drawY + baseElement.height, this.drawX, this.drawY, this.drawX + width, this.drawY + height))
                 {
                     baseElement.draw();
                 }
@@ -121,10 +121,10 @@ namespace ctr_wp7.iframework.visual
             base.update(delta);
             delta = fixedDelta;
             targetPoint = vectZero;
-            if ((double)touchTimer > 0.0)
+            if (touchTimer > 0.0)
             {
                 touchTimer -= delta;
-                if ((double)touchTimer <= 0.0)
+                if (touchTimer <= 0.0)
                 {
                     touchTimer = 0f;
                     passTouches = true;
@@ -134,10 +134,10 @@ namespace ctr_wp7.iframework.visual
                     }
                 }
             }
-            if ((double)touchReleaseTimer > 0.0)
+            if (touchReleaseTimer > 0.0)
             {
                 touchReleaseTimer -= delta;
-                if ((double)touchReleaseTimer <= 0.0)
+                if (touchReleaseTimer <= 0.0)
                 {
                     touchReleaseTimer = 0f;
                     if (base.onTouchUpXY(savedTouch.x, savedTouch.y))
@@ -150,12 +150,12 @@ namespace ctr_wp7.iframework.visual
             {
                 if (shouldBounceHorizontally)
                 {
-                    if ((double)container.x > 0.0)
+                    if (container.x > 0.0)
                     {
                         float num = (float)(50.0 + (double)Math.Abs(container.x) * 5.0);
                         moveToPointDeltaSpeed(vect(0f, container.y), delta, num);
                     }
-                    else if (container.x < (float)(-(float)container.width + width) && (double)container.x < 0.0)
+                    else if (container.x < (float)(-(float)container.width + width) && container.x < 0.0)
                     {
                         float num2 = (float)(50.0 + (double)Math.Abs((float)(-(float)container.width + width) - container.x) * 5.0);
                         moveToPointDeltaSpeed(vect((float)(-(float)container.width + width), container.y), delta, num2);
@@ -163,11 +163,11 @@ namespace ctr_wp7.iframework.visual
                 }
                 if (shouldBounceVertically)
                 {
-                    if ((double)container.y > 0.0)
+                    if (container.y > 0.0)
                     {
                         moveToPointDeltaSpeed(vect(container.x, 0f), delta, (float)(50.0 + (double)Math.Abs(container.y) * 5.0));
                     }
-                    else if (container.y < (float)(-(float)container.height + height) && (double)container.y < 0.0)
+                    else if (container.y < (float)(-(float)container.height + height) && container.y < 0.0)
                     {
                         moveToPointDeltaSpeed(vect(container.x, (float)(-(float)container.height + height)), delta, (float)(50.0 + (double)Math.Abs((float)(-(float)container.height + height) - container.y) * 5.0));
                     }
@@ -176,7 +176,7 @@ namespace ctr_wp7.iframework.visual
             if (movingToSpoint)
             {
                 Vector vector = spoints[targetSpoint];
-                moveToPointDeltaSpeed(vector, delta, (float)Math.Max(100.0, (double)vectDistance(vector, vect(container.x, container.y)) * 4.0 * (double)spointMoveMultiplier));
+                moveToPointDeltaSpeed(vector, delta, (float)Math.Max(100.0, (double)vectDistance(vector, vect(container.x, container.y)) * 4.0 * spointMoveMultiplier));
                 if (container.x == vector.x && container.y == vector.y)
                 {
                     if (delegateScrollableContainerProtocol != null)
@@ -212,7 +212,7 @@ namespace ctr_wp7.iframework.visual
                 }
                 _ = moveContainerBy(vector3);
             }
-            if ((double)inertiaTimeoutLeft > 0.0)
+            if (inertiaTimeoutLeft > 0.0)
             {
                 inertiaTimeoutLeft -= delta;
             }
@@ -234,7 +234,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x0600060E RID: 1550 RVA: 0x0002E0B4 File Offset: 0x0002C2B4
         public override bool onTouchDownXY(float tx, float ty)
         {
-            if (!pointInRect(tx, ty, drawX, drawY, (float)width, (float)height))
+            if (!pointInRect(tx, ty, drawX, drawY, width, height))
             {
                 return false;
             }
@@ -285,7 +285,7 @@ namespace ctr_wp7.iframework.visual
             {
                 return false;
             }
-            if (vectEqual(dragStart, impossibleTouch) && !pointInRect(tx, ty, drawX, drawY, (float)width, (float)height))
+            if (vectEqual(dragStart, impossibleTouch) && !pointInRect(tx, ty, drawX, drawY, width, height))
             {
                 return false;
             }
@@ -297,7 +297,7 @@ namespace ctr_wp7.iframework.visual
                 vector2.x = FIT_TO_BOUNDARIES(vector2.x, -maxTouchMoveLength, maxTouchMoveLength);
                 vector2.y = FIT_TO_BOUNDARIES(vector2.y, -maxTouchMoveLength, maxTouchMoveLength);
                 totalDrag = vectAdd(totalDrag, vector2);
-                if (((double)touchTimer > 0.0 || untouchChildsOnMove) && vectLength(totalDrag) > touchMoveIgnoreLength)
+                if ((touchTimer > 0.0 || untouchChildsOnMove) && vectLength(totalDrag) > touchMoveIgnoreLength)
                 {
                     touchTimer = 0f;
                     passTouches = false;
@@ -311,11 +311,11 @@ namespace ctr_wp7.iframework.visual
                 {
                     vector2.y = 0f;
                 }
-                if (shouldBounceHorizontally && ((double)container.x > 0.0 || container.x < (float)(-(float)container.width + width)))
+                if (shouldBounceHorizontally && (container.x > 0.0 || container.x < (float)(-(float)container.width + width)))
                 {
                     vector2.x /= 2f;
                 }
-                if (shouldBounceVertically && ((double)container.y > 0.0 || container.y < (float)(-(float)container.height + height)))
+                if (shouldBounceVertically && (container.y > 0.0 || container.y < (float)(-(float)container.height + height)))
                 {
                     vector2.y /= 2f;
                 }
@@ -338,7 +338,7 @@ namespace ctr_wp7.iframework.visual
                     return true;
                 }
             }
-            if ((double)touchTimer > 0.0 && ((!movingByInertion && !movingToSpoint) || targetSpoint == spointsNum - 1 || CTRPreferences.isLiteVersion()))
+            if (touchTimer > 0.0 && ((!movingByInertion && !movingToSpoint) || targetSpoint == spointsNum - 1 || CTRPreferences.isLiteVersion()))
             {
                 bool flag2 = base.onTouchDownXY(savedTouch.x, savedTouch.y);
                 touchReleaseTimer = 0.2f;
@@ -353,7 +353,7 @@ namespace ctr_wp7.iframework.visual
                 return false;
             }
             touchState = TOUCH_STATE.TOUCH_STATE_UP;
-            if ((double)inertiaTimeoutLeft > 0.0)
+            if (inertiaTimeoutLeft > 0.0)
             {
                 float num = inertiaTimeoutLeft / inertiaTimeout;
                 move = vectMult(staticMove, (float)((double)num * 50.0));
@@ -393,7 +393,7 @@ namespace ctr_wp7.iframework.visual
         {
             if (base.init() != null)
             {
-                float num = (float)Application.sharedAppSettings().getInt(5);
+                float num = Application.sharedAppSettings().getInt(5);
                 fixedDelta = (float)(1.0 / (double)num);
                 spoints = null;
                 spointsNum = -1;
@@ -493,7 +493,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x0600061B RID: 1563 RVA: 0x0002E7CC File Offset: 0x0002C9CC
         public virtual Vector getMaxScroll()
         {
-            return vect((float)(container.width - width), (float)(container.height - height));
+            return vect(container.width - width, container.height - height);
         }
 
         // Token: 0x0600061C RID: 1564 RVA: 0x0002E7FC File Offset: 0x0002C9FC
@@ -548,7 +548,7 @@ namespace ctr_wp7.iframework.visual
             Vector vector = vect(container.x, container.y);
             for (int i = 0; i < spointsNum; i++)
             {
-                if ((double)spoints[i].x <= 0.0 && (spoints[i].x >= (float)(-(float)container.width + width) || (double)spoints[i].x >= 0.0) && (double)spoints[i].y <= 0.0 && (spoints[i].y >= (float)(-(float)container.height + height) || (double)spoints[i].y >= 0.0))
+                if (spoints[i].x <= 0.0 && (spoints[i].x >= (float)(-(float)container.width + width) || spoints[i].x >= 0.0) && spoints[i].y <= 0.0 && (spoints[i].y >= (float)(-(float)container.height + height) || spoints[i].y >= 0.0))
                 {
                     float num4 = vectDistance(spoints[i], vector);
                     if (!vectEqual(d, vectZero))

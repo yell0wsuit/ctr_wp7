@@ -12,7 +12,7 @@ internal class Rollbar : BaseElement
     // Token: 0x06000660 RID: 1632 RVA: 0x00030A87 File Offset: 0x0002EC87
     public int getIndex()
     {
-        return (int)(-Math.Round(offsetY / (double)centralCellHeight) - 2.0);
+        return (int)(-Math.Round(offsetY / centralCellHeight) - 2.0);
     }
 
     // Token: 0x06000661 RID: 1633 RVA: 0x00030AA8 File Offset: 0x0002ECA8
@@ -78,10 +78,10 @@ internal class Rollbar : BaseElement
         _ = image3.addTimeline(timeline);
         image3.playTimeline(0);
         centralCellHeight = Image.getQuadSize(409, 3).y;
-        double num = (double)scrollTop.height / 2.0 / (double)centralCellHeight;
+        double num = scrollTop.height / 2.0 / centralCellHeight;
         halfVisibleCount = (int)Math.Ceiling(num);
-        offsetY = (double)(-24f * centralCellHeight);
-        lastTouchY = (double)-(double)SCREEN_HEIGHT_EXPANDED;
+        offsetY = -24f * centralCellHeight;
+        lastTouchY = -(double)SCREEN_HEIGHT_EXPANDED;
         BaseElement baseElement2 = (BaseElement)new BaseElement().init();
         Image.setElementPositionWithQuadCenter(baseElement2, 409, 1);
         scissorTL = vect(baseElement2.x - 20f, baseElement2.y - 80f);
@@ -92,11 +92,11 @@ internal class Rollbar : BaseElement
     // Token: 0x06000662 RID: 1634 RVA: 0x00030F0C File Offset: 0x0002F10C
     public override bool onTouchDownXY(float x, float y)
     {
-        if (x < this.x || x > this.x + (float)width || y < this.y || y > this.y + (float)height)
+        if (x < this.x || x > this.x + width || y < this.y || y > this.y + height)
         {
             return false;
         }
-        lastTouchY = (double)y;
+        lastTouchY = y;
         lastMoveSpeed = 0.0;
         speedY = 0.0;
         manualMode = true;
@@ -110,9 +110,9 @@ internal class Rollbar : BaseElement
         {
             preLastTouchY = lastTouchY;
             float num = (float)((double)y - lastTouchY);
-            lastTouchY = (double)y;
+            lastTouchY = y;
             oldOffsetY = offsetY;
-            offsetY += (double)num;
+            offsetY += num;
             lastMoveSpeed = (double)num / lastTimeDelta;
             speedY = 0.0;
             return true;
@@ -133,14 +133,14 @@ internal class Rollbar : BaseElement
             lastMoveSpeed = 0.0;
         }
         speedY = lastMoveSpeed * 2.0;
-        lastTouchY = (double)-(double)SCREEN_HEIGHT_EXPANDED;
+        lastTouchY = -(double)SCREEN_HEIGHT_EXPANDED;
         return true;
     }
 
     // Token: 0x06000665 RID: 1637 RVA: 0x0003105E File Offset: 0x0002F25E
     public void scrollWithSpeed(float speed)
     {
-        speedY = (double)speed;
+        speedY = speed;
     }
 
     // Token: 0x06000666 RID: 1638 RVA: 0x00031068 File Offset: 0x0002F268
@@ -152,7 +152,7 @@ internal class Rollbar : BaseElement
     // Token: 0x06000667 RID: 1639 RVA: 0x00031074 File Offset: 0x0002F274
     public float getOffsetY()
     {
-        float num = (float)(offsetY - Math.Floor(offsetY / (double)centralCellHeight) * (double)centralCellHeight);
+        float num = (float)(offsetY - Math.Floor(offsetY / centralCellHeight) * centralCellHeight);
         if (num > centralCellHeight / 2f)
         {
             num -= centralCellHeight;
@@ -168,12 +168,12 @@ internal class Rollbar : BaseElement
         OpenGL.setScissorRectangle(scissorTL.x, scissorTL.y, scissorWH.x, scissorWH.y);
         for (int i = -halfVisibleCount - 1; i < halfVisibleCount + 1; i++)
         {
-            int num = (int)(offsetY / (double)centralCellHeight);
+            int num = (int)(offsetY / centralCellHeight);
             int num2 = -num + i;
             if (num2 >= 0 && num2 < elements.Count)
             {
                 BaseElement baseElement = elements[num2];
-                baseElement.y = (float)((double)((float)i * centralCellHeight) + (offsetY - (double)((float)num * centralCellHeight)));
+                baseElement.y = (float)((double)(i * centralCellHeight) + (offsetY - (double)(num * centralCellHeight)));
                 baseElement.draw();
             }
         }
@@ -185,28 +185,28 @@ internal class Rollbar : BaseElement
     public override void update(float delta)
     {
         base.update(delta);
-        lastTimeDelta = (double)delta;
+        lastTimeDelta = delta;
         oldOffsetY = offsetY;
         offsetY += speedY * (double)delta;
-        float num = (float)(offsetY - Math.Floor(offsetY / (double)centralCellHeight) * (double)centralCellHeight);
+        float num = (float)(offsetY - Math.Floor(offsetY / centralCellHeight) * centralCellHeight);
         if (num > centralCellHeight / 2f)
         {
             num -= centralCellHeight;
         }
         if (!manualMode)
         {
-            speedY -= (double)(num / 3f);
+            speedY -= num / 3f;
         }
-        speedY *= (double)MAX(0.7f, 1f - delta * 5f);
-        float num2 = (float)(offsetY + (double)((float)halfVisibleCount * centralCellHeight));
+        speedY *= MAX(0.7f, 1f - delta * 5f);
+        float num2 = (float)(offsetY + (double)(halfVisibleCount * centralCellHeight));
         if (num2 > 0f && !manualMode)
         {
-            offsetY -= (double)(num2 * 20f * delta);
+            offsetY -= num2 * 20f * delta;
         }
         num2 = (float)((double)((float)-(float)(elements.Count - halfVisibleCount + 1) * centralCellHeight) - offsetY);
         if (num2 > 0f && !manualMode)
         {
-            offsetY += (double)(num2 * 20f * delta);
+            offsetY += num2 * 20f * delta;
         }
     }
 

@@ -46,8 +46,8 @@ namespace ctr_wp7.iframework.visual
             float num4;
             if (q == -1)
             {
-                num3 = (float)image._realWidth;
-                num4 = (float)image._realHeight;
+                num3 = image._realWidth;
+                num4 = image._realHeight;
             }
             else
             {
@@ -90,8 +90,8 @@ namespace ctr_wp7.iframework.visual
             float num4;
             if (q == -1)
             {
-                num3 = (float)image._realWidth;
-                num4 = (float)image._realHeight;
+                num3 = image._realWidth;
+                num4 = image._realHeight;
             }
             else
             {
@@ -109,8 +109,8 @@ namespace ctr_wp7.iframework.visual
             int num6 = (int)ceil((double)(height / num4));
             int num7 = (int)width % (int)num3;
             int num8 = (int)height % (int)num4;
-            int num9 = (int)((num7 == 0) ? num3 : ((float)num7));
-            int num10 = (int)((num8 == 0) ? num4 : ((float)num8));
+            int num9 = (int)((num7 == 0) ? num3 : num7);
+            int num10 = (int)((num8 == 0) ? num4 : num8);
             int num12 = (int)y;
             for (int i = num6 - 1; i >= 0; i--)
             {
@@ -119,12 +119,12 @@ namespace ctr_wp7.iframework.visual
                 {
                     if (j == 0 || i == 0)
                     {
-                        Rectangle rectangle = MakeRectangle(num, num2, (j == 0) ? ((float)num9) : num3, (i == 0) ? ((float)num10) : num4);
-                        drawImagePart(image, rectangle, (float)num11, (float)num12);
+                        Rectangle rectangle = MakeRectangle(num, num2, (j == 0) ? num9 : num3, (i == 0) ? num10 : num4);
+                        drawImagePart(image, rectangle, num11, num12);
                     }
                     else
                     {
-                        drawImageQuad(image, q, (float)num11, (float)num12);
+                        drawImageQuad(image, q, num11, num12);
                     }
                     num11 += (int)num3;
                 }
@@ -192,7 +192,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060004D8 RID: 1240 RVA: 0x000243C4 File Offset: 0x000225C4
         public static void calcCircle(float x, float y, float radius, int vertexCount, float[] glVertices)
         {
-            float num = (float)(6.283185307179586 / (double)vertexCount);
+            float num = (float)(6.283185307179586 / vertexCount);
             float num2 = 0f;
             for (int i = 0; i < vertexCount; i++)
             {
@@ -294,7 +294,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060004DB RID: 1243 RVA: 0x000248A0 File Offset: 0x00022AA0
         private static void calcCurve(float cx, float cy, float radius, float startAngle, float endAngle, int vertexCount, float[] glVertices)
         {
-            float num = (endAngle - startAngle) / (float)(vertexCount - 1);
+            float num = (endAngle - startAngle) / (vertexCount - 1);
             float num2 = tanf(num);
             float num3 = cosf(num);
             float num4 = radius * cosf(startAngle);

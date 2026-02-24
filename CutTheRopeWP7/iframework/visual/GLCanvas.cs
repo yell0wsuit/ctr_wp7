@@ -83,7 +83,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060000CE RID: 206 RVA: 0x0000714C File Offset: 0x0000534C
         public virtual void setDefaultProjection()
         {
-            OpenGL.glViewport(0.0, 0.0, (double)REAL_SCREEN_WIDTH, (double)REAL_SCREEN_HEIGHT);
+            OpenGL.glViewport(0.0, 0.0, REAL_SCREEN_WIDTH, REAL_SCREEN_HEIGHT);
             OpenGL.glMatrixMode(15);
             OpenGL.glLoadIdentity();
             OpenGL.glOrthof((double)-(double)SCREEN_OFFSET_X, (double)(SCREEN_WIDTH + SCREEN_OFFSET_X), (double)(SCREEN_HEIGHT + SCREEN_OFFSET_Y), (double)-(double)SCREEN_OFFSET_Y, -1.0, 1.0);
@@ -94,10 +94,10 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x060000CF RID: 207 RVA: 0x000071D4 File Offset: 0x000053D4
         public virtual void setDefaultRealProjection()
         {
-            OpenGL.glViewport(0.0, 0.0, (double)REAL_SCREEN_WIDTH, (double)REAL_SCREEN_HEIGHT);
+            OpenGL.glViewport(0.0, 0.0, REAL_SCREEN_WIDTH, REAL_SCREEN_HEIGHT);
             OpenGL.glMatrixMode(15);
             OpenGL.glLoadIdentity();
-            OpenGL.glOrthof(0.0, (double)REAL_SCREEN_WIDTH, (double)REAL_SCREEN_HEIGHT, 0.0, -1.0, 1.0);
+            OpenGL.glOrthof(0.0, REAL_SCREEN_WIDTH, REAL_SCREEN_HEIGHT, 0.0, -1.0, 1.0);
             OpenGL.glMatrixMode(14);
             OpenGL.glLoadIdentity();
         }

@@ -37,7 +37,7 @@ namespace ctr_wp7.iframework.helpers
         {
             if (base.initWithTexture(t) != null)
             {
-                bb = new Rectangle(0f, 0f, (float)width, (float)height);
+                bb = new Rectangle(0f, 0f, width, height);
                 rbb = new Quad2D(bb.x, bb.y, bb.w, bb.h);
                 anchor = 18;
                 rotatedBB = false;
@@ -91,20 +91,20 @@ namespace ctr_wp7.iframework.helpers
         {
             if (base.initWithTexture(Application.getTexture(t)) != null)
             {
-                float num = (float)xml["x"].intValue();
-                float num2 = (float)xml["y"].intValue();
-                x = (float)tx + num;
-                y = (float)ty + num2;
+                float num = xml["x"].intValue();
+                float num2 = xml["y"].intValue();
+                x = tx + num;
+                y = ty + num2;
                 type = t;
                 NSString nsstring = xml["bb"];
                 if (nsstring != null)
                 {
                     List<NSString> list = nsstring.componentsSeparatedByString(',');
-                    bb = new Rectangle((float)list[0].intValue(), (float)list[1].intValue(), (float)list[2].intValue(), (float)list[3].intValue());
+                    bb = new Rectangle(list[0].intValue(), list[1].intValue(), list[2].intValue(), list[3].intValue());
                 }
                 else
                 {
-                    bb = new Rectangle(0f, 0f, (float)width, (float)height);
+                    bb = new Rectangle(0f, 0f, width, height);
                 }
                 rbb = new Quad2D(bb.x, bb.y, bb.w, bb.h);
                 parseMover(xml);
@@ -129,7 +129,7 @@ namespace ctr_wp7.iframework.helpers
                 float num3 = xml["moveSpeed"].floatValue();
                 float num4 = xml["rotateSpeed"].floatValue();
                 Mover mover = new Mover().initWithPathCapacityMoveSpeedRotateSpeed(num, num3, num4);
-                mover.angle = (double)rotation;
+                mover.angle = rotation;
                 mover.setPathFromStringandStart(nsstring, vect(x, y));
                 setMover(mover);
                 mover.start();
@@ -145,7 +145,7 @@ namespace ctr_wp7.iframework.helpers
         // Token: 0x060000F2 RID: 242 RVA: 0x000079B4 File Offset: 0x00005BB4
         public virtual void setBBFromFirstQuad()
         {
-            bb = new Rectangle((float)Math.Round((double)texture.quadOffsets[0].x), (float)Math.Round((double)texture.quadOffsets[0].y), texture.quadRects[0].w, texture.quadRects[0].h);
+            bb = new Rectangle((float)Math.Round(texture.quadOffsets[0].x), (float)Math.Round(texture.quadOffsets[0].y), texture.quadRects[0].w, texture.quadRects[0].h);
             rbb = new Quad2D(bb.x, bb.y, bb.w, bb.h);
         }
 
@@ -161,10 +161,10 @@ namespace ctr_wp7.iframework.helpers
             Vector vector2 = vect(bb.x + bb.w, bb.y);
             Vector vector3 = vect(bb.x + bb.w, bb.y + bb.h);
             Vector vector4 = vect(bb.x, bb.y + bb.h);
-            vector = vectRotateAround(vector, (double)DEGREES_TO_RADIANS(a), (float)((double)width / 2.0 + (double)rotationCenterX), (float)((double)height / 2.0 + (double)rotationCenterY));
-            vector2 = vectRotateAround(vector2, (double)DEGREES_TO_RADIANS(a), (float)((double)width / 2.0 + (double)rotationCenterX), (float)((double)height / 2.0 + (double)rotationCenterY));
-            vector3 = vectRotateAround(vector3, (double)DEGREES_TO_RADIANS(a), (float)((double)width / 2.0 + (double)rotationCenterX), (float)((double)height / 2.0 + (double)rotationCenterY));
-            vector4 = vectRotateAround(vector4, (double)DEGREES_TO_RADIANS(a), (float)((double)width / 2.0 + (double)rotationCenterX), (float)((double)height / 2.0 + (double)rotationCenterY));
+            vector = vectRotateAround(vector, (double)DEGREES_TO_RADIANS(a), (float)(width / 2.0 + rotationCenterX), (float)(height / 2.0 + rotationCenterY));
+            vector2 = vectRotateAround(vector2, (double)DEGREES_TO_RADIANS(a), (float)(width / 2.0 + rotationCenterX), (float)(height / 2.0 + rotationCenterY));
+            vector3 = vectRotateAround(vector3, (double)DEGREES_TO_RADIANS(a), (float)(width / 2.0 + rotationCenterX), (float)(height / 2.0 + rotationCenterY));
+            vector4 = vectRotateAround(vector4, (double)DEGREES_TO_RADIANS(a), (float)(width / 2.0 + rotationCenterX), (float)(height / 2.0 + rotationCenterY));
             rbb.tlX = vector.x;
             rbb.tlY = vector.y;
             rbb.trX = vector2.x;

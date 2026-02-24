@@ -47,8 +47,8 @@ namespace ctr_wp7.game
                 _ = ghostImage.addChild(ghostImageBody);
                 float rnd_0_ = RND_0_1;
                 Timeline timeline3 = new Timeline().initWithMaxKeyFramesOnTrack(2);
-                timeline3.addKeyFrame(KeyFrame.makePos((double)x, (double)y, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
-                timeline3.addKeyFrame(KeyFrame.makePos((double)x, (double)y - 3.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, (double)rnd_0_));
+                timeline3.addKeyFrame(KeyFrame.makePos(x, y, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
+                timeline3.addKeyFrame(KeyFrame.makePos(x, y - 3.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, (double)rnd_0_));
                 timeline3.delegateTimelineDelegate = this;
                 ghostImageBody.addTimelinewithID(timeline3, 13);
                 ghostImageBody.playTimeline(13);
@@ -59,8 +59,8 @@ namespace ctr_wp7.game
                 ghostImageFace.doRestoreCutTransparency();
                 _ = ghostImage.addChild(ghostImageFace);
                 Timeline timeline4 = new Timeline().initWithMaxKeyFramesOnTrack(2);
-                timeline4.addKeyFrame(KeyFrame.makePos((double)x, (double)y, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
-                timeline4.addKeyFrame(KeyFrame.makePos((double)x, (double)y - 2.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, (double)rnd_0_ + 0.005));
+                timeline4.addKeyFrame(KeyFrame.makePos(x, y, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
+                timeline4.addKeyFrame(KeyFrame.makePos(x, y - 2.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, (double)rnd_0_ + 0.005));
                 timeline4.delegateTimelineDelegate = this;
                 ghostImageFace.addTimelinewithID(timeline4, 13);
                 ghostImageFace.playTimeline(13);
@@ -225,7 +225,7 @@ namespace ctr_wp7.game
                 default:
                     if (num == 8)
                     {
-                        bouncer = (Bouncer)new GhostBouncer().initWithPosXYWidthAndAngle(x, y, 1, (double)bouncerAngle);
+                        bouncer = (Bouncer)new GhostBouncer().initWithPosXYWidthAndAngle(x, y, 1, bouncerAngle);
                         gsBouncers.Add(bouncer);
                         bouncer.addTimelinewithID(timeline2, 10);
                         bouncer.playTimeline(10);
@@ -276,22 +276,22 @@ namespace ctr_wp7.game
             {
                 Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(5);
                 timeline.setTimelineLoopType(Timeline.LoopType.TIMELINE_REPLAY);
-                timeline.addKeyFrame(KeyFrame.makePos((double)x, (double)y - 2.0, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
-                timeline.addKeyFrame(KeyFrame.makePos((double)x, (double)y, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.38));
-                timeline.addKeyFrame(KeyFrame.makePos((double)x, (double)y + 2.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.38));
-                timeline.addKeyFrame(KeyFrame.makePos((double)x, (double)y, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.38));
-                timeline.addKeyFrame(KeyFrame.makePos((double)x, (double)y - 2.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.38));
+                timeline.addKeyFrame(KeyFrame.makePos(x, y - 2.0, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
+                timeline.addKeyFrame(KeyFrame.makePos(x, y, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.38));
+                timeline.addKeyFrame(KeyFrame.makePos(x, y + 2.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.38));
+                timeline.addKeyFrame(KeyFrame.makePos(x, y, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.38));
+                timeline.addKeyFrame(KeyFrame.makePos(x, y - 2.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.38));
                 ghostImageFace.addTimelinewithID(timeline, 12);
                 ghostImageFace.playTimeline(12);
             }
             if (t.element == ghostImageBody)
             {
                 Timeline timeline2 = new Timeline().initWithMaxKeyFramesOnTrack(5);
-                timeline2.addKeyFrame(KeyFrame.makePos((double)x, (double)y - 3.0, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
-                timeline2.addKeyFrame(KeyFrame.makePos((double)x, (double)y, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.38));
-                timeline2.addKeyFrame(KeyFrame.makePos((double)x, (double)y + 3.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.38));
-                timeline2.addKeyFrame(KeyFrame.makePos((double)x, (double)y, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.38));
-                timeline2.addKeyFrame(KeyFrame.makePos((double)x, (double)y - 3.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.38));
+                timeline2.addKeyFrame(KeyFrame.makePos(x, y - 3.0, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
+                timeline2.addKeyFrame(KeyFrame.makePos(x, y, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.38));
+                timeline2.addKeyFrame(KeyFrame.makePos(x, y + 3.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.38));
+                timeline2.addKeyFrame(KeyFrame.makePos(x, y, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.38));
+                timeline2.addKeyFrame(KeyFrame.makePos(x, y - 3.0, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.38));
                 timeline2.setTimelineLoopType(Timeline.LoopType.TIMELINE_REPLAY);
                 ghostImageBody.addTimelinewithID(timeline2, 12);
                 ghostImageBody.playTimeline(12);

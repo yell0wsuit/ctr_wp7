@@ -73,7 +73,7 @@ namespace ctr_wp7.iframework.visual
                 resizeCapacity(n + 1);
             }
             texCoordinates[n] = image.texture.quads[q];
-            vertices[n] = Quad3D.MakeQuad3D((double)(dx + image.texture.quadOffsets[q].x), (double)(dy + image.texture.quadOffsets[q].y), 0.0, (double)image.texture.quadRects[q].w, (double)image.texture.quadRects[q].h);
+            vertices[n] = Quad3D.MakeQuad3D((double)(dx + image.texture.quadOffsets[q].x), (double)(dy + image.texture.quadOffsets[q].y), 0.0, image.texture.quadRects[q].w, image.texture.quadRects[q].h);
         }
 
         // Token: 0x06000718 RID: 1816 RVA: 0x00039248 File Offset: 0x00037448

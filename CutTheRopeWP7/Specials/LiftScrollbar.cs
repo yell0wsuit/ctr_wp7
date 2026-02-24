@@ -25,7 +25,7 @@ namespace ctr_wp7.Specials
                 lift = (Lift)new Lift().initWithUpElementDownElementandID(image, image2, 0);
                 lift.parentAnchor = 10;
                 lift.anchor = 18;
-                lift.maxY = (float)height;
+                lift.maxY = height;
                 lift.liftDelegate = new Lift.PercentXY(percentXY);
                 _ = addChild(lift);
             }

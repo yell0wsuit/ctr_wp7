@@ -147,7 +147,7 @@ namespace ctr_wp7.iframework.core
                 NSString data2 = xmlnode3.data;
             }
             FontGeneric fontGeneric = new Font().initWithVariableSizeCharscharMapFileKerning(data, (Texture2D)loadResource(resID, ResourceType.IMAGE), null);
-            fontGeneric.setCharOffsetLineOffsetSpaceWidth((float)num, (float)num2, (float)num3);
+            fontGeneric.setCharOffsetLineOffsetSpaceWidth(num, num2, num3);
             return fontGeneric;
         }
 
@@ -261,7 +261,7 @@ namespace ctr_wp7.iframework.core
                     XMLNode xmlnode4 = i.findChildWithTagNameRecursively(NSS("preCutHeight"), false);
                     if (xmlnode3 != null && xmlnode4 != null)
                     {
-                        t.preCutSize = vect((float)xmlnode3.data.intValue(), (float)xmlnode4.data.intValue());
+                        t.preCutSize = vect(xmlnode3.data.intValue(), xmlnode4.data.intValue());
                         if (isWvga)
                         {
                             t.preCutSize.x = t.preCutSize.x / 1.5f;
@@ -288,7 +288,7 @@ namespace ctr_wp7.iframework.core
             {
                 int num3 = i * 4;
                 Rectangle rectangle = MakeRectangle(data[num3], data[num3 + 1], data[num3 + 2], data[num3 + 3]);
-                if ((float)num2 < rectangle.h + rectangle.y)
+                if (num2 < rectangle.h + rectangle.y)
                 {
                     num2 = (int)ceil((double)(rectangle.h + rectangle.y));
                 }

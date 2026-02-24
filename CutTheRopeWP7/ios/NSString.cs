@@ -154,7 +154,7 @@ namespace ctr_wp7.ios
                 else
                 {
                     num *= 10;
-                    num += (int)(value_[i++] - '0');
+                    num += value_[i++] - '0';
                 }
             }
             return num * num2;
@@ -203,15 +203,15 @@ namespace ctr_wp7.ios
                 }
                 else
                 {
-                    num *= (float)num3;
-                    num += ((float)value_[i++] - 48f) / (float)num4;
+                    num *= num3;
+                    num += (value_[i++] - 48f) / num4;
                     if (num4 > 1)
                     {
                         num4 *= 10;
                     }
                 }
             }
-            return num * (float)num2;
+            return num * num2;
         }
 
         // Token: 0x060005E7 RID: 1511 RVA: 0x0002CAC8 File Offset: 0x0002ACC8

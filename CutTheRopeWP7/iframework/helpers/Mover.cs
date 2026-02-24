@@ -18,7 +18,7 @@ namespace ctr_wp7.iframework.helpers
             {
                 pathLen = 0;
                 pathCapacity = l;
-                rotateSpeed = (float)num2;
+                rotateSpeed = num2;
                 if (pathCapacity > 0)
                 {
                     path = new Vector[pathCapacity];
@@ -29,7 +29,7 @@ namespace ctr_wp7.iframework.helpers
                     moveSpeed = new float[pathCapacity];
                     for (int j = 0; j < moveSpeed.Length; j++)
                     {
-                        moveSpeed[j] = (float)num;
+                        moveSpeed[j] = num;
                     }
                 }
                 paused = false;
@@ -55,7 +55,7 @@ namespace ctr_wp7.iframework.helpers
                 NSString nsstring = p.substringFromIndex(2);
                 int num = nsstring.intValue();
                 int num2 = num / 2;
-                float num3 = (float)(6.283185307179586 / (double)num2);
+                float num3 = (float)(6.283185307179586 / num2);
                 if (!flag)
                 {
                     num3 = -num3;
@@ -63,8 +63,8 @@ namespace ctr_wp7.iframework.helpers
                 float num4 = 0f;
                 for (int i = 0; i < num2; i++)
                 {
-                    float num5 = s.x + (float)num * (float)Math.Cos((double)num4);
-                    float num6 = s.y + (float)num * (float)Math.Sin((double)num4);
+                    float num5 = s.x + num * (float)Math.Cos((double)num4);
+                    float num6 = s.y + num * (float)Math.Sin((double)num4);
                     addPathPoint(vect(num5, num6));
                     num4 += num3;
                 }
@@ -202,7 +202,7 @@ namespace ctr_wp7.iframework.helpers
             }
             if (rotateSpeed != 0f)
             {
-                angle += (double)(rotateSpeed * delta);
+                angle += rotateSpeed * delta;
             }
         }
 

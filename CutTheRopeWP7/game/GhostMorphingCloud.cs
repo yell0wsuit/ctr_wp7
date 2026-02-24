@@ -12,7 +12,7 @@ namespace ctr_wp7.game
         {
             if (base.initWithTotalParticlesandImageGrid(5, Image.Image_createWithResID(180)) != null)
             {
-                angle = (float)RND_RANGE(0, 360);
+                angle = RND_RANGE(0, 360);
                 size = 1.6f;
                 angleVar = 360f;
                 life = 0.5f;
@@ -27,7 +27,7 @@ namespace ctr_wp7.game
         // Token: 0x06000447 RID: 1095 RVA: 0x0001DE44 File Offset: 0x0001C044
         public override void initParticle(ref Particle particle)
         {
-            angle += 360f / (float)totalParticles;
+            angle += 360f / totalParticles;
             base.initParticle(ref particle);
             int num = RND_RANGE(2, 4);
             Quad2D quad2D = imageGrid.texture.quads[num];

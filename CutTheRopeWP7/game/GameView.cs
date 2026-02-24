@@ -80,13 +80,13 @@ namespace ctr_wp7.game
                 {
                     loadingText.draw();
                 }
-                if (skipAd.active && (double)skipAd.timerNoDraw >= 2.5)
+                if (skipAd.active && skipAd.timerNoDraw >= 2.5)
                 {
                     skipAd.draw();
                 }
             }
             GameScene gameScene = (GameScene)getChild(0);
-            if ((double)gameScene.dimTime > 0.0)
+            if (gameScene.dimTime > 0.0)
             {
                 float num3 = gameScene.dimTime / 0.15f;
                 if (gameScene.restartState == 0)

@@ -16,9 +16,9 @@ namespace ctr_wp7.game
             preDraw();
             OpenGL.glClearColor(1.0, 1.0, 1.0, 1.0);
             OpenGL.glClear(0);
-            float num = (float)Application.sharedResourceMgr().getPercentLoaded();
+            float num = Application.sharedResourceMgr().getPercentLoaded();
             Texture2D texture = Application.getTexture(0);
-            Rectangle rectangle = MakeRectangle(1.33f, 1.33f, (float)(texture._realWidth - 2), (float)(texture._realHeight - 2));
+            Rectangle rectangle = MakeRectangle(1.33f, 1.33f, texture._realWidth - 2, texture._realHeight - 2);
             if (texture.isWvga())
             {
                 GLDrawer.drawImagePart(texture, rectangle, 1f, -25f);

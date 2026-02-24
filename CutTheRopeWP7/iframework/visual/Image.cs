@@ -40,7 +40,7 @@ namespace ctr_wp7.iframework.visual
         public static Vector getQuadCenter(int textureID, int quad)
         {
             Texture2D texture2D = Application.getTexture(textureID);
-            return vectAdd(texture2D.quadOffsets[quad], vect(ceil((double)texture2D.quadRects[quad].w / 2.0), ceil((double)texture2D.quadRects[quad].h / 2.0)));
+            return vectAdd(texture2D.quadOffsets[quad], vect(ceil(texture2D.quadRects[quad].w / 2.0), ceil(texture2D.quadRects[quad].h / 2.0)));
         }
 
         // Token: 0x060000AD RID: 173 RVA: 0x00006B60 File Offset: 0x00004D60
@@ -106,7 +106,7 @@ namespace ctr_wp7.iframework.visual
             image2.parentAnchor = 34;
             image2.anchor = 34;
             baseElement.width = image.width;
-            baseElement.height = (int)((float)image.height * 2f);
+            baseElement.height = (int)(image.height * 2f);
             _ = baseElement.addChild(image);
             _ = baseElement.addChild(image2);
             return baseElement;

@@ -48,8 +48,8 @@ namespace ctr_wp7.iframework.visual
         public static KeyFrame makePos(int x, int y, TransitionType transition, float time)
         {
             KeyFrameValue keyFrameValue = new();
-            keyFrameValue.pos.x = (float)x;
-            keyFrameValue.pos.y = (float)y;
+            keyFrameValue.pos.x = x;
+            keyFrameValue.pos.y = y;
             return new KeyFrame
             {
                 timeOffset = time,
@@ -90,7 +90,7 @@ namespace ctr_wp7.iframework.visual
         public static KeyFrame makeRotation(int r, TransitionType transition, float time)
         {
             KeyFrameValue keyFrameValue = new();
-            keyFrameValue.rotation.angle = (float)r;
+            keyFrameValue.rotation.angle = r;
             return new KeyFrame
             {
                 timeOffset = time,

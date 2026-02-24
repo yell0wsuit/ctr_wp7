@@ -93,7 +93,7 @@ namespace ctr_wp7.ctr_original
             Text text = new Text().initWithFont(font);
             text.setString(str);
             Image image = Image.Image_createWithResIDQuad(72, 6);
-            float num = (float)image.width * 0.9f / (float)text.width;
+            float num = image.width * 0.9f / text.width;
             if (num > 1f)
             {
                 num = 1f;
@@ -108,7 +108,7 @@ namespace ctr_wp7.ctr_original
             Text text = new Text().initWithFont(font);
             text.setString(str);
             Image image = Image.Image_createWithResIDQuad(4, 0);
-            float num = (float)image.width * 0.9f / (float)text.width;
+            float num = image.width * 0.9f / text.width;
             if (num > 1f)
             {
                 num = 1f;
@@ -143,16 +143,16 @@ namespace ctr_wp7.ctr_original
             Button button = createButton2WithImageQuad1Quad2IDDelegate(77, 6, 6, 27, d);
             button.parentAnchor = button.anchor = 36;
             float screen_OFFSET_Y = SCREEN_OFFSET_Y;
-            float num = screen_OFFSET_Y + (float)button.height;
+            float num = screen_OFFSET_Y + button.height;
             button.y = num;
             button.x -= SCREEN_OFFSET_X;
             Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(2);
-            timeline.addKeyFrame(KeyFrame.makePos((double)button.x, (double)num, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
-            timeline.addKeyFrame(KeyFrame.makePos((double)button.x, (double)screen_OFFSET_Y, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.3));
+            timeline.addKeyFrame(KeyFrame.makePos(button.x, (double)num, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
+            timeline.addKeyFrame(KeyFrame.makePos(button.x, (double)screen_OFFSET_Y, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.3));
             _ = button.addTimeline(timeline);
             Timeline timeline2 = new Timeline().initWithMaxKeyFramesOnTrack(2);
-            timeline2.addKeyFrame(KeyFrame.makePos((double)button.x, (double)screen_OFFSET_Y, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
-            timeline2.addKeyFrame(KeyFrame.makePos((double)button.x, (double)num, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.3));
+            timeline2.addKeyFrame(KeyFrame.makePos(button.x, (double)screen_OFFSET_Y, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
+            timeline2.addKeyFrame(KeyFrame.makePos(button.x, (double)num, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.3));
             _ = button.addTimeline(timeline2);
             return button;
         }
@@ -323,9 +323,9 @@ namespace ctr_wp7.ctr_original
             baseElement3.scaleX = scale;
             Button button = new Button().initWithUpElementDownElementandID(baseElement, baseElement2, bid);
             button.setTouchIncreaseLeftRightTopBottom(15.0, 15.0, 15.0, 15.0);
-            if ((float)text.width > (float)button.width * 0.8f)
+            if (text.width > button.width * 0.8f)
             {
-                text.scaleX = text.scaleY = text2.scaleX = text2.scaleY = (float)button.width * 0.8f / (float)text.width;
+                text.scaleX = text.scaleY = text2.scaleX = text2.scaleY = button.width * 0.8f / text.width;
             }
             button.delegateButtonDelegate = d;
             return button;
@@ -354,7 +354,7 @@ namespace ctr_wp7.ctr_original
             Text text = new Text().initWithFont(font);
             text.scaleX = text.scaleY = 0.7f;
             text.setAlignment(2);
-            text.setStringandWidth(str, (float)image.width);
+            text.setStringandWidth(str, image.width);
             text.parentAnchor = text.anchor = 18;
             _ = image.addChild(text);
             return image;
@@ -399,17 +399,17 @@ namespace ctr_wp7.ctr_original
             {
                 num -= 50f;
             }
-            float num2 = SCREEN_OFFSET_Y + (float)button.height;
+            float num2 = SCREEN_OFFSET_Y + button.height;
             button.y = num2;
             button.x -= SCREEN_OFFSET_X;
             Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(3);
-            timeline.addKeyFrame(KeyFrame.makePos((double)button.x, (double)num2, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
-            timeline.addKeyFrame(KeyFrame.makePos((double)button.x, (double)num2, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.5));
-            timeline.addKeyFrame(KeyFrame.makePos((double)button.x, (double)num, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.3));
+            timeline.addKeyFrame(KeyFrame.makePos(button.x, (double)num2, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
+            timeline.addKeyFrame(KeyFrame.makePos(button.x, (double)num2, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.5));
+            timeline.addKeyFrame(KeyFrame.makePos(button.x, (double)num, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.3));
             _ = button.addTimeline(timeline);
             Timeline timeline2 = new Timeline().initWithMaxKeyFramesOnTrack(2);
-            timeline2.addKeyFrame(KeyFrame.makePos((double)button.x, (double)num, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
-            timeline2.addKeyFrame(KeyFrame.makePos((double)button.x, (double)num2, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.3));
+            timeline2.addKeyFrame(KeyFrame.makePos(button.x, (double)num, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
+            timeline2.addKeyFrame(KeyFrame.makePos(button.x, (double)num2, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.3));
             _ = button.addTimeline(timeline2);
             return button;
         }
@@ -529,9 +529,9 @@ namespace ctr_wp7.ctr_original
             button.delegateButtonDelegate = d;
             button.anchor = button.parentAnchor = 9;
             _ = baseElement.addChild(button);
-            if ((float)text.width > 0.8f * (float)button.width)
+            if (text.width > 0.8f * button.width)
             {
-                text.scaleX = text.scaleY = text2.scaleX = text2.scaleY = 0.8f * (float)button.width / (float)text.width;
+                text.scaleX = text.scaleY = text2.scaleX = text2.scaleY = 0.8f * button.width / text.width;
             }
             if (newmark)
             {
@@ -550,9 +550,9 @@ namespace ctr_wp7.ctr_original
                 _ = image.addTimeline(timeline);
                 image.playTimeline(0);
                 Timeline timeline2 = new Timeline().initWithMaxKeyFramesOnTrack(3);
-                timeline2.addKeyFrame(KeyFrame.makePos((double)image2.x, (double)image2.y, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
-                timeline2.addKeyFrame(KeyFrame.makePos((double)image2.x, (double)(image2.y - 5f), KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.5));
-                timeline2.addKeyFrame(KeyFrame.makePos((double)image2.x, (double)image2.y, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.5));
+                timeline2.addKeyFrame(KeyFrame.makePos(image2.x, image2.y, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
+                timeline2.addKeyFrame(KeyFrame.makePos(image2.x, (double)(image2.y - 5f), KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.5));
+                timeline2.addKeyFrame(KeyFrame.makePos(image2.x, image2.y, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.5));
                 timeline2.setTimelineLoopType(Timeline.LoopType.TIMELINE_REPLAY);
                 _ = image2.addTimeline(timeline2);
                 image2.playTimeline(0);
@@ -667,19 +667,19 @@ namespace ctr_wp7.ctr_original
             BaseElement.calculateTopLeft(childWithName.parent);
             BaseElement.calculateTopLeft(childWithName);
             _ = Image.getQuadCenter(69, 1);
-            Vector vector = vect(childWithName.drawX + (float)(childWithName.width / 2) - 5f, childWithName.drawY + (float)(childWithName.height / 2) - 5f);
+            Vector vector = vect(childWithName.drawX + childWithName.width / 2 - 5f, childWithName.drawY + childWithName.height / 2 - 5f);
             handAnimation = Image.Image_createWithResIDQuad(75, 1);
-            handAnimation.rotationCenterX = (float)(-(float)handAnimation.width / 2);
-            handAnimation.rotationCenterY = (float)(-(float)handAnimation.height / 2);
+            handAnimation.rotationCenterX = -(float)handAnimation.width / 2;
+            handAnimation.rotationCenterY = -(float)handAnimation.height / 2;
             handAnimation.setEnabled(false);
             _ = image.addChild(handAnimation);
             Timeline timeline = new Timeline().initWithMaxKeyFramesOnTrack(8);
             float num = 0.5f;
-            timeline.addKeyFrame(KeyFrame.makePos((double)SCREEN_WIDTH, (double)(SCREEN_HEIGHT * 2f / 3f), KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
-            timeline.addKeyFrame(KeyFrame.makePos((double)SCREEN_WIDTH, (double)(SCREEN_HEIGHT * 2f / 3f), KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, (double)num));
-            timeline.addKeyFrame(KeyFrame.makePos((double)vector.x, (double)vector.y, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.5));
-            timeline.addKeyFrame(KeyFrame.makePos((double)vector.x, (double)vector.y, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 2.0));
-            timeline.addKeyFrame(KeyFrame.makePos((double)SCREEN_WIDTH, (double)(SCREEN_HEIGHT * 2f / 3f), KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.5));
+            timeline.addKeyFrame(KeyFrame.makePos(SCREEN_WIDTH, (double)(SCREEN_HEIGHT * 2f / 3f), KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.0));
+            timeline.addKeyFrame(KeyFrame.makePos(SCREEN_WIDTH, (double)(SCREEN_HEIGHT * 2f / 3f), KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, (double)num));
+            timeline.addKeyFrame(KeyFrame.makePos(vector.x, vector.y, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_OUT, 0.5));
+            timeline.addKeyFrame(KeyFrame.makePos(vector.x, vector.y, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 2.0));
+            timeline.addKeyFrame(KeyFrame.makePos(SCREEN_WIDTH, (double)(SCREEN_HEIGHT * 2f / 3f), KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.5));
             timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0f));
             timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.transparentRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, num));
             timeline.addKeyFrame(KeyFrame.makeColor(RGBAColor.whiteRGBA, KeyFrame.TransitionType.FRAME_TRANSITION_LINEAR, 0.3));
@@ -712,7 +712,7 @@ namespace ctr_wp7.ctr_original
         {
             MenuView menuView = (MenuView)new MenuView().initFullscreen();
             Image image = createBackgroundWithLogo(false, false);
-            VBox vbox = new VBox().initWithOffsetAlignWidth(10.0, 2, (double)SCREEN_WIDTH);
+            VBox vbox = new VBox().initWithOffsetAlignWidth(10.0, 2, SCREEN_WIDTH);
             vbox.anchor = vbox.parentAnchor = 18;
             vbox.y += 0.33f;
             _ = Application.getString(1310730);
@@ -721,7 +721,7 @@ namespace ctr_wp7.ctr_original
             _ = Application.getString(1310729);
             ToggleButton toggleButton = createAudioButtonWithQuadDelegateID(2, this, 5);
             ToggleButton toggleButton2 = createAudioButtonWithQuadDelegateID(3, this, 6);
-            HBox hbox = new HBox().initWithOffsetAlignHeight(14f, 16, (float)toggleButton2.height);
+            HBox hbox = new HBox().initWithOffsetAlignHeight(14f, 16, toggleButton2.height);
             _ = hbox.addChild(toggleButton);
             _ = hbox.addChild(toggleButton2);
             _ = vbox.addChild(hbox);
@@ -778,15 +778,15 @@ namespace ctr_wp7.ctr_original
         {
             MenuView menuView = (MenuView)new MenuView().initFullscreen();
             Image image = createBackgroundWithLogo(false, false);
-            VBox vbox = new VBox().initWithOffsetAlignWidth(10.0, 2, (double)SCREEN_WIDTH - 40.0);
+            VBox vbox = new VBox().initWithOffsetAlignWidth(10.0, 2, SCREEN_WIDTH - 40.0);
             vbox.parentAnchor = vbox.anchor = 18;
             Text text = new Text().initWithFont(Application.getFont(5));
             text.setAlignment(2);
-            text.setStringandWidth(Application.getString(1310735), (float)vbox.width);
+            text.setStringandWidth(Application.getString(1310735), vbox.width);
             _ = vbox.addChild(text);
             Text text2 = new Text().initWithFont(Application.getFont(6));
             text2.setAlignment(2);
-            text2.setStringandWidth(Application.getString(1310777), (float)vbox.width);
+            text2.setStringandWidth(Application.getString(1310777), vbox.width);
             _ = vbox.addChild(text2);
             _ = image.addChild(vbox);
             TimedButton timedButton = createTimedButtonWithTextIDDelegateTimer(Application.getString(1310747), 12, this, 3f);
@@ -827,7 +827,7 @@ namespace ctr_wp7.ctr_original
             _ = image.addChild(vbox);
             Text text = new Text().initWithFont(Application.getFont(6));
             text.setAlignment(2);
-            text.setStringandWidth(Application.getString(1310820), (float)vbox.width);
+            text.setStringandWidth(Application.getString(1310820), vbox.width);
             text.height -= 20;
             _ = vbox.addChild(text);
             Button button = createButtonWithTextIDDelegate(Application.getString(1310821), 0.8f, 35, this);
@@ -932,10 +932,10 @@ namespace ctr_wp7.ctr_original
                 _ = hbox2.addChild(baseElement);
                 baseElement.x -= 25f - SCREEN_OFFSET_X;
                 baseElement.y -= 20f;
-                num += (i != 0) ? ((float)packSelect.elements[i - 1].width + -50f) : 0f;
+                num += (i != 0) ? (packSelect.elements[i - 1].width + -50f) : 0f;
                 _ = packContainer.addScrollPointAtXY((double)num, 0.0);
             }
-            hbox2.width += Math.Max(50, (int)((float)packSelect.size * SCREEN_OFFSET_X));
+            hbox2.width += Math.Max(50, (int)(packSelect.size * SCREEN_OFFSET_X));
             _ = image.addChild(packContainer);
             int num2 = 48;
             Button button = createBackButtonWithDelegateID(this, num2);
@@ -1115,7 +1115,7 @@ namespace ctr_wp7.ctr_original
             int num = 216 + pack;
             Image image = Image.Image_createWithResIDQuad(num, 0);
             Image image2 = Image.Image_createWithResIDQuad(num, 0);
-            image.rotationCenterX = (float)(-(float)image.width / 2);
+            image.rotationCenterX = -(float)image.width / 2;
             image.x += 0.33f;
             image2.rotationCenterX = image.rotationCenterX;
             image2.rotation = 180f;
@@ -1171,12 +1171,12 @@ namespace ctr_wp7.ctr_original
             vbox.x = 0f;
             vbox.y = 50f;
             Timeline timeline4 = new Timeline().initWithMaxKeyFramesOnTrack(2);
-            timeline4.addKeyFrame(KeyFrame.makePos((double)vbox.x, (double)vbox.y, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
-            timeline4.addKeyFrame(KeyFrame.makePos((double)vbox.x, (double)(vbox.y - WVGAD(25.0)), KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.3));
+            timeline4.addKeyFrame(KeyFrame.makePos(vbox.x, vbox.y, KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
+            timeline4.addKeyFrame(KeyFrame.makePos(vbox.x, (double)(vbox.y - WVGAD(25.0)), KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.3));
             _ = vbox.addTimeline(timeline4);
             Timeline timeline5 = new Timeline().initWithMaxKeyFramesOnTrack(2);
-            timeline5.addKeyFrame(KeyFrame.makePos((double)vbox.x, (double)(vbox.y - WVGAD(25.0)), KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
-            timeline5.addKeyFrame(KeyFrame.makePos((double)vbox.x, (double)vbox.y, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.3));
+            timeline5.addKeyFrame(KeyFrame.makePos(vbox.x, (double)(vbox.y - WVGAD(25.0)), KeyFrame.TransitionType.FRAME_TRANSITION_IMMEDIATE, 0.0));
+            timeline5.addKeyFrame(KeyFrame.makePos(vbox.x, vbox.y, KeyFrame.TransitionType.FRAME_TRANSITION_EASE_IN, 0.3));
             _ = vbox.addTimeline(timeline5);
             int num5 = 5;
             int num6 = 0;
@@ -2041,7 +2041,7 @@ namespace ctr_wp7.ctr_original
                 Vector scroll = aboutContainer.getScroll();
                 Vector maxScroll = aboutContainer.getMaxScroll();
                 scroll.y += 0.5f;
-                scroll.y = FIT_TO_BOUNDARIES((double)scroll.y, 0.0, (double)maxScroll.y);
+                scroll.y = FIT_TO_BOUNDARIES(scroll.y, 0.0, maxScroll.y);
                 aboutContainer.setScroll(scroll);
             }
             else if (activeViewID == 4 && ddPackSelect != null)
@@ -2262,7 +2262,7 @@ namespace ctr_wp7.ctr_original
             button2.parentAnchor = 9;
             button2.setTouchIncreaseLeftRightTopBottom(15f, 15f, 0f, 0f);
             _ = button.addChild(button2);
-            VBox vbox = new VBox().initWithOffsetAlignWidth(0.0, 2, (double)SCREEN_WIDTH);
+            VBox vbox = new VBox().initWithOffsetAlignWidth(0.0, 2, SCREEN_WIDTH);
             _ = vbox.addChild(button2);
             _ = vbox.addChild(button);
             vbox.y = -34f;
@@ -2305,7 +2305,7 @@ namespace ctr_wp7.ctr_original
         public virtual void showCantUnlockPopupForPack(BaseElement parent, int pack)
         {
             float num = 280f;
-            VBox vbox = new VBox().initWithOffsetAlignWidth(-10.0, 2, (double)SCREEN_WIDTH);
+            VBox vbox = new VBox().initWithOffsetAlignWidth(-10.0, 2, SCREEN_WIDTH);
             vbox.anchor = 18;
             Text text = new Text().initWithFont(Application.getFont(5));
             text.setAlignment(2);
@@ -2330,7 +2330,7 @@ namespace ctr_wp7.ctr_original
         private void showGameFinishedPopup(BaseElement parent)
         {
             float num = 250f;
-            VBox vbox = new VBox().initWithOffsetAlignWidth(40.0, 2, (double)SCREEN_WIDTH);
+            VBox vbox = new VBox().initWithOffsetAlignWidth(40.0, 2, SCREEN_WIDTH);
             vbox.anchor = 18;
             Text text = new Text().initWithFont(Application.getFont(5));
             text.setAlignment(2);
@@ -2751,9 +2751,9 @@ namespace ctr_wp7.ctr_original
             public override bool onTouchDownXY(float tx, float ty)
             {
                 _ = base.onTouchDownXY(tx, ty);
-                Rectangle rectangle = MakeRectangle(drawX + bbc.x, drawY + bbc.y, (float)width + bbc.w, (float)height + bbc.h);
-                Rectangle rectangle2 = rectInRectIntersection(MakeRectangle(0.0, 0.0, (double)SCREEN_WIDTH, (double)SCREEN_HEIGHT), rectangle);
-                if (pointInRect(tx, ty, rectangle.x, rectangle.y, rectangle.w, rectangle.h) && (double)rectangle2.w > (double)rectangle.w / 2.0)
+                Rectangle rectangle = MakeRectangle(drawX + bbc.x, drawY + bbc.y, width + bbc.w, height + bbc.h);
+                Rectangle rectangle2 = rectInRectIntersection(MakeRectangle(0.0, 0.0, SCREEN_WIDTH, SCREEN_HEIGHT), rectangle);
+                if (pointInRect(tx, ty, rectangle.x, rectangle.y, rectangle.w, rectangle.h) && rectangle2.w > rectangle.w / 2.0)
                 {
                     if (delegateButtonDelegate != null)
                     {

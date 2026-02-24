@@ -34,7 +34,7 @@ namespace ctr_wp7.game
                     _ = image.addTimeline(timeline);
                     image.playTimeline(0);
                     Text text = Text.createWithFontandString(5, Application.getString(1310774));
-                    HBox hbox = new HBox().initWithOffsetAlignHeight(10f, 16, (float)image.height);
+                    HBox hbox = new HBox().initWithOffsetAlignHeight(10f, 16, image.height);
                     hbox.parentAnchor = hbox.anchor = 18;
                     _ = addChild(hbox);
                     _ = hbox.addChild(image);
@@ -70,7 +70,7 @@ namespace ctr_wp7.game
                 _ = image.addTimeline(timeline);
                 image.playTimeline(0);
                 Text text = Text.createWithFontandString(5, Application.getString(1310752));
-                HBox hbox = new HBox().initWithOffsetAlignHeight(10f, 16, (float)image.height);
+                HBox hbox = new HBox().initWithOffsetAlignHeight(10f, 16, image.height);
                 hbox.parentAnchor = hbox.anchor = 18;
                 _ = addChild(hbox);
                 _ = hbox.addChild(image);

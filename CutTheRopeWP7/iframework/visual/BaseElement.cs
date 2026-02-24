@@ -11,13 +11,13 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x06000079 RID: 121 RVA: 0x00005A52 File Offset: 0x00003C52
         public bool AnchorHas(int f)
         {
-            return ((int)anchor & f) != 0;
+            return (anchor & f) != 0;
         }
 
         // Token: 0x0600007A RID: 122 RVA: 0x00005A62 File Offset: 0x00003C62
         public bool ParentAnchorHas(int f)
         {
-            return ((int)parentAnchor & f) != 0;
+            return (parentAnchor & f) != 0;
         }
 
         // Token: 0x17000003 RID: 3
@@ -45,11 +45,11 @@ namespace ctr_wp7.iframework.visual
                 }
                 else if ((e.parentAnchor & 2) != 0)
                 {
-                    e.drawX = num + e.x + (float)(num3 >> 1);
+                    e.drawX = num + e.x + (num3 >> 1);
                 }
                 else if ((e.parentAnchor & 4) != 0)
                 {
-                    e.drawX = num + e.x + (float)num3;
+                    e.drawX = num + e.x + num3;
                 }
                 if ((e.parentAnchor & 8) != 0)
                 {
@@ -57,11 +57,11 @@ namespace ctr_wp7.iframework.visual
                 }
                 else if ((e.parentAnchor & 16) != 0)
                 {
-                    e.drawY = num2 + e.y + (float)(num4 >> 1);
+                    e.drawY = num2 + e.y + (num4 >> 1);
                 }
                 else if ((e.parentAnchor & 32) != 0)
                 {
-                    e.drawY = num2 + e.y + (float)num4;
+                    e.drawY = num2 + e.y + num4;
                 }
             }
             else
@@ -73,23 +73,23 @@ namespace ctr_wp7.iframework.visual
             {
                 if ((e.anchor & 16) != 0)
                 {
-                    e.drawY -= (float)(e.height >> 1);
+                    e.drawY -= e.height >> 1;
                 }
                 else if ((e.anchor & 32) != 0)
                 {
-                    e.drawY -= (float)e.height;
+                    e.drawY -= e.height;
                 }
             }
             if ((e.anchor & 1) == 0)
             {
                 if ((e.anchor & 2) != 0)
                 {
-                    e.drawX -= (float)(e.width >> 1);
+                    e.drawX -= e.width >> 1;
                     return;
                 }
                 if ((e.anchor & 4) != 0)
                 {
-                    e.drawX -= (float)e.width;
+                    e.drawX -= e.width;
                 }
             }
         }
@@ -97,7 +97,7 @@ namespace ctr_wp7.iframework.visual
         // Token: 0x0600007D RID: 125 RVA: 0x00005C58 File Offset: 0x00003E58
         protected static void restoreTransformations(BaseElement t)
         {
-            if (t.pushM || (double)t.rotation != 0.0 || (double)t.scaleX != 1.0 || (double)t.scaleY != 1.0 || (double)t.translateX != 0.0 || (double)t.translateY != 0.0)
+            if (t.pushM || t.rotation != 0.0 || t.scaleX != 1.0 || t.scaleY != 1.0 || t.translateX != 0.0 || t.translateY != 0.0)
             {
                 OpenGL.glPopMatrix();
                 t.pushM = false;
@@ -152,17 +152,17 @@ namespace ctr_wp7.iframework.visual
         public virtual void preDraw()
         {
             calculateTopLeft(this);
-            bool flag = (double)scaleX != 1.0 || (double)scaleY != 1.0;
-            bool flag2 = (double)rotation != 0.0;
-            bool flag3 = (double)translateX != 0.0 || (double)translateY != 0.0;
+            bool flag = scaleX != 1.0 || scaleY != 1.0;
+            bool flag2 = rotation != 0.0;
+            bool flag3 = translateX != 0.0 || translateY != 0.0;
             if (flag || flag2 || flag3)
             {
                 OpenGL.glPushMatrix();
                 pushM = true;
                 if (flag || flag2)
                 {
-                    float num = drawX + (float)(width >> 1) + rotationCenterX;
-                    float num2 = drawY + (float)(height >> 1) + rotationCenterY;
+                    float num = drawX + (width >> 1) + rotationCenterX;
+                    float num2 = drawY + (height >> 1) + rotationCenterY;
                     OpenGL.glTranslatef(num, num2, 0f);
                     if (flag2)
                     {
@@ -303,8 +303,8 @@ namespace ctr_wp7.iframework.visual
             calculateTopLeft(this);
             float num = drawX;
             float num2 = drawY;
-            float num3 = drawX + (float)width;
-            float num4 = drawY + (float)height;
+            float num3 = drawX + width;
+            float num4 = drawY + height;
             foreach (KeyValuePair<int, BaseElement> keyValuePair in childs)
             {
                 BaseElement value = keyValuePair.Value;
@@ -319,13 +319,13 @@ namespace ctr_wp7.iframework.visual
                     {
                         num2 = value.drawY;
                     }
-                    if (value.drawX + (float)value.width > num3)
+                    if (value.drawX + value.width > num3)
                     {
-                        num3 = value.drawX + (float)value.width;
+                        num3 = value.drawX + value.width;
                     }
-                    if (value.drawX + (float)value.height > num4)
+                    if (value.drawX + value.height > num4)
                     {
-                        num4 = value.drawY + (float)value.height;
+                        num4 = value.drawY + value.height;
                     }
                 }
             }

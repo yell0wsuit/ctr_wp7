@@ -79,8 +79,8 @@ namespace ctr_wp7.game
                 nexttext.setEnabled(false);
                 Image.setElementPositionWithRelativeQuadOffset(replaytext, texID, shineID, 12);
                 Image.setElementPositionWithRelativeQuadOffset(replay, texID, shineID, 13);
-                replay.x -= (float)replay.width / 2f;
-                replay.y -= (float)replay.height / 2f;
+                replay.x -= replay.width / 2f;
+                replay.y -= replay.height / 2f;
                 return;
             }
             if (!last)

@@ -28,9 +28,9 @@ namespace ctr_wp7.game
         {
             BaseElement baseElement = buildBox(n);
             BaseElement baseElement2 = buildText(1310785 + n, false);
-            if ((float)baseElement2.width > 200f)
+            if (baseElement2.width > 200f)
             {
-                baseElement2.scaleX = baseElement2.scaleY = 200f / (float)baseElement2.width;
+                baseElement2.scaleX = baseElement2.scaleY = 200f / baseElement2.width;
             }
             _ = baseElement.addChild(baseElement2);
             int unlockedForPackLevel = (int)CTRPreferences.getUnlockedForPackLevel(n, 0);
@@ -45,7 +45,7 @@ namespace ctr_wp7.game
                 image.doRestoreCutTransparency();
                 image.anchor = 18;
                 image.parentAnchor = -1;
-                monsterSlot.s = 250f * (float)i - 80f;
+                monsterSlot.s = 250f * i - 80f;
                 monsterSlot.e = monsterSlot.s + 160f;
                 image.x = 156f;
                 image.y = 246f;
@@ -139,11 +139,11 @@ namespace ctr_wp7.game
                 OpenGL.glDisable(0);
                 if (solid)
                 {
-                    GLDrawer.drawSolidRectWOBorder(drawX, drawY, (float)width, (float)height, color);
+                    GLDrawer.drawSolidRectWOBorder(drawX, drawY, width, height, color);
                 }
                 else
                 {
-                    GLDrawer.drawRect(drawX, drawY, (float)width, (float)height, color);
+                    GLDrawer.drawRect(drawX, drawY, width, height, color);
                 }
                 OpenGL.glEnable(0);
                 OpenGL.glColor4f(1.0, 1.0, 1.0, 1.0);
@@ -152,7 +152,7 @@ namespace ctr_wp7.game
                 {
                     OpenGL.glEnable(4);
                     float num = x - (s + e) / 2f;
-                    OpenGL.setScissorRectangle(120.0 - (double)num, 0.0, 100.0, (double)SCREEN_HEIGHT);
+                    OpenGL.setScissorRectangle(120.0 - (double)num, 0.0, 100.0, SCREEN_HEIGHT);
                     postDraw();
                     OpenGL.glDisable(4);
                 }

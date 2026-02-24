@@ -8,7 +8,7 @@ namespace ctr_wp7.iframework
         // Token: 0x060002EC RID: 748 RVA: 0x00012E44 File Offset: 0x00011044
         private static void GET_UINT32(ref uint n, byte[] b, int dataIndex, int i)
         {
-            n = (uint)((int)b[dataIndex + i] | ((int)b[dataIndex + i + 1] << 8) | ((int)b[dataIndex + i + 2] << 16) | ((int)b[dataIndex + i + 3] << 24));
+            n = (uint)(b[dataIndex + i] | (b[dataIndex + i + 1] << 8) | (b[dataIndex + i + 2] << 16) | (b[dataIndex + i + 3] << 24));
         }
 
         // Token: 0x060002ED RID: 749 RVA: 0x00012E6D File Offset: 0x0001106D

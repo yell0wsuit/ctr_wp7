@@ -91,7 +91,7 @@ namespace ctr_wp7.game
                 Text text = new Text().initWithFont(Application.getFont(5));
                 text.anchor = text.parentAnchor = 18;
                 text.setAlignment(2);
-                text.setStringandWidth(title, (float)baseElement.width * 0.8f);
+                text.setStringandWidth(title, baseElement.width * 0.8f);
                 _ = baseElement.addChild(text);
             }
             _ = MenuController.frameElement(baseElement, num, num2, num3);
@@ -143,7 +143,7 @@ namespace ctr_wp7.game
                 Text text = new Text().initWithFont(Application.getFont(5));
                 text.anchor = text.parentAnchor = 18;
                 text.setAlignment(2);
-                text.setStringandWidth(title, (float)baseElement.width * 0.9f);
+                text.setStringandWidth(title, baseElement.width * 0.9f);
                 _ = baseElement.addChild(text);
             }
             _ = MenuController.frameElement(baseElement, num, num2, num3);
