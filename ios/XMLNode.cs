@@ -7,6 +7,7 @@ using System.Xml;
 using System.Xml.Linq;
 using ctre_wp7.Banner;
 using ctre_wp7.ctr_original;
+using ctre_wp7.wp7utilities;
 using Microsoft.Xna.Framework;
 
 namespace ctre_wp7.ios
@@ -60,7 +61,7 @@ namespace ctre_wp7.ios
 			get
 			{
 				string text = null;
-				if (!this.attributes_.TryGetValue(key, ref text))
+				if (!this.attributes_.TryGetValue(key, out text))
 				{
 					return new NSString("");
 				}
@@ -78,7 +79,7 @@ namespace ctre_wp7.ios
 			foreach (XMLNode xmlnode in this.childs_)
 			{
 				string text;
-				if (xmlnode.name == tag && xmlnode.attributes() && xmlnode.attributes_.TryGetValue(attrName, ref text) && text == attrVal)
+				if (xmlnode.name == tag && xmlnode.attributes() && xmlnode.attributes_.TryGetValue(attrName, out text) && text == attrVal)
 				{
 					return xmlnode;
 				}
@@ -142,10 +143,10 @@ namespace ctre_wp7.ios
 		// Token: 0x0600076C RID: 1900 RVA: 0x0003B3A8 File Offset: 0x000395A8
 		private static XMLNode ReadNode(XmlReader textReader, XMLNode parent)
 		{
-			while (textReader.NodeType != 1 && textReader.Read())
+			while (textReader.NodeType != XmlNodeType.Element && textReader.Read())
 			{
 			}
-			if (textReader.NodeType != 1)
+			if (textReader.NodeType != XmlNodeType.Element)
 			{
 				return null;
 			}
@@ -230,28 +231,87 @@ namespace ctre_wp7.ios
 		private static XMLNode ParseLINQ(string fileName)
 		{
 			XDocument xdocument = null;
-			if (fileName.EndsWith(".xml"))
+			if (fileName.EndsWith(".xml", StringComparison.OrdinalIgnoreCase))
 			{
-				try
+				xdocument = XMLNode.TryLoadXmlFromContent(fileName);
+			}
+			if (xdocument == null)
+			{
+				string text = XMLNode.TryGetFallbackXml(fileName);
+				if (!string.IsNullOrWhiteSpace(text))
 				{
-					using (Stream stream = TitleContainer.OpenStream("Content/" + ResDataPhoneFull.ContentFolder + fileName))
-					{
-						xdocument = XDocument.Load(stream);
-						stream.Dispose();
-					}
-				}
-				catch (Exception ex)
-				{
-					string message = ex.Message;
-					string text = message ?? "";
+					xdocument = XDocument.Parse(text);
 				}
 			}
 			if (xdocument == null)
 			{
-				xdocument = XDocument.Parse(ResDataPhoneFull.GetXml(fileName));
+				throw new InvalidOperationException("Unable to load XML resource '" + fileName + "'.");
 			}
 			IEnumerable<XElement> enumerable = xdocument.Elements();
 			return XMLNode.ReadNodeLINQ(Enumerable.First<XElement>(enumerable), null);
+		}
+
+		private static XDocument TryLoadXmlFromContent(string fileName)
+		{
+			foreach (string text in XMLNode.GetContentXmlCandidatePaths(fileName))
+			{
+				try
+				{
+					using (Stream stream = TitleContainer.OpenStream(text))
+					{
+						return XDocument.Load(stream);
+					}
+				}
+				catch (Exception)
+				{
+				}
+			}
+			return null;
+		}
+
+		private static IEnumerable<string> GetContentXmlCandidatePaths(string fileName)
+		{
+			string text = fileName.Replace('\\', '/').TrimStart('/');
+			string text2 = (WP7Singletons.Content != null && !string.IsNullOrWhiteSpace(WP7Singletons.Content.RootDirectory)) ? WP7Singletons.Content.RootDirectory : "content";
+			string text3 = (ResDataPhoneFull.ContentFolder ?? "").Replace('\\', '/').Trim('/');
+			HashSet<string> hashSet = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+			foreach (string text4 in new string[] { text2, "content", "Content" })
+			{
+				string[] array;
+				if (text3.Length == 0)
+				{
+					array = new string[] { text };
+				}
+				else
+				{
+					array = new string[] { text3 + "/" + text, text };
+				}
+				foreach (string text5 in array)
+				{
+					string text6 = (text4.TrimEnd('/') + "/" + text5.TrimStart('/')).Replace('\\', '/');
+					if (hashSet.Add(text6))
+					{
+						yield return text6;
+					}
+				}
+			}
+		}
+
+		private static string TryGetFallbackXml(string fileName)
+		{
+			HashSet<string> hashSet = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+			foreach (string text in new string[] { fileName, Path.GetFileName(fileName), Path.GetFileNameWithoutExtension(fileName) })
+			{
+				if (!string.IsNullOrWhiteSpace(text) && hashSet.Add(text))
+				{
+					string xml = ResDataPhoneFull.GetXml(text);
+					if (!string.IsNullOrWhiteSpace(xml))
+					{
+						return xml;
+					}
+				}
+			}
+			return null;
 		}
 
 		// Token: 0x06000771 RID: 1905 RVA: 0x0003B638 File Offset: 0x00039838

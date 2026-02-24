@@ -76,7 +76,7 @@ namespace ctre_wp7.iframework.core
 		public static void _setIntforKey(int v, string key, bool comit)
 		{
 			int num;
-			if (Preferences.data_.TryGetValue(key, ref num))
+			if (Preferences.data_.TryGetValue(key, out num))
 			{
 				Preferences.data_[key] = v;
 			}
@@ -94,7 +94,7 @@ namespace ctre_wp7.iframework.core
 		public static void _setStringforKey(string v, string k, bool comit)
 		{
 			string text;
-			if (Preferences.dataStrings_.TryGetValue(k, ref text))
+			if (Preferences.dataStrings_.TryGetValue(k, out text))
 			{
 				Preferences.dataStrings_[k] = v;
 			}
@@ -112,7 +112,7 @@ namespace ctre_wp7.iframework.core
 		public static int _getIntForKey(string k)
 		{
 			int num;
-			if (Preferences.data_.TryGetValue(k, ref num))
+			if (Preferences.data_.TryGetValue(k, out num))
 			{
 				return num;
 			}
@@ -142,7 +142,7 @@ namespace ctre_wp7.iframework.core
 		public static string _getStringForKey(string k)
 		{
 			string text;
-			if (Preferences.dataStrings_.TryGetValue(k, ref text))
+			if (Preferences.dataStrings_.TryGetValue(k, out text))
 			{
 				return text;
 			}
@@ -153,12 +153,12 @@ namespace ctre_wp7.iframework.core
 		public void _deleteKey(string k, bool comit)
 		{
 			string text;
-			if (Preferences.dataStrings_.TryGetValue(k, ref text))
+			if (Preferences.dataStrings_.TryGetValue(k, out text))
 			{
 				Preferences.dataStrings_.Remove(k);
 			}
 			int num;
-			if (Preferences.data_.TryGetValue(k, ref num))
+			if (Preferences.data_.TryGetValue(k, out num))
 			{
 				Preferences.data_.Remove(k);
 			}
@@ -287,7 +287,7 @@ namespace ctre_wp7.iframework.core
 		// Token: 0x060003D9 RID: 985 RVA: 0x00018728 File Offset: 0x00016928
 		public static void loadFromFile(IsolatedStorageFile isf, string fname)
 		{
-			using (IsolatedStorageFileStream isolatedStorageFileStream = isf.OpenFile(fname, 3))
+			using (IsolatedStorageFileStream isolatedStorageFileStream = isf.OpenFile(fname, System.IO.FileMode.Open))
 			{
 				BinaryReader binaryReader = new BinaryReader(isolatedStorageFileStream);
 				try

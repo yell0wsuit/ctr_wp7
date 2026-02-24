@@ -146,7 +146,7 @@ namespace ctre_wp7.iframework.visual
 			if (count > 2)
 			{
 				Vector[] array;
-				if (!GLDrawer.VectorArray.TryGetValue(count - 1, ref array))
+				if (!GLDrawer.VectorArray.TryGetValue(count - 1, out array))
 				{
 					array = new Vector[count - 1];
 					GLDrawer.VectorArray.Add(count - 1, array);

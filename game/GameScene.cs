@@ -4511,8 +4511,8 @@ namespace ctre_wp7.game
 			public override void switchToAnimationatEndOfAnimationDelay(int a2, int a1, float d)
 			{
 				Timeline timeline = this.getTimeline(a1);
-				List<Action> list = new List<Action>();
-				list.Add(Action.createAction(this, "ACTION_PLAY_TIMELINE", 0, a2));
+				List<ctre_wp7.iframework.visual.Action> list = new List<ctre_wp7.iframework.visual.Action>();
+				list.Add(ctre_wp7.iframework.visual.Action.createAction(this, "ACTION_PLAY_TIMELINE", 0, a2));
 				timeline.addKeyFrame(KeyFrame.makeAction(list, d));
 			}
 

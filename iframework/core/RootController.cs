@@ -197,12 +197,6 @@ namespace ctre_wp7.iframework.core
 		// Token: 0x0600040D RID: 1037 RVA: 0x0001CF99 File Offset: 0x0001B199
 		private void runLoop()
 		{
-			goto IL_0000;
-			for (;;)
-			{
-				IL_0000:
-				goto IL_0000;
-			}
 		}
 
 		// Token: 0x0600040E RID: 1038 RVA: 0x0001CF9C File Offset: 0x0001B19C

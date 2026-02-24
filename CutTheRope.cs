@@ -21,7 +21,7 @@ namespace ctre_wp7
 
 		// Token: 0x17000005 RID: 5
 		// (get) Token: 0x0600017D RID: 381 RVA: 0x0000B5D8 File Offset: 0x000097D8
-		[EditorBrowsable(2)]
+		[EditorBrowsable(EditorBrowsableState.Advanced)]
 		internal static ResourceManager ResourceManager
 		{
 			get
@@ -38,7 +38,7 @@ namespace ctre_wp7
 		// Token: 0x17000006 RID: 6
 		// (get) Token: 0x0600017E RID: 382 RVA: 0x0000B617 File Offset: 0x00009817
 		// (set) Token: 0x0600017F RID: 383 RVA: 0x0000B61E File Offset: 0x0000981E
-		[EditorBrowsable(2)]
+		[EditorBrowsable(EditorBrowsableState.Advanced)]
 		internal static CultureInfo Culture
 		{
 			get

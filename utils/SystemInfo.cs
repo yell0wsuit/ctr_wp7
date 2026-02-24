@@ -1,85 +1,56 @@
-﻿using System;
+using System;
 using System.Reflection;
-using Microsoft.Phone.Info;
-using Microsoft.Phone.Net.NetworkInformation;
+using System.Runtime.InteropServices;
 
 namespace ctre_wp7.utils
 {
-	// Token: 0x0200005C RID: 92
-	public class SystemInfo
-	{
-		// Token: 0x060002BF RID: 703 RVA: 0x00011F06 File Offset: 0x00010106
-		public static string getPhoneModel()
-		{
-			return DeviceStatus.DeviceName;
-		}
+    public static class SystemInfo
+    {
+        public static string getPhoneModel()
+        {
+            return Environment.MachineName;
+        }
 
-		// Token: 0x060002C0 RID: 704 RVA: 0x00011F10 File Offset: 0x00010110
-		public static string getOSVersion()
-		{
-			string text = null;
-			try
-			{
-				text = Environment.OSVersion.ToString();
-			}
-			catch (InvalidOperationException)
-			{
-				text = "";
-			}
-			return text;
-		}
+        public static string getOSVersion()
+        {
+            return Environment.OSVersion.VersionString;
+        }
 
-		// Token: 0x060002C1 RID: 705 RVA: 0x00011F48 File Offset: 0x00010148
-		public static string getAppName()
-		{
-			return "Cut The Rope";
-		}
+        public static string getAppName()
+        {
+            return "Cut The Rope";
+        }
 
-		// Token: 0x060002C2 RID: 706 RVA: 0x00011F4F File Offset: 0x0001014F
-		public static string getAppMarket()
-		{
-			return "WindowsPhone";
-		}
+        public static string getAppMarket()
+        {
+            return "Desktop";
+        }
 
-		// Token: 0x060002C3 RID: 707 RVA: 0x00011F58 File Offset: 0x00010158
-		public static string getAppVersion()
-		{
-			return Assembly.GetExecutingAssembly().FullName.Split(new char[] { '=' })[1].Split(new char[] { ',' })[0];
-		}
+        public static string getAppVersion()
+        {
+            return Assembly.GetExecutingAssembly().GetName().Version?.ToString() ?? "1.0.0.0";
+        }
 
-		// Token: 0x060002C4 RID: 708 RVA: 0x00011F99 File Offset: 0x00010199
-		public static int getNetworkType()
-		{
-			if (!DeviceNetworkInformation.IsNetworkAvailable)
-			{
-				return 0;
-			}
-			if (DeviceNetworkInformation.IsWiFiEnabled)
-			{
-				return 1;
-			}
-			return 2;
-		}
+        public static int getNetworkType()
+        {
+            return 1;
+        }
 
-		// Token: 0x060002C5 RID: 709 RVA: 0x00011FAE File Offset: 0x000101AE
-		public static void setStoreTextureInRAM(bool value)
-		{
-			SystemInfo.storeTextureInRAM = value;
-		}
+        public static void setStoreTextureInRAM(bool value)
+        {
+            _storeTextureInRAM = value;
+        }
 
-		// Token: 0x060002C6 RID: 710 RVA: 0x00011FB6 File Offset: 0x000101B6
-		public static bool getStoreTextureInRAM()
-		{
-			return SystemInfo.storeTextureInRAM;
-		}
+        public static bool getStoreTextureInRAM()
+        {
+            return _storeTextureInRAM;
+        }
 
-		// Token: 0x060002C7 RID: 711 RVA: 0x00011FBD File Offset: 0x000101BD
-		public static string getDeviceManufacturer()
-		{
-			return DeviceStatus.DeviceManufacturer;
-		}
+        public static string getDeviceManufacturer()
+        {
+            return RuntimeInformation.OSDescription;
+        }
 
-		// Token: 0x040008B7 RID: 2231
-		protected static bool storeTextureInRAM = true;
-	}
+        private static bool _storeTextureInRAM = true;
+    }
 }

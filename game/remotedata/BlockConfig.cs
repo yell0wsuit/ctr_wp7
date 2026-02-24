@@ -8,7 +8,7 @@ namespace ctre_wp7.game.remotedata
 	internal class BlockConfig : NSObject
 	{
 		// Token: 0x06000216 RID: 534 RVA: 0x0000DE2F File Offset: 0x0000C02F
-		public virtual NSObject initWithJObject(BlockConfig pBlockConfig)
+		public virtual NSObject initWithJObject(ctre_wp7.remotedata.cartoons.BlockConfig pBlockConfig)
 		{
 			if (base.init() != null)
 			{
@@ -74,7 +74,7 @@ namespace ctre_wp7.game.remotedata
 		}
 
 		// Token: 0x04000817 RID: 2071
-		protected BlockConfig jblockConfig;
+		protected ctre_wp7.remotedata.cartoons.BlockConfig jblockConfig;
 
 		// Token: 0x04000818 RID: 2072
 		protected BlockInterface hardcode;

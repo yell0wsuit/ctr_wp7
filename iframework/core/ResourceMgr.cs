@@ -14,7 +14,7 @@ namespace ctre_wp7.iframework.core
 		public virtual bool hasResource(int resID)
 		{
 			NSObject nsobject = null;
-			this.s_Resources.TryGetValue(resID, ref nsobject);
+			this.s_Resources.TryGetValue(resID, out nsobject);
 			return nsobject != null;
 		}
 
@@ -29,7 +29,7 @@ namespace ctre_wp7.iframework.core
 		public virtual NSObject loadResource(int resID, ResourceMgr.ResourceType resType)
 		{
 			NSObject nsobject = null;
-			if (this.s_Resources.TryGetValue(resID, ref nsobject))
+			if (this.s_Resources.TryGetValue(resID, out nsobject))
 			{
 				return nsobject;
 			}
@@ -44,23 +44,23 @@ namespace ctre_wp7.iframework.core
 			}
 			switch (resType)
 			{
-			case ResourceMgr.ResourceType.IMAGE:
-				nsobject = this.loadTextureImageInfo(text, null, flag, num, num2);
-				break;
-			case ResourceMgr.ResourceType.FONT:
-				nsobject = this.loadVariableFontInfo(text, resID, flag);
-				this.s_Resources.Remove(resID);
-				break;
-			case ResourceMgr.ResourceType.SOUND:
-				nsobject = this.loadSoundInfo(text);
-				break;
-			case ResourceMgr.ResourceType.STRINGS:
-			{
-				nsobject = this.loadStringsInfo(resID);
-				string text2 = nsobject.ToString();
-				nsobject = NSObject.NSS(text2.Replace('\u00a0', ' '));
-				break;
-			}
+				case ResourceMgr.ResourceType.IMAGE:
+					nsobject = this.loadTextureImageInfo(text, null, flag, num, num2);
+					break;
+				case ResourceMgr.ResourceType.FONT:
+					nsobject = this.loadVariableFontInfo(text, resID, flag);
+					this.s_Resources.Remove(resID);
+					break;
+				case ResourceMgr.ResourceType.SOUND:
+					nsobject = this.loadSoundInfo(text);
+					break;
+				case ResourceMgr.ResourceType.STRINGS:
+					{
+						nsobject = this.loadStringsInfo(resID);
+						string text2 = nsobject.ToString();
+						nsobject = NSObject.NSS(text2.Replace('\u00a0', ' '));
+						break;
+					}
 			}
 			if (nsobject != null)
 			{
@@ -159,11 +159,49 @@ namespace ctre_wp7.iframework.core
 			{
 				i = XMLNode.parseXML(path);
 			}
+			if (i == null)
+			{
+				throw new InvalidOperationException("Texture metadata not found for '" + path + "'.");
+			}
 			int num = i["filter"].intValue();
 			bool flag = (num & 1) == 1;
 			int num2 = i["format"].intValue();
 			string text = ResourceMgr.fullPathFromRelativePath(path);
-			if (flag)
+			Texture2D texture2D = this.tryLoadTextureAsset(text, flag, num2);
+			if (texture2D == null && isWvga && path.EndsWith("_hd", StringComparison.OrdinalIgnoreCase))
+			{
+				string text2 = path.Substring(0, path.Length - 3);
+				XMLNode xmlnode = XMLNode.parseXML(text2);
+				if (xmlnode != null)
+				{
+					path = text2;
+					i = xmlnode;
+					num = i["filter"].intValue();
+					flag = (num & 1) == 1;
+					num2 = i["format"].intValue();
+					text = ResourceMgr.fullPathFromRelativePath(path);
+					isWvga = false;
+					scaleX = 1f;
+					scaleY = 1f;
+					texture2D = this.tryLoadTextureAsset(text, flag, num2);
+				}
+			}
+			if (texture2D == null)
+			{
+				throw new InvalidOperationException("Texture asset not found for '" + path + "' (content key '" + text + "'). Place mobile XNB files under content/.");
+			}
+			if (isWvga)
+			{
+				texture2D.setWvga();
+			}
+			texture2D.setScale(scaleX, scaleY);
+			this.setTextureInfo(texture2D, i, isWvga, scaleX, scaleY);
+			return texture2D;
+		}
+
+		private Texture2D tryLoadTextureAsset(string contentKey, bool useLinearFilter, int format)
+		{
+			if (useLinearFilter)
 			{
 				Texture2D.setAntiAliasTexParameters();
 			}
@@ -171,15 +209,9 @@ namespace ctre_wp7.iframework.core
 			{
 				Texture2D.setAliasTexParameters();
 			}
-			Texture2D.setDefaultAlphaPixelFormat((Texture2D.Texture2DPixelFormat)num2);
-			Texture2D texture2D = new Texture2D().initWithPath(text, true);
+			Texture2D.setDefaultAlphaPixelFormat((Texture2D.Texture2DPixelFormat)format);
+			Texture2D texture2D = new Texture2D().initWithPath(contentKey, true);
 			Texture2D.setDefaultAlphaPixelFormat(Texture2D.kTexture2DPixelFormat_Default);
-			if (isWvga)
-			{
-				texture2D.setWvga();
-			}
-			texture2D.setScale(scaleX, scaleY);
-			this.setTextureInfo(texture2D, i, isWvga, scaleX, scaleY);
 			return texture2D;
 		}
 
@@ -475,7 +507,7 @@ namespace ctre_wp7.iframework.core
 				return;
 			}
 			NSObject nsobject = null;
-			if (this.s_Resources.TryGetValue(resId, ref nsobject))
+			if (this.s_Resources.TryGetValue(resId, out nsobject))
 			{
 				if (nsobject != null)
 				{

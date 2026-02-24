@@ -99,7 +99,7 @@ namespace ctre_wp7.iframework.core
 		public virtual void addViewwithID(View v, int n)
 		{
 			View view;
-			this.views.TryGetValue(n, ref view);
+			this.views.TryGetValue(n, out view);
 			this.views[n] = v;
 		}
 
@@ -144,7 +144,7 @@ namespace ctre_wp7.iframework.core
 		public virtual View getView(int n)
 		{
 			View view = null;
-			this.views.TryGetValue(n, ref view);
+			this.views.TryGetValue(n, out view);
 			return view;
 		}
 
@@ -163,7 +163,7 @@ namespace ctre_wp7.iframework.core
 		public virtual void deleteChild(int n)
 		{
 			ViewController viewController = null;
-			if (this.childs.TryGetValue(n, ref viewController))
+			if (this.childs.TryGetValue(n, out viewController))
 			{
 				viewController.dealloc();
 				this.childs[n] = null;

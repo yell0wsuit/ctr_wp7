@@ -12,7 +12,7 @@ namespace ctre_wp7.game.remotedata
 		// Token: 0x06000653 RID: 1619 RVA: 0x00030952 File Offset: 0x0002EB52
 		public static void initVideoDataManager()
 		{
-			VideoDataManager.videoDataMgr = new VideoDataManager();
+			VideoDataManager.videoDataMgr = new ctre_wp7.remotedata.cartoons.VideoDataManager();
 		}
 
 		// Token: 0x06000654 RID: 1620 RVA: 0x00030960 File Offset: 0x0002EB60
@@ -35,7 +35,7 @@ namespace ctre_wp7.game.remotedata
 		{
 			if (VideoDataManager.videoDataMgr != null)
 			{
-				BlockConfig blockConfig = VideoDataManager.videoDataMgr.getBlockConfig();
+				ctre_wp7.remotedata.cartoons.BlockConfig blockConfig = VideoDataManager.videoDataMgr.getBlockConfig();
 				return (BlockConfig)new BlockConfig().initWithJObject(blockConfig);
 			}
 			return null;
@@ -80,6 +80,6 @@ namespace ctre_wp7.game.remotedata
 		protected static int lastActivated = -1;
 
 		// Token: 0x04000BC5 RID: 3013
-		protected static VideoDataManager videoDataMgr = null;
+		protected static ctre_wp7.remotedata.cartoons.VideoDataManager videoDataMgr = null;
 	}
 }

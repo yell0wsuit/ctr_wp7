@@ -392,7 +392,7 @@ namespace ctre_wp7.ctr_original
 				ResDataPhoneFull.xmls_ = dictionary;
 			}
 			string text;
-			ResDataPhoneFull.xmls_.TryGetValue(resName, ref text);
+			ResDataPhoneFull.xmls_.TryGetValue(resName, out text);
 			return text;
 		}
 

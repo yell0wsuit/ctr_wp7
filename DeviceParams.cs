@@ -10,7 +10,7 @@ internal class DeviceParams
 	// Token: 0x06000741 RID: 1857 RVA: 0x0003AA5C File Offset: 0x00038C5C
 	public bool isEnglishISO(string s)
 	{
-		return (s.get_Chars(0) == 'e' && s.get_Chars(1) == 's') || s == "en-US";
+		return (s[0] == 'e' && s[1] == 's') || s == "en-US";
 	}
 
 	// Token: 0x06000742 RID: 1858 RVA: 0x0003AA84 File Offset: 0x00038C84

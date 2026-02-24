@@ -43,7 +43,7 @@ namespace ctre_wp7.iframework.media
 				return null;
 			}
 			SoundEffect soundEffect;
-			if (this.LoadedSounds.TryGetValue(resId, ref soundEffect))
+			if (this.LoadedSounds.TryGetValue(resId, out soundEffect))
 			{
 				return soundEffect;
 			}
@@ -132,7 +132,7 @@ namespace ctre_wp7.iframework.media
 			{
 				if (MediaPlayer.GameHasControl)
 				{
-					if (!this.AllSongs.TryGetValue(sid, ref this.song))
+					if (!this.AllSongs.TryGetValue(sid, out this.song))
 					{
 						this.song = SoundMgr._contentManager.Load<Song>("ctr/sounds/" + CTRResourceMgr.XNA_ResName(sid));
 						this.AllSongs.Add(sid, this.song);
@@ -158,7 +158,7 @@ namespace ctre_wp7.iframework.media
 		// Token: 0x0600018A RID: 394 RVA: 0x0000B964 File Offset: 0x00009B64
 		public void LoadMusic(int sid)
 		{
-			if (!this.AllSongs.TryGetValue(sid, ref this.song))
+			if (!this.AllSongs.TryGetValue(sid, out this.song))
 			{
 				this.song = SoundMgr._contentManager.Load<Song>("ctr/sounds/" + CTRResourceMgr.XNA_ResName(sid));
 				this.AllSongs.Add(sid, this.song);

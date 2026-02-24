@@ -34,7 +34,7 @@ namespace ctre_wp7
 		{
 			for (int i = 0; i < s.Length; i++)
 			{
-				SpecialFont.AddCharacter(s.get_Chars(i));
+				SpecialFont.AddCharacter(s[i]);
 			}
 		}
 

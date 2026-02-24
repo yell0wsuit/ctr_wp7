@@ -21,7 +21,7 @@ namespace ctre_wp7.remotedata.cartoons
 				{
 					try
 					{
-						using (IsolatedStorageFileStream isolatedStorageFileStream = userStoreForApplication.OpenFile(file, 3))
+						using (IsolatedStorageFileStream isolatedStorageFileStream = userStoreForApplication.OpenFile(file, System.IO.FileMode.Open))
 						{
 							DataContractSerializer dataContractSerializer = new DataContractSerializer(serializedObjectType);
 							obj = dataContractSerializer.ReadObject(isolatedStorageFileStream);

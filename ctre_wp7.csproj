@@ -1,258 +1,27 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <ProjectGuid>{7570B676-E361-45E4-A379-CE65FB3E07C9}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>ctre_wp7</RootNamespace>
     <AssemblyName>ctre_wp7</AssemblyName>
-    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
-    <FileAlignment>512</FileAlignment>
-    <TargetFramework>sl4</TargetFramework>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>preview</LangVersion>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
   </PropertyGroup>
-  <PropertyGroup>
-    <EnableDefaultItems>False</EnableDefaultItems>
-  </PropertyGroup>
-  <PropertyGroup />
+
   <ItemGroup>
-    <Compile Include="App.cs" />
-    <Compile Include="AppServiceProvider.cs" />
-    <Compile Include="Banner\Banner.cs" />
-    <Compile Include="Banner\RemoteConfig.cs" />
-    <Compile Include="Banner\RemoteDataManager.cs" />
-    <Compile Include="Banner\RemoteDataManager_Java.cs" />
-    <Compile Include="CoppaController.cs" />
-    <Compile Include="CoppaLoader.cs" />
-    <Compile Include="CoppaView.cs" />
-    <Compile Include="ctr_commons\CTRApp.cs" />
-    <Compile Include="ctr_commons\CtrRenderer.cs" />
-    <Compile Include="ctr_commons\CTRTouchState.cs" />
-    <Compile Include="ctr_commons\HLiftScrollbar.cs" />
-    <Compile Include="ctr_commons\Lift.cs" />
-    <Compile Include="ctr_commons\LiftScrollbarDelegate.cs" />
-    <Compile Include="ctr_commons\Popup.cs" />
-    <Compile Include="ctr_commons\SaveMgr.cs" />
-    <Compile Include="ctr_original\AchievementsView.cs" />
-    <Compile Include="ctr_original\CandyBreak.cs" />
-    <Compile Include="ctr_original\CTRPreferences.cs" />
-    <Compile Include="ctr_original\CTRResourceMgr.cs" />
-    <Compile Include="ctr_original\CTRSoundMgr.cs" />
-    <Compile Include="ctr_original\LeaderboardsView.cs" />
-    <Compile Include="ctr_original\MenuController.cs" />
-    <Compile Include="ctr_original\MenuView.cs" />
-    <Compile Include="ctr_original\PumpDirt.cs" />
-    <Compile Include="ctr_original\ResDataPhoneFull.cs" />
-    <Compile Include="ctr_original\ScoreStruct.cs" />
-    <Compile Include="ctr_original\StarsBreak.cs" />
-    <Compile Include="ctr_original\UNLOCKED_STATE.cs" />
-    <Compile Include="CutTheRope.cs" />
-    <Compile Include="DeviceParams.cs" />
-    <Compile Include="GamePage.cs" />
-    <Compile Include="game\AdSkipper.cs" />
-    <Compile Include="game\Bouncer.cs" />
-    <Compile Include="game\BoxFabric.cs" />
-    <Compile Include="game\BoxFabricOriginal.cs" />
-    <Compile Include="game\BoxOpenClose.cs" />
-    <Compile Include="game\Bubble.cs" />
-    <Compile Include="game\Bungee.cs" />
-    <Compile Include="game\ButtonBlock.cs" />
-    <Compile Include="game\CandyInGhostBubbleAnimation.cs" />
-    <Compile Include="game\CartoonsAfterwatchView.cs" />
-    <Compile Include="game\CartoonsSelectView.cs" />
-    <Compile Include="game\Confetti.cs" />
-    <Compile Include="game\CTRGameObject.cs" />
-    <Compile Include="game\CTRMover.cs" />
-    <Compile Include="game\CTRRootController.cs" />
-    <Compile Include="game\DeliverySelectView.cs" />
-    <Compile Include="game\GameController.cs" />
-    <Compile Include="game\GameScene.cs" />
-    <Compile Include="game\GameView.cs" />
-    <Compile Include="game\Ghost.cs" />
-    <Compile Include="game\GhostBouncer.cs" />
-    <Compile Include="game\GhostBubble.cs" />
-    <Compile Include="game\GhostGrab.cs" />
-    <Compile Include="game\GhostMorphingCloud.cs" />
-    <Compile Include="game\GhostMorphingParticles.cs" />
-    <Compile Include="game\GhostSupportingClouds.cs" />
-    <Compile Include="game\GHOST_ELEMENT.cs" />
-    <Compile Include="game\GHOST_STATE.cs" />
-    <Compile Include="game\Grab.cs" />
-    <Compile Include="game\Lantern.cs" />
-    <Compile Include="game\LANTERN_STATE.cs" />
-    <Compile Include="game\LevelsList.cs" />
-    <Compile Include="game\LoadingController.cs" />
-    <Compile Include="game\LoadingView.cs" />
-    <Compile Include="game\MapPickerController.cs" />
-    <Compile Include="game\MapPickerControllerButtonId.cs" />
-    <Compile Include="game\MapPickerControllerViewId.cs" />
-    <Compile Include="game\PackSelectInfo.cs" />
-    <Compile Include="game\Pollen.cs" />
-    <Compile Include="game\PollenDrawer.cs" />
-    <Compile Include="game\Processing.cs" />
-    <Compile Include="game\PromoBanner.cs" />
-    <Compile Include="game\Pump.cs" />
-    <Compile Include="game\Razor.cs" />
-    <Compile Include="game\remotedata\BlockConfig.cs" />
-    <Compile Include="game\remotedata\BlockHardcode.cs" />
-    <Compile Include="game\remotedata\BlockInterface.cs" />
-    <Compile Include="game\remotedata\BlockInternet.cs" />
-    <Compile Include="game\remotedata\VideoDataManager.cs" />
-    <Compile Include="game\RotatedCircle.cs" />
-    <Compile Include="game\Scorer.cs" />
-    <Compile Include="game\Sock.cs" />
-    <Compile Include="game\Spikes.cs" />
-    <Compile Include="game\Star.cs" />
-    <Compile Include="game\StartupController.cs" />
-    <Compile Include="game\StartupView.cs" />
-    <Compile Include="game\SteamTube.cs" />
-    <Compile Include="game\SUPPORTED_ELEMENT.cs" />
-    <Compile Include="iframework\BlendingFactor.cs" />
-    <Compile Include="iframework\BlendParams.cs" />
-    <Compile Include="iframework\core\Application.cs" />
-    <Compile Include="iframework\core\ApplicationSettings.cs" />
-    <Compile Include="iframework\core\Preferences.cs" />
-    <Compile Include="iframework\core\ResourceMgr.cs" />
-    <Compile Include="iframework\core\ResourceMgrDelegate.cs" />
-    <Compile Include="iframework\core\RootController.cs" />
-    <Compile Include="iframework\core\Vector.cs" />
-    <Compile Include="iframework\core\VectorClass.cs" />
-    <Compile Include="iframework\core\View.cs" />
-    <Compile Include="iframework\core\ViewController.cs" />
-    <Compile Include="iframework\FrameworkTypes.cs" />
-    <Compile Include="iframework\helpers\Camera2D.cs" />
-    <Compile Include="iframework\helpers\CAMERA_TYPE.cs" />
-    <Compile Include="iframework\helpers\DelayedDispatcher.cs" />
-    <Compile Include="iframework\helpers\Dispatch.cs" />
-    <Compile Include="iframework\helpers\GameObject.cs" />
-    <Compile Include="iframework\helpers\MathHelper.cs" />
-    <Compile Include="iframework\helpers\Mover.cs" />
-    <Compile Include="iframework\Language.cs" />
-    <Compile Include="iframework\md5.cs" />
-    <Compile Include="iframework\media\MovieMgr.cs" />
-    <Compile Include="iframework\media\MovieMgrDelegate.cs" />
-    <Compile Include="iframework\media\SoundMgr.cs" />
-    <Compile Include="iframework\OpenGL.cs" />
-    <Compile Include="iframework\Point.cs" />
-    <Compile Include="iframework\PointSprite.cs" />
-    <Compile Include="iframework\Quad2D.cs" />
-    <Compile Include="iframework\Quad3D.cs" />
-    <Compile Include="iframework\Rectangle.cs" />
-    <Compile Include="iframework\RGBAColor.cs" />
-    <Compile Include="iframework\sfe\Constraint.cs" />
-    <Compile Include="iframework\sfe\ConstraintedPoint.cs" />
-    <Compile Include="iframework\sfe\ConstraintSystem.cs" />
-    <Compile Include="iframework\sfe\MaterialPoint.cs" />
-    <Compile Include="iframework\visual\Action.cs" />
-    <Compile Include="iframework\visual\ActionData.cs" />
-    <Compile Include="iframework\visual\ActionParams.cs" />
-    <Compile Include="iframework\visual\Animation.cs" />
-    <Compile Include="iframework\visual\AnimationsPool.cs" />
-    <Compile Include="iframework\visual\BaseElement.cs" />
-    <Compile Include="iframework\visual\BungeeDrawer.cs" />
-    <Compile Include="iframework\visual\Button.cs" />
-    <Compile Include="iframework\visual\ButtonDelegate.cs" />
-    <Compile Include="iframework\visual\CircleElement.cs" />
-    <Compile Include="iframework\visual\ColorParams.cs" />
-    <Compile Include="iframework\visual\Font.cs" />
-    <Compile Include="iframework\visual\FontCharInfo.cs" />
-    <Compile Include="iframework\visual\FontGeneric.cs" />
-    <Compile Include="iframework\visual\FormattedString.cs" />
-    <Compile Include="iframework\visual\GLCanvas.cs" />
-    <Compile Include="iframework\visual\GLDrawer.cs" />
-    <Compile Include="iframework\visual\Grabber.cs" />
-    <Compile Include="iframework\visual\HBox.cs" />
-    <Compile Include="iframework\visual\HorizontallyTiledImage.cs" />
-    <Compile Include="iframework\visual\Image.cs" />
-    <Compile Include="iframework\visual\ImageMultiDrawer.cs" />
-    <Compile Include="iframework\visual\KeyFrame.cs" />
-    <Compile Include="iframework\visual\KeyFrameValue.cs" />
-    <Compile Include="iframework\visual\MultiParticles.cs" />
-    <Compile Include="iframework\visual\Particle.cs" />
-    <Compile Include="iframework\visual\Particles.cs" />
-    <Compile Include="iframework\visual\ParticlesFactory.cs" />
-    <Compile Include="iframework\visual\PosParams.cs" />
-    <Compile Include="iframework\visual\RectangleElement.cs" />
-    <Compile Include="iframework\visual\RotatableScalableMultiParticles.cs" />
-    <Compile Include="iframework\visual\RotateableMultiParticles.cs" />
-    <Compile Include="iframework\visual\RotationParams.cs" />
-    <Compile Include="iframework\visual\ScalableMultiParticles.cs" />
-    <Compile Include="iframework\visual\ScaleParams.cs" />
-    <Compile Include="iframework\visual\ScrollableContainer.cs" />
-    <Compile Include="iframework\visual\ScrollableContainerProtocol.cs" />
-    <Compile Include="iframework\visual\Scrollbar.cs" />
-    <Compile Include="iframework\visual\Text.cs" />
-    <Compile Include="iframework\visual\Texture2D.cs" />
-    <Compile Include="iframework\visual\TiledImage.cs" />
-    <Compile Include="iframework\visual\TileEntry.cs" />
-    <Compile Include="iframework\visual\TileMap.cs" />
-    <Compile Include="iframework\visual\TimedButton.cs" />
-    <Compile Include="iframework\visual\Timeline.cs" />
-    <Compile Include="iframework\visual\TimelineDelegate.cs" />
-    <Compile Include="iframework\visual\ToggleButton.cs" />
-    <Compile Include="iframework\visual\TouchDelegate.cs" />
-    <Compile Include="iframework\visual\TouchImage.cs" />
-    <Compile Include="iframework\visual\Track.cs" />
-    <Compile Include="iframework\visual\VBox.cs" />
-    <Compile Include="iframework\visual\VerticallyTiledImage.cs" />
-    <Compile Include="ios\NSBool.cs" />
-    <Compile Include="ios\NSFloat.cs" />
-    <Compile Include="ios\NSInt.cs" />
-    <Compile Include="ios\NSObject.cs" />
-    <Compile Include="ios\NSRange.cs" />
-    <Compile Include="ios\NSString.cs" />
-    <Compile Include="ios\NSTimer.cs" />
-    <Compile Include="ios\UIApplication.cs" />
-    <Compile Include="ios\XMLNode.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="remotedata\cartoons\Block.cs" />
-    <Compile Include="remotedata\cartoons\BlockConfig.cs" />
-    <Compile Include="remotedata\cartoons\ImageDownloader.cs" />
-    <Compile Include="remotedata\cartoons\LinkBuilder.cs" />
-    <Compile Include="remotedata\cartoons\ServerDataManager.cs" />
-    <Compile Include="remotedata\cartoons\VideoDataManager.cs" />
-    <Compile Include="Rollbar.cs" />
-    <Compile Include="SpecialFont.cs" />
-    <Compile Include="Specials\Factory.cs" />
-    <Compile Include="Specials\LiftScrollbar.cs" />
-    <Compile Include="Specials\UpdatePopup.cs" />
-    <Compile Include="STEAM_TUBE.cs" />
-    <Compile Include="utils\DefaultHandler.cs" />
-    <Compile Include="utils\HTMLEncoder.cs" />
-    <Compile Include="utils\SystemInfo.cs" />
-    <Compile Include="wp7utilities\Camera2d.cs" />
-    <Compile Include="wp7utilities\ContentHelper.cs" />
-    <Compile Include="wp7utilities\DateTimeJavaHelper.cs" />
-    <Compile Include="wp7utilities\FontWP7.cs" />
-    <Compile Include="wp7utilities\Images.cs" />
-    <Compile Include="wp7utilities\JavaHelpers.cs" />
-    <Compile Include="wp7utilities\ScreenSizes.cs" />
-    <Compile Include="wp7utilities\SpriteBatchHelper.cs" />
-    <Compile Include="wp7utilities\TestXNA.cs" />
-    <Compile Include="wp7utilities\WP7Singletons.cs" />
+    <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.4.1" />
   </ItemGroup>
+
   <ItemGroup>
-    <EmbeddedResource Include="CutTheRope.resources" />
-    <EmbeddedResource Include="Microsoft.Xna.Framework.XlastConfiguration" />
+    <None Include="content\**\*.*" Condition="Exists('content')" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
+
   <ItemGroup>
-    <Reference Include="FlurryWP7SDK">
-      <HintPath>..\..\..\..\CTR-extracted\FlurryWP7SDK.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Phone" />
-    <Reference Include="Microsoft.Xna.Framework" />
-    <Reference Include="Microsoft.Xna.Framework.GamerServices" />
-    <Reference Include="Microsoft.Xna.Framework.Graphics" />
-    <Reference Include="Microsoft.Xna.Framework.Input.Touch" />
-    <Reference Include="Microsoft.Xna.Framework.Interop" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Net" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Windows" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Xml.Linq" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="app.xaml" />
-    <Resource Include="gamepage.xaml" />
-    <Resource Include="phonegamethumb.png" />
+    <None Remove="app.xaml" />
+    <None Remove="gamepage.xaml" />
+    <None Remove="phonegamethumb.png" />
   </ItemGroup>
 </Project>

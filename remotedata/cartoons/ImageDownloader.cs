@@ -70,7 +70,7 @@ namespace ctre_wp7.remotedata.cartoons
 				if (localName == "image")
 				{
 					string text = null;
-					atts.TryGetValue("data", ref text);
+					atts.TryGetValue("data", out text);
 					ImageDownloader.lImageDownloaded.imageDownloaded(text, this.block);
 				}
 			}

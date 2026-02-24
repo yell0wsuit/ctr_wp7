@@ -10,7 +10,6 @@ using ctre_wp7.iframework.helpers;
 using ctre_wp7.iframework.visual;
 using ctre_wp7.ios;
 using ctre_wp7.wp7utilities;
-using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Input.Touch;
 
 namespace ctre_wp7.ctr_commons
@@ -77,17 +76,10 @@ namespace ctre_wp7.ctr_commons
 		}
 
 		// Token: 0x060006F9 RID: 1785 RVA: 0x0003859C File Offset: 0x0003679C
-		public static void update(float gameTime, TouchCollection touches)
+		public static void update(float gameTime, IList<TouchLocation> touches)
 		{
-			try
-			{
-				CtrRenderer.Java_com_zeptolab_ctr_CtrRenderer_nativeTouchProcess(touches);
-				CtrRenderer.Java_com_zeptolab_ctr_CtrRenderer_nativeTick(16f);
-			}
-			catch (GameUpdateRequiredException)
-			{
-				App.MakeUpdatePopup();
-			}
+			CtrRenderer.Java_com_zeptolab_ctr_CtrRenderer_nativeTouchProcess(touches);
+			CtrRenderer.Java_com_zeptolab_ctr_CtrRenderer_nativeTick(16f);
 		}
 
 		// Token: 0x060006FA RID: 1786 RVA: 0x000385D4 File Offset: 0x000367D4
@@ -328,7 +320,7 @@ namespace ctre_wp7.ctr_commons
 		}
 
 		// Token: 0x06000703 RID: 1795 RVA: 0x00038B58 File Offset: 0x00036D58
-		public static void Java_com_zeptolab_ctr_CtrRenderer_nativeTouchProcess(TouchCollection touches)
+		public static void Java_com_zeptolab_ctr_CtrRenderer_nativeTouchProcess(IList<TouchLocation> touches)
 		{
 			if (touches.Count > 0)
 			{

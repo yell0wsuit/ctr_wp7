@@ -251,7 +251,7 @@ namespace ctre_wp7.iframework
 		// Token: 0x06000510 RID: 1296 RVA: 0x00025328 File Offset: 0x00023528
 		public static void glColorPointer_setAdditive(int size)
 		{
-			if (!OpenGL.RGBAColorArray.TryGetValue(size, ref OpenGL.s_GLColorPointer))
+			if (!OpenGL.RGBAColorArray.TryGetValue(size, out OpenGL.s_GLColorPointer))
 			{
 				OpenGL.s_GLColorPointer = new RGBAColor[size];
 				OpenGL.RGBAColorArray.Add(size, OpenGL.s_GLColorPointer);
@@ -270,7 +270,7 @@ namespace ctre_wp7.iframework
 		public static void glVertexPointer_setAdditive(int size, int type, int stride, int length)
 		{
 			float[] array;
-			if (!OpenGL.FloatArray.TryGetValue(length, ref array))
+			if (!OpenGL.FloatArray.TryGetValue(length, out array))
 			{
 				array = new float[length];
 				OpenGL.FloatArray.Add(length, array);
@@ -321,7 +321,7 @@ namespace ctre_wp7.iframework
 		private static VertexPositionColor[] ConstructColorVertices()
 		{
 			VertexPositionColor[] array;
-			if (!OpenGL.VertexPositionColorArray.TryGetValue(OpenGL.s_GLVertexPointer.Count, ref array))
+			if (!OpenGL.VertexPositionColorArray.TryGetValue(OpenGL.s_GLVertexPointer.Count, out array))
 			{
 				array = new VertexPositionColor[OpenGL.s_GLVertexPointer.Count];
 				OpenGL.VertexPositionColorArray.Add(OpenGL.s_GLVertexPointer.Count, array);
@@ -350,7 +350,7 @@ namespace ctre_wp7.iframework
 		private static VertexPositionColor[] ConstructCurrentColorVertices()
 		{
 			VertexPositionColor[] array;
-			if (!OpenGL.VertexPositionColorArray.TryGetValue(OpenGL.s_GLVertexPointer.Count, ref array))
+			if (!OpenGL.VertexPositionColorArray.TryGetValue(OpenGL.s_GLVertexPointer.Count, out array))
 			{
 				array = new VertexPositionColor[OpenGL.s_GLVertexPointer.Count];
 				OpenGL.VertexPositionColorArray.Add(OpenGL.s_GLVertexPointer.Count, array);
@@ -391,7 +391,7 @@ namespace ctre_wp7.iframework
 		{
 			Vector3 vector = new Vector3(0f, 0f, 1f);
 			VertexPositionNormalTexture[] array;
-			if (!OpenGL.VertexPositionNormalTextureArray.TryGetValue(OpenGL.s_GLVertexPointer.Count, ref array))
+			if (!OpenGL.VertexPositionNormalTextureArray.TryGetValue(OpenGL.s_GLVertexPointer.Count, out array))
 			{
 				array = new VertexPositionNormalTexture[OpenGL.s_GLVertexPointer.Count];
 				OpenGL.VertexPositionNormalTextureArray.Add(OpenGL.s_GLVertexPointer.Count, array);
@@ -431,7 +431,7 @@ namespace ctre_wp7.iframework
 		private static VertexPositionColorTexture[] ConstructTexturedColoredVertices(int VertexCount)
 		{
 			VertexPositionColorTexture[] array;
-			if (!OpenGL.VertexPositionColorTextureArray.TryGetValue(VertexCount, ref array))
+			if (!OpenGL.VertexPositionColorTextureArray.TryGetValue(VertexCount, out array))
 			{
 				array = new VertexPositionColorTexture[VertexCount];
 				OpenGL.VertexPositionColorTextureArray.Add(VertexCount, array);
@@ -532,10 +532,10 @@ namespace ctre_wp7.iframework
 		private static void DrawTriangleStrip(int first, int count)
 		{
 			bool flag = false;
-			OpenGL.s_glServerSideFlags.TryGetValue(0, ref flag);
+			OpenGL.s_glServerSideFlags.TryGetValue(0, out flag);
 			if (flag)
 			{
-				OpenGL.s_glClientStateFlags.TryGetValue(0, ref flag);
+				OpenGL.s_glClientStateFlags.TryGetValue(0, out flag);
 			}
 			if (flag)
 			{
@@ -554,7 +554,7 @@ namespace ctre_wp7.iframework
 				return;
 			}
 			bool flag = false;
-			OpenGL.s_glClientStateFlags.TryGetValue(13, ref flag);
+			OpenGL.s_glClientStateFlags.TryGetValue(13, out flag);
 			VertexPositionColor[] array = (flag ? OpenGL.ConstructColorVertices() : OpenGL.ConstructCurrentColorVertices());
 			foreach (EffectPass effectPass in effect.CurrentTechnique.Passes)
 			{
@@ -604,7 +604,7 @@ namespace ctre_wp7.iframework
 		private static void DrawTriangleList(int first, int count, short[] indices)
 		{
 			bool flag = false;
-			OpenGL.s_glClientStateFlags.TryGetValue(13, ref flag);
+			OpenGL.s_glClientStateFlags.TryGetValue(13, out flag);
 			if (flag)
 			{
 				OpenGL.DrawTriangleListColored(first, count, indices);
@@ -665,8 +665,8 @@ namespace ctre_wp7.iframework
 		{
 			try
 			{
-				Rectangle rectangle = new Rectangle(x, y, width, height);
-				WP7Singletons.GraphicsDevice.ScissorRectangle = Rectangle.Intersect(rectangle, OpenGL.ScreenRect);
+				Microsoft.Xna.Framework.Rectangle rectangle = new Microsoft.Xna.Framework.Rectangle(x, y, width, height);
+				WP7Singletons.GraphicsDevice.ScissorRectangle = Microsoft.Xna.Framework.Rectangle.Intersect(rectangle, OpenGL.ScreenRect);
 			}
 			catch (Exception)
 			{
@@ -828,7 +828,7 @@ namespace ctre_wp7.iframework
 		private static VertexPositionNormalTexture[] s_LastVertices_PositionNormalTexture = null;
 
 		// Token: 0x04000A6E RID: 2670
-		private static Rectangle ScreenRect = new Rectangle(0, 0, WP7Singletons.GraphicsDevice.Viewport.Width, WP7Singletons.GraphicsDevice.Viewport.Height);
+		private static Microsoft.Xna.Framework.Rectangle ScreenRect = new Microsoft.Xna.Framework.Rectangle(0, 0, WP7Singletons.GraphicsDevice.Viewport.Width, WP7Singletons.GraphicsDevice.Viewport.Height);
 
 		// Token: 0x020000B4 RID: 180
 		private class GLVertexPointer

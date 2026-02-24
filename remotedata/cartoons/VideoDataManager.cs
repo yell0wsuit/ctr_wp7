@@ -187,7 +187,7 @@ namespace ctre_wp7.remotedata.cartoons
 				if (localName == "response")
 				{
 					string text;
-					if (atts.TryGetValue("update", ref text) && text == "true")
+					if (atts.TryGetValue("update", out text) && text == "true")
 					{
 						this.updatehash = new Random().Next();
 					}
@@ -195,7 +195,7 @@ namespace ctre_wp7.remotedata.cartoons
 				else if (localName == "hash")
 				{
 					string text2;
-					if (atts.TryGetValue("value", ref text2))
+					if (atts.TryGetValue("value", out text2))
 					{
 						this.parrent.blockConfig.hash = text2;
 					}
@@ -203,17 +203,17 @@ namespace ctre_wp7.remotedata.cartoons
 				else if (localName == "episode" || localName == "adblock")
 				{
 					string text3 = null;
-					atts.TryGetValue("id", ref text3);
+					atts.TryGetValue("id", out text3);
 					string text4 = null;
-					atts.TryGetValue("hash", ref text4);
+					atts.TryGetValue("hash", out text4);
 					this.writeblock = this.parrent.blockConfig.getBlockWithIDandHash(text3, text4);
 					if (this.writeblock.hash == null)
 					{
 						this.writeblock.id = text3;
 						this.writeblock.hash = text4;
-						atts.TryGetValue("number", ref this.writeblock.number);
-						atts.TryGetValue("url", ref this.writeblock.url);
-						atts.TryGetValue("image_id", ref this.writeblock.image_id);
+						atts.TryGetValue("number", out this.writeblock.number);
+						atts.TryGetValue("url", out this.writeblock.url);
+						atts.TryGetValue("image_id", out this.writeblock.image_id);
 						if (this.writeblock.image_id == null || this.writeblock.image_id.Length == 0)
 						{
 							this.writeblock.loadState = Block.LoadState.NO_IMAGE;
